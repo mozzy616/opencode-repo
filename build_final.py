@@ -8,9 +8,13 @@ start = time.time()
 addons_content = []
 addons = []
 
-for d in sorted(os.listdir(repo)):
-    path = os.path.join(repo, d)
-    if not os.path.isdir(path) or d.startswith('.') or d.startswith('_'):
+# Scan repo/ subdirectory for addon sources
+source_path = os.path.join(repo, 'repo')
+zips_path = os.path.join(repo, 'repo', 'zips')
+
+for d in sorted(os.listdir(source_path)):
+    path = os.path.join(source_path, d)
+    if not os.path.isdir(path) or d.startswith('.') or d.startswith('_') or d == 'zips':
         continue
     axml = os.path.join(path, 'addon.xml')
     if not os.path.exists(axml):
@@ -32,21 +36,21 @@ for a in addons_content:
     md += a + '\n'
 md += '</addons>\n'
 
-with open(os.path.join(repo, 'addons.xml'), 'w', encoding='utf-8') as f:
+with open(os.path.join(zips_path, 'addons.xml'), 'w', encoding='utf-8') as f:
     f.write(md)
 
 h = hashlib.md5(md.encode('utf-8')).hexdigest()
-with open(os.path.join(repo, 'addons.xml.md5'), 'w') as f:
+with open(os.path.join(zips_path, 'addons.xml.md5'), 'w') as f:
     f.write(h)
 
 print('addons.xml: %d addons (MD5: %s)' % (len(addons), h))
 
 # Build zips in temp directory first (avoid zip-including-itself)
 for dir_name, addon_id, addon_ver in addons:
-    src = os.path.join(repo, dir_name)
+    src = os.path.join(source_path, dir_name)
     zip_name = '%s-%s.zip' % (addon_id, addon_ver)
     zip_tmp = os.path.join(tmp, zip_name)
-    zip_final = os.path.join(repo, addon_id, zip_name)
+    zip_final = os.path.join(zips_path, addon_id, zip_name)
     os.makedirs(os.path.dirname(zip_final), exist_ok=True)
 
     if os.path.exists(zip_final):
@@ -76,11 +80,12 @@ for dir_name, addon_id, addon_ver in addons:
 
 # Root-level repo zip for manual install
 root_zp = os.path.join(repo, 'repository.opencode.zip')
+repo_src = os.path.join(source_path, 'repository.opencode')
 with zipfile.ZipFile(root_zp, 'w', zipfile.ZIP_DEFLATED, allowZip64=True) as zf:
-    for root, dirs, files in os.walk(os.path.join(repo, 'repository.opencode')):
+    for root, dirs, files in os.walk(repo_src):
         for file in files:
             fp = os.path.join(root, file)
-            rel = os.path.relpath(fp, os.path.join(repo, 'repository.opencode'))
+            rel = os.path.relpath(fp, repo_src)
             zf.write(fp, os.path.join('repository.opencode', rel).replace('\\', '/'))
 
 # Cleanup temp
