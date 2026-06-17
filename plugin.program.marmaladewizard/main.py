@@ -183,7 +183,7 @@ def main():
 
     progress.update(96, "Finalizing...")
 
-    # Step 3: Enable LordPlayer service (daemon auto-start)
+    # Enable LordPlayer service
     try:
         xbmc.executeJSONRPC(json.dumps({
             "jsonrpc": "2.0",
@@ -195,21 +195,15 @@ def main():
     except:
         pass
 
-    # Step 4: Set Marmalade Build as skin
+    # Apply skin settings and menu/widget config
+    _apply_skin_config()
+
+    # Set Marmalade Build as skin
     xbmc.executebuiltin("Skin.Set(skin.marmalade)")
     xbmc.sleep(2000)
     log("Skin set to Marmalade Build")
 
     progress.update(100, "Installation complete!")
-
-    # Force Kodi settings reload
-    xbmc.executeJSONRPC(json.dumps({
-        "jsonrpc": "2.0",
-        "method": "Settings.SetSettingValue",
-        "params": {"setting": "lookandfeel.skin", "value": "skin.marmalade"},
-        "id": 1
-    }))
-
     progress.close()
     xbmc.sleep(500)
 
@@ -227,3 +221,41 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+def _apply_skin_config():
+    """Copy pre-configured skin settings and menu/widget layout."""
+    try:
+        import shutil
+        wizard_dir = xbmcvfs.translatePath(ADDON.getAddonInfo("path"))
+        config_src = os.path.join(wizard_dir, "resources", "skinconfig")
+
+        skin_data = xbmcvfs.translatePath("special://profile/addon_data/skin.marmalade")
+        shortcuts_data = xbmcvfs.translatePath("special://profile/addon_data/script.skinshortcuts")
+
+        os.makedirs(skin_data, exist_ok=True)
+        os.makedirs(shortcuts_data, exist_ok=True)
+
+        # Copy skin settings
+        src = os.path.join(config_src, "skin_settings.xml")
+        dst = os.path.join(skin_data, "settings.xml")
+        if os.path.exists(src):
+            shutil.copy2(src, dst)
+            log("Skin settings applied")
+
+        # Copy skinshortcuts config
+        for fname in ["skin.marmalade.properties"]:
+            src = os.path.join(config_src, fname)
+            dst = os.path.join(shortcuts_data, fname)
+            if os.path.exists(src):
+                shutil.copy2(src, dst)
+                log("Copied %s" % fname)
+
+        # Remove hash to force Kodi to regenerate menu from properties
+        hash_file = os.path.join(shortcuts_data, "skin.marmalade.hash")
+        if os.path.exists(hash_file):
+            os.remove(hash_file)
+            log("Removed hash file for menu regeneration")
+
+    except Exception as e:
+        log("Config apply error: %s" % str(e))
