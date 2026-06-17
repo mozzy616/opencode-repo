@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<defaults>
+    <default type="textcolor">FFF5F0E8</default>
+    <default type="focusedtextcolor">FFFFF0D0</default>
+    <default type="disabledtextcolor">FF606060</default>
+    <default type="shadowcolor">FF000000</default>
+    <default type="font">font13</default>
+    <default type="listheight">56</default>
+    <default type="buttonheight">40</default>
+    <default type="animation" condition="Window.Open">
+        <effect type="fade" start="0" end="100" time="300"/>
+    </default>
+    <default type="animation" condition="Window.Close">
+        <effect type="fade" start="100" end="0" time="200"/>
+    </default>
+</defaults>

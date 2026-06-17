@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon id="plugin.video.lordplayer" name="LordPlayer" provider-name="opencode" version="1.0.0">
+    <requires>
+        <import addon="script.module.requests" version="2.22.0"/>
+        <import addon="script.module.routing" version="0.2.3"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="navigation.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.service" library="service.py"/>
+    <extension point="xbmc.addon.metadata">
+        <platform>all</platform>
+        <license>MIT</license>
+        <summary lang="en">LordPlayer - Torrent streaming player</summary>
+        <description lang="en">LordPlayer is a torrent streaming service with a rest API for Kodi playback.</description>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+        </assets>
+        <reuselanguageinvoker>true</reuselanguageinvoker>
+    </extension>
+</addon>

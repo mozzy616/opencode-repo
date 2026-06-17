@@ -1,0 +1,2447 @@
+<includes>
+	<include name="skinshortcuts-mainmenu">
+		<item id="1">
+			<property name="id">$NUMBER[1]</property>
+			<label>[B]Movies[/B]</label>
+			<label2>Video Add-On</label2>
+			<icon>DefaultShortcut.png</icon>
+			<thumb>thumb</thumb>
+			<property name="widgetName">XPrime - Trending</property>
+			<property name="widgetType">movies</property>
+			<property name="widgetName.2">StreamLord - [B]Hot Movies[/B]</property>
+			<property name="widgetType.2">videos</property>
+			<property name="widgetStyle">Panel</property>
+			<property name="widgetCase">Glass</property>
+			<property name="widgetStyle.2">Panel</property>
+			<onclick condition="String.IsEqual(ListItem.Property(path),ActivateWindow(1129))">SetProperty(CustomSelect,search,Home)</onclick>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.streamlord/?action=movies",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.streamlord/?action=movies",return)</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="submenuVisibility">b-movies-b</property>
+			<property name="hasSubmenu">False</property>
+			</item>
+		<item id="2">
+			<property name="id">$NUMBER[2]</property>
+			<label>[B]TV Series[/B]</label>
+			<label2>Video Add-On</label2>
+			<icon>DefaultShortcut.png</icon>
+			<thumb>thumb</thumb>
+			<property name="widgetName">XPrime - Trending</property>
+			<property name="widgetType">videos</property>
+			<property name="widgetStyle">Panel</property>
+			<property name="widgetName.2">StreamLord - [B]TV Series[/B]</property>
+			<property name="widgetType.2">videos</property>
+			<property name="widgetStyle.2">Panel</property>
+			<onclick condition="String.IsEqual(ListItem.Property(path),ActivateWindow(1129))">SetProperty(CustomSelect,search,Home)</onclick>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.streamlord/?action=tvseries",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.streamlord/?action=tvseries",return)</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="submenuVisibility">b-tvseries-b</property>
+			<property name="hasSubmenu">False</property>
+			</item>
+		<item id="3">
+			<property name="id">$NUMBER[3]</property>
+			<label>Trending Daily</label>
+			<label2>Video Add-On</label2>
+			<icon>DefaultShortcut.png</icon>
+			<thumb>image://DefaultMovies.png/</thumb>
+			<property name="widgetName">XPrime - Trending Daily</property>
+			<property name="widgetType">videos</property>
+			<property name="widgetStyle">Panel</property>
+			<property name="translatedPath">ActivateWindow(Videos,"plugin://plugin.video.xprime/?action=movies&amp;url=tmdb_trending_day",return)</property>
+			<property name="widgetName.2">XPrime - Trending Daily</property>
+			<property name="widgetType.2">movies</property>
+			<property name="widgetStyle.2">Panel</property>
+			<property name="widgetCase.2">Glass</property>
+			<onclick condition="String.IsEqual(ListItem.Property(path),ActivateWindow(1129))">SetProperty(CustomSelect,search,Home)</onclick>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.xprime/?action=movies&amp;url=tmdb_trending_day",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.xprime/?action=movies&amp;url=tmdb_trending_day",return)</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="submenuVisibility">trendingdaily</property>
+			<property name="hasSubmenu">False</property>
+			</item>
+		<item id="4">
+			<property name="id">$NUMBER[4]</property>
+			<label>[B]Search All Torrents[/B]</label>
+			<label2>Video Add-On</label2>
+			<icon>DefaultShortcut.png</icon>
+			<thumb>thumb</thumb>
+			<onclick condition="String.IsEqual(ListItem.Property(path),ActivateWindow(1129))">SetProperty(CustomSelect,search,Home)</onclick>
+			<onclick>ActivateWindow(Videos,"plugin://plugin.video.streamlord/?action=search",return)</onclick>
+			<property name="path">ActivateWindow(Videos,"plugin://plugin.video.streamlord/?action=search",return)</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="submenuVisibility">b-searchalltorrents-b</property>
+			<property name="hasSubmenu">False</property>
+			</item>
+		<item id="5">
+			<property name="id">$NUMBER[5]</property>
+			<label>Music</label>
+			<label2>Music Add-On</label2>
+			<icon>DefaultShortcut.png</icon>
+			<thumb>thumb</thumb>
+			<property name="translatedPath">ActivateWindow(Music,"plugin://plugin.audio.mp3streams",return)</property>
+			<property name="widgetName">MP3 Streams - New Albums</property>
+			<property name="widgetType">audio</property>
+			<property name="widgetStyle">List</property>
+			<property name="widgetCase">Glass</property>
+			<property name="widgetName.2">SoundCloud - [B]New &amp; hot[/B]</property>
+			<property name="widgetType.2">songs</property>
+			<property name="widgetStyle.2">List</property>
+			<property name="widgetCase.2">Glass</property>
+			<onclick condition="String.IsEqual(ListItem.Property(path),ActivateWindow(1129))">SetProperty(CustomSelect,search,Home)</onclick>
+			<onclick>ActivateWindow(Music,"plugin://plugin.audio.mp3streams",return)</onclick>
+			<property name="path">ActivateWindow(Music,"plugin://plugin.audio.mp3streams",return)</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="submenuVisibility">plugin-audio-mp3streams</property>
+			<property name="hasSubmenu">False</property>
+			</item>
+		<item id="6">
+			<property name="id">$NUMBER[6]</property>
+			<label>$LOCALIZE[1037]</label>
+			<label2>Video add-ons</label2>
+			<icon>special://skin/extras/icons/video-addons.png</icon>
+			<thumb />
+			<property name="widgetName">1036</property>
+			<property name="widgetType">favourite</property>
+			<property name="widgetStyle">Panel</property>
+			<onclick condition="String.IsEqual(ListItem.Property(path),ActivateWindow(1129))">SetProperty(CustomSelect,search,Home)</onclick>
+			<onclick>ActivateWindow(Videos,Addons,return)</onclick>
+			<property name="path">ActivateWindow(Videos,Addons,return)</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="submenuVisibility">num-1037</property>
+			<property name="hasSubmenu">True</property>
+			</item>
+		<item id="7">
+			<property name="id">$NUMBER[7]</property>
+			<label>$LOCALIZE[10004]</label>
+			<label2>Common Shortcut</label2>
+			<icon>special://skin/extras/icons/settings.png</icon>
+			<thumb />
+			<onclick condition="String.IsEqual(ListItem.Property(path),ActivateWindow(1129))">SetProperty(CustomSelect,search,Home)</onclick>
+			<onclick>ActivateWindow(Settings)</onclick>
+			<property name="path">ActivateWindow(Settings)</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="submenuVisibility">settings</property>
+			<property name="hasSubmenu">True</property>
+			</item>
+		<item id="8">
+			<property name="id">$NUMBER[8]</property>
+			<label>$LOCALIZE[33060]</label>
+			<label2>Common Shortcut</label2>
+			<icon>special://skin/extras/icons/power.png</icon>
+			<thumb />
+			<onclick condition="String.IsEqual(ListItem.Property(path),ActivateWindow(1129))">SetProperty(CustomSelect,search,Home)</onclick>
+			<onclick>ActivateWindow(shutdownmenu)</onclick>
+			<property name="path">ActivateWindow(shutdownmenu)</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="submenuVisibility">num-33060</property>
+			<property name="hasSubmenu">False</property>
+			</item>
+		</include>
+	<include />
+	<include name="skinshortcuts-submenu">
+		<item id="1">
+			<property name="id">$NUMBER[1]</property>
+			<property name="mainmenuid">6</property>
+			<label>$LOCALIZE[1043]</label>
+			<label2>Program add-ons</label2>
+			<icon>DefaultAddonProgram.png</icon>
+			<thumb />
+			<property name="translatedPath">ActivateWindow(Programs,Addons,return)</property>
+			<onclick>ActivateWindow(Programs,Addons,return)</onclick>
+			<property name="path">ActivateWindow(Programs,Addons,return)</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-1037)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="2">
+			<property name="id">$NUMBER[2]</property>
+			<property name="mainmenuid">6</property>
+			<label>$LOCALIZE[1038]</label>
+			<label2>Music add-ons</label2>
+			<icon>DefaultAddonMusic.png</icon>
+			<thumb />
+			<property name="translatedPath">ActivateWindow(MusicLibrary,Addons,return)</property>
+			<onclick>ActivateWindow(Music,Addons,return)</onclick>
+			<property name="path">ActivateWindow(Music,Addons,return)</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-1037)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="3">
+			<property name="id">$NUMBER[3]</property>
+			<property name="mainmenuid">6</property>
+			<label>$LOCALIZE[1039]</label>
+			<label2>Picture add-ons</label2>
+			<icon>DefaultAddonPicture.png</icon>
+			<thumb />
+			<property name="translatedPath">ActivateWindow(Pictures,Addons,return)</property>
+			<onclick>ActivateWindow(Pictures,Addons,return)</onclick>
+			<property name="path">ActivateWindow(Pictures,Addons,return)</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-1037)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="1">
+			<property name="id">$NUMBER[1]</property>
+			<property name="mainmenuid">7</property>
+			<label>$LOCALIZE[7]</label>
+			<label2>$ADDON[script.skinshortcuts 32034]</label2>
+			<icon>DefaultFolder.png</icon>
+			<thumb />
+			<onclick>ActivateWindow(FileManager)</onclick>
+			<property name="path">ActivateWindow(FileManager)</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),settings)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="2">
+			<property name="id">$NUMBER[2]</property>
+			<property name="mainmenuid">7</property>
+			<label>$LOCALIZE[13200]</label>
+			<label2>$ADDON[script.skinshortcuts 32034]</label2>
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<onclick>ActivateWindow(Profiles)</onclick>
+			<property name="path">ActivateWindow(Profiles)</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),settings)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="3">
+			<property name="id">$NUMBER[3]</property>
+			<property name="mainmenuid">7</property>
+			<label>$LOCALIZE[10007]</label>
+			<label2>$ADDON[script.skinshortcuts 32034]</label2>
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<onclick>ActivateWindow(SystemInfo)</onclick>
+			<property name="path">ActivateWindow(SystemInfo)</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),settings)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="4">
+			<property name="id">$NUMBER[4]</property>
+			<property name="mainmenuid">7</property>
+			<label>$LOCALIZE[14111]</label>
+			<label2>$ADDON[script.skinshortcuts 32034]</label2>
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<visible>[system.getbool(eventlog.enabled)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),settings)</visible>
+			<onclick>ActivateWindow(EventLog,events://,return)</onclick>
+			<property name="path">ActivateWindow(EventLog,events://,return)</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="1">
+			<property name="id">$NUMBER[1]</property>
+			<property name="mainmenuid">9</property>
+			<label>$LOCALIZE[13012]</label>
+			<label2 />
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<visible>[System.ShowExitButton] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),buttonmenu)</visible>
+			<onclick>Quit()</onclick>
+			<property name="path">Quit()</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="2">
+			<property name="id">$NUMBER[2]</property>
+			<property name="mainmenuid">9</property>
+			<label>$LOCALIZE[13016]</label>
+			<label2 />
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<visible>[System.CanPowerDown] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),buttonmenu)</visible>
+			<onclick>Powerdown()</onclick>
+			<property name="path">Powerdown()</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="3">
+			<property name="id">$NUMBER[3]</property>
+			<property name="mainmenuid">9</property>
+			<label>$LOCALIZE[20150]</label>
+			<label2 />
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<visible>[!System.HasAlarm(shutdowntimer) + [System.CanPowerDown | System.CanSuspend | System.CanHibernate]] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),buttonmenu)</visible>
+			<onclick>AlarmClock(shutdowntimer,Shutdown())</onclick>
+			<property name="path">AlarmClock(shutdowntimer,Shutdown())</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="4">
+			<property name="id">$NUMBER[4]</property>
+			<property name="mainmenuid">9</property>
+			<label>$LOCALIZE[20151]</label>
+			<label2>$INFO[System.Alarmpos, (,)]</label2>
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<visible>[System.HasAlarm(shutdowntimer)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),buttonmenu)</visible>
+			<onclick>CancelAlarm(shutdowntimer)</onclick>
+			<property name="path">CancelAlarm(shutdowntimer)</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="5">
+			<property name="id">$NUMBER[5]</property>
+			<property name="mainmenuid">9</property>
+			<label>$LOCALIZE[13011]</label>
+			<label2 />
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<visible>[System.CanSuspend] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),buttonmenu)</visible>
+			<onclick>Suspend()</onclick>
+			<property name="path">Suspend()</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="6">
+			<property name="id">$NUMBER[6]</property>
+			<property name="mainmenuid">9</property>
+			<label>$LOCALIZE[13010]</label>
+			<label2 />
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<visible>[System.CanHibernate] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),buttonmenu)</visible>
+			<onclick>Hibernate()</onclick>
+			<property name="path">Hibernate()</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="7">
+			<property name="id">$NUMBER[7]</property>
+			<property name="mainmenuid">9</property>
+			<label>$LOCALIZE[31576]</label>
+			<label2 />
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<visible>[System.Platform.Linux] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),buttonmenu)</visible>
+			<onclick>System.ExecWait("/usr/sbin/rebootfromnand")</onclick>
+			<property name="path">System.ExecWait("/usr/sbin/rebootfromnand")</property>
+			<onclick>Reboot()</onclick>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="8">
+			<property name="id">$NUMBER[8]</property>
+			<property name="mainmenuid">9</property>
+			<label>$LOCALIZE[13013]</label>
+			<label2 />
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<visible>[System.CanReboot] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),buttonmenu)</visible>
+			<onclick>Reset()</onclick>
+			<property name="path">Reset()</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="9">
+			<property name="id">$NUMBER[9]</property>
+			<property name="mainmenuid">9</property>
+			<label>$LOCALIZE[20126]</label>
+			<label2>$INFO[system.profilename]</label2>
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<visible>[[System.HasLoginScreen | Integer.IsGreater(System.ProfileCount,1)] + System.Loggedon] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),buttonmenu)</visible>
+			<onclick>System.LogOff</onclick>
+			<property name="path">System.LogOff</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="10">
+			<property name="id">$NUMBER[10]</property>
+			<property name="mainmenuid">9</property>
+			<label>$LOCALIZE[20046]</label>
+			<label2 />
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<visible>[[System.HasLocks] + [System.IsMaster]] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),buttonmenu)</visible>
+			<onclick>Mastermode</onclick>
+			<property name="path">Mastermode</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="11">
+			<property name="id">$NUMBER[11]</property>
+			<property name="mainmenuid">9</property>
+			<label>$LOCALIZE[20045]</label>
+			<label2 />
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<visible>[[System.HasLocks] + [!System.IsMaster]] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),buttonmenu)</visible>
+			<onclick>Mastermode</onclick>
+			<property name="path">Mastermode</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="12">
+			<property name="id">$NUMBER[12]</property>
+			<property name="mainmenuid">9</property>
+			<label>$LOCALIZE[13017]</label>
+			<label2 />
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<visible>[System.HasShutdown +!System.IsInhibit] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),buttonmenu)</visible>
+			<onclick>InhibitIdleShutdown(true)</onclick>
+			<property name="path">InhibitIdleShutdown(true)</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="13">
+			<property name="id">$NUMBER[13]</property>
+			<property name="mainmenuid">9</property>
+			<label>$LOCALIZE[13018]</label>
+			<label2 />
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<visible>[System.HasShutdown + System.IsInhibit] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),buttonmenu)</visible>
+			<onclick>InhibitIdleShutdown(false)</onclick>
+			<property name="path">InhibitIdleShutdown(false)</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="14">
+			<property name="id">$NUMBER[14]</property>
+			<property name="mainmenuid">9</property>
+			<label>$LOCALIZE[1036]</label>
+			<label2 />
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<onclick>Dialog.Close(all,true)</onclick>
+			<property name="path">Dialog.Close(all,true)</property>
+			<onclick>ActivateWindow(favouritesbrowser)</onclick>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),buttonmenu)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="15">
+			<property name="id">$NUMBER[15]</property>
+			<property name="mainmenuid">9</property>
+			<label>$LOCALIZE[20183]</label>
+			<label2 />
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<onclick>ReloadSkin()</onclick>
+			<property name="path">ReloadSkin()</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),buttonmenu)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="16">
+			<property name="id">$NUMBER[16]</property>
+			<property name="mainmenuid">9</property>
+			<label>$LOCALIZE[20077]</label>
+			<label2 />
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<onclick>Dialog.Close(all,true)</onclick>
+			<property name="path">Dialog.Close(all,true)</property>
+			<onclick>ActivateWindow(skinsettings)</onclick>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),buttonmenu)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		</include>
+	<include />
+	<include name="skinshortcuts-submenu-1" />
+	<include />
+	<include name="skinshortcuts-submenu-2" />
+	<include name="skinshortcuts-group-b-movies-b">
+		<description>No items</description>
+		</include>
+	<include name="skinshortcuts-group-alt-b-movies-b">
+		<description>No items</description>
+		</include>
+	<include name="skinshortcuts-group-b-movies-b-1">
+		<description>No items</description>
+		</include>
+	<include name="skinshortcuts-group-alt-b-movies-b-1">
+		<description>No items</description>
+		</include>
+	<include name="skinshortcuts-group-b-movies-b-2">
+		<description>No items</description>
+		</include>
+	<include name="skinshortcuts-group-alt-b-movies-b-2">
+		<description>No items</description>
+		</include>
+	<include name="skinshortcuts-group-b-tvseries-b">
+		<description>No items</description>
+		</include>
+	<include name="skinshortcuts-group-alt-b-tvseries-b">
+		<description>No items</description>
+		</include>
+	<include name="skinshortcuts-group-b-tvseries-b-1">
+		<description>No items</description>
+		</include>
+	<include name="skinshortcuts-group-alt-b-tvseries-b-1">
+		<description>No items</description>
+		</include>
+	<include name="skinshortcuts-group-b-tvseries-b-2">
+		<description>No items</description>
+		</include>
+	<include name="skinshortcuts-group-alt-b-tvseries-b-2">
+		<description>No items</description>
+		</include>
+	<include name="skinshortcuts-group-trendingdaily">
+		<description>No items</description>
+		</include>
+	<include name="skinshortcuts-group-alt-trendingdaily">
+		<description>No items</description>
+		</include>
+	<include name="skinshortcuts-group-trendingdaily-1">
+		<description>No items</description>
+		</include>
+	<include name="skinshortcuts-group-alt-trendingdaily-1">
+		<description>No items</description>
+		</include>
+	<include name="skinshortcuts-group-trendingdaily-2">
+		<description>No items</description>
+		</include>
+	<include name="skinshortcuts-group-alt-trendingdaily-2">
+		<description>No items</description>
+		</include>
+	<include name="skinshortcuts-group-b-searchalltorrents-b">
+		<description>No items</description>
+		</include>
+	<include name="skinshortcuts-group-alt-b-searchalltorrents-b">
+		<description>No items</description>
+		</include>
+	<include name="skinshortcuts-group-b-searchalltorrents-b-1">
+		<description>No items</description>
+		</include>
+	<include name="skinshortcuts-group-alt-b-searchalltorrents-b-1">
+		<description>No items</description>
+		</include>
+	<include name="skinshortcuts-group-b-searchalltorrents-b-2">
+		<description>No items</description>
+		</include>
+	<include name="skinshortcuts-group-alt-b-searchalltorrents-b-2">
+		<description>No items</description>
+		</include>
+	<include name="skinshortcuts-group-plugin-audio-mp3streams">
+		<description>No items</description>
+		</include>
+	<include name="skinshortcuts-group-alt-plugin-audio-mp3streams">
+		<description>No items</description>
+		</include>
+	<include name="skinshortcuts-group-plugin-audio-mp3streams-1">
+		<description>No items</description>
+		</include>
+	<include name="skinshortcuts-group-alt-plugin-audio-mp3streams-1">
+		<description>No items</description>
+		</include>
+	<include name="skinshortcuts-group-plugin-audio-mp3streams-2">
+		<description>No items</description>
+		</include>
+	<include name="skinshortcuts-group-alt-plugin-audio-mp3streams-2">
+		<description>No items</description>
+		</include>
+	<include name="skinshortcuts-group-num-1037">
+		<item id="1">
+			<property name="id">$NUMBER[1]</property>
+			<property name="mainmenuid">6</property>
+			<label>$LOCALIZE[1043]</label>
+			<label2>Program add-ons</label2>
+			<icon>DefaultAddonProgram.png</icon>
+			<thumb />
+			<property name="translatedPath">ActivateWindow(Programs,Addons,return)</property>
+			<onclick>ActivateWindow(Programs,Addons,return)</onclick>
+			<property name="path">ActivateWindow(Programs,Addons,return)</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="2">
+			<property name="id">$NUMBER[2]</property>
+			<property name="mainmenuid">6</property>
+			<label>$LOCALIZE[1038]</label>
+			<label2>Music add-ons</label2>
+			<icon>DefaultAddonMusic.png</icon>
+			<thumb />
+			<property name="translatedPath">ActivateWindow(MusicLibrary,Addons,return)</property>
+			<onclick>ActivateWindow(Music,Addons,return)</onclick>
+			<property name="path">ActivateWindow(Music,Addons,return)</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="3">
+			<property name="id">$NUMBER[3]</property>
+			<property name="mainmenuid">6</property>
+			<label>$LOCALIZE[1039]</label>
+			<label2>Picture add-ons</label2>
+			<icon>DefaultAddonPicture.png</icon>
+			<thumb />
+			<property name="translatedPath">ActivateWindow(Pictures,Addons,return)</property>
+			<onclick>ActivateWindow(Pictures,Addons,return)</onclick>
+			<property name="path">ActivateWindow(Pictures,Addons,return)</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		</include>
+	<include name="skinshortcuts-group-alt-num-1037">
+		<item id="1">
+			<property name="id">$NUMBER[1]</property>
+			<property name="mainmenuid">6</property>
+			<label>$LOCALIZE[1043]</label>
+			<label2>Program add-ons</label2>
+			<icon>DefaultAddonProgram.png</icon>
+			<thumb />
+			<property name="translatedPath">ActivateWindow(Programs,Addons,return)</property>
+			<onclick>ActivateWindow(Programs,Addons,return)</onclick>
+			<property name="path">ActivateWindow(Programs,Addons,return)</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Window(10000).Property(submenuVisibility),num-1037)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="2">
+			<property name="id">$NUMBER[2]</property>
+			<property name="mainmenuid">6</property>
+			<label>$LOCALIZE[1038]</label>
+			<label2>Music add-ons</label2>
+			<icon>DefaultAddonMusic.png</icon>
+			<thumb />
+			<property name="translatedPath">ActivateWindow(MusicLibrary,Addons,return)</property>
+			<onclick>ActivateWindow(Music,Addons,return)</onclick>
+			<property name="path">ActivateWindow(Music,Addons,return)</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Window(10000).Property(submenuVisibility),num-1037)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="3">
+			<property name="id">$NUMBER[3]</property>
+			<property name="mainmenuid">6</property>
+			<label>$LOCALIZE[1039]</label>
+			<label2>Picture add-ons</label2>
+			<icon>DefaultAddonPicture.png</icon>
+			<thumb />
+			<property name="translatedPath">ActivateWindow(Pictures,Addons,return)</property>
+			<onclick>ActivateWindow(Pictures,Addons,return)</onclick>
+			<property name="path">ActivateWindow(Pictures,Addons,return)</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Window(10000).Property(submenuVisibility),num-1037)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		</include>
+	<include name="skinshortcuts-group-num-1037-1">
+		<description>No items</description>
+		</include>
+	<include name="skinshortcuts-group-alt-num-1037-1">
+		<description>No items</description>
+		</include>
+	<include name="skinshortcuts-group-num-1037-2">
+		<description>No items</description>
+		</include>
+	<include name="skinshortcuts-group-alt-num-1037-2">
+		<description>No items</description>
+		</include>
+	<include name="skinshortcuts-group-settings">
+		<item id="1">
+			<property name="id">$NUMBER[1]</property>
+			<property name="mainmenuid">7</property>
+			<label>$LOCALIZE[7]</label>
+			<label2>$ADDON[script.skinshortcuts 32034]</label2>
+			<icon>DefaultFolder.png</icon>
+			<thumb />
+			<onclick>ActivateWindow(FileManager)</onclick>
+			<property name="path">ActivateWindow(FileManager)</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="2">
+			<property name="id">$NUMBER[2]</property>
+			<property name="mainmenuid">7</property>
+			<label>$LOCALIZE[13200]</label>
+			<label2>$ADDON[script.skinshortcuts 32034]</label2>
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<onclick>ActivateWindow(Profiles)</onclick>
+			<property name="path">ActivateWindow(Profiles)</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="3">
+			<property name="id">$NUMBER[3]</property>
+			<property name="mainmenuid">7</property>
+			<label>$LOCALIZE[10007]</label>
+			<label2>$ADDON[script.skinshortcuts 32034]</label2>
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<onclick>ActivateWindow(SystemInfo)</onclick>
+			<property name="path">ActivateWindow(SystemInfo)</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="4">
+			<property name="id">$NUMBER[4]</property>
+			<property name="mainmenuid">7</property>
+			<label>$LOCALIZE[14111]</label>
+			<label2>$ADDON[script.skinshortcuts 32034]</label2>
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<visible>system.getbool(eventlog.enabled)</visible>
+			<onclick>ActivateWindow(EventLog,events://,return)</onclick>
+			<property name="path">ActivateWindow(EventLog,events://,return)</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		</include>
+	<include name="skinshortcuts-group-alt-settings">
+		<item id="1">
+			<property name="id">$NUMBER[1]</property>
+			<property name="mainmenuid">7</property>
+			<label>$LOCALIZE[7]</label>
+			<label2>$ADDON[script.skinshortcuts 32034]</label2>
+			<icon>DefaultFolder.png</icon>
+			<thumb />
+			<onclick>ActivateWindow(FileManager)</onclick>
+			<property name="path">ActivateWindow(FileManager)</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Window(10000).Property(submenuVisibility),settings)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="2">
+			<property name="id">$NUMBER[2]</property>
+			<property name="mainmenuid">7</property>
+			<label>$LOCALIZE[13200]</label>
+			<label2>$ADDON[script.skinshortcuts 32034]</label2>
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<onclick>ActivateWindow(Profiles)</onclick>
+			<property name="path">ActivateWindow(Profiles)</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Window(10000).Property(submenuVisibility),settings)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="3">
+			<property name="id">$NUMBER[3]</property>
+			<property name="mainmenuid">7</property>
+			<label>$LOCALIZE[10007]</label>
+			<label2>$ADDON[script.skinshortcuts 32034]</label2>
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<onclick>ActivateWindow(SystemInfo)</onclick>
+			<property name="path">ActivateWindow(SystemInfo)</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Window(10000).Property(submenuVisibility),settings)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="4">
+			<property name="id">$NUMBER[4]</property>
+			<property name="mainmenuid">7</property>
+			<label>$LOCALIZE[14111]</label>
+			<label2>$ADDON[script.skinshortcuts 32034]</label2>
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<visible>[system.getbool(eventlog.enabled)] + String.IsEqual(Window(10000).Property(submenuVisibility),settings)</visible>
+			<onclick>ActivateWindow(EventLog,events://,return)</onclick>
+			<property name="path">ActivateWindow(EventLog,events://,return)</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		</include>
+	<include name="skinshortcuts-group-settings-1">
+		<description>No items</description>
+		</include>
+	<include name="skinshortcuts-group-alt-settings-1">
+		<description>No items</description>
+		</include>
+	<include name="skinshortcuts-group-settings-2">
+		<description>No items</description>
+		</include>
+	<include name="skinshortcuts-group-alt-settings-2">
+		<description>No items</description>
+		</include>
+	<include name="skinshortcuts-group-num-33060">
+		<description>No items</description>
+		</include>
+	<include name="skinshortcuts-group-alt-num-33060">
+		<description>No items</description>
+		</include>
+	<include name="skinshortcuts-group-num-33060-1">
+		<description>No items</description>
+		</include>
+	<include name="skinshortcuts-group-alt-num-33060-1">
+		<description>No items</description>
+		</include>
+	<include name="skinshortcuts-group-num-33060-2">
+		<description>No items</description>
+		</include>
+	<include name="skinshortcuts-group-alt-num-33060-2">
+		<description>No items</description>
+		</include>
+	<include name="skinshortcuts-group-buttonmenu">
+		<item id="1">
+			<property name="id">$NUMBER[1]</property>
+			<property name="mainmenuid">9</property>
+			<label>$LOCALIZE[13012]</label>
+			<label2 />
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<visible>System.ShowExitButton</visible>
+			<onclick>Quit()</onclick>
+			<property name="path">Quit()</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="2">
+			<property name="id">$NUMBER[2]</property>
+			<property name="mainmenuid">9</property>
+			<label>$LOCALIZE[13016]</label>
+			<label2 />
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<visible>System.CanPowerDown</visible>
+			<onclick>Powerdown()</onclick>
+			<property name="path">Powerdown()</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="3">
+			<property name="id">$NUMBER[3]</property>
+			<property name="mainmenuid">9</property>
+			<label>$LOCALIZE[20150]</label>
+			<label2 />
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<visible>!System.HasAlarm(shutdowntimer) + [System.CanPowerDown | System.CanSuspend | System.CanHibernate]</visible>
+			<onclick>AlarmClock(shutdowntimer,Shutdown())</onclick>
+			<property name="path">AlarmClock(shutdowntimer,Shutdown())</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="4">
+			<property name="id">$NUMBER[4]</property>
+			<property name="mainmenuid">9</property>
+			<label>$LOCALIZE[20151]</label>
+			<label2>$INFO[System.Alarmpos, (,)]</label2>
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<visible>System.HasAlarm(shutdowntimer)</visible>
+			<onclick>CancelAlarm(shutdowntimer)</onclick>
+			<property name="path">CancelAlarm(shutdowntimer)</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="5">
+			<property name="id">$NUMBER[5]</property>
+			<property name="mainmenuid">9</property>
+			<label>$LOCALIZE[13011]</label>
+			<label2 />
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<visible>System.CanSuspend</visible>
+			<onclick>Suspend()</onclick>
+			<property name="path">Suspend()</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="6">
+			<property name="id">$NUMBER[6]</property>
+			<property name="mainmenuid">9</property>
+			<label>$LOCALIZE[13010]</label>
+			<label2 />
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<visible>System.CanHibernate</visible>
+			<onclick>Hibernate()</onclick>
+			<property name="path">Hibernate()</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="7">
+			<property name="id">$NUMBER[7]</property>
+			<property name="mainmenuid">9</property>
+			<label>$LOCALIZE[31576]</label>
+			<label2 />
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<visible>System.Platform.Linux</visible>
+			<onclick>System.ExecWait("/usr/sbin/rebootfromnand")</onclick>
+			<property name="path">System.ExecWait("/usr/sbin/rebootfromnand")</property>
+			<onclick>Reboot()</onclick>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="8">
+			<property name="id">$NUMBER[8]</property>
+			<property name="mainmenuid">9</property>
+			<label>$LOCALIZE[13013]</label>
+			<label2 />
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<visible>System.CanReboot</visible>
+			<onclick>Reset()</onclick>
+			<property name="path">Reset()</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="9">
+			<property name="id">$NUMBER[9]</property>
+			<property name="mainmenuid">9</property>
+			<label>$LOCALIZE[20126]</label>
+			<label2>$INFO[system.profilename]</label2>
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<visible>[System.HasLoginScreen | Integer.IsGreater(System.ProfileCount,1)] + System.Loggedon</visible>
+			<onclick>System.LogOff</onclick>
+			<property name="path">System.LogOff</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="10">
+			<property name="id">$NUMBER[10]</property>
+			<property name="mainmenuid">9</property>
+			<label>$LOCALIZE[20046]</label>
+			<label2 />
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<visible>[System.HasLocks] + [System.IsMaster]</visible>
+			<onclick>Mastermode</onclick>
+			<property name="path">Mastermode</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="11">
+			<property name="id">$NUMBER[11]</property>
+			<property name="mainmenuid">9</property>
+			<label>$LOCALIZE[20045]</label>
+			<label2 />
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<visible>[System.HasLocks] + [!System.IsMaster]</visible>
+			<onclick>Mastermode</onclick>
+			<property name="path">Mastermode</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="12">
+			<property name="id">$NUMBER[12]</property>
+			<property name="mainmenuid">9</property>
+			<label>$LOCALIZE[13017]</label>
+			<label2 />
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<visible>System.HasShutdown +!System.IsInhibit</visible>
+			<onclick>InhibitIdleShutdown(true)</onclick>
+			<property name="path">InhibitIdleShutdown(true)</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="13">
+			<property name="id">$NUMBER[13]</property>
+			<property name="mainmenuid">9</property>
+			<label>$LOCALIZE[13018]</label>
+			<label2 />
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<visible>System.HasShutdown + System.IsInhibit</visible>
+			<onclick>InhibitIdleShutdown(false)</onclick>
+			<property name="path">InhibitIdleShutdown(false)</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="14">
+			<property name="id">$NUMBER[14]</property>
+			<property name="mainmenuid">9</property>
+			<label>$LOCALIZE[1036]</label>
+			<label2 />
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<onclick>Dialog.Close(all,true)</onclick>
+			<property name="path">Dialog.Close(all,true)</property>
+			<onclick>ActivateWindow(favouritesbrowser)</onclick>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="15">
+			<property name="id">$NUMBER[15]</property>
+			<property name="mainmenuid">9</property>
+			<label>$LOCALIZE[20183]</label>
+			<label2 />
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<onclick>ReloadSkin()</onclick>
+			<property name="path">ReloadSkin()</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="16">
+			<property name="id">$NUMBER[16]</property>
+			<property name="mainmenuid">9</property>
+			<label>$LOCALIZE[20077]</label>
+			<label2 />
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<onclick>Dialog.Close(all,true)</onclick>
+			<property name="path">Dialog.Close(all,true)</property>
+			<onclick>ActivateWindow(skinsettings)</onclick>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		</include>
+	<include name="skinshortcuts-group-alt-buttonmenu">
+		<item id="1">
+			<property name="id">$NUMBER[1]</property>
+			<property name="mainmenuid">9</property>
+			<label>$LOCALIZE[13012]</label>
+			<label2 />
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<visible>[System.ShowExitButton] + String.IsEqual(Window(10000).Property(submenuVisibility),buttonmenu)</visible>
+			<onclick>Quit()</onclick>
+			<property name="path">Quit()</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="2">
+			<property name="id">$NUMBER[2]</property>
+			<property name="mainmenuid">9</property>
+			<label>$LOCALIZE[13016]</label>
+			<label2 />
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<visible>[System.CanPowerDown] + String.IsEqual(Window(10000).Property(submenuVisibility),buttonmenu)</visible>
+			<onclick>Powerdown()</onclick>
+			<property name="path">Powerdown()</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="3">
+			<property name="id">$NUMBER[3]</property>
+			<property name="mainmenuid">9</property>
+			<label>$LOCALIZE[20150]</label>
+			<label2 />
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<visible>[!System.HasAlarm(shutdowntimer) + [System.CanPowerDown | System.CanSuspend | System.CanHibernate]] + String.IsEqual(Window(10000).Property(submenuVisibility),buttonmenu)</visible>
+			<onclick>AlarmClock(shutdowntimer,Shutdown())</onclick>
+			<property name="path">AlarmClock(shutdowntimer,Shutdown())</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="4">
+			<property name="id">$NUMBER[4]</property>
+			<property name="mainmenuid">9</property>
+			<label>$LOCALIZE[20151]</label>
+			<label2>$INFO[System.Alarmpos, (,)]</label2>
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<visible>[System.HasAlarm(shutdowntimer)] + String.IsEqual(Window(10000).Property(submenuVisibility),buttonmenu)</visible>
+			<onclick>CancelAlarm(shutdowntimer)</onclick>
+			<property name="path">CancelAlarm(shutdowntimer)</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="5">
+			<property name="id">$NUMBER[5]</property>
+			<property name="mainmenuid">9</property>
+			<label>$LOCALIZE[13011]</label>
+			<label2 />
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<visible>[System.CanSuspend] + String.IsEqual(Window(10000).Property(submenuVisibility),buttonmenu)</visible>
+			<onclick>Suspend()</onclick>
+			<property name="path">Suspend()</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="6">
+			<property name="id">$NUMBER[6]</property>
+			<property name="mainmenuid">9</property>
+			<label>$LOCALIZE[13010]</label>
+			<label2 />
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<visible>[System.CanHibernate] + String.IsEqual(Window(10000).Property(submenuVisibility),buttonmenu)</visible>
+			<onclick>Hibernate()</onclick>
+			<property name="path">Hibernate()</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="7">
+			<property name="id">$NUMBER[7]</property>
+			<property name="mainmenuid">9</property>
+			<label>$LOCALIZE[31576]</label>
+			<label2 />
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<visible>[System.Platform.Linux] + String.IsEqual(Window(10000).Property(submenuVisibility),buttonmenu)</visible>
+			<onclick>System.ExecWait("/usr/sbin/rebootfromnand")</onclick>
+			<property name="path">System.ExecWait("/usr/sbin/rebootfromnand")</property>
+			<onclick>Reboot()</onclick>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="8">
+			<property name="id">$NUMBER[8]</property>
+			<property name="mainmenuid">9</property>
+			<label>$LOCALIZE[13013]</label>
+			<label2 />
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<visible>[System.CanReboot] + String.IsEqual(Window(10000).Property(submenuVisibility),buttonmenu)</visible>
+			<onclick>Reset()</onclick>
+			<property name="path">Reset()</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="9">
+			<property name="id">$NUMBER[9]</property>
+			<property name="mainmenuid">9</property>
+			<label>$LOCALIZE[20126]</label>
+			<label2>$INFO[system.profilename]</label2>
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<visible>[[System.HasLoginScreen | Integer.IsGreater(System.ProfileCount,1)] + System.Loggedon] + String.IsEqual(Window(10000).Property(submenuVisibility),buttonmenu)</visible>
+			<onclick>System.LogOff</onclick>
+			<property name="path">System.LogOff</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="10">
+			<property name="id">$NUMBER[10]</property>
+			<property name="mainmenuid">9</property>
+			<label>$LOCALIZE[20046]</label>
+			<label2 />
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<visible>[[System.HasLocks] + [System.IsMaster]] + String.IsEqual(Window(10000).Property(submenuVisibility),buttonmenu)</visible>
+			<onclick>Mastermode</onclick>
+			<property name="path">Mastermode</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="11">
+			<property name="id">$NUMBER[11]</property>
+			<property name="mainmenuid">9</property>
+			<label>$LOCALIZE[20045]</label>
+			<label2 />
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<visible>[[System.HasLocks] + [!System.IsMaster]] + String.IsEqual(Window(10000).Property(submenuVisibility),buttonmenu)</visible>
+			<onclick>Mastermode</onclick>
+			<property name="path">Mastermode</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="12">
+			<property name="id">$NUMBER[12]</property>
+			<property name="mainmenuid">9</property>
+			<label>$LOCALIZE[13017]</label>
+			<label2 />
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<visible>[System.HasShutdown +!System.IsInhibit] + String.IsEqual(Window(10000).Property(submenuVisibility),buttonmenu)</visible>
+			<onclick>InhibitIdleShutdown(true)</onclick>
+			<property name="path">InhibitIdleShutdown(true)</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="13">
+			<property name="id">$NUMBER[13]</property>
+			<property name="mainmenuid">9</property>
+			<label>$LOCALIZE[13018]</label>
+			<label2 />
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<visible>[System.HasShutdown + System.IsInhibit] + String.IsEqual(Window(10000).Property(submenuVisibility),buttonmenu)</visible>
+			<onclick>InhibitIdleShutdown(false)</onclick>
+			<property name="path">InhibitIdleShutdown(false)</property>
+			<visible>String.IsEqual(System.ProfileName,Master user)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="14">
+			<property name="id">$NUMBER[14]</property>
+			<property name="mainmenuid">9</property>
+			<label>$LOCALIZE[1036]</label>
+			<label2 />
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<onclick>Dialog.Close(all,true)</onclick>
+			<property name="path">Dialog.Close(all,true)</property>
+			<onclick>ActivateWindow(favouritesbrowser)</onclick>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Window(10000).Property(submenuVisibility),buttonmenu)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="15">
+			<property name="id">$NUMBER[15]</property>
+			<property name="mainmenuid">9</property>
+			<label>$LOCALIZE[20183]</label>
+			<label2 />
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<onclick>ReloadSkin()</onclick>
+			<property name="path">ReloadSkin()</property>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Window(10000).Property(submenuVisibility),buttonmenu)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		<item id="16">
+			<property name="id">$NUMBER[16]</property>
+			<property name="mainmenuid">9</property>
+			<label>$LOCALIZE[20077]</label>
+			<label2 />
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<onclick>Dialog.Close(all,true)</onclick>
+			<property name="path">Dialog.Close(all,true)</property>
+			<onclick>ActivateWindow(skinsettings)</onclick>
+			<visible>[String.IsEqual(System.ProfileName,Master user)] + String.IsEqual(Window(10000).Property(submenuVisibility),buttonmenu)</visible>
+			<property name="isSubmenu">True</property>
+			</item>
+		</include>
+	<include name="skinshortcuts-group-buttonmenu-1">
+		<description>No items</description>
+		</include>
+	<include name="skinshortcuts-group-alt-buttonmenu-1">
+		<description>No items</description>
+		</include>
+	<include name="skinshortcuts-group-buttonmenu-2">
+		<description>No items</description>
+		</include>
+	<include name="skinshortcuts-group-alt-buttonmenu-2">
+		<description>No items</description>
+		</include>
+	<include name="skinshortcuts-template-widget1">
+		<include condition="String.IsEqual(System.ProfileName,Master user)">skinshortcuts-template-widget1-Master user</include>
+		</include>
+	<include name="skinshortcuts-template-widget1-Master user">
+		<control type="group">
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),b-movies-b)</visible>
+			<control type="group">
+				<visible>Integer.IsGreater(Container(80111).NumItems,0)</visible>
+				<control type="group">
+					<top>424</top>
+					<control type="group">
+						<include condition="!String.IsEmpty(Skin.String(Widget.Trans))">HomeWidgetFade</include>
+						<centerleft>50%</centerleft>
+						<top>-21</top>
+						<width>1472.5</width>
+						<height>342</height>
+						<control type="image">
+							<width>1472.5</width>
+							<height>342</height>
+							<texture colordiffuse="$VAR[HomeWidgetBackColor]" border="40">$VAR[HomeWidgetBackgroundVar]</texture>
+							<visible>Skin.HasSetting(Enable.GlobalWidgetBack)</visible>
+							</control>
+						<control type="image">
+							<width>1472.5</width>
+							<height>342</height>
+							<texture colordiffuse="FF0B0B0B" border="40">homewidgets/bg_default.png</texture>
+							<visible>!Skin.HasSetting(Enable.GlobalWidgetBack)</visible>
+							</control>
+						</control>
+					<include content="PanelLabel">
+						<param name="id">80111</param>
+						<param name="Label">XPrime - Trending</param>
+						<param name="Title">$VAR[HomeWidgetInfoTitleVar]</param>
+						<param name="labelFont">font13_title</param>
+						<param name="labelBottom">318</param>
+						<param name="labelWidth">710</param>
+						<param name="labelLeft">243</param>
+						<param name="labelRight">965.5</param>
+						<param name="labelTitle">false</param>
+						</include>
+					</control>
+				</control>
+			<control type="group">
+				<top>424</top>
+				<control type="panel" id="80111">
+					<left>242.5</left>
+					<width>1435</width>
+					<height>300</height>
+					<orientation>horizontal</orientation>
+					<preloaditems>2</preloaditems>
+					<scrolltime tween="quadratic" easing="out">300</scrolltime>
+					<include>skinshortcuts-template-HorizontalNavigation1</include>
+					<include content="PortraitArt">
+						<param name="containerWidth">205</param>
+						<param name="containerHeight">300</param>
+						<param name="Texture">$VAR[PosterThumbVar]</param>
+						<param name="leftArt">7.5</param>
+						<param name="topArt">6</param>
+						<param name="widthArt">190</param>
+						<param name="heightArt">288</param>
+						<param name="topFakeDiscArt">6</param>
+						<param name="leftCase">2.5</param>
+						<param name="topCase">0</param>
+						<param name="widthCase">200</param>
+						<param name="heightCase">300</param>
+						<param name="labelHeight">-34</param>
+						<param name="labelFont">font12</param>
+						<param name="fallbackFont">fontCDalbum</param>
+						<param name="fallbackVisible">false</param>
+						<param name="Aspect">stretch</param>
+						<param name="Aligny">top</param>
+						<param name="Diffuse" />
+						<param name="Case">homewidgets/cases/glass/portrait.png</param>
+						<param name="labelVisible">false</param>
+						<param name="labelFocusVisible">false</param>
+						<param name="isWeather">false</param>
+						<param name="weatherTop" />
+						<param name="weatherHeight" />
+						<param name="weatherTop1" />
+						<param name="weatherTop2" />
+						<param name="weatherTop3" />
+						<param name="weatherFont">font14</param>
+						</include>
+					<content>
+						<item>
+							<label2>$LOCALIZE[19055]</label2>
+							<icon>NotAvailable.png</icon>
+							<thumb>NotAvailable.png</thumb>
+							<visible>!false + String.IsEmpty(Container(80111).ListItem(1).Label)</visible>
+							</item>
+						<item>
+							<label2>$LOCALIZE[19055]</label2>
+							<icon>DefaultAddonNone.png</icon>
+							<thumb>DefaultAddonNone.png</thumb>
+							<visible>false + String.IsEmpty(Container(80111).ListItem(1).Label)</visible>
+							</item>
+						</content>
+					<content target="videos" sortby="" sortorder="" limit="$NUMBER[100]" browse="never">plugin://plugin.video.xprime/?action=movies&amp;url=trakt_trending&amp;reload=$INFO[Window(Home).Property(widgetreload-movies)]</content>
+					</control>
+				</control>
+			</control>
+		<control type="group">
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),b-tvseries-b)</visible>
+			<control type="group">
+				<visible>Integer.IsGreater(Container(80112).NumItems,0)</visible>
+				<control type="group">
+					<top>424</top>
+					<control type="group">
+						<include condition="!String.IsEmpty(Skin.String(Widget.Trans))">HomeWidgetFade</include>
+						<centerleft>50%</centerleft>
+						<top>-21</top>
+						<width>1472.5</width>
+						<height>342</height>
+						<control type="image">
+							<width>1472.5</width>
+							<height>342</height>
+							<texture colordiffuse="$VAR[HomeWidgetBackColor]" border="40">$VAR[HomeWidgetBackgroundVar]</texture>
+							<visible>Skin.HasSetting(Enable.GlobalWidgetBack)</visible>
+							</control>
+						<control type="image">
+							<width>1472.5</width>
+							<height>342</height>
+							<texture colordiffuse="FF0B0B0B" border="40">homewidgets/bg_default.png</texture>
+							<visible>!Skin.HasSetting(Enable.GlobalWidgetBack)</visible>
+							</control>
+						</control>
+					<include content="PanelLabel">
+						<param name="id">80112</param>
+						<param name="Label">XPrime - Trending</param>
+						<param name="Title">$VAR[HomeWidgetInfoTitleVar]</param>
+						<param name="labelFont">font13_title</param>
+						<param name="labelBottom">318</param>
+						<param name="labelWidth">710</param>
+						<param name="labelLeft">243</param>
+						<param name="labelRight">965.5</param>
+						<param name="labelTitle">false</param>
+						</include>
+					</control>
+				</control>
+			<control type="group">
+				<top>424</top>
+				<control type="panel" id="80112">
+					<left>242.5</left>
+					<width>1435</width>
+					<height>300</height>
+					<orientation>horizontal</orientation>
+					<preloaditems>2</preloaditems>
+					<scrolltime tween="quadratic" easing="out">300</scrolltime>
+					<include>skinshortcuts-template-HorizontalNavigation1</include>
+					<include content="PortraitArt">
+						<param name="containerWidth">205</param>
+						<param name="containerHeight">300</param>
+						<param name="Texture">$VAR[PosterThumbVar]</param>
+						<param name="leftArt">2.5</param>
+						<param name="topArt">0</param>
+						<param name="widthArt">200</param>
+						<param name="heightArt">300</param>
+						<param name="topFakeDiscArt">0</param>
+						<param name="leftCase">2.5</param>
+						<param name="topCase">0</param>
+						<param name="widthCase">200</param>
+						<param name="heightCase">300</param>
+						<param name="labelHeight">-34</param>
+						<param name="labelFont">font12</param>
+						<param name="fallbackFont">fontCDalbum</param>
+						<param name="fallbackVisible">false</param>
+						<param name="Aspect">stretch</param>
+						<param name="Aligny">top</param>
+						<param name="Diffuse" />
+						<param name="Case" />
+						<param name="labelVisible">false</param>
+						<param name="labelFocusVisible">false</param>
+						<param name="isWeather">false</param>
+						<param name="weatherTop" />
+						<param name="weatherHeight" />
+						<param name="weatherTop1" />
+						<param name="weatherTop2" />
+						<param name="weatherTop3" />
+						<param name="weatherFont">font14</param>
+						</include>
+					<content>
+						<item>
+							<label2>$LOCALIZE[19055]</label2>
+							<icon>NotAvailable.png</icon>
+							<thumb>NotAvailable.png</thumb>
+							<visible>!false + String.IsEmpty(Container(80112).ListItem(1).Label)</visible>
+							</item>
+						<item>
+							<label2>$LOCALIZE[19055]</label2>
+							<icon>DefaultAddonNone.png</icon>
+							<thumb>DefaultAddonNone.png</thumb>
+							<visible>false + String.IsEmpty(Container(80112).ListItem(1).Label)</visible>
+							</item>
+						</content>
+					<content target="videos" sortby="" sortorder="" limit="$NUMBER[100]" browse="never">plugin://plugin.video.xprime/?action=tvshows&amp;url=trakt_trending&amp;reload=$INFO[Window(Home).Property(widgetreload-episodes)]</content>
+					</control>
+				</control>
+			</control>
+		<control type="group">
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),trendingdaily)</visible>
+			<control type="group">
+				<visible>Integer.IsGreater(Container(80113).NumItems,0)</visible>
+				<control type="group">
+					<top>424</top>
+					<control type="group">
+						<include condition="!String.IsEmpty(Skin.String(Widget.Trans))">HomeWidgetFade</include>
+						<centerleft>50%</centerleft>
+						<top>-21</top>
+						<width>1472.5</width>
+						<height>342</height>
+						<control type="image">
+							<width>1472.5</width>
+							<height>342</height>
+							<texture colordiffuse="$VAR[HomeWidgetBackColor]" border="40">$VAR[HomeWidgetBackgroundVar]</texture>
+							<visible>Skin.HasSetting(Enable.GlobalWidgetBack)</visible>
+							</control>
+						<control type="image">
+							<width>1472.5</width>
+							<height>342</height>
+							<texture colordiffuse="FF0B0B0B" border="40">homewidgets/bg_default.png</texture>
+							<visible>!Skin.HasSetting(Enable.GlobalWidgetBack)</visible>
+							</control>
+						</control>
+					<include content="PanelLabel">
+						<param name="id">80113</param>
+						<param name="Label">XPrime - Trending Daily</param>
+						<param name="Title">$VAR[HomeWidgetInfoTitleVar]</param>
+						<param name="labelFont">font13_title</param>
+						<param name="labelBottom">318</param>
+						<param name="labelWidth">710</param>
+						<param name="labelLeft">243</param>
+						<param name="labelRight">965.5</param>
+						<param name="labelTitle">false</param>
+						</include>
+					</control>
+				</control>
+			<control type="group">
+				<top>424</top>
+				<control type="panel" id="80113">
+					<left>242.5</left>
+					<width>1435</width>
+					<height>300</height>
+					<orientation>horizontal</orientation>
+					<preloaditems>2</preloaditems>
+					<scrolltime tween="quadratic" easing="out">300</scrolltime>
+					<include>skinshortcuts-template-HorizontalNavigation1</include>
+					<include content="PortraitArt">
+						<param name="containerWidth">205</param>
+						<param name="containerHeight">300</param>
+						<param name="Texture">$VAR[PosterThumbVar]</param>
+						<param name="leftArt">2.5</param>
+						<param name="topArt">0</param>
+						<param name="widthArt">200</param>
+						<param name="heightArt">300</param>
+						<param name="topFakeDiscArt">0</param>
+						<param name="leftCase">2.5</param>
+						<param name="topCase">0</param>
+						<param name="widthCase">200</param>
+						<param name="heightCase">300</param>
+						<param name="labelHeight">-34</param>
+						<param name="labelFont">font12</param>
+						<param name="fallbackFont">fontCDalbum</param>
+						<param name="fallbackVisible">false</param>
+						<param name="Aspect">stretch</param>
+						<param name="Aligny">top</param>
+						<param name="Diffuse" />
+						<param name="Case" />
+						<param name="labelVisible">false</param>
+						<param name="labelFocusVisible">false</param>
+						<param name="isWeather">false</param>
+						<param name="weatherTop" />
+						<param name="weatherHeight" />
+						<param name="weatherTop1" />
+						<param name="weatherTop2" />
+						<param name="weatherTop3" />
+						<param name="weatherFont">font14</param>
+						</include>
+					<content>
+						<item>
+							<label2>$LOCALIZE[19055]</label2>
+							<icon>NotAvailable.png</icon>
+							<thumb>NotAvailable.png</thumb>
+							<visible>!false + String.IsEmpty(Container(80113).ListItem(1).Label)</visible>
+							</item>
+						<item>
+							<label2>$LOCALIZE[19055]</label2>
+							<icon>DefaultAddonNone.png</icon>
+							<thumb>DefaultAddonNone.png</thumb>
+							<visible>false + String.IsEmpty(Container(80113).ListItem(1).Label)</visible>
+							</item>
+						</content>
+					<content target="videos" sortby="" sortorder="" limit="$NUMBER[100]" browse="never">plugin://plugin.video.xprime/?action=tvshows&amp;url=tmdb_trending_day&amp;reload=$INFO[Window(Home).Property(widgetreload-episodes)]</content>
+					</control>
+				</control>
+			</control>
+		<control type="group">
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),plugin-audio-mp3streams)</visible>
+			<top>449</top>
+			<left>245</left>
+			<control type="group">
+				<visible>Integer.IsGreater(Container(80115).NumItems,0)</visible>
+				<control type="group">
+					<visible>ControlGroup(90010).HasFocus</visible>
+					<animation effect="slide" end="-410,0" time="320" tween="cubic" easing="inout" condition="String.IsEqual(Skin.String(MainMenu.Layout),vertical) + String.Contains(Container(9000).ListItem.Property(widgetStyle),Extended) + ControlGroup(90010).HasFocus">Conditional</animation>
+					<control type="group">
+						<animation effect="fade" end="0">WindowClose</animation>
+						<control type="image">
+							<top>-40</top>
+							<width>1470</width>
+							<height>391</height>
+							<texture>homewidgets/list_shadow.png</texture>
+							</control>
+						<control type="group">
+							<include condition="!false">InfoPosterContent</include>
+							<include content="InfoTextContent" condition="!false">
+								<param name="left">226</param>
+								<param name="width">879</param>
+								</include>
+							</control>
+						<control type="group">
+							<include condition="false">InfoSquareContent</include>
+							<include content="InfoTextContent" condition="false">
+								<param name="left">330</param>
+								<param name="width">774</param>
+								</include>
+							</control>
+						</control>
+					</control>
+				<control type="group">
+					<left>1130</left>
+					<animation effect="slide" end="-410,0" condition="String.IsEqual(Skin.String(MainMenu.Layout),vertical) + String.Contains(Container(9000).ListItem.Property(widgetStyle),Extended)">Conditional</animation>
+					<control type="group">
+						<left>-21</left>
+						<top>-16</top>
+						<animation effect="rotatey" start="0" end="180" center="150" time="400" tween="sine" easing="inout" condition="Control.HasFocus(80115) + true">Conditional</animation>
+						<include condition="!String.IsEmpty(Skin.String(Widget.Trans))">HomeWidgetFade</include>
+						<control type="image">
+							<width>342</width>
+							<height>342</height>
+							<visible>Skin.HasSetting(Enable.GlobalWidgetBack)</visible>
+							<texture colordiffuse="$VAR[HomeWidgetBackColor]" border="40">$VAR[HomeWidgetBackgroundVar]</texture>
+							</control>
+						<control type="image">
+							<width>342</width>
+							<height>342</height>
+							<visible>!Skin.HasSetting(Enable.GlobalWidgetBack)</visible>
+							<texture colordiffuse="FF0B0B0B" border="40">homewidgets/bg_default.png</texture>
+							</control>
+						</control>
+					<control type="group">
+						<width>300</width>
+						<height>300</height>
+						<animation type="Conditional" condition="Control.HasFocus(80115) + true">
+							<effect type="rotatey" start="0" end="180" center="150" time="400" tween="sine" easing="inout" />
+							<effect type="fade" start="100" end="0" time="300" tween="sine" easing="inout" />
+							</animation>
+						<visible>String.IsEmpty(Container(80115).ListItem.Property(isSystemInfo))</visible>
+						<control type="label">
+							<width>300</width>
+							<top>9</top>
+							<height>20</height>
+							<align>center</align>
+							<font>font12_title</font>
+							<textcolor>grey</textcolor>
+							<shadowcolor>shadow</shadowcolor>
+							<label>MP3 Streams - New Albums</label>
+							</control>
+						<control type="label">
+							<width>300</width>
+							<top>254</top>
+							<height>40</height>
+							<align>center</align>
+							<font>font12_title</font>
+							<textcolor>grey</textcolor>
+							<shadowcolor>shadow</shadowcolor>
+							<wrapmultiline>true</wrapmultiline>
+							<label>$VAR[HomeWidget80115TitleVar]</label>
+							</control>
+						<include content="ListPortraitArt">
+							<param name="id">80115</param>
+							<param name="Texture">$VAR[HomeWidget80115PosterVar]</param>
+							<param name="Title2">$VAR[HomeWidget80115Title2Var]</param>
+							<param name="leftArt">87</param>
+							<param name="topArt">44</param>
+							<param name="widthArt">126</param>
+							<param name="heightArt">192</param>
+							<param name="topFakeDiscArt">44</param>
+							<param name="leftCase">83</param>
+							<param name="topCase">40</param>
+							<param name="widthCase">134</param>
+							<param name="heightCase">200</param>
+							<param name="caseVisible">true</param>
+							<param name="labelHeight" />
+							<param name="fallbackFont">fontCDalbum</param>
+							<param name="fallbackVisible">false</param>
+							<param name="Aspect">stretch</param>
+							<param name="Aligny">top</param>
+							<param name="Diffuse" />
+							<param name="Case">homewidgets/cases/glass/portrait.png</param>
+							</include>
+						</control>
+					</control>
+				</control>
+			<control type="list" id="80115">
+				<top>5</top>
+				<left>1130</left>
+				<width>300</width>
+				<height>300</height>
+				<onleft condition="!String.IsEqual(Skin.String(MainMenu.Layout),vertical) + [System.HasMediaDVD | Control.IsVisible(9027)]">9020</onleft>
+				<onleft condition="!String.IsEqual(Skin.String(MainMenu.Layout),vertical) + ![System.HasMediaDVD | Control.IsVisible(9027)]">9000</onleft>
+				<onright condition="!String.IsEqual(Skin.String(MainMenu.Layout),vertical) + !Skin.HasSetting(centermainmenu) + Control.IsVisible(90020)">90020</onright>
+				<onright condition="!String.IsEqual(Skin.String(MainMenu.Layout),vertical) + !Skin.HasSetting(centermainmenu) + !Control.IsVisible(90020)">9000</onright>
+				<onright condition="!String.IsEqual(Skin.String(MainMenu.Layout),vertical) + Skin.HasSetting(centermainmenu) + Control.IsVisible(90020)">90020</onright>
+				<onright condition="!String.IsEqual(Skin.String(MainMenu.Layout),vertical) + Skin.HasSetting(centermainmenu) + !Control.IsVisible(90020)">9000</onright>
+				<onleft condition="String.IsEqual(Skin.String(MainMenu.Layout),vertical)">9000</onleft>
+				<onright condition="String.IsEqual(Skin.String(MainMenu.Layout),vertical) + Control.IsVisible(90020)">90020</onright>
+				<onright condition="String.IsEqual(Skin.String(MainMenu.Layout),vertical) + !Control.IsVisible(90020) + [System.HasMediaDVD | Control.IsVisible(9027)]">9020</onright>
+				<onright condition="String.IsEqual(Skin.String(MainMenu.Layout),vertical) + !Control.IsVisible(90020) + ![System.HasMediaDVD | Control.IsVisible(9027)]">9000</onright>
+				<onback>9000</onback>
+				<preloaditems>2</preloaditems>
+				<scrolltime tween="quadratic" easing="out">300</scrolltime>
+				<autoscroll time="10000" delay="10000" repeat="10000">Control.IsVisible(80115) + Skin.HasSetting(Enable.ListWidgetAutoscroll) + !Control.HasFocus(80115)</autoscroll>
+				<animation type="Conditional" condition="[!String.IsEqual(Skin.String(MainMenu.Layout),vertical) + !Control.HasFocus(80115) + true] | [String.IsEqual(Skin.String(MainMenu.Layout),vertical) + !String.Contains(Container(9000).ListItem.Property(widgetStyle),Extended) + !Control.HasFocus(80115) + true]">
+					<effect type="rotatey" start="0" end="-180" center="1280" time="400" tween="sine" easing="inout" />
+					<effect type="fade" start="100" end="0" time="300" tween="sine" easing="inout" />
+					</animation>
+				<animation type="Conditional" condition="String.IsEqual(Skin.String(MainMenu.Layout),vertical) + String.Contains(Container(9000).ListItem.Property(widgetStyle),Extended) + !Control.HasFocus(80115) + true">
+					<effect type="rotatey" start="0" end="-180" center="1280" time="400" tween="sine" easing="inout" />
+					<effect type="fade" start="100" end="0" time="300" tween="sine" easing="inout" />
+					</animation>
+				<animation effect="slide" end="-410,0" condition="String.IsEqual(Skin.String(MainMenu.Layout),vertical) + String.Contains(Container(9000).ListItem.Property(widgetStyle),Extended)">Conditional</animation>
+				<include content="List">
+					<param name="id">80115</param>
+					<param name="Texture">$VAR[HomeWidget80115PosterVar]</param>
+					<param name="leftArt">3</param>
+					<param name="topArt">5.5</param>
+					<param name="widthArt">294</param>
+					<param name="heightArt">50</param>
+					<param name="leftCase">0</param>
+					<param name="topCase">2.5</param>
+					<param name="widthCase">300</param>
+					<param name="heightCase">56</param>
+					<param name="fallbackFont">fontCDalbum</param>
+					<param name="Case">homewidgets/cases/glass/banner.png</param>
+					</include>
+				<content>
+					<item>
+						<label2>$LOCALIZE[19055]</label2>
+						<icon>NotAvailable.png</icon>
+						<thumb>NotAvailable.png</thumb>
+						<visible>!false + String.IsEmpty(Container(80115).ListItem(1).Label)</visible>
+						</item>
+					<item>
+						<label2>$LOCALIZE[19055]</label2>
+						<icon>DefaultAddonNone.png</icon>
+						<thumb>DefaultAddonNone.png</thumb>
+						<visible>false + String.IsEmpty(Container(80115).ListItem(1).Label)</visible>
+						</item>
+					</content>
+				<content target="music" sortby="" sortorder="" limit="$NUMBER[100]" browse="never">plugin://plugin.audio.mp3streams/?url=http%3A%2F%2Fmusicmp3.ru%2Fnew_albums.html%3Fpage%3D1&amp;mode=15&amp;name=New+Albums&amp;iconimage=C%3A%5CUsers%5Cuser%5CAppData%5CRoaming%5CKodi%5Caddons%5Cplugin.audio.mp3streams%5Cart%2Fallnewalbums.jpg&amp;list=new albums&lt;&gt;http://musicmp3.ru/new_albums.html?page=1&lt;&gt;C:\Users\user\AppData\Roaming\Kodi\addons\plugin.audio.mp3streams\art/allnewalbums.jpg&amp;type=&amp;reload=$INFO[Window(Home).Property(widgetreload-music)]</content>
+				</control>
+			</control>
+		<control type="group">
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-1037)</visible>
+			<control type="group">
+				<visible>Integer.IsGreater(Container(80116).NumItems,0)</visible>
+				<control type="group">
+					<top>463</top>
+					<control type="group">
+						<include condition="!String.IsEmpty(Skin.String(Widget.Trans))">HomeWidgetFade</include>
+						<centerleft>50%</centerleft>
+						<top>-21</top>
+						<width>1472.5</width>
+						<height>324</height>
+						<control type="image">
+							<width>1472.5</width>
+							<height>324</height>
+							<texture colordiffuse="$VAR[HomeWidgetBackColor]" border="40">$VAR[HomeWidgetBackgroundVar]</texture>
+							<visible>Skin.HasSetting(Enable.GlobalWidgetBack)</visible>
+							</control>
+						<control type="image">
+							<width>1472.5</width>
+							<height>324</height>
+							<texture colordiffuse="FF0B0B0B" border="40">homewidgets/bg_default.png</texture>
+							<visible>!Skin.HasSetting(Enable.GlobalWidgetBack)</visible>
+							</control>
+						</control>
+					<include content="PanelLabel">
+						<param name="id">80116</param>
+						<param name="Label">1036</param>
+						<param name="Title">$VAR[HomeWidgetInfoTitleVar]</param>
+						<param name="labelFont">font13_title</param>
+						<param name="labelBottom">305</param>
+						<param name="labelWidth">710</param>
+						<param name="labelLeft">243</param>
+						<param name="labelRight">965.5</param>
+						<param name="labelTitle">false</param>
+						</include>
+					</control>
+				</control>
+			<control type="group">
+				<top>463</top>
+				<control type="panel" id="80116">
+					<left>242.5</left>
+					<width>1435</width>
+					<height>300</height>
+					<orientation>horizontal</orientation>
+					<preloaditems>2</preloaditems>
+					<scrolltime tween="quadratic" easing="out">300</scrolltime>
+					<include>skinshortcuts-template-HorizontalNavigation1</include>
+					<include content="SquareArt">
+						<param name="containerWidth">287</param>
+						<param name="containerHeight">282</param>
+						<param name="Texture">$VAR[PosterThumbVar]</param>
+						<param name="leftArt">2.5</param>
+						<param name="topArt">0</param>
+						<param name="widthArt">282</param>
+						<param name="heightArt">282</param>
+						<param name="topFakeDiscArt">0</param>
+						<param name="leftCase">2.5</param>
+						<param name="topCase">0</param>
+						<param name="widthCase">282</param>
+						<param name="heightCase">282</param>
+						<param name="labelHeight">-34</param>
+						<param name="labelFont">font12</param>
+						<param name="fallbackFont">fontCDalbum</param>
+						<param name="fallbackVisible">false</param>
+						<param name="Aspect">keep</param>
+						<param name="Aligny">top</param>
+						<param name="Diffuse" />
+						<param name="Case" />
+						<param name="labelVisible">false</param>
+						<param name="labelFocusVisible">false</param>
+						<param name="isWeather">false</param>
+						<param name="weatherTop" />
+						<param name="weatherHeight" />
+						<param name="weatherTop1" />
+						<param name="weatherTop2" />
+						<param name="weatherTop3" />
+						<param name="weatherFont">font14</param>
+						</include>
+					<content>
+						<item>
+							<label2>$LOCALIZE[19055]</label2>
+							<icon>NotAvailable.png</icon>
+							<thumb>NotAvailable.png</thumb>
+							<visible>!true + String.IsEmpty(Container(80116).ListItem(1).Label)</visible>
+							</item>
+						<item>
+							<label2>$LOCALIZE[19055]</label2>
+							<icon>DefaultAddonNone.png</icon>
+							<thumb>DefaultAddonNone.png</thumb>
+							<visible>true + String.IsEmpty(Container(80116).ListItem(1).Label)</visible>
+							</item>
+						</content>
+					<content target="" sortby="" sortorder="" limit="$NUMBER[100]" browse="never">favourites://</content>
+					</control>
+				</control>
+			</control>
+		</include>
+	<include name="skinshortcuts-template-widget2">
+		<include condition="String.IsEqual(System.ProfileName,Master user)">skinshortcuts-template-widget2-Master user</include>
+		</include>
+	<include name="skinshortcuts-template-widget2-Master user">
+		<control type="group">
+			<animation effect="slide" end="0,-20" condition="false">Conditional</animation>
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),b-movies-b)</visible>
+			<control type="group">
+				<visible>Integer.IsGreater(Container(80211).NumItems,0)</visible>
+				<control type="group">
+					<top>70</top>
+					<control type="group">
+						<include condition="!String.IsEmpty(Skin.String(Widget.Trans))">HomeWidgetFade</include>
+						<centerleft>50%</centerleft>
+						<top>-21</top>
+						<width>1472.5</width>
+						<height>342</height>
+						<control type="image">
+							<width>1472.5</width>
+							<height>342</height>
+							<texture colordiffuse="$VAR[HomeWidgetBackColor]" border="40">$VAR[HomeWidgetBackgroundVar]</texture>
+							<visible>Skin.HasSetting(Enable.GlobalWidgetBack)</visible>
+							</control>
+						<control type="image">
+							<width>1472.5</width>
+							<height>342</height>
+							<texture colordiffuse="FF0B0B0B" border="40">homewidgets/bg_default.png</texture>
+							<visible>!Skin.HasSetting(Enable.GlobalWidgetBack)</visible>
+							</control>
+						</control>
+					<include content="PanelLabel">
+						<param name="id">80211</param>
+						<param name="Label">StreamLord - [B]Hot Movies[/B]</param>
+						<param name="Title">$VAR[HomeWidgetInfoTitleVar]</param>
+						<param name="labelFont">font13_title</param>
+						<param name="labelBottom">318</param>
+						<param name="labelWidth">710</param>
+						<param name="labelLeft">243</param>
+						<param name="labelRight">965.5</param>
+						<param name="labelTitle">false</param>
+						</include>
+					</control>
+				</control>
+			<control type="group">
+				<top>70</top>
+				<control type="panel" id="80211">
+					<left>242.5</left>
+					<width>1435</width>
+					<height>300</height>
+					<orientation>horizontal</orientation>
+					<preloaditems>2</preloaditems>
+					<scrolltime tween="quadratic" easing="out">300</scrolltime>
+					<include>skinshortcuts-template-HorizontalNavigation2</include>
+					<include content="PortraitArt">
+						<param name="containerWidth">205</param>
+						<param name="containerHeight">300</param>
+						<param name="Texture">$VAR[PosterThumbVar]</param>
+						<param name="leftArt">2.5</param>
+						<param name="topArt">0</param>
+						<param name="widthArt">200</param>
+						<param name="heightArt">300</param>
+						<param name="topFakeDiscArt">0</param>
+						<param name="leftCase">2.5</param>
+						<param name="topCase">0</param>
+						<param name="widthCase">200</param>
+						<param name="heightCase">300</param>
+						<param name="labelHeight">-34</param>
+						<param name="labelFont">font12</param>
+						<param name="fallbackFont">fontCDalbum</param>
+						<param name="fallbackVisible">false</param>
+						<param name="Aspect">stretch</param>
+						<param name="Aligny">top</param>
+						<param name="Diffuse" />
+						<param name="Case" />
+						<param name="labelVisible">false</param>
+						<param name="labelFocusVisible">false</param>
+						<param name="isWeather">false</param>
+						<param name="weatherTop" />
+						<param name="weatherHeight" />
+						<param name="weatherTop1" />
+						<param name="weatherTop2" />
+						<param name="weatherTop3" />
+						<param name="weatherFont">font14</param>
+						</include>
+					<content>
+						<item>
+							<label2>$LOCALIZE[19055]</label2>
+							<icon>NotAvailable.png</icon>
+							<thumb>NotAvailable.png</thumb>
+							<visible>!false + String.IsEmpty(Container(80211).ListItem(1).Label)</visible>
+							</item>
+						<item>
+							<label2>$LOCALIZE[19055]</label2>
+							<icon>DefaultAddonNone.png</icon>
+							<thumb>DefaultAddonNone.png</thumb>
+							<visible>false + String.IsEmpty(Container(80211).ListItem(1).Label)</visible>
+							</item>
+						</content>
+					<content target="videos" sortby="" sortorder="" limit="$NUMBER[100]" browse="never">plugin://plugin.video.streamlord/?action=movies&amp;reload=$INFO[Window(Home).Property(widgetreload-movies)]</content>
+					</control>
+				</control>
+			</control>
+		<control type="group">
+			<animation effect="slide" end="0,-20" condition="false">Conditional</animation>
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),b-tvseries-b)</visible>
+			<control type="group">
+				<visible>Integer.IsGreater(Container(80212).NumItems,0)</visible>
+				<control type="group">
+					<top>70</top>
+					<control type="group">
+						<include condition="!String.IsEmpty(Skin.String(Widget.Trans))">HomeWidgetFade</include>
+						<centerleft>50%</centerleft>
+						<top>-21</top>
+						<width>1472.5</width>
+						<height>342</height>
+						<control type="image">
+							<width>1472.5</width>
+							<height>342</height>
+							<texture colordiffuse="$VAR[HomeWidgetBackColor]" border="40">$VAR[HomeWidgetBackgroundVar]</texture>
+							<visible>Skin.HasSetting(Enable.GlobalWidgetBack)</visible>
+							</control>
+						<control type="image">
+							<width>1472.5</width>
+							<height>342</height>
+							<texture colordiffuse="FF0B0B0B" border="40">homewidgets/bg_default.png</texture>
+							<visible>!Skin.HasSetting(Enable.GlobalWidgetBack)</visible>
+							</control>
+						</control>
+					<include content="PanelLabel">
+						<param name="id">80212</param>
+						<param name="Label">StreamLord - [B]TV Series[/B]</param>
+						<param name="Title">$VAR[HomeWidgetInfoTitleVar]</param>
+						<param name="labelFont">font13_title</param>
+						<param name="labelBottom">318</param>
+						<param name="labelWidth">710</param>
+						<param name="labelLeft">243</param>
+						<param name="labelRight">965.5</param>
+						<param name="labelTitle">false</param>
+						</include>
+					</control>
+				</control>
+			<control type="group">
+				<top>70</top>
+				<control type="panel" id="80212">
+					<left>242.5</left>
+					<width>1435</width>
+					<height>300</height>
+					<orientation>horizontal</orientation>
+					<preloaditems>2</preloaditems>
+					<scrolltime tween="quadratic" easing="out">300</scrolltime>
+					<include>skinshortcuts-template-HorizontalNavigation2</include>
+					<include content="PortraitArt">
+						<param name="containerWidth">205</param>
+						<param name="containerHeight">300</param>
+						<param name="Texture">$VAR[PosterThumbVar]</param>
+						<param name="leftArt">2.5</param>
+						<param name="topArt">0</param>
+						<param name="widthArt">200</param>
+						<param name="heightArt">300</param>
+						<param name="topFakeDiscArt">0</param>
+						<param name="leftCase">2.5</param>
+						<param name="topCase">0</param>
+						<param name="widthCase">200</param>
+						<param name="heightCase">300</param>
+						<param name="labelHeight">-34</param>
+						<param name="labelFont">font12</param>
+						<param name="fallbackFont">fontCDalbum</param>
+						<param name="fallbackVisible">false</param>
+						<param name="Aspect">stretch</param>
+						<param name="Aligny">top</param>
+						<param name="Diffuse" />
+						<param name="Case" />
+						<param name="labelVisible">false</param>
+						<param name="labelFocusVisible">false</param>
+						<param name="isWeather">false</param>
+						<param name="weatherTop" />
+						<param name="weatherHeight" />
+						<param name="weatherTop1" />
+						<param name="weatherTop2" />
+						<param name="weatherTop3" />
+						<param name="weatherFont">font14</param>
+						</include>
+					<content>
+						<item>
+							<label2>$LOCALIZE[19055]</label2>
+							<icon>NotAvailable.png</icon>
+							<thumb>NotAvailable.png</thumb>
+							<visible>!false + String.IsEmpty(Container(80212).ListItem(1).Label)</visible>
+							</item>
+						<item>
+							<label2>$LOCALIZE[19055]</label2>
+							<icon>DefaultAddonNone.png</icon>
+							<thumb>DefaultAddonNone.png</thumb>
+							<visible>false + String.IsEmpty(Container(80212).ListItem(1).Label)</visible>
+							</item>
+						</content>
+					<content target="videos" sortby="" sortorder="" limit="$NUMBER[100]" browse="never">plugin://plugin.video.streamlord/?action=tvseries&amp;reload=$INFO[Window(Home).Property(widgetreload)]$INFO[Window(Home).Property(widgetreload2)]</content>
+					</control>
+				</control>
+			</control>
+		<control type="group">
+			<animation effect="slide" end="0,-20" condition="false">Conditional</animation>
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),trendingdaily)</visible>
+			<control type="group">
+				<visible>Integer.IsGreater(Container(80213).NumItems,0)</visible>
+				<control type="group">
+					<top>70</top>
+					<control type="group">
+						<include condition="!String.IsEmpty(Skin.String(Widget.Trans))">HomeWidgetFade</include>
+						<centerleft>50%</centerleft>
+						<top>-21</top>
+						<width>1472.5</width>
+						<height>342</height>
+						<control type="image">
+							<width>1472.5</width>
+							<height>342</height>
+							<texture colordiffuse="$VAR[HomeWidgetBackColor]" border="40">$VAR[HomeWidgetBackgroundVar]</texture>
+							<visible>Skin.HasSetting(Enable.GlobalWidgetBack)</visible>
+							</control>
+						<control type="image">
+							<width>1472.5</width>
+							<height>342</height>
+							<texture colordiffuse="FF0B0B0B" border="40">homewidgets/bg_default.png</texture>
+							<visible>!Skin.HasSetting(Enable.GlobalWidgetBack)</visible>
+							</control>
+						</control>
+					<include content="PanelLabel">
+						<param name="id">80213</param>
+						<param name="Label">XPrime - Trending Daily</param>
+						<param name="Title">$VAR[HomeWidgetInfoTitleVar]</param>
+						<param name="labelFont">font13_title</param>
+						<param name="labelBottom">318</param>
+						<param name="labelWidth">710</param>
+						<param name="labelLeft">243</param>
+						<param name="labelRight">965.5</param>
+						<param name="labelTitle">false</param>
+						</include>
+					</control>
+				</control>
+			<control type="group">
+				<top>70</top>
+				<control type="panel" id="80213">
+					<left>242.5</left>
+					<width>1435</width>
+					<height>300</height>
+					<orientation>horizontal</orientation>
+					<preloaditems>2</preloaditems>
+					<scrolltime tween="quadratic" easing="out">300</scrolltime>
+					<include>skinshortcuts-template-HorizontalNavigation2</include>
+					<include content="PortraitArt">
+						<param name="containerWidth">205</param>
+						<param name="containerHeight">300</param>
+						<param name="Texture">$VAR[PosterThumbVar]</param>
+						<param name="leftArt">7.5</param>
+						<param name="topArt">6</param>
+						<param name="widthArt">190</param>
+						<param name="heightArt">288</param>
+						<param name="topFakeDiscArt">6</param>
+						<param name="leftCase">2.5</param>
+						<param name="topCase">0</param>
+						<param name="widthCase">200</param>
+						<param name="heightCase">300</param>
+						<param name="labelHeight">-34</param>
+						<param name="labelFont">font12</param>
+						<param name="fallbackFont">fontCDalbum</param>
+						<param name="fallbackVisible">false</param>
+						<param name="Aspect">stretch</param>
+						<param name="Aligny">top</param>
+						<param name="Diffuse" />
+						<param name="Case">homewidgets/cases/glass/portrait.png</param>
+						<param name="labelVisible">false</param>
+						<param name="labelFocusVisible">false</param>
+						<param name="isWeather">false</param>
+						<param name="weatherTop" />
+						<param name="weatherHeight" />
+						<param name="weatherTop1" />
+						<param name="weatherTop2" />
+						<param name="weatherTop3" />
+						<param name="weatherFont">font14</param>
+						</include>
+					<content>
+						<item>
+							<label2>$LOCALIZE[19055]</label2>
+							<icon>NotAvailable.png</icon>
+							<thumb>NotAvailable.png</thumb>
+							<visible>!false + String.IsEmpty(Container(80213).ListItem(1).Label)</visible>
+							</item>
+						<item>
+							<label2>$LOCALIZE[19055]</label2>
+							<icon>DefaultAddonNone.png</icon>
+							<thumb>DefaultAddonNone.png</thumb>
+							<visible>false + String.IsEmpty(Container(80213).ListItem(1).Label)</visible>
+							</item>
+						</content>
+					<content target="videos" sortby="" sortorder="" limit="$NUMBER[100]" browse="never">plugin://plugin.video.xprime/?action=movies&amp;url=tmdb_trending_day&amp;reload=$INFO[Window(Home).Property(widgetreload-movies)]</content>
+					</control>
+				</control>
+			</control>
+		<control type="group">
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),plugin-audio-mp3streams)</visible>
+			<top>90</top>
+			<left>245</left>
+			<control type="group">
+				<visible>Integer.IsGreater(Container(80215).NumItems,0)</visible>
+				<control type="group">
+					<visible>ControlGroup(90020).HasFocus + !Window.IsVisible(shutdownmenu) + !Window.IsVisible(favourites) + !Window.IsVisible(numericinput) + !Window.IsVisible(busydialog)</visible>
+					<animation effect="slide" end="-410,0" time="320" tween="cubic" easing="inout" condition="String.IsEqual(Skin.String(MainMenu.Layout),vertical) + String.Contains(Container(9000).ListItem.Property(widgetStyle.2),Extended) + ControlGroup(90020).HasFocus">Conditional</animation>
+					<control type="group">
+						<animation effect="fade" end="0">WindowClose</animation>
+						<control type="image">
+							<top>-40</top>
+							<width>1470</width>
+							<height>391</height>
+							<texture>homewidgets/list_shadow.png</texture>
+							</control>
+						<control type="group">
+							<include condition="!true">InfoPosterContent</include>
+							<include content="InfoTextContent" condition="!true">
+								<param name="left">226</param>
+								<param name="width">879</param>
+								</include>
+							</control>
+						<control type="group">
+							<include condition="true">InfoSquareContent</include>
+							<include content="InfoTextContent" condition="true">
+								<param name="left">330</param>
+								<param name="width">774</param>
+								</include>
+							</control>
+						</control>
+					</control>
+				<control type="group">
+					<left>1130</left>
+					<animation effect="slide" end="-410,0" condition="String.IsEqual(Skin.String(MainMenu.Layout),vertical) + String.Contains(Container(9000).ListItem.Property(widgetStyle.2),Extended)">Conditional</animation>
+					<control type="group">
+						<left>-21</left>
+						<top>-16</top>
+						<animation effect="rotatey" start="0" end="180" center="150" time="400" tween="sine" easing="inout" condition="Control.HasFocus(80215) + true">Conditional</animation>
+						<include condition="!String.IsEmpty(Skin.String(Widget.Trans))">HomeWidgetFade</include>
+						<control type="image">
+							<width>342</width>
+							<height>342</height>
+							<visible>Skin.HasSetting(Enable.GlobalWidgetBack)</visible>
+							<texture colordiffuse="$VAR[HomeWidgetBackColor]" border="40">$VAR[HomeWidgetBackgroundVar]</texture>
+							</control>
+						<control type="image">
+							<width>342</width>
+							<height>342</height>
+							<visible>!Skin.HasSetting(Enable.GlobalWidgetBack)</visible>
+							<texture colordiffuse="FF0B0B0B" border="40">homewidgets/bg_default.png</texture>
+							</control>
+						</control>
+					<control type="group">
+						<width>300</width>
+						<height>300</height>
+						<animation type="Conditional" condition="Control.HasFocus(80215) + true">
+							<effect type="rotatey" start="0" end="180" center="150" time="400" tween="sine" easing="inout" />
+							<effect type="fade" start="100" end="0" time="300" tween="sine" easing="inout" />
+							</animation>
+						<visible>String.IsEmpty(Container(80215).ListItem.Property(isSystemInfo))</visible>
+						<control type="label">
+							<width>300</width>
+							<top>9</top>
+							<height>20</height>
+							<align>center</align>
+							<font>font12_title</font>
+							<textcolor>grey</textcolor>
+							<shadowcolor>shadow</shadowcolor>
+							<label>SoundCloud - [B]New &amp; hot[/B]</label>
+							</control>
+						<control type="label">
+							<width>300</width>
+							<top>254</top>
+							<height>40</height>
+							<align>center</align>
+							<font>font12_title</font>
+							<textcolor>grey</textcolor>
+							<shadowcolor>shadow</shadowcolor>
+							<wrapmultiline>true</wrapmultiline>
+							<label>$VAR[HomeWidget80215TitleVar]</label>
+							</control>
+						<include content="ListSquareArt">
+							<param name="id">80215</param>
+							<param name="Texture">$VAR[HomeWidget80215PosterVar]</param>
+							<param name="Title2">$VAR[HomeWidget80215Title2Var]</param>
+							<param name="leftArt">54</param>
+							<param name="topArt">44</param>
+							<param name="widthArt">192</param>
+							<param name="heightArt">192</param>
+							<param name="topFakeDiscArt">44</param>
+							<param name="leftCase">50</param>
+							<param name="topCase">40</param>
+							<param name="widthCase">200</param>
+							<param name="heightCase">200</param>
+							<param name="caseVisible">true</param>
+							<param name="labelHeight" />
+							<param name="fallbackFont">fontCDalbum</param>
+							<param name="fallbackVisible">false</param>
+							<param name="Aspect">scale</param>
+							<param name="Aligny">top</param>
+							<param name="Diffuse" />
+							<param name="Case">homewidgets/cases/glass/square.png</param>
+							</include>
+						</control>
+					</control>
+				</control>
+			<control type="list" id="80215">
+				<top>5</top>
+				<left>1130</left>
+				<width>300</width>
+				<height>300</height>
+				<onleft condition="!String.IsEqual(Skin.String(MainMenu.Layout),vertical) + !Skin.HasSetting(centermainmenu) + Control.IsVisible(90010)">90010</onleft>
+				<onleft condition="!String.IsEqual(Skin.String(MainMenu.Layout),vertical) + !Skin.HasSetting(centermainmenu) + !Control.IsVisible(90010) + [System.HasMediaDVD | Control.IsVisible(9027)]">9020</onleft>
+				<onleft condition="!String.IsEqual(Skin.String(MainMenu.Layout),vertical) + !Skin.HasSetting(centermainmenu) + !Control.IsVisible(90010) + ![System.HasMediaDVD | Control.IsVisible(9027)]">9000</onleft>
+				<onleft condition="!String.IsEqual(Skin.String(MainMenu.Layout),vertical) + Skin.HasSetting(centermainmenu)">9000</onleft>
+				<onright condition="!String.IsEqual(Skin.String(MainMenu.Layout),vertical) + !Skin.HasSetting(centermainmenu)">9000</onright>
+				<onright condition="!String.IsEqual(Skin.String(MainMenu.Layout),vertical) + Skin.HasSetting(centermainmenu) + Control.IsVisible(90010)">90010</onright>
+				<onright condition="!String.IsEqual(Skin.String(MainMenu.Layout),vertical) + Skin.HasSetting(centermainmenu) + !Control.IsVisible(90010)">9000</onright>
+				<onleft condition="String.IsEqual(Skin.String(MainMenu.Layout),vertical)">9000</onleft>
+				<onright condition="String.IsEqual(Skin.String(MainMenu.Layout),vertical) + [System.HasMediaDVD | Control.IsVisible(9027)]">9020</onright>
+				<onright condition="String.IsEqual(Skin.String(MainMenu.Layout),vertical) + ![System.HasMediaDVD | Control.IsVisible(9027)]">9000</onright>
+				<onback>9000</onback>
+				<preloaditems>2</preloaditems>
+				<scrolltime tween="quadratic" easing="out">300</scrolltime>
+				<autoscroll time="10000" delay="10000" repeat="10000">Control.IsVisible(80215) + Skin.HasSetting(Enable.ListWidgetAutoscroll) + !Control.HasFocus(80215)</autoscroll>
+				<animation type="Conditional" condition="[!String.IsEqual(Skin.String(MainMenu.Layout),vertical) + !Control.HasFocus(80215) + true] | [String.IsEqual(Skin.String(MainMenu.Layout),vertical) + !String.Contains(Container(9000).ListItem.Property(widgetStyle.2),Extended) + !Control.HasFocus(80215) + true]">
+					<effect type="rotatey" start="0" end="-180" center="1280" time="400" tween="sine" easing="inout" />
+					<effect type="fade" start="100" end="0" time="300" tween="sine" easing="inout" />
+					</animation>
+				<animation type="Conditional" condition="String.IsEqual(Skin.String(MainMenu.Layout),vertical) + String.Contains(Container(9000).ListItem.Property(widgetStyle.2),Extended) + !Control.HasFocus(80215) + true">
+					<effect type="rotatey" start="0" end="-180" center="1280" time="400" tween="sine" easing="inout" />
+					<effect type="fade" start="100" end="0" time="300" tween="sine" easing="inout" />
+					</animation>
+				<animation effect="slide" end="-410,0" condition="String.IsEqual(Skin.String(MainMenu.Layout),vertical) + String.Contains(Container(9000).ListItem.Property(widgetStyle.2),Extended)">Conditional</animation>
+				<include content="List">
+					<param name="id">80215</param>
+					<param name="Texture">$VAR[HomeWidget80215PosterVar]</param>
+					<param name="leftArt">3</param>
+					<param name="topArt">5.5</param>
+					<param name="widthArt">294</param>
+					<param name="heightArt">50</param>
+					<param name="leftCase">0</param>
+					<param name="topCase">2.5</param>
+					<param name="widthCase">300</param>
+					<param name="heightCase">56</param>
+					<param name="fallbackFont">fontCDalbum</param>
+					<param name="Case">homewidgets/cases/glass/banner.png</param>
+					</include>
+				<content>
+					<item>
+						<label2>$LOCALIZE[19055]</label2>
+						<icon>NotAvailable.png</icon>
+						<thumb>NotAvailable.png</thumb>
+						<visible>!true + String.IsEmpty(Container(80215).ListItem(1).Label)</visible>
+						</item>
+					<item>
+						<label2>$LOCALIZE[19055]</label2>
+						<icon>DefaultAddonNone.png</icon>
+						<thumb>DefaultAddonNone.png</thumb>
+						<visible>true + String.IsEmpty(Container(80215).ListItem(1).Label)</visible>
+						</item>
+					</content>
+				<content target="music" sortby="" sortorder="" limit="$NUMBER[100]" browse="never">plugin://plugin.audio.soundcloud/charts/?action=trending&amp;reload=$INFO[Window(Home).Property(widgetreload)]$INFO[Window(Home).Property(widgetreload2)]</content>
+				</control>
+			</control>
+		</include>
+	<include name="skinshortcuts-template-HorizontalNavigation1">
+		<include condition="String.IsEqual(System.ProfileName,Master user)">skinshortcuts-template-HorizontalNavigation1-Master user</include>
+		</include>
+	<include name="skinshortcuts-template-HorizontalNavigation1-Master user">
+		<onup condition="!String.IsEqual(Skin.String(MainMenu.Layout),vertical) + Control.IsVisible(90020) + !Skin.HasSetting(centermainmenu)">90020</onup>
+		<onup condition="String.IsEqual(Skin.String(MainMenu.Layout),vertical) + [Control.IsVisible(9027) | System.HasMediaDVD]">9020</onup>
+		<onup condition="String.IsEqual(Skin.String(MainMenu.Layout),vertical) + ![Control.IsVisible(9027) | System.HasMediaDVD]">9000</onup>
+		<ondown condition="!String.IsEqual(Skin.String(MainMenu.Layout),vertical) + ![System.HasMediaDVD | Control.IsVisible(9027)]">9000</ondown>
+		<ondown condition="!String.IsEqual(Skin.String(MainMenu.Layout),vertical) + [System.HasMediaDVD | Control.IsVisible(9027)]">9020</ondown>
+		<ondown condition="String.IsEqual(Skin.String(MainMenu.Layout),vertical) + Control.IsVisible(90020)">90020</ondown>
+		<ondown condition="String.IsEqual(Skin.String(MainMenu.Layout),vertical) + !Control.IsVisible(90020) + [Control.IsVisible(9027) | System.HasMediaDVD]">9020</ondown>
+		<ondown condition="String.IsEqual(Skin.String(MainMenu.Layout),vertical) + !Control.IsVisible(90020) + ![Control.IsVisible(9027) | System.HasMediaDVD]">9000</ondown>
+		<onleft condition="String.IsEqual(Skin.String(MainMenu.Layout),vertical)">9000</onleft>
+		<onback>9000</onback>
+		</include>
+	<include name="skinshortcuts-template-HorizontalNavigation2">
+		<include condition="String.IsEqual(System.ProfileName,Master user)">skinshortcuts-template-HorizontalNavigation2-Master user</include>
+		</include>
+	<include name="skinshortcuts-template-HorizontalNavigation2-Master user">
+		<onup condition="!String.IsEqual(Skin.String(MainMenu.Layout),vertical) + Skin.HasSetting(centermainmenu)">9000</onup>
+		<onup condition="String.IsEqual(Skin.String(MainMenu.Layout),vertical) + Control.IsVisible(90010)">90010</onup>
+		<onup condition="String.IsEqual(Skin.String(MainMenu.Layout),vertical) + !Control.IsVisible(90010) + [Control.IsVisible(9027) | System.HasMediaDVD]">9020</onup>
+		<onup condition="String.IsEqual(Skin.String(MainMenu.Layout),vertical) + !Control.IsVisible(90010) + ![Control.IsVisible(9027) | System.HasMediaDVD]">9000</onup>
+		<ondown condition="!String.IsEqual(Skin.String(MainMenu.Layout),vertical) + Control.IsVisible(90020) + Skin.HasSetting(centermainmenu)">90020</ondown>
+		<ondown condition="!String.IsEqual(Skin.String(MainMenu.Layout),vertical) + Control.IsVisible(90010) + !Skin.HasSetting(centermainmenu)">90010</ondown>
+		<ondown condition="!String.IsEqual(Skin.String(MainMenu.Layout),vertical) + !Control.IsVisible(90010) + [System.HasMediaDVD | Control.IsVisible(9027)] + !Skin.HasSetting(centermainmenu)">9020</ondown>
+		<ondown condition="!String.IsEqual(Skin.String(MainMenu.Layout),vertical) + !Control.IsVisible(90010) + ![System.HasMediaDVD | Control.IsVisible(9027)] + !Skin.HasSetting(centermainmenu)">9000</ondown>
+		<ondown condition="String.IsEqual(Skin.String(MainMenu.Layout),vertical) + [Control.IsVisible(9027) | System.HasMediaDVD]">9020</ondown>
+		<ondown condition="String.IsEqual(Skin.String(MainMenu.Layout),vertical) + ![Control.IsVisible(9027) | System.HasMediaDVD]">9000</ondown>
+		<onleft condition="String.IsEqual(Skin.String(MainMenu.Layout),vertical)">9000</onleft>
+		<onback>9000</onback>
+		</include>
+	<include name="skinshortcuts-template-WidgetPoster">
+		<include condition="String.IsEqual(System.ProfileName,Master user)">skinshortcuts-template-WidgetPoster-Master user</include>
+		</include>
+	<include name="skinshortcuts-template-WidgetPoster-Master user" />
+	<include name="skinshortcuts-template-WidgetPoster.2">
+		<include condition="String.IsEqual(System.ProfileName,Master user)">skinshortcuts-template-WidgetPoster.2-Master user</include>
+		</include>
+	<include name="skinshortcuts-template-WidgetPoster.2-Master user" />
+	<include name="skinshortcuts-template-WidgetTitle">
+		<include condition="String.IsEqual(System.ProfileName,Master user)">skinshortcuts-template-WidgetTitle-Master user</include>
+		</include>
+	<include name="skinshortcuts-template-WidgetTitle-Master user" />
+	<include name="skinshortcuts-template-WidgetTitle.2">
+		<include condition="String.IsEqual(System.ProfileName,Master user)">skinshortcuts-template-WidgetTitle.2-Master user</include>
+		</include>
+	<include name="skinshortcuts-template-WidgetTitle.2-Master user" />
+	<include name="skinshortcuts-template-WidgetTitle2">
+		<include condition="String.IsEqual(System.ProfileName,Master user)">skinshortcuts-template-WidgetTitle2-Master user</include>
+		</include>
+	<include name="skinshortcuts-template-WidgetTitle2-Master user" />
+	<include name="skinshortcuts-template-WidgetTitle2.2">
+		<include condition="String.IsEqual(System.ProfileName,Master user)">skinshortcuts-template-WidgetTitle2.2-Master user</include>
+		</include>
+	<include name="skinshortcuts-template-WidgetTitle2.2-Master user" />
+	<variable name="HomeWidget80115CaseVar">
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(WidgetType),tvshows)">tvseries.png</value>
+		<value condition="Container(80115).ListItem.IsCollection">set.png</value>
+		<value condition="Container(80115).ListItem.IsStereoscopic">3d.png</value>
+		<value condition="String.Contains(Container(80115).ListItem.Filename,hddvd)">hddvd.png</value>
+		<value condition="String.Contains(Container(80115).ListItem.Filename,hdtv) | String.Contains(Container(80115).ListItem.Filename,hd tv)">hdtv.png</value>
+		<value condition="String.Contains(Container(80115).ListItem.Filename,webdl) | String.Contains(Container(80115).ListItem.Filename,web-dl) | String.Contains(Container(80115).ListItem.Filename,webtv) | String.Contains(Container(80115).ListItem.Filename,web-tv)">webdl.png</value>
+		<value condition="!String.IsEmpty(Container(80115).ListItem.VideoResolution)">$INFO[Container(80115).ListItem.VideoResolution]p.png</value>
+		<value condition="!String.IsEmpty(Container(80115).ListItem.Property(VideoResolution))">$INFO[Container(80115).ListItem.Property(VideoResolution)]p.png</value>
+		<value condition="String.IsEmpty(Container(80115).ListItem.Property(VideoResolution)) + String.IsEmpty(Container(80115).ListItem.TVShowTitle) + [!String.IsEmpty(Container(80115).ListItem.Trailer) | String.Contains(Container(80115).ListItem.FolderPath,extendedinfo)]">trailers.png</value>
+		<value />
+		</variable>
+	<variable name="HomeWidget801155InfoCaseVar">
+		<value condition="String.IsEqual(Skin.String(Widget.CaseInfo),Glass) + String.IsEmpty(Container(80115).ListItem.Property(Label3)) + String.IsEmpty(Container(80115).ListItem.ChannelName) + String.IsEmpty(Container(80115).ListItem.Artist) + String.IsEmpty(Container(80115).ListItem.AlbumArtist) + String.IsEmpty(Container(80115).ListItem.AddonName) + !false">homewidgets/cases/glass/portrait.png</value>
+		<value condition="String.IsEqual(Skin.String(Widget.CaseInfo),Glass)">homewidgets/cases/glass/square.png</value>
+		<value condition="String.IsEqual(Skin.String(Widget.CaseInfo),Case) + String.IsEmpty(Container(80115).ListItem.Property(Label3)) + String.IsEmpty(Container(80115).ListItem.ChannelName) + String.IsEmpty(Container(80115).ListItem.Artist) + String.IsEmpty(Container(80115).ListItem.AlbumArtist) + String.IsEmpty(Container(80115).ListItem.AddonName) + !false">homewidgets/cases/default/poster/$VAR[HomeWidget80115CaseVar]</value>
+		<value condition="String.IsEqual(Skin.String(Widget.CaseInfo),Case)">homewidgets/cases/default/square/cd.png</value>
+		<value condition="String.IsEqual(Skin.String(Widget.CaseInfo),Clear Case) + String.IsEmpty(Container(80115).ListItem.Property(Label3)) + String.IsEmpty(Container(80115).ListItem.ChannelName) + String.IsEmpty(Container(80115).ListItem.Artist) + String.IsEmpty(Container(80115).ListItem.AlbumArtist) + String.IsEmpty(Container(80115).ListItem.AddonName) + !false">homewidgets/cases/clearcase/poster/$VAR[HomeWidget80115CaseVar]</value>
+		<value condition="String.IsEqual(Skin.String(Widget.CaseInfo),Clear Case)">homewidgets/cases/clearcase/square/cd.png</value>
+		<value condition="String.IsEqual(Skin.String(Widget.CaseInfo),Match widget panel) + ! + String.IsEmpty(Container(80115).ListItem.Property(Label3)) + String.IsEmpty(Container(80115).ListItem.ChannelName) + String.IsEmpty(Container(80115).ListItem.Artist) + String.IsEmpty(Container(80115).ListItem.AlbumArtist) + String.IsEmpty(Container(80115).ListItem.AddonName) + !false">homewidgets/cases/poster/$VAR[HomeWidget80115CaseVar]/poster/$VAR[HomeWidget80115CaseVar]</value>
+		<value condition="String.IsEqual(Skin.String(Widget.CaseInfo),Match widget panel) + !">homewidgets/cases/poster/$VAR[HomeWidget80115CaseVar]/square/cd.png</value>
+		<value condition="String.IsEqual(Skin.String(Widget.CaseInfo),Match widget panel) +  + String.IsEmpty(Container(80115).ListItem.Property(Label3)) + String.IsEmpty(Container(80115).ListItem.ChannelName) + String.IsEmpty(Container(80115).ListItem.Artist) + String.IsEmpty(Container(80115).ListItem.AlbumArtist) + String.IsEmpty(Container(80115).ListItem.AddonName) + !false">homewidgets/cases/glass/portrait.png</value>
+		<value condition="String.IsEqual(Skin.String(Widget.CaseInfo),Match widget panel) + ">homewidgets/cases/glass/square.png</value>
+		<value />
+		</variable>
+	<variable name="HomeWidget80215CaseVar">
+		<value condition="String.IsEqual(Container(9000).ListItem.Property(WidgetType.2),tvshows)">tvseries.png</value>
+		<value condition="Container(80215).ListItem.IsCollection">set.png</value>
+		<value condition="Container(80215).ListItem.IsStereoscopic">3d.png</value>
+		<value condition="String.Contains(Container(80215).ListItem.Filename,hddvd)">hddvd.png</value>
+		<value condition="String.Contains(Container(80215).ListItem.Filename,hdtv) | String.Contains(Container(80215).ListItem.Filename,hd tv)">hdtv.png</value>
+		<value condition="String.Contains(Container(80215).ListItem.Filename,webdl) | String.Contains(Container(80215).ListItem.Filename,web-dl) | String.Contains(Container(80215).ListItem.Filename,webtv) | String.Contains(Container(80215).ListItem.Filename,web-tv)">webdl.png</value>
+		<value condition="!String.IsEmpty(Container(80215).ListItem.VideoResolution)">$INFO[Container(80215).ListItem.VideoResolution]p.png</value>
+		<value condition="!String.IsEmpty(Container(80215).ListItem.Property(VideoResolution))">$INFO[Container(80215).ListItem.Property(VideoResolution)]p.png</value>
+		<value condition="String.IsEmpty(Container(80215).ListItem.Property(VideoResolution)) + String.IsEmpty(Container(80215).ListItem.TVShowTitle) + [!String.IsEmpty(Container(80215).ListItem.Trailer) | String.Contains(Container(80215).ListItem.FolderPath,extendedinfo)]">trailers.png</value>
+		<value />
+		</variable>
+	<variable name="HomeWidget80215InfoCaseVar">
+		<value condition="String.IsEqual(Skin.String(Widget.CaseInfo),Glass) + String.IsEmpty(Container(80215).ListItem.Property(Label3)) + String.IsEmpty(Container(80215).ListItem.ChannelName) + String.IsEmpty(Container(80215).ListItem.Artist) + String.IsEmpty(Container(80215).ListItem.AlbumArtist) + String.IsEmpty(Container(80215).ListItem.AddonName) + !true">homewidgets/cases/glass/portrait.png</value>
+		<value condition="String.IsEqual(Skin.String(Widget.CaseInfo),Glass)">homewidgets/cases/glass/square.png</value>
+		<value condition="String.IsEqual(Skin.String(Widget.CaseInfo),Case) + String.IsEmpty(Container(80215).ListItem.Property(Label3)) + String.IsEmpty(Container(80215).ListItem.ChannelName) + String.IsEmpty(Container(80215).ListItem.Artist) + String.IsEmpty(Container(80215).ListItem.AlbumArtist) + String.IsEmpty(Container(80215).ListItem.AddonName) + !true">homewidgets/cases/default/poster/$VAR[HomeWidget80215CaseVar]</value>
+		<value condition="String.IsEqual(Skin.String(Widget.CaseInfo),Case)">homewidgets/cases/default/square/cd.png</value>
+		<value condition="String.IsEqual(Skin.String(Widget.CaseInfo),Clear Case) + String.IsEmpty(Container(80215).ListItem.Property(Label3)) + String.IsEmpty(Container(80215).ListItem.ChannelName) + String.IsEmpty(Container(80215).ListItem.Artist) + String.IsEmpty(Container(80215).ListItem.AlbumArtist) + String.IsEmpty(Container(80215).ListItem.AddonName) + !true">homewidgets/cases/clearcase/poster/$VAR[HomeWidget80215CaseVar]</value>
+		<value condition="String.IsEqual(Skin.String(Widget.CaseInfo),Clear Case)">homewidgets/cases/clearcase/square/cd.png</value>
+		<value condition="String.IsEqual(Skin.String(Widget.CaseInfo),Match widget panel) + ! + String.IsEmpty(Container(80215).ListItem.Property(Label3)) + String.IsEmpty(Container(80215).ListItem.ChannelName) + String.IsEmpty(Container(80215).ListItem.Artist) + String.IsEmpty(Container(80215).ListItem.AlbumArtist) + String.IsEmpty(Container(80215).ListItem.AddonName) + !true">homewidgets/cases/square/cd.png/poster/$VAR[HomeWidget80215CaseVar]</value>
+		<value condition="String.IsEqual(Skin.String(Widget.CaseInfo),Match widget panel) + !">homewidgets/cases/square/cd.png/square/cd.png</value>
+		<value condition="String.IsEqual(Skin.String(Widget.CaseInfo),Match widget panel) +  + String.IsEmpty(Container(80215).ListItem.Property(Label3)) + String.IsEmpty(Container(80215).ListItem.ChannelName) + String.IsEmpty(Container(80215).ListItem.Artist) + String.IsEmpty(Container(80215).ListItem.AlbumArtist) + String.IsEmpty(Container(80215).ListItem.AddonName) + !true">homewidgets/cases/glass/portrait.png</value>
+		<value condition="String.IsEqual(Skin.String(Widget.CaseInfo),Match widget panel) + ">homewidgets/cases/glass/square.png</value>
+		<value />
+		</variable>
+	<variable name="HomeWidget80115PosterVar">
+		<value condition="!String.IsEmpty(Container(80115).ListItem.Art(poster))">$INFO[Container(80115).ListItem.Art(poster)]</value>
+		<value condition="!String.IsEmpty(Container(80115).ListItem.Art(tvshow.poster))">$INFO[Container(80115).ListItem.Art(tvshow.poster)]</value>
+		<value condition="!String.IsEmpty(Container(80115).ListItem.Icon)">$INFO[Container(80115).ListItem.Icon]</value>
+		<value>$INFO[Container(80115).ListItem.Art(thumb)]</value>
+		</variable>
+	<variable name="HomeWidget80215PosterVar">
+		<value condition="!String.IsEmpty(Container(80215).ListItem.Art(poster))">$INFO[Container(80215).ListItem.Art(poster)]</value>
+		<value condition="!String.IsEmpty(Container(80215).ListItem.Art(tvshow.poster))">$INFO[Container(80215).ListItem.Art(tvshow.poster)]</value>
+		<value condition="!String.IsEmpty(Container(80215).ListItem.Icon)">$INFO[Container(80215).ListItem.Icon]</value>
+		<value>$INFO[Container(80215).ListItem.Art(thumb)]</value>
+		</variable>
+	<variable name="HomeWidget80115TitleVar">
+		<value condition="!String.IsEmpty(Container(80115).ListItem.AddonName)">$INFO[Container(80115).ListItem.AddonName]</value>
+		<value condition="[!Integer.IsGreater(Container(80115).ListItem.Season,9) + !Integer.IsGreater(Container(80115).ListItem.Episode,9)] + !String.StartsWith(Container(80115).ListItem.Episode,S) + !String.IsEmpty(Container(80115).ListItem.Episode) + !String.IsEqual(Container(80115).ListItem.Label,Container(80115).ListItem.TVShowTitle)">$INFO[Container(80115).ListItem.Season,S0]$INFO[Container(80115).ListItem.Episode,E0] $INFO[Container(80115).ListItem.Title]</value>
+		<value condition="[!Integer.IsGreater(Container(80115).ListItem.Season,9) + !Integer.IsGreater(Container(80115).ListItem.Episode,9)] + String.StartsWith(Container(80115).ListItem.Episode,S) + !String.IsEmpty(Container(80115).ListItem.Episode) + !String.IsEqual(Container(80115).ListItem.Label,Container(80115).ListItem.TVShowTitle)">$INFO[Container(80115).ListItem.Season,S0]$INFO[Container(80115).ListItem.Episode] $INFO[Container(80115).ListItem.Title]</value>
+		<value condition="[!Integer.IsGreater(Container(80115).ListItem.Season,9) + Integer.IsGreater(Container(80115).ListItem.Episode,9)] + !String.IsEmpty(Container(80115).ListItem.Episode) + !String.IsEqual(Container(80115).ListItem.Label,Container(80115).ListItem.TVShowTitle)">$INFO[Container(80115).ListItem.Season,S0]$INFO[Container(80115).ListItem.Episode,E] $INFO[Container(80115).ListItem.Title]</value>
+		<value condition="[Integer.IsGreater(Container(80115).ListItem.Season,9) + !Integer.IsGreater(Container(80115).ListItem.Episode,9)] + !String.IsEmpty(Container(80115).ListItem.Episode) + !String.IsEqual(Container(80115).ListItem.Label,Container(80115).ListItem.TVShowTitle)">$INFO[Container(80115).ListItem.Season,S]$INFO[Container(80115).ListItem.Episode,E0] $INFO[Container(80115).ListItem.Title]</value>
+		<value condition="[Integer.IsGreater(Container(80115).ListItem.Season,9) + Integer.IsGreater(Container(80115).ListItem.Episode,9)] + !String.IsEmpty(Container(80115).ListItem.Episode) + !String.IsEqual(Container(80115).ListItem.Label,Container(80115).ListItem.TVShowTitle)">$INFO[Container(80115).ListItem.Season,S]$INFO[Container(80115).ListItem.Episode,E] $INFO[Container(80115).ListItem.Title]</value>
+		<value>$INFO[Container(80115).ListItem.Label]</value>
+		</variable>
+	<variable name="HomeWidget80215TitleVar">
+		<value condition="!String.IsEmpty(Container(80215).ListItem.AddonName)">$INFO[Container(80215).ListItem.AddonName]</value>
+		<value condition="[!Integer.IsGreater(Container(80215).ListItem.Season,9) + !Integer.IsGreater(Container(80215).ListItem.Episode,9)] + !String.StartsWith(Container(80215).ListItem.Episode,S) + !String.IsEmpty(Container(80215).ListItem.Episode) + !String.IsEqual(Container(80215).ListItem.Label,Container(80215).ListItem.TVShowTitle)">$INFO[Container(80215).ListItem.Season,S0]$INFO[Container(80215).ListItem.Episode,E0] $INFO[Container(80215).ListItem.Title]</value>
+		<value condition="[!Integer.IsGreater(Container(80215).ListItem.Season,9) + !Integer.IsGreater(Container(80215).ListItem.Episode,9)] + String.StartsWith(Container(80215).ListItem.Episode,S) + !String.IsEmpty(Container(80215).ListItem.Episode) + !String.IsEqual(Container(80215).ListItem.Label,Container(80215).ListItem.TVShowTitle)">$INFO[Container(80215).ListItem.Season,S0]$INFO[Container(80215).ListItem.Episode] $INFO[Container(80215).ListItem.Title]</value>
+		<value condition="[!Integer.IsGreater(Container(80215).ListItem.Season,9) + Integer.IsGreater(Container(80215).ListItem.Episode,9)] + !String.IsEmpty(Container(80215).ListItem.Episode) + !String.IsEqual(Container(80215).ListItem.Label,Container(80215).ListItem.TVShowTitle)">$INFO[Container(80215).ListItem.Season,S0]$INFO[Container(80215).ListItem.Episode,E] $INFO[Container(80215).ListItem.Title]</value>
+		<value condition="[Integer.IsGreater(Container(80215).ListItem.Season,9) + !Integer.IsGreater(Container(80215).ListItem.Episode,9)] + !String.IsEmpty(Container(80215).ListItem.Episode) + !String.IsEqual(Container(80215).ListItem.Label,Container(80215).ListItem.TVShowTitle)">$INFO[Container(80215).ListItem.Season,S]$INFO[Container(80215).ListItem.Episode,E0] $INFO[Container(80215).ListItem.Title]</value>
+		<value condition="[Integer.IsGreater(Container(80215).ListItem.Season,9) + Integer.IsGreater(Container(80215).ListItem.Episode,9)] + !String.IsEmpty(Container(80215).ListItem.Episode) + !String.IsEqual(Container(80215).ListItem.Label,Container(80215).ListItem.TVShowTitle)">$INFO[Container(80215).ListItem.Season,S]$INFO[Container(80215).ListItem.Episode,E] $INFO[Container(80215).ListItem.Title]</value>
+		<value>$INFO[Container(80215).ListItem.Label]</value>
+		</variable>
+	<variable name="HomeWidget80115Title2Var">
+		<value condition="!String.IsEmpty(Container(80115).ListItem.TVShowTitle)">$INFO[Container(80115).ListItem.TVShowTitle]</value>
+		<value condition="!String.IsEmpty(Container(80115).ListItem.Artist)">$INFO[Container(80115).ListItem.Artist]</value>
+		<value condition="!String.IsEmpty(Container(80115).ListItem.AlbumArtist)">$INFO[Container(80115).ListItem.AlbumArtist]</value>
+		<value>$INFO[Container(80115).ListItem.Label]</value>
+		</variable>
+	<variable name="HomeWidget80215Title2Var">
+		<value condition="!String.IsEmpty(Container(80215).ListItem.TVShowTitle)">$INFO[Container(80215).ListItem.TVShowTitle]</value>
+		<value condition="!String.IsEmpty(Container(80215).ListItem.Artist)">$INFO[Container(80215).ListItem.Artist]</value>
+		<value condition="!String.IsEmpty(Container(80215).ListItem.AlbumArtist)">$INFO[Container(80215).ListItem.AlbumArtist]</value>
+		<value>$INFO[Container(80215).ListItem.Label]</value>
+		</variable>
+	<include name="skinshortcuts-template-WidgetFanArt">
+		<description>This include was built automatically as the template didn't match any menu items</description>
+		</include>
+	<include name="skinshortcuts-template-WidgetFanArt.2">
+		<description>This include was built automatically as the template didn't match any menu items</description>
+		</include>
+	<include name="skinshortcuts-template-WidgetLandscape">
+		<description>This include was built automatically as the template didn't match any menu items</description>
+		</include>
+	<include name="skinshortcuts-template-WidgetLandscape.2">
+		<description>This include was built automatically as the template didn't match any menu items</description>
+		</include>
+	<include name="skinshortcuts-template-WidgetClearArt">
+		<description>This include was built automatically as the template didn't match any menu items</description>
+		</include>
+	<include name="skinshortcuts-template-WidgetClearArt.2">
+		<description>This include was built automatically as the template didn't match any menu items</description>
+		</include>
+	<include name="skinshortcuts-template-WidgetClearLogo">
+		<description>This include was built automatically as the template didn't match any menu items</description>
+		</include>
+	<include name="skinshortcuts-template-WidgetClearLogo.2">
+		<description>This include was built automatically as the template didn't match any menu items</description>
+		</include>
+	<include name="skinshortcuts-template-WidgetThumb">
+		<description>This include was built automatically as the template didn't match any menu items</description>
+		</include>
+	<include name="skinshortcuts-template-WidgetThumb.2">
+		<description>This include was built automatically as the template didn't match any menu items</description>
+		</include>
+	<include name="skinshortcuts-template-WidgetCharacterArt">
+		<description>This include was built automatically as the template didn't match any menu items</description>
+		</include>
+	<include name="skinshortcuts-template-WidgetCharacterArt.2">
+		<description>This include was built automatically as the template didn't match any menu items</description>
+		</include>
+	<include name="skinshortcuts-template-WidgetBanner">
+		<description>This include was built automatically as the template didn't match any menu items</description>
+		</include>
+	<include name="skinshortcuts-template-WidgetBanner.2">
+		<description>This include was built automatically as the template didn't match any menu items</description>
+		</include>
+	<include name="skinshortcuts-template-WeatherForecastContent">
+		<description>This include was built automatically as the template didn't match any menu items</description>
+		</include>
+	<include name="skinshortcuts-template-WeatherTodayContent">
+		<description>This include was built automatically as the template didn't match any menu items</description>
+		</include>
+	<include name="skinshortcuts-template-WeatherTomorrowContent">
+		<description>This include was built automatically as the template didn't match any menu items</description>
+		</include>
+	<include name="skinshortcuts-template-SystemContent">
+		<description>This include was built automatically as the template didn't match any menu items</description>
+		</include>
+	<include name="skinshortcuts-template-SystemUptime">
+		<description>This include was built automatically as the template didn't match any menu items</description>
+		</include>
+	<include name="skinshortcuts-template-SystemBattery">
+		<description>This include was built automatically as the template didn't match any menu items</description>
+		</include>
+	<include name="skinshortcuts-template-SystemNetwork">
+		<description>This include was built automatically as the template didn't match any menu items</description>
+		</include>
+	<include name="skinshortcuts-template-SystemVideo">
+		<description>This include was built automatically as the template didn't match any menu items</description>
+		</include>
+	<include name="skinshortcuts-template-SystemCPU">
+		<description>This include was built automatically as the template didn't match any menu items</description>
+		</include>
+	<include name="skinshortcuts-template-SystemMemory">
+		<description>This include was built automatically as the template didn't match any menu items</description>
+		</include>
+	<include name="skinshortcuts-template-SystemStorage">
+		<description>This include was built automatically as the template didn't match any menu items</description>
+		</include>
+	<include name="skinshortcuts-template-SystemPVR">
+		<description>This include was built automatically as the template didn't match any menu items</description>
+		</include>
+	<include name="skinshortcuts-template-SystemVersion">
+		<description>This include was built automatically as the template didn't match any menu items</description>
+		</include>
+	</includes>

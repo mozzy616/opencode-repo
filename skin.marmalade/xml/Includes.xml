@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+    <variable name="AccentPrimaryColor">
+        <value>FFFF8C14</value>
+    </variable>
+    <variable name="GlassPanelColor">
+        <value>50FF8C14</value>
+    </variable>
+    <variable name="GlassMenuColor">
+        <value>B0FF8C14</value>
+    </variable>
+    <variable name="GlassHeaderColor">
+        <value>D0FF8C14</value>
+    </variable>
+    <variable name="TextPrimaryColor">
+        <value>FFF5F0E8</value>
+    </variable>
+    <variable name="TextSecondaryColor">
+        <value>FFC0B8A8</value>
+    </variable>
+    <variable name="TextMutedColor">
+        <value>FF807868</value>
+    </variable>
+    <variable name="TextFocusColor">
+        <value>FFFFF0D0</value>
+    </variable>
+    <variable name="StatusOK">
+        <value>FF40C060</value>
+    </variable>
+    <variable name="StatusWarning">
+        <value>FFFFB030</value>
+    </variable>
+    <variable name="StatusError">
+        <value>FFE04040</value>
+    </variable>
+</includes>

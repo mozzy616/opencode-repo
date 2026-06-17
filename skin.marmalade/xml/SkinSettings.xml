@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<skinsettings>
+    <category label="Color Scheme">
+        <setting id="ColorTheme" type="select" label="Color Theme" default="Orange" values="Orange|Blue|Green|Red|Purple|Teal|Pink|Gold"/>
+        <setting id="GlassOpacity" type="slider" label="Glass Opacity" default="70" range="30,95"/>
+    </category>
+    <category label="Home Menu">
+        <setting id="MenuCount" type="slider" label="Menu Items" default="6" range="3,12"/>
+        <setting id="Menu1Label" type="string" label="Menu 1 Label" default="Movies"/>
+        <setting id="Menu1Action" type="string" label="Menu 1 Action" default="ActivateWindow(Videos,MovieTitles,return)"/>
+        <setting id="Menu2Label" type="string" label="Menu 2 Label" default="TV Shows"/>
+        <setting id="Menu2Action" type="string" label="Menu 2 Action" default="ActivateWindow(Videos,TvShowTitles,return)"/>
+        <setting id="Menu3Label" type="string" label="Menu 3 Label" default="Add-ons"/>
+        <setting id="Menu3Action" type="string" label="Menu 3 Action" default="ActivateWindow(AddonBrowser,addons://user,return)"/>
+        <setting id="Menu4Label" type="string" label="Menu 4 Label" default="Live TV"/>
+        <setting id="Menu4Action" type="string" label="Menu 4 Action" default="ActivateWindow(TVChannels)"/>
+        <setting id="Menu5Label" type="string" label="Menu 5 Label" default="Settings"/>
+        <setting id="Menu5Action" type="string" label="Menu 5 Action" default="ActivateWindow(Settings)"/>
+        <setting id="Menu6Label" type="string" label="Menu 6 Label" default="Favorites"/>
+        <setting id="Menu6Action" type="string" label="Menu 6 Action" default="ActivateWindow(Favourites)"/>
+        <setting id="Menu7Label" type="string" label="Menu 7 Label" default=""/>
+        <setting id="Menu7Action" type="string" label="Menu 7 Action" default=""/>
+        <setting id="Menu8Label" type="string" label="Menu 8 Label" default=""/>
+        <setting id="Menu8Action" type="string" label="Menu 8 Action" default=""/>
+        <setting id="Menu9Label" type="string" label="Menu 9 Label" default=""/>
+        <setting id="Menu9Action" type="string" label="Menu 9 Action" default=""/>
+        <setting id="Menu10Label" type="string" label="Menu 10 Label" default=""/>
+        <setting id="Menu10Action" type="string" label="Menu 10 Action" default=""/>
+        <setting id="Menu11Label" type="string" label="Menu 11 Label" default=""/>
+        <setting id="Menu11Action" type="string" label="Menu 11 Action" default=""/>
+        <setting id="Menu12Label" type="string" label="Menu 12 Label" default=""/>
+        <setting id="Menu12Action" type="string" label="Menu 12 Action" default=""/>
+    </category>
+    <category label="Home Style">
+        <setting id="ShowClock" type="bool" label="Show Clock" default="true"/>
+        <setting id="ShowFooter" type="bool" label="Show Footer" default="true"/>
+    </category>
+</skinsettings>

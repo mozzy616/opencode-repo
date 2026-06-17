@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<colors>
+    <!-- Accent colors - user configurable via SkinSettings -->
+    <color name="AccentPrimary">
+        <value>FFFF8C14</value>
+    </color>
+    <color name="AccentSecondary">
+        <value>FFFFB03C</value>
+    </color>
+    <color name="AccentHighlight">
+        <value>FFE8780A</value>
+    </color>
+    <color name="AccentText">
+        <value>FFFFF0E0</value>
+    </color>
+
+    <!-- Glass panel colors -->
+    <color name="GlassPanel">
+        <value>60FF8C14</value>
+    </color>
+    <color name="GlassPanelLight">
+        <value>30FF8C14</value>
+    </color>
+    <color name="GlassMenu">
+        <value>B0FF8C14</value>
+    </color>
+    <color name="GlassHeader">
+        <value>D0FF8C14</value>
+    </color>
+
+    <!-- Background -->
+    <color name="Background">
+        <value>FF0A0810</value>
+    </color>
+    <color name="BackgroundLight">
+        <value>FF141220</value>
+    </color>
+
+    <!-- Text colors -->
+    <color name="TextPrimary">
+        <value>FFF5F0E8</value>
+    </color>
+    <color name="TextSecondary">
+        <value>FFC0B8A8</value>
+    </color>
+    <color name="TextMuted">
+        <value>FF807868</value>
+    </color>
+    <color name="TextFocus">
+        <value>FFFFF0D0</value>
+    </color>
+
+    <!-- Status colors -->
+    <color name="StatusOK">
+        <value>FF40C060</value>
+    </color>
+    <color name="StatusWarning">
+        <value>FFFFB030</value>
+    </color>
+    <color name="StatusError">
+        <value>FFE04040</value>
+    </color>
+
+    <!-- Dialog -->
+    <color name="DialogBG">
+        <value>D0181028</value>
+    </color>
+    <color name="DialogBorder">
+        <value>80FF8C14</value>
+    </color>
+
+    <!-- Progress -->
+    <color name="ProgressBG">
+        <value>40303030</value>
+    </color>
+    <color name="ProgressFill">
+        <value>FFFF8C14</value>
+    </color>
+</colors>
