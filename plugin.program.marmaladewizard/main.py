@@ -219,10 +219,6 @@ def main():
     if xbmcgui.Dialog().yesno("Restart Kodi?", "Restart now to apply Marmalade Build?"):
         xbmc.executebuiltin("RestartApp()")
 
-if __name__ == "__main__":
-    main()
-
-
 def _apply_skin_config():
     """Copy pre-configured skin settings and menu/widget layout."""
     try:
@@ -236,14 +232,12 @@ def _apply_skin_config():
         os.makedirs(skin_data, exist_ok=True)
         os.makedirs(shortcuts_data, exist_ok=True)
 
-        # Copy skin settings
         src = os.path.join(config_src, "skin_settings.xml")
         dst = os.path.join(skin_data, "settings.xml")
         if os.path.exists(src):
             shutil.copy2(src, dst)
             log("Skin settings applied")
 
-        # Copy skinshortcuts config
         for fname in ["skin.marmalade.properties"]:
             src = os.path.join(config_src, fname)
             dst = os.path.join(shortcuts_data, fname)
@@ -251,7 +245,6 @@ def _apply_skin_config():
                 shutil.copy2(src, dst)
                 log("Copied %s" % fname)
 
-        # Remove hash to force Kodi to regenerate menu from properties
         hash_file = os.path.join(shortcuts_data, "skin.marmalade.hash")
         if os.path.exists(hash_file):
             os.remove(hash_file)
@@ -259,3 +252,7 @@ def _apply_skin_config():
 
     except Exception as e:
         log("Config apply error: %s" % str(e))
+
+
+if __name__ == "__main__":
+    main()
