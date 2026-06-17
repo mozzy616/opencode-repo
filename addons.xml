@@ -177,9 +177,11 @@
 </addon>
 <addon id="repository.opencode" name="OpenCode Repository" version="1.0.0" provider-name="opencode">
     <extension point="xbmc.addon.repository" name="OpenCode Repository">
-<info compressed="false">https://mozzy616.github.io/opencode-repo/addons.xml</info>
-<checksum>https://mozzy616.github.io/opencode-repo/addons.xml.md5</checksum>
-<datadir zip="true">https://mozzy616.github.io/opencode-repo</datadir>
+        <dir minversion="21.0.0">
+            <info compressed="false">https://mozzy616.github.io/opencode-repo/addons.xml</info>
+            <checksum>https://mozzy616.github.io/opencode-repo/addons.xml.md5</checksum>
+            <datadir zip="true">https://mozzy616.github.io/opencode-repo</datadir>
+        </dir>
     </extension>
     <extension point="xbmc.addon.metadata">
         <summary lang="en">OpenCode Repository</summary>
