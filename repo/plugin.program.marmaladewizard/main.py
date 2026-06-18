@@ -100,17 +100,8 @@ def get_addon_version(addon_id):
         return None
 
 def main():
-    if not xbmcgui.Dialog().yesno("Marmalade Wizard",
-                                   "Install Marmalade Build?",
-                                   "",
-                                   "This installs: skin, StreamLord, XPrime,",
-                                   "LordPlayer, Kodi Toolbox + dependencies.",
-                                   "",
-                                   "Repository: %s" % REPO_URL):
-        return
-
     progress = xbmcgui.DialogProgress()
-    progress.create("Marmalade Wizard", "Preparing installation...")
+    progress.create("Marmalade Wizard", "Installing Marmalade Build...")
 
     # Step 1: Download and install repo addon
     progress.update(5, "Adding OpenCode Repository...")
