@@ -60,23 +60,46 @@ def fetch_text(url):
         return None
 
 def get_zip_urls():
-    import xml.etree.ElementTree as ET
+    # Try fetching addons.xml from repo, fall back to hardcoded map
     xml_text = fetch_text("%s/repo/zips/addons.xml" % REPO_URL)
-    if not xml_text:
-        log("Failed to fetch addons.xml")
-        return {}
-    try:
-        root = ET.fromstring(xml_text)
-    except:
-        return {}
-    urls = {}
-    for addon in root.iter("addon"):
-        aid = addon.get("id", "")
-        ver = addon.get("version", "")
-        if aid and ver:
-            urls[aid] = "%s/repo/zips/%s/%s-%s.zip" % (REPO_URL, aid, aid, ver)
-    log("Parsed %d zip URLs from addons.xml" % len(urls))
-    return urls
+    if xml_text:
+        import xml.etree.ElementTree as ET
+        try:
+            root = ET.fromstring(xml_text)
+            urls = {}
+            for addon in root.iter("addon"):
+                aid = addon.get("id", "")
+                ver = addon.get("version", "")
+                if aid and ver:
+                    urls[aid] = "%s/repo/zips/%s/%s-%s.zip" % (REPO_URL, aid, aid, ver)
+            if urls:
+                log("Parsed %d zip URLs from addons.xml" % len(urls))
+                return urls
+        except Exception as e:
+            log("XML parse error: %s" % str(e))
+
+    log("Using hardcoded URL map")
+    return {
+        "script.module.six": "%s/repo/zips/script.module.six/script.module.six-1.16.0+matrix.1.zip" % REPO_URL,
+        "script.module.kodi-six": "%s/repo/zips/script.module.kodi-six/script.module.kodi-six-0.1.3.1.zip" % REPO_URL,
+        "script.module.simplejson": "%s/repo/zips/script.module.simplejson/script.module.simplejson-3.19.1+matrix.1.zip" % REPO_URL,
+        "script.module.requests": "%s/repo/zips/script.module.requests/script.module.requests-2.31.0.zip" % REPO_URL,
+        "script.module.routing": "%s/repo/zips/script.module.routing/script.module.routing-0.2.3+matrix.1.zip" % REPO_URL,
+        "script.module.resolveurl": "%s/repo/zips/script.module.resolveurl/script.module.resolveurl-5.1.199.zip" % REPO_URL,
+        "script.module.cocoscrapers": "%s/repo/zips/script.module.cocoscrapers/script.module.cocoscrapers-1.0.29.zip" % REPO_URL,
+        "script.favourites": "%s/repo/zips/script.favourites/script.favourites-8.1.2.zip" % REPO_URL,
+        "script.skinshortcuts": "%s/repo/zips/script.skinshortcuts/script.skinshortcuts-2.0.3.zip" % REPO_URL,
+        "script.image.resource.select": "%s/repo/zips/script.image.resource.select/script.image.resource.select-3.0.2.zip" % REPO_URL,
+        "resource.images.studios.white": "%s/repo/zips/resource.images.studios.white/resource.images.studios.white-0.0.34.zip" % REPO_URL,
+        "resource.images.recordlabels.white": "%s/repo/zips/resource.images.recordlabels.white/resource.images.recordlabels.white-0.0.7.zip" % REPO_URL,
+        "resource.images.weatherfanart.single": "%s/repo/zips/resource.images.weatherfanart.single/resource.images.weatherfanart.single-0.0.6.zip" % REPO_URL,
+        "inputstream.adaptive": "%s/repo/zips/inputstream.adaptive/inputstream.adaptive-21.5.19.zip" % REPO_URL,
+        "plugin.video.lordplayer": "%s/repo/zips/plugin.video.lordplayer/plugin.video.lordplayer-1.0.0.zip" % REPO_URL,
+        "plugin.video.streamlord": "%s/repo/zips/plugin.video.streamlord/plugin.video.streamlord-1.0.0.zip" % REPO_URL,
+        "plugin.video.xprime": "%s/repo/zips/plugin.video.xprime/plugin.video.xprime-1.0.1.zip" % REPO_URL,
+        "plugin.program.koditoolbox": "%s/repo/zips/plugin.program.koditoolbox/plugin.program.koditoolbox-1.0.0.zip" % REPO_URL,
+        "skin.marmalade": "%s/repo/zips/skin.marmalade/skin.marmalade-1.0.0.zip" % REPO_URL,
+    }
 
 def download_file(url, dest):
     try:
