@@ -99,36 +99,14 @@ def get_addon_version(addon_id):
     except:
         return None
 
-def show_welcome():
-    lines = []
-    lines.append("========================================")
-    lines.append("    MARMALADE BUILD - SETUP WIZARD")
-    lines.append("========================================")
-    lines.append("")
-    lines.append("This will install:")
-    lines.append("")
-    lines.append("  * Marmalade Build Skin")
-    lines.append("  * StreamLord (Torrent Streaming)")
-    lines.append("  * XPrime (Movies & TV)")
-    lines.append("  * LordPlayer (Torrent Player)")
-    lines.append("  * Kodi Toolbox (System Tools)")
-    lines.append("  * All required dependencies (14)")
-    lines.append("")
-    lines.append("Press OK to begin installation.")
-    lines.append("This may take a few minutes.")
-    lines.append("")
-    lines.append("Repo: %s" % REPO_URL)
-    text = "\n".join(lines)
-    xbmcgui.Dialog().textviewer("Marmalade Wizard", text)
-
 def main():
-    show_welcome()
-
     if not xbmcgui.Dialog().yesno("Marmalade Wizard",
                                    "Install Marmalade Build?",
-                                   "This will install the skin, all addons,",
-                                   "and dependencies from the OpenCode repo.",
-                                   "Continue?"):
+                                   "",
+                                   "This installs: skin, StreamLord, XPrime,",
+                                   "LordPlayer, Kodi Toolbox + dependencies.",
+                                   "",
+                                   "Repository: %s" % REPO_URL):
         return
 
     progress = xbmcgui.DialogProgress()
@@ -207,16 +185,14 @@ def main():
     progress.close()
     xbmc.sleep(500)
 
-    result_text = "Installation Complete!\n\n"
-    result_text += "Installed: %d\n" % installed
-    result_text += "Already installed: %d\n" % skipped
-    result_text += "Failed: %d\n\n" % failed
-    result_text += "Skin set to: Marmalade Build\n\n"
-    result_text += "Press OK to restart Kodi and apply changes."
+    xbmcgui.Dialog().ok("Marmalade Wizard",
+                         "Installation Complete!",
+                         "",
+                         "Installed: %d  Already: %d  Failed: %d" % (installed, skipped, failed),
+                         "",
+                         "Skin set to: Marmalade Build")
 
-    xbmcgui.Dialog().textviewer("Marmalade Wizard", result_text)
-
-    if xbmcgui.Dialog().yesno("Restart Kodi?", "Restart now to apply Marmalade Build?"):
+    if xbmcgui.Dialog().yesno("Restart Kodi?", "Restart now to apply changes?"):
         xbmc.executebuiltin("RestartApp()")
 
 def _apply_skin_config():
