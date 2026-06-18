@@ -173,9 +173,6 @@ def main():
         else:
             log("%s download failed" % addon_id)
             failed += 1
-        else:
-            log("%s download failed" % addon_id)
-            failed += 1
 
     progress.update(96, "Finalizing...")
 
