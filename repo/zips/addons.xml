@@ -107,6 +107,22 @@
         </assets>
     </extension>
 </addon>
+<addon id="plugin.video.freeomovie" version="1.0.0" name="Freeomovie" provider-name="opencode">
+    <requires>
+        <import addon="xbmc.python" version="3.0.0"/>
+        <import addon="script.module.resolveurl"/>
+        <import addon="script.module.requests"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="main.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en">Freeomovie.to - Free Full Porn Movies</summary>
+        <description lang="en">Stream full adult movies from freeomovie.to. Categories, search, and direct playback.</description>
+        <platform>all</platform>
+        <assets><icon>icon.png</icon><fanart>fanart.jpg</fanart></assets>
+    </extension>
+</addon>
 <addon id="plugin.video.lordplayer" name="LordPlayer" provider-name="opencode" version="1.0.0">
     <requires>
         <import addon="script.module.requests" version="2.22.0"/>
