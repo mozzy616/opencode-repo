@@ -125,8 +125,7 @@ def main():
 
         pct = 5 + int(90 * (i + 1) / total)
         name = addon_id.replace("script.module.", "").replace("plugin.video.", "").replace("plugin.program.", "").replace("resource.images.", "").replace("skin.", "")
-        progress.update(pct, "Installing: %s (%d/%d)" % (name, i+1, total),
-                       "Installed: %d  Failed: %d  Skipped: %d" % (installed, failed, skipped))
+        progress.update(pct, "Installing: %s (%d/%d) - OK:%d Fail:%d Skip:%d" % (name, i+1, total, installed, failed, skipped))
 
         if is_addon_installed(addon_id):
             ver = get_addon_version(addon_id)
