@@ -99,8 +99,14 @@ def main():
         local = xbmcvfs.translatePath("special://temp/%s" % zip_name)
 
         if download(zip_url, local):
-            xbmc.executebuiltin("InstallAddon(%s)" % local)
-            xbmc.sleep(2000)
+            result = xbmc.executeJSONRPC(json.dumps({
+                "jsonrpc": "2.0",
+                "method": "Addons.InstallAddon",
+                "params": {"addonid": local},
+                "id": 1
+            }))
+            log("Install RPC result: %s" % str(result)[:100])
+            xbmc.sleep(3000)
             if is_installed(addon_id):
                 log("%s OK" % addon_id)
                 installed += 1
