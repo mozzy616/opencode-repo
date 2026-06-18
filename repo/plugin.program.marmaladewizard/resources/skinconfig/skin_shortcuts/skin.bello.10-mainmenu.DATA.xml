@@ -1,0 +1,58 @@
+<shortcuts>
+	<shortcut>
+		<defaultID />
+		<label>[B]Movies[/B]</label>
+		<label2>Video Add-On</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb>thumb</thumb>
+		<action>ActivateWindow(Videos,"plugin://plugin.video.streamlord/?action=movies",return)</action>
+		</shortcut>
+	<shortcut>
+		<defaultID />
+		<label>[B]TV Series[/B]</label>
+		<label2>Video Add-On</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb>thumb</thumb>
+		<action>ActivateWindow(Videos,"plugin://plugin.video.streamlord/?action=tvseries",return)</action>
+		</shortcut>
+	<shortcut>
+		<defaultID />
+		<label>[B]Top IMDb[/B]</label>
+		<label2>Video Add-On</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb>thumb</thumb>
+		<action>ActivateWindow(Videos,"plugin://plugin.video.streamlord/?action=top_imdb",return)</action>
+		</shortcut>
+	<shortcut>
+		<defaultID />
+		<label>[B]Genres[/B]</label>
+		<label2>Video Add-On</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb>thumb</thumb>
+		<action>ActivateWindow(Videos,"plugin://plugin.video.streamlord/?action=genres",return)</action>
+		</shortcut>
+	<shortcut>
+		<defaultID />
+		<label>[B]Search[/B]</label>
+		<label2>Video Add-On</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb>thumb</thumb>
+		<action>ActivateWindow(Videos,"plugin://plugin.video.streamlord/?action=search",return)</action>
+		</shortcut>
+	<shortcut>
+		<defaultID>addons</defaultID>
+		<label>24001</label>
+		<label2>Common menu item</label2>
+		<icon>DefaultAddon.png</icon>
+		<thumb />
+		<action>ActivateWindow(AddonBrowser,return)</action>
+		</shortcut>
+	<shortcut>
+		<defaultID>settings</defaultID>
+		<label>10004</label>
+		<label2>Common menu item</label2>
+		<icon>icons/big/Settings.png</icon>
+		<thumb />
+		<action>ActivateWindow(Settings)</action>
+		</shortcut>
+	</shortcuts>

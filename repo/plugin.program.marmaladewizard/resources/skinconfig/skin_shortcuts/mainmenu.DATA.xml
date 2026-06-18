@@ -1,0 +1,66 @@
+<shortcuts>
+	<shortcut>
+		<defaultID />
+		<label>[B]Movies[/B]</label>
+		<label2>Video Add-On</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb>thumb</thumb>
+		<action>ActivateWindow(Videos,"plugin://plugin.video.streamlord/?action=movies",return)</action>
+		</shortcut>
+	<shortcut>
+		<defaultID />
+		<label>[B]TV Series[/B]</label>
+		<label2>Video Add-On</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb>thumb</thumb>
+		<action>ActivateWindow(Videos,"plugin://plugin.video.streamlord/?action=tvseries",return)</action>
+		</shortcut>
+	<shortcut>
+		<defaultID />
+		<label>Trending Daily</label>
+		<label2>Video Add-On</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb>image://DefaultMovies.png/</thumb>
+		<action>ActivateWindow(Videos,"plugin://plugin.video.xprime/?action=movies&amp;url=tmdb_trending_day",return)</action>
+		</shortcut>
+	<shortcut>
+		<defaultID />
+		<label>[B]Search All Torrents[/B]</label>
+		<label2>Video Add-On</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb>thumb</thumb>
+		<action>ActivateWindow(Videos,"plugin://plugin.video.streamlord/?action=search",return)</action>
+		</shortcut>
+	<shortcut>
+		<defaultID>plugin.audio.mp3streams</defaultID>
+		<label>Music</label>
+		<label2>Music Add-On</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb>thumb</thumb>
+		<action>ActivateWindow(Music,"plugin://plugin.audio.mp3streams",return)</action>
+		</shortcut>
+	<shortcut>
+		<defaultID>1037</defaultID>
+		<label>1037</label>
+		<label2>Video add-ons</label2>
+		<icon>special://skin/extras/icons/video-addons.png</icon>
+		<thumb />
+		<action>ActivateWindow(Videos,Addons,return)</action>
+		</shortcut>
+	<shortcut>
+		<defaultID>settings</defaultID>
+		<label>10004</label>
+		<label2>Common Shortcut</label2>
+		<icon>special://skin/extras/icons/settings.png</icon>
+		<thumb />
+		<action>ActivateWindow(Settings)</action>
+		</shortcut>
+	<shortcut>
+		<defaultID>power</defaultID>
+		<label>33060</label>
+		<label2>Common Shortcut</label2>
+		<icon>special://skin/extras/icons/power.png</icon>
+		<thumb />
+		<action>ActivateWindow(shutdownmenu)</action>
+		</shortcut>
+	</shortcuts>

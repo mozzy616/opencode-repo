@@ -220,35 +220,47 @@ def main():
         xbmc.executebuiltin("RestartApp()")
 
 def _apply_skin_config():
-    """Copy pre-configured skin settings and menu/widget layout."""
+    """Copy full configuration: guisettings, sources, favourites, skin settings, shortcuts."""
     try:
         import shutil
         wizard_dir = xbmcvfs.translatePath(ADDON.getAddonInfo("path"))
         config_src = os.path.join(wizard_dir, "resources", "skinconfig")
 
+        profile = xbmcvfs.translatePath("special://profile")
         skin_data = xbmcvfs.translatePath("special://profile/addon_data/skin.marmalade")
         shortcuts_data = xbmcvfs.translatePath("special://profile/addon_data/script.skinshortcuts")
 
-        os.makedirs(skin_data, exist_ok=True)
-        os.makedirs(shortcuts_data, exist_ok=True)
+        # Core config files
+        for fname in ["guisettings.xml", "sources.xml", "favourites.xml", "profiles.xml"]:
+            src = os.path.join(config_src, fname)
+            dst = os.path.join(profile, fname)
+            if os.path.exists(src):
+                shutil.copy2(src, dst)
+                log("Applied %s" % fname)
 
+        # Skin settings
+        os.makedirs(skin_data, exist_ok=True)
         src = os.path.join(config_src, "skin_settings.xml")
         dst = os.path.join(skin_data, "settings.xml")
         if os.path.exists(src):
             shutil.copy2(src, dst)
             log("Skin settings applied")
 
-        for fname in ["skin.marmalade.properties"]:
-            src = os.path.join(config_src, fname)
-            dst = os.path.join(shortcuts_data, fname)
-            if os.path.exists(src):
-                shutil.copy2(src, dst)
-                log("Copied %s" % fname)
+        # Skinshortcuts - all files
+        os.makedirs(shortcuts_data, exist_ok=True)
+        sc_src = os.path.join(config_src, "skin_shortcuts")
+        if os.path.isdir(sc_src):
+            for fname in os.listdir(sc_src):
+                src = os.path.join(sc_src, fname)
+                dst = os.path.join(shortcuts_data, fname)
+                if os.path.isfile(src):
+                    shutil.copy2(src, dst)
+            log("Shortcuts config applied (%d files)" % len(os.listdir(sc_src)))
 
+        # Remove hash so skin regenerates menu on next load
         hash_file = os.path.join(shortcuts_data, "skin.marmalade.hash")
         if os.path.exists(hash_file):
             os.remove(hash_file)
-            log("Removed hash file for menu regeneration")
 
     except Exception as e:
         log("Config apply error: %s" % str(e))

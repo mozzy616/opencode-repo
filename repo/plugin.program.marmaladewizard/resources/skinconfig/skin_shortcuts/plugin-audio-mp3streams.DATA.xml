@@ -1,0 +1,26 @@
+<shortcuts>
+	<shortcut>
+		<defaultID>plugin.audio.soundcloud</defaultID>
+		<label>SoundCloud</label>
+		<label2>Music Add-On</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb>thumb</thumb>
+		<action>ActivateWindow(Music,"plugin://plugin.audio.soundcloud",return)</action>
+		</shortcut>
+	<shortcut>
+		<defaultID>plugin.audio.m3sr2019</defaultID>
+		<label>MP3 Streams Echoed</label>
+		<label2>Music Add-On</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb>thumb</thumb>
+		<action>ActivateWindow(Music,"plugin://plugin.audio.m3sr2019",return)</action>
+		</shortcut>
+	<shortcut>
+		<defaultID>plugin.audio.mp3streams</defaultID>
+		<label>MP3 Streams</label>
+		<label2>Music Add-On</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb>thumb</thumb>
+		<action>ActivateWindow(Music,"plugin://plugin.audio.mp3streams",return)</action>
+		</shortcut>
+	</shortcuts>

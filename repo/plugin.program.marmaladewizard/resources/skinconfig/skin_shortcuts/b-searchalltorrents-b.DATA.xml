@@ -1,0 +1,26 @@
+<shortcuts>
+	<shortcut>
+		<defaultID />
+		<label>[B]TPB Search[/B]</label>
+		<label2>Video Add-On</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb>image://DefaultSearch.png/</thumb>
+		<action>ActivateWindow(Videos,"plugin://plugin.video.streamlord/?action=tpb_search",return)</action>
+		</shortcut>
+	<shortcut>
+		<defaultID />
+		<label>[B]Search StreamLord[/B]</label>
+		<label2>Video Add-On</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb>image://DefaultSearch.png/</thumb>
+		<action>ActivateWindow(Videos,"plugin://plugin.video.streamlord/?action=search_streamlord",return)</action>
+		</shortcut>
+	<shortcut>
+		<defaultID>plugin.video.themoviedb.helper</defaultID>
+		<label>TMDb Helper</label>
+		<label2>Video Add-On</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb>thumb</thumb>
+		<action>ActivateWindow(Videos,"plugin://plugin.video.themoviedb.helper",return)</action>
+		</shortcut>
+	</shortcuts>

@@ -1,0 +1,26 @@
+<shortcuts>
+	<shortcut>
+		<defaultID />
+		<label>[B]Search StreamLord[/B]</label>
+		<label2>Video Add-On</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb>image://DefaultSearch.png/</thumb>
+		<action>ActivateWindow(Videos,"plugin://plugin.video.streamlord/?action=search_streamlord",return)</action>
+		</shortcut>
+	<shortcut>
+		<defaultID />
+		<label>SEARCH XPRIME</label>
+		<label2>Video Add-On</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb>image://DefaultMovies.png/</thumb>
+		<action>ActivateWindow(Videos,"plugin://plugin.video.xprime/?action=movies_searchterm&amp;select=movies",return)</action>
+		</shortcut>
+	<shortcut>
+		<defaultID />
+		<label>Box Office</label>
+		<label2>Video Add-On</label2>
+		<icon>DefaultShortcut.png</icon>
+		<thumb>image://DefaultMovies.png/</thumb>
+		<action>ActivateWindow(Videos,"plugin://plugin.video.xprime/?action=movies&amp;url=trakt_boxoffice",return)</action>
+		</shortcut>
+	</shortcuts>
