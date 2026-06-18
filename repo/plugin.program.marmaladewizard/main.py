@@ -51,6 +51,33 @@ def fetch_json(url):
     except:
         return None
 
+def fetch_text(url):
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": "MarmaladeWizard/1.0"})
+        with urllib.request.urlopen(req, timeout=15) as r:
+            return r.read().decode("utf-8", errors="replace")
+    except:
+        return None
+
+def get_zip_urls():
+    import xml.etree.ElementTree as ET
+    xml_text = fetch_text("%s/repo/zips/addons.xml" % REPO_URL)
+    if not xml_text:
+        log("Failed to fetch addons.xml")
+        return {}
+    try:
+        root = ET.fromstring(xml_text)
+    except:
+        return {}
+    urls = {}
+    for addon in root.iter("addon"):
+        aid = addon.get("id", "")
+        ver = addon.get("version", "")
+        if aid and ver:
+            urls[aid] = "%s/repo/zips/%s/%s-%s.zip" % (REPO_URL, aid, aid, ver)
+    log("Parsed %d zip URLs from addons.xml" % len(urls))
+    return urls
+
 def download_file(url, dest):
     try:
         req = urllib.request.Request(url, headers={"User-Agent": "MarmaladeWizard/1.0"})
@@ -112,6 +139,7 @@ def main():
     xbmc.sleep(1000)
 
     # Step 2: Install each addon
+    zip_urls = get_zip_urls()
     total = len(ADDONS_TO_INSTALL)
     installed = 0
     failed = 0
@@ -120,31 +148,31 @@ def main():
     for i, addon_id in enumerate(ADDONS_TO_INSTALL):
         if progress.iscanceled():
             progress.close()
-            xbmcgui.Dialog().ok("Marmalade Wizard", "Installation cancelled.")
             return
 
         pct = 5 + int(90 * (i + 1) / total)
-        name = addon_id.replace("script.module.", "").replace("plugin.video.", "").replace("plugin.program.", "").replace("resource.images.", "").replace("skin.", "")
-        progress.update(pct, "Installing: %s (%d/%d) - OK:%d Fail:%d Skip:%d" % (name, i+1, total, installed, failed, skipped))
+        name = addon_id.split(".")[-1]
+        progress.update(pct, "Installing: %s (%d/%d)" % (name, i+1, total))
 
         if is_addon_installed(addon_id):
-            ver = get_addon_version(addon_id)
-            log("%s already installed v%s" % (addon_id, ver or "?"))
             skipped += 1
             continue
 
-        zip_url = "%s/%s.zip" % (REPO_URL, addon_id)
+        zip_url = zip_urls.get(addon_id, "%s/%s.zip" % (REPO_URL, addon_id))
         local_zip = xbmcvfs.translatePath("special://temp/%s.zip" % addon_id)
 
         if download_file(zip_url, local_zip):
             result = install_addon_from_zip(local_zip)
             if result:
-                log("%s installed successfully" % addon_id)
+                log("%s installed" % addon_id)
                 installed += 1
                 xbmc.sleep(500)
             else:
                 log("%s install failed" % addon_id)
                 failed += 1
+        else:
+            log("%s download failed" % addon_id)
+            failed += 1
         else:
             log("%s download failed" % addon_id)
             failed += 1
@@ -175,15 +203,13 @@ def main():
     progress.close()
     xbmc.sleep(500)
 
+    if failed > 0:
+        xbmcgui.Dialog().ok("Marmalade Wizard",
+                             "Installed: %d  Skipped: %d  Failed: %d" % (installed, skipped, failed))
     xbmcgui.Dialog().ok("Marmalade Wizard",
-                         "Installation Complete!",
-                         "",
-                         "Installed: %d  Already: %d  Failed: %d" % (installed, skipped, failed),
-                         "",
-                         "Skin set to: Marmalade Build")
-
-    if xbmcgui.Dialog().yesno("Restart Kodi?", "Restart now to apply changes?"):
-        xbmc.executebuiltin("RestartApp()")
+                         "Marmalade Build installed!",
+                         "Kodi will now restart.")
+    xbmc.executebuiltin("RestartApp()")
 
 def _apply_skin_config():
     """Copy full configuration: guisettings, sources, favourites, skin settings, shortcuts."""
