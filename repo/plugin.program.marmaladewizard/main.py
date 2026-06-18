@@ -203,9 +203,8 @@ def main():
     if failed > 0:
         xbmcgui.Dialog().ok("Marmalade Wizard",
                              "Installed: %d  Skipped: %d  Failed: %d" % (installed, skipped, failed))
-    xbmcgui.Dialog().ok("Marmalade Wizard",
-                         "Marmalade Build installed!",
-                         "Kodi will now restart.")
+    xbmc.executebuiltin("Notification(Marmalade Build, Installed! Restarting..., 5000)")
+    xbmc.sleep(3000)
     xbmc.executebuiltin("RestartApp()")
 
 def _apply_skin_config():
