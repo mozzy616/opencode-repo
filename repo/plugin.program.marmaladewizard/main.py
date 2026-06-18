@@ -1,92 +1,52 @@
+# -*- coding: utf-8 -*-
+
 import xbmc
 import xbmcgui
 import xbmcaddon
 import xbmcvfs
-import xbmcplugin
 import sys
 import os
 import json
 import urllib.request
 import urllib.parse
-import threading
 import time
 
 HANDLE = int(sys.argv[1])
 ADDON = xbmcaddon.Addon()
 REPO_URL = "https://mozzy616.github.io/opencode-repo"
 
-ADDONS_TO_INSTALL = [
-    # Core dependencies first
-    "script.module.six",
-    "script.module.kodi-six",
-    "script.module.simplejson",
-    "script.module.requests",
-    "script.module.routing",
-    "script.module.resolveurl",
-    "script.module.cocoscrapers",
-    "script.favourites",
-    "script.skinshortcuts",
-    "script.image.resource.select",
-    "resource.images.studios.white",
-    "resource.images.recordlabels.white",
-    "resource.images.weatherfanart.single",
-    "inputstream.adaptive",
-    # Our addons
-    "plugin.video.lordplayer",
-    "plugin.video.streamlord",
-    "plugin.video.xprime",
-    "plugin.program.koditoolbox",
-    # Skin last
-    "skin.marmalade",
+ADDONS = [
+    ("script.module.six", "script.module.six-1.16.0+matrix.1.zip"),
+    ("script.module.kodi-six", "script.module.kodi-six-0.1.3.1.zip"),
+    ("script.module.simplejson", "script.module.simplejson-3.19.1+matrix.1.zip"),
+    ("script.module.requests", "script.module.requests-2.31.0.zip"),
+    ("script.module.routing", "script.module.routing-0.2.3+matrix.1.zip"),
+    ("script.module.resolveurl", "script.module.resolveurl-5.1.199.zip"),
+    ("script.module.cocoscrapers", "script.module.cocoscrapers-1.0.29.zip"),
+    ("script.favourites", "script.favourites-8.1.2.zip"),
+    ("script.skinshortcuts", "script.skinshortcuts-2.0.3.zip"),
+    ("script.image.resource.select", "script.image.resource.select-3.0.2.zip"),
+    ("resource.images.studios.white", "resource.images.studios.white-0.0.34.zip"),
+    ("resource.images.recordlabels.white", "resource.images.recordlabels.white-0.0.7.zip"),
+    ("resource.images.weatherfanart.single", "resource.images.weatherfanart.single-0.0.6.zip"),
+    ("inputstream.adaptive", "inputstream.adaptive-21.5.19.zip"),
+    ("plugin.video.lordplayer", "plugin.video.lordplayer-1.0.0.zip"),
+    ("plugin.video.streamlord", "plugin.video.streamlord-1.0.0.zip"),
+    ("plugin.video.xprime", "plugin.video.xprime-1.0.1.zip"),
+    ("plugin.program.koditoolbox", "plugin.program.koditoolbox-1.0.0.zip"),
+    ("skin.marmalade", "skin.marmalade-1.0.0.zip"),
 ]
 
 def log(msg):
     xbmc.log("[MarmaladeWizard] %s" % msg, xbmc.LOGINFO)
 
-def fetch_json(url):
+def is_installed(addon_id):
+    return os.path.exists(xbmcvfs.translatePath("special://home/addons/%s" % addon_id))
+
+def download(url, dest):
     try:
         req = urllib.request.Request(url, headers={"User-Agent": "MarmaladeWizard/1.0"})
-        with urllib.request.urlopen(req, timeout=15) as r:
-            return json.loads(r.read().decode("utf-8", errors="replace"))
-    except:
-        return None
-
-def fetch_text(url):
-    try:
-        req = urllib.request.Request(url, headers={"User-Agent": "MarmaladeWizard/1.0"})
-        with urllib.request.urlopen(req, timeout=15) as r:
-            return r.read().decode("utf-8", errors="replace")
-    except:
-        return None
-
-def get_zip_urls():
-    m = {
-        "script.module.six": "/repo/zips/script.module.six/script.module.six-1.16.0+matrix.1.zip",
-        "script.module.kodi-six": "/repo/zips/script.module.kodi-six/script.module.kodi-six-0.1.3.1.zip",
-        "script.module.simplejson": "/repo/zips/script.module.simplejson/script.module.simplejson-3.19.1+matrix.1.zip",
-        "script.module.requests": "/repo/zips/script.module.requests/script.module.requests-2.31.0.zip",
-        "script.module.routing": "/repo/zips/script.module.routing/script.module.routing-0.2.3+matrix.1.zip",
-        "script.module.resolveurl": "/repo/zips/script.module.resolveurl/script.module.resolveurl-5.1.199.zip",
-        "script.module.cocoscrapers": "/repo/zips/script.module.cocoscrapers/script.module.cocoscrapers-1.0.29.zip",
-        "script.favourites": "/repo/zips/script.favourites/script.favourites-8.1.2.zip",
-        "script.skinshortcuts": "/repo/zips/script.skinshortcuts/script.skinshortcuts-2.0.3.zip",
-        "script.image.resource.select": "/repo/zips/script.image.resource.select/script.image.resource.select-3.0.2.zip",
-        "resource.images.studios.white": "/repo/zips/resource.images.studios.white/resource.images.studios.white-0.0.34.zip",
-        "resource.images.recordlabels.white": "/repo/zips/resource.images.recordlabels.white/resource.images.recordlabels.white-0.0.7.zip",
-        "resource.images.weatherfanart.single": "/repo/zips/resource.images.weatherfanart.single/resource.images.weatherfanart.single-0.0.6.zip",
-        "inputstream.adaptive": "/repo/zips/inputstream.adaptive/inputstream.adaptive-21.5.19.zip",
-        "plugin.video.lordplayer": "/repo/zips/plugin.video.lordplayer/plugin.video.lordplayer-1.0.0.zip",
-        "plugin.video.streamlord": "/repo/zips/plugin.video.streamlord/plugin.video.streamlord-1.0.0.zip",
-        "plugin.video.xprime": "/repo/zips/plugin.video.xprime/plugin.video.xprime-1.0.1.zip",
-        "plugin.program.koditoolbox": "/repo/zips/plugin.program.koditoolbox/plugin.program.koditoolbox-1.0.0.zip",
-        "skin.marmalade": "/repo/zips/skin.marmalade/skin.marmalade-1.0.0.zip",
-    }
-    return {k: REPO_URL + urllib.parse.quote(v, safe="/:+") for k, v in m.items()}
-
-def download_file(url, dest):
-    try:
-        req = urllib.request.Request(url, headers={"User-Agent": "MarmaladeWizard/1.0"})
-        with urllib.request.urlopen(req, timeout=120) as r:
+        with urllib.request.urlopen(req, timeout=180) as r:
             with open(dest, "wb") as f:
                 while True:
                     chunk = r.read(65536)
@@ -95,151 +55,107 @@ def download_file(url, dest):
                     f.write(chunk)
         return True
     except Exception as e:
-        log("Download error %s: %s" % (url, str(e)))
+        log("DOWNLOAD FAIL: %s -> %s" % (url, str(e)))
         return False
-
-def install_addon_from_zip(zip_path):
-    try:
-        result = xbmc.executeJSONRPC(json.dumps({
-            "jsonrpc": "2.0",
-            "method": "Addons.Install",
-            "params": {"addonid": zip_path},
-            "id": 1
-        }))
-        return result
-    except:
-        pass
-    try:
-        xbmc.executebuiltin("InstallAddon(%s)" % zip_path)
-        return "ok"
-    except:
-        pass
-    try:
-        xbmc.executebuiltin("XBMC.InstallAddon(%s)" % zip_path)
-        return "ok"
-    except:
-        return None
-
-def is_addon_installed(addon_id):
-    addon_path = xbmcvfs.translatePath("special://home/addons/%s" % addon_id)
-    return os.path.exists(addon_path)
-
-def get_addon_version(addon_id):
-    try:
-        addon = xbmcaddon.Addon(addon_id)
-        return addon.getAddonInfo("version")
-    except:
-        return None
 
 def main():
     progress = xbmcgui.DialogProgress()
-    progress.create("Marmalade Wizard", "Installing Marmalade Build...")
+    progress.create("Marmalade Wizard", "Installing repository...")
 
-    # Step 1: Download and install repo addon
-    progress.update(5, "Adding OpenCode Repository...")
-    repo_zip = xbmcvfs.translatePath("special://temp/repository.opencode.zip")
-    if download_file(REPO_URL + "/repository.opencode.zip", repo_zip):
-        install_addon_from_zip(repo_zip)
-        log("Repository installed")
-    xbmc.sleep(1000)
+    # Step 1: Install repo
+    rzip = xbmcvfs.translatePath("special://temp/repository.opencode.zip")
+    rurl = REPO_URL + "/repository.opencode.zip"
+    if download(rurl, rzip):
+        xbmc.executebuiltin("InstallAddon(%s)" % rzip)
+        xbmc.sleep(2000)
+        xbmc.executebuiltin("UpdateAddonRepos")
+        log("Repo installed")
+    else:
+        progress.close()
+        xbmcgui.Dialog().ok("Error", "Failed to download repository. Check internet.")
+        return
 
     # Step 2: Install each addon
-    zip_urls = get_zip_urls()
-    total = len(ADDONS_TO_INSTALL)
+    total = len(ADDONS)
     installed = 0
     failed = 0
     skipped = 0
 
-    for i, addon_id in enumerate(ADDONS_TO_INSTALL):
+    for i, (addon_id, zip_name) in enumerate(ADDONS):
         if progress.iscanceled():
             progress.close()
             return
 
-        pct = 5 + int(90 * (i + 1) / total)
         name = addon_id.split(".")[-1]
-        progress.update(pct, "Installing: %s (%d/%d)" % (name, i+1, total))
+        pct = 5 + int(90 * (i + 1) / total)
+        progress.update(pct, "%s (%d/%d) OK:%d Fail:%d" % (name, i+1, total, installed, failed))
 
-        if is_addon_installed(addon_id):
+        if is_installed(addon_id):
+            log("%s already installed" % addon_id)
             skipped += 1
             continue
 
-        zip_url = zip_urls.get(addon_id, "%s/%s.zip" % (REPO_URL, addon_id))
-        local_zip = xbmcvfs.translatePath("special://temp/%s.zip" % addon_id)
+        zip_url = "%s/repo/zips/%s/%s" % (REPO_URL, addon_id, zip_name)
+        local = xbmcvfs.translatePath("special://temp/%s" % zip_name)
 
-        if download_file(zip_url, local_zip):
-            result = install_addon_from_zip(local_zip)
-            if result:
-                log("%s installed" % addon_id)
+        if download(zip_url, local):
+            xbmc.executebuiltin("InstallAddon(%s)" % local)
+            xbmc.sleep(2000)
+            if is_installed(addon_id):
+                log("%s OK" % addon_id)
                 installed += 1
-                xbmc.sleep(500)
             else:
                 log("%s install failed" % addon_id)
                 failed += 1
         else:
-            log("%s download failed" % addon_id)
             failed += 1
 
     progress.update(96, "Finalizing...")
 
-    # Enable LordPlayer service
     try:
         xbmc.executeJSONRPC(json.dumps({
-            "jsonrpc": "2.0",
-            "method": "Addons.SetAddonEnabled",
-            "params": {"addonid": "plugin.video.lordplayer", "enabled": True},
-            "id": 1
+            "jsonrpc": "2.0", "method": "Addons.SetAddonEnabled",
+            "params": {"addonid": "plugin.video.lordplayer", "enabled": True}, "id": 1
         }))
-        log("LordPlayer enabled")
     except:
         pass
 
-    # Apply skin settings and menu/widget config
     _apply_skin_config()
-
-    # Set Marmalade Build as skin
     xbmc.executebuiltin("Skin.Set(skin.marmalade)")
     xbmc.sleep(2000)
-    log("Skin set to Marmalade Build")
 
-    progress.update(100, "Installation complete!")
+    progress.update(100, "Done!")
     progress.close()
     xbmc.sleep(500)
 
     if failed > 0:
         xbmcgui.Dialog().ok("Marmalade Wizard",
-                             "Installed: %d  Skipped: %d  Failed: %d" % (installed, skipped, failed))
-    xbmc.executebuiltin("Notification(Marmalade Build, Installed! Restarting..., 5000)")
-    xbmc.sleep(3000)
+                             "Installed: %d  Failed: %d  Skipped: %d" % (installed, failed, skipped))
+    xbmc.executebuiltin("Notification(Marmalade Build, Done! Restarting..., 4000)")
+    xbmc.sleep(4000)
     xbmc.executebuiltin("RestartApp()")
 
 def _apply_skin_config():
-    """Copy full configuration: guisettings, sources, favourites, skin settings, shortcuts."""
     try:
         import shutil
         wizard_dir = xbmcvfs.translatePath(ADDON.getAddonInfo("path"))
         config_src = os.path.join(wizard_dir, "resources", "skinconfig")
-
         profile = xbmcvfs.translatePath("special://profile")
-        skin_data = xbmcvfs.translatePath("special://profile/addon_data/skin.marmalade")
-        shortcuts_data = xbmcvfs.translatePath("special://profile/addon_data/script.skinshortcuts")
 
-        # Core config files
         for fname in ["guisettings.xml", "sources.xml", "favourites.xml", "profiles.xml"]:
             src = os.path.join(config_src, fname)
             dst = os.path.join(profile, fname)
             if os.path.exists(src):
                 shutil.copy2(src, dst)
-                log("Applied %s" % fname)
 
-        # Skin settings
+        skin_data = xbmcvfs.translatePath("special://profile/addon_data/skin.marmalade")
         os.makedirs(skin_data, exist_ok=True)
         src = os.path.join(config_src, "skin_settings.xml")
         dst = os.path.join(skin_data, "settings.xml")
         if os.path.exists(src):
             shutil.copy2(src, dst)
-            log("Skin settings applied")
 
-        # Skinshortcuts - all files
+        shortcuts_data = xbmcvfs.translatePath("special://profile/addon_data/script.skinshortcuts")
         os.makedirs(shortcuts_data, exist_ok=True)
         sc_src = os.path.join(config_src, "skin_shortcuts")
         if os.path.isdir(sc_src):
@@ -248,16 +164,12 @@ def _apply_skin_config():
                 dst = os.path.join(shortcuts_data, fname)
                 if os.path.isfile(src):
                     shutil.copy2(src, dst)
-            log("Shortcuts config applied (%d files)" % len(os.listdir(sc_src)))
 
-        # Remove hash so skin regenerates menu on next load
         hash_file = os.path.join(shortcuts_data, "skin.marmalade.hash")
         if os.path.exists(hash_file):
             os.remove(hash_file)
-
     except Exception as e:
-        log("Config apply error: %s" % str(e))
-
+        log("Config error: %s" % str(e))
 
 if __name__ == "__main__":
     main()
