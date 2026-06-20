@@ -104,7 +104,7 @@
 				<width>400</width>
 				<height>130</height>
 				<aspectratio align="right">keep</aspectratio>
-				<texture>aeon-nox-logo.png</texture>
+				<texture>logo.png</texture>
 			</control>
 			<control type="button" id="20">
 				<description>Power push button</description>

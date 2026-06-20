@@ -1,6 +1,6 @@
 # Kodi Media Center language file
 # Addon Name: Marmalade Build
-# Addon id: skin.aeon.nox.OpenCode
+# Addon id: skin.marmalade
 # Addon Provider: OpenCode
 msgid ""
 msgstr ""
@@ -9,7 +9,7 @@ msgstr ""
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "PO-Revision-Date: 2023-06-25 10:42+0000\n"
 "Last-Translator: Christian Gade <gade@kodi.tv>\n"
-"Language-Team: Greek <https://kodi.weblate.cloud/projects/kodi-add-ons-skins/skin-aeon-nox-OpenCode/el_gr/>\n"
+"Language-Team: Greek <https://kodi.weblate.cloud/projects/kodi-add-ons-skins/skin.marmalade/el_gr/>\n"
 "Language: el_gr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,11 +19,11 @@ msgstr ""
 
 msgctxt "#31000"
 msgid "Directed by"
-msgstr "Σκηνοθεσία από"
+msgstr "Î£ÎºÎ·Î½Î¿Î¸ÎµÏƒÎ¯Î± Î±Ï€ÏŒ"
 
 msgctxt "#31001"
 msgid "Written by"
-msgstr "Σενάριο από"
+msgstr "Î£ÎµÎ½Î¬ÏÎ¹Î¿ Î±Ï€ÏŒ"
 
 msgctxt "#31002"
 msgid "Blurred album thumb"
@@ -31,47 +31,47 @@ msgstr ""
 
 msgctxt "#31003"
 msgid "Power Options"
-msgstr "Επιλογές Ενέργειας"
+msgstr "Î•Ï€Î¹Î»Î¿Î³Î­Ï‚ Î•Î½Î­ÏÎ³ÎµÎ¹Î±Ï‚"
 
 msgctxt "#31004"
 msgid "Working"
-msgstr "Απασχολημένο"
+msgstr "Î‘Ï€Î±ÏƒÏ‡Î¿Î»Î·Î¼Î­Î½Î¿"
 
 msgctxt "#31005"
 msgid "Fixed"
-msgstr "Καθορισμένη"
+msgstr "ÎšÎ±Î¸Î¿ÏÎ¹ÏƒÎ¼Î­Î½Î·"
 
 msgctxt "#31006"
 msgid "View Options"
-msgstr "Επιλογές Προβολής"
+msgstr "Î•Ï€Î¹Î»Î¿Î³Î­Ï‚ Î ÏÎ¿Î²Î¿Î»Î®Ï‚"
 
 msgctxt "#31007"
 msgid "Setup home"
-msgstr "Διαμόρφωση αρχ. οθόνης"
+msgstr "Î”Î¹Î±Î¼ÏŒÏÏ†Ï‰ÏƒÎ· Î±ÏÏ‡. Î¿Î¸ÏŒÎ½Î·Ï‚"
 
 msgctxt "#31008"
 msgid "Full screen"
-msgstr "Πλήρης οθόνη"
+msgstr "Î Î»Î®ÏÎ·Ï‚ Î¿Î¸ÏŒÎ½Î·"
 
 msgctxt "#31009"
 msgid "Total Duration"
-msgstr "Συνολική Διάρκεια"
+msgstr "Î£Ï…Î½Î¿Î»Î¹ÎºÎ® Î”Î¹Î¬ÏÎºÎµÎ¹Î±"
 
 msgctxt "#31010"
 msgid "Next episode"
-msgstr "Επόμενο επεισόδιο"
+msgstr "Î•Ï€ÏŒÎ¼ÎµÎ½Î¿ ÎµÏ€ÎµÎ¹ÏƒÏŒÎ´Î¹Î¿"
 
 msgctxt "#31011"
 msgid "Latest episode"
-msgstr "Νεώτερο επεισόδιο"
+msgstr "ÎÎµÏŽÏ„ÎµÏÎ¿ ÎµÏ€ÎµÎ¹ÏƒÏŒÎ´Î¹Î¿"
 
 msgctxt "#31012"
 msgid "Airs"
-msgstr "Προβάλλεται στις"
+msgstr "Î ÏÎ¿Î²Î¬Î»Î»ÎµÏ„Î±Î¹ ÏƒÏ„Î¹Ï‚"
 
 msgctxt "#31013"
 msgid "Statistics"
-msgstr "Στατιστικά"
+msgstr "Î£Ï„Î±Ï„Î¹ÏƒÏ„Î¹ÎºÎ¬"
 
 msgctxt "#31014"
 msgid "Extras"
@@ -83,19 +83,19 @@ msgstr ""
 
 msgctxt "#31016"
 msgid "Poster"
-msgstr "Αφίσα"
+msgstr "Î‘Ï†Î¯ÏƒÎ±"
 
 msgctxt "#31017"
 msgid "Set path to music genre fanart folder"
-msgstr "Διαδρομή φακέλου fanart ειδών μουσικής"
+msgstr "Î”Î¹Î±Î´ÏÎ¿Î¼Î® Ï†Î±ÎºÎ­Î»Î¿Ï… fanart ÎµÎ¹Î´ÏŽÎ½ Î¼Î¿Ï…ÏƒÎ¹ÎºÎ®Ï‚"
 
 msgctxt "#31018"
 msgid "InfoPanel"
-msgstr "InfoΠάνελ"
+msgstr "InfoÎ Î¬Î½ÎµÎ»"
 
 msgctxt "#31019"
 msgid "Network"
-msgstr "Δίκτυο"
+msgstr "Î”Î¯ÎºÏ„Ï…Î¿"
 
 msgctxt "#31020"
 msgid "Extra-fanart"
@@ -103,31 +103,31 @@ msgstr "Extra-fanart"
 
 msgctxt "#31021"
 msgid "Stage curtains"
-msgstr "Αυλαία"
+msgstr "Î‘Ï…Î»Î±Î¯Î±"
 
 msgctxt "#31022"
 msgid "Set multi-image background"
-msgstr "Υπόβαθρο πολλαπλών εικόνων"
+msgstr "Î¥Ï€ÏŒÎ²Î±Î¸ÏÎ¿ Ï€Î¿Î»Î»Î±Ï€Î»ÏŽÎ½ ÎµÎ¹ÎºÏŒÎ½Ï‰Î½"
 
 msgctxt "#31023"
 msgid "Set single image background"
-msgstr "Μία εικόνα για υπόβαθρο"
+msgstr "ÎœÎ¯Î± ÎµÎ¹ÎºÏŒÎ½Î± Î³Î¹Î± Ï…Ï€ÏŒÎ²Î±Î¸ÏÎ¿"
 
 msgctxt "#31024"
 msgid "Page"
-msgstr "Σελίδα"
+msgstr "Î£ÎµÎ»Î¯Î´Î±"
 
 msgctxt "#31025"
 msgid "Items"
-msgstr "Αντικείμενα"
+msgstr "Î‘Î½Ï„Î¹ÎºÎµÎ¯Î¼ÎµÎ½Î±"
 
 msgctxt "#31026"
 msgid "Misc Options"
-msgstr "Διάφορες Επιλογές"
+msgstr "Î”Î¹Î¬Ï†Î¿ÏÎµÏ‚ Î•Ï€Î¹Î»Î¿Î³Î­Ï‚"
 
 msgctxt "#31027"
 msgid "Set item background"
-msgstr "Υπόβαθρο αντικειμένου"
+msgstr "Î¥Ï€ÏŒÎ²Î±Î¸ÏÎ¿ Î±Î½Ï„Î¹ÎºÎµÎ¹Î¼Î­Î½Î¿Ï…"
 
 msgctxt "#31028"
 msgid "Live Background"
@@ -135,123 +135,123 @@ msgstr ""
 
 msgctxt "#31029"
 msgid "Recent movies"
-msgstr "Πρόσφατες ταινίες"
+msgstr "Î ÏÏŒÏƒÏ†Î±Ï„ÎµÏ‚ Ï„Î±Î¹Î½Î¯ÎµÏ‚"
 
 msgctxt "#31030"
 msgid "Recent episodes"
-msgstr "Πρόσφατα επεισόδια"
+msgstr "Î ÏÏŒÏƒÏ†Î±Ï„Î± ÎµÏ€ÎµÎ¹ÏƒÏŒÎ´Î¹Î±"
 
 msgctxt "#31031"
 msgid "Random movies"
-msgstr "Τυχαίες ταινίες"
+msgstr "Î¤Ï…Ï‡Î±Î¯ÎµÏ‚ Ï„Î±Î¹Î½Î¯ÎµÏ‚"
 
 msgctxt "#31032"
 msgid "Recommended movies"
-msgstr "Προτεινόμενες ταινίες"
+msgstr "Î ÏÎ¿Ï„ÎµÎ¹Î½ÏŒÎ¼ÎµÎ½ÎµÏ‚ Ï„Î±Î¹Î½Î¯ÎµÏ‚"
 
 msgctxt "#31033"
 msgid "Random episodes"
-msgstr "Τυχαία επεισόδια"
+msgstr "Î¤Ï…Ï‡Î±Î¯Î± ÎµÏ€ÎµÎ¹ÏƒÏŒÎ´Î¹Î±"
 
 msgctxt "#31034"
 msgid "Recommended episodes"
-msgstr "Προτεινόμενα επεισόδια"
+msgstr "Î ÏÎ¿Ï„ÎµÎ¹Î½ÏŒÎ¼ÎµÎ½Î± ÎµÏ€ÎµÎ¹ÏƒÏŒÎ´Î¹Î±"
 
 msgctxt "#31035"
 msgid "Random songs"
-msgstr "Τυχαία τραγούδια"
+msgstr "Î¤Ï…Ï‡Î±Î¯Î± Ï„ÏÎ±Î³Î¿ÏÎ´Î¹Î±"
 
 msgctxt "#31036"
 msgid "Random albums"
-msgstr "Τυχαία άλμπουμ"
+msgstr "Î¤Ï…Ï‡Î±Î¯Î± Î¬Î»Î¼Ï€Î¿Ï…Î¼"
 
 msgctxt "#31037"
 msgid "Recent albums"
-msgstr "Πρόσφατα άλμπουμ"
+msgstr "Î ÏÏŒÏƒÏ†Î±Ï„Î± Î¬Î»Î¼Ï€Î¿Ï…Î¼"
 
 msgctxt "#31038"
 msgid "Recommended albums"
-msgstr "Προτεινόμενα άλμπουμ"
+msgstr "Î ÏÎ¿Ï„ÎµÎ¹Î½ÏŒÎ¼ÎµÎ½Î± Î¬Î»Î¼Ï€Î¿Ï…Î¼"
 
 msgctxt "#31039"
 msgid "Actions"
-msgstr "Ενέργειες"
+msgstr "Î•Î½Î­ÏÎ³ÎµÎ¹ÎµÏ‚"
 
 msgctxt "#31040"
 msgid "Now Playing"
-msgstr "Τώρα Εκτελείται"
+msgstr "Î¤ÏŽÏÎ± Î•ÎºÏ„ÎµÎ»ÎµÎ¯Ï„Î±Î¹"
 
 msgctxt "#31041"
 msgid "Select widget"
-msgstr "Επιλογή widget"
+msgstr "Î•Ï€Î¹Î»Î¿Î³Î® widget"
 
 msgctxt "#31042"
 msgid "Show \"Now Playing\" information blended in the background"
-msgstr "Προβολή πληροφοριών αυτού που \"Τώρα Εκτελείται\" στο υπόβαθρο"
+msgstr "Î ÏÎ¿Î²Î¿Î»Î® Ï€Î»Î·ÏÎ¿Ï†Î¿ÏÎ¹ÏŽÎ½ Î±Ï…Ï„Î¿Ï Ï€Î¿Ï… \"Î¤ÏŽÏÎ± Î•ÎºÏ„ÎµÎ»ÎµÎ¯Ï„Î±Î¹\" ÏƒÏ„Î¿ Ï…Ï€ÏŒÎ²Î±Î¸ÏÎ¿"
 
 msgctxt "#31043"
 msgid "Platform"
-msgstr "Πλατφόρμα"
+msgstr "Î Î»Î±Ï„Ï†ÏŒÏÎ¼Î±"
 
 msgctxt "#31044"
 msgid "Views: Plot outline | Info dialog: Full plot"
-msgstr "Προβολές: Περίληψη πλοκής | Πληροφορίες: Πλήρης πλοκή"
+msgstr "Î ÏÎ¿Î²Î¿Î»Î­Ï‚: Î ÎµÏÎ¯Î»Î·ÏˆÎ· Ï€Î»Î¿ÎºÎ®Ï‚ | Î Î»Î·ÏÎ¿Ï†Î¿ÏÎ¯ÎµÏ‚: Î Î»Î®ÏÎ·Ï‚ Ï€Î»Î¿ÎºÎ®"
 
 msgctxt "#31045"
 msgid "Views: Full plot | Info dialog: Plot outline"
-msgstr "Προβολές: Πλήρη πλοκή | Πληροφορίες: Περίληψη πλοκής"
+msgstr "Î ÏÎ¿Î²Î¿Î»Î­Ï‚: Î Î»Î®ÏÎ· Ï€Î»Î¿ÎºÎ® | Î Î»Î·ÏÎ¿Ï†Î¿ÏÎ¯ÎµÏ‚: Î ÎµÏÎ¯Î»Î·ÏˆÎ· Ï€Î»Î¿ÎºÎ®Ï‚"
 
 msgctxt "#31046"
 msgid "SEEKING"
-msgstr "ΑΝΑΖΗΤΗΣΗ"
+msgstr "Î‘ÎÎ‘Î–Î—Î¤Î—Î£Î—"
 
 msgctxt "#31047"
 msgid "Set item icon"
-msgstr "Εικονίδιο αντικειμένου"
+msgstr "Î•Î¹ÎºÎ¿Î½Î¯Î´Î¹Î¿ Î±Î½Ï„Î¹ÎºÎµÎ¹Î¼Î­Î½Î¿Ï…"
 
 msgctxt "#31048"
 msgid "Visualisation Presets"
-msgstr "Προρυθμίσεις Οπτικοποιήσεων"
+msgstr "Î ÏÎ¿ÏÏ…Î¸Î¼Î¯ÏƒÎµÎ¹Ï‚ ÎŸÏ€Ï„Î¹ÎºÎ¿Ï€Î¿Î¹Î®ÏƒÎµÏ‰Î½"
 
 msgctxt "#31049"
 msgid "Select infoline"
-msgstr "Επιλογή InfoΓραμμής"
+msgstr "Î•Ï€Î¹Î»Î¿Î³Î® InfoÎ“ÏÎ±Î¼Î¼Î®Ï‚"
 
 msgctxt "#31050"
 msgid "Sort: Ascending"
-msgstr "Ταξ.: Αύξουσα"
+msgstr "Î¤Î±Î¾.: Î‘ÏÎ¾Î¿Ï…ÏƒÎ±"
 
 msgctxt "#31051"
 msgid "Sort: Descending"
-msgstr "Ταξ.: Φθίνουσα"
+msgstr "Î¤Î±Î¾.: Î¦Î¸Î¯Î½Î¿Ï…ÏƒÎ±"
 
 msgctxt "#31052"
 msgid "Movie library statistics"
-msgstr "Στατιστικά συλλογής ταινιών"
+msgstr "Î£Ï„Î±Ï„Î¹ÏƒÏ„Î¹ÎºÎ¬ ÏƒÏ…Î»Î»Î¿Î³Î®Ï‚ Ï„Î±Î¹Î½Î¹ÏŽÎ½"
 
 msgctxt "#31053"
 msgid "TV Show library statistics"
-msgstr "Στατιστικά συλλογής Τηλ. Σειρών"
+msgstr "Î£Ï„Î±Ï„Î¹ÏƒÏ„Î¹ÎºÎ¬ ÏƒÏ…Î»Î»Î¿Î³Î®Ï‚ Î¤Î·Î». Î£ÎµÎ¹ÏÏŽÎ½"
 
 msgctxt "#31054"
 msgid "Music library statistics"
-msgstr "Στατιστικά μουσικής συλλογής"
+msgstr "Î£Ï„Î±Ï„Î¹ÏƒÏ„Î¹ÎºÎ¬ Î¼Î¿Ï…ÏƒÎ¹ÎºÎ®Ï‚ ÏƒÏ…Î»Î»Î¿Î³Î®Ï‚"
 
 msgctxt "#31055"
 msgid "Open playlist"
-msgstr "Άνοιγμα λίστας αναπ/γής"
+msgstr "Î†Î½Î¿Î¹Î³Î¼Î± Î»Î¯ÏƒÏ„Î±Ï‚ Î±Î½Î±Ï€/Î³Î®Ï‚"
 
 msgctxt "#31056"
 msgid "Save playlist"
-msgstr "Αποθήκευση λίστας αναπ/γής"
+msgstr "Î‘Ï€Î¿Î¸Î®ÎºÎµÏ…ÏƒÎ· Î»Î¯ÏƒÏ„Î±Ï‚ Î±Î½Î±Ï€/Î³Î®Ï‚"
 
 msgctxt "#31057"
 msgid "Close playlist"
-msgstr "Κλείσιμο λίστας αναπ/γής"
+msgstr "ÎšÎ»ÎµÎ¯ÏƒÎ¹Î¼Î¿ Î»Î¯ÏƒÏ„Î±Ï‚ Î±Î½Î±Ï€/Î³Î®Ï‚"
 
 msgctxt "#31058"
 msgid "PVR information"
-msgstr "Πληροφορίες PVR"
+msgstr "Î Î»Î·ÏÎ¿Ï†Î¿ÏÎ¯ÎµÏ‚ PVR"
 
 msgctxt "#31059"
 msgid "Artist Slideshow"
@@ -259,7 +259,7 @@ msgstr ""
 
 msgctxt "#31060"
 msgid "This file is stacked, select the part you want to play from."
-msgstr "Αυτό το αρχείο είναι στοιβαγμένο, επιλέξτε από που να γίνει αναπαραγωγή."
+msgstr "Î‘Ï…Ï„ÏŒ Ï„Î¿ Î±ÏÏ‡ÎµÎ¯Î¿ ÎµÎ¯Î½Î±Î¹ ÏƒÏ„Î¿Î¹Î²Î±Î³Î¼Î­Î½Î¿, ÎµÏ€Î¹Î»Î­Î¾Ï„Îµ Î±Ï€ÏŒ Ï€Î¿Ï… Î½Î± Î³Î¯Î½ÎµÎ¹ Î±Î½Î±Ï€Î±ÏÎ±Î³Ï‰Î³Î®."
 
 msgctxt "#31061"
 msgid "Total addons / Favourites statistics"
@@ -267,35 +267,35 @@ msgstr ""
 
 msgctxt "#31062"
 msgid "Random movie fanart"
-msgstr "Fanart τυχαίων ταινιών"
+msgstr "Fanart Ï„Ï…Ï‡Î±Î¯Ï‰Î½ Ï„Î±Î¹Î½Î¹ÏŽÎ½"
 
 msgctxt "#31063"
 msgid "Random TV show fanart"
-msgstr "Fanart τυχαίων τηλ. σειρών"
+msgstr "Fanart Ï„Ï…Ï‡Î±Î¯Ï‰Î½ Ï„Î·Î». ÏƒÎµÎ¹ÏÏŽÎ½"
 
 msgctxt "#31064"
 msgid "Random video fanart"
-msgstr "Fanart τυχαίων βίντεο"
+msgstr "Fanart Ï„Ï…Ï‡Î±Î¯Ï‰Î½ Î²Î¯Î½Ï„ÎµÎ¿"
 
 msgctxt "#31065"
 msgid "Random music fanart"
-msgstr "Fanart τυχαίου άλμπουμ"
+msgstr "Fanart Ï„Ï…Ï‡Î±Î¯Î¿Ï… Î¬Î»Î¼Ï€Î¿Ï…Î¼"
 
 msgctxt "#31066"
 msgid "Random fanart"
-msgstr "Τυχαία fanart"
+msgstr "Î¤Ï…Ï‡Î±Î¯Î± fanart"
 
 msgctxt "#31067"
 msgid "Update rating"
-msgstr "Ενημέρωση αξιολόγησης"
+msgstr "Î•Î½Î·Î¼Î­ÏÏ‰ÏƒÎ· Î±Î¾Î¹Î¿Î»ÏŒÎ³Î·ÏƒÎ·Ï‚"
 
 msgctxt "#31068"
 msgid "CD Wall"
-msgstr "Τοίχος CD"
+msgstr "Î¤Î¿Î¯Ï‡Î¿Ï‚ CD"
 
 msgctxt "#31069"
 msgid "Change location"
-msgstr "Αλλαγή τοποθεσίας"
+msgstr "Î‘Î»Î»Î±Î³Î® Ï„Î¿Ï€Î¿Î¸ÎµÏƒÎ¯Î±Ï‚"
 
 msgctxt "#31070"
 msgid "Enable PreshowExperience integration"
@@ -303,119 +303,119 @@ msgstr ""
 
 msgctxt "#31071"
 msgid "While browsing the library"
-msgstr "Κατά την περιήγηση στη συλλογή"
+msgstr "ÎšÎ±Ï„Î¬ Ï„Î·Î½ Ï€ÎµÏÎ¹Î®Î³Î·ÏƒÎ· ÏƒÏ„Î· ÏƒÏ…Î»Î»Î¿Î³Î®"
 
 msgctxt "#31072"
 msgid "On open video info"
-msgstr "Κατά το άνοιγμα πληροφοριών βίντεο"
+msgstr "ÎšÎ±Ï„Î¬ Ï„Î¿ Î¬Î½Î¿Î¹Î³Î¼Î± Ï€Î»Î·ÏÎ¿Ï†Î¿ÏÎ¹ÏŽÎ½ Î²Î¯Î½Ï„ÎµÎ¿"
 
 msgctxt "#31073"
 msgid "Move menu item"
-msgstr "Μεταφορά αντικειμένου μενού"
+msgstr "ÎœÎµÏ„Î±Ï†Î¿ÏÎ¬ Î±Î½Ï„Î¹ÎºÎµÎ¹Î¼Î­Î½Î¿Ï… Î¼ÎµÎ½Î¿Ï"
 
 msgctxt "#31074"
 msgid "Choose item to swap places with"
-msgstr "Επιλογή αντικειμένου για εναλλαγή"
+msgstr "Î•Ï€Î¹Î»Î¿Î³Î® Î±Î½Ï„Î¹ÎºÎµÎ¹Î¼Î­Î½Î¿Ï… Î³Î¹Î± ÎµÎ½Î±Î»Î»Î±Î³Î®"
 
 msgctxt "#31075"
 msgid "No extra features available"
-msgstr "Δεν υπάρχουν επιπλέον λειτουργίες"
+msgstr "Î”ÎµÎ½ Ï…Ï€Î¬ÏÏ‡Î¿Ï…Î½ ÎµÏ€Î¹Ï€Î»Î­Î¿Î½ Î»ÎµÎ¹Ï„Î¿Ï…ÏÎ³Î¯ÎµÏ‚"
 
 msgctxt "#31076"
 msgid "Landscape"
-msgstr "Τοπίο"
+msgstr "Î¤Î¿Ï€Î¯Î¿"
 
 msgctxt "#31077"
 msgid "ShowCase"
-msgstr "Βιτρίνα"
+msgstr "Î’Î¹Ï„ÏÎ¯Î½Î±"
 
 msgctxt "#31078"
 msgid "TriPanel"
-msgstr "Τριπλό Πάνελ"
+msgstr "Î¤ÏÎ¹Ï€Î»ÏŒ Î Î¬Î½ÎµÎ»"
 
 msgctxt "#31079"
 msgid "Shift"
-msgstr "Μετατόπιση"
+msgstr "ÎœÎµÏ„Î±Ï„ÏŒÏ€Î¹ÏƒÎ·"
 
 msgctxt "#31080"
 msgid "Manage submenu"
-msgstr "Διαχείριση υπομενού"
+msgstr "Î”Î¹Î±Ï‡ÎµÎ¯ÏÎ¹ÏƒÎ· Ï…Ï€Î¿Î¼ÎµÎ½Î¿Ï"
 
 msgctxt "#31081"
 msgid "Enable custom submenus"
-msgstr "Ενεργοποίηση προσαρμοσμένων υπομενού"
+msgstr "Î•Î½ÎµÏÎ³Î¿Ï€Î¿Î¯Î·ÏƒÎ· Ï€ÏÎ¿ÏƒÎ±ÏÎ¼Î¿ÏƒÎ¼Î­Î½Ï‰Î½ Ï…Ï€Î¿Î¼ÎµÎ½Î¿Ï"
 
 msgctxt "#31082"
 msgid "Detach RSS feed from the main menu"
-msgstr "Αποκόλληση της ροής RSS από το κεντρικό μενού"
+msgstr "Î‘Ï€Î¿ÎºÏŒÎ»Î»Î·ÏƒÎ· Ï„Î·Ï‚ ÏÎ¿Î®Ï‚ RSS Î±Ï€ÏŒ Ï„Î¿ ÎºÎµÎ½Ï„ÏÎ¹ÎºÏŒ Î¼ÎµÎ½Î¿Ï"
 
 msgctxt "#31083"
 msgid "Enable Next Aired information in the videolibrary"
-msgstr "Ενεργοποίηση πληροφοριών επόμενης προβολής στη συλλογή βίντεο"
+msgstr "Î•Î½ÎµÏÎ³Î¿Ï€Î¿Î¯Î·ÏƒÎ· Ï€Î»Î·ÏÎ¿Ï†Î¿ÏÎ¹ÏŽÎ½ ÎµÏ€ÏŒÎ¼ÎµÎ½Î·Ï‚ Ï€ÏÎ¿Î²Î¿Î»Î®Ï‚ ÏƒÏ„Î· ÏƒÏ…Î»Î»Î¿Î³Î® Î²Î¯Î½Ï„ÎµÎ¿"
 
 msgctxt "#31084"
 msgid "Conditional weather"
-msgstr "Τρέχουσες καιρικές συνθήκες"
+msgstr "Î¤ÏÎ­Ï‡Î¿Ï…ÏƒÎµÏ‚ ÎºÎ±Î¹ÏÎ¹ÎºÎ­Ï‚ ÏƒÏ…Î½Î¸Î®ÎºÎµÏ‚"
 
 msgctxt "#31085"
 msgid "Musicvideo library statistics"
-msgstr "Στατιστικά συλλογής μουσικών βίντεο"
+msgstr "Î£Ï„Î±Ï„Î¹ÏƒÏ„Î¹ÎºÎ¬ ÏƒÏ…Î»Î»Î¿Î³Î®Ï‚ Î¼Î¿Ï…ÏƒÎ¹ÎºÏŽÎ½ Î²Î¯Î½Ï„ÎµÎ¿"
 
 msgctxt "#31086"
 msgid "Icon"
-msgstr "Εικονίδιο"
+msgstr "Î•Î¹ÎºÎ¿Î½Î¯Î´Î¹Î¿"
 
 msgctxt "#31087"
 msgid "Banner"
-msgstr "Πανό"
+msgstr "Î Î±Î½ÏŒ"
 
 msgctxt "#31088"
 msgid "BannerWall"
-msgstr "Τοίχος Πανό"
+msgstr "Î¤Î¿Î¯Ï‡Î¿Ï‚ Î Î±Î½ÏŒ"
 
 msgctxt "#31089"
 msgid "Play item on startup"
-msgstr "Αναπαραγωγή αντικειμένου κατά την εκκίνηση"
+msgstr "Î‘Î½Î±Ï€Î±ÏÎ±Î³Ï‰Î³Î® Î±Î½Ï„Î¹ÎºÎµÎ¹Î¼Î­Î½Î¿Ï… ÎºÎ±Ï„Î¬ Ï„Î·Î½ ÎµÎºÎºÎ¯Î½Î·ÏƒÎ·"
 
 msgctxt "#31090"
 msgid "Seconds"
-msgstr "Δευτερόλεπτα"
+msgstr "Î”ÎµÏ…Ï„ÎµÏÏŒÎ»ÎµÏ€Ï„Î±"
 
 msgctxt "#31091"
 msgid "Select items"
-msgstr "Επιλογή αντικειμένων"
+msgstr "Î•Ï€Î¹Î»Î¿Î³Î® Î±Î½Ï„Î¹ÎºÎµÎ¹Î¼Î­Î½Ï‰Î½"
 
 msgctxt "#31092"
 msgid "Fullscreen fanart"
-msgstr "Fanart πλήρους οθόνης"
+msgstr "Fanart Ï€Î»Î®ÏÎ¿Ï…Ï‚ Î¿Î¸ÏŒÎ½Î·Ï‚"
 
 msgctxt "#31093"
 msgid "LowList toggle"
-msgstr "Εναλλαγή Χαμηλής Λίστας"
+msgstr "Î•Î½Î±Î»Î»Î±Î³Î® Î§Î±Î¼Î·Î»Î®Ï‚ Î›Î¯ÏƒÏ„Î±Ï‚"
 
 msgctxt "#31094"
 msgid "List view layout"
-msgstr "Διάταξη Λίστας"
+msgstr "Î”Î¹Î¬Ï„Î±Î¾Î· Î›Î¯ÏƒÏ„Î±Ï‚"
 
 msgctxt "#31095"
 msgid "Slim List"
-msgstr "Λεπτή Λίστα"
+msgstr "Î›ÎµÏ€Ï„Î® Î›Î¯ÏƒÏ„Î±"
 
 msgctxt "#31096"
 msgid "Concert locations"
-msgstr "Τοποθεσίες Συναυλιών"
+msgstr "Î¤Î¿Ï€Î¿Î¸ÎµÏƒÎ¯ÎµÏ‚ Î£Ï…Î½Î±Ï…Î»Î¹ÏŽÎ½"
 
 msgctxt "#31097"
 msgid "Movie playlist statistics"
-msgstr "Στατιστικά λιστών αναπ/γής ταινιών"
+msgstr "Î£Ï„Î±Ï„Î¹ÏƒÏ„Î¹ÎºÎ¬ Î»Î¹ÏƒÏ„ÏŽÎ½ Î±Î½Î±Ï€/Î³Î®Ï‚ Ï„Î±Î¹Î½Î¹ÏŽÎ½"
 
 msgctxt "#31098"
 msgid "TV Show playlist statistics"
-msgstr "Στατιστικά λιστών αναπ/γής Τηλ. Σειρών"
+msgstr "Î£Ï„Î±Ï„Î¹ÏƒÏ„Î¹ÎºÎ¬ Î»Î¹ÏƒÏ„ÏŽÎ½ Î±Î½Î±Ï€/Î³Î®Ï‚ Î¤Î·Î». Î£ÎµÎ¹ÏÏŽÎ½"
 
 msgctxt "#31099"
 msgid "Musicvideo playlist statistics"
-msgstr "Στατιστικά λιστών αναπ/γής μουσικών βίντεο"
+msgstr "Î£Ï„Î±Ï„Î¹ÏƒÏ„Î¹ÎºÎ¬ Î»Î¹ÏƒÏ„ÏŽÎ½ Î±Î½Î±Ï€/Î³Î®Ï‚ Î¼Î¿Ï…ÏƒÎ¹ÎºÏŽÎ½ Î²Î¯Î½Ï„ÎµÎ¿"
 
 msgctxt "#31100"
 msgid "View:"
@@ -427,35 +427,35 @@ msgstr ""
 
 msgctxt "#31102"
 msgid "Background"
-msgstr "Υπόβαθρο"
+msgstr "Î¥Ï€ÏŒÎ²Î±Î¸ÏÎ¿"
 
 msgctxt "#31103"
 msgid "N/A"
-msgstr "Μη διαθέσιμο"
+msgstr "ÎœÎ· Î´Î¹Î±Î¸Î­ÏƒÎ¹Î¼Î¿"
 
 msgctxt "#31104"
 msgid "Similar artists"
-msgstr "Παρόμοιοι καλλιτέχνες"
+msgstr "Î Î±ÏÏŒÎ¼Î¿Î¹Î¿Î¹ ÎºÎ±Î»Î»Î¹Ï„Î­Ï‡Î½ÎµÏ‚"
 
 msgctxt "#31105"
 msgid "More albums from"
-msgstr "Περισσότερα άλμπουμ από"
+msgstr "Î ÎµÏÎ¹ÏƒÏƒÏŒÏ„ÎµÏÎ± Î¬Î»Î¼Ï€Î¿Ï…Î¼ Î±Ï€ÏŒ"
 
 msgctxt "#31106"
 msgid "On info"
-msgstr "Κατά την εμφάνιση πληροφοριών"
+msgstr "ÎšÎ±Ï„Î¬ Ï„Î·Î½ ÎµÎ¼Ï†Î¬Î½Î¹ÏƒÎ· Ï€Î»Î·ÏÎ¿Ï†Î¿ÏÎ¹ÏŽÎ½"
 
 msgctxt "#31107"
 msgid "Persistent"
-msgstr "Πάντα"
+msgstr "Î Î¬Î½Ï„Î±"
 
 msgctxt "#31108"
 msgid "Enable artist information feed (if available)"
-msgstr "Ενεργοποίηση πληροφοριών καλλιτέχνη (αν υπάρχουν)"
+msgstr "Î•Î½ÎµÏÎ³Î¿Ï€Î¿Î¯Î·ÏƒÎ· Ï€Î»Î·ÏÎ¿Ï†Î¿ÏÎ¹ÏŽÎ½ ÎºÎ±Î»Î»Î¹Ï„Î­Ï‡Î½Î· (Î±Î½ Ï…Ï€Î¬ÏÏ‡Î¿Ï…Î½)"
 
 msgctxt "#31109"
 msgid "Unwatched episode count"
-msgstr "Μετρητής μη προβληθέντων επεισοδίων"
+msgstr "ÎœÎµÏ„ÏÎ·Ï„Î®Ï‚ Î¼Î· Ï€ÏÎ¿Î²Î»Î·Î¸Î­Î½Ï„Ï‰Î½ ÎµÏ€ÎµÎ¹ÏƒÎ¿Î´Î¯Ï‰Î½"
 
 msgctxt "#31110"
 msgid "Solid color backgrounds"
@@ -463,15 +463,15 @@ msgstr ""
 
 msgctxt "#31111"
 msgid "Similar"
-msgstr "Παρόμοια"
+msgstr "Î Î±ÏÏŒÎ¼Î¿Î¹Î±"
 
 msgctxt "#31112"
 msgid "Movies directed by"
-msgstr "Ταινίες σκηνοθετημένες από"
+msgstr "Î¤Î±Î¹Î½Î¯ÎµÏ‚ ÏƒÎºÎ·Î½Î¿Î¸ÎµÏ„Î·Î¼Î­Î½ÎµÏ‚ Î±Ï€ÏŒ"
 
 msgctxt "#31113"
 msgid "Movies written by"
-msgstr "Ταινίες με σενάριο από"
+msgstr "Î¤Î±Î¹Î½Î¯ÎµÏ‚ Î¼Îµ ÏƒÎµÎ½Î¬ÏÎ¹Î¿ Î±Ï€ÏŒ"
 
 msgctxt "#31114"
 msgid "More from"
@@ -483,11 +483,11 @@ msgstr ""
 
 msgctxt "#31116"
 msgid "cycle fanart"
-msgstr "κυκλικό fanart"
+msgstr "ÎºÏ…ÎºÎ»Î¹ÎºÏŒ fanart"
 
 msgctxt "#31117"
 msgid "Fallback"
-msgstr "Εφεδρικό"
+msgstr "Î•Ï†ÎµÎ´ÏÎ¹ÎºÏŒ"
 
 msgctxt "#31118"
 msgid "Cache movie extrafanart"
@@ -515,11 +515,11 @@ msgstr ""
 
 msgctxt "#31124"
 msgid "Show Background \"Now Playing\" Video"
-msgstr "Υπόβαθρο το βίντεο που \"Τώρα Εκτελείται\""
+msgstr "Î¥Ï€ÏŒÎ²Î±Î¸ÏÎ¿ Ï„Î¿ Î²Î¯Î½Ï„ÎµÎ¿ Ï€Î¿Ï… \"Î¤ÏŽÏÎ± Î•ÎºÏ„ÎµÎ»ÎµÎ¯Ï„Î±Î¹\""
 
 msgctxt "#31125"
 msgid "Show Background \"Now Playing\" Visualisation"
-msgstr "Εμφάνιση Υποβάθρου κατά την Οπτικοποίηση 'Τώρα Εκτελείται'"
+msgstr "Î•Î¼Ï†Î¬Î½Î¹ÏƒÎ· Î¥Ï€Î¿Î²Î¬Î¸ÏÎ¿Ï… ÎºÎ±Ï„Î¬ Ï„Î·Î½ ÎŸÏ€Ï„Î¹ÎºÎ¿Ï€Î¿Î¯Î·ÏƒÎ· 'Î¤ÏŽÏÎ± Î•ÎºÏ„ÎµÎ»ÎµÎ¯Ï„Î±Î¹'"
 
 msgctxt "#31126"
 msgid "TheMovieDb Helper provides details about movies, tvshows and actors from TMDb."
@@ -535,7 +535,7 @@ msgstr ""
 
 msgctxt "#31129"
 msgid "Hide Fanart in full screen visualisation"
-msgstr "Απόκρυψη Fanart κατά την οπτικοποίηση πλήρους οθόνης"
+msgstr "Î‘Ï€ÏŒÎºÏÏ…ÏˆÎ· Fanart ÎºÎ±Ï„Î¬ Ï„Î·Î½ Î¿Ï€Ï„Î¹ÎºÎ¿Ï€Î¿Î¯Î·ÏƒÎ· Ï€Î»Î®ÏÎ¿Ï…Ï‚ Î¿Î¸ÏŒÎ½Î·Ï‚"
 
 msgctxt "#31130"
 msgid "Use \"Enigma2-style\" channel OSD"
@@ -587,7 +587,7 @@ msgstr ""
 
 msgctxt "#31142"
 msgid "Settings level"
-msgstr "Επίπεδο ρυθμίσεων"
+msgstr "Î•Ï€Î¯Ï€ÎµÎ´Î¿ ÏÏ…Î¸Î¼Î¯ÏƒÎµÏ‰Î½"
 
 msgctxt "#31143"
 msgid "Hide Recordings"
@@ -603,7 +603,7 @@ msgstr ""
 
 msgctxt "#31146"
 msgid "Rated"
-msgstr "Αξιολογημένο/α"
+msgstr "Î‘Î¾Î¹Î¿Î»Î¿Î³Î·Î¼Î­Î½Î¿/Î±"
 
 msgctxt "#31147"
 msgid "Change rating"
@@ -623,11 +623,11 @@ msgstr ""
 
 msgctxt "#31151"
 msgid "View settings"
-msgstr "Προβολή ρυθμίσεων"
+msgstr "Î ÏÎ¿Î²Î¿Î»Î® ÏÏ…Î¸Î¼Î¯ÏƒÎµÏ‰Î½"
 
 msgctxt "#31152"
 msgid "Poster"
-msgstr "Αφίσα"
+msgstr "Î‘Ï†Î¯ÏƒÎ±"
 
 msgctxt "#31153"
 msgid "Disable views"
@@ -655,11 +655,11 @@ msgstr ""
 
 msgctxt "#31159"
 msgid "Event log"
-msgstr "Καταγραφή συμβάντων"
+msgstr "ÎšÎ±Ï„Î±Î³ÏÎ±Ï†Î® ÏƒÏ…Î¼Î²Î¬Î½Ï„Ï‰Î½"
 
 msgctxt "#31160"
 msgid "Extended"
-msgstr "Εκτεταμένος"
+msgstr "Î•ÎºÏ„ÎµÏ„Î±Î¼Î­Î½Î¿Ï‚"
 
 msgctxt "#31161"
 msgid "Choose the position of the RSS feed. Top of the screen, bottom of the screen or the default location directly underneath the main menu."
@@ -723,7 +723,7 @@ msgstr ""
 
 msgctxt "#31176"
 msgid "Trending Movies"
-msgstr "Ταινίες με Ανοδική Πορεία"
+msgstr "Î¤Î±Î¹Î½Î¯ÎµÏ‚ Î¼Îµ Î‘Î½Î¿Î´Î¹ÎºÎ® Î Î¿ÏÎµÎ¯Î±"
 
 msgctxt "#31177"
 msgid "Top Rentals"
@@ -839,7 +839,7 @@ msgstr ""
 
 msgctxt "#31205"
 msgid "Lyrics Source"
-msgstr "Πηγή Στίχων"
+msgstr "Î Î·Î³Î® Î£Ï„Î¯Ï‡Ï‰Î½"
 
 msgctxt "#31206"
 msgid "Opening This Week"
@@ -859,11 +859,11 @@ msgstr ""
 
 msgctxt "#31210"
 msgid "Popular Movies"
-msgstr "Δημοφιλείς Ταινίες"
+msgstr "Î”Î·Î¼Î¿Ï†Î¹Î»ÎµÎ¯Ï‚ Î¤Î±Î¹Î½Î¯ÎµÏ‚"
 
 msgctxt "#31211"
 msgid "Top Rated Movies"
-msgstr "Ταινίες με κορυφαία βαθμολογία"
+msgstr "Î¤Î±Î¹Î½Î¯ÎµÏ‚ Î¼Îµ ÎºÎ¿ÏÏ…Ï†Î±Î¯Î± Î²Î±Î¸Î¼Î¿Î»Î¿Î³Î¯Î±"
 
 msgctxt "#31212"
 msgid "Popular TV"
@@ -939,7 +939,7 @@ msgstr ""
 
 msgctxt "#31230"
 msgid "Panel"
-msgstr "Πάνελ"
+msgstr "Î Î¬Î½ÎµÎ»"
 
 msgctxt "#31231"
 msgid "Widget Style"
@@ -955,7 +955,7 @@ msgstr ""
 
 msgctxt "#31234"
 msgid "Next aired"
-msgstr "Επόμενο Επεισόδιο"
+msgstr "Î•Ï€ÏŒÎ¼ÎµÎ½Î¿ Î•Ï€ÎµÎ¹ÏƒÏŒÎ´Î¹Î¿"
 
 msgctxt "#31235"
 msgid "Slide Left"
@@ -991,7 +991,7 @@ msgstr ""
 
 msgctxt "#31243"
 msgid "Posters"
-msgstr "Αφίσες"
+msgstr "Î‘Ï†Î¯ÏƒÎµÏ‚"
 
 msgctxt "#31244"
 msgid "MyFlix"
@@ -1007,11 +1007,11 @@ msgstr ""
 
 msgctxt "#31247"
 msgid "InfoWall"
-msgstr "InfoΤοίχος"
+msgstr "InfoÎ¤Î¿Î¯Ï‡Î¿Ï‚"
 
 msgctxt "#31248"
 msgid "BannerPlex"
-msgstr "Πλέγμα Πανό"
+msgstr "Î Î»Î­Î³Î¼Î± Î Î±Î½ÏŒ"
 
 msgctxt "#31249"
 msgid "BigFan"
@@ -1023,7 +1023,7 @@ msgstr ""
 
 msgctxt "#31251"
 msgid "Gallery"
-msgstr "Πινακοθήκη"
+msgstr "Î Î¹Î½Î±ÎºÎ¿Î¸Î®ÎºÎ·"
 
 msgctxt "#31252"
 msgid "TopBar"
@@ -1031,7 +1031,7 @@ msgstr ""
 
 msgctxt "#31253"
 msgid "Banners"
-msgstr "Πανό"
+msgstr "Î Î±Î½ÏŒ"
 
 msgctxt "#31254"
 msgid "Smaller posters"
@@ -1107,7 +1107,7 @@ msgstr ""
 
 msgctxt "#31272"
 msgid "Awards"
-msgstr "Βραβεία"
+msgstr "Î’ÏÎ±Î²ÎµÎ¯Î±"
 
 msgctxt "#31273"
 msgid "Recording widget"
@@ -1115,7 +1115,7 @@ msgstr ""
 
 msgctxt "#31274"
 msgid "Artwork"
-msgstr "Εικόνες"
+msgstr "Î•Î¹ÎºÏŒÎ½ÎµÏ‚"
 
 msgctxt "#31275"
 msgid "Case"
@@ -1127,7 +1127,7 @@ msgstr ""
 
 msgctxt "#31277"
 msgid "Sort by"
-msgstr "Ταξινόμηση κατά"
+msgstr "Î¤Î±Î¾Î¹Î½ÏŒÎ¼Î·ÏƒÎ· ÎºÎ±Ï„Î¬"
 
 msgctxt "#31278"
 msgid "Sort order"
@@ -1219,11 +1219,11 @@ msgstr ""
 
 msgctxt "#31300"
 msgid "Overview"
-msgstr "Επισκόπηση"
+msgstr "Î•Ï€Î¹ÏƒÎºÏŒÏ€Î·ÏƒÎ·"
 
 msgctxt "#31301"
 msgid "Last Updated"
-msgstr "Τελευταία ενημέρωση"
+msgstr "Î¤ÎµÎ»ÎµÏ…Ï„Î±Î¯Î± ÎµÎ½Î·Î¼Î­ÏÏ‰ÏƒÎ·"
 
 msgctxt "#31302"
 msgid "Menu Bar"
@@ -1247,7 +1247,7 @@ msgstr ""
 
 msgctxt "#31307"
 msgid "Hide Fanart"
-msgstr "Απόκρυψη Fanart"
+msgstr "Î‘Ï€ÏŒÎºÏÏ…ÏˆÎ· Fanart"
 
 msgctxt "#31308"
 msgid "Focused text"
@@ -1255,7 +1255,7 @@ msgstr ""
 
 msgctxt "#31309"
 msgid "Memory Used"
-msgstr "Χρήση Μνήμης"
+msgstr "Î§ÏÎ®ÏƒÎ· ÎœÎ½Î®Î¼Î·Ï‚"
 
 msgctxt "#31310"
 msgid "Unfocused text"
@@ -1275,7 +1275,7 @@ msgstr ""
 
 msgctxt "#31314"
 msgid "Panel"
-msgstr "Πάνελ"
+msgstr "Î Î¬Î½ÎµÎ»"
 
 msgctxt "#31315"
 msgid "A required script is [B]NOT INSTALLED[/B]. Press INSTALL to download automatically. Press CANCEL if you would like to return to System Settings and switch skins. You may need to restart Kodi after installation completes."
@@ -1287,10 +1287,10 @@ msgstr ""
 
 msgctxt "#31317"
 msgid "Set Fanart Path"
-msgstr "Διαδρομή Fanart"
+msgstr "Î”Î¹Î±Î´ÏÎ¿Î¼Î® Fanart"
 
 msgctxt "#31318"
-msgid "[B]CONFIGURE LibreELEC SETTINGS[/B][CR]Setup system option · Manage network[CR]Configure services · About LibreELEC"
+msgid "[B]CONFIGURE LibreELEC SETTINGS[/B][CR]Setup system option Â· Manage network[CR]Configure services Â· About LibreELEC"
 msgstr ""
 
 msgctxt "#31319"
@@ -1299,11 +1299,11 @@ msgstr ""
 
 msgctxt "#31320"
 msgid "Last Logged In"
-msgstr "Τελευταία είσοδος"
+msgstr "Î¤ÎµÎ»ÎµÏ…Ï„Î±Î¯Î± ÎµÎ¯ÏƒÎ¿Î´Î¿Ï‚"
 
 msgctxt "#31321"
 msgid "Karaoke Song Selector"
-msgstr "Επιλογέας τραγουδιού Karaoke"
+msgstr "Î•Ï€Î¹Î»Î¿Î³Î­Î±Ï‚ Ï„ÏÎ±Î³Î¿Ï…Î´Î¹Î¿Ï Karaoke"
 
 msgctxt "#31322"
 msgid "This will disable the screensaver during music playback by hiding the visualization. This may cause unwanted [B]IMAGE RETENTION[/B] if not used carefully. Do you accept the risks and want to enable this setting?"
@@ -1315,7 +1315,7 @@ msgstr ""
 
 msgctxt "#31324"
 msgid "Aired"
-msgstr "Πρώτη Προβολή"
+msgstr "Î ÏÏŽÏ„Î· Î ÏÎ¿Î²Î¿Î»Î®"
 
 msgctxt "#31325"
 msgid "REQUIRED scripts are necessary for basic skin functions."
@@ -1331,7 +1331,7 @@ msgstr ""
 
 msgctxt "#31328"
 msgid "Recently Added"
-msgstr "Προστέθηκαν Πρόσφατα"
+msgstr "Î ÏÎ¿ÏƒÏ„Î­Î¸Î·ÎºÎ±Î½ Î ÏÏŒÏƒÏ†Î±Ï„Î±"
 
 msgctxt "#31329"
 msgid "Taking a Screenshot"
@@ -1347,7 +1347,7 @@ msgstr ""
 
 msgctxt "#31332"
 msgid "Not Installed or Disabled"
-msgstr "Μη εγκατεστήμενο η Απενεργοποιημένο"
+msgstr "ÎœÎ· ÎµÎ³ÎºÎ±Ï„ÎµÏƒÏ„Î®Î¼ÎµÎ½Î¿ Î· Î‘Ï€ÎµÎ½ÎµÏÎ³Î¿Ï€Î¿Î¹Î·Î¼Î­Î½Î¿"
 
 msgctxt "#31333"
 msgid "The default behavior is to display Music information for 10 seconds after a song is played or the next track in your queue begins. To display permanently reactivate the info and do not toggle it off a second time."
@@ -1359,7 +1359,7 @@ msgstr ""
 
 msgctxt "#31335"
 msgid "Recommended"
-msgstr "Προτεινόμενα"
+msgstr "Î ÏÎ¿Ï„ÎµÎ¹Î½ÏŒÎ¼ÎµÎ½Î±"
 
 msgctxt "#31336"
 msgid "Optional"
@@ -1427,7 +1427,7 @@ msgstr ""
 
 msgctxt "#31352"
 msgid "Inactive"
-msgstr "Ανενεργό"
+msgstr "Î‘Î½ÎµÎ½ÎµÏÎ³ÏŒ"
 
 msgctxt "#31353"
 msgid "Shows an overview of the movie or episode 5 seconds after the video is paused."
@@ -1443,11 +1443,11 @@ msgstr ""
 
 msgctxt "#31356"
 msgid "Hardware decoding"
-msgstr "Αποκωδικοποίηση υλικού"
+msgstr "Î‘Ï€Î¿ÎºÏ‰Î´Î¹ÎºÎ¿Ï€Î¿Î¯Î·ÏƒÎ· Ï…Î»Î¹ÎºÎ¿Ï"
 
 msgctxt "#31357"
 msgid "Decoder"
-msgstr "Αποκωδικοποιητής"
+msgstr "Î‘Ï€Î¿ÎºÏ‰Î´Î¹ÎºÎ¿Ï€Î¿Î¹Î·Ï„Î®Ï‚"
 
 msgctxt "#31358"
 msgid "Icon only"
@@ -1459,7 +1459,7 @@ msgstr ""
 
 msgctxt "#31360"
 msgid "Large"
-msgstr "Μεγάλο"
+msgstr "ÎœÎµÎ³Î¬Î»Î¿"
 
 msgctxt "#31361"
 msgid "Compact"
@@ -1515,15 +1515,15 @@ msgstr ""
 
 msgctxt "#31374"
 msgid "Latest"
-msgstr "Πρόσφατα"
+msgstr "Î ÏÏŒÏƒÏ†Î±Ï„Î±"
 
 msgctxt "#31375"
 msgid "Video OSD"
-msgstr "Aπεικονίσεις οθόνης (OSD) Βίντεο"
+msgstr "AÏ€ÎµÎ¹ÎºÎ¿Î½Î¯ÏƒÎµÎ¹Ï‚ Î¿Î¸ÏŒÎ½Î·Ï‚ (OSD) Î’Î¯Î½Ï„ÎµÎ¿"
 
 msgctxt "#31376"
 msgid "Music OSD"
-msgstr "Aπεικονίσεις οθόνης (OSD) Μουσικής"
+msgstr "AÏ€ÎµÎ¹ÎºÎ¿Î½Î¯ÏƒÎµÎ¹Ï‚ Î¿Î¸ÏŒÎ½Î·Ï‚ (OSD) ÎœÎ¿Ï…ÏƒÎ¹ÎºÎ®Ï‚"
 
 msgctxt "#31377"
 msgid "Altering this shortcut may prevent access to the Main Menu customizer and several skin options.[CR]Are you sure you want to perform the requested changes to this shortcut?"
@@ -1579,7 +1579,7 @@ msgstr ""
 
 msgctxt "#31390"
 msgid "Skin default"
-msgstr "Προεπιλογή"
+msgstr "Î ÏÎ¿ÎµÏ€Î¹Î»Î¿Î³Î®"
 
 msgctxt "#31391"
 msgid "Arial"
@@ -1591,7 +1591,7 @@ msgstr ""
 
 msgctxt "#31393"
 msgid "Ends at"
-msgstr "Τελειώνει στις"
+msgstr "Î¤ÎµÎ»ÎµÎ¹ÏŽÎ½ÎµÎ¹ ÏƒÏ„Î¹Ï‚"
 
 msgctxt "#31394"
 msgid "Replace default info with Netflix style"
@@ -1618,15 +1618,15 @@ msgid "Customize the settings for the Live TV section."
 msgstr ""
 
 msgctxt "#31400"
-msgid "[B]CONFIGURE INTERFACE SETTINGS[/B][CR]Change the skin · Set language and region[CR]Set up a screensaver · Setup master lock"
+msgid "[B]CONFIGURE INTERFACE SETTINGS[/B][CR]Change the skin Â· Set language and region[CR]Set up a screensaver Â· Setup master lock"
 msgstr ""
 
 msgctxt "#31401"
-msgid "[B]CONFIGURE PLAYER SETTINGS[/B][CR]Configure video playback · Configure music playback[CR]Configure picture slideshow · Configure video language and subtitles"
+msgid "[B]CONFIGURE PLAYER SETTINGS[/B][CR]Configure video playback Â· Configure music playback[CR]Configure picture slideshow Â· Configure video language and subtitles"
 msgstr ""
 
 msgctxt "#31402"
-msgid "[B]CONFIGURE MEDIA SETTINGS[/B][CR]Manage sources · Set default select action[CR]Configure metadata options · Configure file list options"
+msgid "[B]CONFIGURE MEDIA SETTINGS[/B][CR]Manage sources Â· Set default select action[CR]Configure metadata options Â· Configure file list options"
 msgstr ""
 
 msgctxt "#31403"
@@ -1638,15 +1638,15 @@ msgid "This will RESET ALL skin settings, selecting YES in the dialog that appea
 msgstr ""
 
 msgctxt "#31405"
-msgid "[B]MONITOR YOUR SYSTEM[/B][CR]Check out your hardware[CR]Check Kodi revision number · Monitor CPU usage"
+msgid "[B]MONITOR YOUR SYSTEM[/B][CR]Check out your hardware[CR]Check Kodi revision number Â· Monitor CPU usage"
 msgstr ""
 
 msgctxt "#31406"
-msgid "[B]CONFIGURE SYSTEM SETTINGS[/B][CR]Setup and calibrate displays · Configure audio output[CR]Set power saving options · Configure proxy settings · Enable debugging"
+msgid "[B]CONFIGURE SYSTEM SETTINGS[/B][CR]Setup and calibrate displays Â· Configure audio output[CR]Set power saving options Â· Configure proxy settings Â· Enable debugging"
 msgstr ""
 
 msgctxt "#31407"
-msgid "[B]CONFIGURE PROFILES[/B][CR]Setup and manage user profiles[CR]Change password · Enable login screen"
+msgid "[B]CONFIGURE PROFILES[/B][CR]Setup and manage user profiles[CR]Change password Â· Enable login screen"
 msgstr ""
 
 msgctxt "#31408"
@@ -1654,12 +1654,12 @@ msgid "Enable to show a LiveTV widget displaying what is currently recording and
 msgstr ""
 
 msgctxt "#31409"
-msgid "[B]CONFIGURE LIVE TV SETTINGS[/B][CR]Change full screen info[CR]Manage Guide data settings  •  Configure recording options"
+msgid "[B]CONFIGURE LIVE TV SETTINGS[/B][CR]Change full screen info[CR]Manage Guide data settings  â€¢  Configure recording options"
 msgstr ""
 
 msgctxt "#31410"
-msgid "[B]CONFIGURE SERVICE SETTINGS[/B][CR]Setup control of Kodi via UPnP and HTTP · Configure file sharing[CR]Enable Zeroconf · Configure AirPlay"
-msgstr "[B]ΡΥΘΜΙΣΕΙΣ ΥΠΗΡΕΣΙΩΝ[/B][CR]Χειρισμός του Kodi μέσω UPnP και HTTP · Ρύθμιση κοινής χρήσης αρχείων[CR]Ενεργοποίηση Zeroconf · Ρύθμιση AirPlay"
+msgid "[B]CONFIGURE SERVICE SETTINGS[/B][CR]Setup control of Kodi via UPnP and HTTP Â· Configure file sharing[CR]Enable Zeroconf Â· Configure AirPlay"
+msgstr "[B]Î¡Î¥Î˜ÎœÎ™Î£Î•Î™Î£ Î¥Î Î—Î¡Î•Î£Î™Î©Î[/B][CR]Î§ÎµÎ¹ÏÎ¹ÏƒÎ¼ÏŒÏ‚ Ï„Î¿Ï… Kodi Î¼Î­ÏƒÏ‰ UPnP ÎºÎ±Î¹ HTTP Â· Î¡ÏÎ¸Î¼Î¹ÏƒÎ· ÎºÎ¿Î¹Î½Î®Ï‚ Ï‡ÏÎ®ÏƒÎ·Ï‚ Î±ÏÏ‡ÎµÎ¯Ï‰Î½[CR]Î•Î½ÎµÏÎ³Î¿Ï€Î¿Î¯Î·ÏƒÎ· Zeroconf Â· Î¡ÏÎ¸Î¼Î¹ÏƒÎ· AirPlay"
 
 msgctxt "#31411"
 msgid "Will override the General Theme color."
@@ -1667,11 +1667,11 @@ msgstr ""
 
 msgctxt "#31412"
 msgid "Select section"
-msgstr "Επιλογή τομέα"
+msgstr "Î•Ï€Î¹Î»Î¿Î³Î® Ï„Î¿Î¼Î­Î±"
 
 msgctxt "#31413"
 msgid "Local subtitle available"
-msgstr "Υπάρχει διαθέσιμος υπότιτλος τοπικά"
+msgstr "Î¥Ï€Î¬ÏÏ‡ÎµÎ¹ Î´Î¹Î±Î¸Î­ÏƒÎ¹Î¼Î¿Ï‚ Ï…Ï€ÏŒÏ„Î¹Ï„Î»Î¿Ï‚ Ï„Î¿Ï€Î¹ÎºÎ¬"
 
 msgctxt "#31414"
 msgid "Set the Main Theme color used throughout the skin."
@@ -1703,7 +1703,7 @@ msgstr ""
 
 msgctxt "#31421"
 msgid "Select your Kodi user profile[CR]to login and continue"
-msgstr "Επιλέξτε προφίλ χρήστη για το Kodi[CR]για να συνδεθείτε και να συνεχίσετε"
+msgstr "Î•Ï€Î¹Î»Î­Î¾Ï„Îµ Ï€ÏÎ¿Ï†Î¯Î» Ï‡ÏÎ®ÏƒÏ„Î· Î³Î¹Î± Ï„Î¿ Kodi[CR]Î³Î¹Î± Î½Î± ÏƒÏ…Î½Î´ÎµÎ¸ÎµÎ¯Ï„Îµ ÎºÎ±Î¹ Î½Î± ÏƒÏ…Î½ÎµÏ‡Î¯ÏƒÎµÏ„Îµ"
 
 msgctxt "#31422"
 msgid "Customize the Widget Highlight color on the home screen."
@@ -1723,7 +1723,7 @@ msgstr ""
 
 msgctxt "#31426"
 msgid "Enter text here..."
-msgstr "Εισαγωγή κειμένου εδώ..."
+msgstr "Î•Î¹ÏƒÎ±Î³Ï‰Î³Î® ÎºÎµÎ¹Î¼Î­Î½Î¿Ï… ÎµÎ´ÏŽ..."
 
 msgctxt "#31427"
 msgid "Skin Shortcuts is responsible for handeling all aspects of the main menu."
@@ -1779,10 +1779,10 @@ msgstr ""
 
 msgctxt "#31440"
 msgid "Recently played channels"
-msgstr "Πρόσφατα παιγμένα κανάλια"
+msgstr "Î ÏÏŒÏƒÏ†Î±Ï„Î± Ï€Î±Î¹Î³Î¼Î­Î½Î± ÎºÎ±Î½Î¬Î»Î¹Î±"
 
 msgctxt "#31441"
-msgid "[B]CONFIGURE GAME SETTINGS[/B][CR]Change gameplay options[CR]Keyboard settings  •  Configure rewind settings"
+msgid "[B]CONFIGURE GAME SETTINGS[/B][CR]Change gameplay options[CR]Keyboard settings  â€¢  Configure rewind settings"
 msgstr ""
 
 msgctxt "#31442"
@@ -1810,7 +1810,7 @@ msgid "Show a popup displaying answers to some FREQUENTLY ASKED QUESTIONS posted
 msgstr ""
 
 msgctxt "#31448"
-msgid "[B]CONFIGURE ADD-ONS[/B][CR]Manage your installed Add-ons[CR]Browse for and install Add-ons  •  Check for Add-on updates"
+msgid "[B]CONFIGURE ADD-ONS[/B][CR]Manage your installed Add-ons[CR]Browse for and install Add-ons  â€¢  Check for Add-on updates"
 msgstr ""
 
 msgctxt "#31449"
@@ -1818,11 +1818,11 @@ msgid "Save & Exit"
 msgstr ""
 
 msgctxt "#31450"
-msgid "  •  Open Settings "
+msgid "  â€¢  Open Settings "
 msgstr ""
 
 msgctxt "#31451"
-msgid "  •  Click to Install or Enable"
+msgid "  â€¢  Click to Install or Enable"
 msgstr ""
 
 msgctxt "#31452"
@@ -1978,12 +1978,12 @@ msgid "Hide episode thumb when hiding plot for unwatched items"
 msgstr ""
 
 msgctxt "#31490"
-msgid "[B]CONFIGURE CoreELEC SETTINGS[/B][CR]Setup system option · Manage network[CR]Configure services · About CoreELEC"
+msgid "[B]CONFIGURE CoreELEC SETTINGS[/B][CR]Setup system option Â· Manage network[CR]Configure services Â· About CoreELEC"
 msgstr ""
 
 msgctxt "#31491"
 msgid "Muted"
-msgstr "Σίγαση"
+msgstr "Î£Î¯Î³Î±ÏƒÎ·"
 
 msgctxt "#31492"
 msgid "The metadata and artwork module provides both metadata and artwork from sites like TMDB, musicbrainz and fanart.tv. It has settings used for the Skin Helper scripts."
@@ -2023,7 +2023,7 @@ msgstr ""
 
 msgctxt "#31501"
 msgid "Channel group"
-msgstr "Γκρουπ καναλιών"
+msgstr "Î“ÎºÏÎ¿Ï…Ï€ ÎºÎ±Î½Î±Î»Î¹ÏŽÎ½"
 
 msgctxt "#31502"
 msgid "Live TV"
@@ -2031,19 +2031,19 @@ msgstr "Live TV"
 
 msgctxt "#31503"
 msgid "Add Group"
-msgstr "Προσθήκη Γκρούπ"
+msgstr "Î ÏÎ¿ÏƒÎ¸Î®ÎºÎ· Î“ÎºÏÎ¿ÏÏ€"
 
 msgctxt "#31504"
 msgid "Rename Group"
-msgstr "Μετονομασία Γκρουπ"
+msgstr "ÎœÎµÏ„Î¿Î½Î¿Î¼Î±ÏƒÎ¯Î± Î“ÎºÏÎ¿Ï…Ï€"
 
 msgctxt "#31505"
 msgid "Delete Group"
-msgstr "Διαγραφή Γκρουπ"
+msgstr "Î”Î¹Î±Î³ÏÎ±Ï†Î® Î“ÎºÏÎ¿Ï…Ï€"
 
 msgctxt "#31506"
 msgid "Available Groups"
-msgstr "Διαθέσιμα Γκρουπ"
+msgstr "Î”Î¹Î±Î¸Î­ÏƒÎ¹Î¼Î± Î“ÎºÏÎ¿Ï…Ï€"
 
 msgctxt "#31507"
 msgid "Show clearart in tv information"
@@ -2063,7 +2063,7 @@ msgstr ""
 
 msgctxt "#31511"
 msgid "Channel Options"
-msgstr "Επιλογές Καναλιού"
+msgstr "Î•Ï€Î¹Î»Î¿Î³Î­Ï‚ ÎšÎ±Î½Î±Î»Î¹Î¿Ï"
 
 msgctxt "#31512"
 msgid "Enable fullscreen information for recordings"
@@ -2151,7 +2151,7 @@ msgstr ""
 
 msgctxt "#31533"
 msgid "Unwatched movies"
-msgstr "Μη προβληθείσες ταινίες"
+msgstr "ÎœÎ· Ï€ÏÎ¿Î²Î»Î·Î¸ÎµÎ¯ÏƒÎµÏ‚ Ï„Î±Î¹Î½Î¯ÎµÏ‚"
 
 msgctxt "#31534"
 msgid "Best picture winners"
@@ -2159,11 +2159,11 @@ msgstr ""
 
 msgctxt "#31535"
 msgid "Unwatched TV Shows"
-msgstr "Μη προβληθείσες Τηλ. Σειρές"
+msgstr "ÎœÎ· Ï€ÏÎ¿Î²Î»Î·Î¸ÎµÎ¯ÏƒÎµÏ‚ Î¤Î·Î». Î£ÎµÎ¹ÏÎ­Ï‚"
 
 msgctxt "#31536"
 msgid "Recent recordings"
-msgstr "Πρόσφατες εγγραφές"
+msgstr "Î ÏÏŒÏƒÏ†Î±Ï„ÎµÏ‚ ÎµÎ³Î³ÏÎ±Ï†Î­Ï‚"
 
 msgctxt "#31537"
 msgid "System & Weather"
@@ -2175,7 +2175,7 @@ msgstr ""
 
 msgctxt "#31539"
 msgid "Random TV Shows"
-msgstr "Τυχαίες Σειρές"
+msgstr "Î¤Ï…Ï‡Î±Î¯ÎµÏ‚ Î£ÎµÎ¹ÏÎ­Ï‚"
 
 msgctxt "#31540"
 msgid "Unwatched episodes"
@@ -2199,7 +2199,7 @@ msgstr ""
 
 msgctxt "#31545"
 msgid "Crew"
-msgstr "Συντελεστές"
+msgstr "Î£Ï…Î½Ï„ÎµÎ»ÎµÏƒÏ„Î­Ï‚"
 
 msgctxt "#31546"
 msgid "Known for"
@@ -2331,7 +2331,7 @@ msgstr ""
 
 msgctxt "#31578"
 msgid "Random music videos"
-msgstr "Τυχαία μουσικά βίντεο"
+msgstr "Î¤Ï…Ï‡Î±Î¯Î± Î¼Î¿Ï…ÏƒÎ¹ÎºÎ¬ Î²Î¯Î½Ï„ÎµÎ¿"
 
 msgctxt "#31579"
 msgid "Random music videos (artists)"
@@ -2343,7 +2343,7 @@ msgstr ""
 
 msgctxt "#31581"
 msgid "Unwatched music videos"
-msgstr "Μη προβληθέντα βίντεο"
+msgstr "ÎœÎ· Ï€ÏÎ¿Î²Î»Î·Î¸Î­Î½Ï„Î± Î²Î¯Î½Ï„ÎµÎ¿"
 
 msgctxt "#31582"
 msgid "Most played music videos"
@@ -2355,7 +2355,7 @@ msgstr ""
 
 msgctxt "#31584"
 msgid "Random artists"
-msgstr "Τυχαίοι καλλιτέχνες"
+msgstr "Î¤Ï…Ï‡Î±Î¯Î¿Î¹ ÎºÎ±Î»Î»Î¹Ï„Î­Ï‡Î½ÎµÏ‚"
 
 msgctxt "#31585"
 msgid "Most played songs"
@@ -2390,15 +2390,15 @@ msgid "Favourites dialog"
 msgstr ""
 
 msgctxt "#31593"
-msgid "[B]CONFIGURE SKIN SETTINGS[/B][CR]Customize the main menu · Choose skin colors[CR]Set up widgets · Enable optional features"
+msgid "[B]CONFIGURE SKIN SETTINGS[/B][CR]Customize the main menu Â· Choose skin colors[CR]Set up widgets Â· Enable optional features"
 msgstr ""
 
 msgctxt "#31594"
-msgid "[B]OPEN FILE MANAGER[/B][CR]Access files from within Kodi[CR]Add source · Perform file operations"
+msgid "[B]OPEN FILE MANAGER[/B][CR]Access files from within Kodi[CR]Add source Â· Perform file operations"
 msgstr ""
 
 msgctxt "#31595"
-msgid "[B]OPEN THE EVENT LOG[/B][CR]Library update reports · Failed scrapes · Missing files[CR]PVR events · Add-on events"
+msgid "[B]OPEN THE EVENT LOG[/B][CR]Library update reports Â· Failed scrapes Â· Missing files[CR]PVR events Â· Add-on events"
 msgstr ""
 
 msgctxt "#31596"
@@ -2435,7 +2435,7 @@ msgstr ""
 
 msgctxt "#31604"
 msgid "Information"
-msgstr "Πληροφορίες"
+msgstr "Î Î»Î·ÏÎ¿Ï†Î¿ÏÎ¯ÎµÏ‚"
 
 msgctxt "#31605"
 msgid "Alternate layout"
@@ -2443,7 +2443,7 @@ msgstr ""
 
 msgctxt "#31606"
 msgid "Logo"
-msgstr "Λογότυπο"
+msgstr "Î›Î¿Î³ÏŒÏ„Ï…Ï€Î¿"
 
 msgctxt "#31607"
 msgid "HD/SD/3D indicators"
@@ -2582,7 +2582,7 @@ msgstr ""
 
 msgctxt "#31706"
 msgid "Art"
-msgstr "Εικόνες"
+msgstr "Î•Î¹ÎºÏŒÎ½ÎµÏ‚"
 
 msgctxt "#31707"
 msgid "Case"
@@ -2590,7 +2590,7 @@ msgstr ""
 
 msgctxt "#31708"
 msgid "Sort by"
-msgstr "Ταξινόμηση κατά"
+msgstr "Î¤Î±Î¾Î¹Î½ÏŒÎ¼Î·ÏƒÎ· ÎºÎ±Ï„Î¬"
 
 msgctxt "#31709"
 msgid "Sort order"
@@ -2606,7 +2606,7 @@ msgstr ""
 
 msgctxt "#31712"
 msgid "Panel"
-msgstr "Πάνελ"
+msgstr "Î Î¬Î½ÎµÎ»"
 
 msgctxt "#31713"
 msgid "Panel extended"
@@ -2686,7 +2686,7 @@ msgstr ""
 
 msgctxt "#31732"
 msgid "In progress movies"
-msgstr "Ταινίες σε εξέλιξη"
+msgstr "Î¤Î±Î¹Î½Î¯ÎµÏ‚ ÏƒÎµ ÎµÎ¾Î­Î»Î¹Î¾Î·"
 
 msgctxt "#31733"
 msgid "In progress episodes"
@@ -2828,11 +2828,11 @@ msgstr ""
 # empty strings from id 31805 to 31849
 msgctxt "#31850"
 msgid "Budget"
-msgstr "Προϋπολογισμός"
+msgstr "Î ÏÎ¿Ï‹Ï€Î¿Î»Î¿Î³Î¹ÏƒÎ¼ÏŒÏ‚"
 
 msgctxt "#31851"
 msgid "Revenue"
-msgstr "Εισπράξεις"
+msgstr "Î•Î¹ÏƒÏ€ÏÎ¬Î¾ÎµÎ¹Ï‚"
 
 msgctxt "#31852"
 msgid "Displays a larger ratings classification image with standard descriptions.[CR]Works with U.S. MPAA ratings only."
@@ -2861,35 +2861,35 @@ msgstr ""
 
 msgctxt "#31901"
 msgid "36 Hour Forecast"
-msgstr "36ωρη Πρόγνωση"
+msgstr "36Ï‰ÏÎ· Î ÏÏŒÎ³Î½Ï‰ÏƒÎ·"
 
 msgctxt "#31902"
 msgid "Hourly Forecast"
-msgstr "Ωριαία Πρόγνωση"
+msgstr "Î©ÏÎ¹Î±Î¯Î± Î ÏÏŒÎ³Î½Ï‰ÏƒÎ·"
 
 msgctxt "#31903"
 msgid "Weekend Forecast"
-msgstr "Πρόγνωση Σαββατοκύριακου"
+msgstr "Î ÏÏŒÎ³Î½Ï‰ÏƒÎ· Î£Î±Î²Î²Î±Ï„Î¿ÎºÏÏÎ¹Î±ÎºÎ¿Ï…"
 
 msgctxt "#31904"
 msgid "10 Day Forecast"
-msgstr "Πρόγνωση 10 ημερών"
+msgstr "Î ÏÏŒÎ³Î½Ï‰ÏƒÎ· 10 Î·Î¼ÎµÏÏŽÎ½"
 
 msgctxt "#31908"
 msgid "Chance of Precipitation"
-msgstr "Πιθανότητα Υετού"
+msgstr "Î Î¹Î¸Î±Î½ÏŒÏ„Î·Ï„Î± Î¥ÎµÏ„Î¿Ï"
 
 msgctxt "#31909"
 msgid "Fetching forecast info..."
-msgstr "Ανάκτηση πρόγνωσης καιρού..."
+msgstr "Î‘Î½Î¬ÎºÏ„Î·ÏƒÎ· Ï€ÏÏŒÎ³Î½Ï‰ÏƒÎ·Ï‚ ÎºÎ±Î¹ÏÎ¿Ï..."
 
 msgctxt "#31910"
 msgid "Map & Alerts"
-msgstr "Χάρτης & Προειδοποιήσεις"
+msgstr "Î§Î¬ÏÏ„Î·Ï‚ & Î ÏÎ¿ÎµÎ¹Î´Î¿Ï€Î¿Î¹Î®ÏƒÎµÎ¹Ï‚"
 
 msgctxt "#31911"
 msgid "Setup the Marmalade main menu"
-msgstr "Διαμόρφωση του κεντρικού μενού"
+msgstr "Î”Î¹Î±Î¼ÏŒÏÏ†Ï‰ÏƒÎ· Ï„Î¿Ï… ÎºÎµÎ½Ï„ÏÎ¹ÎºÎ¿Ï Î¼ÎµÎ½Î¿Ï"
 
 msgctxt "#31912"
 msgid "Customize the main menu with widgets, backgrounds, and statistics. Add your own custom main menu items."
@@ -2897,7 +2897,7 @@ msgstr ""
 
 msgctxt "#31913"
 msgid "Marmalade main menu horizontal position"
-msgstr "Οριζόντια τοποθέτηση κεντρικού μενού"
+msgstr "ÎŸÏÎ¹Î¶ÏŒÎ½Ï„Î¹Î± Ï„Î¿Ï€Î¿Î¸Î­Ï„Î·ÏƒÎ· ÎºÎµÎ½Ï„ÏÎ¹ÎºÎ¿Ï Î¼ÎµÎ½Î¿Ï"
 
 msgctxt "#31914"
 msgid "Change the horizontal position of the main menu."
@@ -2905,39 +2905,39 @@ msgstr ""
 
 msgctxt "#31915"
 msgid "Navigation style for horizontal lists"
-msgstr "Στυλ πλοήγησης για οριζόντιες λίστες"
+msgstr "Î£Ï„Ï…Î» Ï€Î»Î¿Î®Î³Î·ÏƒÎ·Ï‚ Î³Î¹Î± Î¿ÏÎ¹Î¶ÏŒÎ½Ï„Î¹ÎµÏ‚ Î»Î¯ÏƒÏ„ÎµÏ‚"
 
 msgctxt "#31916"
 msgid "Change the way horizontal lists scroll in Marmalade. Default will scroll lists in a cycle. \"Fixed\" are lists with a beginning and end."
-msgstr "Αλλαγή του τρόπου κύλισης των οριζόντιων λιστών. Προεπιλογή είναι η κύλιση σε κύκλο. \"Καθορισμένη\" είναι για λίστες με αρχή και τέλος."
+msgstr "Î‘Î»Î»Î±Î³Î® Ï„Î¿Ï… Ï„ÏÏŒÏ€Î¿Ï… ÎºÏÎ»Î¹ÏƒÎ·Ï‚ Ï„Ï‰Î½ Î¿ÏÎ¹Î¶ÏŒÎ½Ï„Î¹Ï‰Î½ Î»Î¹ÏƒÏ„ÏŽÎ½. Î ÏÎ¿ÎµÏ€Î¹Î»Î¿Î³Î® ÎµÎ¯Î½Î±Î¹ Î· ÎºÏÎ»Î¹ÏƒÎ· ÏƒÎµ ÎºÏÎºÎ»Î¿. \"ÎšÎ±Î¸Î¿ÏÎ¹ÏƒÎ¼Î­Î½Î·\" ÎµÎ¯Î½Î±Î¹ Î³Î¹Î± Î»Î¯ÏƒÏ„ÎµÏ‚ Î¼Îµ Î±ÏÏ‡Î® ÎºÎ±Î¹ Ï„Î­Î»Î¿Ï‚."
 
 msgctxt "#31917"
 msgid "When enabled text scrolls automatically. When disabled manual scrolling is required. Note that not every textbox has a manual button."
-msgstr "Αν ενεργοποιηθεί, το κείμενο θα κυλίεται αυτόματα. Αν απενεργοποιηθεί, απαιτείται χειροκίνητη κύλιση. Να σημειωθεί ότι δεν έχει κάθε πλαίσιο κειμένου αυτή τη δυνατότητα."
+msgstr "Î‘Î½ ÎµÎ½ÎµÏÎ³Î¿Ï€Î¿Î¹Î·Î¸ÎµÎ¯, Ï„Î¿ ÎºÎµÎ¯Î¼ÎµÎ½Î¿ Î¸Î± ÎºÏ…Î»Î¯ÎµÏ„Î±Î¹ Î±Ï…Ï„ÏŒÎ¼Î±Ï„Î±. Î‘Î½ Î±Ï€ÎµÎ½ÎµÏÎ³Î¿Ï€Î¿Î¹Î·Î¸ÎµÎ¯, Î±Ï€Î±Î¹Ï„ÎµÎ¯Ï„Î±Î¹ Ï‡ÎµÎ¹ÏÎ¿ÎºÎ¯Î½Î·Ï„Î· ÎºÏÎ»Î¹ÏƒÎ·. ÎÎ± ÏƒÎ·Î¼ÎµÎ¹Ï‰Î¸ÎµÎ¯ ÏŒÏ„Î¹ Î´ÎµÎ½ Î­Ï‡ÎµÎ¹ ÎºÎ¬Î¸Îµ Ï€Î»Î±Î¯ÏƒÎ¹Î¿ ÎºÎµÎ¹Î¼Î­Î½Î¿Ï… Î±Ï…Ï„Î® Ï„Î· Î´Ï…Î½Î±Ï„ÏŒÏ„Î·Ï„Î±."
 
 msgctxt "#31918"
 msgid "Projects the current playing video on the background behind the panels."
-msgstr "Προβολή του τρέχοντος βίντεο στο υπόβαθρο, πίσω από τα πάνελ."
+msgstr "Î ÏÎ¿Î²Î¿Î»Î® Ï„Î¿Ï… Ï„ÏÎ­Ï‡Î¿Î½Ï„Î¿Ï‚ Î²Î¯Î½Ï„ÎµÎ¿ ÏƒÏ„Î¿ Ï…Ï€ÏŒÎ²Î±Î¸ÏÎ¿, Ï€Î¯ÏƒÏ‰ Î±Ï€ÏŒ Ï„Î± Ï€Î¬Î½ÎµÎ»."
 
 msgctxt "#31919"
 msgid "Projects the visualisation on the background behind the panels when music is played."
-msgstr "Προβολή της οπτικοποίησης στο υπόβαθρο, πίσω από τα πάνελ, όταν παίζει μουσική."
+msgstr "Î ÏÎ¿Î²Î¿Î»Î® Ï„Î·Ï‚ Î¿Ï€Ï„Î¹ÎºÎ¿Ï€Î¿Î¯Î·ÏƒÎ·Ï‚ ÏƒÏ„Î¿ Ï…Ï€ÏŒÎ²Î±Î¸ÏÎ¿, Ï€Î¯ÏƒÏ‰ Î±Ï€ÏŒ Ï„Î± Ï€Î¬Î½ÎµÎ», ÏŒÏ„Î±Î½ Ï€Î±Î¯Î¶ÎµÎ¹ Î¼Î¿Ï…ÏƒÎ¹ÎºÎ®."
 
 msgctxt "#31920"
 msgid "Displays a widget on the Home screen with media information when music is playing."
-msgstr "Εμφάνιση widget στην Αρχ. Οθόνη με πληροφορίες, όταν παίζει μουσική."
+msgstr "Î•Î¼Ï†Î¬Î½Î¹ÏƒÎ· widget ÏƒÏ„Î·Î½ Î‘ÏÏ‡. ÎŸÎ¸ÏŒÎ½Î· Î¼Îµ Ï€Î»Î·ÏÎ¿Ï†Î¿ÏÎ¯ÎµÏ‚, ÏŒÏ„Î±Î½ Ï€Î±Î¯Î¶ÎµÎ¹ Î¼Î¿Ï…ÏƒÎ¹ÎºÎ®."
 
 msgctxt "#31921"
 msgid "Displays a widget on the Home screen with media information when a movie or episode is playing."
-msgstr "Εμφάνιση widget στην Αρχ. Οθόνη με πληροφορίες, όταν παίζει βίντεο."
+msgstr "Î•Î¼Ï†Î¬Î½Î¹ÏƒÎ· widget ÏƒÏ„Î·Î½ Î‘ÏÏ‡. ÎŸÎ¸ÏŒÎ½Î· Î¼Îµ Ï€Î»Î·ÏÎ¿Ï†Î¿ÏÎ¯ÎµÏ‚, ÏŒÏ„Î±Î½ Ï€Î±Î¯Î¶ÎµÎ¹ Î²Î¯Î½Ï„ÎµÎ¿."
 
 msgctxt "#31922"
 msgid "This enables custom genre backgrounds when browsing through the videolibrary's genre node. Filenames should match the genre label. Extension must be .jpg."
-msgstr "Ενεργοποίηση των προσαρμοσμένων υποβάθρων ειδών κατά την περιήγηση στον κόμβο ειδών της συλλογής βίντεο. Τα ονόματα των αρχείων πρέπει να ταιριάζουν με το όνομα του είδους. Η κατάληξη πρέπει να είναι .jpg."
+msgstr "Î•Î½ÎµÏÎ³Î¿Ï€Î¿Î¯Î·ÏƒÎ· Ï„Ï‰Î½ Ï€ÏÎ¿ÏƒÎ±ÏÎ¼Î¿ÏƒÎ¼Î­Î½Ï‰Î½ Ï…Ï€Î¿Î²Î¬Î¸ÏÏ‰Î½ ÎµÎ¹Î´ÏŽÎ½ ÎºÎ±Ï„Î¬ Ï„Î·Î½ Ï€ÎµÏÎ¹Î®Î³Î·ÏƒÎ· ÏƒÏ„Î¿Î½ ÎºÏŒÎ¼Î²Î¿ ÎµÎ¹Î´ÏŽÎ½ Ï„Î·Ï‚ ÏƒÏ…Î»Î»Î¿Î³Î®Ï‚ Î²Î¯Î½Ï„ÎµÎ¿. Î¤Î± Î¿Î½ÏŒÎ¼Î±Ï„Î± Ï„Ï‰Î½ Î±ÏÏ‡ÎµÎ¯Ï‰Î½ Ï€ÏÎ­Ï€ÎµÎ¹ Î½Î± Ï„Î±Î¹ÏÎ¹Î¬Î¶Î¿Ï…Î½ Î¼Îµ Ï„Î¿ ÏŒÎ½Î¿Î¼Î± Ï„Î¿Ï… ÎµÎ¯Î´Î¿Ï…Ï‚. Î— ÎºÎ±Ï„Î¬Î»Î·Î¾Î· Ï€ÏÎ­Ï€ÎµÎ¹ Î½Î± ÎµÎ¯Î½Î±Î¹ .jpg."
 
 msgctxt "#31924"
 msgid "This enables custom genre backgrounds when browsing through the musiclibrary's genre node. Filenames should match the genre label. Extension must be .jpg."
-msgstr "Ενεργοποίηση των προσαρμοσμένων υποβάθρων ειδών κατά την περιήγηση στον κόμβο ειδών της μουσικής συλλογής. Τα ονόματα των αρχείων πρέπει να ταιριάζουν με το όνομα του είδους. Η κατάληξη πρέπει να είναι .jpg."
+msgstr "Î•Î½ÎµÏÎ³Î¿Ï€Î¿Î¯Î·ÏƒÎ· Ï„Ï‰Î½ Ï€ÏÎ¿ÏƒÎ±ÏÎ¼Î¿ÏƒÎ¼Î­Î½Ï‰Î½ Ï…Ï€Î¿Î²Î¬Î¸ÏÏ‰Î½ ÎµÎ¹Î´ÏŽÎ½ ÎºÎ±Ï„Î¬ Ï„Î·Î½ Ï€ÎµÏÎ¹Î®Î³Î·ÏƒÎ· ÏƒÏ„Î¿Î½ ÎºÏŒÎ¼Î²Î¿ ÎµÎ¹Î´ÏŽÎ½ Ï„Î·Ï‚ Î¼Î¿Ï…ÏƒÎ¹ÎºÎ®Ï‚ ÏƒÏ…Î»Î»Î¿Î³Î®Ï‚. Î¤Î± Î¿Î½ÏŒÎ¼Î±Ï„Î± Ï„Ï‰Î½ Î±ÏÏ‡ÎµÎ¯Ï‰Î½ Ï€ÏÎ­Ï€ÎµÎ¹ Î½Î± Ï„Î±Î¹ÏÎ¹Î¬Î¶Î¿Ï…Î½ Î¼Îµ Ï„Î¿ ÏŒÎ½Î¿Î¼Î± Ï„Î¿Ï… ÎµÎ¯Î´Î¿Ï…Ï‚. Î— ÎºÎ±Ï„Î¬Î»Î·Î¾Î· Ï€ÏÎ­Ï€ÎµÎ¹ Î½Î± ÎµÎ¯Î½Î±Î¹ .jpg."
 
 msgctxt "#31925"
 msgid "Choose what to display for the menu items background."
@@ -2949,11 +2949,11 @@ msgstr ""
 
 msgctxt "#31927"
 msgid "Resets all above values to their defaults."
-msgstr "Επαναφορά όλων των ανωτέρω τιμών στις προεπιλογές τους."
+msgstr "Î•Ï€Î±Î½Î±Ï†Î¿ÏÎ¬ ÏŒÎ»Ï‰Î½ Ï„Ï‰Î½ Î±Î½Ï‰Ï„Î­ÏÏ‰ Ï„Î¹Î¼ÏŽÎ½ ÏƒÏ„Î¹Ï‚ Ï€ÏÎ¿ÎµÏ€Î¹Î»Î¿Î³Î­Ï‚ Ï„Î¿Ï…Ï‚."
 
 msgctxt "#31928"
 msgid "Marmalade main menu layout"
-msgstr "Διάταξη κεντρικού μενού"
+msgstr "Î”Î¹Î¬Ï„Î±Î¾Î· ÎºÎµÎ½Ï„ÏÎ¹ÎºÎ¿Ï Î¼ÎµÎ½Î¿Ï"
 
 msgctxt "#31929"
 msgid "This setting defines the main menu layout. Options are 5 items, 3 items, 1 items, or icons for the default horizontal menu. You can also choose a vertical menu layout."
@@ -2961,11 +2961,11 @@ msgstr ""
 
 msgctxt "#31930"
 msgid "Choose a widget to display on the Home screen to have easy access to content from the library."
-msgstr "Επιλογή widget για εμφάνιση στην Αρχ. Οθόνη, προκειμένου να έχετε εύκολη πρόσβαση σε περιεχόμενο της συλλογής."
+msgstr "Î•Ï€Î¹Î»Î¿Î³Î® widget Î³Î¹Î± ÎµÎ¼Ï†Î¬Î½Î¹ÏƒÎ· ÏƒÏ„Î·Î½ Î‘ÏÏ‡. ÎŸÎ¸ÏŒÎ½Î·, Ï€ÏÎ¿ÎºÎµÎ¹Î¼Î­Î½Î¿Ï… Î½Î± Î­Ï‡ÎµÏ„Îµ ÎµÏÎºÎ¿Î»Î· Ï€ÏÏŒÏƒÎ²Î±ÏƒÎ· ÏƒÎµ Ï€ÎµÏÎ¹ÎµÏ‡ÏŒÎ¼ÎµÎ½Î¿ Ï„Î·Ï‚ ÏƒÏ…Î»Î»Î¿Î³Î®Ï‚."
 
 msgctxt "#31931"
 msgid "Video plot preference"
-msgstr "Προτίμηση πλοκής βίντεο"
+msgstr "Î ÏÎ¿Ï„Î¯Î¼Î·ÏƒÎ· Ï€Î»Î¿ÎºÎ®Ï‚ Î²Î¯Î½Ï„ÎµÎ¿"
 
 msgctxt "#31932"
 msgid "Show plot outline in the library views and full plot in the video information dialog or vice versa. Falls back to full plot if no outline is available."
@@ -2973,15 +2973,15 @@ msgstr ""
 
 msgctxt "#31933"
 msgid "Select an item to display on the left top of the main menu"
-msgstr "Επιλογή αντικειμένου που θα εμφανίζεται πάνω αριστερά στο κεντρικό μενού"
+msgstr "Î•Ï€Î¹Î»Î¿Î³Î® Î±Î½Ï„Î¹ÎºÎµÎ¹Î¼Î­Î½Î¿Ï… Ï€Î¿Ï… Î¸Î± ÎµÎ¼Ï†Î±Î½Î¯Î¶ÎµÏ„Î±Î¹ Ï€Î¬Î½Ï‰ Î±ÏÎ¹ÏƒÏ„ÎµÏÎ¬ ÏƒÏ„Î¿ ÎºÎµÎ½Ï„ÏÎ¹ÎºÏŒ Î¼ÎµÎ½Î¿Ï"
 
 msgctxt "#31935"
 msgid "Switch places with another menu item. Opens a dialog with a list of menu items to choose from."
-msgstr "Εναλλαγή θέσης με άλλο αντικείμενο του μενού. Ανοίγει παράθυρο με λίστα αντικειμένων μενού για να επιλέξετε."
+msgstr "Î•Î½Î±Î»Î»Î±Î³Î® Î¸Î­ÏƒÎ·Ï‚ Î¼Îµ Î¬Î»Î»Î¿ Î±Î½Ï„Î¹ÎºÎµÎ¯Î¼ÎµÎ½Î¿ Ï„Î¿Ï… Î¼ÎµÎ½Î¿Ï. Î‘Î½Î¿Î¯Î³ÎµÎ¹ Ï€Î±ÏÎ¬Î¸Ï…ÏÎ¿ Î¼Îµ Î»Î¯ÏƒÏ„Î± Î±Î½Ï„Î¹ÎºÎµÎ¹Î¼Î­Î½Ï‰Î½ Î¼ÎµÎ½Î¿Ï Î³Î¹Î± Î½Î± ÎµÏ€Î¹Î»Î­Î¾ÎµÏ„Îµ."
 
 msgctxt "#31937"
 msgid "Show the RSS feed on the bottom or top of the screen, depending on main menu position. Enabling this setting makes the submenu permanently visible."
-msgstr "Εμφάνιση της ροής RSS στο κάτω ή επάνω μέρος της οθόνης, αναλόγως της θέσεως του κεντρικού μενού. Ενεργοποιώντας αυτήν την επιλογή κάνετε και το υπομενού πάντα ορατό."
+msgstr "Î•Î¼Ï†Î¬Î½Î¹ÏƒÎ· Ï„Î·Ï‚ ÏÎ¿Î®Ï‚ RSS ÏƒÏ„Î¿ ÎºÎ¬Ï„Ï‰ Î® ÎµÏ€Î¬Î½Ï‰ Î¼Î­ÏÎ¿Ï‚ Ï„Î·Ï‚ Î¿Î¸ÏŒÎ½Î·Ï‚, Î±Î½Î±Î»ÏŒÎ³Ï‰Ï‚ Ï„Î·Ï‚ Î¸Î­ÏƒÎµÏ‰Ï‚ Ï„Î¿Ï… ÎºÎµÎ½Ï„ÏÎ¹ÎºÎ¿Ï Î¼ÎµÎ½Î¿Ï. Î•Î½ÎµÏÎ³Î¿Ï€Î¿Î¹ÏŽÎ½Ï„Î±Ï‚ Î±Ï…Ï„Î®Î½ Ï„Î·Î½ ÎµÏ€Î¹Î»Î¿Î³Î® ÎºÎ¬Î½ÎµÏ„Îµ ÎºÎ±Î¹ Ï„Î¿ Ï…Ï€Î¿Î¼ÎµÎ½Î¿Ï Ï€Î¬Î½Ï„Î± Î¿ÏÎ±Ï„ÏŒ."
 
 msgctxt "#31938"
 msgid "Enables extra information in the TV show library, like TV show status, next / latest episode, etc. Depends on TheMovieDb Helper add-on."
@@ -2989,7 +2989,7 @@ msgstr ""
 
 msgctxt "#31939"
 msgid "Hide Infopanel on scrolling"
-msgstr "Απόκρυψη InfoΠάνελ κατά την κύλιση"
+msgstr "Î‘Ï€ÏŒÎºÏÏ…ÏˆÎ· InfoÎ Î¬Î½ÎµÎ» ÎºÎ±Ï„Î¬ Ï„Î·Î½ ÎºÏÎ»Î¹ÏƒÎ·"
 
 msgctxt "#31940"
 msgid "Hides the infopanel while scrolling through the library. Set the amount of seconds to wait for the infopanel to appear when scrolling has stopped."
@@ -2997,7 +2997,7 @@ msgstr ""
 
 msgctxt "#31941"
 msgid "Kiosk mode"
-msgstr "Λειτουργία Kiosk"
+msgstr "Î›ÎµÎ¹Ï„Î¿Ï…ÏÎ³Î¯Î± Kiosk"
 
 msgctxt "#31942"
 msgid "Disables the slide out menu (media menu) in the library as well as certain buttons in the media information dialogs."
@@ -3005,7 +3005,7 @@ msgstr ""
 
 msgctxt "#31943"
 msgid "Watched status indicator"
-msgstr "Ένδειξη προβληθέντων"
+msgstr "ÎˆÎ½Î´ÎµÎ¹Î¾Î· Ï€ÏÎ¿Î²Î»Î·Î¸Î­Î½Ï„Ï‰Î½"
 
 msgctxt "#31944"
 msgid "Choose which overlays to show on thumbs in icon based views. Note that the \"Resume\" flag takes precedent over any watched status. After activating an overlay you must also enable it in each views settings. "
@@ -3013,15 +3013,15 @@ msgstr ""
 
 msgctxt "#31945"
 msgid "This toggles the layout of the List view. Default is a 7 item layout with extended info, \"Slim List\" is a 14 item, more basic layout"
-msgstr "Έτσι μπορείτε να αλλάξετε τη διάταξη της Προβολής Λίστας. Προεπιλογή είναι η διάταξη 7 αντικειμένων με εκτενείς πληροφορίες. Η \"Λεπτή Λίστα\" περιέχει 14 αντικείμενα, με λιγότερες πληροφορίες."
+msgstr "ÎˆÏ„ÏƒÎ¹ Î¼Ï€Î¿ÏÎµÎ¯Ï„Îµ Î½Î± Î±Î»Î»Î¬Î¾ÎµÏ„Îµ Ï„Î· Î´Î¹Î¬Ï„Î±Î¾Î· Ï„Î·Ï‚ Î ÏÎ¿Î²Î¿Î»Î®Ï‚ Î›Î¯ÏƒÏ„Î±Ï‚. Î ÏÎ¿ÎµÏ€Î¹Î»Î¿Î³Î® ÎµÎ¯Î½Î±Î¹ Î· Î´Î¹Î¬Ï„Î±Î¾Î· 7 Î±Î½Ï„Î¹ÎºÎµÎ¹Î¼Î­Î½Ï‰Î½ Î¼Îµ ÎµÎºÏ„ÎµÎ½ÎµÎ¯Ï‚ Ï€Î»Î·ÏÎ¿Ï†Î¿ÏÎ¯ÎµÏ‚. Î— \"Î›ÎµÏ€Ï„Î® Î›Î¯ÏƒÏ„Î±\" Ï€ÎµÏÎ¹Î­Ï‡ÎµÎ¹ 14 Î±Î½Ï„Î¹ÎºÎµÎ¯Î¼ÎµÎ½Î±, Î¼Îµ Î»Î¹Î³ÏŒÏ„ÎµÏÎµÏ‚ Ï€Î»Î·ÏÎ¿Ï†Î¿ÏÎ¯ÎµÏ‚."
 
 msgctxt "#31950"
 msgid "WEATHER"
-msgstr "ΚΑΙΡΟΣ"
+msgstr "ÎšÎ‘Î™Î¡ÎŸÎ£"
 
 msgctxt "#31951"
 msgid "PICTURES"
-msgstr "ΕΙΚΟΝΕΣ"
+msgstr "Î•Î™ÎšÎŸÎÎ•Î£"
 
 msgctxt "#31952"
 msgid "LIVE TV"
@@ -3029,19 +3029,19 @@ msgstr "LIVE TV"
 
 msgctxt "#31953"
 msgid "VIDEOS"
-msgstr "ΒΙΝΤΕΟ"
+msgstr "Î’Î™ÎÎ¤Î•ÎŸ"
 
 msgctxt "#31954"
 msgid "MOVIES"
-msgstr "ΤΑΙΝΙΕΣ"
+msgstr "Î¤Î‘Î™ÎÎ™Î•Î£"
 
 msgctxt "#31955"
 msgid "TV SHOWS"
-msgstr "ΤΗΛ. ΣΕΙΡΕΣ"
+msgstr "Î¤Î—Î›. Î£Î•Î™Î¡Î•Î£"
 
 msgctxt "#31956"
 msgid "MUSIC"
-msgstr "ΜΟΥΣΙΚΗ"
+msgstr "ÎœÎŸÎ¥Î£Î™ÎšÎ—"
 
 msgctxt "#31957"
 msgid "Apps"
@@ -3049,15 +3049,15 @@ msgstr ""
 
 msgctxt "#31958"
 msgid "PLAY DISC"
-msgstr "ΑΝΑΠΑΡΑΓΩΓΗ ΔΙΣΚΟΥ"
+msgstr "Î‘ÎÎ‘Î Î‘Î¡Î‘Î“Î©Î“Î— Î”Î™Î£ÎšÎŸÎ¥"
 
 msgctxt "#31959"
 msgid "SYSTEM"
-msgstr "ΣΥΣΤΗΜΑ"
+msgstr "Î£Î¥Î£Î¤Î—ÎœÎ‘"
 
 msgctxt "#31960"
 msgid "CONCERTS"
-msgstr "ΣΥΝΑΥΛΙΕΣ"
+msgstr "Î£Î¥ÎÎ‘Î¥Î›Î™Î•Î£"
 
 msgctxt "#31961"
 msgid "Hide ratings in list views"
@@ -3176,16 +3176,16 @@ msgstr ""
 
 #~ msgctxt "#31015"
 #~ msgid "Set path to video genre fanart folder"
-#~ msgstr "Διαδρομή φακέλου fanart ειδών ταινιών"
+#~ msgstr "Î”Î¹Î±Î´ÏÎ¿Î¼Î® Ï†Î±ÎºÎ­Î»Î¿Ï… fanart ÎµÎ¹Î´ÏŽÎ½ Ï„Î±Î¹Î½Î¹ÏŽÎ½"
 
 #~ msgctxt "#31111"
 #~ msgid "Similar movies"
-#~ msgstr "Παρόμοιες ταινίες"
+#~ msgstr "Î Î±ÏÏŒÎ¼Î¿Î¹ÎµÏ‚ Ï„Î±Î¹Î½Î¯ÎµÏ‚"
 
 #~ msgctxt "#31115"
 #~ msgid "Similar TV shows"
-#~ msgstr "Παρόμοιες Τηλ. Σειρές"
+#~ msgstr "Î Î±ÏÏŒÎ¼Î¿Î¹ÎµÏ‚ Î¤Î·Î». Î£ÎµÎ¹ÏÎ­Ï‚"
 
 #~ msgctxt "#31938"
 #~ msgid "Enables extra information in the TV show library, like TV show status, next / latest episode, etc. Depends on TV Show Next Aired add-on."
-#~ msgstr "Ενεργοποίηση επιπλέον πληροφοριών στη συλλογή Τηλ. Σειρών, όπως την κατάσταση της σειράς, το επόμενο / πιο πρόσφατο επεισόδιο, κτλ. Εξαρτάται από το πρόσθετο TV Show Next Aired."
+#~ msgstr "Î•Î½ÎµÏÎ³Î¿Ï€Î¿Î¯Î·ÏƒÎ· ÎµÏ€Î¹Ï€Î»Î­Î¿Î½ Ï€Î»Î·ÏÎ¿Ï†Î¿ÏÎ¹ÏŽÎ½ ÏƒÏ„Î· ÏƒÏ…Î»Î»Î¿Î³Î® Î¤Î·Î». Î£ÎµÎ¹ÏÏŽÎ½, ÏŒÏ€Ï‰Ï‚ Ï„Î·Î½ ÎºÎ±Ï„Î¬ÏƒÏ„Î±ÏƒÎ· Ï„Î·Ï‚ ÏƒÎµÎ¹ÏÎ¬Ï‚, Ï„Î¿ ÎµÏ€ÏŒÎ¼ÎµÎ½Î¿ / Ï€Î¹Î¿ Ï€ÏÏŒÏƒÏ†Î±Ï„Î¿ ÎµÏ€ÎµÎ¹ÏƒÏŒÎ´Î¹Î¿, ÎºÏ„Î». Î•Î¾Î±ÏÏ„Î¬Ï„Î±Î¹ Î±Ï€ÏŒ Ï„Î¿ Ï€ÏÏŒÏƒÎ¸ÎµÏ„Î¿ TV Show Next Aired."

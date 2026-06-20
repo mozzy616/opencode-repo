@@ -46,7 +46,7 @@
 				<top>880</top>
 				<width>400</width>
 				<height>130</height>
-				<texture>aeon-nox-logo.png</texture>
+				<texture>logo.png</texture>
 			</control>
 			<include>SystemPanel</include>
 			<control type="group">
@@ -676,7 +676,7 @@
 							<left>404</left>
 							<width>560</width>
 							<height>182</height>
-							<texture>aeon-nox-logo.png</texture>
+							<texture>logo.png</texture>
 						</control>
 						<control type="label" id="7001">
 							<top>-70</top>

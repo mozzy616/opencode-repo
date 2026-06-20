@@ -78,7 +78,7 @@
 					<top>880</top>
 					<width>400</width>
 					<height>130</height>
-					<texture>aeon-nox-logo.png</texture>
+					<texture>logo.png</texture>
 				</control>
 			</control>
 			<control type="image">

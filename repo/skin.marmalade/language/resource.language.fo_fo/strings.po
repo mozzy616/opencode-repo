@@ -1,6 +1,6 @@
 # Kodi Media Center language file
 # Addon Name: Marmalade Build
-# Addon id: skin.aeon.nox.OpenCode
+# Addon id: skin.marmalade
 # Addon Provider: OpenCode
 msgid ""
 msgstr ""
@@ -9,7 +9,7 @@ msgstr ""
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "PO-Revision-Date: 2021-06-12 22:24+0000\n"
 "Last-Translator: Christian Gade <gade@kodi.tv>\n"
-"Language-Team: Faroese <https://kodi.weblate.cloud/projects/kodi-add-ons-skins/skin-aeon-nox-OpenCode/fo_fo/>\n"
+"Language-Team: Faroese <https://kodi.weblate.cloud/projects/kodi-add-ons-skins/skin.marmalade/fo_fo/>\n"
 "Language: fo_fo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -39,11 +39,11 @@ msgstr ""
 
 msgctxt "#31005"
 msgid "Fixed"
-msgstr "Rætta"
+msgstr "RÃ¦tta"
 
 msgctxt "#31006"
 msgid "View Options"
-msgstr "Vísimøguleikar"
+msgstr "VÃ­simÃ¸guleikar"
 
 msgctxt "#31007"
 msgid "Setup home"
@@ -55,7 +55,7 @@ msgstr "Fullan skerm"
 
 msgctxt "#31009"
 msgid "Total Duration"
-msgstr "Samla spælitíð"
+msgstr "Samla spÃ¦litÃ­Ã°"
 
 msgctxt "#31010"
 msgid "Next episode"
@@ -115,7 +115,7 @@ msgstr ""
 
 msgctxt "#31024"
 msgid "Page"
-msgstr "Síða"
+msgstr "SÃ­Ã°a"
 
 msgctxt "#31025"
 msgid "Items"
@@ -179,7 +179,7 @@ msgstr ""
 
 msgctxt "#31040"
 msgid "Now Playing"
-msgstr "Spæli nú"
+msgstr "SpÃ¦li nÃº"
 
 msgctxt "#31041"
 msgid "Select widget"
@@ -239,19 +239,19 @@ msgstr ""
 
 msgctxt "#31055"
 msgid "Open playlist"
-msgstr "Opna spælilista"
+msgstr "Opna spÃ¦lilista"
 
 msgctxt "#31056"
 msgid "Save playlist"
-msgstr "Goym spælilista"
+msgstr "Goym spÃ¦lilista"
 
 msgctxt "#31057"
 msgid "Close playlist"
-msgstr "Sløkk spælilista"
+msgstr "SlÃ¸kk spÃ¦lilista"
 
 msgctxt "#31058"
 msgid "PVR information"
-msgstr "PVR upplýsing"
+msgstr "PVR upplÃ½sing"
 
 msgctxt "#31059"
 msgid "Artist Slideshow"
@@ -259,7 +259,7 @@ msgstr ""
 
 msgctxt "#31060"
 msgid "This file is stacked, select the part you want to play from."
-msgstr "Henda fíl er bólka, vel eitt stað tú ynskir at spæla frá."
+msgstr "Henda fÃ­l er bÃ³lka, vel eitt staÃ° tÃº ynskir at spÃ¦la frÃ¡."
 
 msgctxt "#31061"
 msgid "Total addons / Favourites statistics"
@@ -335,7 +335,7 @@ msgstr ""
 
 msgctxt "#31079"
 msgid "Shift"
-msgstr "Stórt"
+msgstr "StÃ³rt"
 
 msgctxt "#31080"
 msgid "Manage submenu"
@@ -515,7 +515,7 @@ msgstr ""
 
 msgctxt "#31124"
 msgid "Show Background \"Now Playing\" Video"
-msgstr "Vís bakgrund \"Spæli nú\" video"
+msgstr "VÃ­s bakgrund \"SpÃ¦li nÃº\" video"
 
 msgctxt "#31125"
 msgid "Show Background \"Now Playing\" Visualisation"
@@ -999,7 +999,7 @@ msgstr ""
 
 msgctxt "#31245"
 msgid "Wall"
-msgstr "Ímyndir"
+msgstr "Ãmyndir"
 
 msgctxt "#31246"
 msgid "Fullscreen Wall"
@@ -1223,7 +1223,7 @@ msgstr ""
 
 msgctxt "#31301"
 msgid "Last Updated"
-msgstr "Seinast dagført"
+msgstr "Seinast dagfÃ¸rt"
 
 msgctxt "#31302"
 msgid "Menu Bar"
@@ -1287,10 +1287,10 @@ msgstr ""
 
 msgctxt "#31317"
 msgid "Set Fanart Path"
-msgstr "Áset stíggja til fjepparatilfar"
+msgstr "Ãset stÃ­ggja til fjepparatilfar"
 
 msgctxt "#31318"
-msgid "[B]CONFIGURE LibreELEC SETTINGS[/B][CR]Setup system option · Manage network[CR]Configure services · About LibreELEC"
+msgid "[B]CONFIGURE LibreELEC SETTINGS[/B][CR]Setup system option Â· Manage network[CR]Configure services Â· About LibreELEC"
 msgstr ""
 
 msgctxt "#31319"
@@ -1315,7 +1315,7 @@ msgstr ""
 
 msgctxt "#31324"
 msgid "Aired"
-msgstr "Víst"
+msgstr "VÃ­st"
 
 msgctxt "#31325"
 msgid "REQUIRED scripts are necessary for basic skin functions."
@@ -1331,7 +1331,7 @@ msgstr ""
 
 msgctxt "#31328"
 msgid "Recently Added"
-msgstr "Nýggjar útgávur"
+msgstr "NÃ½ggjar ÃºtgÃ¡vur"
 
 msgctxt "#31329"
 msgid "Taking a Screenshot"
@@ -1523,7 +1523,7 @@ msgstr "Video OSD"
 
 msgctxt "#31376"
 msgid "Music OSD"
-msgstr "Tónleika OSD"
+msgstr "TÃ³nleika OSD"
 
 msgctxt "#31377"
 msgid "Altering this shortcut may prevent access to the Main Menu customizer and several skin options.[CR]Are you sure you want to perform the requested changes to this shortcut?"
@@ -1579,7 +1579,7 @@ msgstr ""
 
 msgctxt "#31390"
 msgid "Skin default"
-msgstr "Vanlig útsjónd"
+msgstr "Vanlig ÃºtsjÃ³nd"
 
 msgctxt "#31391"
 msgid "Arial"
@@ -1618,15 +1618,15 @@ msgid "Customize the settings for the Live TV section."
 msgstr ""
 
 msgctxt "#31400"
-msgid "[B]CONFIGURE INTERFACE SETTINGS[/B][CR]Change the skin · Set language and region[CR]Set up a screensaver · Setup master lock"
+msgid "[B]CONFIGURE INTERFACE SETTINGS[/B][CR]Change the skin Â· Set language and region[CR]Set up a screensaver Â· Setup master lock"
 msgstr ""
 
 msgctxt "#31401"
-msgid "[B]CONFIGURE PLAYER SETTINGS[/B][CR]Configure video playback · Configure music playback[CR]Configure picture slideshow · Configure video language and subtitles"
+msgid "[B]CONFIGURE PLAYER SETTINGS[/B][CR]Configure video playback Â· Configure music playback[CR]Configure picture slideshow Â· Configure video language and subtitles"
 msgstr ""
 
 msgctxt "#31402"
-msgid "[B]CONFIGURE MEDIA SETTINGS[/B][CR]Manage sources · Set default select action[CR]Configure metadata options · Configure file list options"
+msgid "[B]CONFIGURE MEDIA SETTINGS[/B][CR]Manage sources Â· Set default select action[CR]Configure metadata options Â· Configure file list options"
 msgstr ""
 
 msgctxt "#31403"
@@ -1638,15 +1638,15 @@ msgid "This will RESET ALL skin settings, selecting YES in the dialog that appea
 msgstr ""
 
 msgctxt "#31405"
-msgid "[B]MONITOR YOUR SYSTEM[/B][CR]Check out your hardware[CR]Check Kodi revision number · Monitor CPU usage"
+msgid "[B]MONITOR YOUR SYSTEM[/B][CR]Check out your hardware[CR]Check Kodi revision number Â· Monitor CPU usage"
 msgstr ""
 
 msgctxt "#31406"
-msgid "[B]CONFIGURE SYSTEM SETTINGS[/B][CR]Setup and calibrate displays · Configure audio output[CR]Set power saving options · Configure proxy settings · Enable debugging"
+msgid "[B]CONFIGURE SYSTEM SETTINGS[/B][CR]Setup and calibrate displays Â· Configure audio output[CR]Set power saving options Â· Configure proxy settings Â· Enable debugging"
 msgstr ""
 
 msgctxt "#31407"
-msgid "[B]CONFIGURE PROFILES[/B][CR]Setup and manage user profiles[CR]Change password · Enable login screen"
+msgid "[B]CONFIGURE PROFILES[/B][CR]Setup and manage user profiles[CR]Change password Â· Enable login screen"
 msgstr ""
 
 msgctxt "#31408"
@@ -1654,11 +1654,11 @@ msgid "Enable to show a LiveTV widget displaying what is currently recording and
 msgstr ""
 
 msgctxt "#31409"
-msgid "[B]CONFIGURE LIVE TV SETTINGS[/B][CR]Change full screen info[CR]Manage Guide data settings  •  Configure recording options"
+msgid "[B]CONFIGURE LIVE TV SETTINGS[/B][CR]Change full screen info[CR]Manage Guide data settings  â€¢  Configure recording options"
 msgstr ""
 
 msgctxt "#31410"
-msgid "[B]CONFIGURE SERVICE SETTINGS[/B][CR]Setup control of Kodi via UPnP and HTTP · Configure file sharing[CR]Enable Zeroconf · Configure AirPlay"
+msgid "[B]CONFIGURE SERVICE SETTINGS[/B][CR]Setup control of Kodi via UPnP and HTTP Â· Configure file sharing[CR]Enable Zeroconf Â· Configure AirPlay"
 msgstr ""
 
 msgctxt "#31411"
@@ -1782,7 +1782,7 @@ msgid "Recently played channels"
 msgstr ""
 
 msgctxt "#31441"
-msgid "[B]CONFIGURE GAME SETTINGS[/B][CR]Change gameplay options[CR]Keyboard settings  •  Configure rewind settings"
+msgid "[B]CONFIGURE GAME SETTINGS[/B][CR]Change gameplay options[CR]Keyboard settings  â€¢  Configure rewind settings"
 msgstr ""
 
 msgctxt "#31442"
@@ -1810,7 +1810,7 @@ msgid "Show a popup displaying answers to some FREQUENTLY ASKED QUESTIONS posted
 msgstr ""
 
 msgctxt "#31448"
-msgid "[B]CONFIGURE ADD-ONS[/B][CR]Manage your installed Add-ons[CR]Browse for and install Add-ons  •  Check for Add-on updates"
+msgid "[B]CONFIGURE ADD-ONS[/B][CR]Manage your installed Add-ons[CR]Browse for and install Add-ons  â€¢  Check for Add-on updates"
 msgstr ""
 
 msgctxt "#31449"
@@ -1818,11 +1818,11 @@ msgid "Save & Exit"
 msgstr ""
 
 msgctxt "#31450"
-msgid "  •  Open Settings "
+msgid "  â€¢  Open Settings "
 msgstr ""
 
 msgctxt "#31451"
-msgid "  •  Click to Install or Enable"
+msgid "  â€¢  Click to Install or Enable"
 msgstr ""
 
 msgctxt "#31452"
@@ -1978,7 +1978,7 @@ msgid "Hide episode thumb when hiding plot for unwatched items"
 msgstr ""
 
 msgctxt "#31490"
-msgid "[B]CONFIGURE CoreELEC SETTINGS[/B][CR]Setup system option · Manage network[CR]Configure services · About CoreELEC"
+msgid "[B]CONFIGURE CoreELEC SETTINGS[/B][CR]Setup system option Â· Manage network[CR]Configure services Â· About CoreELEC"
 msgstr ""
 
 msgctxt "#31491"
@@ -2027,19 +2027,19 @@ msgstr ""
 
 msgctxt "#31502"
 msgid "Live TV"
-msgstr "Beinleiðis sjónvarp"
+msgstr "BeinleiÃ°is sjÃ³nvarp"
 
 msgctxt "#31503"
 msgid "Add Group"
-msgstr "Stovna bólk"
+msgstr "Stovna bÃ³lk"
 
 msgctxt "#31504"
 msgid "Rename Group"
-msgstr "Broyt bólk"
+msgstr "Broyt bÃ³lk"
 
 msgctxt "#31505"
 msgid "Delete Group"
-msgstr "Strika bólk"
+msgstr "Strika bÃ³lk"
 
 msgctxt "#31506"
 msgid "Available Groups"
@@ -2063,7 +2063,7 @@ msgstr ""
 
 msgctxt "#31511"
 msgid "Channel Options"
-msgstr "Rás stillingar"
+msgstr "RÃ¡s stillingar"
 
 msgctxt "#31512"
 msgid "Enable fullscreen information for recordings"
@@ -2390,15 +2390,15 @@ msgid "Favourites dialog"
 msgstr ""
 
 msgctxt "#31593"
-msgid "[B]CONFIGURE SKIN SETTINGS[/B][CR]Customize the main menu · Choose skin colors[CR]Set up widgets · Enable optional features"
+msgid "[B]CONFIGURE SKIN SETTINGS[/B][CR]Customize the main menu Â· Choose skin colors[CR]Set up widgets Â· Enable optional features"
 msgstr ""
 
 msgctxt "#31594"
-msgid "[B]OPEN FILE MANAGER[/B][CR]Access files from within Kodi[CR]Add source · Perform file operations"
+msgid "[B]OPEN FILE MANAGER[/B][CR]Access files from within Kodi[CR]Add source Â· Perform file operations"
 msgstr ""
 
 msgctxt "#31595"
-msgid "[B]OPEN THE EVENT LOG[/B][CR]Library update reports · Failed scrapes · Missing files[CR]PVR events · Add-on events"
+msgid "[B]OPEN THE EVENT LOG[/B][CR]Library update reports Â· Failed scrapes Â· Missing files[CR]PVR events Â· Add-on events"
 msgstr ""
 
 msgctxt "#31596"
@@ -2435,7 +2435,7 @@ msgstr ""
 
 msgctxt "#31604"
 msgid "Information"
-msgstr "Upplýsing"
+msgstr "UpplÃ½sing"
 
 msgctxt "#31605"
 msgid "Alternate layout"
@@ -2861,31 +2861,31 @@ msgstr ""
 
 msgctxt "#31901"
 msgid "36 Hour Forecast"
-msgstr "36 tíma forsøgn"
+msgstr "36 tÃ­ma forsÃ¸gn"
 
 msgctxt "#31902"
 msgid "Hourly Forecast"
-msgstr "Tíma forsøgn"
+msgstr "TÃ­ma forsÃ¸gn"
 
 msgctxt "#31903"
 msgid "Weekend Forecast"
-msgstr "Vikuskiftis forsøgn"
+msgstr "Vikuskiftis forsÃ¸gn"
 
 msgctxt "#31904"
 msgid "10 Day Forecast"
-msgstr "10 daga forsøgn"
+msgstr "10 daga forsÃ¸gn"
 
 msgctxt "#31908"
 msgid "Chance of Precipitation"
-msgstr "Útlit fyri regni"
+msgstr "Ãštlit fyri regni"
 
 msgctxt "#31909"
 msgid "Fetching forecast info..."
-msgstr "Heinti upplýsing til forsøgn..."
+msgstr "Heinti upplÃ½sing til forsÃ¸gn..."
 
 msgctxt "#31910"
 msgid "Map & Alerts"
-msgstr "Kort og fráboðanir"
+msgstr "Kort og frÃ¡boÃ°anir"
 
 msgctxt "#31911"
 msgid "Setup the Marmalade main menu"

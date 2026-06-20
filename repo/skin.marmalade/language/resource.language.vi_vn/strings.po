@@ -1,6 +1,6 @@
 # Kodi Media Center language file
 # Addon Name: Marmalade Build
-# Addon id: skin.aeon.nox.OpenCode
+# Addon id: skin.marmalade
 # Addon Provider: OpenCode
 msgid ""
 msgstr ""
@@ -9,7 +9,7 @@ msgstr ""
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "PO-Revision-Date: 2023-10-23 12:11+0000\n"
 "Last-Translator: Christian Gade <gade@kodi.tv>\n"
-"Language-Team: Vietnamese <https://kodi.weblate.cloud/projects/kodi-add-ons-skins/skin-aeon-nox-OpenCode/vi_vn/>\n"
+"Language-Team: Vietnamese <https://kodi.weblate.cloud/projects/kodi-add-ons-skins/skin.marmalade/vi_vn/>\n"
 "Language: vi_vn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,11 +19,11 @@ msgstr ""
 
 msgctxt "#31000"
 msgid "Directed by"
-msgstr "Đạo diễn"
+msgstr "Äáº¡o diá»…n"
 
 msgctxt "#31001"
 msgid "Written by"
-msgstr "Kịch bản"
+msgstr "Ká»‹ch báº£n"
 
 msgctxt "#31002"
 msgid "Blurred album thumb"
@@ -31,39 +31,39 @@ msgstr ""
 
 msgctxt "#31003"
 msgid "Power Options"
-msgstr "Tùy chọn nguồn điện"
+msgstr "TÃ¹y chá»n nguá»“n Ä‘iá»‡n"
 
 msgctxt "#31004"
 msgid "Working"
-msgstr "Đang thực hiện"
+msgstr "Äang thá»±c hiá»‡n"
 
 msgctxt "#31005"
 msgid "Fixed"
-msgstr "Sửa chữa"
+msgstr "Sá»­a chá»¯a"
 
 msgctxt "#31006"
 msgid "View Options"
-msgstr "Tùy chọn chế độ xem"
+msgstr "TÃ¹y chá»n cháº¿ Ä‘á»™ xem"
 
 msgctxt "#31007"
 msgid "Setup home"
-msgstr "Thiết lập màn hình chính"
+msgstr "Thiáº¿t láº­p mÃ n hÃ¬nh chÃ­nh"
 
 msgctxt "#31008"
 msgid "Full screen"
-msgstr "Toàn màn hình"
+msgstr "ToÃ n mÃ n hÃ¬nh"
 
 msgctxt "#31009"
 msgid "Total Duration"
-msgstr "Tổng Số Thời Gian"
+msgstr "Tá»•ng Sá»‘ Thá»i Gian"
 
 msgctxt "#31010"
 msgid "Next episode"
-msgstr "Phần/Đoạn kế tiếp"
+msgstr "Pháº§n/Äoáº¡n káº¿ tiáº¿p"
 
 msgctxt "#31011"
 msgid "Latest episode"
-msgstr "Phần/Đoạn cuối cùng"
+msgstr "Pháº§n/Äoáº¡n cuá»‘i cÃ¹ng"
 
 msgctxt "#31012"
 msgid "Airs"
@@ -71,11 +71,11 @@ msgstr ""
 
 msgctxt "#31013"
 msgid "Statistics"
-msgstr "Thống kê"
+msgstr "Thá»‘ng kÃª"
 
 msgctxt "#31014"
 msgid "Extras"
-msgstr "Vai phụ"
+msgstr "Vai phá»¥"
 
 msgctxt "#31015"
 msgid "Set path to movie genre fanart folder"
@@ -83,19 +83,19 @@ msgstr ""
 
 msgctxt "#31016"
 msgid "Poster"
-msgstr "Áp phích"
+msgstr "Ãp phÃ­ch"
 
 msgctxt "#31017"
 msgid "Set path to music genre fanart folder"
-msgstr "Chọn đường dẫn đến thư mục chứa đựng thể loại fanart của Âm nhạc"
+msgstr "Chá»n Ä‘Æ°á»ng dáº«n Ä‘áº¿n thÆ° má»¥c chá»©a Ä‘á»±ng thá»ƒ loáº¡i fanart cá»§a Ã‚m nháº¡c"
 
 msgctxt "#31018"
 msgid "InfoPanel"
-msgstr "Bảng thông tin"
+msgstr "Báº£ng thÃ´ng tin"
 
 msgctxt "#31019"
 msgid "Network"
-msgstr "Mạng"
+msgstr "Máº¡ng"
 
 msgctxt "#31020"
 msgid "Extra-fanart"
@@ -107,11 +107,11 @@ msgstr ""
 
 msgctxt "#31022"
 msgid "Set multi-image background"
-msgstr "Thiết lập đa hình nền"
+msgstr "Thiáº¿t láº­p Ä‘a hÃ¬nh ná»n"
 
 msgctxt "#31023"
 msgid "Set single image background"
-msgstr "Thiết lập hình nền đơn"
+msgstr "Thiáº¿t láº­p hÃ¬nh ná»n Ä‘Æ¡n"
 
 msgctxt "#31024"
 msgid "Page"
@@ -119,11 +119,11 @@ msgstr "Trang"
 
 msgctxt "#31025"
 msgid "Items"
-msgstr "Các mục"
+msgstr "CÃ¡c má»¥c"
 
 msgctxt "#31026"
 msgid "Misc Options"
-msgstr "Lựa chọn khác"
+msgstr "Lá»±a chá»n khÃ¡c"
 
 msgctxt "#31027"
 msgid "Set item background"
@@ -131,67 +131,67 @@ msgstr ""
 
 msgctxt "#31028"
 msgid "Live Background"
-msgstr "Hình nền động"
+msgstr "HÃ¬nh ná»n Ä‘á»™ng"
 
 msgctxt "#31029"
 msgid "Recent movies"
-msgstr "Phim gần đây"
+msgstr "Phim gáº§n Ä‘Ã¢y"
 
 msgctxt "#31030"
 msgid "Recent episodes"
-msgstr "Phần/Đoạn gần đây"
+msgstr "Pháº§n/Äoáº¡n gáº§n Ä‘Ã¢y"
 
 msgctxt "#31031"
 msgid "Random movies"
-msgstr "Phim ngẫu nhiên"
+msgstr "Phim ngáº«u nhiÃªn"
 
 msgctxt "#31032"
 msgid "Recommended movies"
-msgstr "Phim khuyến khích xem"
+msgstr "Phim khuyáº¿n khÃ­ch xem"
 
 msgctxt "#31033"
 msgid "Random episodes"
-msgstr "Phần/Đoạn ngẫu nhiên"
+msgstr "Pháº§n/Äoáº¡n ngáº«u nhiÃªn"
 
 msgctxt "#31034"
 msgid "Recommended episodes"
-msgstr "Phần/Đoạn khuyến khích xem"
+msgstr "Pháº§n/Äoáº¡n khuyáº¿n khÃ­ch xem"
 
 msgctxt "#31035"
 msgid "Random songs"
-msgstr "Ca khúc ngẫu nhiên"
+msgstr "Ca khÃºc ngáº«u nhiÃªn"
 
 msgctxt "#31036"
 msgid "Random albums"
-msgstr "Albums ngẫu nhiên"
+msgstr "Albums ngáº«u nhiÃªn"
 
 msgctxt "#31037"
 msgid "Recent albums"
-msgstr "Albums gần đây"
+msgstr "Albums gáº§n Ä‘Ã¢y"
 
 msgctxt "#31038"
 msgid "Recommended albums"
-msgstr "Albums khuyến khích phát"
+msgstr "Albums khuyáº¿n khÃ­ch phÃ¡t"
 
 msgctxt "#31039"
 msgid "Actions"
-msgstr "Hành động"
+msgstr "HÃ nh Ä‘á»™ng"
 
 msgctxt "#31040"
 msgid "Now Playing"
-msgstr "Đang phát"
+msgstr "Äang phÃ¡t"
 
 msgctxt "#31041"
 msgid "Select widget"
-msgstr "Chọn widget"
+msgstr "Chá»n widget"
 
 msgctxt "#31042"
 msgid "Show \"Now Playing\" information blended in the background"
-msgstr "Hiển thị thông tin \"Đang Phát\" phía sau nền"
+msgstr "Hiá»ƒn thá»‹ thÃ´ng tin \"Äang PhÃ¡t\" phÃ­a sau ná»n"
 
 msgctxt "#31043"
 msgid "Platform"
-msgstr "Nền tảng"
+msgstr "Ná»n táº£ng"
 
 msgctxt "#31044"
 msgid "Views: Plot outline | Info dialog: Full plot"
@@ -203,15 +203,15 @@ msgstr ""
 
 msgctxt "#31046"
 msgid "SEEKING"
-msgstr "Đang kiếm"
+msgstr "Äang kiáº¿m"
 
 msgctxt "#31047"
 msgid "Set item icon"
-msgstr "Thiết lập biểu tượng mục"
+msgstr "Thiáº¿t láº­p biá»ƒu tÆ°á»£ng má»¥c"
 
 msgctxt "#31048"
 msgid "Visualisation Presets"
-msgstr "Các hiệu ứng định sẵn"
+msgstr "CÃ¡c hiá»‡u á»©ng Ä‘á»‹nh sáºµn"
 
 msgctxt "#31049"
 msgid "Select infoline"
@@ -219,35 +219,35 @@ msgstr ""
 
 msgctxt "#31050"
 msgid "Sort: Ascending"
-msgstr "Sắp xếp: Tăng dần"
+msgstr "Sáº¯p xáº¿p: TÄƒng dáº§n"
 
 msgctxt "#31051"
 msgid "Sort: Descending"
-msgstr "Sắp xếp: Giảm dần"
+msgstr "Sáº¯p xáº¿p: Giáº£m dáº§n"
 
 msgctxt "#31052"
 msgid "Movie library statistics"
-msgstr "Thống kê thư viện Phim"
+msgstr "Thá»‘ng kÃª thÆ° viá»‡n Phim"
 
 msgctxt "#31053"
 msgid "TV Show library statistics"
-msgstr "Thống kê thư viện chương trình TV"
+msgstr "Thá»‘ng kÃª thÆ° viá»‡n chÆ°Æ¡ng trÃ¬nh TV"
 
 msgctxt "#31054"
 msgid "Music library statistics"
-msgstr "Thống kê thư viện Nhạc"
+msgstr "Thá»‘ng kÃª thÆ° viá»‡n Nháº¡c"
 
 msgctxt "#31055"
 msgid "Open playlist"
-msgstr "Mở Playlist"
+msgstr "Má»Ÿ Playlist"
 
 msgctxt "#31056"
 msgid "Save playlist"
-msgstr "Lưu playlist"
+msgstr "LÆ°u playlist"
 
 msgctxt "#31057"
 msgid "Close playlist"
-msgstr "Đóng Playlist"
+msgstr "ÄÃ³ng Playlist"
 
 msgctxt "#31058"
 msgid "PVR information"
@@ -259,7 +259,7 @@ msgstr ""
 
 msgctxt "#31060"
 msgid "This file is stacked, select the part you want to play from."
-msgstr "Tệp này đã bị chia cắt, chọn phần bạn muốn chơi."
+msgstr "Tá»‡p nÃ y Ä‘Ã£ bá»‹ chia cáº¯t, chá»n pháº§n báº¡n muá»‘n chÆ¡i."
 
 msgctxt "#31061"
 msgid "Total addons / Favourites statistics"
@@ -295,7 +295,7 @@ msgstr ""
 
 msgctxt "#31069"
 msgid "Change location"
-msgstr "Thay đổi địa điểm"
+msgstr "Thay Ä‘á»•i Ä‘á»‹a Ä‘iá»ƒm"
 
 msgctxt "#31070"
 msgid "Enable PreshowExperience integration"
@@ -347,7 +347,7 @@ msgstr ""
 
 msgctxt "#31082"
 msgid "Detach RSS feed from the main menu"
-msgstr "Tháo RSS feed ra khỏi thực đơn chính"
+msgstr "ThÃ¡o RSS feed ra khá»i thá»±c Ä‘Æ¡n chÃ­nh"
 
 msgctxt "#31083"
 msgid "Enable Next Aired information in the videolibrary"
@@ -399,7 +399,7 @@ msgstr ""
 
 msgctxt "#31095"
 msgid "Slim List"
-msgstr "Danh sách Nhỏ"
+msgstr "Danh sÃ¡ch Nhá»"
 
 msgctxt "#31096"
 msgid "Concert locations"
@@ -427,7 +427,7 @@ msgstr ""
 
 msgctxt "#31102"
 msgid "Background"
-msgstr "Hình nền"
+msgstr "HÃ¬nh ná»n"
 
 msgctxt "#31103"
 msgid "N/A"
@@ -435,11 +435,11 @@ msgstr "N/A"
 
 msgctxt "#31104"
 msgid "Similar artists"
-msgstr "Nghệ sĩ tương tự"
+msgstr "Nghá»‡ sÄ© tÆ°Æ¡ng tá»±"
 
 msgctxt "#31105"
 msgid "More albums from"
-msgstr "Thêm album từ"
+msgstr "ThÃªm album tá»«"
 
 msgctxt "#31106"
 msgid "On info"
@@ -467,7 +467,7 @@ msgstr ""
 
 msgctxt "#31112"
 msgid "Movies directed by"
-msgstr "Phim do đạo diễn"
+msgstr "Phim do Ä‘áº¡o diá»…n"
 
 msgctxt "#31113"
 msgid "Movies written by"
@@ -515,11 +515,11 @@ msgstr ""
 
 msgctxt "#31124"
 msgid "Show Background \"Now Playing\" Video"
-msgstr "Hiện video đang chạy nền"
+msgstr "Hiá»‡n video Ä‘ang cháº¡y ná»n"
 
 msgctxt "#31125"
 msgid "Show Background \"Now Playing\" Visualisation"
-msgstr "Bật hiệu ứng nền \"Đang Chạy\""
+msgstr "Báº­t hiá»‡u á»©ng ná»n \"Äang Cháº¡y\""
 
 msgctxt "#31126"
 msgid "TheMovieDb Helper provides details about movies, tvshows and actors from TMDb."
@@ -535,7 +535,7 @@ msgstr ""
 
 msgctxt "#31129"
 msgid "Hide Fanart in full screen visualisation"
-msgstr "Ẩn Fanart ở chế độ hiển thị toàn bộ màn hình"
+msgstr "áº¨n Fanart á»Ÿ cháº¿ Ä‘á»™ hiá»ƒn thá»‹ toÃ n bá»™ mÃ n hÃ¬nh"
 
 msgctxt "#31130"
 msgid "Use \"Enigma2-style\" channel OSD"
@@ -587,7 +587,7 @@ msgstr ""
 
 msgctxt "#31142"
 msgid "Settings level"
-msgstr "Mức độ hiệu chỉnh"
+msgstr "Má»©c Ä‘á»™ hiá»‡u chá»‰nh"
 
 msgctxt "#31143"
 msgid "Hide Recordings"
@@ -603,7 +603,7 @@ msgstr ""
 
 msgctxt "#31146"
 msgid "Rated"
-msgstr "Đã xếp hạng"
+msgstr "ÄÃ£ xáº¿p háº¡ng"
 
 msgctxt "#31147"
 msgid "Change rating"
@@ -623,11 +623,11 @@ msgstr ""
 
 msgctxt "#31151"
 msgid "View settings"
-msgstr "Thiết lập kiểu xem"
+msgstr "Thiáº¿t láº­p kiá»ƒu xem"
 
 msgctxt "#31152"
 msgid "Poster"
-msgstr "Áp phích"
+msgstr "Ãp phÃ­ch"
 
 msgctxt "#31153"
 msgid "Disable views"
@@ -655,7 +655,7 @@ msgstr ""
 
 msgctxt "#31159"
 msgid "Event log"
-msgstr "Nhật ký sự kiện"
+msgstr "Nháº­t kÃ½ sá»± kiá»‡n"
 
 msgctxt "#31160"
 msgid "Extended"
@@ -663,7 +663,7 @@ msgstr ""
 
 msgctxt "#31161"
 msgid "Choose the position of the RSS feed. Top of the screen, bottom of the screen or the default location directly underneath the main menu."
-msgstr "Chọn vị trí cho RSS. Trên đỉnh, phía dưới màn hình hoặc vị trí mặc định ngay bên dưới thực đơn chính."
+msgstr "Chá»n vá»‹ trÃ­ cho RSS. TrÃªn Ä‘á»‰nh, phÃ­a dÆ°á»›i mÃ n hÃ¬nh hoáº·c vá»‹ trÃ­ máº·c Ä‘á»‹nh ngay bÃªn dÆ°á»›i thá»±c Ä‘Æ¡n chÃ­nh."
 
 msgctxt "#31162"
 msgid "Alternate"
@@ -695,27 +695,27 @@ msgstr ""
 
 msgctxt "#31169"
 msgid "This setting hides the Search icon on the home screen."
-msgstr "Thiết lập này sẽ ẩn biểu tượng Tìm Kiếm trên Màn hình chính."
+msgstr "Thiáº¿t láº­p nÃ y sáº½ áº©n biá»ƒu tÆ°á»£ng TÃ¬m Kiáº¿m trÃªn MÃ n hÃ¬nh chÃ­nh."
 
 msgctxt "#31170"
 msgid "Enabling this setting will hide the alphanumeric label displaying the current position when scrolling through your library."
-msgstr "Kích hoạt thiết lập này sẽ ẩn nhãn chữ số ở vị trí hiện tại khi cuộn qua thư viện."
+msgstr "KÃ­ch hoáº¡t thiáº¿t láº­p nÃ y sáº½ áº©n nhÃ£n chá»¯ sá»‘ á»Ÿ vá»‹ trÃ­ hiá»‡n táº¡i khi cuá»™n qua thÆ° viá»‡n."
 
 msgctxt "#31171"
 msgid "This setting will activate fullscreen mode automatically after starting to play music."
-msgstr "Thiết lập này sẽ tự động kích hoạt chế độ toàn màn hình sau khi bắt đầu phát nhạc."
+msgstr "Thiáº¿t láº­p nÃ y sáº½ tá»± Ä‘á»™ng kÃ­ch hoáº¡t cháº¿ Ä‘á»™ toÃ n mÃ n hÃ¬nh sau khi báº¯t Ä‘áº§u phÃ¡t nháº¡c."
 
 msgctxt "#31172"
 msgid "Set the path to your music collection for displaying artist logos in the music visualisation and in some views that support it."
-msgstr "Đặt đường dẫn đến bộ sưu tập của bạn để hiển thị hình logo của nghệ sỹ trong hiệu ứng âm nhạc và trong một vài kiểu xem nếu có hỗ trợ."
+msgstr "Äáº·t Ä‘Æ°á»ng dáº«n Ä‘áº¿n bá»™ sÆ°u táº­p cá»§a báº¡n Ä‘á»ƒ hiá»ƒn thá»‹ hÃ¬nh logo cá»§a nghá»‡ sá»¹ trong hiá»‡u á»©ng Ã¢m nháº¡c vÃ  trong má»™t vÃ i kiá»ƒu xem náº¿u cÃ³ há»— trá»£."
 
 msgctxt "#31173"
 msgid "Blur background (video info dialog)"
-msgstr "Làm mờ hình nền (hộp thoại thông tin video)"
+msgstr "LÃ m má» hÃ¬nh ná»n (há»™p thoáº¡i thÃ´ng tin video)"
 
 msgctxt "#31174"
 msgid "Blur background behind information"
-msgstr "Làm mờ thông tin phía sau nền"
+msgstr "LÃ m má» thÃ´ng tin phÃ­a sau ná»n"
 
 msgctxt "#31175"
 msgid "Set path to music collection/artwork (for artist logos)"
@@ -775,7 +775,7 @@ msgstr ""
 
 msgctxt "#31189"
 msgid "Layout"
-msgstr "Bố cục"
+msgstr "Bá»‘ cá»¥c"
 
 msgctxt "#31190"
 msgid "Video info"
@@ -839,7 +839,7 @@ msgstr ""
 
 msgctxt "#31205"
 msgid "Lyrics Source"
-msgstr "Nguồn lyric"
+msgstr "Nguá»“n lyric"
 
 msgctxt "#31206"
 msgid "Opening This Week"
@@ -955,7 +955,7 @@ msgstr ""
 
 msgctxt "#31234"
 msgid "Next aired"
-msgstr "Phát tiếp theo"
+msgstr "PhÃ¡t tiáº¿p theo"
 
 msgctxt "#31235"
 msgid "Slide Left"
@@ -999,7 +999,7 @@ msgstr ""
 
 msgctxt "#31245"
 msgid "Wall"
-msgstr "Biểu tượng"
+msgstr "Biá»ƒu tÆ°á»£ng"
 
 msgctxt "#31246"
 msgid "Fullscreen Wall"
@@ -1063,15 +1063,15 @@ msgstr ""
 
 msgctxt "#31261"
 msgid "Choose the position of the RSS feed. Top of the screen or bottom of the screen."
-msgstr "Chọn vị trí cho RSS. Trên đỉnh hoặc phía dưới màn hình."
+msgstr "Chá»n vá»‹ trÃ­ cho RSS. TrÃªn Ä‘á»‰nh hoáº·c phÃ­a dÆ°á»›i mÃ n hÃ¬nh."
 
 msgctxt "#31262"
 msgid "Hides the labels below the icons on the main menu."
-msgstr "Ẩn các nhãn phía dưới các biểu tượng trên thực đơn chính."
+msgstr "áº¨n cÃ¡c nhÃ£n phÃ­a dÆ°á»›i cÃ¡c biá»ƒu tÆ°á»£ng trÃªn thá»±c Ä‘Æ¡n chÃ­nh."
 
 msgctxt "#31263"
 msgid "Hide menu labels"
-msgstr "Ẩn các nhãn thực đơn"
+msgstr "áº¨n cÃ¡c nhÃ£n thá»±c Ä‘Æ¡n"
 
 msgctxt "#31264"
 msgid "Displays artist fanart provided by the Artist Slideshow addon as the background of the home menu."
@@ -1079,19 +1079,19 @@ msgstr ""
 
 msgctxt "#31265"
 msgid "This will reset the main menu to its defaults.[CR]This action cannot be undone."
-msgstr "Việc này sẽ khôi phục thực đơn chính về mặc định.{CR]Cẩn thận vì hành động này không thể hoàn tác."
+msgstr "Viá»‡c nÃ y sáº½ khÃ´i phá»¥c thá»±c Ä‘Æ¡n chÃ­nh vá» máº·c Ä‘á»‹nh.{CR]Cáº©n tháº­n vÃ¬ hÃ nh Ä‘á»™ng nÃ y khÃ´ng thá»ƒ hoÃ n tÃ¡c."
 
 msgctxt "#31266"
 msgid "Hide player control buttons"
-msgstr "Ẩn các nút điều khiển của trình phát"
+msgstr "áº¨n cÃ¡c nÃºt Ä‘iá»u khiá»ƒn cá»§a trÃ¬nh phÃ¡t"
 
 msgctxt "#31267"
 msgid "Hide time & date"
-msgstr "Ẩn thời gian & ngày tháng"
+msgstr "áº¨n thá»i gian & ngÃ y thÃ¡ng"
 
 msgctxt "#31268"
 msgid "Hide Album"
-msgstr "Ẩn album"
+msgstr "áº¨n album"
 
 msgctxt "#31269"
 msgid "Hide next track widget"
@@ -1115,7 +1115,7 @@ msgstr ""
 
 msgctxt "#31274"
 msgid "Artwork"
-msgstr "Ảnh minh họa"
+msgstr "áº¢nh minh há»a"
 
 msgctxt "#31275"
 msgid "Case"
@@ -1127,7 +1127,7 @@ msgstr ""
 
 msgctxt "#31277"
 msgid "Sort by"
-msgstr "Sắp xếp theo"
+msgstr "Sáº¯p xáº¿p theo"
 
 msgctxt "#31278"
 msgid "Sort order"
@@ -1183,7 +1183,7 @@ msgstr ""
 
 msgctxt "#31291"
 msgid "Disable scrolling label"
-msgstr "Vô hiệu cuộn nhãn"
+msgstr "VÃ´ hiá»‡u cuá»™n nhÃ£n"
 
 msgctxt "#31292"
 msgid "InfoPopup"
@@ -1191,7 +1191,7 @@ msgstr ""
 
 msgctxt "#31293"
 msgid "Small Icons"
-msgstr "Các Biểu tượng nhỏ"
+msgstr "CÃ¡c Biá»ƒu tÆ°á»£ng nhá»"
 
 msgctxt "#31294"
 msgid "Focused Main Menu"
@@ -1223,7 +1223,7 @@ msgstr ""
 
 msgctxt "#31301"
 msgid "Last Updated"
-msgstr "Cập nhật cuối cùng"
+msgstr "Cáº­p nháº­t cuá»‘i cÃ¹ng"
 
 msgctxt "#31302"
 msgid "Menu Bar"
@@ -1247,7 +1247,7 @@ msgstr ""
 
 msgctxt "#31307"
 msgid "Hide Fanart"
-msgstr "Ẩn fanart"
+msgstr "áº¨n fanart"
 
 msgctxt "#31308"
 msgid "Focused text"
@@ -1279,7 +1279,7 @@ msgstr ""
 
 msgctxt "#31315"
 msgid "A required script is [B]NOT INSTALLED[/B]. Press INSTALL to download automatically. Press CANCEL if you would like to return to System Settings and switch skins. You may need to restart Kodi after installation completes."
-msgstr "[B]CHƯA CÀI ĐẶT[/B] đoạn mã theo yêu cầu. Nhấn CÀI ĐẶT để tự động tải xuống. Nhấn HỦY BỎ nếu bạn muốn trở lại Cài đặt Hệ thống và thay đổi giao diện. Bạn cần khởi động lại Kodi sau khi cài đặt hoàn thành."
+msgstr "[B]CHÆ¯A CÃ€I Äáº¶T[/B] Ä‘oáº¡n mÃ£ theo yÃªu cáº§u. Nháº¥n CÃ€I Äáº¶T Ä‘á»ƒ tá»± Ä‘á»™ng táº£i xuá»‘ng. Nháº¥n Há»¦Y Bá»Ž náº¿u báº¡n muá»‘n trá»Ÿ láº¡i CÃ i Ä‘áº·t Há»‡ thá»‘ng vÃ  thay Ä‘á»•i giao diá»‡n. Báº¡n cáº§n khá»Ÿi Ä‘á»™ng láº¡i Kodi sau khi cÃ i Ä‘áº·t hoÃ n thÃ nh."
 
 msgctxt "#31316"
 msgid "A skin reload is [B]REQUIRED[/B] to disable the media menu and certain buttons that were loaded during startup.[CR]Press CANCEL to abort the requested changes."
@@ -1287,23 +1287,23 @@ msgstr ""
 
 msgctxt "#31317"
 msgid "Set Fanart Path"
-msgstr "Đặt đường dẫn fanart"
+msgstr "Äáº·t Ä‘Æ°á»ng dáº«n fanart"
 
 msgctxt "#31318"
-msgid "[B]CONFIGURE LibreELEC SETTINGS[/B][CR]Setup system option · Manage network[CR]Configure services · About LibreELEC"
+msgid "[B]CONFIGURE LibreELEC SETTINGS[/B][CR]Setup system option Â· Manage network[CR]Configure services Â· About LibreELEC"
 msgstr ""
 
 msgctxt "#31319"
 msgid "Due to recent updates it is [B]RECOMMENDED[/B] to reset the Main Menu. Certain issues may be resolved by re-setting up your widgets but if issues continue please reset the Main Menu. Press CANCEL to ignore this warning and continue."
-msgstr "Vì những cập nhật gần đây, KHUYẾN CÁO nên khôi phục lại Thực Đơn Chính. Các lỗi nào đó có thể được giải quyết bằng việc tái thiết lập các widget của bạn, nhưng nếu các lỗi vẫn hiện diện vui lòng khôi phục lại Thực Đơn Chính. Nhấn HỦY BỎ để bỏ qua cảnh báo này và tiếp tục."
+msgstr "VÃ¬ nhá»¯ng cáº­p nháº­t gáº§n Ä‘Ã¢y, KHUYáº¾N CÃO nÃªn khÃ´i phá»¥c láº¡i Thá»±c ÄÆ¡n ChÃ­nh. CÃ¡c lá»—i nÃ o Ä‘Ã³ cÃ³ thá»ƒ Ä‘Æ°á»£c giáº£i quyáº¿t báº±ng viá»‡c tÃ¡i thiáº¿t láº­p cÃ¡c widget cá»§a báº¡n, nhÆ°ng náº¿u cÃ¡c lá»—i váº«n hiá»‡n diá»‡n vui lÃ²ng khÃ´i phá»¥c láº¡i Thá»±c ÄÆ¡n ChÃ­nh. Nháº¥n Há»¦Y Bá»Ž Ä‘á»ƒ bá» qua cáº£nh bÃ¡o nÃ y vÃ  tiáº¿p tá»¥c."
 
 msgctxt "#31320"
 msgid "Last Logged In"
-msgstr "Lần truy cập cuối"
+msgstr "Láº§n truy cáº­p cuá»‘i"
 
 msgctxt "#31321"
 msgid "Karaoke Song Selector"
-msgstr "Trình chọn bài hát karaoke"
+msgstr "TrÃ¬nh chá»n bÃ i hÃ¡t karaoke"
 
 msgctxt "#31322"
 msgid "This will disable the screensaver during music playback by hiding the visualization. This may cause unwanted [B]IMAGE RETENTION[/B] if not used carefully. Do you accept the risks and want to enable this setting?"
@@ -1315,7 +1315,7 @@ msgstr ""
 
 msgctxt "#31324"
 msgid "Aired"
-msgstr "Đã phát"
+msgstr "ÄÃ£ phÃ¡t"
 
 msgctxt "#31325"
 msgid "REQUIRED scripts are necessary for basic skin functions."
@@ -1331,7 +1331,7 @@ msgstr ""
 
 msgctxt "#31328"
 msgid "Recently Added"
-msgstr "Mới Bỏ Vào"
+msgstr "Má»›i Bá» VÃ o"
 
 msgctxt "#31329"
 msgid "Taking a Screenshot"
@@ -1359,7 +1359,7 @@ msgstr ""
 
 msgctxt "#31335"
 msgid "Recommended"
-msgstr "Khuyến nghị"
+msgstr "Khuyáº¿n nghá»‹"
 
 msgctxt "#31336"
 msgid "Optional"
@@ -1515,15 +1515,15 @@ msgstr ""
 
 msgctxt "#31374"
 msgid "Latest"
-msgstr "Mới nhất"
+msgstr "Má»›i nháº¥t"
 
 msgctxt "#31375"
 msgid "Video OSD"
-msgstr "Bảng điều khiển Video"
+msgstr "Báº£ng Ä‘iá»u khiá»ƒn Video"
 
 msgctxt "#31376"
 msgid "Music OSD"
-msgstr "Bảng điều khiển Nhạc"
+msgstr "Báº£ng Ä‘iá»u khiá»ƒn Nháº¡c"
 
 msgctxt "#31377"
 msgid "Altering this shortcut may prevent access to the Main Menu customizer and several skin options.[CR]Are you sure you want to perform the requested changes to this shortcut?"
@@ -1579,7 +1579,7 @@ msgstr ""
 
 msgctxt "#31390"
 msgid "Skin default"
-msgstr "Giao diện mặc định"
+msgstr "Giao diá»‡n máº·c Ä‘á»‹nh"
 
 msgctxt "#31391"
 msgid "Arial"
@@ -1591,7 +1591,7 @@ msgstr ""
 
 msgctxt "#31393"
 msgid "Ends at"
-msgstr "Kết thúc vào"
+msgstr "Káº¿t thÃºc vÃ o"
 
 msgctxt "#31394"
 msgid "Replace default info with Netflix style"
@@ -1618,15 +1618,15 @@ msgid "Customize the settings for the Live TV section."
 msgstr ""
 
 msgctxt "#31400"
-msgid "[B]CONFIGURE INTERFACE SETTINGS[/B][CR]Change the skin · Set language and region[CR]Set up a screensaver · Setup master lock"
+msgid "[B]CONFIGURE INTERFACE SETTINGS[/B][CR]Change the skin Â· Set language and region[CR]Set up a screensaver Â· Setup master lock"
 msgstr ""
 
 msgctxt "#31401"
-msgid "[B]CONFIGURE PLAYER SETTINGS[/B][CR]Configure video playback · Configure music playback[CR]Configure picture slideshow · Configure video language and subtitles"
+msgid "[B]CONFIGURE PLAYER SETTINGS[/B][CR]Configure video playback Â· Configure music playback[CR]Configure picture slideshow Â· Configure video language and subtitles"
 msgstr ""
 
 msgctxt "#31402"
-msgid "[B]CONFIGURE MEDIA SETTINGS[/B][CR]Manage sources · Set default select action[CR]Configure metadata options · Configure file list options"
+msgid "[B]CONFIGURE MEDIA SETTINGS[/B][CR]Manage sources Â· Set default select action[CR]Configure metadata options Â· Configure file list options"
 msgstr ""
 
 msgctxt "#31403"
@@ -1638,15 +1638,15 @@ msgid "This will RESET ALL skin settings, selecting YES in the dialog that appea
 msgstr ""
 
 msgctxt "#31405"
-msgid "[B]MONITOR YOUR SYSTEM[/B][CR]Check out your hardware[CR]Check Kodi revision number · Monitor CPU usage"
+msgid "[B]MONITOR YOUR SYSTEM[/B][CR]Check out your hardware[CR]Check Kodi revision number Â· Monitor CPU usage"
 msgstr ""
 
 msgctxt "#31406"
-msgid "[B]CONFIGURE SYSTEM SETTINGS[/B][CR]Setup and calibrate displays · Configure audio output[CR]Set power saving options · Configure proxy settings · Enable debugging"
+msgid "[B]CONFIGURE SYSTEM SETTINGS[/B][CR]Setup and calibrate displays Â· Configure audio output[CR]Set power saving options Â· Configure proxy settings Â· Enable debugging"
 msgstr ""
 
 msgctxt "#31407"
-msgid "[B]CONFIGURE PROFILES[/B][CR]Setup and manage user profiles[CR]Change password · Enable login screen"
+msgid "[B]CONFIGURE PROFILES[/B][CR]Setup and manage user profiles[CR]Change password Â· Enable login screen"
 msgstr ""
 
 msgctxt "#31408"
@@ -1654,11 +1654,11 @@ msgid "Enable to show a LiveTV widget displaying what is currently recording and
 msgstr ""
 
 msgctxt "#31409"
-msgid "[B]CONFIGURE LIVE TV SETTINGS[/B][CR]Change full screen info[CR]Manage Guide data settings  •  Configure recording options"
+msgid "[B]CONFIGURE LIVE TV SETTINGS[/B][CR]Change full screen info[CR]Manage Guide data settings  â€¢  Configure recording options"
 msgstr ""
 
 msgctxt "#31410"
-msgid "[B]CONFIGURE SERVICE SETTINGS[/B][CR]Setup control of Kodi via UPnP and HTTP · Configure file sharing[CR]Enable Zeroconf · Configure AirPlay"
+msgid "[B]CONFIGURE SERVICE SETTINGS[/B][CR]Setup control of Kodi via UPnP and HTTP Â· Configure file sharing[CR]Enable Zeroconf Â· Configure AirPlay"
 msgstr ""
 
 msgctxt "#31411"
@@ -1671,7 +1671,7 @@ msgstr ""
 
 msgctxt "#31413"
 msgid "Local subtitle available"
-msgstr "Phụ đề đang có sẵn"
+msgstr "Phá»¥ Ä‘á» Ä‘ang cÃ³ sáºµn"
 
 msgctxt "#31414"
 msgid "Set the Main Theme color used throughout the skin."
@@ -1703,7 +1703,7 @@ msgstr ""
 
 msgctxt "#31421"
 msgid "Select your Kodi user profile[CR]to login and continue"
-msgstr "Chọn hồ sơ người dùng Kodi[CR]để đăng nhập và tiếp tục"
+msgstr "Chá»n há»“ sÆ¡ ngÆ°á»i dÃ¹ng Kodi[CR]Ä‘á»ƒ Ä‘Äƒng nháº­p vÃ  tiáº¿p tá»¥c"
 
 msgctxt "#31422"
 msgid "Customize the Widget Highlight color on the home screen."
@@ -1723,7 +1723,7 @@ msgstr ""
 
 msgctxt "#31426"
 msgid "Enter text here..."
-msgstr "Nhập văn bản ở đây..."
+msgstr "Nháº­p vÄƒn báº£n á»Ÿ Ä‘Ã¢y..."
 
 msgctxt "#31427"
 msgid "Skin Shortcuts is responsible for handeling all aspects of the main menu."
@@ -1779,10 +1779,10 @@ msgstr ""
 
 msgctxt "#31440"
 msgid "Recently played channels"
-msgstr "Kênh đã phát gần đây"
+msgstr "KÃªnh Ä‘Ã£ phÃ¡t gáº§n Ä‘Ã¢y"
 
 msgctxt "#31441"
-msgid "[B]CONFIGURE GAME SETTINGS[/B][CR]Change gameplay options[CR]Keyboard settings  •  Configure rewind settings"
+msgid "[B]CONFIGURE GAME SETTINGS[/B][CR]Change gameplay options[CR]Keyboard settings  â€¢  Configure rewind settings"
 msgstr ""
 
 msgctxt "#31442"
@@ -1810,7 +1810,7 @@ msgid "Show a popup displaying answers to some FREQUENTLY ASKED QUESTIONS posted
 msgstr ""
 
 msgctxt "#31448"
-msgid "[B]CONFIGURE ADD-ONS[/B][CR]Manage your installed Add-ons[CR]Browse for and install Add-ons  •  Check for Add-on updates"
+msgid "[B]CONFIGURE ADD-ONS[/B][CR]Manage your installed Add-ons[CR]Browse for and install Add-ons  â€¢  Check for Add-on updates"
 msgstr ""
 
 msgctxt "#31449"
@@ -1818,11 +1818,11 @@ msgid "Save & Exit"
 msgstr ""
 
 msgctxt "#31450"
-msgid "  •  Open Settings "
+msgid "  â€¢  Open Settings "
 msgstr ""
 
 msgctxt "#31451"
-msgid "  •  Click to Install or Enable"
+msgid "  â€¢  Click to Install or Enable"
 msgstr ""
 
 msgctxt "#31452"
@@ -1978,12 +1978,12 @@ msgid "Hide episode thumb when hiding plot for unwatched items"
 msgstr ""
 
 msgctxt "#31490"
-msgid "[B]CONFIGURE CoreELEC SETTINGS[/B][CR]Setup system option · Manage network[CR]Configure services · About CoreELEC"
+msgid "[B]CONFIGURE CoreELEC SETTINGS[/B][CR]Setup system option Â· Manage network[CR]Configure services Â· About CoreELEC"
 msgstr ""
 
 msgctxt "#31491"
 msgid "Muted"
-msgstr "Đã tắt tiếng"
+msgstr "ÄÃ£ táº¯t tiáº¿ng"
 
 msgctxt "#31492"
 msgid "The metadata and artwork module provides both metadata and artwork from sites like TMDB, musicbrainz and fanart.tv. It has settings used for the Skin Helper scripts."
@@ -2023,23 +2023,23 @@ msgstr ""
 
 msgctxt "#31501"
 msgid "Channel group"
-msgstr "Nhóm kênh"
+msgstr "NhÃ³m kÃªnh"
 
 msgctxt "#31502"
 msgid "Live TV"
-msgstr "TV trực tuyến"
+msgstr "TV trá»±c tuyáº¿n"
 
 msgctxt "#31503"
 msgid "Add Group"
-msgstr "Thêm nhóm"
+msgstr "ThÃªm nhÃ³m"
 
 msgctxt "#31504"
 msgid "Rename Group"
-msgstr "Đổi tên nhóm"
+msgstr "Äá»•i tÃªn nhÃ³m"
 
 msgctxt "#31505"
 msgid "Delete Group"
-msgstr "Xoá nhóm"
+msgstr "XoÃ¡ nhÃ³m"
 
 msgctxt "#31506"
 msgid "Available Groups"
@@ -2063,7 +2063,7 @@ msgstr ""
 
 msgctxt "#31511"
 msgid "Channel Options"
-msgstr "Thiết lập kênh"
+msgstr "Thiáº¿t láº­p kÃªnh"
 
 msgctxt "#31512"
 msgid "Enable fullscreen information for recordings"
@@ -2151,7 +2151,7 @@ msgstr ""
 
 msgctxt "#31533"
 msgid "Unwatched movies"
-msgstr "Phim chưa xem"
+msgstr "Phim chÆ°a xem"
 
 msgctxt "#31534"
 msgid "Best picture winners"
@@ -2159,11 +2159,11 @@ msgstr ""
 
 msgctxt "#31535"
 msgid "Unwatched TV Shows"
-msgstr "Chương trình TV chưa xem"
+msgstr "ChÆ°Æ¡ng trÃ¬nh TV chÆ°a xem"
 
 msgctxt "#31536"
 msgid "Recent recordings"
-msgstr "Bản ghi gần đây"
+msgstr "Báº£n ghi gáº§n Ä‘Ã¢y"
 
 msgctxt "#31537"
 msgid "System & Weather"
@@ -2331,7 +2331,7 @@ msgstr ""
 
 msgctxt "#31578"
 msgid "Random music videos"
-msgstr "Video nhạc ngẫu nhiên"
+msgstr "Video nháº¡c ngáº«u nhiÃªn"
 
 msgctxt "#31579"
 msgid "Random music videos (artists)"
@@ -2343,7 +2343,7 @@ msgstr ""
 
 msgctxt "#31581"
 msgid "Unwatched music videos"
-msgstr "Video nhạc chưa xem"
+msgstr "Video nháº¡c chÆ°a xem"
 
 msgctxt "#31582"
 msgid "Most played music videos"
@@ -2355,7 +2355,7 @@ msgstr ""
 
 msgctxt "#31584"
 msgid "Random artists"
-msgstr "Ca sĩ ngẫu nhiên"
+msgstr "Ca sÄ© ngáº«u nhiÃªn"
 
 msgctxt "#31585"
 msgid "Most played songs"
@@ -2390,15 +2390,15 @@ msgid "Favourites dialog"
 msgstr ""
 
 msgctxt "#31593"
-msgid "[B]CONFIGURE SKIN SETTINGS[/B][CR]Customize the main menu · Choose skin colors[CR]Set up widgets · Enable optional features"
+msgid "[B]CONFIGURE SKIN SETTINGS[/B][CR]Customize the main menu Â· Choose skin colors[CR]Set up widgets Â· Enable optional features"
 msgstr ""
 
 msgctxt "#31594"
-msgid "[B]OPEN FILE MANAGER[/B][CR]Access files from within Kodi[CR]Add source · Perform file operations"
+msgid "[B]OPEN FILE MANAGER[/B][CR]Access files from within Kodi[CR]Add source Â· Perform file operations"
 msgstr ""
 
 msgctxt "#31595"
-msgid "[B]OPEN THE EVENT LOG[/B][CR]Library update reports · Failed scrapes · Missing files[CR]PVR events · Add-on events"
+msgid "[B]OPEN THE EVENT LOG[/B][CR]Library update reports Â· Failed scrapes Â· Missing files[CR]PVR events Â· Add-on events"
 msgstr ""
 
 msgctxt "#31596"
@@ -2435,7 +2435,7 @@ msgstr ""
 
 msgctxt "#31604"
 msgid "Information"
-msgstr "Thông tin"
+msgstr "ThÃ´ng tin"
 
 msgctxt "#31605"
 msgid "Alternate layout"
@@ -2537,7 +2537,7 @@ msgstr ""
 
 msgctxt "#31681"
 msgid "Customize the label. Can also accept some label formatting."
-msgstr "Tùy biến nhãn. Có thể chấp nhận một vài định dạng nhãn."
+msgstr "TÃ¹y biáº¿n nhÃ£n. CÃ³ thá»ƒ cháº¥p nháº­n má»™t vÃ i Ä‘á»‹nh dáº¡ng nhÃ£n."
 
 msgctxt "#31682"
 msgid "Change the selected shorcuts command. Can also be used to enter a custom command."
@@ -2590,7 +2590,7 @@ msgstr ""
 
 msgctxt "#31708"
 msgid "Sort by"
-msgstr "Sắp xếp theo"
+msgstr "Sáº¯p xáº¿p theo"
 
 msgctxt "#31709"
 msgid "Sort order"
@@ -2686,7 +2686,7 @@ msgstr ""
 
 msgctxt "#31732"
 msgid "In progress movies"
-msgstr "Phim đang xem"
+msgstr "Phim Ä‘ang xem"
 
 msgctxt "#31733"
 msgid "In progress episodes"
@@ -2750,7 +2750,7 @@ msgstr ""
 
 msgctxt "#31748"
 msgid "This setting enables more widget customization. Disable to use Marmalade default widgets."
-msgstr "Thiết lập này kích hoạt thêm tùy chỉnh widget. Vô hiệu hóa để dùng các widget mặc định của Marmalade."
+msgstr "Thiáº¿t láº­p nÃ y kÃ­ch hoáº¡t thÃªm tÃ¹y chá»‰nh widget. VÃ´ hiá»‡u hÃ³a Ä‘á»ƒ dÃ¹ng cÃ¡c widget máº·c Ä‘á»‹nh cá»§a Marmalade."
 
 msgctxt "#31749"
 msgid "Change the transparency of the artwork and background."
@@ -2758,19 +2758,19 @@ msgstr ""
 
 msgctxt "#31750"
 msgid "Enable to use the same background throughout the home screen. Disable to set each background individually in the home menu customizer."
-msgstr "Kích hoạt để sử dụng cùng một hình nền khắp nơi trên màn hình chính. Vô hiệu hóa để dùng hình nền riêng lẽ trong trình tùy biến thực đơn chính."
+msgstr "KÃ­ch hoáº¡t Ä‘á»ƒ sá»­ dá»¥ng cÃ¹ng má»™t hÃ¬nh ná»n kháº¯p nÆ¡i trÃªn mÃ n hÃ¬nh chÃ­nh. VÃ´ hiá»‡u hÃ³a Ä‘á»ƒ dÃ¹ng hÃ¬nh ná»n riÃªng láº½ trong trÃ¬nh tÃ¹y biáº¿n thá»±c Ä‘Æ¡n chÃ­nh."
 
 msgctxt "#31751"
 msgid "Choose the background style."
-msgstr "Chọn kiểu nền."
+msgstr "Chá»n kiá»ƒu ná»n."
 
 msgctxt "#31752"
 msgid "The list style widgets will automatically scroll if enabled."
-msgstr "Các widget dạng danh sách sẽ tự động cuộn nếu được kích hoạt."
+msgstr "CÃ¡c widget dáº¡ng danh sÃ¡ch sáº½ tá»± Ä‘á»™ng cuá»™n náº¿u Ä‘Æ°á»£c kÃ­ch hoáº¡t."
 
 msgctxt "#31753"
 msgid "Choose how information is displayed next to the list style widget."
-msgstr "Chọn cách hiện thông tin bên cạnh widget dạng danh sách."
+msgstr "Chá»n cÃ¡ch hiá»‡n thÃ´ng tin bÃªn cáº¡nh widget dáº¡ng danh sÃ¡ch."
 
 msgctxt "#31754"
 msgid "Choose a case for the widget information poster. Match will use the same case as the widget."
@@ -2782,11 +2782,11 @@ msgstr ""
 
 msgctxt "#31756"
 msgid "Show movie and tv show cast details within the information dialog."
-msgstr "Hiện chi tiết thông tin diễn viên của phim và chương trình TV trong hộp thoại thông tin."
+msgstr "Hiá»‡n chi tiáº¿t thÃ´ng tin diá»…n viÃªn cá»§a phim vÃ  chÆ°Æ¡ng trÃ¬nh TV trong há»™p thoáº¡i thÃ´ng tin."
 
 msgctxt "#31757"
 msgid "Enable to use the widget background in the information dialog."
-msgstr "Kích hoạt để dùng nền widget trong hộp thoại thông tin."
+msgstr "KÃ­ch hoáº¡t Ä‘á»ƒ dÃ¹ng ná»n widget trong há»™p thoáº¡i thÃ´ng tin."
 
 msgctxt "#31758"
 msgid "Enable to show widget information for all panel widgets. Disable to individually select in the home menu customizer."
@@ -2794,15 +2794,15 @@ msgstr ""
 
 msgctxt "#31759"
 msgid "If enabled widgets will not be visible throughout the home screen until they are focused."
-msgstr "Nếu những widget đã được kích hoạt, chúng sẽ không thể thấy được ở khắp các nơi trên màn hình chính cho đến khi chúng được chọn."
+msgstr "Náº¿u nhá»¯ng widget Ä‘Ã£ Ä‘Æ°á»£c kÃ­ch hoáº¡t, chÃºng sáº½ khÃ´ng thá»ƒ tháº¥y Ä‘Æ°á»£c á»Ÿ kháº¯p cÃ¡c nÆ¡i trÃªn mÃ n hÃ¬nh chÃ­nh cho Ä‘áº¿n khi chÃºng Ä‘Æ°á»£c chá»n."
 
 msgctxt "#31760"
 msgid "Configure custom Widget 1"
-msgstr "Tùy biến Widget 1"
+msgstr "TÃ¹y biáº¿n Widget 1"
 
 msgctxt "#31761"
 msgid "Configure custom Widget 2"
-msgstr "Tùy biến Widget 2"
+msgstr "TÃ¹y biáº¿n Widget 2"
 
 # empty strings from id 31762 to 31799
 msgctxt "#31800"
@@ -2861,31 +2861,31 @@ msgstr ""
 
 msgctxt "#31901"
 msgid "36 Hour Forecast"
-msgstr "Thời Tiết - 36 Tiếng"
+msgstr "Thá»i Tiáº¿t - 36 Tiáº¿ng"
 
 msgctxt "#31902"
 msgid "Hourly Forecast"
-msgstr "Dự báo theo giờ"
+msgstr "Dá»± bÃ¡o theo giá»"
 
 msgctxt "#31903"
 msgid "Weekend Forecast"
-msgstr "Dự báo cuối tuần"
+msgstr "Dá»± bÃ¡o cuá»‘i tuáº§n"
 
 msgctxt "#31904"
 msgid "10 Day Forecast"
-msgstr "Thời Tiết - 10 Ngày"
+msgstr "Thá»i Tiáº¿t - 10 NgÃ y"
 
 msgctxt "#31908"
 msgid "Chance of Precipitation"
-msgstr "Khả năng mưa"
+msgstr "Kháº£ nÄƒng mÆ°a"
 
 msgctxt "#31909"
 msgid "Fetching forecast info..."
-msgstr "Đang tải dữ liệu thời tiết..."
+msgstr "Äang táº£i dá»¯ liá»‡u thá»i tiáº¿t..."
 
 msgctxt "#31910"
 msgid "Map & Alerts"
-msgstr "Bản đồ & Cảnh Báo"
+msgstr "Báº£n Ä‘á»“ & Cáº£nh BÃ¡o"
 
 msgctxt "#31911"
 msgid "Setup the Marmalade main menu"
@@ -2925,7 +2925,7 @@ msgstr ""
 
 msgctxt "#31920"
 msgid "Displays a widget on the Home screen with media information when music is playing."
-msgstr "Hiển thị một widget trên Màn Hình Chính với những thông tin của chúng khi đang phát nhạc."
+msgstr "Hiá»ƒn thá»‹ má»™t widget trÃªn MÃ n HÃ¬nh ChÃ­nh vá»›i nhá»¯ng thÃ´ng tin cá»§a chÃºng khi Ä‘ang phÃ¡t nháº¡c."
 
 msgctxt "#31921"
 msgid "Displays a widget on the Home screen with media information when a movie or episode is playing."
@@ -2958,11 +2958,11 @@ msgstr ""
 
 msgctxt "#31929"
 msgid "This setting defines the main menu layout. Options are 5 items, 3 items, 1 items, or icons for the default horizontal menu. You can also choose a vertical menu layout."
-msgstr "Thiết lập này định nghĩa bố cục Thực đơn chính. Các tùy chọn bao gồm 5 mục, 3 mục, 1 mục, hoặc các biểu tượng đối với thực đơn mặc định theo chiều ngang. Bạn cũng có thể chọn bố cục thực đơn theo chiều dọc."
+msgstr "Thiáº¿t láº­p nÃ y Ä‘á»‹nh nghÄ©a bá»‘ cá»¥c Thá»±c Ä‘Æ¡n chÃ­nh. CÃ¡c tÃ¹y chá»n bao gá»“m 5 má»¥c, 3 má»¥c, 1 má»¥c, hoáº·c cÃ¡c biá»ƒu tÆ°á»£ng Ä‘á»‘i vá»›i thá»±c Ä‘Æ¡n máº·c Ä‘á»‹nh theo chiá»u ngang. Báº¡n cÅ©ng cÃ³ thá»ƒ chá»n bá»‘ cá»¥c thá»±c Ä‘Æ¡n theo chiá»u dá»c."
 
 msgctxt "#31930"
 msgid "Choose a widget to display on the Home screen to have easy access to content from the library."
-msgstr "Chọn một widget hiển thị trên Màn Hình Chính để dễ dàng truy cập nội dung của chúng từ thư viện."
+msgstr "Chá»n má»™t widget hiá»ƒn thá»‹ trÃªn MÃ n HÃ¬nh ChÃ­nh Ä‘á»ƒ dá»… dÃ ng truy cáº­p ná»™i dung cá»§a chÃºng tá»« thÆ° viá»‡n."
 
 msgctxt "#31931"
 msgid "Video plot preference"
@@ -2974,7 +2974,7 @@ msgstr ""
 
 msgctxt "#31933"
 msgid "Select an item to display on the left top of the main menu"
-msgstr "Chọn một mục để hiển thị phía trên bên trái của thực đơn chính"
+msgstr "Chá»n má»™t má»¥c Ä‘á»ƒ hiá»ƒn thá»‹ phÃ­a trÃªn bÃªn trÃ¡i cá»§a thá»±c Ä‘Æ¡n chÃ­nh"
 
 # empty string with id 31934
 msgctxt "#31935"
@@ -2983,7 +2983,7 @@ msgstr ""
 
 msgctxt "#31937"
 msgid "Show the RSS feed on the bottom or top of the screen, depending on main menu position. Enabling this setting makes the submenu permanently visible."
-msgstr "Hiển thị RSS phía dưới hoặc trên đỉnh màn hình, phụ thuộc vào vị trí thực đơn chính. Kích hoạt mục này sẽ làm cho thực đơn phụ luôn xuất hiện."
+msgstr "Hiá»ƒn thá»‹ RSS phÃ­a dÆ°á»›i hoáº·c trÃªn Ä‘á»‰nh mÃ n hÃ¬nh, phá»¥ thuá»™c vÃ o vá»‹ trÃ­ thá»±c Ä‘Æ¡n chÃ­nh. KÃ­ch hoáº¡t má»¥c nÃ y sáº½ lÃ m cho thá»±c Ä‘Æ¡n phá»¥ luÃ´n xuáº¥t hiá»‡n."
 
 msgctxt "#31938"
 msgid "Enables extra information in the TV show library, like TV show status, next / latest episode, etc. Depends on TheMovieDb Helper add-on."
@@ -2991,15 +2991,15 @@ msgstr ""
 
 msgctxt "#31939"
 msgid "Hide Infopanel on scrolling"
-msgstr "Ẩn bảng thông tin khi cuộn"
+msgstr "áº¨n báº£ng thÃ´ng tin khi cuá»™n"
 
 msgctxt "#31940"
 msgid "Hides the infopanel while scrolling through the library. Set the amount of seconds to wait for the infopanel to appear when scrolling has stopped."
-msgstr "Ẩn bảng thông tin khi cuộn khắp thư viện. Đặt thời gian (tính bằng giây) để chờ bảng thông tin xuất hiện khi việc cuộn dừng lại."
+msgstr "áº¨n báº£ng thÃ´ng tin khi cuá»™n kháº¯p thÆ° viá»‡n. Äáº·t thá»i gian (tÃ­nh báº±ng giÃ¢y) Ä‘á»ƒ chá» báº£ng thÃ´ng tin xuáº¥t hiá»‡n khi viá»‡c cuá»™n dá»«ng láº¡i."
 
 msgctxt "#31941"
 msgid "Kiosk mode"
-msgstr "Chế độ Kiosk"
+msgstr "Cháº¿ Ä‘á»™ Kiosk"
 
 msgctxt "#31942"
 msgid "Disables the slide out menu (media menu) in the library as well as certain buttons in the media information dialogs."
@@ -3007,7 +3007,7 @@ msgstr ""
 
 msgctxt "#31943"
 msgid "Watched status indicator"
-msgstr "Dấu hiệu trạng thái Đã xem"
+msgstr "Dáº¥u hiá»‡u tráº¡ng thÃ¡i ÄÃ£ xem"
 
 msgctxt "#31944"
 msgid "Choose which overlays to show on thumbs in icon based views. Note that the \"Resume\" flag takes precedent over any watched status. After activating an overlay you must also enable it in each views settings. "
@@ -3015,19 +3015,19 @@ msgstr ""
 
 msgctxt "#31945"
 msgid "This toggles the layout of the List view. Default is a 7 item layout with extended info, \"Slim List\" is a 14 item, more basic layout"
-msgstr "Điều này sẽ bật/tắt bố cục kiểu xem Danh sách. Mặc định là bố cục có 7 mục với thông tin mở rộng, \"Danh sách Nhỏ\" là 14 mục, nhiều hơn bố cục mặc định."
+msgstr "Äiá»u nÃ y sáº½ báº­t/táº¯t bá»‘ cá»¥c kiá»ƒu xem Danh sÃ¡ch. Máº·c Ä‘á»‹nh lÃ  bá»‘ cá»¥c cÃ³ 7 má»¥c vá»›i thÃ´ng tin má»Ÿ rá»™ng, \"Danh sÃ¡ch Nhá»\" lÃ  14 má»¥c, nhiá»u hÆ¡n bá»‘ cá»¥c máº·c Ä‘á»‹nh."
 
 msgctxt "#31950"
 msgid "WEATHER"
-msgstr "Thời tiết"
+msgstr "Thá»i tiáº¿t"
 
 msgctxt "#31951"
 msgid "PICTURES"
-msgstr "Ảnh"
+msgstr "áº¢nh"
 
 msgctxt "#31952"
 msgid "LIVE TV"
-msgstr "TV trực tuyến"
+msgstr "TV trá»±c tuyáº¿n"
 
 msgctxt "#31953"
 msgid "VIDEOS"
@@ -3043,7 +3043,7 @@ msgstr "TV Show"
 
 msgctxt "#31956"
 msgid "MUSIC"
-msgstr "Nhạc"
+msgstr "Nháº¡c"
 
 msgctxt "#31957"
 msgid "Apps"
@@ -3051,11 +3051,11 @@ msgstr ""
 
 msgctxt "#31958"
 msgid "PLAY DISC"
-msgstr "Chơi đĩa"
+msgstr "ChÆ¡i Ä‘Ä©a"
 
 msgctxt "#31959"
 msgid "SYSTEM"
-msgstr "Hệ thống"
+msgstr "Há»‡ thá»‘ng"
 
 msgctxt "#31960"
 msgid "CONCERTS"
@@ -3133,7 +3133,7 @@ msgstr ""
 
 msgctxt "#31983"
 msgid "Swap locations of Trailer and Cinema Experience buttons. Location is either in extras (+) or in the info dialog."
-msgstr "Chuyển đổi vị trí của 2 nút Trailer và Trải nghiệm Rạp chiếu phim. Vị trí nằm trong các tính năng bổ sung (+) hoặc trong hộp thoại thông tin."
+msgstr "Chuyá»ƒn Ä‘á»•i vá»‹ trÃ­ cá»§a 2 nÃºt Trailer vÃ  Tráº£i nghiá»‡m Ráº¡p chiáº¿u phim. Vá»‹ trÃ­ náº±m trong cÃ¡c tÃ­nh nÄƒng bá»• sung (+) hoáº·c trong há»™p thoáº¡i thÃ´ng tin."
 
 msgctxt "#31984"
 msgid "When activated the default mediaflags and icons are changed to colored versions"
@@ -3178,12 +3178,12 @@ msgstr ""
 
 #~ msgctxt "#31015"
 #~ msgid "Set path to video genre fanart folder"
-#~ msgstr "Chọn đường dẫn đến thư mục chứa đựng thể loại fanart của video"
+#~ msgstr "Chá»n Ä‘Æ°á»ng dáº«n Ä‘áº¿n thÆ° má»¥c chá»©a Ä‘á»±ng thá»ƒ loáº¡i fanart cá»§a video"
 
 #~ msgctxt "#31990"
 #~ msgid "Choose where the CinemaVision button should be placed"
-#~ msgstr "Chọn nơi đặt nút CinemaVision"
+#~ msgstr "Chá»n nÆ¡i Ä‘áº·t nÃºt CinemaVision"
 
 #~ msgctxt "#31111"
 #~ msgid "Similar movies"
-#~ msgstr "Phim tương tự"
+#~ msgstr "Phim tÆ°Æ¡ng tá»±"

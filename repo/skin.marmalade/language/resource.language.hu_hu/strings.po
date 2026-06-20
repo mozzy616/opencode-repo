@@ -1,6 +1,6 @@
 # Kodi Media Center language file
 # Addon Name: Marmalade Build
-# Addon id: skin.aeon.nox.OpenCode
+# Addon id: skin.marmalade
 # Addon Provider: OpenCode
 msgid ""
 msgstr ""
@@ -9,7 +9,7 @@ msgstr ""
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "PO-Revision-Date: 2023-09-09 13:11+0000\n"
 "Last-Translator: Frodo19 <bilbohu@gmail.com>\n"
-"Language-Team: Hungarian <https://kodi.weblate.cloud/projects/kodi-add-ons-skins/skin-aeon-nox-OpenCode/hu_hu/>\n"
+"Language-Team: Hungarian <https://kodi.weblate.cloud/projects/kodi-add-ons-skins/skin.marmalade/hu_hu/>\n"
 "Language: hu_hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,15 +23,15 @@ msgstr "Rendezte"
 
 msgctxt "#31001"
 msgid "Written by"
-msgstr "Írta"
+msgstr "Ãrta"
 
 msgctxt "#31002"
 msgid "Blurred album thumb"
-msgstr "Elmosódott album bélyegképek"
+msgstr "ElmosÃ³dott album bÃ©lyegkÃ©pek"
 
 msgctxt "#31003"
 msgid "Power Options"
-msgstr "Kikapcsolási lehetőségek"
+msgstr "KikapcsolÃ¡si lehetÅ‘sÃ©gek"
 
 msgctxt "#31004"
 msgid "Working"
@@ -39,39 +39,39 @@ msgstr "Dolgozom"
 
 msgctxt "#31005"
 msgid "Fixed"
-msgstr "Rögzített"
+msgstr "RÃ¶gzÃ­tett"
 
 msgctxt "#31006"
 msgid "View Options"
-msgstr "Nézet lehetőségek"
+msgstr "NÃ©zet lehetÅ‘sÃ©gek"
 
 msgctxt "#31007"
 msgid "Setup home"
-msgstr "Főképernyő beállítása"
+msgstr "FÅ‘kÃ©pernyÅ‘ beÃ¡llÃ­tÃ¡sa"
 
 msgctxt "#31008"
 msgid "Full screen"
-msgstr "Teljes képernyő"
+msgstr "Teljes kÃ©pernyÅ‘"
 
 msgctxt "#31009"
 msgid "Total Duration"
-msgstr "Teljes időtartam"
+msgstr "TeljesÂ idÅ‘tartam"
 
 msgctxt "#31010"
 msgid "Next episode"
-msgstr "Következő rész"
+msgstr "KÃ¶vetkezÅ‘ rÃ©sz"
 
 msgctxt "#31011"
 msgid "Latest episode"
-msgstr "Legfrissebb epizód"
+msgstr "Legfrissebb epizÃ³d"
 
 msgctxt "#31012"
 msgid "Airs"
-msgstr "Vetítések"
+msgstr "VetÃ­tÃ©sek"
 
 msgctxt "#31013"
 msgid "Statistics"
-msgstr "Statisztikák"
+msgstr "StatisztikÃ¡k"
 
 msgctxt "#31014"
 msgid "Extras"
@@ -87,7 +87,7 @@ msgstr "Poster"
 
 msgctxt "#31017"
 msgid "Set path to music genre fanart folder"
-msgstr "Állítsd be a zenei műfaj fanart mappa helyét"
+msgstr "ÃllÃ­tsd be a zenei mÅ±faj fanart mappa helyÃ©t"
 
 msgctxt "#31018"
 msgid "InfoPanel"
@@ -95,7 +95,7 @@ msgstr "InfoPanel"
 
 msgctxt "#31019"
 msgid "Network"
-msgstr "Hálózat"
+msgstr "HÃ¡lÃ³zat"
 
 msgctxt "#31020"
 msgid "Extra-fanart"
@@ -103,15 +103,15 @@ msgstr "Extra-Fanart"
 
 msgctxt "#31021"
 msgid "Stage curtains"
-msgstr "Színpad függönyök"
+msgstr "SzÃ­npad fÃ¼ggÃ¶nyÃ¶k"
 
 msgctxt "#31022"
 msgid "Set multi-image background"
-msgstr "Több kép beállítása háttérnek"
+msgstr "TÃ¶bb kÃ©p beÃ¡llÃ­tÃ¡sa hÃ¡ttÃ©rnek"
 
 msgctxt "#31023"
 msgid "Set single image background"
-msgstr "Egy kép beállítása háttérnek"
+msgstr "Egy kÃ©p beÃ¡llÃ­tÃ¡sa hÃ¡ttÃ©rnek"
 
 msgctxt "#31024"
 msgid "Page"
@@ -123,15 +123,15 @@ msgstr "Elem"
 
 msgctxt "#31026"
 msgid "Misc Options"
-msgstr "Egyéb beállítások"
+msgstr "EgyÃ©b beÃ¡llÃ­tÃ¡sok"
 
 msgctxt "#31027"
 msgid "Set item background"
-msgstr "Elem háttérképének beállítása"
+msgstr "Elem hÃ¡ttÃ©rkÃ©pÃ©nek beÃ¡llÃ­tÃ¡sa"
 
 msgctxt "#31028"
 msgid "Live Background"
-msgstr "Élő hátterek"
+msgstr "Ã‰lÅ‘ hÃ¡tterek"
 
 msgctxt "#31029"
 msgid "Recent movies"
@@ -139,11 +139,11 @@ msgstr "Jelenlegi filmek"
 
 msgctxt "#31030"
 msgid "Recent episodes"
-msgstr "Jelenlegi epizódok"
+msgstr "Jelenlegi epizÃ³dok"
 
 msgctxt "#31031"
 msgid "Random movies"
-msgstr "Véletlen filmek"
+msgstr "VÃ©letlen filmek"
 
 msgctxt "#31032"
 msgid "Recommended movies"
@@ -151,15 +151,15 @@ msgstr "Javasolt Filmek"
 
 msgctxt "#31033"
 msgid "Random episodes"
-msgstr "Kiemelt részek"
+msgstr "Kiemelt rÃ©szek"
 
 msgctxt "#31034"
 msgid "Recommended episodes"
-msgstr "ajánlott"
+msgstr "ajÃ¡nlott"
 
 msgctxt "#31035"
 msgid "Random songs"
-msgstr "Kiemelt zenék"
+msgstr "Kiemelt zenÃ©k"
 
 msgctxt "#31036"
 msgid "Random albums"
@@ -175,19 +175,19 @@ msgstr "Javasolt Albumok"
 
 msgctxt "#31039"
 msgid "Actions"
-msgstr "Műveletek"
+msgstr "MÅ±veletek"
 
 msgctxt "#31040"
 msgid "Now Playing"
-msgstr "Most játszva"
+msgstr "Most jÃ¡tszva"
 
 msgctxt "#31041"
 msgid "Select widget"
-msgstr "Widget választás"
+msgstr "Widget vÃ¡lasztÃ¡s"
 
 msgctxt "#31042"
 msgid "Show \"Now Playing\" information blended in the background"
-msgstr "Most játszott információ megjelenik a háttérben"
+msgstr "Most jÃ¡tszott informÃ¡ciÃ³ megjelenik a hÃ¡ttÃ©rben"
 
 msgctxt "#31043"
 msgid "Platform"
@@ -195,99 +195,99 @@ msgstr "Platform"
 
 msgctxt "#31044"
 msgid "Views: Plot outline | Info dialog: Full plot"
-msgstr "Nézet: Tartalom túlírása | Infó ablak: Teljes tartalom"
+msgstr "NÃ©zet: Tartalom tÃºlÃ­rÃ¡sa | InfÃ³ ablak: Teljes tartalom"
 
 msgctxt "#31045"
 msgid "Views: Full plot | Info dialog: Plot outline"
-msgstr "Nézet: Teljes tartalom | Infó ablak: Tartalom túlírása"
+msgstr "NÃ©zet: Teljes tartalom | InfÃ³ ablak: Tartalom tÃºlÃ­rÃ¡sa"
 
 msgctxt "#31046"
 msgid "SEEKING"
-msgstr "KERESÉS"
+msgstr "KERESÃ‰S"
 
 msgctxt "#31047"
 msgid "Set item icon"
-msgstr "Elem ikonjának beállítása"
+msgstr "Elem ikonjÃ¡nak beÃ¡llÃ­tÃ¡sa"
 
 msgctxt "#31048"
 msgid "Visualisation Presets"
-msgstr "Vizualizáció típusa"
+msgstr "VizualizÃ¡ciÃ³ tÃ­pusa"
 
 msgctxt "#31049"
 msgid "Select infoline"
-msgstr "Infósáv kiválasztása"
+msgstr "InfÃ³sÃ¡v kivÃ¡lasztÃ¡sa"
 
 msgctxt "#31050"
 msgid "Sort: Ascending"
-msgstr "Sorrend: Növekvő"
+msgstr "Sorrend: NÃ¶vekvÅ‘"
 
 msgctxt "#31051"
 msgid "Sort: Descending"
-msgstr "Sorrend: Csökkenő"
+msgstr "Sorrend: CsÃ¶kkenÅ‘"
 
 msgctxt "#31052"
 msgid "Movie library statistics"
-msgstr "Filmkönyvtár statisztikák"
+msgstr "FilmkÃ¶nyvtÃ¡r statisztikÃ¡k"
 
 msgctxt "#31053"
 msgid "TV Show library statistics"
-msgstr "Sorozatkönyvtár statisztikák"
+msgstr "SorozatkÃ¶nyvtÃ¡r statisztikÃ¡k"
 
 msgctxt "#31054"
 msgid "Music library statistics"
-msgstr "Zenekönyvtár statisztikák"
+msgstr "ZenekÃ¶nyvtÃ¡r statisztikÃ¡k"
 
 msgctxt "#31055"
 msgid "Open playlist"
-msgstr "Lejátszási lista megnyitása"
+msgstr "LejÃ¡tszÃ¡si lista megnyitÃ¡sa"
 
 msgctxt "#31056"
 msgid "Save playlist"
-msgstr "Lejátszásilista mentése"
+msgstr "LejÃ¡tszÃ¡silista mentÃ©se"
 
 msgctxt "#31057"
 msgid "Close playlist"
-msgstr "Lejátszási lista bezárása"
+msgstr "LejÃ¡tszÃ¡si lista bezÃ¡rÃ¡sa"
 
 msgctxt "#31058"
 msgid "PVR information"
-msgstr "PVR Infó"
+msgstr "PVR InfÃ³"
 
 msgctxt "#31059"
 msgid "Artist Slideshow"
-msgstr "Előadó diavetítés"
+msgstr "ElÅ‘adÃ³ diavetÃ­tÃ©s"
 
 msgctxt "#31060"
 msgid "This file is stacked, select the part you want to play from."
-msgstr "Ez a fájl egyesített. Válaszd azt a részt, ahonnan a lejátszást szeretnéd kezdeni."
+msgstr "Ez a fÃ¡jl egyesÃ­tett. VÃ¡laszd azt a rÃ©szt, ahonnanÂ aÂ lejÃ¡tszÃ¡stÂ szeretnÃ©dÂ kezdeni."
 
 msgctxt "#31061"
 msgid "Total addons / Favourites statistics"
-msgstr "Kiegészítők / Kedvencek statisztikái"
+msgstr "KiegÃ©szÃ­tÅ‘k / Kedvencek statisztikÃ¡i"
 
 msgctxt "#31062"
 msgid "Random movie fanart"
-msgstr "Véletlen film fanart"
+msgstr "VÃ©letlen film fanart"
 
 msgctxt "#31063"
 msgid "Random TV show fanart"
-msgstr "Véletlen sorozat fanart"
+msgstr "VÃ©letlen sorozat fanart"
 
 msgctxt "#31064"
 msgid "Random video fanart"
-msgstr "Véletlen videó fanart"
+msgstr "VÃ©letlen videÃ³ fanart"
 
 msgctxt "#31065"
 msgid "Random music fanart"
-msgstr "Véletlen zene fanart"
+msgstr "VÃ©letlen zene fanart"
 
 msgctxt "#31066"
 msgid "Random fanart"
-msgstr "Véletlen fanart"
+msgstr "VÃ©letlen fanart"
 
 msgctxt "#31067"
 msgid "Update rating"
-msgstr "Pontozás frissítése"
+msgstr "PontozÃ¡s frissÃ­tÃ©se"
 
 msgctxt "#31068"
 msgid "CD Wall"
@@ -295,7 +295,7 @@ msgstr "CD-fal"
 
 msgctxt "#31069"
 msgid "Change location"
-msgstr "Hely változatása"
+msgstr "Hely vÃ¡ltozatÃ¡sa"
 
 msgctxt "#31070"
 msgid "Enable PreshowExperience integration"
@@ -303,15 +303,15 @@ msgstr ""
 
 msgctxt "#31071"
 msgid "While browsing the library"
-msgstr "Könyvtár böngészés közben"
+msgstr "KÃ¶nyvtÃ¡r bÃ¶ngÃ©szÃ©s kÃ¶zben"
 
 msgctxt "#31072"
 msgid "On open video info"
-msgstr "Filminfó megnyitásakor"
+msgstr "FilminfÃ³ megnyitÃ¡sakor"
 
 msgctxt "#31073"
 msgid "Move menu item"
-msgstr "Menü Elem mozgatása"
+msgstr "MenÃ¼ Elem mozgatÃ¡sa"
 
 msgctxt "#31074"
 msgid "Choose item to swap places with"
@@ -319,7 +319,7 @@ msgstr ""
 
 msgctxt "#31075"
 msgid "No extra features available"
-msgstr "Nince elérhető extra funkció"
+msgstr "Nince elÃ©rhetÅ‘ extra funkciÃ³"
 
 msgctxt "#31076"
 msgid "Landscape"
@@ -327,39 +327,39 @@ msgstr "Landscape"
 
 msgctxt "#31077"
 msgid "ShowCase"
-msgstr "Képborító"
+msgstr "KÃ©pborÃ­tÃ³"
 
 msgctxt "#31078"
 msgid "TriPanel"
-msgstr "HármasPanel"
+msgstr "HÃ¡rmasPanel"
 
 msgctxt "#31079"
 msgid "Shift"
-msgstr "Eltolás"
+msgstr "EltolÃ¡s"
 
 msgctxt "#31080"
 msgid "Manage submenu"
-msgstr "Almenü kezelése"
+msgstr "AlmenÃ¼ kezelÃ©se"
 
 msgctxt "#31081"
 msgid "Enable custom submenus"
-msgstr "Egyedi almenük engedélyezése"
+msgstr "Egyedi almenÃ¼k engedÃ©lyezÃ©se"
 
 msgctxt "#31082"
 msgid "Detach RSS feed from the main menu"
-msgstr "RSS hírcsatorna lecsatolása a főmenüről"
+msgstr "RSS hÃ­rcsatorna lecsatolÃ¡sa a fÅ‘menÃ¼rÅ‘l"
 
 msgctxt "#31083"
 msgid "Enable Next Aired information in the videolibrary"
-msgstr "'Következő sugárzott' információ a filmkönyvtárban"
+msgstr "'KÃ¶vetkezÅ‘ sugÃ¡rzott' informÃ¡ciÃ³ a filmkÃ¶nyvtÃ¡rban"
 
 msgctxt "#31084"
 msgid "Conditional weather"
-msgstr "Időjárás kondíciók"
+msgstr "IdÅ‘jÃ¡rÃ¡s kondÃ­ciÃ³k"
 
 msgctxt "#31085"
 msgid "Musicvideo library statistics"
-msgstr "Zenei videó könyvtár statisztikák"
+msgstr "Zenei videÃ³ kÃ¶nyvtÃ¡r statisztikÃ¡k"
 
 msgctxt "#31086"
 msgid "Icon"
@@ -375,19 +375,19 @@ msgstr "BannerFal"
 
 msgctxt "#31089"
 msgid "Play item on startup"
-msgstr "Elem lejátszása indításkor"
+msgstr "Elem lejÃ¡tszÃ¡sa indÃ­tÃ¡skor"
 
 msgctxt "#31090"
 msgid "Seconds"
-msgstr "Másodperc"
+msgstr "MÃ¡sodperc"
 
 msgctxt "#31091"
 msgid "Select items"
-msgstr "Elemek kiválasztása"
+msgstr "Elemek kivÃ¡lasztÃ¡sa"
 
 msgctxt "#31092"
 msgid "Fullscreen fanart"
-msgstr "Teljes képernyős fanart"
+msgstr "Teljes kÃ©pernyÅ‘s fanart"
 
 msgctxt "#31093"
 msgid "LowList toggle"
@@ -395,7 +395,7 @@ msgstr ""
 
 msgctxt "#31094"
 msgid "List view layout"
-msgstr "Lista nézet elrendezés"
+msgstr "Lista nÃ©zet elrendezÃ©s"
 
 msgctxt "#31095"
 msgid "Slim List"
@@ -403,31 +403,31 @@ msgstr "Keskeny lista"
 
 msgctxt "#31096"
 msgid "Concert locations"
-msgstr "Koncerthelyszínek"
+msgstr "KoncerthelyszÃ­nek"
 
 msgctxt "#31097"
 msgid "Movie playlist statistics"
-msgstr "Film lejátszólista statisztika"
+msgstr "Film lejÃ¡tszÃ³lista statisztika"
 
 msgctxt "#31098"
 msgid "TV Show playlist statistics"
-msgstr "Sorozat lejátszólista statisztika"
+msgstr "Sorozat lejÃ¡tszÃ³lista statisztika"
 
 msgctxt "#31099"
 msgid "Musicvideo playlist statistics"
-msgstr "Zenei videó lejátszólista statisztika"
+msgstr "Zenei videÃ³ lejÃ¡tszÃ³lista statisztika"
 
 msgctxt "#31100"
 msgid "View:"
-msgstr "Nézet:"
+msgstr "NÃ©zet:"
 
 msgctxt "#31101"
 msgid "Choose view"
-msgstr "Válasszon nézetet"
+msgstr "VÃ¡lasszon nÃ©zetet"
 
 msgctxt "#31102"
 msgid "Background"
-msgstr "Háttér"
+msgstr "HÃ¡ttÃ©r"
 
 msgctxt "#31103"
 msgid "N/A"
@@ -435,27 +435,27 @@ msgstr "N/A"
 
 msgctxt "#31104"
 msgid "Similar artists"
-msgstr "Hasonló előadók"
+msgstr "HasonlÃ³ elÅ‘adÃ³k"
 
 msgctxt "#31105"
 msgid "More albums from"
-msgstr "Több album"
+msgstr "TÃ¶bb album"
 
 msgctxt "#31106"
 msgid "On info"
-msgstr "Információ esetén"
+msgstr "InformÃ¡ciÃ³ esetÃ©n"
 
 msgctxt "#31107"
 msgid "Persistent"
-msgstr "Állandó"
+msgstr "ÃllandÃ³"
 
 msgctxt "#31108"
 msgid "Enable artist information feed (if available)"
-msgstr "Előadó információs hírcsatorna engedélyezése (ha elérhető)"
+msgstr "ElÅ‘adÃ³ informÃ¡ciÃ³s hÃ­rcsatorna engedÃ©lyezÃ©se (ha elÃ©rhetÅ‘)"
 
 msgctxt "#31109"
 msgid "Unwatched episode count"
-msgstr "Nézetlen epizódok száma"
+msgstr "NÃ©zetlen epizÃ³dok szÃ¡ma"
 
 msgctxt "#31110"
 msgid "Solid color backgrounds"
@@ -463,15 +463,15 @@ msgstr ""
 
 msgctxt "#31111"
 msgid "Similar"
-msgstr "Hasonló"
+msgstr "HasonlÃ³"
 
 msgctxt "#31112"
 msgid "Movies directed by"
-msgstr "Általa rendezett filmek"
+msgstr "Ãltala rendezett filmek"
 
 msgctxt "#31113"
 msgid "Movies written by"
-msgstr "Általa írt filmek"
+msgstr "Ãltala Ã­rt filmek"
 
 msgctxt "#31114"
 msgid "More from"
@@ -487,7 +487,7 @@ msgstr ""
 
 msgctxt "#31117"
 msgid "Fallback"
-msgstr "Háttér"
+msgstr "HÃ¡ttÃ©r"
 
 msgctxt "#31118"
 msgid "Cache movie extrafanart"
@@ -503,23 +503,23 @@ msgstr "TMDb"
 
 msgctxt "#31121"
 msgid "Enable autocomplete"
-msgstr "Automatikus kiegészítés engedélyezése"
+msgstr "Automatikus kiegÃ©szÃ­tÃ©s engedÃ©lyezÃ©se"
 
 msgctxt "#31122"
 msgid "Enables the autocomplete feature of the virtual keyboard"
-msgstr "Automatikus kiegészítés bekapcsolása a virtuális billentyűzethez"
+msgstr "Automatikus kiegÃ©szÃ­tÃ©s bekapcsolÃ¡sa a virtuÃ¡lis billentyÅ±zethez"
 
 msgctxt "#31123"
 msgid "Album review"
-msgstr "Album értékelés"
+msgstr "Album Ã©rtÃ©kelÃ©s"
 
 msgctxt "#31124"
 msgid "Show Background \"Now Playing\" Video"
-msgstr "A háttérben az éppen játszott videó megjelenítése"
+msgstr "A hÃ¡ttÃ©rben az Ã©ppen jÃ¡tszott videÃ³ megjelenÃ­tÃ©se"
 
 msgctxt "#31125"
 msgid "Show Background \"Now Playing\" Visualisation"
-msgstr "Mutasd a háttérben az \"éppen játszott\" vizualizációt"
+msgstr "Mutasd a hÃ¡ttÃ©rben az \"Ã©ppen jÃ¡tszott\" vizualizÃ¡ciÃ³t"
 
 msgctxt "#31126"
 msgid "TheMovieDb Helper provides details about movies, tvshows and actors from TMDb."
@@ -531,15 +531,15 @@ msgstr ""
 
 msgctxt "#31128"
 msgid "Channels View"
-msgstr "Csatorna nézet"
+msgstr "Csatorna nÃ©zet"
 
 msgctxt "#31129"
 msgid "Hide Fanart in full screen visualisation"
-msgstr "Fanart elrejtése teljes képernyős vizualizációnál"
+msgstr "Fanart elrejtÃ©se teljes kÃ©pernyÅ‘s vizualizÃ¡ciÃ³nÃ¡l"
 
 msgctxt "#31130"
 msgid "Use \"Enigma2-style\" channel OSD"
-msgstr "\"Enigma2-stílusú\" csatorna OSD használata"
+msgstr "\"Enigma2-stÃ­lusÃº\" csatorna OSD hasznÃ¡lata"
 
 msgctxt "#31131"
 msgid "Guide Timeline View"
@@ -551,31 +551,31 @@ msgstr "Tuner:"
 
 msgctxt "#31133"
 msgid "Timeline channels-type:"
-msgstr "Idővonal csatornatípus:"
+msgstr "IdÅ‘vonal csatornatÃ­pus:"
 
 msgctxt "#31134"
 msgid "Timeline view-type:"
-msgstr "Idővonal nézettípus:"
+msgstr "IdÅ‘vonal nÃ©zettÃ­pus:"
 
 msgctxt "#31135"
 msgid "Infobar Options"
-msgstr "Információs sáv beállítások"
+msgstr "InformÃ¡ciÃ³s sÃ¡v beÃ¡llÃ­tÃ¡sok"
 
 msgctxt "#31136"
 msgid "Infobar type:"
-msgstr "Információs sáv típusa:"
+msgstr "InformÃ¡ciÃ³s sÃ¡v tÃ­pusa:"
 
 msgctxt "#31137"
 msgid "Hide encryption information"
-msgstr "Titkosítási információk elrejtése"
+msgstr "TitkosÃ­tÃ¡si informÃ¡ciÃ³k elrejtÃ©se"
 
 msgctxt "#31138"
 msgid "Hide tuner information"
-msgstr "Tuner információk elrejtése"
+msgstr "Tuner informÃ¡ciÃ³k elrejtÃ©se"
 
 msgctxt "#31139"
 msgid "Hide signal information"
-msgstr "Jelinformációk elrejtése"
+msgstr "JelinformÃ¡ciÃ³k elrejtÃ©se"
 
 msgctxt "#31140"
 msgid "Sideblade Options"
@@ -583,23 +583,23 @@ msgstr ""
 
 msgctxt "#31141"
 msgid "Hide Guide"
-msgstr "Műsorújság elrejtése"
+msgstr "MÅ±sorÃºjsÃ¡g elrejtÃ©se"
 
 msgctxt "#31142"
 msgid "Settings level"
-msgstr "Beállítás szint"
+msgstr "BeÃ¡llÃ­tÃ¡s szint"
 
 msgctxt "#31143"
 msgid "Hide Recordings"
-msgstr "Rögzítések elrejtése"
+msgstr "RÃ¶gzÃ­tÃ©sek elrejtÃ©se"
 
 msgctxt "#31144"
 msgid "Hide Timer"
-msgstr "Időzítő elrejtése"
+msgstr "IdÅ‘zÃ­tÅ‘ elrejtÃ©se"
 
 msgctxt "#31145"
 msgid "Hide Search"
-msgstr "Keresés elrejtése"
+msgstr "KeresÃ©s elrejtÃ©se"
 
 msgctxt "#31146"
 msgid "Rated"
@@ -607,15 +607,15 @@ msgstr "Pontozott"
 
 msgctxt "#31147"
 msgid "Change rating"
-msgstr "Pontozás módosítása"
+msgstr "PontozÃ¡s mÃ³dosÃ­tÃ¡sa"
 
 msgctxt "#31148"
 msgid "List local library items"
-msgstr "Helyi könyvtárelemek listázása"
+msgstr "Helyi kÃ¶nyvtÃ¡relemek listÃ¡zÃ¡sa"
 
 msgctxt "#31149"
 msgid "Online information from TMDb"
-msgstr "Online információk a TMDb-ről"
+msgstr "Online informÃ¡ciÃ³k a TMDb-rÅ‘l"
 
 msgctxt "#31150"
 msgid "IMDb logo"
@@ -623,7 +623,7 @@ msgstr "IMDb logo"
 
 msgctxt "#31151"
 msgid "View settings"
-msgstr "Beállítások mutatása"
+msgstr "BeÃ¡llÃ­tÃ¡sok mutatÃ¡sa"
 
 msgctxt "#31152"
 msgid "Poster"
@@ -631,7 +631,7 @@ msgstr "Poster"
 
 msgctxt "#31153"
 msgid "Disable views"
-msgstr "Nézetek letiltása"
+msgstr "NÃ©zetek letiltÃ¡sa"
 
 msgctxt "#31154"
 msgid "Show Artist Slideshow when playing music"
@@ -647,23 +647,23 @@ msgstr "Clearart"
 
 msgctxt "#31157"
 msgid "Submenu always visible"
-msgstr "Az almenü mindig látszik"
+msgstr "Az almenÃ¼ mindig lÃ¡tszik"
 
 msgctxt "#31158"
 msgid "Disable the Search icon "
-msgstr "Keresés ikon tiltása"
+msgstr "KeresÃ©s ikon tiltÃ¡sa"
 
 msgctxt "#31159"
 msgid "Event log"
-msgstr "Eseménynapló"
+msgstr "EsemÃ©nynaplÃ³"
 
 msgctxt "#31160"
 msgid "Extended"
-msgstr "Bővített"
+msgstr "BÅ‘vÃ­tett"
 
 msgctxt "#31161"
 msgid "Choose the position of the RSS feed. Top of the screen, bottom of the screen or the default location directly underneath the main menu."
-msgstr "RSS hírcsatorna pozíciójának kiválasztása. A képernyő tetején, a képernyő alján, vagy az alapértelmezett helyen, közvetlenül a főmenü alatt."
+msgstr "RSS hÃ­rcsatorna pozÃ­ciÃ³jÃ¡nak kivÃ¡lasztÃ¡sa. A kÃ©pernyÅ‘ tetejÃ©n, a kÃ©pernyÅ‘ aljÃ¡n, vagy az alapÃ©rtelmezett helyen, kÃ¶zvetlenÃ¼l a fÅ‘menÃ¼ alatt."
 
 msgctxt "#31162"
 msgid "Alternate"
@@ -671,15 +671,15 @@ msgstr ""
 
 msgctxt "#31163"
 msgid "This movie is Unrated"
-msgstr "Ez a mozifilm nincs értékelve"
+msgstr "Ez a mozifilm nincs Ã©rtÃ©kelve"
 
 msgctxt "#31164"
 msgid "Enable live background for movie sets"
-msgstr "Élő háttér engedélyezése a filmgyűjteményekhez"
+msgstr "Ã‰lÅ‘ hÃ¡ttÃ©r engedÃ©lyezÃ©se a filmgyÅ±jtemÃ©nyekhez"
 
 msgctxt "#31165"
 msgid "Enable to display live background for movie sets when browsing your movie library"
-msgstr "Engedélyezi élő háttér megjelenítését a filmgyűjteményeknél a filmkönyvtár böngészése közben"
+msgstr "EngedÃ©lyezi Ã©lÅ‘ hÃ¡ttÃ©r megjelenÃ­tÃ©sÃ©t a filmgyÅ±jtemÃ©nyeknÃ©l a filmkÃ¶nyvtÃ¡r bÃ¶ngÃ©szÃ©se kÃ¶zben"
 
 msgctxt "#31166"
 msgid "Enable description for a movies rating"
@@ -695,7 +695,7 @@ msgstr ""
 
 msgctxt "#31169"
 msgid "This setting hides the Search icon on the home screen."
-msgstr "Ez a beállítás elrejti a Keresés ikont a főképernyőn."
+msgstr "Ez a beÃ¡llÃ­tÃ¡s elrejti a KeresÃ©s ikont a fÅ‘kÃ©pernyÅ‘n."
 
 msgctxt "#31170"
 msgid "Enabling this setting will hide the alphanumeric label displaying the current position when scrolling through your library."
@@ -703,7 +703,7 @@ msgstr ""
 
 msgctxt "#31171"
 msgid "This setting will activate fullscreen mode automatically after starting to play music."
-msgstr "Ez a beállítás automatikusan engedélyezi a teljes képernyős nézetet zenelejátszás elindításakor."
+msgstr "Ez a beÃ¡llÃ­tÃ¡s automatikusan engedÃ©lyezi a teljes kÃ©pernyÅ‘s nÃ©zetet zenelejÃ¡tszÃ¡s elindÃ­tÃ¡sakor."
 
 msgctxt "#31172"
 msgid "Set the path to your music collection for displaying artist logos in the music visualisation and in some views that support it."
@@ -711,11 +711,11 @@ msgstr ""
 
 msgctxt "#31173"
 msgid "Blur background (video info dialog)"
-msgstr "Elmosott háttér (videó információ ablak)"
+msgstr "Elmosott hÃ¡ttÃ©r (videÃ³ informÃ¡ciÃ³ ablak)"
 
 msgctxt "#31174"
 msgid "Blur background behind information"
-msgstr "Elmosott háttér az információk mögött"
+msgstr "Elmosott hÃ¡ttÃ©r az informÃ¡ciÃ³k mÃ¶gÃ¶tt"
 
 msgctxt "#31175"
 msgid "Set path to music collection/artwork (for artist logos)"
@@ -739,31 +739,31 @@ msgstr ""
 
 msgctxt "#31180"
 msgid "Minutes left"
-msgstr "Hátralévő percek"
+msgstr "HÃ¡tralÃ©vÅ‘ percek"
 
 msgctxt "#31181"
 msgid "Hour"
-msgstr "Óra"
+msgstr "Ã“ra"
 
 msgctxt "#31182"
 msgid "Minute left"
-msgstr "Hátralévő percek"
+msgstr "HÃ¡tralÃ©vÅ‘ percek"
 
 msgctxt "#31183"
 msgid "Hour left"
-msgstr "Hártalévő órák"
+msgstr "HÃ¡rtalÃ©vÅ‘ Ã³rÃ¡k"
 
 msgctxt "#31184"
 msgid "Seconds left"
-msgstr "Hátralévő másodpercek"
+msgstr "HÃ¡tralÃ©vÅ‘ mÃ¡sodpercek"
 
 msgctxt "#31185"
 msgid "Hours left"
-msgstr "Hátralévő órák"
+msgstr "HÃ¡tralÃ©vÅ‘ Ã³rÃ¡k"
 
 msgctxt "#31186"
 msgid "Handwritten"
-msgstr "Kézírásos"
+msgstr "KÃ©zÃ­rÃ¡sos"
 
 msgctxt "#31187"
 msgid "Music layout alignment"
@@ -771,15 +771,15 @@ msgstr ""
 
 msgctxt "#31188"
 msgid "Status indicators"
-msgstr "Állapotjelzők"
+msgstr "ÃllapotjelzÅ‘k"
 
 msgctxt "#31189"
 msgid "Layout"
-msgstr "Elrendezés"
+msgstr "ElrendezÃ©s"
 
 msgctxt "#31190"
 msgid "Video info"
-msgstr "Filminfó"
+msgstr "FilminfÃ³"
 
 msgctxt "#31191"
 msgid "Enable cases for live backgrounds"
@@ -787,7 +787,7 @@ msgstr ""
 
 msgctxt "#31192"
 msgid "Set default background"
-msgstr "Alapértelmezett háttér beállítása"
+msgstr "AlapÃ©rtelmezett hÃ¡ttÃ©r beÃ¡llÃ­tÃ¡sa"
 
 msgctxt "#31193"
 msgid "Display extrafanart"
@@ -795,11 +795,11 @@ msgstr "Extrafanartot mutat"
 
 msgctxt "#31194"
 msgid "Display runtime in hours and minutes"
-msgstr "Lejátszási idő kijelzése órában és percben"
+msgstr "LejÃ¡tszÃ¡si idÅ‘ kijelzÃ©se Ã³rÃ¡ban Ã©s percben"
 
 msgctxt "#31195"
 msgid "Show time remaining on fullscreen info"
-msgstr "Hátralévő idő mutatása teljes képernyős információnál"
+msgstr "HÃ¡tralÃ©vÅ‘ idÅ‘ mutatÃ¡sa teljes kÃ©pernyÅ‘s informÃ¡ciÃ³nÃ¡l"
 
 msgctxt "#31196"
 msgid "Replace default with Extended Info (some features and extras (+) will be unavailable)"
@@ -839,15 +839,15 @@ msgstr "Hamarosan"
 
 msgctxt "#31205"
 msgid "Lyrics Source"
-msgstr "Dalszövegforrás"
+msgstr "DalszÃ¶vegforrÃ¡s"
 
 msgctxt "#31206"
 msgid "Opening This Week"
-msgstr "Nyitás ezen a héten"
+msgstr "NyitÃ¡s ezen a hÃ©ten"
 
 msgctxt "#31207"
 msgid "Upcoming"
-msgstr "Elkövetkező"
+msgstr "ElkÃ¶vetkezÅ‘"
 
 msgctxt "#31208"
 msgid "Top Box Office"
@@ -859,7 +859,7 @@ msgstr "Mozikban"
 
 msgctxt "#31210"
 msgid "Popular Movies"
-msgstr "Népszerű filmek"
+msgstr "NÃ©pszerÅ± filmek"
 
 msgctxt "#31211"
 msgid "Top Rated Movies"
@@ -899,7 +899,7 @@ msgstr ""
 
 msgctxt "#31220"
 msgid "RSS Feed"
-msgstr "RSS hírek"
+msgstr "RSS hÃ­rek"
 
 msgctxt "#31221"
 msgid "Big"
@@ -943,7 +943,7 @@ msgstr "Panel"
 
 msgctxt "#31231"
 msgid "Widget Style"
-msgstr "Widget stílus"
+msgstr "Widget stÃ­lus"
 
 msgctxt "#31232"
 msgid "Replace Play Button"
@@ -955,7 +955,7 @@ msgstr ""
 
 msgctxt "#31234"
 msgid "Next aired"
-msgstr "Következő sugárzott"
+msgstr "KÃ¶vetkezÅ‘ sugÃ¡rzott"
 
 msgctxt "#31235"
 msgid "Slide Left"
@@ -1003,11 +1003,11 @@ msgstr "Fal"
 
 msgctxt "#31246"
 msgid "Fullscreen Wall"
-msgstr "Teljes képernyős fal"
+msgstr "Teljes kÃ©pernyÅ‘s fal"
 
 msgctxt "#31247"
 msgid "InfoWall"
-msgstr "Infófal"
+msgstr "InfÃ³fal"
 
 msgctxt "#31248"
 msgid "BannerPlex"
@@ -1019,11 +1019,11 @@ msgstr "Nagy fanart"
 
 msgctxt "#31250"
 msgid "BigInfo"
-msgstr "Nagy infó"
+msgstr "Nagy infÃ³"
 
 msgctxt "#31251"
 msgid "Gallery"
-msgstr "Galéria"
+msgstr "GalÃ©ria"
 
 msgctxt "#31252"
 msgid "TopBar"
@@ -1039,39 +1039,39 @@ msgstr "Kisebb poszterek"
 
 msgctxt "#31255"
 msgid "Mediaflags"
-msgstr "Média zászlók"
+msgstr "MÃ©dia zÃ¡szlÃ³k"
 
 msgctxt "#31256"
 msgid "Brochure"
-msgstr "Brossúra"
+msgstr "BrossÃºra"
 
 msgctxt "#31257"
 msgid "Movie set titles"
-msgstr "Filmgyűjtemény címek"
+msgstr "FilmgyÅ±jtemÃ©ny cÃ­mek"
 
 msgctxt "#31258"
 msgid "Blur background (extended info dialog)"
-msgstr "Elmosott háttér (kiterjesztett információ ablak)"
+msgstr "Elmosott hÃ¡ttÃ©r (kiterjesztett informÃ¡ciÃ³ ablak)"
 
 msgctxt "#31259"
 msgid "Center"
-msgstr "Középen"
+msgstr "KÃ¶zÃ©pen"
 
 msgctxt "#31260"
 msgid "Set background rotation speed"
-msgstr "Háttércsere sebesség beállítása"
+msgstr "HÃ¡ttÃ©rcsere sebessÃ©g beÃ¡llÃ­tÃ¡sa"
 
 msgctxt "#31261"
 msgid "Choose the position of the RSS feed. Top of the screen or bottom of the screen."
-msgstr "RSS hírcsatorna pozíciójának kiválasztása. A képernyő tetején vagy a képernyő alján."
+msgstr "RSS hÃ­rcsatorna pozÃ­ciÃ³jÃ¡nak kivÃ¡lasztÃ¡sa. A kÃ©pernyÅ‘ tetejÃ©n vagy a kÃ©pernyÅ‘ aljÃ¡n."
 
 msgctxt "#31262"
 msgid "Hides the labels below the icons on the main menu."
-msgstr "A főképernyőn elrejti az ikonok alatti címkéket."
+msgstr "A fÅ‘kÃ©pernyÅ‘n elrejti az ikonok alatti cÃ­mkÃ©ket."
 
 msgctxt "#31263"
 msgid "Hide menu labels"
-msgstr "Menü címkék elrejtése"
+msgstr "MenÃ¼ cÃ­mkÃ©k elrejtÃ©se"
 
 msgctxt "#31264"
 msgid "Displays artist fanart provided by the Artist Slideshow addon as the background of the home menu."
@@ -1083,15 +1083,15 @@ msgstr ""
 
 msgctxt "#31266"
 msgid "Hide player control buttons"
-msgstr "Lejátszógombok elrejtése"
+msgstr "LejÃ¡tszÃ³gombok elrejtÃ©se"
 
 msgctxt "#31267"
 msgid "Hide time & date"
-msgstr "Idő és dátum elrejtése"
+msgstr "IdÅ‘ Ã©s dÃ¡tum elrejtÃ©se"
 
 msgctxt "#31268"
 msgid "Hide Album"
-msgstr "Album elrejtése"
+msgstr "Album elrejtÃ©se"
 
 msgctxt "#31269"
 msgid "Hide next track widget"
@@ -1099,7 +1099,7 @@ msgstr ""
 
 msgctxt "#31270"
 msgid "Add to CouchPotato"
-msgstr "A tévéfanatikusnak"
+msgstr "A tÃ©vÃ©fanatikusnak"
 
 msgctxt "#31271"
 msgid "Click for more"
@@ -1107,7 +1107,7 @@ msgstr ""
 
 msgctxt "#31272"
 msgid "Awards"
-msgstr "Díjak"
+msgstr "DÃ­jak"
 
 msgctxt "#31273"
 msgid "Recording widget"
@@ -1115,7 +1115,7 @@ msgstr ""
 
 msgctxt "#31274"
 msgid "Artwork"
-msgstr "Illusztráció"
+msgstr "IllusztrÃ¡ciÃ³"
 
 msgctxt "#31275"
 msgid "Case"
@@ -1123,27 +1123,27 @@ msgstr ""
 
 msgctxt "#31276"
 msgid "Style"
-msgstr "Stílus"
+msgstr "StÃ­lus"
 
 msgctxt "#31277"
 msgid "Sort by"
-msgstr "Rendezés"
+msgstr "RendezÃ©s"
 
 msgctxt "#31278"
 msgid "Sort order"
-msgstr "Rendezési sorrend"
+msgstr "RendezÃ©si sorrend"
 
 msgctxt "#31279"
 msgid "Add-on status"
-msgstr "Kiegészítő állapot"
+msgstr "KiegÃ©szÃ­tÅ‘ Ã¡llapot"
 
 msgctxt "#31280"
 msgid "Time & Date"
-msgstr "Idő és dátum"
+msgstr "IdÅ‘ Ã©s dÃ¡tum"
 
 msgctxt "#31281"
 msgid "Choose skin colors"
-msgstr "Felület színek kiválasztása"
+msgstr "FelÃ¼let szÃ­nek kivÃ¡lasztÃ¡sa"
 
 msgctxt "#31282"
 msgid "Enable startup intro"
@@ -1163,7 +1163,7 @@ msgstr ""
 
 msgctxt "#31286"
 msgid "Opacity"
-msgstr "Átlátszóság"
+msgstr "ÃtlÃ¡tszÃ³sÃ¡g"
 
 msgctxt "#31287"
 msgid "Show list widget information"
@@ -1183,11 +1183,11 @@ msgstr ""
 
 msgctxt "#31291"
 msgid "Disable scrolling label"
-msgstr "Görgetési címke letiltása"
+msgstr "GÃ¶rgetÃ©si cÃ­mke letiltÃ¡sa"
 
 msgctxt "#31292"
 msgid "InfoPopup"
-msgstr "Popup infó"
+msgstr "Popup infÃ³"
 
 msgctxt "#31293"
 msgid "Small Icons"
@@ -1195,39 +1195,39 @@ msgstr "Kis ikonok"
 
 msgctxt "#31294"
 msgid "Focused Main Menu"
-msgstr "Főmenü fókuszban"
+msgstr "FÅ‘menÃ¼ fÃ³kuszban"
 
 msgctxt "#31295"
 msgid "Unfocused Main Menu"
-msgstr "Főmenü nincs fókuszban"
+msgstr "FÅ‘menÃ¼ nincs fÃ³kuszban"
 
 msgctxt "#31296"
 msgid "Focused Submenu"
-msgstr "Almenü fókuszban"
+msgstr "AlmenÃ¼ fÃ³kuszban"
 
 msgctxt "#31297"
 msgid "Unfocused Submenu"
-msgstr "Almenü nincs fókuszban"
+msgstr "AlmenÃ¼ nincs fÃ³kuszban"
 
 msgctxt "#31298"
 msgid "Focused Icons label"
-msgstr "Ikon címke fókuszban"
+msgstr "Ikon cÃ­mke fÃ³kuszban"
 
 msgctxt "#31299"
 msgid "Unfocused Icons label"
-msgstr "Ikon címke nincs fókuszban"
+msgstr "Ikon cÃ­mke nincs fÃ³kuszban"
 
 msgctxt "#31300"
 msgid "Overview"
-msgstr "Áttekintés"
+msgstr "ÃttekintÃ©s"
 
 msgctxt "#31301"
 msgid "Last Updated"
-msgstr "Utoljára frissítve"
+msgstr "UtoljÃ¡ra frissÃ­tve"
 
 msgctxt "#31302"
 msgid "Menu Bar"
-msgstr "Menüsáv"
+msgstr "MenÃ¼sÃ¡v"
 
 msgctxt "#31303"
 msgid "System Bars"
@@ -1235,35 +1235,35 @@ msgstr ""
 
 msgctxt "#31304"
 msgid "Highlight"
-msgstr "Kiemelés"
+msgstr "KiemelÃ©s"
 
 msgctxt "#31305"
 msgid "Unwatched episode"
-msgstr "Nem látott rész"
+msgstr "Nem lÃ¡tott rÃ©sz"
 
 msgctxt "#31306"
 msgid "Customize colors"
-msgstr "Színek testreszabása"
+msgstr "SzÃ­nek testreszabÃ¡sa"
 
 msgctxt "#31307"
 msgid "Hide Fanart"
-msgstr "Fanart elrejtése"
+msgstr "Fanart elrejtÃ©se"
 
 msgctxt "#31308"
 msgid "Focused text"
-msgstr "Szöveg fókuszban"
+msgstr "SzÃ¶veg fÃ³kuszban"
 
 msgctxt "#31309"
 msgid "Memory Used"
-msgstr "Memóriahasználat"
+msgstr "MemÃ³riahasznÃ¡lat"
 
 msgctxt "#31310"
 msgid "Unfocused text"
-msgstr "Szöveg nincs fókuszban"
+msgstr "SzÃ¶veg nincs fÃ³kuszban"
 
 msgctxt "#31311"
 msgid "New InfoPanel"
-msgstr "Új infópanel"
+msgstr "Ãšj infÃ³panel"
 
 msgctxt "#31312"
 msgid "OpenCode mod"
@@ -1287,10 +1287,10 @@ msgstr ""
 
 msgctxt "#31317"
 msgid "Set Fanart Path"
-msgstr "Fanart elérési helye"
+msgstr "Fanart elÃ©rÃ©si helye"
 
 msgctxt "#31318"
-msgid "[B]CONFIGURE LibreELEC SETTINGS[/B][CR]Setup system option · Manage network[CR]Configure services · About LibreELEC"
+msgid "[B]CONFIGURE LibreELEC SETTINGS[/B][CR]Setup system option Â· Manage network[CR]Configure services Â· About LibreELEC"
 msgstr ""
 
 msgctxt "#31319"
@@ -1299,11 +1299,11 @@ msgstr ""
 
 msgctxt "#31320"
 msgid "Last Logged In"
-msgstr "Utoljára bejelentkezve"
+msgstr "UtoljÃ¡ra bejelentkezve"
 
 msgctxt "#31321"
 msgid "Karaoke Song Selector"
-msgstr "Karaoke dalválasztó"
+msgstr "Karaoke dalvÃ¡lasztÃ³"
 
 msgctxt "#31322"
 msgid "This will disable the screensaver during music playback by hiding the visualization. This may cause unwanted [B]IMAGE RETENTION[/B] if not used carefully. Do you accept the risks and want to enable this setting?"
@@ -1315,7 +1315,7 @@ msgstr ""
 
 msgctxt "#31324"
 msgid "Aired"
-msgstr "Játszva"
+msgstr "JÃ¡tszva"
 
 msgctxt "#31325"
 msgid "REQUIRED scripts are necessary for basic skin functions."
@@ -1331,11 +1331,11 @@ msgstr ""
 
 msgctxt "#31328"
 msgid "Recently Added"
-msgstr "Nemrég hozzáadva"
+msgstr "NemrÃ©g hozzÃ¡adva"
 
 msgctxt "#31329"
 msgid "Taking a Screenshot"
-msgstr "Képernyőkép készítése"
+msgstr "KÃ©pernyÅ‘kÃ©p kÃ©szÃ­tÃ©se"
 
 msgctxt "#31330"
 msgid "This script is not available in the default Kodi repositiory. The Marmalade OpenCode repo is needed to use the click to install feature, without it this script must be installed manually."
@@ -1343,7 +1343,7 @@ msgstr ""
 
 msgctxt "#31331"
 msgid "Installed"
-msgstr "Telepített"
+msgstr "TelepÃ­tett"
 
 msgctxt "#31332"
 msgid "Not Installed or Disabled"
@@ -1355,43 +1355,43 @@ msgstr ""
 
 msgctxt "#31334"
 msgid "Required"
-msgstr "Szükséges"
+msgstr "SzÃ¼ksÃ©ges"
 
 msgctxt "#31335"
 msgid "Recommended"
-msgstr "Ajánlott"
+msgstr "AjÃ¡nlott"
 
 msgctxt "#31336"
 msgid "Optional"
-msgstr "Választható"
+msgstr "VÃ¡laszthatÃ³"
 
 msgctxt "#31337"
 msgid "Install or change settings of supported add-ons"
-msgstr "Támogatott kiegészítők telepítése vagy beállításaik módosítása"
+msgstr "TÃ¡mogatott kiegÃ©szÃ­tÅ‘k telepÃ­tÃ©se vagy beÃ¡llÃ­tÃ¡saik mÃ³dosÃ­tÃ¡sa"
 
 msgctxt "#31338"
 msgid "Enable or disable system debug logging"
-msgstr "Rendszer hibakeresési (debug) naplózás engedélyezése vagy tiltása"
+msgstr "Rendszer hibakeresÃ©si (debug) naplÃ³zÃ¡s engedÃ©lyezÃ©se vagy tiltÃ¡sa"
 
 msgctxt "#31339"
 msgid "Enable or disable skin debug info"
-msgstr "Felület hibakeresési (debug) információk engedélyezése vagy tiltása"
+msgstr "FelÃ¼let hibakeresÃ©si (debug) informÃ¡ciÃ³k engedÃ©lyezÃ©se vagy tiltÃ¡sa"
 
 msgctxt "#31340"
 msgid "Color customization"
-msgstr "Színbeállítás"
+msgstr "SzÃ­nbeÃ¡llÃ­tÃ¡s"
 
 msgctxt "#31341"
 msgid "NOT SUPPORTED"
-msgstr "NEM TÁMOGATOTT"
+msgstr "NEM TÃMOGATOTT"
 
 msgctxt "#31342"
 msgid "Display the status of some add-ons supported in Marmalade OpenCode. Select an add-on to install or open its settings if already installed."
-msgstr "Néhány, az Marmalade OpenCode-ban támogatott kiegészítő állapotának megjelenítése. Válassz ki egy kiegészítőt a telepítéshez, vagy ha már telepítve van, a beállításainak megnyitásához."
+msgstr "NÃ©hÃ¡ny, az Marmalade OpenCode-ban tÃ¡mogatott kiegÃ©szÃ­tÅ‘ Ã¡llapotÃ¡nak megjelenÃ­tÃ©se. VÃ¡lassz ki egy kiegÃ©szÃ­tÅ‘t a telepÃ­tÃ©shez, vagy ha mÃ¡r telepÃ­tve van, a beÃ¡llÃ­tÃ¡sainak megnyitÃ¡sÃ¡hoz."
 
 msgctxt "#31343"
 msgid "Display background name"
-msgstr "Háttér nevének mutatása"
+msgstr "HÃ¡ttÃ©r nevÃ©nek mutatÃ¡sa"
 
 msgctxt "#31344"
 msgid "Display title of movie/tvshow/artist on home screen if the background has a fanart slideshow as background."
@@ -1403,15 +1403,15 @@ msgstr ""
 
 msgctxt "#31346"
 msgid "OSD Progress Bar"
-msgstr "OSD folyamatsáv"
+msgstr "OSD folyamatsÃ¡v"
 
 msgctxt "#31347"
 msgid "Hide CD"
-msgstr "CD elrejtése"
+msgstr "CD elrejtÃ©se"
 
 msgctxt "#31348"
 msgid "Dimmer"
-msgstr "Fényerő"
+msgstr "FÃ©nyerÅ‘"
 
 msgctxt "#31349"
 msgid "Left"
@@ -1423,11 +1423,11 @@ msgstr "Jobb"
 
 msgctxt "#31351"
 msgid "Enable Netflix style pause screen popup"
-msgstr "Netflix stílusú szünet képernyő felugró engedélyezése"
+msgstr "Netflix stÃ­lusÃº szÃ¼net kÃ©pernyÅ‘ felugrÃ³ engedÃ©lyezÃ©se"
 
 msgctxt "#31352"
 msgid "Inactive"
-msgstr "Inaktív"
+msgstr "InaktÃ­v"
 
 msgctxt "#31353"
 msgid "Shows an overview of the movie or episode 5 seconds after the video is paused."
@@ -1443,11 +1443,11 @@ msgstr ""
 
 msgctxt "#31356"
 msgid "Hardware decoding"
-msgstr "Hardware dekódolás"
+msgstr "Hardware dekÃ³dolÃ¡s"
 
 msgctxt "#31357"
 msgid "Decoder"
-msgstr "Dekóder"
+msgstr "DekÃ³der"
 
 msgctxt "#31358"
 msgid "Icon only"
@@ -1467,7 +1467,7 @@ msgstr "Kompakt"
 
 msgctxt "#31362"
 msgid "Name only"
-msgstr "Csak név"
+msgstr "Csak nÃ©v"
 
 msgctxt "#31363"
 msgid "No Guide"
@@ -1475,11 +1475,11 @@ msgstr ""
 
 msgctxt "#31364"
 msgid "Timeshift"
-msgstr "Csúsztatott felvétel"
+msgstr "CsÃºsztatott felvÃ©tel"
 
 msgctxt "#31365"
 msgid "Customization"
-msgstr "Testreszabás"
+msgstr "TestreszabÃ¡s"
 
 msgctxt "#31366"
 msgid "Setup the on-screen display during fullscreen video playback."
@@ -1495,7 +1495,7 @@ msgstr ""
 
 msgctxt "#31369"
 msgid "Million"
-msgstr "Millió"
+msgstr "MilliÃ³"
 
 msgctxt "#31370"
 msgid "Full plot"
@@ -1515,11 +1515,11 @@ msgstr ""
 
 msgctxt "#31374"
 msgid "Latest"
-msgstr "Legújabb"
+msgstr "LegÃºjabb"
 
 msgctxt "#31375"
 msgid "Video OSD"
-msgstr "Videó OSD"
+msgstr "VideÃ³ OSD"
 
 msgctxt "#31376"
 msgid "Music OSD"
@@ -1579,7 +1579,7 @@ msgstr ""
 
 msgctxt "#31390"
 msgid "Skin default"
-msgstr "Felszín alapértelmezése"
+msgstr "FelszÃ­n alapÃ©rtelmezÃ©se"
 
 msgctxt "#31391"
 msgid "Arial"
@@ -1591,23 +1591,23 @@ msgstr ""
 
 msgctxt "#31393"
 msgid "Ends at"
-msgstr "Befejeződik:"
+msgstr "BefejezÅ‘dik:"
 
 msgctxt "#31394"
 msgid "Replace default info with Netflix style"
-msgstr "Alapértelmezett információk lecserélése Netflix stílusúra"
+msgstr "AlapÃ©rtelmezett informÃ¡ciÃ³k lecserÃ©lÃ©se Netflix stÃ­lusÃºra"
 
 msgctxt "#31395"
 msgid "Use colored genres"
-msgstr "Színezett műfajok használata"
+msgstr "SzÃ­nezett mÅ±fajok hasznÃ¡lata"
 
 msgctxt "#31396"
 msgid "Lighter colors"
-msgstr "Világosabb színek"
+msgstr "VilÃ¡gosabb szÃ­nek"
 
 msgctxt "#31397"
 msgid "Custom Widget"
-msgstr "Egyéni ablakelem"
+msgstr "EgyÃ©ni ablakelem"
 
 msgctxt "#31398"
 msgid "Do you want to reset ALL skin settings and color customizations to their defaults?[CR]This action cannot be undone."
@@ -1618,35 +1618,35 @@ msgid "Customize the settings for the Live TV section."
 msgstr ""
 
 msgctxt "#31400"
-msgid "[B]CONFIGURE INTERFACE SETTINGS[/B][CR]Change the skin · Set language and region[CR]Set up a screensaver · Setup master lock"
+msgid "[B]CONFIGURE INTERFACE SETTINGS[/B][CR]Change the skin Â· Set language and region[CR]Set up a screensaver Â· Setup master lock"
 msgstr ""
 
 msgctxt "#31401"
-msgid "[B]CONFIGURE PLAYER SETTINGS[/B][CR]Configure video playback · Configure music playback[CR]Configure picture slideshow · Configure video language and subtitles"
+msgid "[B]CONFIGURE PLAYER SETTINGS[/B][CR]Configure video playback Â· Configure music playback[CR]Configure picture slideshow Â· Configure video language and subtitles"
 msgstr ""
 
 msgctxt "#31402"
-msgid "[B]CONFIGURE MEDIA SETTINGS[/B][CR]Manage sources · Set default select action[CR]Configure metadata options · Configure file list options"
+msgid "[B]CONFIGURE MEDIA SETTINGS[/B][CR]Manage sources Â· Set default select action[CR]Configure metadata options Â· Configure file list options"
 msgstr ""
 
 msgctxt "#31403"
 msgid "Reset skin settings"
-msgstr "Felszín beállításainak visszaállítása"
+msgstr "FelszÃ­n beÃ¡llÃ­tÃ¡sainak visszaÃ¡llÃ­tÃ¡sa"
 
 msgctxt "#31404"
 msgid "This will RESET ALL skin settings, selecting YES in the dialog that appears is irreversible. This DOES NOT affect the Main Menu items you have set in the Main Menu Customizer."
 msgstr ""
 
 msgctxt "#31405"
-msgid "[B]MONITOR YOUR SYSTEM[/B][CR]Check out your hardware[CR]Check Kodi revision number · Monitor CPU usage"
+msgid "[B]MONITOR YOUR SYSTEM[/B][CR]Check out your hardware[CR]Check Kodi revision number Â· Monitor CPU usage"
 msgstr ""
 
 msgctxt "#31406"
-msgid "[B]CONFIGURE SYSTEM SETTINGS[/B][CR]Setup and calibrate displays · Configure audio output[CR]Set power saving options · Configure proxy settings · Enable debugging"
+msgid "[B]CONFIGURE SYSTEM SETTINGS[/B][CR]Setup and calibrate displays Â· Configure audio output[CR]Set power saving options Â· Configure proxy settings Â· Enable debugging"
 msgstr ""
 
 msgctxt "#31407"
-msgid "[B]CONFIGURE PROFILES[/B][CR]Setup and manage user profiles[CR]Change password · Enable login screen"
+msgid "[B]CONFIGURE PROFILES[/B][CR]Setup and manage user profiles[CR]Change password Â· Enable login screen"
 msgstr ""
 
 msgctxt "#31408"
@@ -1654,12 +1654,12 @@ msgid "Enable to show a LiveTV widget displaying what is currently recording and
 msgstr ""
 
 msgctxt "#31409"
-msgid "[B]CONFIGURE LIVE TV SETTINGS[/B][CR]Change full screen info[CR]Manage Guide data settings  •  Configure recording options"
+msgid "[B]CONFIGURE LIVE TV SETTINGS[/B][CR]Change full screen info[CR]Manage Guide data settings  â€¢  Configure recording options"
 msgstr ""
 
 msgctxt "#31410"
-msgid "[B]CONFIGURE SERVICE SETTINGS[/B][CR]Setup control of Kodi via UPnP and HTTP · Configure file sharing[CR]Enable Zeroconf · Configure AirPlay"
-msgstr "[B]SZOLGÁLTATÁSOK BEÁLLÍTÁSA[/B][CR]Kodi UPNP-n és HTTP-n keresztüli vezérlésének beállításai · Fájlmegosztás beállításai[CR]Zeroconf engedélyezése · AirPlay beállításai"
+msgid "[B]CONFIGURE SERVICE SETTINGS[/B][CR]Setup control of Kodi via UPnP and HTTP Â· Configure file sharing[CR]Enable Zeroconf Â· Configure AirPlay"
+msgstr "[B]SZOLGÃLTATÃSOKÂ BEÃLLÃTÃSA[/B][CR]KodiÂ UPNP-nÂ Ã©sÂ HTTP-nÂ keresztÃ¼li vezÃ©rlÃ©sÃ©nekÂ beÃ¡llÃ­tÃ¡sai Â· FÃ¡jlmegosztÃ¡sÂ beÃ¡llÃ­tÃ¡sai[CR]Zeroconf engedÃ©lyezÃ©se Â· AirPlay beÃ¡llÃ­tÃ¡sai"
 
 msgctxt "#31411"
 msgid "Will override the General Theme color."
@@ -1667,11 +1667,11 @@ msgstr ""
 
 msgctxt "#31412"
 msgid "Select section"
-msgstr "Szakasz kiválasztása"
+msgstr "Szakasz kivÃ¡lasztÃ¡sa"
 
 msgctxt "#31413"
 msgid "Local subtitle available"
-msgstr "Helyi felirat elérhető"
+msgstr "Helyi felirat elÃ©rhetÅ‘"
 
 msgctxt "#31414"
 msgid "Set the Main Theme color used throughout the skin."
@@ -1703,7 +1703,7 @@ msgstr ""
 
 msgctxt "#31421"
 msgid "Select your Kodi user profile[CR]to login and continue"
-msgstr "Válaszd ki a Kodi felhasználói profilod[CR]a belépéshez"
+msgstr "VÃ¡laszd ki a Kodi felhasznÃ¡lÃ³i profilod[CR]a belÃ©pÃ©shez"
 
 msgctxt "#31422"
 msgid "Customize the Widget Highlight color on the home screen."
@@ -1779,10 +1779,10 @@ msgstr ""
 
 msgctxt "#31440"
 msgid "Recently played channels"
-msgstr "Mostanában játszott csatornák"
+msgstr "MostanÃ¡ban jÃ¡tszott csatornÃ¡k"
 
 msgctxt "#31441"
-msgid "[B]CONFIGURE GAME SETTINGS[/B][CR]Change gameplay options[CR]Keyboard settings  •  Configure rewind settings"
+msgid "[B]CONFIGURE GAME SETTINGS[/B][CR]Change gameplay options[CR]Keyboard settings  â€¢  Configure rewind settings"
 msgstr ""
 
 msgctxt "#31442"
@@ -1799,7 +1799,7 @@ msgstr ""
 
 msgctxt "#31445"
 msgid "Main menu"
-msgstr "Főmenü"
+msgstr "FÅ‘menÃ¼"
 
 msgctxt "#31446"
 msgid "Hide Main Menu elements when pressing back"
@@ -1810,24 +1810,24 @@ msgid "Show a popup displaying answers to some FREQUENTLY ASKED QUESTIONS posted
 msgstr ""
 
 msgctxt "#31448"
-msgid "[B]CONFIGURE ADD-ONS[/B][CR]Manage your installed Add-ons[CR]Browse for and install Add-ons  •  Check for Add-on updates"
+msgid "[B]CONFIGURE ADD-ONS[/B][CR]Manage your installed Add-ons[CR]Browse for and install Add-ons  â€¢  Check for Add-on updates"
 msgstr ""
 
 msgctxt "#31449"
 msgid "Save & Exit"
-msgstr "Mentés és kilépés"
+msgstr "MentÃ©s Ã©s kilÃ©pÃ©s"
 
 msgctxt "#31450"
-msgid "  •  Open Settings "
-msgstr "  • Beállítások megnyitása "
+msgid "  â€¢  Open Settings "
+msgstr "  â€¢ BeÃ¡llÃ­tÃ¡sok megnyitÃ¡sa "
 
 msgctxt "#31451"
-msgid "  •  Click to Install or Enable"
+msgid "  â€¢  Click to Install or Enable"
 msgstr ""
 
 msgctxt "#31452"
 msgid "Premiered"
-msgstr "Bemutató"
+msgstr "BemutatÃ³"
 
 msgctxt "#31453"
 msgid "Down for more"
@@ -1855,11 +1855,11 @@ msgstr "TheMovieDB"
 
 msgctxt "#31459"
 msgid "Radio groups"
-msgstr "Rádiócsoportok"
+msgstr "RÃ¡diÃ³csoportok"
 
 msgctxt "#31460"
 msgid "Mini fullscreen info"
-msgstr "Mini teljes képernyős információ"
+msgstr "Mini teljes kÃ©pernyÅ‘s informÃ¡ciÃ³"
 
 msgctxt "#31461"
 msgid "This option requires a Weather fanart pack. If one is not installed, click GET MORE to choose one. After installation you can select it as your weather background. This is also used to display conditional Weather backgrounds for the Main Menu."
@@ -1978,12 +1978,12 @@ msgid "Hide episode thumb when hiding plot for unwatched items"
 msgstr ""
 
 msgctxt "#31490"
-msgid "[B]CONFIGURE CoreELEC SETTINGS[/B][CR]Setup system option · Manage network[CR]Configure services · About CoreELEC"
+msgid "[B]CONFIGURE CoreELEC SETTINGS[/B][CR]Setup system option Â· Manage network[CR]Configure services Â· About CoreELEC"
 msgstr ""
 
 msgctxt "#31491"
 msgid "Muted"
-msgstr "Némítva"
+msgstr "NÃ©mÃ­tva"
 
 msgctxt "#31492"
 msgid "The metadata and artwork module provides both metadata and artwork from sites like TMDB, musicbrainz and fanart.tv. It has settings used for the Skin Helper scripts."
@@ -2027,23 +2027,23 @@ msgstr "Csatornacsoport"
 
 msgctxt "#31502"
 msgid "Live TV"
-msgstr "Élő TV"
+msgstr "Ã‰lÅ‘ TV"
 
 msgctxt "#31503"
 msgid "Add Group"
-msgstr "Csoport hozzáadása"
+msgstr "Csoport hozzÃ¡adÃ¡sa"
 
 msgctxt "#31504"
 msgid "Rename Group"
-msgstr "Csoport átnevezése"
+msgstr "Csoport Ã¡tnevezÃ©se"
 
 msgctxt "#31505"
 msgid "Delete Group"
-msgstr "Csoport törlése"
+msgstr "Csoport tÃ¶rlÃ©se"
 
 msgctxt "#31506"
 msgid "Available Groups"
-msgstr "Elérhető csoportok"
+msgstr "ElÃ©rhetÅ‘ csoportok"
 
 msgctxt "#31507"
 msgid "Show clearart in tv information"
@@ -2063,7 +2063,7 @@ msgstr ""
 
 msgctxt "#31511"
 msgid "Channel Options"
-msgstr "Csatorna opciók"
+msgstr "Csatorna opciÃ³k"
 
 msgctxt "#31512"
 msgid "Enable fullscreen information for recordings"
@@ -2151,7 +2151,7 @@ msgstr ""
 
 msgctxt "#31533"
 msgid "Unwatched movies"
-msgstr "Nem látott filmek"
+msgstr "Nem lÃ¡tott filmek"
 
 msgctxt "#31534"
 msgid "Best picture winners"
@@ -2159,11 +2159,11 @@ msgstr ""
 
 msgctxt "#31535"
 msgid "Unwatched TV Shows"
-msgstr "Nem látott TV-sorozatok"
+msgstr "Nem lÃ¡tott TV-sorozatok"
 
 msgctxt "#31536"
 msgid "Recent recordings"
-msgstr "Legújabb felvételek"
+msgstr "LegÃºjabb felvÃ©telek"
 
 msgctxt "#31537"
 msgid "System & Weather"
@@ -2199,7 +2199,7 @@ msgstr ""
 
 msgctxt "#31545"
 msgid "Crew"
-msgstr "Stáb"
+msgstr "StÃ¡b"
 
 msgctxt "#31546"
 msgid "Known for"
@@ -2331,7 +2331,7 @@ msgstr ""
 
 msgctxt "#31578"
 msgid "Random music videos"
-msgstr "Véletlenszerű videóklipek"
+msgstr "VÃ©letlenszerÅ± videÃ³klipek"
 
 msgctxt "#31579"
 msgid "Random music videos (artists)"
@@ -2343,7 +2343,7 @@ msgstr ""
 
 msgctxt "#31581"
 msgid "Unwatched music videos"
-msgstr "Nem látott videóklipek"
+msgstr "Nem lÃ¡tott videÃ³klipek"
 
 msgctxt "#31582"
 msgid "Most played music videos"
@@ -2355,7 +2355,7 @@ msgstr ""
 
 msgctxt "#31584"
 msgid "Random artists"
-msgstr "Véletlenszerű előadók"
+msgstr "VÃ©letlenszerÅ± elÅ‘adÃ³k"
 
 msgctxt "#31585"
 msgid "Most played songs"
@@ -2390,15 +2390,15 @@ msgid "Favourites dialog"
 msgstr ""
 
 msgctxt "#31593"
-msgid "[B]CONFIGURE SKIN SETTINGS[/B][CR]Customize the main menu · Choose skin colors[CR]Set up widgets · Enable optional features"
+msgid "[B]CONFIGURE SKIN SETTINGS[/B][CR]Customize the main menu Â· Choose skin colors[CR]Set up widgets Â· Enable optional features"
 msgstr ""
 
 msgctxt "#31594"
-msgid "[B]OPEN FILE MANAGER[/B][CR]Access files from within Kodi[CR]Add source · Perform file operations"
+msgid "[B]OPEN FILE MANAGER[/B][CR]Access files from within Kodi[CR]Add source Â· Perform file operations"
 msgstr ""
 
 msgctxt "#31595"
-msgid "[B]OPEN THE EVENT LOG[/B][CR]Library update reports · Failed scrapes · Missing files[CR]PVR events · Add-on events"
+msgid "[B]OPEN THE EVENT LOG[/B][CR]Library update reports Â· Failed scrapes Â· Missing files[CR]PVR events Â· Add-on events"
 msgstr ""
 
 msgctxt "#31596"
@@ -2419,7 +2419,7 @@ msgstr "Kora"
 
 msgctxt "#31600"
 msgid "Place of birth"
-msgstr "Születési hely"
+msgstr "SzÃ¼letÃ©si hely"
 
 msgctxt "#31601"
 msgid "Show discart in movie information"
@@ -2431,15 +2431,15 @@ msgstr ""
 
 msgctxt "#31603"
 msgid "Marmalade main menu navigation style"
-msgstr "Marmalade főmenü navigáció stylusa"
+msgstr "Marmalade fÅ‘menÃ¼ navigÃ¡ciÃ³ stylusa"
 
 msgctxt "#31604"
 msgid "Information"
-msgstr "Információ"
+msgstr "InformÃ¡ciÃ³"
 
 msgctxt "#31605"
 msgid "Alternate layout"
-msgstr "Alternatív nézet"
+msgstr "AlternatÃ­v nÃ©zet"
 
 msgctxt "#31606"
 msgid "Logo"
@@ -2447,7 +2447,7 @@ msgstr "Logo"
 
 msgctxt "#31607"
 msgid "HD/SD/3D indicators"
-msgstr "HD/SD/3D jelzők"
+msgstr "HD/SD/3D jelzÅ‘k"
 
 msgctxt "#31608"
 msgid "Cases"
@@ -2545,7 +2545,7 @@ msgstr ""
 
 msgctxt "#31683"
 msgid "Edit and arrange submenu items"
-msgstr "Almenü elemek szerkesztése és elrendezése"
+msgstr "AlmenÃ¼ elemek szerkesztÃ©se Ã©s elrendezÃ©se"
 
 msgctxt "#31684"
 msgid "Select the item image used for the Icons menu layout."
@@ -2557,23 +2557,23 @@ msgstr ""
 
 msgctxt "#31700"
 msgid "Widget options"
-msgstr "Widget opciók"
+msgstr "Widget opciÃ³k"
 
 msgctxt "#31701"
 msgid "Widget style"
-msgstr "Widget stílus"
+msgstr "Widget stÃ­lus"
 
 msgctxt "#31702"
 msgid "Widget background"
-msgstr "Widget háttér"
+msgstr "Widget hÃ¡ttÃ©r"
 
 msgctxt "#31703"
 msgid "Panel label style"
-msgstr "Panelcímke stílus"
+msgstr "PanelcÃ­mke stÃ­lus"
 
 msgctxt "#31704"
 msgid "List label style"
-msgstr "Listacímke stílus"
+msgstr "ListacÃ­mke stÃ­lus"
 
 msgctxt "#31705"
 msgid "Panel widget info"
@@ -2589,15 +2589,15 @@ msgstr ""
 
 msgctxt "#31708"
 msgid "Sort by"
-msgstr "Rendezés"
+msgstr "RendezÃ©s"
 
 msgctxt "#31709"
 msgid "Sort order"
-msgstr "Rendezési sorrend"
+msgstr "RendezÃ©si sorrend"
 
 msgctxt "#31710"
 msgid "Configure custom list"
-msgstr "Egyéni lista beállítása"
+msgstr "EgyÃ©ni lista beÃ¡llÃ­tÃ¡sa"
 
 msgctxt "#31711"
 msgid "List extended"
@@ -2625,11 +2625,11 @@ msgstr ""
 
 msgctxt "#31717"
 msgid "Configure custom list"
-msgstr "Egyéni lista beállítása"
+msgstr "EgyÃ©ni lista beÃ¡llÃ­tÃ¡sa"
 
 msgctxt "#31718"
 msgid "Square poster"
-msgstr "Szögletes poszter"
+msgstr "SzÃ¶gletes poszter"
 
 msgctxt "#31719"
 msgid "Clearlogo"
@@ -2641,7 +2641,7 @@ msgstr ""
 
 msgctxt "#31721"
 msgid "Glass"
-msgstr "Átlátszó"
+msgstr "ÃtlÃ¡tszÃ³"
 
 msgctxt "#31722"
 msgid "Clear case"
@@ -2653,23 +2653,23 @@ msgstr "Lapos"
 
 msgctxt "#31724"
 msgid "Clear white"
-msgstr "Tiszta fehér"
+msgstr "Tiszta fehÃ©r"
 
 msgctxt "#31725"
 msgid "Colored default"
-msgstr "Alapértelmezett színezett"
+msgstr "AlapÃ©rtelmezett szÃ­nezett"
 
 msgctxt "#31726"
 msgid "Colored flat"
-msgstr "Lapos színezett"
+msgstr "Lapos szÃ­nezett"
 
 msgctxt "#31727"
 msgid "Colored clear"
-msgstr "Tiszta színezett"
+msgstr "Tiszta szÃ­nezett"
 
 msgctxt "#31728"
 msgid "Colored clear white"
-msgstr "Tiszta fehér színezett"
+msgstr "Tiszta fehÃ©r szÃ­nezett"
 
 msgctxt "#31729"
 msgid "Show on panel"
@@ -2685,15 +2685,15 @@ msgstr ""
 
 msgctxt "#31732"
 msgid "In progress movies"
-msgstr "Folyamatban lévő filmek"
+msgstr "Folyamatban lÃ©vÅ‘ filmek"
 
 msgctxt "#31733"
 msgid "In progress episodes"
-msgstr "Folyamatban lévő epizódok"
+msgstr "Folyamatban lÃ©vÅ‘ epizÃ³dok"
 
 msgctxt "#31734"
 msgid "Random genre"
-msgstr "Véletlenszerű stílus"
+msgstr "VÃ©letlenszerÅ± stÃ­lus"
 
 msgctxt "#31735"
 msgid "Enable advanced widgets"
@@ -2701,7 +2701,7 @@ msgstr ""
 
 msgctxt "#31736"
 msgid "Opacity"
-msgstr "Átlátszóság"
+msgstr "ÃtlÃ¡tszÃ³sÃ¡g"
 
 msgctxt "#31737"
 msgid "Global widget backgrounds"
@@ -2745,7 +2745,7 @@ msgstr ""
 
 msgctxt "#31747"
 msgid "Blu-Ray Case"
-msgstr "Blu-Ray borító"
+msgstr "Blu-Ray borÃ­tÃ³"
 
 msgctxt "#31748"
 msgid "This setting enables more widget customization. Disable to use Marmalade default widgets."
@@ -2761,7 +2761,7 @@ msgstr ""
 
 msgctxt "#31751"
 msgid "Choose the background style."
-msgstr "Háttérstílus kiválasztása."
+msgstr "HÃ¡ttÃ©rstÃ­lus kivÃ¡lasztÃ¡sa."
 
 msgctxt "#31752"
 msgid "The list style widgets will automatically scroll if enabled."
@@ -2805,31 +2805,31 @@ msgstr ""
 
 msgctxt "#31800"
 msgid "Video addons"
-msgstr "Videó kiegészítők"
+msgstr "VideÃ³ kiegÃ©szÃ­tÅ‘k"
 
 msgctxt "#31801"
 msgid "Audio addons"
-msgstr "Audió kiegészítők"
+msgstr "AudiÃ³ kiegÃ©szÃ­tÅ‘k"
 
 msgctxt "#31802"
 msgid "Video addons / Audio addons"
-msgstr "Videó kiegészítők / Audió kiegészítők"
+msgstr "VideÃ³ kiegÃ©szÃ­tÅ‘k / AudiÃ³ kiegÃ©szÃ­tÅ‘k"
 
 msgctxt "#31803"
 msgid "Program addons"
-msgstr "Program kiegészítők"
+msgstr "Program kiegÃ©szÃ­tÅ‘k"
 
 msgctxt "#31804"
 msgid "Picture addons"
-msgstr "Kép kiegészítők"
+msgstr "KÃ©p kiegÃ©szÃ­tÅ‘k"
 
 msgctxt "#31850"
 msgid "Budget"
-msgstr "Költségvetés"
+msgstr "KÃ¶ltsÃ©gvetÃ©s"
 
 msgctxt "#31851"
 msgid "Revenue"
-msgstr "Bevétel"
+msgstr "BevÃ©tel"
 
 msgctxt "#31852"
 msgid "Displays a larger ratings classification image with standard descriptions.[CR]Works with U.S. MPAA ratings only."
@@ -2858,35 +2858,35 @@ msgstr ""
 
 msgctxt "#31901"
 msgid "36 Hour Forecast"
-msgstr "36 órás előrejelzés"
+msgstr "36 Ã³rÃ¡s elÅ‘rejelzÃ©s"
 
 msgctxt "#31902"
 msgid "Hourly Forecast"
-msgstr "Előrejelzés óránként"
+msgstr "ElÅ‘rejelzÃ©s Ã³rÃ¡nkÃ©nt"
 
 msgctxt "#31903"
 msgid "Weekend Forecast"
-msgstr "Hétvégi előrejelzés"
+msgstr "HÃ©tvÃ©gi elÅ‘rejelzÃ©s"
 
 msgctxt "#31904"
 msgid "10 Day Forecast"
-msgstr "10 napos előrejelzés"
+msgstr "10 napos elÅ‘rejelzÃ©s"
 
 msgctxt "#31908"
 msgid "Chance of Precipitation"
-msgstr "Csapadék esélye"
+msgstr "CsapadÃ©k esÃ©lye"
 
 msgctxt "#31909"
 msgid "Fetching forecast info..."
-msgstr "Előrejelzési információ letöltése..."
+msgstr "ElÅ‘rejelzÃ©si informÃ¡ciÃ³ letÃ¶ltÃ©se..."
 
 msgctxt "#31910"
 msgid "Map & Alerts"
-msgstr "Térkép & Riasztások"
+msgstr "TÃ©rkÃ©p & RiasztÃ¡sok"
 
 msgctxt "#31911"
 msgid "Setup the Marmalade main menu"
-msgstr "Az Marmalade főmenü beállítása"
+msgstr "Az Marmalade fÅ‘menÃ¼ beÃ¡llÃ­tÃ¡sa"
 
 msgctxt "#31912"
 msgid "Customize the main menu with widgets, backgrounds, and statistics. Add your own custom main menu items."
@@ -2894,15 +2894,15 @@ msgstr ""
 
 msgctxt "#31913"
 msgid "Marmalade main menu horizontal position"
-msgstr "Marmalade főmenü horizontális poziciója"
+msgstr "Marmalade fÅ‘menÃ¼ horizontÃ¡lis poziciÃ³ja"
 
 msgctxt "#31914"
 msgid "Change the horizontal position of the main menu."
-msgstr "A főmenü vízszintes pozíciójának módosítása."
+msgstr "A fÅ‘menÃ¼ vÃ­zszintes pozÃ­ciÃ³jÃ¡nak mÃ³dosÃ­tÃ¡sa."
 
 msgctxt "#31915"
 msgid "Navigation style for horizontal lists"
-msgstr "Navigációs stílus vízszintes listákhoz"
+msgstr "NavigÃ¡ciÃ³s stÃ­lus vÃ­zszintes listÃ¡khoz"
 
 msgctxt "#31916"
 msgid "Change the way horizontal lists scroll in Marmalade. Default will scroll lists in a cycle. \"Fixed\" are lists with a beginning and end."
@@ -2951,7 +2951,7 @@ msgstr ""
 
 msgctxt "#31928"
 msgid "Marmalade main menu layout"
-msgstr "Marmalade főmenü nézet"
+msgstr "Marmalade fÅ‘menÃ¼ nÃ©zet"
 
 msgctxt "#31929"
 msgid "This setting defines the main menu layout. Options are 5 items, 3 items, 1 items, or icons for the default horizontal menu. You can also choose a vertical menu layout."
@@ -2997,7 +2997,7 @@ msgstr ""
 
 msgctxt "#31941"
 msgid "Kiosk mode"
-msgstr "Kiosk mód"
+msgstr "Kiosk mÃ³d"
 
 msgctxt "#31942"
 msgid "Disables the slide out menu (media menu) in the library as well as certain buttons in the media information dialogs."
@@ -3017,19 +3017,19 @@ msgstr ""
 
 msgctxt "#31950"
 msgid "WEATHER"
-msgstr "IDŐJÁRÁS"
+msgstr "IDÅJÃRÃS"
 
 msgctxt "#31951"
 msgid "PICTURES"
-msgstr "KÉPEK"
+msgstr "KÃ‰PEK"
 
 msgctxt "#31952"
 msgid "LIVE TV"
-msgstr "ÉLŐ TV"
+msgstr "Ã‰LÅ TV"
 
 msgctxt "#31953"
 msgid "VIDEOS"
-msgstr "VIDEÓK"
+msgstr "VIDEÃ“K"
 
 msgctxt "#31954"
 msgid "MOVIES"
@@ -3045,11 +3045,11 @@ msgstr "ZENE"
 
 msgctxt "#31957"
 msgid "Apps"
-msgstr "Alkalmazások"
+msgstr "AlkalmazÃ¡sok"
 
 msgctxt "#31958"
 msgid "PLAY DISC"
-msgstr "LEMEZ LEJÁTSZÁSA"
+msgstr "LEMEZ LEJÃTSZÃSA"
 
 msgctxt "#31959"
 msgid "SYSTEM"
@@ -3115,7 +3115,7 @@ msgstr ""
 
 msgctxt "#31979"
 msgid "Sliding set discart"
-msgstr "Lemezkép begördülés beállítása"
+msgstr "LemezkÃ©p begÃ¶rdÃ¼lÃ©s beÃ¡llÃ­tÃ¡sa"
 
 msgctxt "#31980"
 msgid "Change the way the home menu scrolls in Marmalade. Default will scroll in a cycle. \"Fixed\" has a beginning and end."
@@ -3127,7 +3127,7 @@ msgstr ""
 
 msgctxt "#31982"
 msgid "Display discart for  movies in information screen."
-msgstr "Lemezkép megjelenítése a filminfóknál"
+msgstr "LemezkÃ©p megjelenÃ­tÃ©se a filminfÃ³knÃ¡l"
 
 msgctxt "#31983"
 msgid "Swap locations of Trailer and Cinema Experience buttons. Location is either in extras (+) or in the info dialog."
@@ -3152,7 +3152,7 @@ msgstr ""
 
 msgctxt "#31989"
 msgid "Animate backgrounds"
-msgstr "Animált hátterek"
+msgstr "AnimÃ¡lt hÃ¡tterek"
 
 msgctxt "#31990"
 msgid "Choose where the PreshowExperience button should be placed"
@@ -3168,32 +3168,32 @@ msgstr ""
 
 msgctxt "#31993"
 msgid "Fake discart"
-msgstr "Hamis lemezkép"
+msgstr "Hamis lemezkÃ©p"
 
 msgctxt "#31994"
 msgid "Vertical Menu"
-msgstr "Függőleges menü"
+msgstr "FÃ¼ggÅ‘leges menÃ¼"
 
 #~ msgctxt "#31015"
 #~ msgid "Set path to video genre fanart folder"
-#~ msgstr "Állítsd be a videó műfaj fanart mappa helyét"
+#~ msgstr "ÃllÃ­tsd be a videÃ³ mÅ±faj fanart mappa helyÃ©t"
 
 #~ msgctxt "#31070"
 #~ msgid "Enable CinemaVision integration"
-#~ msgstr "CinemaVision integráció engedélyezése"
+#~ msgstr "CinemaVision integrÃ¡ciÃ³ engedÃ©lyezÃ©se"
 
 #~ msgctxt "#31111"
 #~ msgid "Similar movies"
-#~ msgstr "Hasonló filmek"
+#~ msgstr "HasonlÃ³ filmek"
 
 #~ msgctxt "#31115"
 #~ msgid "Similar TV shows"
-#~ msgstr "Hasonló sorozatok"
+#~ msgstr "HasonlÃ³ sorozatok"
 
 #~ msgctxt "#31332"
 #~ msgid "Not Installed"
-#~ msgstr "Nem telepített"
+#~ msgstr "Nem telepÃ­tett"
 
 #~ msgctxt "#31451"
-#~ msgid "  •  Click to Install"
-#~ msgstr "• Kattints a telepításhez"
+#~ msgid "  â€¢  Click to Install"
+#~ msgstr "â€¢ Kattints a telepÃ­tÃ¡shez"

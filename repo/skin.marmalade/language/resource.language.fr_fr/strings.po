@@ -1,6 +1,6 @@
 # Kodi Media Center language file
 # Addon Name: Marmalade Build
-# Addon id: skin.aeon.nox.OpenCode
+# Addon id: skin.marmalade
 # Addon Provider: OpenCode
 msgid ""
 msgstr ""
@@ -9,7 +9,7 @@ msgstr ""
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "PO-Revision-Date: 2024-04-28 12:27+0000\n"
 "Last-Translator: skypichat <skypichat@hotmail.fr>\n"
-"Language-Team: French (France) <https://kodi.weblate.cloud/projects/kodi-add-ons-skins/skin-aeon-nox-OpenCode/fr_fr/>\n"
+"Language-Team: French (France) <https://kodi.weblate.cloud/projects/kodi-add-ons-skins/skin.marmalade/fr_fr/>\n"
 "Language: fr_fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,15 +19,15 @@ msgstr ""
 
 msgctxt "#31000"
 msgid "Directed by"
-msgstr "Réalisé par"
+msgstr "RÃ©alisÃ© par"
 
 msgctxt "#31001"
 msgid "Written by"
-msgstr "Écrit par"
+msgstr "Ã‰crit par"
 
 msgctxt "#31002"
 msgid "Blurred album thumb"
-msgstr "Miniature d'album floutée"
+msgstr "Miniature d'album floutÃ©e"
 
 msgctxt "#31003"
 msgid "Power Options"
@@ -39,7 +39,7 @@ msgstr "Travail en cours"
 
 msgctxt "#31005"
 msgid "Fixed"
-msgstr "Fixé"
+msgstr "FixÃ©"
 
 msgctxt "#31006"
 msgid "View Options"
@@ -51,23 +51,23 @@ msgstr "Configurer l'accueil"
 
 msgctxt "#31008"
 msgid "Full screen"
-msgstr "Plein écran"
+msgstr "Plein Ã©cran"
 
 msgctxt "#31009"
 msgid "Total Duration"
-msgstr "Durée totale"
+msgstr "DurÃ©e totale"
 
 msgctxt "#31010"
 msgid "Next episode"
-msgstr "Prochain épisode"
+msgstr "Prochain Ã©pisode"
 
 msgctxt "#31011"
 msgid "Latest episode"
-msgstr "Dernier épisode"
+msgstr "Dernier Ã©pisode"
 
 msgctxt "#31012"
 msgid "Airs"
-msgstr "Diffusé"
+msgstr "DiffusÃ©"
 
 msgctxt "#31013"
 msgid "Statistics"
@@ -79,7 +79,7 @@ msgstr "Extras"
 
 msgctxt "#31015"
 msgid "Set path to movie genre fanart folder"
-msgstr "Définir le chemin du dossier fanart de genre de film"
+msgstr "DÃ©finir le chemin du dossier fanart de genre de film"
 
 msgctxt "#31016"
 msgid "Poster"
@@ -87,7 +87,7 @@ msgstr "Affiche"
 
 msgctxt "#31017"
 msgid "Set path to music genre fanart folder"
-msgstr "Définir le chemin vers le répertoire de FanArts de genre musique"
+msgstr "DÃ©finir le chemin vers le rÃ©pertoire de FanArts de genre musique"
 
 msgctxt "#31018"
 msgid "InfoPanel"
@@ -95,7 +95,7 @@ msgstr "Panneau d'infos"
 
 msgctxt "#31019"
 msgid "Network"
-msgstr "Réseau"
+msgstr "RÃ©seau"
 
 msgctxt "#31020"
 msgid "Extra-fanart"
@@ -107,11 +107,11 @@ msgstr "Rideau rouge"
 
 msgctxt "#31022"
 msgid "Set multi-image background"
-msgstr "Définir les multi-images d'arrière-plan"
+msgstr "DÃ©finir les multi-images d'arriÃ¨re-plan"
 
 msgctxt "#31023"
 msgid "Set single image background"
-msgstr "Définir l'image simple d'arrière-plan"
+msgstr "DÃ©finir l'image simple d'arriÃ¨re-plan"
 
 msgctxt "#31024"
 msgid "Page"
@@ -127,19 +127,19 @@ msgstr "Options diverses"
 
 msgctxt "#31027"
 msgid "Set item background"
-msgstr "Définir l'élément d'arrière-plan"
+msgstr "DÃ©finir l'Ã©lÃ©ment d'arriÃ¨re-plan"
 
 msgctxt "#31028"
 msgid "Live Background"
-msgstr "Arrière-plan dynamique"
+msgstr "ArriÃ¨re-plan dynamique"
 
 msgctxt "#31029"
 msgid "Recent movies"
-msgstr "Films récents"
+msgstr "Films rÃ©cents"
 
 msgctxt "#31030"
 msgid "Recent episodes"
-msgstr "Épisodes récents"
+msgstr "Ã‰pisodes rÃ©cents"
 
 msgctxt "#31031"
 msgid "Random movies"
@@ -147,15 +147,15 @@ msgstr "Suggestions de films"
 
 msgctxt "#31032"
 msgid "Recommended movies"
-msgstr "Films recommandés"
+msgstr "Films recommandÃ©s"
 
 msgctxt "#31033"
 msgid "Random episodes"
-msgstr "Suggestions d'épisodes"
+msgstr "Suggestions d'Ã©pisodes"
 
 msgctxt "#31034"
 msgid "Recommended episodes"
-msgstr "Épisode conseillé"
+msgstr "Ã‰pisode conseillÃ©"
 
 msgctxt "#31035"
 msgid "Random songs"
@@ -167,11 +167,11 @@ msgstr "Suggestion d'albums"
 
 msgctxt "#31037"
 msgid "Recent albums"
-msgstr "Albums récents"
+msgstr "Albums rÃ©cents"
 
 msgctxt "#31038"
 msgid "Recommended albums"
-msgstr "Albums recommandés"
+msgstr "Albums recommandÃ©s"
 
 msgctxt "#31039"
 msgid "Actions"
@@ -187,7 +187,7 @@ msgstr "Choisir un widget"
 
 msgctxt "#31042"
 msgid "Show \"Now Playing\" information blended in the background"
-msgstr "Afficher l'information \"En cours de lecture\" incrustée en fond d'écran"
+msgstr "Afficher l'information \"En cours de lecture\" incrustÃ©e en fond d'Ã©cran"
 
 msgctxt "#31043"
 msgid "Platform"
@@ -195,11 +195,11 @@ msgstr "Plateforme"
 
 msgctxt "#31044"
 msgid "Views: Plot outline | Info dialog: Full plot"
-msgstr "Vues : Résumé court | Fenêtre infos : Résumé complet"
+msgstr "Vues : RÃ©sumÃ© court | FenÃªtre infos : RÃ©sumÃ© complet"
 
 msgctxt "#31045"
 msgid "Views: Full plot | Info dialog: Plot outline"
-msgstr "Vues : Résumé complet | Fenêtre infos : Résumé court"
+msgstr "Vues : RÃ©sumÃ© complet | FenÃªtre infos : RÃ©sumÃ© court"
 
 msgctxt "#31046"
 msgid "SEEKING"
@@ -207,15 +207,15 @@ msgstr "RECHERCHE"
 
 msgctxt "#31047"
 msgid "Set item icon"
-msgstr "Définir l'icône de l'élément"
+msgstr "DÃ©finir l'icÃ´ne de l'Ã©lÃ©ment"
 
 msgctxt "#31048"
 msgid "Visualisation Presets"
-msgstr "Préréglages de visualisation"
+msgstr "PrÃ©rÃ©glages de visualisation"
 
 msgctxt "#31049"
 msgid "Select infoline"
-msgstr "Sélectionner la ligne d'infos"
+msgstr "SÃ©lectionner la ligne d'infos"
 
 msgctxt "#31050"
 msgid "Sort: Ascending"
@@ -227,15 +227,15 @@ msgstr "Tri : Descendant"
 
 msgctxt "#31052"
 msgid "Movie library statistics"
-msgstr "Statistiques de la bibliothèque de films"
+msgstr "Statistiques de la bibliothÃ¨que de films"
 
 msgctxt "#31053"
 msgid "TV Show library statistics"
-msgstr "Statistiques de la médiathèque de séries TV"
+msgstr "Statistiques de la mÃ©diathÃ¨que de sÃ©ries TV"
 
 msgctxt "#31054"
 msgid "Music library statistics"
-msgstr "Statistiques de la musithèque"
+msgstr "Statistiques de la musithÃ¨que"
 
 msgctxt "#31055"
 msgid "Open playlist"
@@ -251,7 +251,7 @@ msgstr "Fermer la liste de lecture"
 
 msgctxt "#31058"
 msgid "PVR information"
-msgstr "Informations de l'enregistreur vidéo"
+msgstr "Informations de l'enregistreur vidÃ©o"
 
 msgctxt "#31059"
 msgid "Artist Slideshow"
@@ -259,11 +259,11 @@ msgstr "Diaporama d'artistes"
 
 msgctxt "#31060"
 msgid "This file is stacked, select the part you want to play from."
-msgstr "Ce fichier est empilé. Sélectionner le point à partir duquel l'écouter."
+msgstr "Ce fichier est empilÃ©. SÃ©lectionner le point Ã  partir duquel l'Ã©couter."
 
 msgctxt "#31061"
 msgid "Total addons / Favourites statistics"
-msgstr "Statistiques complètes des extensions/favoris"
+msgstr "Statistiques complÃ¨tes des extensions/favoris"
 
 msgctxt "#31062"
 msgid "Random movie fanart"
@@ -271,23 +271,23 @@ msgstr "Suggestion de FanArt de film"
 
 msgctxt "#31063"
 msgid "Random TV show fanart"
-msgstr "Fanart de séries aléatoire"
+msgstr "Fanart de sÃ©ries alÃ©atoire"
 
 msgctxt "#31064"
 msgid "Random video fanart"
-msgstr "FanArt vidéo aléatoire"
+msgstr "FanArt vidÃ©o alÃ©atoire"
 
 msgctxt "#31065"
 msgid "Random music fanart"
-msgstr "FanArt aléatoire de musique"
+msgstr "FanArt alÃ©atoire de musique"
 
 msgctxt "#31066"
 msgid "Random fanart"
-msgstr "FanArt aléatoire"
+msgstr "FanArt alÃ©atoire"
 
 msgctxt "#31067"
 msgid "Update rating"
-msgstr "Mettre à jour la notation"
+msgstr "Mettre Ã  jour la notation"
 
 msgctxt "#31068"
 msgid "CD Wall"
@@ -299,27 +299,27 @@ msgstr "Changer l'emplacement"
 
 msgctxt "#31070"
 msgid "Enable PreshowExperience integration"
-msgstr "Activer l'intégration de PreshowExperience"
+msgstr "Activer l'intÃ©gration de PreshowExperience"
 
 msgctxt "#31071"
 msgid "While browsing the library"
-msgstr "En parcourant la médiathèque"
+msgstr "En parcourant la mÃ©diathÃ¨que"
 
 msgctxt "#31072"
 msgid "On open video info"
-msgstr "En ouvrant les infos de vidéo"
+msgstr "En ouvrant les infos de vidÃ©o"
 
 msgctxt "#31073"
 msgid "Move menu item"
-msgstr "Déplacer l'élément de menu"
+msgstr "DÃ©placer l'Ã©lÃ©ment de menu"
 
 msgctxt "#31074"
 msgid "Choose item to swap places with"
-msgstr "Choisir l'élément à interchanger"
+msgstr "Choisir l'Ã©lÃ©ment Ã  interchanger"
 
 msgctxt "#31075"
 msgid "No extra features available"
-msgstr "Fonction supplémentaire non disponible"
+msgstr "Fonction supplÃ©mentaire non disponible"
 
 msgctxt "#31076"
 msgid "Landscape"
@@ -343,7 +343,7 @@ msgstr "Gestion du sous-menu"
 
 msgctxt "#31081"
 msgid "Enable custom submenus"
-msgstr "Activer les sous-menus personnalisés"
+msgstr "Activer les sous-menus personnalisÃ©s"
 
 msgctxt "#31082"
 msgid "Detach RSS feed from the main menu"
@@ -351,31 +351,31 @@ msgstr "Retirer les flux RSS du menu principal"
 
 msgctxt "#31083"
 msgid "Enable Next Aired information in the videolibrary"
-msgstr "Activer l'information de prochaine diffusion dans la bibliothèque vidéo"
+msgstr "Activer l'information de prochaine diffusion dans la bibliothÃ¨que vidÃ©o"
 
 msgctxt "#31084"
 msgid "Conditional weather"
-msgstr "Météo conditionnelle"
+msgstr "MÃ©tÃ©o conditionnelle"
 
 msgctxt "#31085"
 msgid "Musicvideo library statistics"
-msgstr "Statistiques de la médiathèque de vidéos musicales"
+msgstr "Statistiques de la mÃ©diathÃ¨que de vidÃ©os musicales"
 
 msgctxt "#31086"
 msgid "Icon"
-msgstr "Icône"
+msgstr "IcÃ´ne"
 
 msgctxt "#31087"
 msgid "Banner"
-msgstr "Bannière"
+msgstr "BanniÃ¨re"
 
 msgctxt "#31088"
 msgid "BannerWall"
-msgstr "Mur de bannières"
+msgstr "Mur de banniÃ¨res"
 
 msgctxt "#31089"
 msgid "Play item on startup"
-msgstr "Jouer l'élément au démarrage"
+msgstr "Jouer l'Ã©lÃ©ment au dÃ©marrage"
 
 msgctxt "#31090"
 msgid "Seconds"
@@ -383,11 +383,11 @@ msgstr "Secondes"
 
 msgctxt "#31091"
 msgid "Select items"
-msgstr "Sélectionner les éléments"
+msgstr "SÃ©lectionner les Ã©lÃ©ments"
 
 msgctxt "#31092"
 msgid "Fullscreen fanart"
-msgstr "FanArt plein écran"
+msgstr "FanArt plein Ã©cran"
 
 msgctxt "#31093"
 msgid "LowList toggle"
@@ -411,11 +411,11 @@ msgstr "Statistiques de la liste de lecture films"
 
 msgctxt "#31098"
 msgid "TV Show playlist statistics"
-msgstr "Statistiques de la liste de lecture séries TV"
+msgstr "Statistiques de la liste de lecture sÃ©ries TV"
 
 msgctxt "#31099"
 msgid "Musicvideo playlist statistics"
-msgstr "Statistiques de la liste de lecture Clips vidéos"
+msgstr "Statistiques de la liste de lecture Clips vidÃ©os"
 
 msgctxt "#31100"
 msgid "View:"
@@ -427,7 +427,7 @@ msgstr "Choisir vue"
 
 msgctxt "#31102"
 msgid "Background"
-msgstr "Arrière-plan"
+msgstr "ArriÃ¨re-plan"
 
 msgctxt "#31103"
 msgid "N/A"
@@ -455,11 +455,11 @@ msgstr "Activer le flux d'information de l'artiste (si disponible)"
 
 msgctxt "#31109"
 msgid "Unwatched episode count"
-msgstr "Nombre d'épisodes non vus"
+msgstr "Nombre d'Ã©pisodes non vus"
 
 msgctxt "#31110"
 msgid "Solid color backgrounds"
-msgstr "Arrière-plans avec couleur unie"
+msgstr "ArriÃ¨re-plans avec couleur unie"
 
 msgctxt "#31111"
 msgid "Similar"
@@ -467,11 +467,11 @@ msgstr "Similaire"
 
 msgctxt "#31112"
 msgid "Movies directed by"
-msgstr "Films réalisés par"
+msgstr "Films rÃ©alisÃ©s par"
 
 msgctxt "#31113"
 msgid "Movies written by"
-msgstr "Films écrits par"
+msgstr "Films Ã©crits par"
 
 msgctxt "#31114"
 msgid "More from"
@@ -479,7 +479,7 @@ msgstr "Plus de"
 
 msgctxt "#31115"
 msgid "Alternate sublabel"
-msgstr "Sous-étiquette alternative"
+msgstr "Sous-Ã©tiquette alternative"
 
 msgctxt "#31116"
 msgid "cycle fanart"
@@ -491,11 +491,11 @@ msgstr "Repli"
 
 msgctxt "#31118"
 msgid "Cache movie extrafanart"
-msgstr "Télécharger l'extra-FanArt du film en cache"
+msgstr "TÃ©lÃ©charger l'extra-FanArt du film en cache"
 
 msgctxt "#31119"
 msgid "Show the movies from this director in your library or view online information on this director on TMDb?"
-msgstr "Faut-il afficher les films de ce réalisateur dans la médiathèque ou voir en ligne les informations de ce réalisateur sur TMDb ?"
+msgstr "Faut-il afficher les films de ce rÃ©alisateur dans la mÃ©diathÃ¨que ou voir en ligne les informations de ce rÃ©alisateur sur TMDb ?"
 
 msgctxt "#31120"
 msgid "TMDb"
@@ -507,7 +507,7 @@ msgstr "Activer la saisie semi-automatique"
 
 msgctxt "#31122"
 msgid "Enables the autocomplete feature of the virtual keyboard"
-msgstr "Active la fonction de complétion automatique du clavier virtuel"
+msgstr "Active la fonction de complÃ©tion automatique du clavier virtuel"
 
 msgctxt "#31123"
 msgid "Album review"
@@ -515,31 +515,31 @@ msgstr "Critique de l'album"
 
 msgctxt "#31124"
 msgid "Show Background \"Now Playing\" Video"
-msgstr "Afficher la vidéo « En cours de lecture » en arrière-plan"
+msgstr "Afficher la vidÃ©o Â« En cours de lecture Â» en arriÃ¨re-plan"
 
 msgctxt "#31125"
 msgid "Show Background \"Now Playing\" Visualisation"
-msgstr "Afficher la visualisation « En cours de lecture » en arrière-plan"
+msgstr "Afficher la visualisation Â« En cours de lecture Â» en arriÃ¨re-plan"
 
 msgctxt "#31126"
 msgid "TheMovieDb Helper provides details about movies, tvshows and actors from TMDb."
-msgstr "TheMovieDb Helper fournit des détails sur les films, les séries TV et les acteurs via TMDb."
+msgstr "TheMovieDb Helper fournit des dÃ©tails sur les films, les sÃ©ries TV et les acteurs via TMDb."
 
 msgctxt "#31127"
 msgid "Enable Extended Info integration"
-msgstr "Activer les informations étendues"
+msgstr "Activer les informations Ã©tendues"
 
 msgctxt "#31128"
 msgid "Channels View"
-msgstr "Vue des chaînes"
+msgstr "Vue des chaÃ®nes"
 
 msgctxt "#31129"
 msgid "Hide Fanart in full screen visualisation"
-msgstr "Cache les Fanarts en mode plein écran"
+msgstr "Cache les Fanarts en mode plein Ã©cran"
 
 msgctxt "#31130"
 msgid "Use \"Enigma2-style\" channel OSD"
-msgstr "Utiliser « Enigma2-style » sur l'incrustation des chaînes"
+msgstr "Utiliser Â« Enigma2-style Â» sur l'incrustation des chaÃ®nes"
 
 msgctxt "#31131"
 msgid "Guide Timeline View"
@@ -551,7 +551,7 @@ msgstr "Tuner :"
 
 msgctxt "#31133"
 msgid "Timeline channels-type:"
-msgstr "Type de chaînes de la ligne temporelle :"
+msgstr "Type de chaÃ®nes de la ligne temporelle :"
 
 msgctxt "#31134"
 msgid "Timeline view-type:"
@@ -579,7 +579,7 @@ msgstr "Masquer la puissance du signal"
 
 msgctxt "#31140"
 msgid "Sideblade Options"
-msgstr "Options des bandes latérales"
+msgstr "Options des bandes latÃ©rales"
 
 msgctxt "#31141"
 msgid "Hide Guide"
@@ -587,7 +587,7 @@ msgstr "Masquer le guide des programmes"
 
 msgctxt "#31142"
 msgid "Settings level"
-msgstr "Niveau de paramétrage"
+msgstr "Niveau de paramÃ©trage"
 
 msgctxt "#31143"
 msgid "Hide Recordings"
@@ -603,7 +603,7 @@ msgstr "Masquer la recherche"
 
 msgctxt "#31146"
 msgid "Rated"
-msgstr "Noté"
+msgstr "NotÃ©"
 
 msgctxt "#31147"
 msgid "Change rating"
@@ -611,7 +611,7 @@ msgstr "Modifier la notation"
 
 msgctxt "#31148"
 msgid "List local library items"
-msgstr "Afficher les éléments de la médiathèque locale"
+msgstr "Afficher les Ã©lÃ©ments de la mÃ©diathÃ¨que locale"
 
 msgctxt "#31149"
 msgid "Online information from TMDb"
@@ -623,7 +623,7 @@ msgstr "Logo IMDb"
 
 msgctxt "#31151"
 msgid "View settings"
-msgstr "Paramètres de la vue"
+msgstr "ParamÃ¨tres de la vue"
 
 msgctxt "#31152"
 msgid "Poster"
@@ -631,7 +631,7 @@ msgstr "Affiche"
 
 msgctxt "#31153"
 msgid "Disable views"
-msgstr "Désactiver les vues"
+msgstr "DÃ©sactiver les vues"
 
 msgctxt "#31154"
 msgid "Show Artist Slideshow when playing music"
@@ -651,19 +651,19 @@ msgstr "Sous-menu toujours visible"
 
 msgctxt "#31158"
 msgid "Disable the Search icon "
-msgstr "Désactiver l'icône de recherche "
+msgstr "DÃ©sactiver l'icÃ´ne de recherche "
 
 msgctxt "#31159"
 msgid "Event log"
-msgstr "Journal des évènements"
+msgstr "Journal des Ã©vÃ¨nements"
 
 msgctxt "#31160"
 msgid "Extended"
-msgstr "Supplémentaire"
+msgstr "SupplÃ©mentaire"
 
 msgctxt "#31161"
 msgid "Choose the position of the RSS feed. Top of the screen, bottom of the screen or the default location directly underneath the main menu."
-msgstr "Choix de l'emplacement du fil RSS. Haut ou bas de l'écran, ou par défaut directement sous le menu principal."
+msgstr "Choix de l'emplacement du fil RSS. Haut ou bas de l'Ã©cran, ou par dÃ©faut directement sous le menu principal."
 
 msgctxt "#31162"
 msgid "Alternate"
@@ -671,15 +671,15 @@ msgstr "Autre"
 
 msgctxt "#31163"
 msgid "This movie is Unrated"
-msgstr "Ce film n'est pas classé"
+msgstr "Ce film n'est pas classÃ©"
 
 msgctxt "#31164"
 msgid "Enable live background for movie sets"
-msgstr "Activer l'arrière-plan dynamique pour les sagas"
+msgstr "Activer l'arriÃ¨re-plan dynamique pour les sagas"
 
 msgctxt "#31165"
 msgid "Enable to display live background for movie sets when browsing your movie library"
-msgstr "Affiche l'arrière-plan dynamique des sagas lors du parcours de la bibliothèque de films"
+msgstr "Affiche l'arriÃ¨re-plan dynamique des sagas lors du parcours de la bibliothÃ¨que de films"
 
 msgctxt "#31166"
 msgid "Enable description for a movies rating"
@@ -687,55 +687,55 @@ msgstr "Activer la description lors de la notation de film"
 
 msgctxt "#31167"
 msgid "This setting displays a reason for a movies rating. You need to use a script like Rating Update to add these values (prefix must be Rated  including a space after Rated)"
-msgstr "Cette option affiche une raison pour l'évaluation des films. Un script tel Rating Update doit être utilisé pour ajouter ces valeurs"
+msgstr "Cette option affiche une raison pour l'Ã©valuation des films. Un script tel Rating Update doit Ãªtre utilisÃ© pour ajouter ces valeurs"
 
 msgctxt "#31168"
 msgid "Enable to make the submenu permanently visible. Default is hidden until pressing down."
-msgstr "Rends les sous-menus toujours visible. Par défaut, cachés jusqu'à pression de la touche \"bas\"."
+msgstr "Rends les sous-menus toujours visible. Par dÃ©faut, cachÃ©s jusqu'Ã  pression de la touche \"bas\"."
 
 msgctxt "#31169"
 msgid "This setting hides the Search icon on the home screen."
-msgstr "Ce paramètre masque l'icone Rechercher de l'écran d'accueil."
+msgstr "Ce paramÃ¨tre masque l'icone Rechercher de l'Ã©cran d'accueil."
 
 msgctxt "#31170"
 msgid "Enabling this setting will hide the alphanumeric label displaying the current position when scrolling through your library."
-msgstr "Masque le libellé alphanumérique affichant la position actuelle lors de la navigation dans votre bibliothèque."
+msgstr "Masque le libellÃ© alphanumÃ©rique affichant la position actuelle lors de la navigation dans votre bibliothÃ¨que."
 
 msgctxt "#31171"
 msgid "This setting will activate fullscreen mode automatically after starting to play music."
-msgstr "Plein écran automatique lors d'une lecture musicale."
+msgstr "Plein Ã©cran automatique lors d'une lecture musicale."
 
 msgctxt "#31172"
 msgid "Set the path to your music collection for displaying artist logos in the music visualisation and in some views that support it."
-msgstr "Configure le chemin de la bibliothèque musicale pour afficher les logos d'artistes sur l'affichage musical et dans les vues le supportant."
+msgstr "Configure le chemin de la bibliothÃ¨que musicale pour afficher les logos d'artistes sur l'affichage musical et dans les vues le supportant."
 
 msgctxt "#31173"
 msgid "Blur background (video info dialog)"
-msgstr "Floute l'arrière-plan (fenêtre d'infos vidéo)"
+msgstr "Floute l'arriÃ¨re-plan (fenÃªtre d'infos vidÃ©o)"
 
 msgctxt "#31174"
 msgid "Blur background behind information"
-msgstr "Floute l'arrière-plan derrière les informations"
+msgstr "Floute l'arriÃ¨re-plan derriÃ¨re les informations"
 
 msgctxt "#31175"
 msgid "Set path to music collection/artwork (for artist logos)"
-msgstr "Configure le chemin où sont stockés les artworks musicaux (pour les logos des artistes)"
+msgstr "Configure le chemin oÃ¹ sont stockÃ©s les artworks musicaux (pour les logos des artistes)"
 
 msgctxt "#31176"
 msgid "Trending Movies"
-msgstr "Films les plus regardés"
+msgstr "Films les plus regardÃ©s"
 
 msgctxt "#31177"
 msgid "Top Rentals"
-msgstr "Les plus loués"
+msgstr "Les plus louÃ©s"
 
 msgctxt "#31178"
 msgid "Trending Shows"
-msgstr "Séries TV les plus regardées"
+msgstr "SÃ©ries TV les plus regardÃ©es"
 
 msgctxt "#31179"
 msgid "Live TV settings"
-msgstr "Paramètres pour TV en Direct"
+msgstr "ParamÃ¨tres pour TV en Direct"
 
 msgctxt "#31180"
 msgid "Minutes left"
@@ -763,7 +763,7 @@ msgstr "Heures restantes"
 
 msgctxt "#31186"
 msgid "Handwritten"
-msgstr "Écrit à la main"
+msgstr "Ã‰crit Ã  la main"
 
 msgctxt "#31187"
 msgid "Music layout alignment"
@@ -779,15 +779,15 @@ msgstr "Mise en page"
 
 msgctxt "#31190"
 msgid "Video info"
-msgstr "Infos de la vidéo"
+msgstr "Infos de la vidÃ©o"
 
 msgctxt "#31191"
 msgid "Enable cases for live backgrounds"
-msgstr "Activer les boîtiers sur les fonds d'écran dynamiques"
+msgstr "Activer les boÃ®tiers sur les fonds d'Ã©cran dynamiques"
 
 msgctxt "#31192"
 msgid "Set default background"
-msgstr "Choix de l'arrière-plan par défaut"
+msgstr "Choix de l'arriÃ¨re-plan par dÃ©faut"
 
 msgctxt "#31193"
 msgid "Display extrafanart"
@@ -795,7 +795,7 @@ msgstr "Active l'extra-fanart"
 
 msgctxt "#31194"
 msgid "Display runtime in hours and minutes"
-msgstr "Temps restant affiché en heures et minutes"
+msgstr "Temps restant affichÃ© en heures et minutes"
 
 msgctxt "#31195"
 msgid "Show time remaining on fullscreen info"
@@ -803,35 +803,35 @@ msgstr "Affichage du temps restant si pression sur touche \"info\""
 
 msgctxt "#31196"
 msgid "Replace default with Extended Info (some features and extras (+) will be unavailable)"
-msgstr "Remplacer la valeur par défaut par Extended Info (certaines fonctionnalités et extras (+) seront indisponibles)"
+msgstr "Remplacer la valeur par dÃ©faut par Extended Info (certaines fonctionnalitÃ©s et extras (+) seront indisponibles)"
 
 msgctxt "#31197"
 msgid "Enable info rating (works with US Ratings only)"
-msgstr "Activer les infos de notation (fonctionne uniquement avec les notations américaines)"
+msgstr "Activer les infos de notation (fonctionne uniquement avec les notations amÃ©ricaines)"
 
 msgctxt "#31198"
 msgid "This setting controls the appearance of cases when using Live Backgrounds"
-msgstr "Ce réglage contrôle l'apparence des boîtiers sur un fonds d'écran dynamique"
+msgstr "Ce rÃ©glage contrÃ´le l'apparence des boÃ®tiers sur un fonds d'Ã©cran dynamique"
 
 msgctxt "#31199"
 msgid "Used to select the default/fallback image skin wide"
-msgstr "Utilisé pour sélectionner l'image par défaut de l'habillage"
+msgstr "UtilisÃ© pour sÃ©lectionner l'image par dÃ©faut de l'habillage"
 
 msgctxt "#31200"
 msgid "The Image Resource Select Add-on is used to choose a Kodi resource image pack similiar to weather artwork and icons."
-msgstr "Le module complémentaire Image Resource Select est utilisé pour choisir un pack d'images de ressources Kodi similaire aux illustrations et icônes météorologiques."
+msgstr "Le module complÃ©mentaire Image Resource Select est utilisÃ© pour choisir un pack d'images de ressources Kodi similaire aux illustrations et icÃ´nes mÃ©tÃ©orologiques."
 
 msgctxt "#31201"
 msgid "Changes the runtime labels throughout the skin from minutes to hours/minutes"
-msgstr "Change l'affichage de durée partout dans l'habillage, en heures/minutes au lieu de minutes"
+msgstr "Change l'affichage de durÃ©e partout dans l'habillage, en heures/minutes au lieu de minutes"
 
 msgctxt "#31202"
 msgid "Show the remaining time for currently playing videos when pressing info"
-msgstr "Affiche le temps restant de la vidéo en cours en pressant infos"
+msgstr "Affiche le temps restant de la vidÃ©o en cours en pressant infos"
 
 msgctxt "#31203"
 msgid "In Theaters"
-msgstr "À l'affiche (source TheMovieDB)"
+msgstr "Ã€ l'affiche (source TheMovieDB)"
 
 msgctxt "#31204"
 msgid "ComingSoon"
@@ -855,7 +855,7 @@ msgstr "Meilleurs sorties"
 
 msgctxt "#31209"
 msgid "In Cinemas"
-msgstr "Actuellement au cinéma (source Rotten Tomatoes)"
+msgstr "Actuellement au cinÃ©ma (source Rotten Tomatoes)"
 
 msgctxt "#31210"
 msgid "Popular Movies"
@@ -863,27 +863,27 @@ msgstr "Fims populaires"
 
 msgctxt "#31211"
 msgid "Top Rated Movies"
-msgstr "Films les mieux notés"
+msgstr "Films les mieux notÃ©s"
 
 msgctxt "#31212"
 msgid "Popular TV"
-msgstr "Séries TV populaires"
+msgstr "SÃ©ries TV populaires"
 
 msgctxt "#31213"
 msgid "Top Rated TV"
-msgstr "Séries TV les mieux notées"
+msgstr "SÃ©ries TV les mieux notÃ©es"
 
 msgctxt "#31214"
 msgid "Currently Airing TV"
-msgstr "Séries TV actuellement diffusées"
+msgstr "SÃ©ries TV actuellement diffusÃ©es"
 
 msgctxt "#31215"
 msgid "TV Airing Today"
-msgstr "Séries TV diffusées aujourd'hui"
+msgstr "SÃ©ries TV diffusÃ©es aujourd'hui"
 
 msgctxt "#31216"
 msgid "Longer details"
-msgstr "Plus de détails"
+msgstr "Plus de dÃ©tails"
 
 msgctxt "#31217"
 msgid "Single logo"
@@ -891,7 +891,7 @@ msgstr "Simple logo"
 
 msgctxt "#31218"
 msgid "Use vinyl record instead of blank CD for disc fallback"
-msgstr "Utiliser un vinyl au lieu d'un CD comme disque par défaut"
+msgstr "Utiliser un vinyl au lieu d'un CD comme disque par dÃ©faut"
 
 msgctxt "#31219"
 msgid "Language flags"
@@ -919,23 +919,23 @@ msgstr "Affichage de la barre de recherche"
 
 msgctxt "#31225"
 msgid "Time remaining label"
-msgstr "Durée restante"
+msgstr "DurÃ©e restante"
 
 msgctxt "#31226"
 msgid "Time elapsed/Total duration"
-msgstr "Durée écoulée/Durée totale"
+msgstr "DurÃ©e Ã©coulÃ©e/DurÃ©e totale"
 
 msgctxt "#31227"
 msgid "Time elapsed/Time remaining"
-msgstr "Durée écoulée/Durée restante"
+msgstr "DurÃ©e Ã©coulÃ©e/DurÃ©e restante"
 
 msgctxt "#31228"
 msgid "Time remaining/Total duration"
-msgstr "Durée restante/Durée totale"
+msgstr "DurÃ©e restante/DurÃ©e totale"
 
 msgctxt "#31229"
 msgid "Extended Panel"
-msgstr "Panneau étendu"
+msgstr "Panneau Ã©tendu"
 
 msgctxt "#31230"
 msgid "Panel"
@@ -967,7 +967,7 @@ msgstr "Glisser vers la droite"
 
 msgctxt "#31237"
 msgid "Cache tv extrafanart"
-msgstr "Télécharger l'extrafanart TV en cache"
+msgstr "TÃ©lÃ©charger l'extrafanart TV en cache"
 
 msgctxt "#31238"
 msgid "SongList"
@@ -975,7 +975,7 @@ msgstr "Liste des titres"
 
 msgctxt "#31239"
 msgid "RightList"
-msgstr "Liste côté droit"
+msgstr "Liste cÃ´tÃ© droit"
 
 msgctxt "#31240"
 msgid "FanartList"
@@ -1003,7 +1003,7 @@ msgstr "Mur"
 
 msgctxt "#31246"
 msgid "Fullscreen Wall"
-msgstr "Mur plein écran"
+msgstr "Mur plein Ã©cran"
 
 msgctxt "#31247"
 msgid "InfoWall"
@@ -1011,7 +1011,7 @@ msgstr "Mur d'infos"
 
 msgctxt "#31248"
 msgid "BannerPlex"
-msgstr "Bannières Plex"
+msgstr "BanniÃ¨res Plex"
 
 msgctxt "#31249"
 msgid "BigFan"
@@ -1027,11 +1027,11 @@ msgstr "Galerie"
 
 msgctxt "#31252"
 msgid "TopBar"
-msgstr "Barre supérieure"
+msgstr "Barre supÃ©rieure"
 
 msgctxt "#31253"
 msgid "Banners"
-msgstr "Bannière"
+msgstr "BanniÃ¨re"
 
 msgctxt "#31254"
 msgid "Smaller posters"
@@ -1051,7 +1051,7 @@ msgstr "Titres des sagas"
 
 msgctxt "#31258"
 msgid "Blur background (extended info dialog)"
-msgstr "Flouter l'arrière-plan (boîte de dialogue d'informations étendues)"
+msgstr "Flouter l'arriÃ¨re-plan (boÃ®te de dialogue d'informations Ã©tendues)"
 
 msgctxt "#31259"
 msgid "Center"
@@ -1059,31 +1059,31 @@ msgstr "Centrer"
 
 msgctxt "#31260"
 msgid "Set background rotation speed"
-msgstr "Définir la vitesse de rotation de l'arrière-plan"
+msgstr "DÃ©finir la vitesse de rotation de l'arriÃ¨re-plan"
 
 msgctxt "#31261"
 msgid "Choose the position of the RSS feed. Top of the screen or bottom of the screen."
-msgstr "Choisir la position du flux RSS. Haut ou bas de l'écran."
+msgstr "Choisir la position du flux RSS. Haut ou bas de l'Ã©cran."
 
 msgctxt "#31262"
 msgid "Hides the labels below the icons on the main menu."
-msgstr "Masque les libellés en-dessous des icones du menu principal."
+msgstr "Masque les libellÃ©s en-dessous des icones du menu principal."
 
 msgctxt "#31263"
 msgid "Hide menu labels"
-msgstr "Cache les libellés de menu"
+msgstr "Cache les libellÃ©s de menu"
 
 msgctxt "#31264"
 msgid "Displays artist fanart provided by the Artist Slideshow addon as the background of the home menu."
-msgstr "Affiche le fanart de l'artiste fourni par l'extention Artist Slideshow comme arrière-plan dans l'accueil."
+msgstr "Affiche le fanart de l'artiste fourni par l'extention Artist Slideshow comme arriÃ¨re-plan dans l'accueil."
 
 msgctxt "#31265"
 msgid "This will reset the main menu to its defaults.[CR]This action cannot be undone."
-msgstr "Réinitialise le menu principal à ses valeurs par défaut.[CR]Cette action est irréversible."
+msgstr "RÃ©initialise le menu principal Ã  ses valeurs par dÃ©faut.[CR]Cette action est irrÃ©versible."
 
 msgctxt "#31266"
 msgid "Hide player control buttons"
-msgstr "Masquer les boutons de contrôle de lecture"
+msgstr "Masquer les boutons de contrÃ´le de lecture"
 
 msgctxt "#31267"
 msgid "Hide time & date"
@@ -1099,7 +1099,7 @@ msgstr "Cache le widget de la prochaine piste"
 
 msgctxt "#31270"
 msgid "Add to CouchPotato"
-msgstr "Ajouter à CouchPotato"
+msgstr "Ajouter Ã  CouchPotato"
 
 msgctxt "#31271"
 msgid "Click for more"
@@ -1107,7 +1107,7 @@ msgstr "Cliquer pour plus d'infos"
 
 msgctxt "#31272"
 msgid "Awards"
-msgstr "Récompenses"
+msgstr "RÃ©compenses"
 
 msgctxt "#31273"
 msgid "Recording widget"
@@ -1119,7 +1119,7 @@ msgstr "Artwork"
 
 msgctxt "#31275"
 msgid "Case"
-msgstr "Boîtier"
+msgstr "BoÃ®tier"
 
 msgctxt "#31276"
 msgid "Style"
@@ -1131,7 +1131,7 @@ msgstr "Tri par"
 
 msgctxt "#31278"
 msgid "Sort order"
-msgstr "Tri alphabétique"
+msgstr "Tri alphabÃ©tique"
 
 msgctxt "#31279"
 msgid "Add-on status"
@@ -1147,23 +1147,23 @@ msgstr "Choisir les couleurs de l'habillage"
 
 msgctxt "#31282"
 msgid "Enable startup intro"
-msgstr "Activer l'intro de démarrage"
+msgstr "Activer l'intro de dÃ©marrage"
 
 msgctxt "#31283"
 msgid "Auto open sidemenu when hovering over the top left corner"
-msgstr "Ouverture auto du menu latéral par le survol du coin haut gauche"
+msgstr "Ouverture auto du menu latÃ©ral par le survol du coin haut gauche"
 
 msgctxt "#31284"
 msgid "Enable Advanced Widgets"
-msgstr "Activer les widgets avancés"
+msgstr "Activer les widgets avancÃ©s"
 
 msgctxt "#31285"
 msgid "Global Widget Backgrounds"
-msgstr "Arrière-plan général du widget"
+msgstr "ArriÃ¨re-plan gÃ©nÃ©ral du widget"
 
 msgctxt "#31286"
 msgid "Opacity"
-msgstr "Opacité"
+msgstr "OpacitÃ©"
 
 msgctxt "#31287"
 msgid "Show list widget information"
@@ -1175,15 +1175,15 @@ msgstr "Activer le widget du panneau d'information"
 
 msgctxt "#31289"
 msgid "Hide widgets when not focused"
-msgstr "Widgets cachés si non sélectionnés"
+msgstr "Widgets cachÃ©s si non sÃ©lectionnÃ©s"
 
 msgctxt "#31290"
 msgid "This will auto open the sidemenu (where available) when hovering over the top left corner of the screen using a mouse."
-msgstr "Ceci ouvrira le menu latéral (si disponible) par le survol du coin haut gauche avec le pointeur de souris."
+msgstr "Ceci ouvrira le menu latÃ©ral (si disponible) par le survol du coin haut gauche avec le pointeur de souris."
 
 msgctxt "#31291"
 msgid "Disable scrolling label"
-msgstr "Désactiver le libellé déroulant"
+msgstr "DÃ©sactiver le libellÃ© dÃ©roulant"
 
 msgctxt "#31292"
 msgid "InfoPopup"
@@ -1191,39 +1191,39 @@ msgstr "Pop-up d'informations"
 
 msgctxt "#31293"
 msgid "Small Icons"
-msgstr "Petites icônes"
+msgstr "Petites icÃ´nes"
 
 msgctxt "#31294"
 msgid "Focused Main Menu"
-msgstr "Menu principal focalisé"
+msgstr "Menu principal focalisÃ©"
 
 msgctxt "#31295"
 msgid "Unfocused Main Menu"
-msgstr "Menu principal en non focalisé"
+msgstr "Menu principal en non focalisÃ©"
 
 msgctxt "#31296"
 msgid "Focused Submenu"
-msgstr "Sous-menu focalisé"
+msgstr "Sous-menu focalisÃ©"
 
 msgctxt "#31297"
 msgid "Unfocused Submenu"
-msgstr "Sous-menu non focalisé"
+msgstr "Sous-menu non focalisÃ©"
 
 msgctxt "#31298"
 msgid "Focused Icons label"
-msgstr "Etiquettes d'icônes focalisé"
+msgstr "Etiquettes d'icÃ´nes focalisÃ©"
 
 msgctxt "#31299"
 msgid "Unfocused Icons label"
-msgstr "Etiquette d'icônes non focalisé"
+msgstr "Etiquette d'icÃ´nes non focalisÃ©"
 
 msgctxt "#31300"
 msgid "Overview"
-msgstr "Aperçu"
+msgstr "AperÃ§u"
 
 msgctxt "#31301"
 msgid "Last Updated"
-msgstr "Dernière mise à jour"
+msgstr "DerniÃ¨re mise Ã  jour"
 
 msgctxt "#31302"
 msgid "Menu Bar"
@@ -1231,7 +1231,7 @@ msgstr "Barre de menu"
 
 msgctxt "#31303"
 msgid "System Bars"
-msgstr "Barres système"
+msgstr "Barres systÃ¨me"
 
 msgctxt "#31304"
 msgid "Highlight"
@@ -1239,7 +1239,7 @@ msgstr "Surligner"
 
 msgctxt "#31305"
 msgid "Unwatched episode"
-msgstr "Épisode non vu"
+msgstr "Ã‰pisode non vu"
 
 msgctxt "#31306"
 msgid "Customize colors"
@@ -1251,15 +1251,15 @@ msgstr "Masquer le fanart"
 
 msgctxt "#31308"
 msgid "Focused text"
-msgstr "Texte focalisé"
+msgstr "Texte focalisÃ©"
 
 msgctxt "#31309"
 msgid "Memory Used"
-msgstr "Mémoire utilisée"
+msgstr "MÃ©moire utilisÃ©e"
 
 msgctxt "#31310"
 msgid "Unfocused text"
-msgstr "Texte non focalisé"
+msgstr "Texte non focalisÃ©"
 
 msgctxt "#31311"
 msgid "New InfoPanel"
@@ -1279,79 +1279,79 @@ msgstr "Panneau"
 
 msgctxt "#31315"
 msgid "A required script is [B]NOT INSTALLED[/B]. Press INSTALL to download automatically. Press CANCEL if you would like to return to System Settings and switch skins. You may need to restart Kodi after installation completes."
-msgstr "Un script nécessaire n'est [B]PAS INSTALLÉ[/B]. Appuyer sur INSTALLER pour télécharger automatiquement. Appuyer sur ANNULER pour revenir aux paramètres système et changer d'habillage. Redémarrage nécessaire de Kodi à la fin des installations."
+msgstr "Un script nÃ©cessaire n'est [B]PAS INSTALLÃ‰[/B]. Appuyer sur INSTALLER pour tÃ©lÃ©charger automatiquement. Appuyer sur ANNULER pour revenir aux paramÃ¨tres systÃ¨me et changer d'habillage. RedÃ©marrage nÃ©cessaire de Kodi Ã  la fin des installations."
 
 msgctxt "#31316"
 msgid "A skin reload is [B]REQUIRED[/B] to disable the media menu and certain buttons that were loaded during startup.[CR]Press CANCEL to abort the requested changes."
-msgstr "Un rechargement du skin est [B]REQUIS[/B] pour désactiver le menu multimédia et certains boutons chargés au démarrage.[CR]Appuyez sur ANNULER pour abandonner les modifications demandées."
+msgstr "Un rechargement du skin est [B]REQUIS[/B] pour dÃ©sactiver le menu multimÃ©dia et certains boutons chargÃ©s au dÃ©marrage.[CR]Appuyez sur ANNULER pour abandonner les modifications demandÃ©es."
 
 msgctxt "#31317"
 msgid "Set Fanart Path"
-msgstr "Définir le chemin du fanart"
+msgstr "DÃ©finir le chemin du fanart"
 
 msgctxt "#31318"
-msgid "[B]CONFIGURE LibreELEC SETTINGS[/B][CR]Setup system option · Manage network[CR]Configure services · About LibreELEC"
-msgstr "[B]CONFIGURER LES PARAMETRES LibreELEC[/B][CR]Configurer les options système · Gérer le réseau[CR]Configurer les services · À propos de LibreELEC"
+msgid "[B]CONFIGURE LibreELEC SETTINGS[/B][CR]Setup system option Â· Manage network[CR]Configure services Â· About LibreELEC"
+msgstr "[B]CONFIGURER LES PARAMETRES LibreELEC[/B][CR]Configurer les options systÃ¨me Â· GÃ©rer le rÃ©seau[CR]Configurer les services Â· Ã€ propos de LibreELEC"
 
 msgctxt "#31319"
 msgid "Due to recent updates it is [B]RECOMMENDED[/B] to reset the Main Menu. Certain issues may be resolved by re-setting up your widgets but if issues continue please reset the Main Menu. Press CANCEL to ignore this warning and continue."
-msgstr "Suite aux récentes mises à jour il est [B]RECOMMANDÉ[/B] de réinitialiser le menu principal. Certains problèmes pourront être résolus par la réinitialisation des widgets mais si tel n'est pas le cas vous devrez réinitialiser le menu principal. Choisir ANNULER afin d'ignorer cet avertissement et continuer."
+msgstr "Suite aux rÃ©centes mises Ã  jour il est [B]RECOMMANDÃ‰[/B] de rÃ©initialiser le menu principal. Certains problÃ¨mes pourront Ãªtre rÃ©solus par la rÃ©initialisation des widgets mais si tel n'est pas le cas vous devrez rÃ©initialiser le menu principal. Choisir ANNULER afin d'ignorer cet avertissement et continuer."
 
 msgctxt "#31320"
 msgid "Last Logged In"
-msgstr "Dernière connexion"
+msgstr "DerniÃ¨re connexion"
 
 msgctxt "#31321"
 msgid "Karaoke Song Selector"
-msgstr "Sélecteur de titres du karaoké"
+msgstr "SÃ©lecteur de titres du karaokÃ©"
 
 msgctxt "#31322"
 msgid "This will disable the screensaver during music playback by hiding the visualization. This may cause unwanted [B]IMAGE RETENTION[/B] if not used carefully. Do you accept the risks and want to enable this setting?"
-msgstr "Ceci désactivera l'écran de veille pendant la lecture musicale en cachant la visualisation. Ceci pourra causer une [B]IMAGE REMANENTE[/B] si non utilisé prudemment. Acceptez-vous en les risques et désirez activer ce réglage ?"
+msgstr "Ceci dÃ©sactivera l'Ã©cran de veille pendant la lecture musicale en cachant la visualisation. Ceci pourra causer une [B]IMAGE REMANENTE[/B] si non utilisÃ© prudemment. Acceptez-vous en les risques et dÃ©sirez activer ce rÃ©glage ?"
 
 msgctxt "#31323"
 msgid "If you cannot locate the directory containing your background images, please add that location as a source in Kodi's File Manager. For more information visit http://kodi.wiki/view/File_manager"
-msgstr "Si vous ne pouvez pas localiser le répertoire contenant vos fonds d'écran, veuillez ajouter cet emplacement comme source dans le gestionnaire de fichiers de Kodi. Plus d'infos sur http://kodi.wiki/view/File_manager"
+msgstr "Si vous ne pouvez pas localiser le rÃ©pertoire contenant vos fonds d'Ã©cran, veuillez ajouter cet emplacement comme source dans le gestionnaire de fichiers de Kodi. Plus d'infos sur http://kodi.wiki/view/File_manager"
 
 msgctxt "#31324"
 msgid "Aired"
-msgstr "Diffusé"
+msgstr "DiffusÃ©"
 
 msgctxt "#31325"
 msgid "REQUIRED scripts are necessary for basic skin functions."
-msgstr "Les scripts OBLIGATOIRES sont nécessaires pour les fonctions de base du skin."
+msgstr "Les scripts OBLIGATOIRES sont nÃ©cessaires pour les fonctions de base du skin."
 
 msgctxt "#31326"
 msgid "These are RECOMMENDED scripts that add additional features. They are not needed for basic skin functionality. Some RECOMMENDED scripts may be unsuitable for low performance devices."
-msgstr "Ce sont des scripts RECOMMANDÉS qui ajoutent des fonctionnalités supplémentaires. Ils ne sont pas obligatoires pour les fonctionnalités de base du skin. Certains scripts RECOMMANDÉS peuvent ne pas convenir aux appareils de faible performance."
+msgstr "Ce sont des scripts RECOMMANDÃ‰S qui ajoutent des fonctionnalitÃ©s supplÃ©mentaires. Ils ne sont pas obligatoires pour les fonctionnalitÃ©s de base du skin. Certains scripts RECOMMANDÃ‰S peuvent ne pas convenir aux appareils de faible performance."
 
 msgctxt "#31327"
 msgid "These are OPTIONAL scripts that add extra features. They are not needed for basic skin functionality. Some OPTIONAL scripts may be unsuitable for low performance devices."
-msgstr "Ce sont des scripts OPTIONNELS qui ajoutent des fonctionnalités supplémentaires. Ils ne sont pas nécessaires pour les fonctionnalités du skin. Certains scripts peuvent ne pas convenir aux appareils de faible performance."
+msgstr "Ce sont des scripts OPTIONNELS qui ajoutent des fonctionnalitÃ©s supplÃ©mentaires. Ils ne sont pas nÃ©cessaires pour les fonctionnalitÃ©s du skin. Certains scripts peuvent ne pas convenir aux appareils de faible performance."
 
 msgctxt "#31328"
 msgid "Recently Added"
-msgstr "Ajouté récemment"
+msgstr "AjoutÃ© rÃ©cemment"
 
 msgctxt "#31329"
 msgid "Taking a Screenshot"
-msgstr "Prendre une capture d'écran"
+msgstr "Prendre une capture d'Ã©cran"
 
 msgctxt "#31330"
 msgid "This script is not available in the default Kodi repositiory. The Marmalade OpenCode repo is needed to use the click to install feature, without it this script must be installed manually."
-msgstr "Ce script n'est pas disponible dans le dépôt par défaut de Kodi. Le dépôt d'Marmalade OpenCode est nécessaire afin d'utiliser l'installation en un click, faute de quoi ce script devra être installé manuellement."
+msgstr "Ce script n'est pas disponible dans le dÃ©pÃ´t par dÃ©faut de Kodi. Le dÃ©pÃ´t d'Marmalade OpenCode est nÃ©cessaire afin d'utiliser l'installation en un click, faute de quoi ce script devra Ãªtre installÃ© manuellement."
 
 msgctxt "#31331"
 msgid "Installed"
-msgstr "Installé"
+msgstr "InstallÃ©"
 
 msgctxt "#31332"
 msgid "Not Installed or Disabled"
-msgstr "Non installé ou désactivé"
+msgstr "Non installÃ© ou dÃ©sactivÃ©"
 
 msgctxt "#31333"
 msgid "The default behavior is to display Music information for 10 seconds after a song is played or the next track in your queue begins. To display permanently reactivate the info and do not toggle it off a second time."
-msgstr "Le comportement par défaut consiste à afficher les informations sur la musique pendant 10 secondes après la lecture d'un titre ou au début de la piste suivante dans votre file d'attente. Pour afficher en permanence, réactivez les informations et ne les désactivez pas une seconde fois."
+msgstr "Le comportement par dÃ©faut consiste Ã  afficher les informations sur la musique pendant 10 secondes aprÃ¨s la lecture d'un titre ou au dÃ©but de la piste suivante dans votre file d'attente. Pour afficher en permanence, rÃ©activez les informations et ne les dÃ©sactivez pas une seconde fois."
 
 msgctxt "#31334"
 msgid "Required"
@@ -1359,7 +1359,7 @@ msgstr "Requis"
 
 msgctxt "#31335"
 msgid "Recommended"
-msgstr "Recommandé"
+msgstr "RecommandÃ©"
 
 msgctxt "#31336"
 msgid "Optional"
@@ -1367,15 +1367,15 @@ msgstr "Optionnel"
 
 msgctxt "#31337"
 msgid "Install or change settings of supported add-ons"
-msgstr "Installer ou modifier les paramètres des extensions pris en charge"
+msgstr "Installer ou modifier les paramÃ¨tres des extensions pris en charge"
 
 msgctxt "#31338"
 msgid "Enable or disable system debug logging"
-msgstr "Activer ou désactiver l'enregistrement du débogage système"
+msgstr "Activer ou dÃ©sactiver l'enregistrement du dÃ©bogage systÃ¨me"
 
 msgctxt "#31339"
 msgid "Enable or disable skin debug info"
-msgstr "Activer ou désactiver les informations relatives au débogage de l'habillage"
+msgstr "Activer ou dÃ©sactiver les informations relatives au dÃ©bogage de l'habillage"
 
 msgctxt "#31340"
 msgid "Color customization"
@@ -1383,19 +1383,19 @@ msgstr "Personnalisation des couleurs"
 
 msgctxt "#31341"
 msgid "NOT SUPPORTED"
-msgstr "NON SUPPORTÉ"
+msgstr "NON SUPPORTÃ‰"
 
 msgctxt "#31342"
 msgid "Display the status of some add-ons supported in Marmalade OpenCode. Select an add-on to install or open its settings if already installed."
-msgstr "Afficher l'état de certaines extensions prises en charge dans Marmalade OpenCode. Sélectionner une extension à installer ou ouvrir ses paramètres si déjà installée."
+msgstr "Afficher l'Ã©tat de certaines extensions prises en charge dans Marmalade OpenCode. SÃ©lectionner une extension Ã  installer ou ouvrir ses paramÃ¨tres si dÃ©jÃ  installÃ©e."
 
 msgctxt "#31343"
 msgid "Display background name"
-msgstr "Affiche le nom de l'arrière-plan"
+msgstr "Affiche le nom de l'arriÃ¨re-plan"
 
 msgctxt "#31344"
 msgid "Display title of movie/tvshow/artist on home screen if the background has a fanart slideshow as background."
-msgstr "Afficher le titre du film, de la série ou de l'artiste sur l'écran d'accueil si l'arrière-plan est un diaporama de fanarts."
+msgstr "Afficher le titre du film, de la sÃ©rie ou de l'artiste sur l'Ã©cran d'accueil si l'arriÃ¨re-plan est un diaporama de fanarts."
 
 msgctxt "#31345"
 msgid "Main Menu Customizer"
@@ -1431,11 +1431,11 @@ msgstr "Inactif"
 
 msgctxt "#31353"
 msgid "Shows an overview of the movie or episode 5 seconds after the video is paused."
-msgstr "Montre un aperçu du film ou de l'épisode 5 secondes après la pause de la vidéo."
+msgstr "Montre un aperÃ§u du film ou de l'Ã©pisode 5 secondes aprÃ¨s la pause de la vidÃ©o."
 
 msgctxt "#31354"
 msgid "Fade unfocused"
-msgstr "Fondu sur non focalisé"
+msgstr "Fondu sur non focalisÃ©"
 
 msgctxt "#31355"
 msgid "You're watching"
@@ -1443,19 +1443,19 @@ msgstr "Vous regardez"
 
 msgctxt "#31356"
 msgid "Hardware decoding"
-msgstr "Décodage matériel"
+msgstr "DÃ©codage matÃ©riel"
 
 msgctxt "#31357"
 msgid "Decoder"
-msgstr "Décodeur"
+msgstr "DÃ©codeur"
 
 msgctxt "#31358"
 msgid "Icon only"
-msgstr "Icône seule"
+msgstr "IcÃ´ne seule"
 
 msgctxt "#31359"
 msgid "Logo & Channel name"
-msgstr "Logo et nom de chaîne"
+msgstr "Logo et nom de chaÃ®ne"
 
 msgctxt "#31360"
 msgid "Large"
@@ -1475,7 +1475,7 @@ msgstr "Aucun Guide"
 
 msgctxt "#31364"
 msgid "Timeshift"
-msgstr "Différé"
+msgstr "DiffÃ©rÃ©"
 
 msgctxt "#31365"
 msgid "Customization"
@@ -1483,15 +1483,15 @@ msgstr "Personnalisation"
 
 msgctxt "#31366"
 msgid "Setup the on-screen display during fullscreen video playback."
-msgstr "Configurer l'affichage à l'écran pendant la lecture vidéo plein écran."
+msgstr "Configurer l'affichage Ã  l'Ã©cran pendant la lecture vidÃ©o plein Ã©cran."
 
 msgctxt "#31367"
 msgid "Setup the on-screen display during fullscreen music playback."
-msgstr "Configurer l'affichage à l'écran pendant la lecture de musique en plein écran."
+msgstr "Configurer l'affichage Ã  l'Ã©cran pendant la lecture de musique en plein Ã©cran."
 
 msgctxt "#31368"
 msgid "Choose settings for the video and music information screens."
-msgstr "Sélectionner les éléments à afficher sur les écrans d'information musical et vidéo."
+msgstr "SÃ©lectionner les Ã©lÃ©ments Ã  afficher sur les Ã©crans d'information musical et vidÃ©o."
 
 msgctxt "#31369"
 msgid "Million"
@@ -1499,19 +1499,19 @@ msgstr "Million"
 
 msgctxt "#31370"
 msgid "Full plot"
-msgstr "Résumé complet"
+msgstr "RÃ©sumÃ© complet"
 
 msgctxt "#31371"
 msgid "Views and widget plot preference"
-msgstr "Préférence des intrigues sur les vues et les widgets"
+msgstr "PrÃ©fÃ©rence des intrigues sur les vues et les widgets"
 
 msgctxt "#31372"
 msgid "Choose if library views and widgets should display plot outline or full plot. Falls back to full plot if no outline is available. This does not effect certain areas with limited space for the plot that have this enabled by default"
-msgstr "Choisir si les vues de la bibliothèque et les widgets doivent afficher une intrigue courte ou complète. Affiche l'intrigue complète si aucune courte n'est disponible. Cela n'affecte pas certaines zones avec un espace limité pour l'intrigue qui est activé par défaut"
+msgstr "Choisir si les vues de la bibliothÃ¨que et les widgets doivent afficher une intrigue courte ou complÃ¨te. Affiche l'intrigue complÃ¨te si aucune courte n'est disponible. Cela n'affecte pas certaines zones avec un espace limitÃ© pour l'intrigue qui est activÃ© par dÃ©faut"
 
 msgctxt "#31373"
 msgid "Customize the colors displayed throughout the skin."
-msgstr "Personnaliser les couleurs affichées sur l'ensemble de l'habillage."
+msgstr "Personnaliser les couleurs affichÃ©es sur l'ensemble de l'habillage."
 
 msgctxt "#31374"
 msgid "Latest"
@@ -1519,7 +1519,7 @@ msgstr "Dernier"
 
 msgctxt "#31375"
 msgid "Video OSD"
-msgstr "OSD vidéo"
+msgstr "OSD vidÃ©o"
 
 msgctxt "#31376"
 msgid "Music OSD"
@@ -1527,59 +1527,59 @@ msgstr "OSD musique"
 
 msgctxt "#31377"
 msgid "Altering this shortcut may prevent access to the Main Menu customizer and several skin options.[CR]Are you sure you want to perform the requested changes to this shortcut?"
-msgstr "Modifier ce raccourci peut empêcher l'accès à la personnalisation du menu principal et à plusieurs options de l'habillage.[CR]Voulez-vous vraiment effectuer les changements demandés sur ce raccourci ?"
+msgstr "Modifier ce raccourci peut empÃªcher l'accÃ¨s Ã  la personnalisation du menu principal et Ã  plusieurs options de l'habillage.[CR]Voulez-vous vraiment effectuer les changements demandÃ©s sur ce raccourci ?"
 
 msgctxt "#31378"
 msgid "Toggle SYSTEM DEBUG LOGGING on or off. When activated a visible debug overlay will appear in the top left corner of your screen. This is NOT the same as SKIN DEBUG INFO."
-msgstr "Activer ou désactiver SYSTEM DEBUG LOGGING. Lorsque activée, une superposition de débogage apparaîtra dans le coin supérieur gauche de votre écran. Différent de SKIN DEBUG INFO."
+msgstr "Activer ou dÃ©sactiver SYSTEM DEBUG LOGGING. Lorsque activÃ©e, une superposition de dÃ©bogage apparaÃ®tra dans le coin supÃ©rieur gauche de votre Ã©cran. DiffÃ©rent de SKIN DEBUG INFO."
 
 msgctxt "#31379"
 msgid "Toggle SKIN DEBUG INFO on or off. When activated a visible debug overlay will appear in the top left corner of your screen. This is NOT the same as SYSTEM DEBUG LOGGING."
-msgstr "Activer ou désactiver SKIN DEBUG INFO. Lorsque activée, une superposition de débogage apparaîtra dans le coin supérieur gauche de votre écran. Différent de SYSTEM DEBUG LOGGING."
+msgstr "Activer ou dÃ©sactiver SKIN DEBUG INFO. Lorsque activÃ©e, une superposition de dÃ©bogage apparaÃ®tra dans le coin supÃ©rieur gauche de votre Ã©cran. DiffÃ©rent de SYSTEM DEBUG LOGGING."
 
 msgctxt "#31380"
 msgid "Activating this setting will enable the skins built-in startup intro video."
-msgstr "L'activation de ce paramètre activera la vidéo d'intro au démarrage."
+msgstr "L'activation de ce paramÃ¨tre activera la vidÃ©o d'intro au dÃ©marrage."
 
 msgctxt "#31381"
 msgid "Will open the settings for the AutoComplete add-on."
-msgstr "Ouvrira les paramètres de l'extension AutoComplete."
+msgstr "Ouvrira les paramÃ¨tres de l'extension AutoComplete."
 
 msgctxt "#31382"
 msgid "Resets the path to your video genre fanart folder."
-msgstr "Restaurer le chemin du dossier des arrières plan des genres vidéo."
+msgstr "Restaurer le chemin du dossier des arriÃ¨res plan des genres vidÃ©o."
 
 msgctxt "#31383"
 msgid "Resets the path to your music genre fanart folder."
-msgstr "Restaurer le chemin du dossier des arrières plan des genres musicaux."
+msgstr "Restaurer le chemin du dossier des arriÃ¨res plan des genres musicaux."
 
 msgctxt "#31384"
 msgid "This activates animated snow falling over all backgrounds.[CR]This may cause perfomance issues on low powered devices."
-msgstr "Ceci active une chute de neige animée sur tous les arrière-plans.[CR]. Elle peut générer des problèmes de performance sur les appareils peu puissants."
+msgstr "Ceci active une chute de neige animÃ©e sur tous les arriÃ¨re-plans.[CR]. Elle peut gÃ©nÃ©rer des problÃ¨mes de performance sur les appareils peu puissants."
 
 msgctxt "#31385"
 msgid "Use this to control the opacity of the widgets. [CR]100% has no transparency."
-msgstr "Utilisez ceci pour contrôler l'opacité des widgets. [CR]100 % n'a aucune transparence."
+msgstr "Utilisez ceci pour contrÃ´ler l'opacitÃ© des widgets. [CR]100 % n'a aucune transparence."
 
 msgctxt "#31386"
 msgid "This will set a global background overriding any per-widget settings."
-msgstr "Cela définira un arrière-plan global remplaçant tous les paramètres par widget."
+msgstr "Cela dÃ©finira un arriÃ¨re-plan global remplaÃ§ant tous les paramÃ¨tres par widget."
 
 msgctxt "#31387"
 msgid "When enabled LIST style widgets will autoscroll. This does not effect PANEL style Widgets."
-msgstr "Lorsque cette option est activée, les widgets de style LIST défilent automatiquement. Cela n'affecte pas les widgets de style PANEL."
+msgstr "Lorsque cette option est activÃ©e, les widgets de style LIST dÃ©filent automatiquement. Cela n'affecte pas les widgets de style PANEL."
 
 msgctxt "#31388"
 msgid "This setting will activate cases for the info that appears when you are focused on a widget. The widget info must be enabled in the settings of the widget for it to appear."
-msgstr "Ce paramètre activera les informations lorsque vous vous déplacerez sur un widget. Les informations doivent être activées dans les paramètres du widget pour qu'elles apparaissent."
+msgstr "Ce paramÃ¨tre activera les informations lorsque vous vous dÃ©placerez sur un widget. Les informations doivent Ãªtre activÃ©es dans les paramÃ¨tres du widget pour qu'elles apparaissent."
 
 msgctxt "#31389"
 msgid "Global setting that shows the information for the focused item above or below depending on the PANEL widget location. This will override any per-widget settings and has NO effect on LIST widgets."
-msgstr "Global setting affiche les informations relatives à l'élément ciblé au-dessus ou au-dessous en fonction de l'emplacement du widget PANEL. Il remplace tous les paramètres par widget et n'a aucun effet sur les widgets LIST."
+msgstr "Global setting affiche les informations relatives Ã  l'Ã©lÃ©ment ciblÃ© au-dessus ou au-dessous en fonction de l'emplacement du widget PANEL. Il remplace tous les paramÃ¨tres par widget et n'a aucun effet sur les widgets LIST."
 
 msgctxt "#31390"
 msgid "Skin default"
-msgstr "Prédéfini par l'habillage"
+msgstr "PrÃ©dÃ©fini par l'habillage"
 
 msgctxt "#31391"
 msgid "Arial"
@@ -1587,19 +1587,19 @@ msgstr "Arial"
 
 msgctxt "#31392"
 msgid "When enabled all widgets will be hidden until you have navigated to it."
-msgstr "Lorsqu'il est activé, tous les widgets seront masqués jusqu'à ce que vous y accédiez."
+msgstr "Lorsqu'il est activÃ©, tous les widgets seront masquÃ©s jusqu'Ã  ce que vous y accÃ©diez."
 
 msgctxt "#31393"
 msgid "Ends at"
-msgstr "Termine à"
+msgstr "Termine Ã "
 
 msgctxt "#31394"
 msgid "Replace default info with Netflix style"
-msgstr "Remplacer les informations par défaut par le style Netflix"
+msgstr "Remplacer les informations par dÃ©faut par le style Netflix"
 
 msgctxt "#31395"
 msgid "Use colored genres"
-msgstr "Utiliser les genres colorisés"
+msgstr "Utiliser les genres colorisÃ©s"
 
 msgctxt "#31396"
 msgid "Lighter colors"
@@ -1607,63 +1607,63 @@ msgstr "Couleurs plus claires"
 
 msgctxt "#31397"
 msgid "Custom Widget"
-msgstr "Widget personnalisé"
+msgstr "Widget personnalisÃ©"
 
 msgctxt "#31398"
 msgid "Do you want to reset ALL skin settings and color customizations to their defaults?[CR]This action cannot be undone."
-msgstr "Souhaitez-vous réinitialiser TOUS les paramètres du skin ainsi que les personnalisations de couleur à leurs valeurs par défaut ?[CR]Cette action est irréversible."
+msgstr "Souhaitez-vous rÃ©initialiser TOUS les paramÃ¨tres du skin ainsi que les personnalisations de couleur Ã  leurs valeurs par dÃ©faut ?[CR]Cette action est irrÃ©versible."
 
 msgctxt "#31399"
 msgid "Customize the settings for the Live TV section."
-msgstr "Personnaliser les paramètres de la section TV."
+msgstr "Personnaliser les paramÃ¨tres de la section TV."
 
 msgctxt "#31400"
-msgid "[B]CONFIGURE INTERFACE SETTINGS[/B][CR]Change the skin · Set language and region[CR]Set up a screensaver · Setup master lock"
-msgstr "[B]CONFIGURER LES PARAMÈTRES DE L'INTERFACE[/B][CR]Changer de skin · Définir la langue et la région[CR]Configurer un économiseur d'écran · Configurer le verrouillage principal"
+msgid "[B]CONFIGURE INTERFACE SETTINGS[/B][CR]Change the skin Â· Set language and region[CR]Set up a screensaver Â· Setup master lock"
+msgstr "[B]CONFIGURER LES PARAMÃˆTRES DE L'INTERFACE[/B][CR]Changer de skin Â· DÃ©finir la langue et la rÃ©gion[CR]Configurer un Ã©conomiseur d'Ã©cran Â· Configurer le verrouillage principal"
 
 msgctxt "#31401"
-msgid "[B]CONFIGURE PLAYER SETTINGS[/B][CR]Configure video playback · Configure music playback[CR]Configure picture slideshow · Configure video language and subtitles"
-msgstr "[B]CONFIGURER LES PARAMÈTRES DU LECTEUR[/B][CR]Configurer la lecture vidéo · Configurer la lecture audio[CR]Configurer le diaporama · Configurer la langue et les sous-titres des vidéos"
+msgid "[B]CONFIGURE PLAYER SETTINGS[/B][CR]Configure video playback Â· Configure music playback[CR]Configure picture slideshow Â· Configure video language and subtitles"
+msgstr "[B]CONFIGURER LES PARAMÃˆTRES DU LECTEUR[/B][CR]Configurer la lecture vidÃ©o Â· Configurer la lecture audio[CR]Configurer le diaporama Â· Configurer la langue et les sous-titres des vidÃ©os"
 
 msgctxt "#31402"
-msgid "[B]CONFIGURE MEDIA SETTINGS[/B][CR]Manage sources · Set default select action[CR]Configure metadata options · Configure file list options"
-msgstr "[B]CONFIGURER LES PARAMÈTRES MÉDIA[/B][CR]Gérer les sources · Définir l'action de sélection par défaut[CR]Configurer les options des métadonnées · Configurer les options de liste de fichiers"
+msgid "[B]CONFIGURE MEDIA SETTINGS[/B][CR]Manage sources Â· Set default select action[CR]Configure metadata options Â· Configure file list options"
+msgstr "[B]CONFIGURER LES PARAMÃˆTRES MÃ‰DIA[/B][CR]GÃ©rer les sources Â· DÃ©finir l'action de sÃ©lection par dÃ©faut[CR]Configurer les options des mÃ©tadonnÃ©es Â· Configurer les options de liste de fichiers"
 
 msgctxt "#31403"
 msgid "Reset skin settings"
-msgstr "Réinitialiser les paramètres de l'habillage"
+msgstr "RÃ©initialiser les paramÃ¨tres de l'habillage"
 
 msgctxt "#31404"
 msgid "This will RESET ALL skin settings, selecting YES in the dialog that appears is irreversible. This DOES NOT affect the Main Menu items you have set in the Main Menu Customizer."
-msgstr "Cela réinitialisera tous les paramètres de l'habillage, sélectionner OUI dans la boîte de dialogue sera irréversible. Cela n'affecte PAS les éléments du menu principal que vous avez définis dans l'outil de personnalisation du menu principal."
+msgstr "Cela rÃ©initialisera tous les paramÃ¨tres de l'habillage, sÃ©lectionner OUI dans la boÃ®te de dialogue sera irrÃ©versible. Cela n'affecte PAS les Ã©lÃ©ments du menu principal que vous avez dÃ©finis dans l'outil de personnalisation du menu principal."
 
 msgctxt "#31405"
-msgid "[B]MONITOR YOUR SYSTEM[/B][CR]Check out your hardware[CR]Check Kodi revision number · Monitor CPU usage"
-msgstr "[B]SURVEILLER VOTRE SYSTÈME[/B][CR]Vérifier votre matériel[CR]Vérifier la version de Kodi · Surveiller l'utilisation du processeur"
+msgid "[B]MONITOR YOUR SYSTEM[/B][CR]Check out your hardware[CR]Check Kodi revision number Â· Monitor CPU usage"
+msgstr "[B]SURVEILLER VOTRE SYSTÃˆME[/B][CR]VÃ©rifier votre matÃ©riel[CR]VÃ©rifier la version de Kodi Â· Surveiller l'utilisation du processeur"
 
 msgctxt "#31406"
-msgid "[B]CONFIGURE SYSTEM SETTINGS[/B][CR]Setup and calibrate displays · Configure audio output[CR]Set power saving options · Configure proxy settings · Enable debugging"
-msgstr "[B]CONFIGURER LES PARAMÈTRES SYSTÈME[/B][CR]Configurer et calibrer les écrans · Configurer la sortie audio[CR]Définir les options d'économie d'énergie · Configurer les paramètres de proxy · Activer le débogage"
+msgid "[B]CONFIGURE SYSTEM SETTINGS[/B][CR]Setup and calibrate displays Â· Configure audio output[CR]Set power saving options Â· Configure proxy settings Â· Enable debugging"
+msgstr "[B]CONFIGURER LES PARAMÃˆTRES SYSTÃˆME[/B][CR]Configurer et calibrer les Ã©crans Â· Configurer la sortie audio[CR]DÃ©finir les options d'Ã©conomie d'Ã©nergie Â· Configurer les paramÃ¨tres de proxy Â· Activer le dÃ©bogage"
 
 msgctxt "#31407"
-msgid "[B]CONFIGURE PROFILES[/B][CR]Setup and manage user profiles[CR]Change password · Enable login screen"
-msgstr "[B]CONFIGURER LES PROFILS[/B][CR]Configurer et gérer les profils utilisateur[CR]Modifier le mot de passe · Activer l'écran de connexion"
+msgid "[B]CONFIGURE PROFILES[/B][CR]Setup and manage user profiles[CR]Change password Â· Enable login screen"
+msgstr "[B]CONFIGURER LES PROFILS[/B][CR]Configurer et gÃ©rer les profils utilisateur[CR]Modifier le mot de passe Â· Activer l'Ã©cran de connexion"
 
 msgctxt "#31408"
 msgid "Enable to show a LiveTV widget displaying what is currently recording and the next timer that is scheduled to record."
-msgstr "Activer pour voir le widget LiveTV qui affiche ce qui est en cours d'enregistrement ainsi que le prochain enregistrement programmé."
+msgstr "Activer pour voir le widget LiveTV qui affiche ce qui est en cours d'enregistrement ainsi que le prochain enregistrement programmÃ©."
 
 msgctxt "#31409"
-msgid "[B]CONFIGURE LIVE TV SETTINGS[/B][CR]Change full screen info[CR]Manage Guide data settings  •  Configure recording options"
-msgstr "[B]CONFIGURER LES PARAMÈTRES TV[/B][CR]Modifier les informations plein écran[CR]Gérer les paramètres du guide • Configurer les options d'enregistrement"
+msgid "[B]CONFIGURE LIVE TV SETTINGS[/B][CR]Change full screen info[CR]Manage Guide data settings  â€¢  Configure recording options"
+msgstr "[B]CONFIGURER LES PARAMÃˆTRES TV[/B][CR]Modifier les informations plein Ã©cran[CR]GÃ©rer les paramÃ¨tres du guide â€¢ Configurer les options d'enregistrement"
 
 msgctxt "#31410"
-msgid "[B]CONFIGURE SERVICE SETTINGS[/B][CR]Setup control of Kodi via UPnP and HTTP · Configure file sharing[CR]Enable Zeroconf · Configure AirPlay"
-msgstr "[B]CONFIGURATION DES SERVICES[/B][CR]Configuration du contrôle de Kodi via UPnP et HTTP[CR]Configuration du partage de fichiers[CR]Activation Zeroconf · Configuration AirPlay"
+msgid "[B]CONFIGURE SERVICE SETTINGS[/B][CR]Setup control of Kodi via UPnP and HTTP Â· Configure file sharing[CR]Enable Zeroconf Â· Configure AirPlay"
+msgstr "[B]CONFIGURATION DES SERVICES[/B][CR]Configuration du contrÃ´le de Kodi via UPnP et HTTP[CR]Configuration du partage de fichiers[CR]Activation Zeroconf Â· Configuration AirPlay"
 
 msgctxt "#31411"
 msgid "Will override the General Theme color."
-msgstr "Outrepassera la couleur générale du thème."
+msgstr "Outrepassera la couleur gÃ©nÃ©rale du thÃ¨me."
 
 msgctxt "#31412"
 msgid "Select section"
@@ -1675,51 +1675,51 @@ msgstr "Sous-titre disponible localement"
 
 msgctxt "#31414"
 msgid "Set the Main Theme color used throughout the skin."
-msgstr "Définir la couleur du thème principal utilisée dans tout le skin."
+msgstr "DÃ©finir la couleur du thÃ¨me principal utilisÃ©e dans tout le skin."
 
 msgctxt "#31415"
 msgid "Set the Highlight color used throughout the skin."
-msgstr "Définir la couleur de surbrillance à utilisée dans tout le skin."
+msgstr "DÃ©finir la couleur de surbrillance Ã  utilisÃ©e dans tout le skin."
 
 msgctxt "#31416"
 msgid "Set to add color to the UnWatched Episode count."
-msgstr "Définir la couleur du compteur d'épisodes non vus."
+msgstr "DÃ©finir la couleur du compteur d'Ã©pisodes non vus."
 
 msgctxt "#31417"
 msgid "Set the Main Menu Theme color."
-msgstr "Définir la couleur du thème du menu principal."
+msgstr "DÃ©finir la couleur du thÃ¨me du menu principal."
 
 msgctxt "#31418"
 msgid "Choose the color for the TopBar in views and other sections not on the Home screen."
-msgstr "Choisir la couleur de la barre supérieure dans les vues et autres sections qui ne figurent pas dans l'écran d'accueil."
+msgstr "Choisir la couleur de la barre supÃ©rieure dans les vues et autres sections qui ne figurent pas dans l'Ã©cran d'accueil."
 
 msgctxt "#31419"
 msgid "Enable this to change the default transparent color to a more solid FULL COLOR image."
-msgstr "Activer cette option pour changer la couleur transparente par défaut en une image en COULEUR UNIE."
+msgstr "Activer cette option pour changer la couleur transparente par dÃ©faut en une image en COULEUR UNIE."
 
 msgctxt "#31420"
 msgid "Choose the color of the Progress bar displayed during fullscreen video playback."
-msgstr "Choisir la couleur d'affichage de la barre de progression pendant la lecture des vidéos en plein écran."
+msgstr "Choisir la couleur d'affichage de la barre de progression pendant la lecture des vidÃ©os en plein Ã©cran."
 
 msgctxt "#31421"
 msgid "Select your Kodi user profile[CR]to login and continue"
-msgstr "Sélectionner le profil Kodi[CR]pour se connecter et continuer"
+msgstr "SÃ©lectionner le profil Kodi[CR]pour se connecter et continuer"
 
 msgctxt "#31422"
 msgid "Customize the Widget Highlight color on the home screen."
-msgstr "Personnaliser la couleur de surbrillance des widgets sur l'écran d'accueil."
+msgstr "Personnaliser la couleur de surbrillance des widgets sur l'Ã©cran d'accueil."
 
 msgctxt "#31423"
 msgid "Will override the General Highlight color."
-msgstr "Remplacera la couleur de surbrillance générale."
+msgstr "Remplacera la couleur de surbrillance gÃ©nÃ©rale."
 
 msgctxt "#31424"
 msgid "This will change the color of the Widget background when selecting one of the Colored options in the Global setting in the Widgets section or individually in the Menu Customizer if you did not enable Global backgrounds."
-msgstr "Cela modifie la couleur de l'arrière-plan du widget en sélectionnant l'une des options de couleur dans les paramètre globaux de la section Widgets ou individuellement dans le menu Customiser si vous n'avez pas activé les arrière-plans globaux."
+msgstr "Cela modifie la couleur de l'arriÃ¨re-plan du widget en sÃ©lectionnant l'une des options de couleur dans les paramÃ¨tre globaux de la section Widgets ou individuellement dans le menu Customiser si vous n'avez pas activÃ© les arriÃ¨re-plans globaux."
 
 msgctxt "#31425"
 msgid "Use this to customize the color on the Home window for the item selected."
-msgstr "Utiliser-le pour personnaliser la couleur de la fenêtre d'accueil pour l'élément sélectionné."
+msgstr "Utiliser-le pour personnaliser la couleur de la fenÃªtre d'accueil pour l'Ã©lÃ©ment sÃ©lectionnÃ©."
 
 msgctxt "#31426"
 msgid "Enter text here..."
@@ -1731,27 +1731,27 @@ msgstr "Skin Shortcuts est responsable de la gestion de tous les aspects du menu
 
 msgctxt "#31428"
 msgid "The Grab Fanart script provides the random fanart slideshows for the main menu."
-msgstr "Le script Grab Fanart fournit les diaporamas de fanarts aléatoires du menu principal."
+msgstr "Le script Grab Fanart fournit les diaporamas de fanarts alÃ©atoires du menu principal."
 
 msgctxt "#31429"
 msgid "Library Data Provider is a service that runs in the background to provide library data for widgets and live backgrounds as well as playlist statistics for infolines."
-msgstr "Library Data Provider est un service fonctionnant en arrière-plan et coordonne les données des bibliothèques pour les widgets, les arrière-plans en direct, ainsi que des statistiques des listes de lecture."
+msgstr "Library Data Provider est un service fonctionnant en arriÃ¨re-plan et coordonne les donnÃ©es des bibliothÃ¨ques pour les widgets, les arriÃ¨re-plans en direct, ainsi que des statistiques des listes de lecture."
 
 msgctxt "#31430"
 msgid "Resource image addon for displaying the default white studio icons throughout the skin."
-msgstr "L'extension Resource Image affiche les icônes de studio blanc par défaut dans l'habillage."
+msgstr "L'extension Resource Image affiche les icÃ´nes de studio blanc par dÃ©faut dans l'habillage."
 
 msgctxt "#31431"
 msgid "Resource image addon for displaying the default white recording label icons throughout the skin."
-msgstr "L'extension Resource image affiche les étiquettes d'enregistrement en blanc par défaut dans l'habillage."
+msgstr "L'extension Resource image affiche les Ã©tiquettes d'enregistrement en blanc par dÃ©faut dans l'habillage."
 
 msgctxt "#31432"
 msgid "Embuary Info displays extended cast, crew, and video info metadata."
-msgstr "Embuary Info affiche des informations étendues sur la distribution, l'équipe et les données vidéo."
+msgstr "Embuary Info affiche des informations Ã©tendues sur la distribution, l'Ã©quipe et les donnÃ©es vidÃ©o."
 
 msgctxt "#31433"
 msgid "Skin Info Service is used to display movie set information throughout the skin."
-msgstr "Skin Info Service est utilisé pour afficher des informations sur les sagas de films sur l'ensemble de l'habillage."
+msgstr "Skin Info Service est utilisÃ© pour afficher des informations sur les sagas de films sur l'ensemble de l'habillage."
 
 msgctxt "#31434"
 msgid "Alt fanart"
@@ -1759,7 +1759,7 @@ msgstr "Autre fanart"
 
 msgctxt "#31435"
 msgid "Alt icon"
-msgstr "Autre icône"
+msgstr "Autre icÃ´ne"
 
 msgctxt "#31436"
 msgid "Center date and time when infoline is empty"
@@ -1775,27 +1775,27 @@ msgstr "Cliquer pour installer Artist Slideshow"
 
 msgctxt "#31439"
 msgid "There are no default backgrounds in this skin, would you like to choose one now?[CR]You can still select one in Skin settings > General if you choose No."
-msgstr "Il n'y a pas d'arrière-plan par défaut dans cet habillage, souhaitez-vous en choisir un maintenant ?[CR]Cependant, vous pourrez toujours en sélectionner un dans Paramètres d'habillage > Général, si vous choisissez Non."
+msgstr "Il n'y a pas d'arriÃ¨re-plan par dÃ©faut dans cet habillage, souhaitez-vous en choisir un maintenant ?[CR]Cependant, vous pourrez toujours en sÃ©lectionner un dans ParamÃ¨tres d'habillage > GÃ©nÃ©ral, si vous choisissez Non."
 
 msgctxt "#31440"
 msgid "Recently played channels"
-msgstr "Chaînes lues récemment"
+msgstr "ChaÃ®nes lues rÃ©cemment"
 
 msgctxt "#31441"
-msgid "[B]CONFIGURE GAME SETTINGS[/B][CR]Change gameplay options[CR]Keyboard settings  •  Configure rewind settings"
-msgstr "[B]CONFIGURER LES PARAMÈTRES DE JEU[/B][CR]Modifier les options de jeu[CR]Paramètres du clavier • Configurer les paramètres de retour"
+msgid "[B]CONFIGURE GAME SETTINGS[/B][CR]Change gameplay options[CR]Keyboard settings  â€¢  Configure rewind settings"
+msgstr "[B]CONFIGURER LES PARAMÃˆTRES DE JEU[/B][CR]Modifier les options de jeu[CR]ParamÃ¨tres du clavier â€¢ Configurer les paramÃ¨tres de retour"
 
 msgctxt "#31442"
 msgid "Background dimmer"
-msgstr "Variateur d'arrière-plan"
+msgstr "Variateur d'arriÃ¨re-plan"
 
 msgctxt "#31443"
 msgid "Thumb"
-msgstr "Aperçu"
+msgstr "AperÃ§u"
 
 msgctxt "#31444"
 msgid "Disable widget fanart"
-msgstr "Désactiver le fanart du widget"
+msgstr "DÃ©sactiver le fanart du widget"
 
 msgctxt "#31445"
 msgid "Main menu"
@@ -1803,31 +1803,31 @@ msgstr "Menu principal"
 
 msgctxt "#31446"
 msgid "Hide Main Menu elements when pressing back"
-msgstr "Masquer les éléments du menu principal en pressant la touche retour"
+msgstr "Masquer les Ã©lÃ©ments du menu principal en pressant la touche retour"
 
 msgctxt "#31447"
 msgid "Show a popup displaying answers to some FREQUENTLY ASKED QUESTIONS posted by users in the skins thread on the Kodi forums."
-msgstr "Afficher une fenêtre contextuelle affichant les réponses aux QUESTIONS FRÉQUEMMENT POSÉES publiées par les utilisateurs sur les forums Kodi."
+msgstr "Afficher une fenÃªtre contextuelle affichant les rÃ©ponses aux QUESTIONS FRÃ‰QUEMMENT POSÃ‰ES publiÃ©es par les utilisateurs sur les forums Kodi."
 
 msgctxt "#31448"
-msgid "[B]CONFIGURE ADD-ONS[/B][CR]Manage your installed Add-ons[CR]Browse for and install Add-ons  •  Check for Add-on updates"
-msgstr "[B]CONFIGURER LES MODULES COMPLÉMENTAIRES[/B][CR]Gérer vos modules complémentaires installés[CR]Parcourir et installer des modules complémentaires • Rechercher des mises à jour des modules complémentaires"
+msgid "[B]CONFIGURE ADD-ONS[/B][CR]Manage your installed Add-ons[CR]Browse for and install Add-ons  â€¢  Check for Add-on updates"
+msgstr "[B]CONFIGURER LES MODULES COMPLÃ‰MENTAIRES[/B][CR]GÃ©rer vos modules complÃ©mentaires installÃ©s[CR]Parcourir et installer des modules complÃ©mentaires â€¢ Rechercher des mises Ã  jour des modules complÃ©mentaires"
 
 msgctxt "#31449"
 msgid "Save & Exit"
 msgstr "Enregistrer et quitter"
 
 msgctxt "#31450"
-msgid "  •  Open Settings "
-msgstr "  •   Ouvrir les paramètres "
+msgid "  â€¢  Open Settings "
+msgstr "  â€¢   Ouvrir les paramÃ¨tres "
 
 msgctxt "#31451"
-msgid "  •  Click to Install or Enable"
-msgstr "  •  Cliquer pour installer ou activer"
+msgid "  â€¢  Click to Install or Enable"
+msgstr "  â€¢  Cliquer pour installer ou activer"
 
 msgctxt "#31452"
 msgid "Premiered"
-msgstr "1ère diffusion"
+msgstr "1Ã¨re diffusion"
 
 msgctxt "#31453"
 msgid "Down for more"
@@ -1843,7 +1843,7 @@ msgstr "Monter pour revenir"
 
 msgctxt "#31456"
 msgid "Library using Global Search"
-msgstr "Bibliothèque utilisant la recherche globale"
+msgstr "BibliothÃ¨que utilisant la recherche globale"
 
 msgctxt "#31457"
 msgid "YouTube"
@@ -1859,35 +1859,35 @@ msgstr "Groupes radio"
 
 msgctxt "#31460"
 msgid "Mini fullscreen info"
-msgstr "Mini infos plein écran"
+msgstr "Mini infos plein Ã©cran"
 
 msgctxt "#31461"
 msgid "This option requires a Weather fanart pack. If one is not installed, click GET MORE to choose one. After installation you can select it as your weather background. This is also used to display conditional Weather backgrounds for the Main Menu."
-msgstr "Cette option nécessite un pack de fanart météo. Si aucun n'est installé, cliquez sur AJOUTER pour en choisir un. Après l'installation, vous pourrez le sélectionner comme fond météo. Ceci est également utilisé pour afficher les arrière-plans météo conditionnels dans le menu principal."
+msgstr "Cette option nÃ©cessite un pack de fanart mÃ©tÃ©o. Si aucun n'est installÃ©, cliquez sur AJOUTER pour en choisir un. AprÃ¨s l'installation, vous pourrez le sÃ©lectionner comme fond mÃ©tÃ©o. Ceci est Ã©galement utilisÃ© pour afficher les arriÃ¨re-plans mÃ©tÃ©o conditionnels dans le menu principal."
 
 msgctxt "#31462"
 msgid "This option requires a Weather icon pack. If one is not installed, click GET MORE to choose one. After installation you can select it as your Weather icons."
-msgstr "Cette option nécessite un pack d'icônes Météo. Si aucun n'est installé, cliquez sur AJOUTER pour en choisir un. Après l'installation, vous pourrez le sélectionner comme icônes météo."
+msgstr "Cette option nÃ©cessite un pack d'icÃ´nes MÃ©tÃ©o. Si aucun n'est installÃ©, cliquez sur AJOUTER pour en choisir un. AprÃ¨s l'installation, vous pourrez le sÃ©lectionner comme icÃ´nes mÃ©tÃ©o."
 
 msgctxt "#31463"
 msgid "When enabled pressing BACK or BACKSPACE will hide all Main Menu elements. This does not work when media is Playing or Paused."
-msgstr "Lorsqu'il est activé, l'appui sur RETOUR ou RETOUR ARRIÈRE masque tous les éléments du menu principal. NB : Cela ne fonctionne pas lorsque le média est en lecture ou en pause."
+msgstr "Lorsqu'il est activÃ©, l'appui sur RETOUR ou RETOUR ARRIÃˆRE masque tous les Ã©lÃ©ments du menu principal. NB : Cela ne fonctionne pas lorsque le mÃ©dia est en lecture ou en pause."
 
 msgctxt "#31464"
 msgid "This will center the Date and Time when the Menu item does not have a chosen InfoLine."
-msgstr "Cela centrera la date et l'heure lorsque l'élément de menu n'a pas de ligne d'information choisie."
+msgstr "Cela centrera la date et l'heure lorsque l'Ã©lÃ©ment de menu n'a pas de ligne d'information choisie."
 
 msgctxt "#31465"
 msgid "Video & Music information"
-msgstr "Informations des vidéos & musiques"
+msgstr "Informations des vidÃ©os & musiques"
 
 msgctxt "#31466"
 msgid "Press [B]LEFT[/B] to show Plot[CR]Press [B]RIGHT[/B] to show Cast.[CR]Use [B]UP[/B] or [B]DOWN[/B] to scroll."
-msgstr "Appuyer sur [B]GAUCHE[/B] pour afficher l'intrigue[CR]Appuyer sur [B]DROITE[/B] pour afficher les rôles.[CR]Utiliser [B]HAUT[/B] ou [B]BAS[/B] pour faire défiler."
+msgstr "Appuyer sur [B]GAUCHE[/B] pour afficher l'intrigue[CR]Appuyer sur [B]DROITE[/B] pour afficher les rÃ´les.[CR]Utiliser [B]HAUT[/B] ou [B]BAS[/B] pour faire dÃ©filer."
 
 msgctxt "#31467"
 msgid "This will disable the TopBar completely and ignore all on/off view settings."
-msgstr "Cela désactivera complètement la barre supérieure et ignorera tous les paramètres d'affichage marche/arrêt."
+msgstr "Cela dÃ©sactivera complÃ¨tement la barre supÃ©rieure et ignorera tous les paramÃ¨tres d'affichage marche/arrÃªt."
 
 msgctxt "#31468"
 msgid "Restore"
@@ -1895,27 +1895,27 @@ msgstr "Restaurer"
 
 msgctxt "#31469"
 msgid "Disable the TopBar"
-msgstr "Désactiver la barre du haut"
+msgstr "DÃ©sactiver la barre du haut"
 
 msgctxt "#31470"
 msgid "Set Weather background"
-msgstr "Voir l'arrière-plan météo"
+msgstr "Voir l'arriÃ¨re-plan mÃ©tÃ©o"
 
 msgctxt "#31471"
 msgid "Set Weather icons"
-msgstr "Voir les icônes météo"
+msgstr "Voir les icÃ´nes mÃ©tÃ©o"
 
 msgctxt "#31472"
 msgid "Library using Kodi"
-msgstr "Bibliothèque utilisant Kodi"
+msgstr "BibliothÃ¨que utilisant Kodi"
 
 msgctxt "#31473"
 msgid "Helper script to edit basic metadata information of library items with support to automatically update the .nfo file of movies, TV shows, episodes and music videos."
-msgstr "Helper script modifie les informations des métadonnées de base des éléments de la bibliothèque avec prise en charge de la mise à jour automatique du fichier .nfo des films, séries TV, épisodes et clips vidéo."
+msgstr "Helper script modifie les informations des mÃ©tadonnÃ©es de base des Ã©lÃ©ments de la bibliothÃ¨que avec prise en charge de la mise Ã  jour automatique du fichier .nfo des films, sÃ©ries TV, Ã©pisodes et clips vidÃ©o."
 
 msgctxt "#31474"
 msgid "CU LRC Lyrics is used to download, sync, and display lyrics during fullscreen music playback."
-msgstr "CU LRC Lyrics est utilisé pour télécharger, synchroniser et afficher les paroles durant la lecture musicale en plein écran."
+msgstr "CU LRC Lyrics est utilisÃ© pour tÃ©lÃ©charger, synchroniser et afficher les paroles durant la lecture musicale en plein Ã©cran."
 
 msgctxt "#31475"
 msgid "critics"
@@ -1923,23 +1923,23 @@ msgstr "critiques"
 
 msgctxt "#31476"
 msgid "TV - Show Next Aired provides information of previous and next to air episodes in your library. It also provides a TV Guide for the next week or two."
-msgstr "TV - Show Next Aired fournit des informations sur les épisodes précédents et suivants diffusés dans votre bibliothèque. Il fournit également un guide TV pour une ou deux semaines."
+msgstr "TV - Show Next Aired fournit des informations sur les Ã©pisodes prÃ©cÃ©dents et suivants diffusÃ©s dans votre bibliothÃ¨que. Il fournit Ã©galement un guide TV pour une ou deux semaines."
 
 msgctxt "#31477"
 msgid "Trakt is used to synchronize your collection and personal ratings to your Trakt.tv account."
-msgstr "Trakt est utilisé pour synchroniser votre collection et vos notes personnelles avec votre compte Trakt.tv."
+msgstr "Trakt est utilisÃ© pour synchroniser votre collection et vos notes personnelles avec votre compte Trakt.tv."
 
 msgctxt "#31478"
 msgid "Artist Slideshow is used to display artist fanart for both the home screen and during fullscreen music playback."
-msgstr "Artist Slideshow affiche des fanarts sur l'écran d'accueil durant la lecture de musique en pleine écran."
+msgstr "Artist Slideshow affiche des fanarts sur l'Ã©cran d'accueil durant la lecture de musique en pleine Ã©cran."
 
 msgctxt "#31479"
 msgid "PreshowExperience can create sequences of trivia slides, show video bumpers, play trailers and more to bring the experience of a movie theater to your living room."
-msgstr "PreshowExperience peut créer des séquences de diapositives de quiz, afficher des intercalaires vidéo, lire des bandes-annonces et bien plus encore pour apporter l'expérience d'une salle de cinéma dans votre salon."
+msgstr "PreshowExperience peut crÃ©er des sÃ©quences de diapositives de quiz, afficher des intercalaires vidÃ©o, lire des bandes-annonces et bien plus encore pour apporter l'expÃ©rience d'une salle de cinÃ©ma dans votre salon."
 
 msgctxt "#31480"
 msgid "Backup and restore your Kodi database and configuration files in the event of a crash or file corruption."
-msgstr "Sauvegarde et restaure votre base de données Kodi ainsi que vos fichiers de configuration en cas de plantage ou de corruption de fichiers."
+msgstr "Sauvegarde et restaure votre base de donnÃ©es Kodi ainsi que vos fichiers de configuration en cas de plantage ou de corruption de fichiers."
 
 msgctxt "#31481"
 msgid "Ubuntu condensed"
@@ -1959,15 +1959,15 @@ msgstr "Lecture standard"
 
 msgctxt "#31485"
 msgid "Eject disc"
-msgstr "Éjecter le disque"
+msgstr "Ã‰jecter le disque"
 
 msgctxt "#31486"
 msgid "Use Video Lyrics mod"
-msgstr "Utiliser la fonction Paroles de vidéo"
+msgstr "Utiliser la fonction Paroles de vidÃ©o"
 
 msgctxt "#31487"
 msgid "More video info details"
-msgstr "Plus de détails sur la vidéo"
+msgstr "Plus de dÃ©tails sur la vidÃ©o"
 
 msgctxt "#31488"
 msgid "Plays"
@@ -1975,11 +1975,11 @@ msgstr "Lectures"
 
 msgctxt "#31489"
 msgid "Hide episode thumb when hiding plot for unwatched items"
-msgstr "Cacher la miniature de l'épisode lors du masquage de l'intrigue pour les éléments non lus"
+msgstr "Cacher la miniature de l'Ã©pisode lors du masquage de l'intrigue pour les Ã©lÃ©ments non lus"
 
 msgctxt "#31490"
-msgid "[B]CONFIGURE CoreELEC SETTINGS[/B][CR]Setup system option · Manage network[CR]Configure services · About CoreELEC"
-msgstr "[B]CONFIGURER LES PARAMÈTRES CoreELEC[/B][CR]Configurer l'option système · Gérer le réseau[CR]Configurer les services · À propos de CoreELEC"
+msgid "[B]CONFIGURE CoreELEC SETTINGS[/B][CR]Setup system option Â· Manage network[CR]Configure services Â· About CoreELEC"
+msgstr "[B]CONFIGURER LES PARAMÃˆTRES CoreELEC[/B][CR]Configurer l'option systÃ¨me Â· GÃ©rer le rÃ©seau[CR]Configurer les services Â· Ã€ propos de CoreELEC"
 
 msgctxt "#31491"
 msgid "Muted"
@@ -1987,31 +1987,31 @@ msgstr "Muet"
 
 msgctxt "#31492"
 msgid "The metadata and artwork module provides both metadata and artwork from sites like TMDB, musicbrainz and fanart.tv. It has settings used for the Skin Helper scripts."
-msgstr "Le module Metadata and Artwork fournit à la fois des informations et des illustrations provenant de sites tels que TMDB, Musicbrainz et Fanart.tv. Il utilise des paramètres du script Skin Helper."
+msgstr "Le module Metadata and Artwork fournit Ã  la fois des informations et des illustrations provenant de sites tels que TMDB, Musicbrainz et Fanart.tv. Il utilise des paramÃ¨tres du script Skin Helper."
 
 msgctxt "#31493"
 msgid "Preset themes"
-msgstr "Thèmes prédéfinis"
+msgstr "ThÃ¨mes prÃ©dÃ©finis"
 
 msgctxt "#31494"
 msgid "Hide path & filename details"
-msgstr "Masquer les détails du chemin et du nom de fichier"
+msgstr "Masquer les dÃ©tails du chemin et du nom de fichier"
 
 msgctxt "#31495"
 msgid "Do you want to reset ALL skin colors to their defaults?[CR]This action cannot be undone."
-msgstr "Voulez-vous réinitialiser TOUTES les couleurs du skin à leurs valeurs par défaut ?[CR]Cette action est irréversible."
+msgstr "Voulez-vous rÃ©initialiser TOUTES les couleurs du skin Ã  leurs valeurs par dÃ©faut ?[CR]Cette action est irrÃ©versible."
 
 msgctxt "#31496"
 msgid "Reset skin colors to default"
-msgstr "Réinitialiser les couleurs du skin par défaut"
+msgstr "RÃ©initialiser les couleurs du skin par dÃ©faut"
 
 msgctxt "#31497"
 msgid "Move the system bar to the top of the home window. Only works when the RSS feed is NOT set to the high position when enabled in System > Interface > Skin."
-msgstr "Déplacer la barre système vers le haut dans l'accueil. Ne fonctionne que lorsque le flux RSS n'est PAS défini sur la position haute dans Système > Interface > Skin."
+msgstr "DÃ©placer la barre systÃ¨me vers le haut dans l'accueil. Ne fonctionne que lorsque le flux RSS n'est PAS dÃ©fini sur la position haute dans SystÃ¨me > Interface > Skin."
 
 msgctxt "#31498"
 msgid "Move System Bar to top of screen"
-msgstr "Déplacer la barre système en haut de l'écran"
+msgstr "DÃ©placer la barre systÃ¨me en haut de l'Ã©cran"
 
 msgctxt "#31499"
 msgid "Smaller list"
@@ -2023,7 +2023,7 @@ msgstr "Cela affichera un disque vinyle au lieu d'un CD vierge."
 
 msgctxt "#31501"
 msgid "Channel group"
-msgstr "Groupe de chaînes"
+msgstr "Groupe de chaÃ®nes"
 
 msgctxt "#31502"
 msgid "Live TV"
@@ -2047,11 +2047,11 @@ msgstr "Groupes disponibles"
 
 msgctxt "#31507"
 msgid "Show clearart in tv information"
-msgstr "Afficher le Clearart dans les informations de la télévision"
+msgstr "Afficher le Clearart dans les informations de la tÃ©lÃ©vision"
 
 msgctxt "#31508"
 msgid "Move OSD buttons to top"
-msgstr "Déplacer les boutons OSD vers le haut"
+msgstr "DÃ©placer les boutons OSD vers le haut"
 
 msgctxt "#31509"
 msgid "Tiny posters"
@@ -2063,19 +2063,19 @@ msgstr "JukeBox"
 
 msgctxt "#31511"
 msgid "Channel Options"
-msgstr "Options des chaînes"
+msgstr "Options des chaÃ®nes"
 
 msgctxt "#31512"
 msgid "Enable fullscreen information for recordings"
-msgstr "Activer les informations des enregistrements en plein écran"
+msgstr "Activer les informations des enregistrements en plein Ã©cran"
 
 msgctxt "#31513"
 msgid "Enable fullscreen information for add-ons"
-msgstr "Activer les informations des modules complémentaires en plein écran"
+msgstr "Activer les informations des modules complÃ©mentaires en plein Ã©cran"
 
 msgctxt "#31514"
 msgid "Resource image addon for displaying the coloured studio icons throughout the skin."
-msgstr "Module Resource image pour afficher les icônes de studio colorées sur tout le skin."
+msgstr "Module Resource image pour afficher les icÃ´nes de studio colorÃ©es sur tout le skin."
 
 msgctxt "#31515"
 msgid "Enable language flags for subtitles, audio language or both to the mediaflags. Note that some views will not display them"
@@ -2083,7 +2083,7 @@ msgstr "Activer les indicateurs de langue pour les sous-titres, la langue audio 
 
 msgctxt "#31516"
 msgid "Disable this to show a simplified display of lyrics instead of the default \"Karaoke\" style"
-msgstr "Désactiver cette option pour avoir un affichage simplifié des paroles au lieu du style \"Karaoké\" par défaut"
+msgstr "DÃ©sactiver cette option pour avoir un affichage simplifiÃ© des paroles au lieu du style \"KaraokÃ©\" par dÃ©faut"
 
 msgctxt "#31517"
 msgid "Music (Artists)"
@@ -2095,7 +2095,7 @@ msgstr "Musique (albums)"
 
 msgctxt "#31519"
 msgid "Party mode (Music videos)"
-msgstr "Mode fête (vidéos musicales)"
+msgstr "Mode fÃªte (vidÃ©os musicales)"
 
 msgctxt "#31520"
 msgid "Movies in set"
@@ -2115,11 +2115,11 @@ msgstr "Navigation rapide"
 
 msgctxt "#31524"
 msgid "Glow Bars for System bars"
-msgstr "Effet lumineux pour les barres du système"
+msgstr "Effet lumineux pour les barres du systÃ¨me"
 
 msgctxt "#31525"
 msgid "Do you want to reset ALL skin colors and apply the selected theme?"
-msgstr "Souhaitez-vous réinitialiser TOUTES les couleurs du skin et appliquer le thème sélectionné ?"
+msgstr "Souhaitez-vous rÃ©initialiser TOUTES les couleurs du skin et appliquer le thÃ¨me sÃ©lectionnÃ© ?"
 
 msgctxt "#31526"
 msgid "Building Menu"
@@ -2135,7 +2135,7 @@ msgstr "Flux PVR"
 
 msgctxt "#31529"
 msgid "Properties"
-msgstr "Propriétés"
+msgstr "PropriÃ©tÃ©s"
 
 msgctxt "#31530"
 msgid "Common"
@@ -2147,7 +2147,7 @@ msgstr "Commandes"
 
 msgctxt "#31532"
 msgid "Recently added TV Shows"
-msgstr "Séries TV récemment ajoutées"
+msgstr "SÃ©ries TV rÃ©cemment ajoutÃ©es"
 
 msgctxt "#31533"
 msgid "Unwatched movies"
@@ -2159,31 +2159,31 @@ msgstr "Gagnants des meilleures images"
 
 msgctxt "#31535"
 msgid "Unwatched TV Shows"
-msgstr "Séries TV non vues"
+msgstr "SÃ©ries TV non vues"
 
 msgctxt "#31536"
 msgid "Recent recordings"
-msgstr "Enregistrements récents"
+msgstr "Enregistrements rÃ©cents"
 
 msgctxt "#31537"
 msgid "System & Weather"
-msgstr "Système & météo"
+msgstr "SystÃ¨me & mÃ©tÃ©o"
 
 msgctxt "#31538"
 msgid "Mixed Media"
-msgstr "Média Mélangés"
+msgstr "MÃ©dia MÃ©langÃ©s"
 
 msgctxt "#31539"
 msgid "Random TV Shows"
-msgstr "Séries TV aléatoires"
+msgstr "SÃ©ries TV alÃ©atoires"
 
 msgctxt "#31540"
 msgid "Unwatched episodes"
-msgstr "Épisodes non vu"
+msgstr "Ã‰pisodes non vu"
 
 msgctxt "#31541"
 msgid "Prefer movie set summary"
-msgstr "Préférer le résumé de la saga"
+msgstr "PrÃ©fÃ©rer le rÃ©sumÃ© de la saga"
 
 msgctxt "#31542"
 msgid "Clear"
@@ -2191,11 +2191,11 @@ msgstr "Vide"
 
 msgctxt "#31543"
 msgid "Hide channel name"
-msgstr "Masquer le nom de la chaîne"
+msgstr "Masquer le nom de la chaÃ®ne"
 
 msgctxt "#31544"
 msgid "Years old"
-msgstr "Années"
+msgstr "AnnÃ©es"
 
 msgctxt "#31545"
 msgid "Crew"
@@ -2211,43 +2211,43 @@ msgstr "Galerie d'images"
 
 msgctxt "#31548"
 msgid "Kodi random movie fanart"
-msgstr "Fanart de film aléatoire de Kodi"
+msgstr "Fanart de film alÃ©atoire de Kodi"
 
 msgctxt "#31549"
 msgid "Kodi random TV show fanart"
-msgstr "Fanart aléatoire de séries TV Kodi"
+msgstr "Fanart alÃ©atoire de sÃ©ries TV Kodi"
 
 msgctxt "#31550"
 msgid "Kodi random music fanart"
-msgstr "Fanart aléatoire de musique Kodi"
+msgstr "Fanart alÃ©atoire de musique Kodi"
 
 msgctxt "#31551"
 msgid "Embuary Helper provides the Alphabet Jump Letter Bar, scraped ratings from Rotten Tomatoes and MetaCritic in fullscreen info. It also adds Similar and more from director when you Enable Extended Info integration in the settings for Video & Music information."
-msgstr "Embuary Helper fournit la barre d'alphabet, affiche les notes récupérées de Rotten Tomatoes et MetaCritic dans les informations en plein écran, ajoute également les similitudes et des infos sur le réalisateur. Il vous faut activer l'intégration des informations étendues dans les paramètres des informations vidéo et musicales."
+msgstr "Embuary Helper fournit la barre d'alphabet, affiche les notes rÃ©cupÃ©rÃ©es de Rotten Tomatoes et MetaCritic dans les informations en plein Ã©cran, ajoute Ã©galement les similitudes et des infos sur le rÃ©alisateur. Il vous faut activer l'intÃ©gration des informations Ã©tendues dans les paramÃ¨tres des informations vidÃ©o et musicales."
 
 msgctxt "#31552"
 msgid "Set the displayed name of the menu item."
-msgstr "Définir le nom à afficher pour l'élément du menu."
+msgstr "DÃ©finir le nom Ã  afficher pour l'Ã©lÃ©ment du menu."
 
 msgctxt "#31553"
 msgid "Toggle to enable or disable. You can use disable instead of delete to hide the menu item."
-msgstr "Basculer pour activer ou désactiver. Vous pouvez désactiver au lieu de supprimer pour masquer l'élément de menu."
+msgstr "Basculer pour activer ou dÃ©sactiver. Vous pouvez dÃ©sactiver au lieu de supprimer pour masquer l'Ã©lÃ©ment de menu."
 
 msgctxt "#31554"
 msgid "Choose the menu item icon when the Marmalade main menu layout is set to Icons."
-msgstr "Choisir l'icône de l'élément de menu lorsque la disposition du menu principal d'Marmalade est définie sur Icônes."
+msgstr "Choisir l'icÃ´ne de l'Ã©lÃ©ment de menu lorsque la disposition du menu principal d'Marmalade est dÃ©finie sur IcÃ´nes."
 
 msgctxt "#31555"
 msgid "Use this to set the default action without changing the label. Choose 'Custom item' for any of Kodi's built-in functions. (http://kodi.wiki/?title=List_of_Built_In_Functions)"
-msgstr "Utiliser ceci pour définir l'action par défaut sans changer l'étiquette. Choisissez « Élément personnalisé » pour l'une des fonctions intégrées de Kodi. (http://kodi.wiki/?title=List_of_Built_In_Functions)"
+msgstr "Utiliser ceci pour dÃ©finir l'action par dÃ©faut sans changer l'Ã©tiquette. Choisissez Â« Ã‰lÃ©ment personnalisÃ© Â» pour l'une des fonctions intÃ©grÃ©es de Kodi. (http://kodi.wiki/?title=List_of_Built_In_Functions)"
 
 msgctxt "#31556"
 msgid "Choose the submenu items displayed below your menu for Horizontal or in the left slide out submenu for the Vertical menu."
-msgstr "Choisir les éléments de sous-menu à afficher sous votre menu en horizontal ou dans le sous-menu coulissant de gauche pour le menu vertical."
+msgstr "Choisir les Ã©lÃ©ments de sous-menu Ã  afficher sous votre menu en horizontal ou dans le sous-menu coulissant de gauche pour le menu vertical."
 
 msgctxt "#31557"
 msgid "Select the information to display on the left side of the main menu system bar."
-msgstr "Sélectionner les informations à afficher sur le côté gauche de la barre système du menu principal."
+msgstr "SÃ©lectionner les informations Ã  afficher sur le cÃ´tÃ© gauche de la barre systÃ¨me du menu principal."
 
 msgctxt "#31558"
 msgid "Choose what Widget 1 will display. Widget 1 is always directly above the Horizontal menu or in the center for the Vertical layout."
@@ -2255,35 +2255,35 @@ msgstr "Choisir ce que le Widget 1 affichera. Le widget 1 est toujours directeme
 
 msgctxt "#31559"
 msgid "Choose what Widget 2 will display. Widget 2 swaps location depending on the Marmalade main menu horizontal position. If it is low then it will be at the top of the screen and centered will be below the Horizontal menu. Vertical menu location is always near the bottom of the Home window."
-msgstr "Choisir ce que le Widget 2 affichera. Le widget 2 change d'emplacement en fonction de la position horizontale du menu principal d'Marmalade. S'il est en bas, il sera en haut de l'écran et centré sous le menu Horizontal. L'emplacement du menu vertical est toujours près du bas de la page d'accueil."
+msgstr "Choisir ce que le Widget 2 affichera. Le widget 2 change d'emplacement en fonction de la position horizontale du menu principal d'Marmalade. S'il est en bas, il sera en haut de l'Ã©cran et centrÃ© sous le menu Horizontal. L'emplacement du menu vertical est toujours prÃ¨s du bas de la page d'accueil."
 
 msgctxt "#31560"
 msgid "This will enable a separate Widget displaying what is currently recording and/or the next scheduled timer. If Widget 2 is enabled on the same menu item then it will be hidden until focused."
-msgstr "Cela activera un widget séparé affichant ce qui est en cours d'enregistrement et/ou la prochaine minuterie programmée. Si Widget 2 est activé sur le même élément de menu, il sera masqué jusqu'à ce qu'il soit ciblé."
+msgstr "Cela activera un widget sÃ©parÃ© affichant ce qui est en cours d'enregistrement et/ou la prochaine minuterie programmÃ©e. Si Widget 2 est activÃ© sur le mÃªme Ã©lÃ©ment de menu, il sera masquÃ© jusqu'Ã  ce qu'il soit ciblÃ©."
 
 msgctxt "#31561"
 msgid "Local path to music genre icon folder"
-msgstr "Chemin d'accès local au dossier d'icônes de genre musical"
+msgstr "Chemin d'accÃ¨s local au dossier d'icÃ´nes de genre musical"
 
 msgctxt "#31562"
 msgid "Resource pack for music genre icon"
-msgstr "Pack de ressources pour l'icône du genre musical"
+msgstr "Pack de ressources pour l'icÃ´ne du genre musical"
 
 msgctxt "#31563"
 msgid "Set music genre icons"
-msgstr "Définir les icônes de genre de musique"
+msgstr "DÃ©finir les icÃ´nes de genre de musique"
 
 msgctxt "#31564"
 msgid "Library nodes"
-msgstr "Arborescence de la bibliothèque"
+msgstr "Arborescence de la bibliothÃ¨que"
 
 msgctxt "#31565"
 msgid "Create a new backup"
-msgstr "Créer une nouvelle sauvegarde"
+msgstr "CrÃ©er une nouvelle sauvegarde"
 
 msgctxt "#31566"
 msgid "Restore from previous backup"
-msgstr "Restaurer à partir de la sauvegarde précédente"
+msgstr "Restaurer Ã  partir de la sauvegarde prÃ©cÃ©dente"
 
 msgctxt "#31567"
 msgid "Browse for backup"
@@ -2291,7 +2291,7 @@ msgstr "Parcourir pour sauvegarder"
 
 msgctxt "#31568"
 msgid "Change settings"
-msgstr "Modifier les paramètres"
+msgstr "Modifier les paramÃ¨tres"
 
 msgctxt "#31569"
 msgid "Backup & Restore"
@@ -2299,7 +2299,7 @@ msgstr "Restauration & sauvegarde"
 
 msgctxt "#31570"
 msgid "Hide Channels"
-msgstr "Masquer les chaînes"
+msgstr "Masquer les chaÃ®nes"
 
 msgctxt "#31571"
 msgid "Show plots in set"
@@ -2307,7 +2307,7 @@ msgstr "Afficher les intrigues des sagas"
 
 msgctxt "#31572"
 msgid "Choose the preferred way to display movie set plot. All plots of movies in the set or the summary if available."
-msgstr "Choisir la manière préférée d'afficher l'intrigue de la saga de films. Toutes les intrigues de films de la saga ou le résumé si disponible."
+msgstr "Choisir la maniÃ¨re prÃ©fÃ©rÃ©e d'afficher l'intrigue de la saga de films. Toutes les intrigues de films de la saga ou le rÃ©sumÃ© si disponible."
 
 msgctxt "#31573"
 msgid "Seasons falling"
@@ -2315,15 +2315,15 @@ msgstr "Seasons falling"
 
 msgctxt "#31574"
 msgid "Preferred plot for movie sets"
-msgstr "Intrigue préférée pour les sagas de films"
+msgstr "Intrigue prÃ©fÃ©rÃ©e pour les sagas de films"
 
 msgctxt "#31575"
 msgid "Kodi random music video fanart"
-msgstr "Fanart de clip vidéo aléatoire de Kodi"
+msgstr "Fanart de clip vidÃ©o alÃ©atoire de Kodi"
 
 msgctxt "#31576"
 msgid "Reboot to Android"
-msgstr "Redémarrer vers Android"
+msgstr "RedÃ©marrer vers Android"
 
 msgctxt "#31577"
 msgid "Auto hide OSD"
@@ -2331,79 +2331,79 @@ msgstr "Masquer automatiquement l'OSD"
 
 msgctxt "#31578"
 msgid "Random music videos"
-msgstr "Suggestion de vidéos musicales"
+msgstr "Suggestion de vidÃ©os musicales"
 
 msgctxt "#31579"
 msgid "Random music videos (artists)"
-msgstr "Vidéos musicales aléatoires (artistes)"
+msgstr "VidÃ©os musicales alÃ©atoires (artistes)"
 
 msgctxt "#31580"
 msgid "Recent music videos"
-msgstr "Vidéos musicales récentes"
+msgstr "VidÃ©os musicales rÃ©centes"
 
 msgctxt "#31581"
 msgid "Unwatched music videos"
-msgstr "Vidéos musicales non vues"
+msgstr "VidÃ©os musicales non vues"
 
 msgctxt "#31582"
 msgid "Most played music videos"
-msgstr "Vidéos musicales les plus écoutées"
+msgstr "VidÃ©os musicales les plus Ã©coutÃ©es"
 
 msgctxt "#31583"
 msgid "Recently added artists"
-msgstr "Artistes récemment ajoutés"
+msgstr "Artistes rÃ©cemment ajoutÃ©s"
 
 msgctxt "#31584"
 msgid "Random artists"
-msgstr "Artistes aléatoires"
+msgstr "Artistes alÃ©atoires"
 
 msgctxt "#31585"
 msgid "Most played songs"
-msgstr "Titres les plus joués"
+msgstr "Titres les plus jouÃ©s"
 
 msgctxt "#31586"
 msgid "Prefer clean pause screen"
-msgstr "Préférer l'écran de pause épuré"
+msgstr "PrÃ©fÃ©rer l'Ã©cran de pause Ã©purÃ©"
 
 msgctxt "#31587"
 msgid "Disable multi-search in library"
-msgstr "Désactiver la recherche multiple dans la bibliothèque"
+msgstr "DÃ©sactiver la recherche multiple dans la bibliothÃ¨que"
 
 msgctxt "#31588"
 msgid "Hide System Bars"
-msgstr "Masquer les barres système"
+msgstr "Masquer les barres systÃ¨me"
 
 msgctxt "#31589"
 msgid "Enable to hide the multi-search option in the library views and directly search using the built-in Kodi search"
-msgstr "Activer pour masquer l'option de recherche multiple dans les vues de la bibliothèque et rechercher directement à l'aide de la recherche Kodi intégrée"
+msgstr "Activer pour masquer l'option de recherche multiple dans les vues de la bibliothÃ¨que et rechercher directement Ã  l'aide de la recherche Kodi intÃ©grÃ©e"
 
 msgctxt "#31590"
 msgid "Hide the system bar containing the time, date, library statistcs, etc. Will also hide the RSS feed if enabled in Kodi settings"
-msgstr "Masquer la barre système contenant l'heure, la date, les statistiques de la bibliothèque, etc. Masquera également le flux RSS s'il est activé dans les paramètres Kodi"
+msgstr "Masquer la barre systÃ¨me contenant l'heure, la date, les statistiques de la bibliothÃ¨que, etc. Masquera Ã©galement le flux RSS s'il est activÃ© dans les paramÃ¨tres Kodi"
 
 msgctxt "#31591"
 msgid "Choose a music genre path for custom icons or choose a resource pack"
-msgstr "Choisir un chemin pour les icônes personnalisées du genre musical ou choisir un pack de ressources"
+msgstr "Choisir un chemin pour les icÃ´nes personnalisÃ©es du genre musical ou choisir un pack de ressources"
 
 msgctxt "#31592"
 msgid "Favourites dialog"
-msgstr "Boîte de dialogue Favoris"
+msgstr "BoÃ®te de dialogue Favoris"
 
 msgctxt "#31593"
-msgid "[B]CONFIGURE SKIN SETTINGS[/B][CR]Customize the main menu · Choose skin colors[CR]Set up widgets · Enable optional features"
-msgstr "[B]CONFIGURER LES PARAMÈTRES DU SKIN[/B][CR]Personnaliser le menu principal · Choisir les couleurs du skin[CR]Configurer les widgets · Activer les fonctionnalités facultatives"
+msgid "[B]CONFIGURE SKIN SETTINGS[/B][CR]Customize the main menu Â· Choose skin colors[CR]Set up widgets Â· Enable optional features"
+msgstr "[B]CONFIGURER LES PARAMÃˆTRES DU SKIN[/B][CR]Personnaliser le menu principal Â· Choisir les couleurs du skin[CR]Configurer les widgets Â· Activer les fonctionnalitÃ©s facultatives"
 
 msgctxt "#31594"
-msgid "[B]OPEN FILE MANAGER[/B][CR]Access files from within Kodi[CR]Add source · Perform file operations"
-msgstr "[B]OUVRIR LE GESTIONNAIRE DE FICHIERS[/B][CR]Accéder aux fichiers depuis Kodi[CR]Ajouter une source · Effectuer des opérations sur les fichiers"
+msgid "[B]OPEN FILE MANAGER[/B][CR]Access files from within Kodi[CR]Add source Â· Perform file operations"
+msgstr "[B]OUVRIR LE GESTIONNAIRE DE FICHIERS[/B][CR]AccÃ©der aux fichiers depuis Kodi[CR]Ajouter une source Â· Effectuer des opÃ©rations sur les fichiers"
 
 msgctxt "#31595"
-msgid "[B]OPEN THE EVENT LOG[/B][CR]Library update reports · Failed scrapes · Missing files[CR]PVR events · Add-on events"
-msgstr "[B]OUVRIR LE JOURNAL DES ÉVÉNEMENTS[/B][CR]Rapports de mise à jour de la bibliothèque · Échec du scraping · Fichiers manquants[CR]Événements PVR · Événements des extensions"
+msgid "[B]OPEN THE EVENT LOG[/B][CR]Library update reports Â· Failed scrapes Â· Missing files[CR]PVR events Â· Add-on events"
+msgstr "[B]OUVRIR LE JOURNAL DES Ã‰VÃ‰NEMENTS[/B][CR]Rapports de mise Ã  jour de la bibliothÃ¨que Â· Ã‰chec du scraping Â· Fichiers manquants[CR]Ã‰vÃ©nements PVR Â· Ã‰vÃ©nements des extensions"
 
 msgctxt "#31596"
 msgid "Hide budget & revenue details"
-msgstr "Masquer les détails du budget et des revenus"
+msgstr "Masquer les dÃ©tails du budget et des revenus"
 
 msgctxt "#31597"
 msgid "audience"
@@ -2415,7 +2415,7 @@ msgstr "Bordure du panneau"
 
 msgctxt "#31599"
 msgid "Age"
-msgstr "Âge"
+msgstr "Ã‚ge"
 
 msgctxt "#31600"
 msgid "Place of birth"
@@ -2427,7 +2427,7 @@ msgstr "Afficher la pochette dans les infos du film"
 
 msgctxt "#31602"
 msgid "Show plot and cast when pressing info during video playback"
-msgstr "Afficher le résumé et les acteurs en pressant la touche infos lors d'une lecture vidéo"
+msgstr "Afficher le rÃ©sumÃ© et les acteurs en pressant la touche infos lors d'une lecture vidÃ©o"
 
 msgctxt "#31603"
 msgid "Marmalade main menu navigation style"
@@ -2451,7 +2451,7 @@ msgstr "Indicateurs HD/SD/3D"
 
 msgctxt "#31608"
 msgid "Cases"
-msgstr "Boîtiers"
+msgstr "BoÃ®tiers"
 
 msgctxt "#31609"
 msgid "Discart"
@@ -2479,7 +2479,7 @@ msgstr "Aussi connu sous le nom"
 
 msgctxt "#31615"
 msgid "Set default viewtypes"
-msgstr "Définir les types de vue par défaut"
+msgstr "DÃ©finir les types de vue par dÃ©faut"
 
 msgctxt "#31616"
 msgid "Movie Version"
@@ -2491,11 +2491,11 @@ msgstr "Saisie manuelle"
 
 msgctxt "#31618"
 msgid "Local path to movie genre icon folder"
-msgstr "Chemin d'accès local au dossier d'icônes de genre de film"
+msgstr "Chemin d'accÃ¨s local au dossier d'icÃ´nes de genre de film"
 
 msgctxt "#31619"
 msgid "Resource pack for movie genre icon"
-msgstr "Pack de ressources pour l'icône du genre de film"
+msgstr "Pack de ressources pour l'icÃ´ne du genre de film"
 
 msgctxt "#31620"
 msgid "Floor"
@@ -2503,23 +2503,23 @@ msgstr "Sol"
 
 msgctxt "#31621"
 msgid "Live TV & Weather"
-msgstr "TV en Direct & Météo"
+msgstr "TV en Direct & MÃ©tÃ©o"
 
 msgctxt "#31622"
 msgid "Set movie genre icons"
-msgstr "Définir des icônes de genre de film"
+msgstr "DÃ©finir des icÃ´nes de genre de film"
 
 msgctxt "#31623"
 msgid "Hide audio & subtitle details"
-msgstr "Masquer les détails audio et sous-titres"
+msgstr "Masquer les dÃ©tails audio et sous-titres"
 
 msgctxt "#31624"
 msgid "Setup the shutdown menu"
-msgstr "Configurer le menu d'arrêt"
+msgstr "Configurer le menu d'arrÃªt"
 
 msgctxt "#31625"
 msgid "Focused OSD Buttons"
-msgstr "Boutons OSD ciblés"
+msgstr "Boutons OSD ciblÃ©s"
 
 msgctxt "#31626"
 msgid "Unfocused OSD Buttons"
@@ -2527,31 +2527,31 @@ msgstr "Boutons OSD flous"
 
 msgctxt "#31627"
 msgid "Use this to customize the color for the item selected."
-msgstr "Prendre pour personnaliser la couleur de l'élément sélectionné."
+msgstr "Prendre pour personnaliser la couleur de l'Ã©lÃ©ment sÃ©lectionnÃ©."
 
 msgctxt "#31680"
 msgid "Select a shortcut for this item."
-msgstr "Sélectionner un raccourci pour cet élément."
+msgstr "SÃ©lectionner un raccourci pour cet Ã©lÃ©ment."
 
 msgctxt "#31681"
 msgid "Customize the label. Can also accept some label formatting."
-msgstr "Personnaliser l'étiquette. Peut également accepter certains formats d'étiquettes."
+msgstr "Personnaliser l'Ã©tiquette. Peut Ã©galement accepter certains formats d'Ã©tiquettes."
 
 msgctxt "#31682"
 msgid "Change the selected shorcuts command. Can also be used to enter a custom command."
-msgstr "Modifier les raccourcis de commandes sélectionnés. Une commande personnalisée peut être utilisée."
+msgstr "Modifier les raccourcis de commandes sÃ©lectionnÃ©s. Une commande personnalisÃ©e peut Ãªtre utilisÃ©e."
 
 msgctxt "#31683"
 msgid "Edit and arrange submenu items"
-msgstr "Editer et agencer les éléments du sous-menu"
+msgstr "Editer et agencer les Ã©lÃ©ments du sous-menu"
 
 msgctxt "#31684"
 msgid "Select the item image used for the Icons menu layout."
-msgstr "Choisir l'image à utiliser par l'icône de choix du menu."
+msgstr "Choisir l'image Ã  utiliser par l'icÃ´ne de choix du menu."
 
 msgctxt "#31685"
 msgid "Choose a widget to display for this home menu item."
-msgstr "Choisir un widget pour afficher cet élément du menu principal."
+msgstr "Choisir un widget pour afficher cet Ã©lÃ©ment du menu principal."
 
 msgctxt "#31700"
 msgid "Widget options"
@@ -2563,15 +2563,15 @@ msgstr "Style du widget"
 
 msgctxt "#31702"
 msgid "Widget background"
-msgstr "Arrière-plan du widget"
+msgstr "ArriÃ¨re-plan du widget"
 
 msgctxt "#31703"
 msgid "Panel label style"
-msgstr "Style de l'étiquette du panneau"
+msgstr "Style de l'Ã©tiquette du panneau"
 
 msgctxt "#31704"
 msgid "List label style"
-msgstr "Style de l'étiquette Liste"
+msgstr "Style de l'Ã©tiquette Liste"
 
 msgctxt "#31705"
 msgid "Panel widget info"
@@ -2583,7 +2583,7 @@ msgstr "Art"
 
 msgctxt "#31707"
 msgid "Case"
-msgstr "Boîtier"
+msgstr "BoÃ®tier"
 
 msgctxt "#31708"
 msgid "Sort by"
@@ -2599,7 +2599,7 @@ msgstr "Configurer la liste personnelle"
 
 msgctxt "#31711"
 msgid "List extended"
-msgstr "Liste étendue"
+msgstr "Liste Ã©tendue"
 
 msgctxt "#31712"
 msgid "Panel"
@@ -2607,19 +2607,19 @@ msgstr "Panneau"
 
 msgctxt "#31713"
 msgid "Panel extended"
-msgstr "Panneau étendu"
+msgstr "Panneau Ã©tendu"
 
 msgctxt "#31714"
 msgid "Compact panel"
-msgstr "Panneau réduit"
+msgstr "Panneau rÃ©duit"
 
 msgctxt "#31715"
 msgid "Compact panel extended"
-msgstr "Panneau réduit étendu"
+msgstr "Panneau rÃ©duit Ã©tendu"
 
 msgctxt "#31716"
 msgid "Mixed extended"
-msgstr "Mixte étendu"
+msgstr "Mixte Ã©tendu"
 
 msgctxt "#31717"
 msgid "Configure custom list"
@@ -2627,7 +2627,7 @@ msgstr "Configurer la liste personnelle"
 
 msgctxt "#31718"
 msgid "Square poster"
-msgstr "Affiche carré"
+msgstr "Affiche carrÃ©"
 
 msgctxt "#31719"
 msgid "Clearlogo"
@@ -2647,7 +2647,7 @@ msgstr "Boitier vierge"
 
 msgctxt "#31723"
 msgid "Flat"
-msgstr "À plat"
+msgstr "Ã€ plat"
 
 msgctxt "#31724"
 msgid "Clear white"
@@ -2655,11 +2655,11 @@ msgstr "Blanc clair"
 
 msgctxt "#31725"
 msgid "Colored default"
-msgstr "En couleur par défaut"
+msgstr "En couleur par dÃ©faut"
 
 msgctxt "#31726"
 msgid "Colored flat"
-msgstr "En couleur et à plat"
+msgstr "En couleur et Ã  plat"
 
 msgctxt "#31727"
 msgid "Colored clear"
@@ -2667,7 +2667,7 @@ msgstr "Couleur clair"
 
 msgctxt "#31728"
 msgid "Colored clear white"
-msgstr "Blanc clair coloré"
+msgstr "Blanc clair colorÃ©"
 
 msgctxt "#31729"
 msgid "Show on panel"
@@ -2675,11 +2675,11 @@ msgstr "Montrer sur le panneau"
 
 msgctxt "#31730"
 msgid "Show on focused item"
-msgstr "Afficher sur l'élément ciblé"
+msgstr "Afficher sur l'Ã©lÃ©ment ciblÃ©"
 
 msgctxt "#31731"
 msgid "Show next to to title"
-msgstr "Afficher à côté du titre"
+msgstr "Afficher Ã  cÃ´tÃ© du titre"
 
 msgctxt "#31732"
 msgid "In progress movies"
@@ -2687,27 +2687,27 @@ msgstr "Films en cours"
 
 msgctxt "#31733"
 msgid "In progress episodes"
-msgstr "Épisodes en cours"
+msgstr "Ã‰pisodes en cours"
 
 msgctxt "#31734"
 msgid "Random genre"
-msgstr "Genre aléatoire"
+msgstr "Genre alÃ©atoire"
 
 msgctxt "#31735"
 msgid "Enable advanced widgets"
-msgstr "Activer les widgets avancés"
+msgstr "Activer les widgets avancÃ©s"
 
 msgctxt "#31736"
 msgid "Opacity"
-msgstr "Opacité"
+msgstr "OpacitÃ©"
 
 msgctxt "#31737"
 msgid "Global widget backgrounds"
-msgstr "Arrière-plans du widget"
+msgstr "ArriÃ¨re-plans du widget"
 
 msgctxt "#31738"
 msgid "Auto scroll list widgets"
-msgstr "Défilement automatique de la liste des widgets"
+msgstr "DÃ©filement automatique de la liste des widgets"
 
 msgctxt "#31739"
 msgid "List widget info"
@@ -2719,15 +2719,15 @@ msgstr "Boitier sur l'info du widget"
 
 msgctxt "#31741"
 msgid "Case on widget info dialog"
-msgstr "Boitier sur l'écran d'information du widget"
+msgstr "Boitier sur l'Ã©cran d'information du widget"
 
 msgctxt "#31742"
 msgid "Cast on widget info dialog"
-msgstr "Diffuser la boîte de dialogue d'informations sur le widget"
+msgstr "Diffuser la boÃ®te de dialogue d'informations sur le widget"
 
 msgctxt "#31743"
 msgid "Match info dialog background to widget background"
-msgstr "Faire correspondre l'arrière-plan de la boîte de dialogue d'informations à l'arrière-plan du widget"
+msgstr "Faire correspondre l'arriÃ¨re-plan de la boÃ®te de dialogue d'informations Ã  l'arriÃ¨re-plan du widget"
 
 msgctxt "#31744"
 msgid "Global panel widget info"
@@ -2735,11 +2735,11 @@ msgstr "Information relative au widget Panneau"
 
 msgctxt "#31745"
 msgid "Hide widget when not focused"
-msgstr "Masquer le widget si non sélectionné"
+msgstr "Masquer le widget si non sÃ©lectionnÃ©"
 
 msgctxt "#31746"
 msgid "Match widget panel"
-msgstr "Identique à l'écran du widget"
+msgstr "Identique Ã  l'Ã©cran du widget"
 
 msgctxt "#31747"
 msgid "Blu-Ray Case"
@@ -2747,59 +2747,59 @@ msgstr "Boitier Blu-Ray"
 
 msgctxt "#31748"
 msgid "This setting enables more widget customization. Disable to use Marmalade default widgets."
-msgstr "Ce réglage active la personnalisation avancée du widget. Désactiver pour utiliser les widgets par défaut d'Marmalade."
+msgstr "Ce rÃ©glage active la personnalisation avancÃ©e du widget. DÃ©sactiver pour utiliser les widgets par dÃ©faut d'Marmalade."
 
 msgctxt "#31749"
 msgid "Change the transparency of the artwork and background."
-msgstr "Changer la transparence de l'artworks et l'arrière-plan."
+msgstr "Changer la transparence de l'artworks et l'arriÃ¨re-plan."
 
 msgctxt "#31750"
 msgid "Enable to use the same background throughout the home screen. Disable to set each background individually in the home menu customizer."
-msgstr "Activer pour utiliser le même arrière-plan sur le menu principal. Désactiver afin de choisir individuellement l'arrière-plan dans la personnalisation du menu."
+msgstr "Activer pour utiliser le mÃªme arriÃ¨re-plan sur le menu principal. DÃ©sactiver afin de choisir individuellement l'arriÃ¨re-plan dans la personnalisation du menu."
 
 msgctxt "#31751"
 msgid "Choose the background style."
-msgstr "Choisir le style d'arrière-plan."
+msgstr "Choisir le style d'arriÃ¨re-plan."
 
 msgctxt "#31752"
 msgid "The list style widgets will automatically scroll if enabled."
-msgstr "Les listes style widget défileront automatiquement si activé."
+msgstr "Les listes style widget dÃ©fileront automatiquement si activÃ©."
 
 msgctxt "#31753"
 msgid "Choose how information is displayed next to the list style widget."
-msgstr "Choisir la façon dont l'information est affichée à côté de la liste style widget."
+msgstr "Choisir la faÃ§on dont l'information est affichÃ©e Ã  cÃ´tÃ© de la liste style widget."
 
 msgctxt "#31754"
 msgid "Choose a case for the widget information poster. Match will use the same case as the widget."
-msgstr "Choisir un boitier pour l'affiche d'information du widget . Dans ce cas il utilisera le même boitier que le widget."
+msgstr "Choisir un boitier pour l'affiche d'information du widget . Dans ce cas il utilisera le mÃªme boitier que le widget."
 
 msgctxt "#31755"
 msgid "Choose a case for the information dialog poster. Match will use the same case as the widget."
-msgstr "Choisir un boitier pour l'affiche du dialogue d'information. Dans ce cas il utilisera le même boitier que le widget."
+msgstr "Choisir un boitier pour l'affiche du dialogue d'information. Dans ce cas il utilisera le mÃªme boitier que le widget."
 
 msgctxt "#31756"
 msgid "Show movie and tv show cast details within the information dialog."
-msgstr "Afficher les détails des acteurs du film et série TV à l'intérieur du panneau d'information."
+msgstr "Afficher les dÃ©tails des acteurs du film et sÃ©rie TV Ã  l'intÃ©rieur du panneau d'information."
 
 msgctxt "#31757"
 msgid "Enable to use the widget background in the information dialog."
-msgstr "Activer pour utiliser l'arrière-plan du widget dans le panneau d'information."
+msgstr "Activer pour utiliser l'arriÃ¨re-plan du widget dans le panneau d'information."
 
 msgctxt "#31758"
 msgid "Enable to show widget information for all panel widgets. Disable to individually select in the home menu customizer."
-msgstr "Activer pour afficher les informations du widget de tous les widgets du panneau. Désactiver pour sélectionner individuellement dans le personnalisateur du menu d'accueil."
+msgstr "Activer pour afficher les informations du widget de tous les widgets du panneau. DÃ©sactiver pour sÃ©lectionner individuellement dans le personnalisateur du menu d'accueil."
 
 msgctxt "#31759"
 msgid "If enabled widgets will not be visible throughout the home screen until they are focused."
-msgstr "Si activé, les widgets ne seront pas visible à travers le menu principal jusqu'à leur sélection."
+msgstr "Si activÃ©, les widgets ne seront pas visible Ã  travers le menu principal jusqu'Ã  leur sÃ©lection."
 
 msgctxt "#31760"
 msgid "Configure custom Widget 1"
-msgstr "Configurer le Widget personnalisé 1"
+msgstr "Configurer le Widget personnalisÃ© 1"
 
 msgctxt "#31761"
 msgid "Configure custom Widget 2"
-msgstr "Configurer le Widget personnalisé 2"
+msgstr "Configurer le Widget personnalisÃ© 2"
 
 msgctxt "#31800"
 msgid "Video addons"
@@ -2811,7 +2811,7 @@ msgstr "Extensions Audio"
 
 msgctxt "#31802"
 msgid "Video addons / Audio addons"
-msgstr "Extensions Vidéo / Extensions Audio"
+msgstr "Extensions VidÃ©o / Extensions Audio"
 
 msgctxt "#31803"
 msgid "Program addons"
@@ -2835,19 +2835,19 @@ msgstr "Afficher une image de classification des notations plus grande avec des 
 
 msgctxt "#31853"
 msgid "Choose where to display the PreshowExperience button. The Default is to hide the Trailer button. Other options are replace the Play button or place it in the + (Extras) section."
-msgstr "Choisir où afficher le bouton PreshowExperience. La valeur par défaut est de masquer le bouton Bande-annonce. D'autres options consistent à remplacer le bouton Lecture ou à le placer dans la section + (Extras)."
+msgstr "Choisir oÃ¹ afficher le bouton PreshowExperience. La valeur par dÃ©faut est de masquer le bouton Bande-annonce. D'autres options consistent Ã  remplacer le bouton Lecture ou Ã  le placer dans la section + (Extras)."
 
 msgctxt "#31854"
 msgid "Use this setting to override the location of the Trailers button when using the Default setting for the PreshowExperience button."
-msgstr "Utiliser ce paramètre pour remplacer l'emplacement du bouton Bandes-annonces lorsque vous utilisez le paramètre par défaut du bouton PreshowExperience."
+msgstr "Utiliser ce paramÃ¨tre pour remplacer l'emplacement du bouton Bandes-annonces lorsque vous utilisez le paramÃ¨tre par dÃ©faut du bouton PreshowExperience."
 
 msgctxt "#31855"
 msgid "Enable this setting to replace the Default info with online info provided by the ExtendedInfo script. You can use the Marmalade OpenCode version or the Defaults provided by the script if you enable the option in the settings for ExtendedInfo."
-msgstr "Activer ce paramètre pour remplacer les informations par défaut par des informations en ligne fournies via le script ExtendedInfo. Vous pouvez utiliser la version Marmalade OpenCode ou les valeurs par défaut fournies par le script si vous activez l'option dans les paramètres d'ExtendedInfo."
+msgstr "Activer ce paramÃ¨tre pour remplacer les informations par dÃ©faut par des informations en ligne fournies via le script ExtendedInfo. Vous pouvez utiliser la version Marmalade OpenCode ou les valeurs par dÃ©faut fournies par le script si vous activez l'option dans les paramÃ¨tres d'ExtendedInfo."
 
 msgctxt "#31856"
 msgid "Use this to select the multi-fanart cycle speed skin wide."
-msgstr "À utiliser pour choisir la vitesse de rotations des fanarts de l'habillage."
+msgstr "Ã€ utiliser pour choisir la vitesse de rotations des fanarts de l'habillage."
 
 msgctxt "#31900"
 msgid "My rating"
@@ -2855,19 +2855,19 @@ msgstr "Ma notation"
 
 msgctxt "#31901"
 msgid "36 Hour Forecast"
-msgstr "Prévisions sur 36 heures"
+msgstr "PrÃ©visions sur 36 heures"
 
 msgctxt "#31902"
 msgid "Hourly Forecast"
-msgstr "Prévisions heure par heure"
+msgstr "PrÃ©visions heure par heure"
 
 msgctxt "#31903"
 msgid "Weekend Forecast"
-msgstr "Prévisions pour le weekend"
+msgstr "PrÃ©visions pour le weekend"
 
 msgctxt "#31904"
 msgid "10 Day Forecast"
-msgstr "Prévisions sur 10 jours"
+msgstr "PrÃ©visions sur 10 jours"
 
 msgctxt "#31908"
 msgid "Chance of Precipitation"
@@ -2875,7 +2875,7 @@ msgstr "Risque de pluie"
 
 msgctxt "#31909"
 msgid "Fetching forecast info..."
-msgstr "Récupération des prévisions météo…"
+msgstr "RÃ©cupÃ©ration des prÃ©visions mÃ©tÃ©oâ€¦"
 
 msgctxt "#31910"
 msgid "Map & Alerts"
@@ -2887,7 +2887,7 @@ msgstr "Configurer le menu principal d'Marmalade"
 
 msgctxt "#31912"
 msgid "Customize the main menu with widgets, backgrounds, and statistics. Add your own custom main menu items."
-msgstr "Personnaliser le menu principal : widgets, arrière-plans, et statistiques. Ajouter vos propres éléments personnalisés au menu."
+msgstr "Personnaliser le menu principal : widgets, arriÃ¨re-plans, et statistiques. Ajouter vos propres Ã©lÃ©ments personnalisÃ©s au menu."
 
 msgctxt "#31913"
 msgid "Marmalade main menu horizontal position"
@@ -2903,47 +2903,47 @@ msgstr "Style de navigation pour les listes horizontales"
 
 msgctxt "#31916"
 msgid "Change the way horizontal lists scroll in Marmalade. Default will scroll lists in a cycle. \"Fixed\" are lists with a beginning and end."
-msgstr "Changer la façon dont les listes horizontales se déroulent dans Marmalade. Par défaut, le déroulement se fait en cycle. Les listes avec un début et une fin sont \"Figées\"."
+msgstr "Changer la faÃ§on dont les listes horizontales se dÃ©roulent dans Marmalade. Par dÃ©faut, le dÃ©roulement se fait en cycle. Les listes avec un dÃ©but et une fin sont \"FigÃ©es\"."
 
 msgctxt "#31917"
 msgid "When enabled text scrolls automatically. When disabled manual scrolling is required. Note that not every textbox has a manual button."
-msgstr "Quand activé, le texte se déroule automatiquement. Quand désactivé, le déroulement manuel est nécessaire. Attention, certaines zones de texte n'ont pas de boutons manuel."
+msgstr "Quand activÃ©, le texte se dÃ©roule automatiquement. Quand dÃ©sactivÃ©, le dÃ©roulement manuel est nÃ©cessaire. Attention, certaines zones de texte n'ont pas de boutons manuel."
 
 msgctxt "#31918"
 msgid "Projects the current playing video on the background behind the panels."
-msgstr "Projette la vidéo en cours de lecture sur le fond d'écran, derrière les panneaux."
+msgstr "Projette la vidÃ©o en cours de lecture sur le fond d'Ã©cran, derriÃ¨re les panneaux."
 
 msgctxt "#31919"
 msgid "Projects the visualisation on the background behind the panels when music is played."
-msgstr "Projette la visualisation sur le fond d'écran, derrière les panneaux quand la musique est lue."
+msgstr "Projette la visualisation sur le fond d'Ã©cran, derriÃ¨re les panneaux quand la musique est lue."
 
 msgctxt "#31920"
 msgid "Displays a widget on the Home screen with media information when music is playing."
-msgstr "Affiche un widget sur l'écran principal avec les infos du média quand la musique est lue."
+msgstr "Affiche un widget sur l'Ã©cran principal avec les infos du mÃ©dia quand la musique est lue."
 
 msgctxt "#31921"
 msgid "Displays a widget on the Home screen with media information when a movie or episode is playing."
-msgstr "Affiche un widget sur l'écran principal avec les infos du média quand un film ou un épisode est lu."
+msgstr "Affiche un widget sur l'Ã©cran principal avec les infos du mÃ©dia quand un film ou un Ã©pisode est lu."
 
 msgctxt "#31922"
 msgid "This enables custom genre backgrounds when browsing through the videolibrary's genre node. Filenames should match the genre label. Extension must be .jpg."
-msgstr "Cela active les arrière-plans des genres personnalisés lors de la navigation dans l'arborescence des genres de la vidéothèque. Les noms de fichiers doivent correspondre à l'étiquette de genre. L'extension doit être .jpg."
+msgstr "Cela active les arriÃ¨re-plans des genres personnalisÃ©s lors de la navigation dans l'arborescence des genres de la vidÃ©othÃ¨que. Les noms de fichiers doivent correspondre Ã  l'Ã©tiquette de genre. L'extension doit Ãªtre .jpg."
 
 msgctxt "#31924"
 msgid "This enables custom genre backgrounds when browsing through the musiclibrary's genre node. Filenames should match the genre label. Extension must be .jpg."
-msgstr "Ceci active les fonds d'écrans personnalisés par style, quand on se déplace dans les styles de la bibliothèque musicale. Les noms de fichier doivent correspondre au label du style. L'extension de fichier doit être .jpg."
+msgstr "Ceci active les fonds d'Ã©crans personnalisÃ©s par style, quand on se dÃ©place dans les styles de la bibliothÃ¨que musicale. Les noms de fichier doivent correspondre au label du style. L'extension de fichier doit Ãªtre .jpg."
 
 msgctxt "#31925"
 msgid "Choose what to display for the menu items background."
-msgstr "Choisir ce qu'il faut afficher pour l'arrière-plan des éléments des menus."
+msgstr "Choisir ce qu'il faut afficher pour l'arriÃ¨re-plan des Ã©lÃ©ments des menus."
 
 msgctxt "#31926"
 msgid "Select library paths, add-ons, playlists or favourites as your menu item."
-msgstr "Sélectionner des chemins de bibliothèques, des modules complémentaires, des listes de lecture ou des favoris comme élément de menu."
+msgstr "SÃ©lectionner des chemins de bibliothÃ¨ques, des modules complÃ©mentaires, des listes de lecture ou des favoris comme Ã©lÃ©ment de menu."
 
 msgctxt "#31927"
 msgid "Resets all above values to their defaults."
-msgstr "Réinitialiser toutes les valeurs ci-dessus aux valeurs par défaut."
+msgstr "RÃ©initialiser toutes les valeurs ci-dessus aux valeurs par dÃ©faut."
 
 msgctxt "#31928"
 msgid "Marmalade main menu layout"
@@ -2951,35 +2951,35 @@ msgstr "Mise en page du menu principal d'Marmalade"
 
 msgctxt "#31929"
 msgid "This setting defines the main menu layout. Options are 5 items, 3 items, 1 items, or icons for the default horizontal menu. You can also choose a vertical menu layout."
-msgstr "Ce réglage définit l'affichage du menu principal. Choisir l'affichage de 5, 3 ou 1 élément(s) ou icone(s) pour le menu horizontal. Vous pouvez également choisir une disposition pour le menu vertical."
+msgstr "Ce rÃ©glage dÃ©finit l'affichage du menu principal. Choisir l'affichage de 5, 3 ou 1 Ã©lÃ©ment(s) ou icone(s) pour le menu horizontal. Vous pouvez Ã©galement choisir une disposition pour le menu vertical."
 
 msgctxt "#31930"
 msgid "Choose a widget to display on the Home screen to have easy access to content from the library."
-msgstr "Choisir le widget à afficher sur l'écran principal afin d'avoir un accès rapide au contenu de la bibliothèque."
+msgstr "Choisir le widget Ã  afficher sur l'Ã©cran principal afin d'avoir un accÃ¨s rapide au contenu de la bibliothÃ¨que."
 
 msgctxt "#31931"
 msgid "Video plot preference"
-msgstr "Préférence pour le résumé de la vidéo"
+msgstr "PrÃ©fÃ©rence pour le rÃ©sumÃ© de la vidÃ©o"
 
 msgctxt "#31932"
 msgid "Show plot outline in the library views and full plot in the video information dialog or vice versa. Falls back to full plot if no outline is available."
-msgstr "Afficher le résumé court dans les vues de la bibliothèque et le résumé complet dans la fenêtre d'information ou vice versa. Le résumé complet sera utilisé si aucun résumé court n'est disponible."
+msgstr "Afficher le rÃ©sumÃ© court dans les vues de la bibliothÃ¨que et le rÃ©sumÃ© complet dans la fenÃªtre d'information ou vice versa. Le rÃ©sumÃ© complet sera utilisÃ© si aucun rÃ©sumÃ© court n'est disponible."
 
 msgctxt "#31933"
 msgid "Select an item to display on the left top of the main menu"
-msgstr "Sélectionner un élément à afficher en haut à gauche du menu principal"
+msgstr "SÃ©lectionner un Ã©lÃ©ment Ã  afficher en haut Ã  gauche du menu principal"
 
 msgctxt "#31935"
 msgid "Switch places with another menu item. Opens a dialog with a list of menu items to choose from."
-msgstr "Changer de place avec un autre élément du menu. Ouvre une boîte de dialogue avec une liste des éléments du menu disponible."
+msgstr "Changer de place avec un autre Ã©lÃ©ment du menu. Ouvre une boÃ®te de dialogue avec une liste des Ã©lÃ©ments du menu disponible."
 
 msgctxt "#31937"
 msgid "Show the RSS feed on the bottom or top of the screen, depending on main menu position. Enabling this setting makes the submenu permanently visible."
-msgstr "Affiche le fil RSS en bas ou en haut de l'écran, selon la position du menu principal. Activer cette option rend les sous-menus visibles de manière permanente."
+msgstr "Affiche le fil RSS en bas ou en haut de l'Ã©cran, selon la position du menu principal. Activer cette option rend les sous-menus visibles de maniÃ¨re permanente."
 
 msgctxt "#31938"
 msgid "Enables extra information in the TV show library, like TV show status, next / latest episode, etc. Depends on TheMovieDb Helper add-on."
-msgstr "Active des informations supplémentaires dans la bibliothèque des séries, comme le statut de la série, le prochain / dernier épisode, etc. Dépend du module complémentaire TheMovieDb Helper."
+msgstr "Active des informations supplÃ©mentaires dans la bibliothÃ¨que des sÃ©ries, comme le statut de la sÃ©rie, le prochain / dernier Ã©pisode, etc. DÃ©pend du module complÃ©mentaire TheMovieDb Helper."
 
 msgctxt "#31939"
 msgid "Hide Infopanel on scrolling"
@@ -2987,7 +2987,7 @@ msgstr "Cacher le panneau d'info durant la navigation"
 
 msgctxt "#31940"
 msgid "Hides the infopanel while scrolling through the library. Set the amount of seconds to wait for the infopanel to appear when scrolling has stopped."
-msgstr "Masque le panneau d'information pendant le défilement de la bibliothèque. Définir la durée d'attente avant la réapparition du panneau d'information lorsque le défilement est arrêté."
+msgstr "Masque le panneau d'information pendant le dÃ©filement de la bibliothÃ¨que. DÃ©finir la durÃ©e d'attente avant la rÃ©apparition du panneau d'information lorsque le dÃ©filement est arrÃªtÃ©."
 
 msgctxt "#31941"
 msgid "Kiosk mode"
@@ -2995,7 +2995,7 @@ msgstr "Mode kiosque"
 
 msgctxt "#31942"
 msgid "Disables the slide out menu (media menu) in the library as well as certain buttons in the media information dialogs."
-msgstr "Désactive le menu déroulant (menu Média) dans la bibliothèque ainsi que certains boutons dans les boîtes de dialogue d'informations sur les médias."
+msgstr "DÃ©sactive le menu dÃ©roulant (menu MÃ©dia) dans la bibliothÃ¨que ainsi que certains boutons dans les boÃ®tes de dialogue d'informations sur les mÃ©dias."
 
 msgctxt "#31943"
 msgid "Watched status indicator"
@@ -3003,15 +3003,15 @@ msgstr "Indicateur du statut Vu"
 
 msgctxt "#31944"
 msgid "Choose which overlays to show on thumbs in icon based views. Note that the \"Resume\" flag takes precedent over any watched status. After activating an overlay you must also enable it in each views settings. "
-msgstr "Choisir les superpositions à afficher sur les vignettes dans les vues basées sur des icônes. Noter que l'indicateur \"Reprendre\" a priorité sur tout statut surveillé. Après avoir activé une superposition, vous devez également l'activer dans les paramètres de chaque vue. "
+msgstr "Choisir les superpositions Ã  afficher sur les vignettes dans les vues basÃ©es sur des icÃ´nes. Noter que l'indicateur \"Reprendre\" a prioritÃ© sur tout statut surveillÃ©. AprÃ¨s avoir activÃ© une superposition, vous devez Ã©galement l'activer dans les paramÃ¨tres de chaque vue. "
 
 msgctxt "#31945"
 msgid "This toggles the layout of the List view. Default is a 7 item layout with extended info, \"Slim List\" is a 14 item, more basic layout"
-msgstr "Ceci permet de modifier la disposition de la vue Liste. Par défaut, 7 éléments avec des infos étendues sont affichés, la \"Liste fine\" affiche 14 éléments avec moins d'informations"
+msgstr "Ceci permet de modifier la disposition de la vue Liste. Par dÃ©faut, 7 Ã©lÃ©ments avec des infos Ã©tendues sont affichÃ©s, la \"Liste fine\" affiche 14 Ã©lÃ©ments avec moins d'informations"
 
 msgctxt "#31950"
 msgid "WEATHER"
-msgstr "MÉTÉO"
+msgstr "MÃ‰TÃ‰O"
 
 msgctxt "#31951"
 msgid "PICTURES"
@@ -3023,7 +3023,7 @@ msgstr "TV"
 
 msgctxt "#31953"
 msgid "VIDEOS"
-msgstr "VIDÉOS"
+msgstr "VIDÃ‰OS"
 
 msgctxt "#31954"
 msgid "MOVIES"
@@ -3031,7 +3031,7 @@ msgstr "FILMS"
 
 msgctxt "#31955"
 msgid "TV SHOWS"
-msgstr "SÉRIES TV"
+msgstr "SÃ‰RIES TV"
 
 msgctxt "#31956"
 msgid "MUSIC"
@@ -3047,7 +3047,7 @@ msgstr "LIRE DISQUE"
 
 msgctxt "#31959"
 msgid "SYSTEM"
-msgstr "SYSTÈME"
+msgstr "SYSTÃˆME"
 
 msgctxt "#31960"
 msgid "CONCERTS"
@@ -3059,7 +3059,7 @@ msgstr "Masque les notations pour les vues en liste"
 
 msgctxt "#31962"
 msgid "This toggles the visibility of ratings in views of type List, LowList and TriPanel, except if sorted by rating."
-msgstr "Bascule la visibilité des notations dans les vues Liste, Liste basse et Tri panneau, sauf si le tri est fait par évaluation."
+msgstr "Bascule la visibilitÃ© des notations dans les vues Liste, Liste basse et Tri panneau, sauf si le tri est fait par Ã©valuation."
 
 msgctxt "#31963"
 msgid "Open Sans"
@@ -3071,23 +3071,23 @@ msgstr "NoTo"
 
 msgctxt "#31965"
 msgid "BoxSet mod"
-msgstr "Fonction Boîtier Saga"
+msgstr "Fonction BoÃ®tier Saga"
 
 msgctxt "#31966"
 msgid "OpenCase mod"
-msgstr "Fonction Ouverture de boîtier"
+msgstr "Fonction Ouverture de boÃ®tier"
 
 msgctxt "#31970"
 msgid "Rate on Trakt"
-msgstr "Évaluer sur Trakt"
+msgstr "Ã‰valuer sur Trakt"
 
 msgctxt "#31971"
 msgid "Hide visualization behind fanart (works best with waveform)"
-msgstr "Masquer la visualisation derrière le fanart (fonctionne mieux avec waveform)"
+msgstr "Masquer la visualisation derriÃ¨re le fanart (fonctionne mieux avec waveform)"
 
 msgctxt "#31972"
 msgid "Autoplay music in fullscreen"
-msgstr "Lecture automatique de la musique en plein écran"
+msgstr "Lecture automatique de la musique en plein Ã©cran"
 
 msgctxt "#31973"
 msgid "Mod delay"
@@ -3095,31 +3095,31 @@ msgstr "Retard d'activation de la fonction"
 
 msgctxt "#31974"
 msgid "Select the style of cases used in all views"
-msgstr "Choisir le style du boîtier utilisé dans les vues"
+msgstr "Choisir le style du boÃ®tier utilisÃ© dans les vues"
 
 msgctxt "#31975"
 msgid "Use colored icons and mediaflags"
-msgstr "Utiliser des icônes de couleurs"
+msgstr "Utiliser des icÃ´nes de couleurs"
 
 msgctxt "#31978"
 msgid "Reset main menu items to their defaults"
-msgstr "Réinitialiser le menu principal"
+msgstr "RÃ©initialiser le menu principal"
 
 msgctxt "#31979"
 msgid "Sliding set discart"
-msgstr "Faire défiler les discarts"
+msgstr "Faire dÃ©filer les discarts"
 
 msgctxt "#31980"
 msgid "Change the way the home menu scrolls in Marmalade. Default will scroll in a cycle. \"Fixed\" has a beginning and end."
-msgstr "Changer la façon dont le menu principal défile dans Marmalade. Par défaut, défile en boucle. Les listes avec un début et une fin sont \"Figées\"."
+msgstr "Changer la faÃ§on dont le menu principal dÃ©file dans Marmalade. Par dÃ©faut, dÃ©file en boucle. Les listes avec un dÃ©but et une fin sont \"FigÃ©es\"."
 
 msgctxt "#31981"
 msgid "Show Plot and Cast information when pressing info button during video playback."
-msgstr "Afficher les informations de l'intrigue et de la distribution lorsque vous appuyez sur le bouton d'informations pendant la lecture vidéo."
+msgstr "Afficher les informations de l'intrigue et de la distribution lorsque vous appuyez sur le bouton d'informations pendant la lecture vidÃ©o."
 
 msgctxt "#31982"
 msgid "Display discart for  movies in information screen."
-msgstr "Affiche le discart des films sur l'écran d'information."
+msgstr "Affiche le discart des films sur l'Ã©cran d'information."
 
 msgctxt "#31983"
 msgid "Swap locations of Trailer and Cinema Experience buttons. Location is either in extras (+) or in the info dialog."
@@ -3127,35 +3127,35 @@ msgstr "Echanger l'emplacement du bouton Bande-Annonce avec Cinema Experience. S
 
 msgctxt "#31984"
 msgid "When activated the default mediaflags and icons are changed to colored versions"
-msgstr "Lorsqu'ils sont activés, les mediaflags et les icônes par défaut sont remplacés par des versions colorées"
+msgstr "Lorsqu'ils sont activÃ©s, les mediaflags et les icÃ´nes par dÃ©faut sont remplacÃ©s par des versions colorÃ©es"
 
 msgctxt "#31986"
 msgid "Select case style used in all views. Default or clear cases."
-msgstr "Sélectionner le style de boitier utilisé dans toutes les vues. Boitier par défaut ou clairs."
+msgstr "SÃ©lectionner le style de boitier utilisÃ© dans toutes les vues. Boitier par dÃ©faut ou clairs."
 
 msgctxt "#31987"
 msgid "Enable this setting to hide the \"Disable views\" button in the sidemenu."
-msgstr "Activer ce paramètre pour masquer le bouton \"Désactiver les vues\" dans le menu latéral."
+msgstr "Activer ce paramÃ¨tre pour masquer le bouton \"DÃ©sactiver les vues\" dans le menu latÃ©ral."
 
 msgctxt "#31988"
 msgid "Enable setting to animate backgrounds for views and the homescreen"
-msgstr "Activer le paramètre pour animer les arrière-plans des vues et de l'écran d'accueil"
+msgstr "Activer le paramÃ¨tre pour animer les arriÃ¨re-plans des vues et de l'Ã©cran d'accueil"
 
 msgctxt "#31989"
 msgid "Animate backgrounds"
-msgstr "Arrière-plans animés"
+msgstr "ArriÃ¨re-plans animÃ©s"
 
 msgctxt "#31990"
 msgid "Choose where the PreshowExperience button should be placed"
-msgstr "Choisir où le bouton PreshowExperience doit être placé"
+msgstr "Choisir oÃ¹ le bouton PreshowExperience doit Ãªtre placÃ©"
 
 msgctxt "#31991"
 msgid " Change default Widget to display a panel type style"
-msgstr " Modifier le widget par défaut pour afficher un style de type panneau"
+msgstr " Modifier le widget par dÃ©faut pour afficher un style de type panneau"
 
 msgctxt "#31992"
 msgid "Change panel style layout. Choose between compact or expanded layouts."
-msgstr "Modifier la disposition du style de panneau. Choisissez entre des mises en page compactes ou étendues."
+msgstr "Modifier la disposition du style de panneau. Choisissez entre des mises en page compactes ou Ã©tendues."
 
 msgctxt "#31993"
 msgid "Fake discart"
@@ -3167,27 +3167,27 @@ msgstr "Menu vertical"
 
 #~ msgctxt "#31316"
 #~ msgid "A skin reload is [B]REQUIRED[/B]. Press CANCEL to abort the requested changes."
-#~ msgstr "Rechargement de l'habillage [B]NECESSAIRE[/B]. Appuyez sur ANNULER pour stopper les modifications demandées."
+#~ msgstr "Rechargement de l'habillage [B]NECESSAIRE[/B]. Appuyez sur ANNULER pour stopper les modifications demandÃ©es."
 
 #~ msgctxt "#31015"
 #~ msgid "Set path to video genre fanart folder"
-#~ msgstr "Définir le chemin vers le dossier de FanArts de genre vidéos"
+#~ msgstr "DÃ©finir le chemin vers le dossier de FanArts de genre vidÃ©os"
 
 #~ msgctxt "#31070"
 #~ msgid "Enable CinemaVision integration"
-#~ msgstr "Activer l'intégration de CinemaVision"
+#~ msgstr "Activer l'intÃ©gration de CinemaVision"
 
 #~ msgctxt "#31479"
 #~ msgid "CinemaVision can create sequences of trivia slides, show video bumpers, play trailers and more to bring the experience of a movie theater to your living room."
-#~ msgstr "CinemaVision peut créer des séquences de futilités en diapositives , afficher des intercalaires vidéo, lire des bande-annonce et bien plus encore afin d'apporter l'expérience d'une salle de cinéma dans votre salon."
+#~ msgstr "CinemaVision peut crÃ©er des sÃ©quences de futilitÃ©s en diapositives , afficher des intercalaires vidÃ©o, lire des bande-annonce et bien plus encore afin d'apporter l'expÃ©rience d'une salle de cinÃ©ma dans votre salon."
 
 #~ msgctxt "#31853"
 #~ msgid "Choose where to display the CinemaVision button. The Default is to hide the Trailer button. Other options are replace the Play button or place it in the + (Extras) section."
-#~ msgstr "Choisir l'emplacement du bouton CinemaVision. Par défaut, remplace le bouton Bande-annonce. D'autres options sont de remplacer le bouton Lecture ou de le placer dans la section + (Extras)."
+#~ msgstr "Choisir l'emplacement du bouton CinemaVision. Par dÃ©faut, remplace le bouton Bande-annonce. D'autres options sont de remplacer le bouton Lecture ou de le placer dans la section + (Extras)."
 
 #~ msgctxt "#31854"
 #~ msgid "Use this setting to override the location of the Trailers button when using the Default setting for the CinemaVision button."
-#~ msgstr "Utiliser ce paramètre pour forcer l'emplacement du bouton Bande-annonce lorsque le paramètre par défaut du bouton CinemaVision est sélectionné."
+#~ msgstr "Utiliser ce paramÃ¨tre pour forcer l'emplacement du bouton Bande-annonce lorsque le paramÃ¨tre par dÃ©faut du bouton CinemaVision est sÃ©lectionnÃ©."
 
 #~ msgctxt "#31990"
 #~ msgid "Choose where the CinemaVision button should be placed"
@@ -3199,7 +3199,7 @@ msgstr "Menu vertical"
 
 #~ msgctxt "#31115"
 #~ msgid "Similar TV shows"
-#~ msgstr "Séries TV similaires"
+#~ msgstr "SÃ©ries TV similaires"
 
 #~ msgctxt "#31521"
 #~ msgid "More movies featuring"
@@ -3207,40 +3207,40 @@ msgstr "Menu vertical"
 
 #~ msgctxt "#31545"
 #~ msgid "More tv shows featuring"
-#~ msgstr "Plus de séries TV en vedette"
+#~ msgstr "Plus de sÃ©ries TV en vedette"
 
 #~ msgctxt "#31415"
 #~ msgid "Set the Highlight Bar color used throughout the skin."
-#~ msgstr "Définir la couleur de la barre de surbrillance utilisée dans l'ensemble de l'habillage."
+#~ msgstr "DÃ©finir la couleur de la barre de surbrillance utilisÃ©e dans l'ensemble de l'habillage."
 
 #~ msgctxt "#31110"
 #~ msgid "Colorbox Script provides the blurred images for the Music and Video info dialogs as well as the fullscreen music blurred background."
-#~ msgstr "Le script Colorbox fournit les images floutées pour les fenêtres de Musique et Vidéo ainsi que pour l'arrière-plan du plein écran musical."
+#~ msgstr "Le script Colorbox fournit les images floutÃ©es pour les fenÃªtres de Musique et VidÃ©o ainsi que pour l'arriÃ¨re-plan du plein Ã©cran musical."
 
 #~ msgctxt "#31126"
 #~ msgid "Skin Helper Service adds extra information for the skin to display that is not normally available in Kodi."
-#~ msgstr "Skin Helper Service ajoute des informations supplémentaires à afficher dans le skin qui ne sont normalement pas disponibles dans Kodi."
+#~ msgstr "Skin Helper Service ajoute des informations supplÃ©mentaires Ã  afficher dans le skin qui ne sont normalement pas disponibles dans Kodi."
 
 #~ msgctxt "#31473"
 #~ msgid "Artwork Beef is an Artwork Downloader and manager used to add or remove standard and extended artwork to your library."
-#~ msgstr "Artwork Beef est un téléchargeur et gestionnaire d'illustrations, il est utilisé pour ajouter ou supprimer des illustrations standard et étendues à votre bibliothèque."
+#~ msgstr "Artwork Beef est un tÃ©lÃ©chargeur et gestionnaire d'illustrations, il est utilisÃ© pour ajouter ou supprimer des illustrations standard et Ã©tendues Ã  votre bibliothÃ¨que."
 
 #~ msgctxt "#31475"
 #~ msgid "Skin Helper Service Widgets adds more options available as Widgets for your menu items. "
-#~ msgstr "Skin Helper Service ajoute plus d'options sous forme de widgets pour vos éléments de menu. "
+#~ msgstr "Skin Helper Service ajoute plus d'options sous forme de widgets pour vos Ã©lÃ©ments de menu. "
 
 #~ msgctxt "#31480"
 #~ msgid "Library Editor Script uses JSON to directly edit your database information."
-#~ msgstr "Library Editor Script utilise JSON pour modifier directement les informations de votre base de données."
+#~ msgstr "Library Editor Script utilise JSON pour modifier directement les informations de votre base de donnÃ©es."
 
 #~ msgctxt "#31938"
 #~ msgid "Enables extra information in the TV show library, like TV show status, next / latest episode, etc. Depends on TV Show Next Aired add-on."
-#~ msgstr "Activer des informations supplémentaires de la bibliothèque des séries TV, comme le statut de la série, le prochain / dernier épisode, etc. Dépend de l'extension TV Show Next Aired."
+#~ msgstr "Activer des informations supplÃ©mentaires de la bibliothÃ¨que des sÃ©ries TV, comme le statut de la sÃ©rie, le prochain / dernier Ã©pisode, etc. DÃ©pend de l'extension TV Show Next Aired."
 
 #~ msgctxt "#31332"
 #~ msgid "Not Installed"
-#~ msgstr "Non Installé"
+#~ msgstr "Non InstallÃ©"
 
 #~ msgctxt "#31451"
-#~ msgid "  •  Click to Install"
-#~ msgstr "  •  Cliquer pour installer"
+#~ msgid "  â€¢  Click to Install"
+#~ msgstr "  â€¢  Cliquer pour installer"

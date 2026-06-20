@@ -1,6 +1,6 @@
 # Kodi Media Center language file
 # Addon Name: Marmalade Build
-# Addon id: skin.aeon.nox.OpenCode
+# Addon id: skin.marmalade
 # Addon Provider: OpenCode
 msgid ""
 msgstr ""
@@ -9,7 +9,7 @@ msgstr ""
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "PO-Revision-Date: 2022-04-07 08:13+0000\n"
 "Last-Translator: Christian Gade <gade@kodi.tv>\n"
-"Language-Team: Thai <https://kodi.weblate.cloud/projects/kodi-add-ons-skins/skin-aeon-nox-OpenCode/th_th/>\n"
+"Language-Team: Thai <https://kodi.weblate.cloud/projects/kodi-add-ons-skins/skin.marmalade/th_th/>\n"
 "Language: th_th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,63 +19,63 @@ msgstr ""
 
 msgctxt "#31000"
 msgid "Directed by"
-msgstr "กำกับโดย"
+msgstr "à¸à¸³à¸à¸±à¸šà¹‚à¸”à¸¢"
 
 msgctxt "#31001"
 msgid "Written by"
-msgstr "เขียนโดย"
+msgstr "à¹€à¸‚à¸µà¸¢à¸™à¹‚à¸”à¸¢"
 
 msgctxt "#31002"
 msgid "Blurred album thumb"
-msgstr "รูปย่ออัลบั้มแบบพร่ามัว"
+msgstr "à¸£à¸¹à¸›à¸¢à¹ˆà¸­à¸­à¸±à¸¥à¸šà¸±à¹‰à¸¡à¹à¸šà¸šà¸žà¸£à¹ˆà¸²à¸¡à¸±à¸§"
 
 msgctxt "#31003"
 msgid "Power Options"
-msgstr "ตัวเลือก ด้านพลังงาน"
+msgstr "à¸•à¸±à¸§à¹€à¸¥à¸·à¸­à¸ à¸”à¹‰à¸²à¸™à¸žà¸¥à¸±à¸‡à¸‡à¸²à¸™"
 
 msgctxt "#31004"
 msgid "Working"
-msgstr "กำลังทำงาน"
+msgstr "à¸à¸³à¸¥à¸±à¸‡à¸—à¸³à¸‡à¸²à¸™"
 
 msgctxt "#31005"
 msgid "Fixed"
-msgstr "คงที่"
+msgstr "à¸„à¸‡à¸—à¸µà¹ˆ"
 
 msgctxt "#31006"
 msgid "View Options"
-msgstr "ตัวเลือก มุมมอง"
+msgstr "à¸•à¸±à¸§à¹€à¸¥à¸·à¸­à¸ à¸¡à¸¸à¸¡à¸¡à¸­à¸‡"
 
 msgctxt "#31007"
 msgid "Setup home"
-msgstr "ตั้งค่าหน้าหลัก"
+msgstr "à¸•à¸±à¹‰à¸‡à¸„à¹ˆà¸²à¸«à¸™à¹‰à¸²à¸«à¸¥à¸±à¸"
 
 msgctxt "#31008"
 msgid "Full screen"
-msgstr "เต็มจอ"
+msgstr "à¹€à¸•à¹‡à¸¡à¸ˆà¸­"
 
 msgctxt "#31009"
 msgid "Total Duration"
-msgstr "รวมระยะเวลา"
+msgstr "à¸£à¸§à¸¡à¸£à¸°à¸¢à¸°à¹€à¸§à¸¥à¸²"
 
 msgctxt "#31010"
 msgid "Next episode"
-msgstr "ตอนถัดไป"
+msgstr "à¸•à¸­à¸™à¸–à¸±à¸”à¹„à¸›"
 
 msgctxt "#31011"
 msgid "Latest episode"
-msgstr "ตอนล่าสุด"
+msgstr "à¸•à¸­à¸™à¸¥à¹ˆà¸²à¸ªà¸¸à¸”"
 
 msgctxt "#31012"
 msgid "Airs"
-msgstr "ออกอากาศ"
+msgstr "à¸­à¸­à¸à¸­à¸²à¸à¸²à¸¨"
 
 msgctxt "#31013"
 msgid "Statistics"
-msgstr "สถิติ"
+msgstr "à¸ªà¸–à¸´à¸•à¸´"
 
 msgctxt "#31014"
 msgid "Extras"
-msgstr "ส่วนพิเศษ"
+msgstr "à¸ªà¹ˆà¸§à¸™à¸žà¸´à¹€à¸¨à¸©"
 
 msgctxt "#31015"
 msgid "Set path to movie genre fanart folder"
@@ -83,51 +83,51 @@ msgstr ""
 
 msgctxt "#31016"
 msgid "Poster"
-msgstr "โปสเตอร์"
+msgstr "à¹‚à¸›à¸ªà¹€à¸•à¸­à¸£à¹Œ"
 
 msgctxt "#31017"
 msgid "Set path to music genre fanart folder"
-msgstr "กำหนดเสันทางไปยังโฟลเดอร์แฟนอาร์ตประเภทเพลง"
+msgstr "à¸à¸³à¸«à¸™à¸”à¹€à¸ªà¸±à¸™à¸—à¸²à¸‡à¹„à¸›à¸¢à¸±à¸‡à¹‚à¸Ÿà¸¥à¹€à¸”à¸­à¸£à¹Œà¹à¸Ÿà¸™à¸­à¸²à¸£à¹Œà¸•à¸›à¸£à¸°à¹€à¸ à¸—à¹€à¸žà¸¥à¸‡"
 
 msgctxt "#31018"
 msgid "InfoPanel"
-msgstr "แผงข้อมูล"
+msgstr "à¹à¸œà¸‡à¸‚à¹‰à¸­à¸¡à¸¹à¸¥"
 
 msgctxt "#31019"
 msgid "Network"
-msgstr "เครือข่าย"
+msgstr "à¹€à¸„à¸£à¸·à¸­à¸‚à¹ˆà¸²à¸¢"
 
 msgctxt "#31020"
 msgid "Extra-fanart"
-msgstr "แฟนอาร์ต-พิเศษ"
+msgstr "à¹à¸Ÿà¸™à¸­à¸²à¸£à¹Œà¸•-à¸žà¸´à¹€à¸¨à¸©"
 
 msgctxt "#31021"
 msgid "Stage curtains"
-msgstr "ผ้าม่านเวที"
+msgstr "à¸œà¹‰à¸²à¸¡à¹ˆà¸²à¸™à¹€à¸§à¸—à¸µ"
 
 msgctxt "#31022"
 msgid "Set multi-image background"
-msgstr "กำหนดพื้นหลังแบบหลายภาพ"
+msgstr "à¸à¸³à¸«à¸™à¸”à¸žà¸·à¹‰à¸™à¸«à¸¥à¸±à¸‡à¹à¸šà¸šà¸«à¸¥à¸²à¸¢à¸ à¸²à¸ž"
 
 msgctxt "#31023"
 msgid "Set single image background"
-msgstr "กำหนดพื้นหลังแบบภาพเดียว"
+msgstr "à¸à¸³à¸«à¸™à¸”à¸žà¸·à¹‰à¸™à¸«à¸¥à¸±à¸‡à¹à¸šà¸šà¸ à¸²à¸žà¹€à¸”à¸µà¸¢à¸§"
 
 msgctxt "#31024"
 msgid "Page"
-msgstr "หน้า"
+msgstr "à¸«à¸™à¹‰à¸²"
 
 msgctxt "#31025"
 msgid "Items"
-msgstr "รายการ"
+msgstr "à¸£à¸²à¸¢à¸à¸²à¸£"
 
 msgctxt "#31026"
 msgid "Misc Options"
-msgstr "ตัวเลือกอื่นๆ"
+msgstr "à¸•à¸±à¸§à¹€à¸¥à¸·à¸­à¸à¸­à¸·à¹ˆà¸™à¹†"
 
 msgctxt "#31027"
 msgid "Set item background"
-msgstr "กำหนดพื้นหลังรายการ"
+msgstr "à¸à¸³à¸«à¸™à¸”à¸žà¸·à¹‰à¸™à¸«à¸¥à¸±à¸‡à¸£à¸²à¸¢à¸à¸²à¸£"
 
 msgctxt "#31028"
 msgid "Live Background"
@@ -135,123 +135,123 @@ msgstr ""
 
 msgctxt "#31029"
 msgid "Recent movies"
-msgstr "ภาพยนตร์ล่าสุด"
+msgstr "à¸ à¸²à¸žà¸¢à¸™à¸•à¸£à¹Œà¸¥à¹ˆà¸²à¸ªà¸¸à¸”"
 
 msgctxt "#31030"
 msgid "Recent episodes"
-msgstr "ตอนล่าสุด"
+msgstr "à¸•à¸­à¸™à¸¥à¹ˆà¸²à¸ªà¸¸à¸”"
 
 msgctxt "#31031"
 msgid "Random movies"
-msgstr "สุ่มภาพยนตร์"
+msgstr "à¸ªà¸¸à¹ˆà¸¡à¸ à¸²à¸žà¸¢à¸™à¸•à¸£à¹Œ"
 
 msgctxt "#31032"
 msgid "Recommended movies"
-msgstr "ภาพยนตร์แนะนำ"
+msgstr "à¸ à¸²à¸žà¸¢à¸™à¸•à¸£à¹Œà¹à¸™à¸°à¸™à¸³"
 
 msgctxt "#31033"
 msgid "Random episodes"
-msgstr "สุ่มตอน"
+msgstr "à¸ªà¸¸à¹ˆà¸¡à¸•à¸­à¸™"
 
 msgctxt "#31034"
 msgid "Recommended episodes"
-msgstr "ตอนที่แนะนำ"
+msgstr "à¸•à¸­à¸™à¸—à¸µà¹ˆà¹à¸™à¸°à¸™à¸³"
 
 msgctxt "#31035"
 msgid "Random songs"
-msgstr "สุ่มเพลง"
+msgstr "à¸ªà¸¸à¹ˆà¸¡à¹€à¸žà¸¥à¸‡"
 
 msgctxt "#31036"
 msgid "Random albums"
-msgstr "สุ่มอัลบั้ม"
+msgstr "à¸ªà¸¸à¹ˆà¸¡à¸­à¸±à¸¥à¸šà¸±à¹‰à¸¡"
 
 msgctxt "#31037"
 msgid "Recent albums"
-msgstr "อัลบั้มล่าสุด"
+msgstr "à¸­à¸±à¸¥à¸šà¸±à¹‰à¸¡à¸¥à¹ˆà¸²à¸ªà¸¸à¸”"
 
 msgctxt "#31038"
 msgid "Recommended albums"
-msgstr "อัลบั้มแนะนำ"
+msgstr "à¸­à¸±à¸¥à¸šà¸±à¹‰à¸¡à¹à¸™à¸°à¸™à¸³"
 
 msgctxt "#31039"
 msgid "Actions"
-msgstr "การกระทำ"
+msgstr "à¸à¸²à¸£à¸à¸£à¸°à¸—à¸³"
 
 msgctxt "#31040"
 msgid "Now Playing"
-msgstr "กำลังเล่น"
+msgstr "à¸à¸³à¸¥à¸±à¸‡à¹€à¸¥à¹ˆà¸™"
 
 msgctxt "#31041"
 msgid "Select widget"
-msgstr "เลือกตัวแขวน"
+msgstr "à¹€à¸¥à¸·à¸­à¸à¸•à¸±à¸§à¹à¸‚à¸§à¸™"
 
 msgctxt "#31042"
 msgid "Show \"Now Playing\" information blended in the background"
-msgstr "แสดงข้อมูล \"ขณะนี้กำลังเล่น\" ผสานในพื้นหลัง"
+msgstr "à¹à¸ªà¸”à¸‡à¸‚à¹‰à¸­à¸¡à¸¹à¸¥ \"à¸‚à¸“à¸°à¸™à¸µà¹‰à¸à¸³à¸¥à¸±à¸‡à¹€à¸¥à¹ˆà¸™\" à¸œà¸ªà¸²à¸™à¹ƒà¸™à¸žà¸·à¹‰à¸™à¸«à¸¥à¸±à¸‡"
 
 msgctxt "#31043"
 msgid "Platform"
-msgstr "แพลตฟอร์ม"
+msgstr "à¹à¸žà¸¥à¸•à¸Ÿà¸­à¸£à¹Œà¸¡"
 
 msgctxt "#31044"
 msgid "Views: Plot outline | Info dialog: Full plot"
-msgstr "มุมมอง: โครงเรื่อง | กล่องโต้ตอบข้อมูล: เรื่องย่อแบบเต็ม"
+msgstr "à¸¡à¸¸à¸¡à¸¡à¸­à¸‡: à¹‚à¸„à¸£à¸‡à¹€à¸£à¸·à¹ˆà¸­à¸‡ | à¸à¸¥à¹ˆà¸­à¸‡à¹‚à¸•à¹‰à¸•à¸­à¸šà¸‚à¹‰à¸­à¸¡à¸¹à¸¥: à¹€à¸£à¸·à¹ˆà¸­à¸‡à¸¢à¹ˆà¸­à¹à¸šà¸šà¹€à¸•à¹‡à¸¡"
 
 msgctxt "#31045"
 msgid "Views: Full plot | Info dialog: Plot outline"
-msgstr "มุมมอง: เรื่องย่อแบบเต็ม | กล่องโต้ตอบข้อมูล: โครงเรื่อง"
+msgstr "à¸¡à¸¸à¸¡à¸¡à¸­à¸‡: à¹€à¸£à¸·à¹ˆà¸­à¸‡à¸¢à¹ˆà¸­à¹à¸šà¸šà¹€à¸•à¹‡à¸¡ | à¸à¸¥à¹ˆà¸­à¸‡à¹‚à¸•à¹‰à¸•à¸­à¸šà¸‚à¹‰à¸­à¸¡à¸¹à¸¥: à¹‚à¸„à¸£à¸‡à¹€à¸£à¸·à¹ˆà¸­à¸‡"
 
 msgctxt "#31046"
 msgid "SEEKING"
-msgstr "ค้นหา"
+msgstr "à¸„à¹‰à¸™à¸«à¸²"
 
 msgctxt "#31047"
 msgid "Set item icon"
-msgstr "กำหนดไอคอนของรายการ"
+msgstr "à¸à¸³à¸«à¸™à¸”à¹„à¸­à¸„à¸­à¸™à¸‚à¸­à¸‡à¸£à¸²à¸¢à¸à¸²à¸£"
 
 msgctxt "#31048"
 msgid "Visualisation Presets"
-msgstr "ชุดรูปแบบการแสดงแสงสี"
+msgstr "à¸Šà¸¸à¸”à¸£à¸¹à¸›à¹à¸šà¸šà¸à¸²à¸£à¹à¸ªà¸”à¸‡à¹à¸ªà¸‡à¸ªà¸µ"
 
 msgctxt "#31049"
 msgid "Select infoline"
-msgstr "เลือกบรรทัดแสดงข้อมูล"
+msgstr "à¹€à¸¥à¸·à¸­à¸à¸šà¸£à¸£à¸—à¸±à¸”à¹à¸ªà¸”à¸‡à¸‚à¹‰à¸­à¸¡à¸¹à¸¥"
 
 msgctxt "#31050"
 msgid "Sort: Ascending"
-msgstr "เรียง: มากไปน้อย"
+msgstr "à¹€à¸£à¸µà¸¢à¸‡: à¸¡à¸²à¸à¹„à¸›à¸™à¹‰à¸­à¸¢"
 
 msgctxt "#31051"
 msgid "Sort: Descending"
-msgstr "เรียง: น้อยไปมาก"
+msgstr "à¹€à¸£à¸µà¸¢à¸‡: à¸™à¹‰à¸­à¸¢à¹„à¸›à¸¡à¸²à¸"
 
 msgctxt "#31052"
 msgid "Movie library statistics"
-msgstr "สถานะคลังข้อมูลภาพยนตร์"
+msgstr "à¸ªà¸–à¸²à¸™à¸°à¸„à¸¥à¸±à¸‡à¸‚à¹‰à¸­à¸¡à¸¹à¸¥à¸ à¸²à¸žà¸¢à¸™à¸•à¸£à¹Œ"
 
 msgctxt "#31053"
 msgid "TV Show library statistics"
-msgstr "สถานะคลังข้อมูลรายการทีวี"
+msgstr "à¸ªà¸–à¸²à¸™à¸°à¸„à¸¥à¸±à¸‡à¸‚à¹‰à¸­à¸¡à¸¹à¸¥à¸£à¸²à¸¢à¸à¸²à¸£à¸—à¸µà¸§à¸µ"
 
 msgctxt "#31054"
 msgid "Music library statistics"
-msgstr "สถานะคลังข้อมูลเพลง"
+msgstr "à¸ªà¸–à¸²à¸™à¸°à¸„à¸¥à¸±à¸‡à¸‚à¹‰à¸­à¸¡à¸¹à¸¥à¹€à¸žà¸¥à¸‡"
 
 msgctxt "#31055"
 msgid "Open playlist"
-msgstr "เปิดรายการเล่น"
+msgstr "à¹€à¸›à¸´à¸”à¸£à¸²à¸¢à¸à¸²à¸£à¹€à¸¥à¹ˆà¸™"
 
 msgctxt "#31056"
 msgid "Save playlist"
-msgstr "บันทึกรายการเล่น"
+msgstr "à¸šà¸±à¸™à¸—à¸¶à¸à¸£à¸²à¸¢à¸à¸²à¸£à¹€à¸¥à¹ˆà¸™"
 
 msgctxt "#31057"
 msgid "Close playlist"
-msgstr "ปิด รายการเล่น"
+msgstr "à¸›à¸´à¸” à¸£à¸²à¸¢à¸à¸²à¸£à¹€à¸¥à¹ˆà¸™"
 
 msgctxt "#31058"
 msgid "PVR information"
-msgstr "ข้อมูล PVR"
+msgstr "à¸‚à¹‰à¸­à¸¡à¸¹à¸¥ PVR"
 
 msgctxt "#31059"
 msgid "Artist Slideshow"
@@ -259,7 +259,7 @@ msgstr ""
 
 msgctxt "#31060"
 msgid "This file is stacked, select the part you want to play from."
-msgstr "แฟ้มนี้ซ้อนกันอยู่, เลือกส่วนที่คุณต้องการจะเล่นจาก."
+msgstr "à¹à¸Ÿà¹‰à¸¡à¸™à¸µà¹‰à¸‹à¹‰à¸­à¸™à¸à¸±à¸™à¸­à¸¢à¸¹à¹ˆ, à¹€à¸¥à¸·à¸­à¸à¸ªà¹ˆà¸§à¸™à¸—à¸µà¹ˆà¸„à¸¸à¸“à¸•à¹‰à¸­à¸‡à¸à¸²à¸£à¸ˆà¸°à¹€à¸¥à¹ˆà¸™à¸ˆà¸²à¸."
 
 msgctxt "#31061"
 msgid "Total addons / Favourites statistics"
@@ -267,35 +267,35 @@ msgstr ""
 
 msgctxt "#31062"
 msgid "Random movie fanart"
-msgstr "สุ่มแฟนอาร์ตภาพยนตร์"
+msgstr "à¸ªà¸¸à¹ˆà¸¡à¹à¸Ÿà¸™à¸­à¸²à¸£à¹Œà¸•à¸ à¸²à¸žà¸¢à¸™à¸•à¸£à¹Œ"
 
 msgctxt "#31063"
 msgid "Random TV show fanart"
-msgstr "สุ่มแฟนอาร์ตรายการทีวี"
+msgstr "à¸ªà¸¸à¹ˆà¸¡à¹à¸Ÿà¸™à¸­à¸²à¸£à¹Œà¸•à¸£à¸²à¸¢à¸à¸²à¸£à¸—à¸µà¸§à¸µ"
 
 msgctxt "#31064"
 msgid "Random video fanart"
-msgstr "สุ่มแฟนอาร์ตวิดีโอ"
+msgstr "à¸ªà¸¸à¹ˆà¸¡à¹à¸Ÿà¸™à¸­à¸²à¸£à¹Œà¸•à¸§à¸´à¸”à¸µà¹‚à¸­"
 
 msgctxt "#31065"
 msgid "Random music fanart"
-msgstr "สุ่มแฟนอาร์ตเพลง"
+msgstr "à¸ªà¸¸à¹ˆà¸¡à¹à¸Ÿà¸™à¸­à¸²à¸£à¹Œà¸•à¹€à¸žà¸¥à¸‡"
 
 msgctxt "#31066"
 msgid "Random fanart"
-msgstr "แฟนอาร์ตแบบสุ่ม"
+msgstr "à¹à¸Ÿà¸™à¸­à¸²à¸£à¹Œà¸•à¹à¸šà¸šà¸ªà¸¸à¹ˆà¸¡"
 
 msgctxt "#31067"
 msgid "Update rating"
-msgstr "ปรับปรุงการจัดอันดับ"
+msgstr "à¸›à¸£à¸±à¸šà¸›à¸£à¸¸à¸‡à¸à¸²à¸£à¸ˆà¸±à¸”à¸­à¸±à¸™à¸”à¸±à¸š"
 
 msgctxt "#31068"
 msgid "CD Wall"
-msgstr "ผนังซีดี"
+msgstr "à¸œà¸™à¸±à¸‡à¸‹à¸µà¸”à¸µ"
 
 msgctxt "#31069"
 msgid "Change location"
-msgstr "เปลี่ยนพื้นที่"
+msgstr "à¹€à¸›à¸¥à¸µà¹ˆà¸¢à¸™à¸žà¸·à¹‰à¸™à¸—à¸µà¹ˆ"
 
 msgctxt "#31070"
 msgid "Enable PreshowExperience integration"
@@ -303,131 +303,131 @@ msgstr ""
 
 msgctxt "#31071"
 msgid "While browsing the library"
-msgstr "ในขณะที่เรียกดูคลังข้อมูล"
+msgstr "à¹ƒà¸™à¸‚à¸“à¸°à¸—à¸µà¹ˆà¹€à¸£à¸µà¸¢à¸à¸”à¸¹à¸„à¸¥à¸±à¸‡à¸‚à¹‰à¸­à¸¡à¸¹à¸¥"
 
 msgctxt "#31072"
 msgid "On open video info"
-msgstr "ข้อมูลวิดีโอที่เปิด"
+msgstr "à¸‚à¹‰à¸­à¸¡à¸¹à¸¥à¸§à¸´à¸”à¸µà¹‚à¸­à¸—à¸µà¹ˆà¹€à¸›à¸´à¸”"
 
 msgctxt "#31073"
 msgid "Move menu item"
-msgstr "ย้ายรายการในเมนู"
+msgstr "à¸¢à¹‰à¸²à¸¢à¸£à¸²à¸¢à¸à¸²à¸£à¹ƒà¸™à¹€à¸¡à¸™à¸¹"
 
 msgctxt "#31074"
 msgid "Choose item to swap places with"
-msgstr "เลือกรายการที่จะสลับที่ด้วย"
+msgstr "à¹€à¸¥à¸·à¸­à¸à¸£à¸²à¸¢à¸à¸²à¸£à¸—à¸µà¹ˆà¸ˆà¸°à¸ªà¸¥à¸±à¸šà¸—à¸µà¹ˆà¸”à¹‰à¸§à¸¢"
 
 msgctxt "#31075"
 msgid "No extra features available"
-msgstr "ไม่มีคุณสมบัติพิเศษที่ใช้ได้"
+msgstr "à¹„à¸¡à¹ˆà¸¡à¸µà¸„à¸¸à¸“à¸ªà¸¡à¸šà¸±à¸•à¸´à¸žà¸´à¹€à¸¨à¸©à¸—à¸µà¹ˆà¹ƒà¸Šà¹‰à¹„à¸”à¹‰"
 
 msgctxt "#31076"
 msgid "Landscape"
-msgstr "แนวนอน"
+msgstr "à¹à¸™à¸§à¸™à¸­à¸™"
 
 msgctxt "#31077"
 msgid "ShowCase"
-msgstr "แสดงกล่อง"
+msgstr "à¹à¸ªà¸”à¸‡à¸à¸¥à¹ˆà¸­à¸‡"
 
 msgctxt "#31078"
 msgid "TriPanel"
-msgstr "สามแผงข้อมูล"
+msgstr "à¸ªà¸²à¸¡à¹à¸œà¸‡à¸‚à¹‰à¸­à¸¡à¸¹à¸¥"
 
 msgctxt "#31079"
 msgid "Shift"
-msgstr "เลื่อน"
+msgstr "à¹€à¸¥à¸·à¹ˆà¸­à¸™"
 
 msgctxt "#31080"
 msgid "Manage submenu"
-msgstr "จัดการเมนูย่อย"
+msgstr "à¸ˆà¸±à¸”à¸à¸²à¸£à¹€à¸¡à¸™à¸¹à¸¢à¹ˆà¸­à¸¢"
 
 msgctxt "#31081"
 msgid "Enable custom submenus"
-msgstr "เปิดใช้งานเมนูย่อยด้วยตนเอง"
+msgstr "à¹€à¸›à¸´à¸”à¹ƒà¸Šà¹‰à¸‡à¸²à¸™à¹€à¸¡à¸™à¸¹à¸¢à¹ˆà¸­à¸¢à¸”à¹‰à¸§à¸¢à¸•à¸™à¹€à¸­à¸‡"
 
 msgctxt "#31082"
 msgid "Detach RSS feed from the main menu"
-msgstr "แยกการดึงข้อมูล RSS ออกจากเมนูหลัก"
+msgstr "à¹à¸¢à¸à¸à¸²à¸£à¸”à¸¶à¸‡à¸‚à¹‰à¸­à¸¡à¸¹à¸¥ RSS à¸­à¸­à¸à¸ˆà¸²à¸à¹€à¸¡à¸™à¸¹à¸«à¸¥à¸±à¸"
 
 msgctxt "#31083"
 msgid "Enable Next Aired information in the videolibrary"
-msgstr "เปิดใช้งาน ข้อมูล Next Aired ในคลังข้อมูลวิดีโอ"
+msgstr "à¹€à¸›à¸´à¸”à¹ƒà¸Šà¹‰à¸‡à¸²à¸™ à¸‚à¹‰à¸­à¸¡à¸¹à¸¥ Next Aired à¹ƒà¸™à¸„à¸¥à¸±à¸‡à¸‚à¹‰à¸­à¸¡à¸¹à¸¥à¸§à¸´à¸”à¸µà¹‚à¸­"
 
 msgctxt "#31084"
 msgid "Conditional weather"
-msgstr "สภาวะอากาศ"
+msgstr "à¸ªà¸ à¸²à¸§à¸°à¸­à¸²à¸à¸²à¸¨"
 
 msgctxt "#31085"
 msgid "Musicvideo library statistics"
-msgstr "สถานะคลังข้อมูลวิดีโอเพลง"
+msgstr "à¸ªà¸–à¸²à¸™à¸°à¸„à¸¥à¸±à¸‡à¸‚à¹‰à¸­à¸¡à¸¹à¸¥à¸§à¸´à¸”à¸µà¹‚à¸­à¹€à¸žà¸¥à¸‡"
 
 msgctxt "#31086"
 msgid "Icon"
-msgstr "ไอคอน"
+msgstr "à¹„à¸­à¸„à¸­à¸™"
 
 msgctxt "#31087"
 msgid "Banner"
-msgstr "ป้าย"
+msgstr "à¸›à¹‰à¸²à¸¢"
 
 msgctxt "#31088"
 msgid "BannerWall"
-msgstr "ผนังป้าย"
+msgstr "à¸œà¸™à¸±à¸‡à¸›à¹‰à¸²à¸¢"
 
 msgctxt "#31089"
 msgid "Play item on startup"
-msgstr "เล่นรายการ ในขณะเริ่มระบบ"
+msgstr "à¹€à¸¥à¹ˆà¸™à¸£à¸²à¸¢à¸à¸²à¸£ à¹ƒà¸™à¸‚à¸“à¸°à¹€à¸£à¸´à¹ˆà¸¡à¸£à¸°à¸šà¸š"
 
 msgctxt "#31090"
 msgid "Seconds"
-msgstr "วินาที"
+msgstr "à¸§à¸´à¸™à¸²à¸—à¸µ"
 
 msgctxt "#31091"
 msgid "Select items"
-msgstr "เลือกรายการ"
+msgstr "à¹€à¸¥à¸·à¸­à¸à¸£à¸²à¸¢à¸à¸²à¸£"
 
 msgctxt "#31092"
 msgid "Fullscreen fanart"
-msgstr "แฟนอาร์ตแบบเต็มจอ"
+msgstr "à¹à¸Ÿà¸™à¸­à¸²à¸£à¹Œà¸•à¹à¸šà¸šà¹€à¸•à¹‡à¸¡à¸ˆà¸­"
 
 msgctxt "#31093"
 msgid "LowList toggle"
-msgstr "สลับรายการแบบต่ำ"
+msgstr "à¸ªà¸¥à¸±à¸šà¸£à¸²à¸¢à¸à¸²à¸£à¹à¸šà¸šà¸•à¹ˆà¸³"
 
 msgctxt "#31094"
 msgid "List view layout"
-msgstr "การจัดวางมุมมองรายการ"
+msgstr "à¸à¸²à¸£à¸ˆà¸±à¸”à¸§à¸²à¸‡à¸¡à¸¸à¸¡à¸¡à¸­à¸‡à¸£à¸²à¸¢à¸à¸²à¸£"
 
 msgctxt "#31095"
 msgid "Slim List"
-msgstr "รายการแบบบาง"
+msgstr "à¸£à¸²à¸¢à¸à¸²à¸£à¹à¸šà¸šà¸šà¸²à¸‡"
 
 msgctxt "#31096"
 msgid "Concert locations"
-msgstr "สถานที่จัดคอนเสิร์ต"
+msgstr "à¸ªà¸–à¸²à¸™à¸—à¸µà¹ˆà¸ˆà¸±à¸”à¸„à¸­à¸™à¹€à¸ªà¸´à¸£à¹Œà¸•"
 
 msgctxt "#31097"
 msgid "Movie playlist statistics"
-msgstr "สถานะรายการเล่นภาพยนตร์"
+msgstr "à¸ªà¸–à¸²à¸™à¸°à¸£à¸²à¸¢à¸à¸²à¸£à¹€à¸¥à¹ˆà¸™à¸ à¸²à¸žà¸¢à¸™à¸•à¸£à¹Œ"
 
 msgctxt "#31098"
 msgid "TV Show playlist statistics"
-msgstr "สถานะรายการเล่นรายการทีวี"
+msgstr "à¸ªà¸–à¸²à¸™à¸°à¸£à¸²à¸¢à¸à¸²à¸£à¹€à¸¥à¹ˆà¸™à¸£à¸²à¸¢à¸à¸²à¸£à¸—à¸µà¸§à¸µ"
 
 msgctxt "#31099"
 msgid "Musicvideo playlist statistics"
-msgstr "สถานะรายการเล่นวิดีโอเพลง"
+msgstr "à¸ªà¸–à¸²à¸™à¸°à¸£à¸²à¸¢à¸à¸²à¸£à¹€à¸¥à¹ˆà¸™à¸§à¸´à¸”à¸µà¹‚à¸­à¹€à¸žà¸¥à¸‡"
 
 msgctxt "#31100"
 msgid "View:"
-msgstr "มุมมอง:"
+msgstr "à¸¡à¸¸à¸¡à¸¡à¸­à¸‡:"
 
 msgctxt "#31101"
 msgid "Choose view"
-msgstr "เลือกมุมมอง"
+msgstr "à¹€à¸¥à¸·à¸­à¸à¸¡à¸¸à¸¡à¸¡à¸­à¸‡"
 
 msgctxt "#31102"
 msgid "Background"
-msgstr "พื้นหลัง"
+msgstr "à¸žà¸·à¹‰à¸™à¸«à¸¥à¸±à¸‡"
 
 msgctxt "#31103"
 msgid "N/A"
@@ -435,27 +435,27 @@ msgstr "N/A"
 
 msgctxt "#31104"
 msgid "Similar artists"
-msgstr "ศิลปินที่คล้ายกัน"
+msgstr "à¸¨à¸´à¸¥à¸›à¸´à¸™à¸—à¸µà¹ˆà¸„à¸¥à¹‰à¸²à¸¢à¸à¸±à¸™"
 
 msgctxt "#31105"
 msgid "More albums from"
-msgstr "อัลบั้มเพิ่มเติมจาก"
+msgstr "à¸­à¸±à¸¥à¸šà¸±à¹‰à¸¡à¹€à¸žà¸´à¹ˆà¸¡à¹€à¸•à¸´à¸¡à¸ˆà¸²à¸"
 
 msgctxt "#31106"
 msgid "On info"
-msgstr "ข้อมูลเกี่ยวกับ"
+msgstr "à¸‚à¹‰à¸­à¸¡à¸¹à¸¥à¹€à¸à¸µà¹ˆà¸¢à¸§à¸à¸±à¸š"
 
 msgctxt "#31107"
 msgid "Persistent"
-msgstr "บ่อยๆ"
+msgstr "à¸šà¹ˆà¸­à¸¢à¹†"
 
 msgctxt "#31108"
 msgid "Enable artist information feed (if available)"
-msgstr "เปิดใช้งาน การดึงข้อมูลศิลปิน (ถ้ามี)"
+msgstr "à¹€à¸›à¸´à¸”à¹ƒà¸Šà¹‰à¸‡à¸²à¸™ à¸à¸²à¸£à¸”à¸¶à¸‡à¸‚à¹‰à¸­à¸¡à¸¹à¸¥à¸¨à¸´à¸¥à¸›à¸´à¸™ (à¸–à¹‰à¸²à¸¡à¸µ)"
 
 msgctxt "#31109"
 msgid "Unwatched episode count"
-msgstr "นับจำนวนตอนที่ยังไม่ได้ดู"
+msgstr "à¸™à¸±à¸šà¸ˆà¸³à¸™à¸§à¸™à¸•à¸­à¸™à¸—à¸µà¹ˆà¸¢à¸±à¸‡à¹„à¸¡à¹ˆà¹„à¸”à¹‰à¸”à¸¹"
 
 msgctxt "#31110"
 msgid "Solid color backgrounds"
@@ -467,11 +467,11 @@ msgstr ""
 
 msgctxt "#31112"
 msgid "Movies directed by"
-msgstr "ภาพยนตร์กำกับโดย"
+msgstr "à¸ à¸²à¸žà¸¢à¸™à¸•à¸£à¹Œà¸à¸³à¸à¸±à¸šà¹‚à¸”à¸¢"
 
 msgctxt "#31113"
 msgid "Movies written by"
-msgstr "ภาพยนตร์เขียนบทโดย"
+msgstr "à¸ à¸²à¸žà¸¢à¸™à¸•à¸£à¹Œà¹€à¸‚à¸µà¸¢à¸™à¸šà¸—à¹‚à¸”à¸¢"
 
 msgctxt "#31114"
 msgid "More from"
@@ -487,7 +487,7 @@ msgstr ""
 
 msgctxt "#31117"
 msgid "Fallback"
-msgstr "ย้อนหลัง"
+msgstr "à¸¢à¹‰à¸­à¸™à¸«à¸¥à¸±à¸‡"
 
 msgctxt "#31118"
 msgid "Cache movie extrafanart"
@@ -515,11 +515,11 @@ msgstr ""
 
 msgctxt "#31124"
 msgid "Show Background \"Now Playing\" Video"
-msgstr "แสดงพื้นหลังด้วยวิดีโอ \"ที่กำลังเล่น\""
+msgstr "à¹à¸ªà¸”à¸‡à¸žà¸·à¹‰à¸™à¸«à¸¥à¸±à¸‡à¸”à¹‰à¸§à¸¢à¸§à¸´à¸”à¸µà¹‚à¸­ \"à¸—à¸µà¹ˆà¸à¸³à¸¥à¸±à¸‡à¹€à¸¥à¹ˆà¸™\""
 
 msgctxt "#31125"
 msgid "Show Background \"Now Playing\" Visualisation"
-msgstr "แสดงพื้นหลัง แสงสีประกอบเพลง \"ที่กำลังเล่น\""
+msgstr "à¹à¸ªà¸”à¸‡à¸žà¸·à¹‰à¸™à¸«à¸¥à¸±à¸‡ à¹à¸ªà¸‡à¸ªà¸µà¸›à¸£à¸°à¸à¸­à¸šà¹€à¸žà¸¥à¸‡ \"à¸—à¸µà¹ˆà¸à¸³à¸¥à¸±à¸‡à¹€à¸¥à¹ˆà¸™\""
 
 msgctxt "#31126"
 msgid "TheMovieDb Helper provides details about movies, tvshows and actors from TMDb."
@@ -535,7 +535,7 @@ msgstr ""
 
 msgctxt "#31129"
 msgid "Hide Fanart in full screen visualisation"
-msgstr "ซ่อนแฟนอาร์ต ในการแสดงแสงสีแบบเต็มจอ"
+msgstr "à¸‹à¹ˆà¸­à¸™à¹à¸Ÿà¸™à¸­à¸²à¸£à¹Œà¸• à¹ƒà¸™à¸à¸²à¸£à¹à¸ªà¸”à¸‡à¹à¸ªà¸‡à¸ªà¸µà¹à¸šà¸šà¹€à¸•à¹‡à¸¡à¸ˆà¸­"
 
 msgctxt "#31130"
 msgid "Use \"Enigma2-style\" channel OSD"
@@ -587,7 +587,7 @@ msgstr ""
 
 msgctxt "#31142"
 msgid "Settings level"
-msgstr "ระดับของการตั้งค่า"
+msgstr "à¸£à¸°à¸”à¸±à¸šà¸‚à¸­à¸‡à¸à¸²à¸£à¸•à¸±à¹‰à¸‡à¸„à¹ˆà¸²"
 
 msgctxt "#31143"
 msgid "Hide Recordings"
@@ -603,7 +603,7 @@ msgstr ""
 
 msgctxt "#31146"
 msgid "Rated"
-msgstr "เรต"
+msgstr "à¹€à¸£à¸•"
 
 msgctxt "#31147"
 msgid "Change rating"
@@ -627,7 +627,7 @@ msgstr ""
 
 msgctxt "#31152"
 msgid "Poster"
-msgstr "โปสเตอร์"
+msgstr "à¹‚à¸›à¸ªà¹€à¸•à¸­à¸£à¹Œ"
 
 msgctxt "#31153"
 msgid "Disable views"
@@ -639,7 +639,7 @@ msgstr ""
 
 msgctxt "#31155"
 msgid "Widgets"
-msgstr "ตัวแขวน"
+msgstr "à¸•à¸±à¸§à¹à¸‚à¸§à¸™"
 
 msgctxt "#31156"
 msgid "Clearart"
@@ -655,11 +655,11 @@ msgstr ""
 
 msgctxt "#31159"
 msgid "Event log"
-msgstr "บันทึกกิจกรรม"
+msgstr "à¸šà¸±à¸™à¸—à¸¶à¸à¸à¸´à¸ˆà¸à¸£à¸£à¸¡"
 
 msgctxt "#31160"
 msgid "Extended"
-msgstr "ขยาย"
+msgstr "à¸‚à¸¢à¸²à¸¢"
 
 msgctxt "#31161"
 msgid "Choose the position of the RSS feed. Top of the screen, bottom of the screen or the default location directly underneath the main menu."
@@ -723,7 +723,7 @@ msgstr ""
 
 msgctxt "#31176"
 msgid "Trending Movies"
-msgstr "ภาพยนตร์ที่ได้รับความนิยม"
+msgstr "à¸ à¸²à¸žà¸¢à¸™à¸•à¸£à¹Œà¸—à¸µà¹ˆà¹„à¸”à¹‰à¸£à¸±à¸šà¸„à¸§à¸²à¸¡à¸™à¸´à¸¢à¸¡"
 
 msgctxt "#31177"
 msgid "Top Rentals"
@@ -839,7 +839,7 @@ msgstr ""
 
 msgctxt "#31205"
 msgid "Lyrics Source"
-msgstr "แหล่งของเนื้อเพลง"
+msgstr "à¹à¸«à¸¥à¹ˆà¸‡à¸‚à¸­à¸‡à¹€à¸™à¸·à¹‰à¸­à¹€à¸žà¸¥à¸‡"
 
 msgctxt "#31206"
 msgid "Opening This Week"
@@ -855,7 +855,7 @@ msgstr ""
 
 msgctxt "#31209"
 msgid "In Cinemas"
-msgstr "ในโรงภาพยนตร์"
+msgstr "à¹ƒà¸™à¹‚à¸£à¸‡à¸ à¸²à¸žà¸¢à¸™à¸•à¸£à¹Œ"
 
 msgctxt "#31210"
 msgid "Popular Movies"
@@ -939,7 +939,7 @@ msgstr ""
 
 msgctxt "#31230"
 msgid "Panel"
-msgstr "แผง"
+msgstr "à¹à¸œà¸‡"
 
 msgctxt "#31231"
 msgid "Widget Style"
@@ -991,7 +991,7 @@ msgstr ""
 
 msgctxt "#31243"
 msgid "Posters"
-msgstr "โปสเตอร์"
+msgstr "à¹‚à¸›à¸ªà¹€à¸•à¸­à¸£à¹Œ"
 
 msgctxt "#31244"
 msgid "MyFlix"
@@ -999,7 +999,7 @@ msgstr ""
 
 msgctxt "#31245"
 msgid "Wall"
-msgstr "ผนัง"
+msgstr "à¸œà¸™à¸±à¸‡"
 
 msgctxt "#31246"
 msgid "Fullscreen Wall"
@@ -1007,11 +1007,11 @@ msgstr ""
 
 msgctxt "#31247"
 msgid "InfoWall"
-msgstr "ผนังขัอมูล"
+msgstr "à¸œà¸™à¸±à¸‡à¸‚à¸±à¸­à¸¡à¸¹à¸¥"
 
 msgctxt "#31248"
 msgid "BannerPlex"
-msgstr "ซ้อนป้าย"
+msgstr "à¸‹à¹‰à¸­à¸™à¸›à¹‰à¸²à¸¢"
 
 msgctxt "#31249"
 msgid "BigFan"
@@ -1031,7 +1031,7 @@ msgstr ""
 
 msgctxt "#31253"
 msgid "Banners"
-msgstr "ป้าย"
+msgstr "à¸›à¹‰à¸²à¸¢"
 
 msgctxt "#31254"
 msgid "Smaller posters"
@@ -1115,7 +1115,7 @@ msgstr ""
 
 msgctxt "#31274"
 msgid "Artwork"
-msgstr "งานศิลป์"
+msgstr "à¸‡à¸²à¸™à¸¨à¸´à¸¥à¸›à¹Œ"
 
 msgctxt "#31275"
 msgid "Case"
@@ -1127,7 +1127,7 @@ msgstr ""
 
 msgctxt "#31277"
 msgid "Sort by"
-msgstr "เรียงโดย"
+msgstr "à¹€à¸£à¸µà¸¢à¸‡à¹‚à¸”à¸¢"
 
 msgctxt "#31278"
 msgid "Sort order"
@@ -1219,11 +1219,11 @@ msgstr ""
 
 msgctxt "#31300"
 msgid "Overview"
-msgstr "โดยรวม"
+msgstr "à¹‚à¸”à¸¢à¸£à¸§à¸¡"
 
 msgctxt "#31301"
 msgid "Last Updated"
-msgstr "ปรับปรุงล่าสุด"
+msgstr "à¸›à¸£à¸±à¸šà¸›à¸£à¸¸à¸‡à¸¥à¹ˆà¸²à¸ªà¸¸à¸”"
 
 msgctxt "#31302"
 msgid "Menu Bar"
@@ -1247,7 +1247,7 @@ msgstr ""
 
 msgctxt "#31307"
 msgid "Hide Fanart"
-msgstr "ซ่อนแฟนอาร์ต"
+msgstr "à¸‹à¹ˆà¸­à¸™à¹à¸Ÿà¸™à¸­à¸²à¸£à¹Œà¸•"
 
 msgctxt "#31308"
 msgid "Focused text"
@@ -1255,7 +1255,7 @@ msgstr ""
 
 msgctxt "#31309"
 msgid "Memory Used"
-msgstr "หน่วยความจำที่ใช้"
+msgstr "à¸«à¸™à¹ˆà¸§à¸¢à¸„à¸§à¸²à¸¡à¸ˆà¸³à¸—à¸µà¹ˆà¹ƒà¸Šà¹‰"
 
 msgctxt "#31310"
 msgid "Unfocused text"
@@ -1275,7 +1275,7 @@ msgstr ""
 
 msgctxt "#31314"
 msgid "Panel"
-msgstr "แผง"
+msgstr "à¹à¸œà¸‡"
 
 msgctxt "#31315"
 msgid "A required script is [B]NOT INSTALLED[/B]. Press INSTALL to download automatically. Press CANCEL if you would like to return to System Settings and switch skins. You may need to restart Kodi after installation completes."
@@ -1287,10 +1287,10 @@ msgstr ""
 
 msgctxt "#31317"
 msgid "Set Fanart Path"
-msgstr "ตั้งค่าเส้นทางของแฟนอาร์ต"
+msgstr "à¸•à¸±à¹‰à¸‡à¸„à¹ˆà¸²à¹€à¸ªà¹‰à¸™à¸—à¸²à¸‡à¸‚à¸­à¸‡à¹à¸Ÿà¸™à¸­à¸²à¸£à¹Œà¸•"
 
 msgctxt "#31318"
-msgid "[B]CONFIGURE LibreELEC SETTINGS[/B][CR]Setup system option · Manage network[CR]Configure services · About LibreELEC"
+msgid "[B]CONFIGURE LibreELEC SETTINGS[/B][CR]Setup system option Â· Manage network[CR]Configure services Â· About LibreELEC"
 msgstr ""
 
 msgctxt "#31319"
@@ -1299,11 +1299,11 @@ msgstr ""
 
 msgctxt "#31320"
 msgid "Last Logged In"
-msgstr "เข้าสู่ระบบล่าสุด"
+msgstr "à¹€à¸‚à¹‰à¸²à¸ªà¸¹à¹ˆà¸£à¸°à¸šà¸šà¸¥à¹ˆà¸²à¸ªà¸¸à¸”"
 
 msgctxt "#31321"
 msgid "Karaoke Song Selector"
-msgstr "ตัวเลือกเพลง คาราโอเกะ"
+msgstr "à¸•à¸±à¸§à¹€à¸¥à¸·à¸­à¸à¹€à¸žà¸¥à¸‡ à¸„à¸²à¸£à¸²à¹‚à¸­à¹€à¸à¸°"
 
 msgctxt "#31322"
 msgid "This will disable the screensaver during music playback by hiding the visualization. This may cause unwanted [B]IMAGE RETENTION[/B] if not used carefully. Do you accept the risks and want to enable this setting?"
@@ -1315,7 +1315,7 @@ msgstr ""
 
 msgctxt "#31324"
 msgid "Aired"
-msgstr "ออกอากาศ"
+msgstr "à¸­à¸­à¸à¸­à¸²à¸à¸²à¸¨"
 
 msgctxt "#31325"
 msgid "REQUIRED scripts are necessary for basic skin functions."
@@ -1331,7 +1331,7 @@ msgstr ""
 
 msgctxt "#31328"
 msgid "Recently Added"
-msgstr "ที่เพิ่งเพิ่ม"
+msgstr "à¸—à¸µà¹ˆà¹€à¸žà¸´à¹ˆà¸‡à¹€à¸žà¸´à¹ˆà¸¡"
 
 msgctxt "#31329"
 msgid "Taking a Screenshot"
@@ -1343,7 +1343,7 @@ msgstr ""
 
 msgctxt "#31331"
 msgid "Installed"
-msgstr "ติดตั้งแล้ว"
+msgstr "à¸•à¸´à¸”à¸•à¸±à¹‰à¸‡à¹à¸¥à¹‰à¸§"
 
 msgctxt "#31332"
 msgid "Not Installed or Disabled"
@@ -1359,7 +1359,7 @@ msgstr ""
 
 msgctxt "#31335"
 msgid "Recommended"
-msgstr "ที่แนะนำ"
+msgstr "à¸—à¸µà¹ˆà¹à¸™à¸°à¸™à¸³"
 
 msgctxt "#31336"
 msgid "Optional"
@@ -1427,7 +1427,7 @@ msgstr ""
 
 msgctxt "#31352"
 msgid "Inactive"
-msgstr "ไม่ถูกใช้งาน"
+msgstr "à¹„à¸¡à¹ˆà¸–à¸¹à¸à¹ƒà¸Šà¹‰à¸‡à¸²à¸™"
 
 msgctxt "#31353"
 msgid "Shows an overview of the movie or episode 5 seconds after the video is paused."
@@ -1443,11 +1443,11 @@ msgstr ""
 
 msgctxt "#31356"
 msgid "Hardware decoding"
-msgstr "การถอดรหัสด้วยฮาร์ดแวร์"
+msgstr "à¸à¸²à¸£à¸–à¸­à¸”à¸£à¸«à¸±à¸ªà¸”à¹‰à¸§à¸¢à¸®à¸²à¸£à¹Œà¸”à¹à¸§à¸£à¹Œ"
 
 msgctxt "#31357"
 msgid "Decoder"
-msgstr "ตัวถอดรหัส"
+msgstr "à¸•à¸±à¸§à¸–à¸­à¸”à¸£à¸«à¸±à¸ª"
 
 msgctxt "#31358"
 msgid "Icon only"
@@ -1459,7 +1459,7 @@ msgstr ""
 
 msgctxt "#31360"
 msgid "Large"
-msgstr "ใหญ่"
+msgstr "à¹ƒà¸«à¸à¹ˆ"
 
 msgctxt "#31361"
 msgid "Compact"
@@ -1515,15 +1515,15 @@ msgstr ""
 
 msgctxt "#31374"
 msgid "Latest"
-msgstr "ล่าสุด"
+msgstr "à¸¥à¹ˆà¸²à¸ªà¸¸à¸”"
 
 msgctxt "#31375"
 msgid "Video OSD"
-msgstr "OSD วิดีโอ"
+msgstr "OSD à¸§à¸´à¸”à¸µà¹‚à¸­"
 
 msgctxt "#31376"
 msgid "Music OSD"
-msgstr "OSD เพลง"
+msgstr "OSD à¹€à¸žà¸¥à¸‡"
 
 msgctxt "#31377"
 msgid "Altering this shortcut may prevent access to the Main Menu customizer and several skin options.[CR]Are you sure you want to perform the requested changes to this shortcut?"
@@ -1579,11 +1579,11 @@ msgstr ""
 
 msgctxt "#31390"
 msgid "Skin default"
-msgstr "หน้าตาพื้นฐาน"
+msgstr "à¸«à¸™à¹‰à¸²à¸•à¸²à¸žà¸·à¹‰à¸™à¸à¸²à¸™"
 
 msgctxt "#31391"
 msgid "Arial"
-msgstr "ฟ้อนท์ Arial"
+msgstr "à¸Ÿà¹‰à¸­à¸™à¸—à¹Œ Arial"
 
 msgctxt "#31392"
 msgid "When enabled all widgets will be hidden until you have navigated to it."
@@ -1591,7 +1591,7 @@ msgstr ""
 
 msgctxt "#31393"
 msgid "Ends at"
-msgstr "สิ้นสุดที่"
+msgstr "à¸ªà¸´à¹‰à¸™à¸ªà¸¸à¸”à¸—à¸µà¹ˆ"
 
 msgctxt "#31394"
 msgid "Replace default info with Netflix style"
@@ -1607,7 +1607,7 @@ msgstr ""
 
 msgctxt "#31397"
 msgid "Custom Widget"
-msgstr "วิดเจ็ตที่กำหนดเอง"
+msgstr "à¸§à¸´à¸”à¹€à¸ˆà¹‡à¸•à¸—à¸µà¹ˆà¸à¸³à¸«à¸™à¸”à¹€à¸­à¸‡"
 
 msgctxt "#31398"
 msgid "Do you want to reset ALL skin settings and color customizations to their defaults?[CR]This action cannot be undone."
@@ -1618,15 +1618,15 @@ msgid "Customize the settings for the Live TV section."
 msgstr ""
 
 msgctxt "#31400"
-msgid "[B]CONFIGURE INTERFACE SETTINGS[/B][CR]Change the skin · Set language and region[CR]Set up a screensaver · Setup master lock"
+msgid "[B]CONFIGURE INTERFACE SETTINGS[/B][CR]Change the skin Â· Set language and region[CR]Set up a screensaver Â· Setup master lock"
 msgstr ""
 
 msgctxt "#31401"
-msgid "[B]CONFIGURE PLAYER SETTINGS[/B][CR]Configure video playback · Configure music playback[CR]Configure picture slideshow · Configure video language and subtitles"
+msgid "[B]CONFIGURE PLAYER SETTINGS[/B][CR]Configure video playback Â· Configure music playback[CR]Configure picture slideshow Â· Configure video language and subtitles"
 msgstr ""
 
 msgctxt "#31402"
-msgid "[B]CONFIGURE MEDIA SETTINGS[/B][CR]Manage sources · Set default select action[CR]Configure metadata options · Configure file list options"
+msgid "[B]CONFIGURE MEDIA SETTINGS[/B][CR]Manage sources Â· Set default select action[CR]Configure metadata options Â· Configure file list options"
 msgstr ""
 
 msgctxt "#31403"
@@ -1638,15 +1638,15 @@ msgid "This will RESET ALL skin settings, selecting YES in the dialog that appea
 msgstr ""
 
 msgctxt "#31405"
-msgid "[B]MONITOR YOUR SYSTEM[/B][CR]Check out your hardware[CR]Check Kodi revision number · Monitor CPU usage"
+msgid "[B]MONITOR YOUR SYSTEM[/B][CR]Check out your hardware[CR]Check Kodi revision number Â· Monitor CPU usage"
 msgstr ""
 
 msgctxt "#31406"
-msgid "[B]CONFIGURE SYSTEM SETTINGS[/B][CR]Setup and calibrate displays · Configure audio output[CR]Set power saving options · Configure proxy settings · Enable debugging"
+msgid "[B]CONFIGURE SYSTEM SETTINGS[/B][CR]Setup and calibrate displays Â· Configure audio output[CR]Set power saving options Â· Configure proxy settings Â· Enable debugging"
 msgstr ""
 
 msgctxt "#31407"
-msgid "[B]CONFIGURE PROFILES[/B][CR]Setup and manage user profiles[CR]Change password · Enable login screen"
+msgid "[B]CONFIGURE PROFILES[/B][CR]Setup and manage user profiles[CR]Change password Â· Enable login screen"
 msgstr ""
 
 msgctxt "#31408"
@@ -1654,12 +1654,12 @@ msgid "Enable to show a LiveTV widget displaying what is currently recording and
 msgstr ""
 
 msgctxt "#31409"
-msgid "[B]CONFIGURE LIVE TV SETTINGS[/B][CR]Change full screen info[CR]Manage Guide data settings  •  Configure recording options"
+msgid "[B]CONFIGURE LIVE TV SETTINGS[/B][CR]Change full screen info[CR]Manage Guide data settings  â€¢  Configure recording options"
 msgstr ""
 
 msgctxt "#31410"
-msgid "[B]CONFIGURE SERVICE SETTINGS[/B][CR]Setup control of Kodi via UPnP and HTTP · Configure file sharing[CR]Enable Zeroconf · Configure AirPlay"
-msgstr "[B]ปรับเปลี่ยนการตั้งค่าบริการ[/B][CR]การตั้งค่าของ การควบคุม Kodi ผ่าน UPnP และ HTTP · กำหนดค่าใช้ไฟล์ร่วมกัน[CR]เปิดใช้ Zeroconf · กำหนดค่า AirPlay"
+msgid "[B]CONFIGURE SERVICE SETTINGS[/B][CR]Setup control of Kodi via UPnP and HTTP Â· Configure file sharing[CR]Enable Zeroconf Â· Configure AirPlay"
+msgstr "[B]à¸›à¸£à¸±à¸šà¹€à¸›à¸¥à¸µà¹ˆà¸¢à¸™à¸à¸²à¸£à¸•à¸±à¹‰à¸‡à¸„à¹ˆà¸²à¸šà¸£à¸´à¸à¸²à¸£[/B][CR]à¸à¸²à¸£à¸•à¸±à¹‰à¸‡à¸„à¹ˆà¸²à¸‚à¸­à¸‡ à¸à¸²à¸£à¸„à¸§à¸šà¸„à¸¸à¸¡ Kodi à¸œà¹ˆà¸²à¸™ UPnP à¹à¸¥à¸° HTTP Â· à¸à¸³à¸«à¸™à¸”à¸„à¹ˆà¸²à¹ƒà¸Šà¹‰à¹„à¸Ÿà¸¥à¹Œà¸£à¹ˆà¸§à¸¡à¸à¸±à¸™[CR]à¹€à¸›à¸´à¸”à¹ƒà¸Šà¹‰ Zeroconf Â· à¸à¸³à¸«à¸™à¸”à¸„à¹ˆà¸² AirPlay"
 
 msgctxt "#31411"
 msgid "Will override the General Theme color."
@@ -1667,11 +1667,11 @@ msgstr ""
 
 msgctxt "#31412"
 msgid "Select section"
-msgstr "เลือกส่วน"
+msgstr "à¹€à¸¥à¸·à¸­à¸à¸ªà¹ˆà¸§à¸™"
 
 msgctxt "#31413"
 msgid "Local subtitle available"
-msgstr "มีคำบรรยายในเครื่องใช้งานได้"
+msgstr "à¸¡à¸µà¸„à¸³à¸šà¸£à¸£à¸¢à¸²à¸¢à¹ƒà¸™à¹€à¸„à¸£à¸·à¹ˆà¸­à¸‡à¹ƒà¸Šà¹‰à¸‡à¸²à¸™à¹„à¸”à¹‰"
 
 msgctxt "#31414"
 msgid "Set the Main Theme color used throughout the skin."
@@ -1703,7 +1703,7 @@ msgstr ""
 
 msgctxt "#31421"
 msgid "Select your Kodi user profile[CR]to login and continue"
-msgstr "เลือกโปรไฟล์ ผู้ใช้ Kodi ของคุณ[CR]เพื่อเข้าสู่ระบบและดำเนินการต่อไป"
+msgstr "à¹€à¸¥à¸·à¸­à¸à¹‚à¸›à¸£à¹„à¸Ÿà¸¥à¹Œ à¸œà¸¹à¹‰à¹ƒà¸Šà¹‰ Kodi à¸‚à¸­à¸‡à¸„à¸¸à¸“[CR]à¹€à¸žà¸·à¹ˆà¸­à¹€à¸‚à¹‰à¸²à¸ªà¸¹à¹ˆà¸£à¸°à¸šà¸šà¹à¸¥à¸°à¸”à¸³à¹€à¸™à¸´à¸™à¸à¸²à¸£à¸•à¹ˆà¸­à¹„à¸›"
 
 msgctxt "#31422"
 msgid "Customize the Widget Highlight color on the home screen."
@@ -1723,7 +1723,7 @@ msgstr ""
 
 msgctxt "#31426"
 msgid "Enter text here..."
-msgstr "ป้อนอักษรที่นี่..."
+msgstr "à¸›à¹‰à¸­à¸™à¸­à¸±à¸à¸©à¸£à¸—à¸µà¹ˆà¸™à¸µà¹ˆ..."
 
 msgctxt "#31427"
 msgid "Skin Shortcuts is responsible for handeling all aspects of the main menu."
@@ -1779,10 +1779,10 @@ msgstr ""
 
 msgctxt "#31440"
 msgid "Recently played channels"
-msgstr "ช่องรายการที่เล่นล่าสุด"
+msgstr "à¸Šà¹ˆà¸­à¸‡à¸£à¸²à¸¢à¸à¸²à¸£à¸—à¸µà¹ˆà¹€à¸¥à¹ˆà¸™à¸¥à¹ˆà¸²à¸ªà¸¸à¸”"
 
 msgctxt "#31441"
-msgid "[B]CONFIGURE GAME SETTINGS[/B][CR]Change gameplay options[CR]Keyboard settings  •  Configure rewind settings"
+msgid "[B]CONFIGURE GAME SETTINGS[/B][CR]Change gameplay options[CR]Keyboard settings  â€¢  Configure rewind settings"
 msgstr ""
 
 msgctxt "#31442"
@@ -1810,7 +1810,7 @@ msgid "Show a popup displaying answers to some FREQUENTLY ASKED QUESTIONS posted
 msgstr ""
 
 msgctxt "#31448"
-msgid "[B]CONFIGURE ADD-ONS[/B][CR]Manage your installed Add-ons[CR]Browse for and install Add-ons  •  Check for Add-on updates"
+msgid "[B]CONFIGURE ADD-ONS[/B][CR]Manage your installed Add-ons[CR]Browse for and install Add-ons  â€¢  Check for Add-on updates"
 msgstr ""
 
 msgctxt "#31449"
@@ -1818,11 +1818,11 @@ msgid "Save & Exit"
 msgstr ""
 
 msgctxt "#31450"
-msgid "  •  Open Settings "
+msgid "  â€¢  Open Settings "
 msgstr ""
 
 msgctxt "#31451"
-msgid "  •  Click to Install or Enable"
+msgid "  â€¢  Click to Install or Enable"
 msgstr ""
 
 msgctxt "#31452"
@@ -1978,7 +1978,7 @@ msgid "Hide episode thumb when hiding plot for unwatched items"
 msgstr ""
 
 msgctxt "#31490"
-msgid "[B]CONFIGURE CoreELEC SETTINGS[/B][CR]Setup system option · Manage network[CR]Configure services · About CoreELEC"
+msgid "[B]CONFIGURE CoreELEC SETTINGS[/B][CR]Setup system option Â· Manage network[CR]Configure services Â· About CoreELEC"
 msgstr ""
 
 msgctxt "#31491"
@@ -2023,27 +2023,27 @@ msgstr ""
 
 msgctxt "#31501"
 msgid "Channel group"
-msgstr "กลุ่มช่องรายการ"
+msgstr "à¸à¸¥à¸¸à¹ˆà¸¡à¸Šà¹ˆà¸­à¸‡à¸£à¸²à¸¢à¸à¸²à¸£"
 
 msgctxt "#31502"
 msgid "Live TV"
-msgstr "ทีวี สด"
+msgstr "à¸—à¸µà¸§à¸µ à¸ªà¸”"
 
 msgctxt "#31503"
 msgid "Add Group"
-msgstr "เพิ่มกลุ่ม"
+msgstr "à¹€à¸žà¸´à¹ˆà¸¡à¸à¸¥à¸¸à¹ˆà¸¡"
 
 msgctxt "#31504"
 msgid "Rename Group"
-msgstr "เปลี่ยนชื่อกลุ่ม"
+msgstr "à¹€à¸›à¸¥à¸µà¹ˆà¸¢à¸™à¸Šà¸·à¹ˆà¸­à¸à¸¥à¸¸à¹ˆà¸¡"
 
 msgctxt "#31505"
 msgid "Delete Group"
-msgstr "ลบกลุ่ม"
+msgstr "à¸¥à¸šà¸à¸¥à¸¸à¹ˆà¸¡"
 
 msgctxt "#31506"
 msgid "Available Groups"
-msgstr "กลุ่มที่ใช้ได้"
+msgstr "à¸à¸¥à¸¸à¹ˆà¸¡à¸—à¸µà¹ˆà¹ƒà¸Šà¹‰à¹„à¸”à¹‰"
 
 msgctxt "#31507"
 msgid "Show clearart in tv information"
@@ -2063,7 +2063,7 @@ msgstr ""
 
 msgctxt "#31511"
 msgid "Channel Options"
-msgstr "ตัวเลือกของช่องสัญญาณ"
+msgstr "à¸•à¸±à¸§à¹€à¸¥à¸·à¸­à¸à¸‚à¸­à¸‡à¸Šà¹ˆà¸­à¸‡à¸ªà¸±à¸à¸à¸²à¸“"
 
 msgctxt "#31512"
 msgid "Enable fullscreen information for recordings"
@@ -2151,7 +2151,7 @@ msgstr ""
 
 msgctxt "#31533"
 msgid "Unwatched movies"
-msgstr "ภาพยนตร์ที่ยังไม่ได้ดู"
+msgstr "à¸ à¸²à¸žà¸¢à¸™à¸•à¸£à¹Œà¸—à¸µà¹ˆà¸¢à¸±à¸‡à¹„à¸¡à¹ˆà¹„à¸”à¹‰à¸”à¸¹"
 
 msgctxt "#31534"
 msgid "Best picture winners"
@@ -2159,11 +2159,11 @@ msgstr ""
 
 msgctxt "#31535"
 msgid "Unwatched TV Shows"
-msgstr "รายการทีวีที่ยังไม่ได้ดู"
+msgstr "à¸£à¸²à¸¢à¸à¸²à¸£à¸—à¸µà¸§à¸µà¸—à¸µà¹ˆà¸¢à¸±à¸‡à¹„à¸¡à¹ˆà¹„à¸”à¹‰à¸”à¸¹"
 
 msgctxt "#31536"
 msgid "Recent recordings"
-msgstr "การบันทึกล่าสุด"
+msgstr "à¸à¸²à¸£à¸šà¸±à¸™à¸—à¸¶à¸à¸¥à¹ˆà¸²à¸ªà¸¸à¸”"
 
 msgctxt "#31537"
 msgid "System & Weather"
@@ -2331,7 +2331,7 @@ msgstr ""
 
 msgctxt "#31578"
 msgid "Random music videos"
-msgstr "สุ่มวิดีโอเพลง"
+msgstr "à¸ªà¸¸à¹ˆà¸¡à¸§à¸´à¸”à¸µà¹‚à¸­à¹€à¸žà¸¥à¸‡"
 
 msgctxt "#31579"
 msgid "Random music videos (artists)"
@@ -2343,7 +2343,7 @@ msgstr ""
 
 msgctxt "#31581"
 msgid "Unwatched music videos"
-msgstr "วิดีโอเพลงที่ยังไม่ได้ดู"
+msgstr "à¸§à¸´à¸”à¸µà¹‚à¸­à¹€à¸žà¸¥à¸‡à¸—à¸µà¹ˆà¸¢à¸±à¸‡à¹„à¸¡à¹ˆà¹„à¸”à¹‰à¸”à¸¹"
 
 msgctxt "#31582"
 msgid "Most played music videos"
@@ -2355,7 +2355,7 @@ msgstr ""
 
 msgctxt "#31584"
 msgid "Random artists"
-msgstr "สุ่มศิลปิน"
+msgstr "à¸ªà¸¸à¹ˆà¸¡à¸¨à¸´à¸¥à¸›à¸´à¸™"
 
 msgctxt "#31585"
 msgid "Most played songs"
@@ -2390,15 +2390,15 @@ msgid "Favourites dialog"
 msgstr ""
 
 msgctxt "#31593"
-msgid "[B]CONFIGURE SKIN SETTINGS[/B][CR]Customize the main menu · Choose skin colors[CR]Set up widgets · Enable optional features"
+msgid "[B]CONFIGURE SKIN SETTINGS[/B][CR]Customize the main menu Â· Choose skin colors[CR]Set up widgets Â· Enable optional features"
 msgstr ""
 
 msgctxt "#31594"
-msgid "[B]OPEN FILE MANAGER[/B][CR]Access files from within Kodi[CR]Add source · Perform file operations"
+msgid "[B]OPEN FILE MANAGER[/B][CR]Access files from within Kodi[CR]Add source Â· Perform file operations"
 msgstr ""
 
 msgctxt "#31595"
-msgid "[B]OPEN THE EVENT LOG[/B][CR]Library update reports · Failed scrapes · Missing files[CR]PVR events · Add-on events"
+msgid "[B]OPEN THE EVENT LOG[/B][CR]Library update reports Â· Failed scrapes Â· Missing files[CR]PVR events Â· Add-on events"
 msgstr ""
 
 msgctxt "#31596"
@@ -2435,7 +2435,7 @@ msgstr ""
 
 msgctxt "#31604"
 msgid "Information"
-msgstr "ข้อมูล"
+msgstr "à¸‚à¹‰à¸­à¸¡à¸¹à¸¥"
 
 msgctxt "#31605"
 msgid "Alternate layout"
@@ -2443,7 +2443,7 @@ msgstr ""
 
 msgctxt "#31606"
 msgid "Logo"
-msgstr "โลโก้"
+msgstr "à¹‚à¸¥à¹‚à¸à¹‰"
 
 msgctxt "#31607"
 msgid "HD/SD/3D indicators"
@@ -2590,7 +2590,7 @@ msgstr ""
 
 msgctxt "#31708"
 msgid "Sort by"
-msgstr "เรียงโดย"
+msgstr "à¹€à¸£à¸µà¸¢à¸‡à¹‚à¸”à¸¢"
 
 msgctxt "#31709"
 msgid "Sort order"
@@ -2606,7 +2606,7 @@ msgstr ""
 
 msgctxt "#31712"
 msgid "Panel"
-msgstr "แผง"
+msgstr "à¹à¸œà¸‡"
 
 msgctxt "#31713"
 msgid "Panel extended"
@@ -2686,7 +2686,7 @@ msgstr ""
 
 msgctxt "#31732"
 msgid "In progress movies"
-msgstr "ภาพยนตร์ที่ดำเนินการอยู่"
+msgstr "à¸ à¸²à¸žà¸¢à¸™à¸•à¸£à¹Œà¸—à¸µà¹ˆà¸”à¸³à¹€à¸™à¸´à¸™à¸à¸²à¸£à¸­à¸¢à¸¹à¹ˆ"
 
 msgctxt "#31733"
 msgid "In progress episodes"
@@ -2861,35 +2861,35 @@ msgstr ""
 
 msgctxt "#31901"
 msgid "36 Hour Forecast"
-msgstr "พยากรณ์ ใน 36 ชั่วโมง"
+msgstr "à¸žà¸¢à¸²à¸à¸£à¸“à¹Œ à¹ƒà¸™ 36 à¸Šà¸±à¹ˆà¸§à¹‚à¸¡à¸‡"
 
 msgctxt "#31902"
 msgid "Hourly Forecast"
-msgstr "พยากรณ์รายชั่วโมง"
+msgstr "à¸žà¸¢à¸²à¸à¸£à¸“à¹Œà¸£à¸²à¸¢à¸Šà¸±à¹ˆà¸§à¹‚à¸¡à¸‡"
 
 msgctxt "#31903"
 msgid "Weekend Forecast"
-msgstr "พยากรณ์สุดสัปดาห์"
+msgstr "à¸žà¸¢à¸²à¸à¸£à¸“à¹Œà¸ªà¸¸à¸”à¸ªà¸±à¸›à¸”à¸²à¸«à¹Œ"
 
 msgctxt "#31904"
 msgid "10 Day Forecast"
-msgstr "พยากรณ์ ใน 10 วัน"
+msgstr "à¸žà¸¢à¸²à¸à¸£à¸“à¹Œ à¹ƒà¸™ 10 à¸§à¸±à¸™"
 
 msgctxt "#31908"
 msgid "Chance of Precipitation"
-msgstr "โอกาสเกิดฝน"
+msgstr "à¹‚à¸­à¸à¸²à¸ªà¹€à¸à¸´à¸”à¸à¸™"
 
 msgctxt "#31909"
 msgid "Fetching forecast info..."
-msgstr "กำลังเรียกข้อมูลการพยากรณ์ ..."
+msgstr "à¸à¸³à¸¥à¸±à¸‡à¹€à¸£à¸µà¸¢à¸à¸‚à¹‰à¸­à¸¡à¸¹à¸¥à¸à¸²à¸£à¸žà¸¢à¸²à¸à¸£à¸“à¹Œ ..."
 
 msgctxt "#31910"
 msgid "Map & Alerts"
-msgstr "แผนที่และการเตือน"
+msgstr "à¹à¸œà¸™à¸—à¸µà¹ˆà¹à¸¥à¸°à¸à¸²à¸£à¹€à¸•à¸·à¸­à¸™"
 
 msgctxt "#31911"
 msgid "Setup the Marmalade main menu"
-msgstr "ตั้งค่าเมนูหลักของ Marmalade"
+msgstr "à¸•à¸±à¹‰à¸‡à¸„à¹ˆà¸²à¹€à¸¡à¸™à¸¹à¸«à¸¥à¸±à¸à¸‚à¸­à¸‡ Marmalade"
 
 msgctxt "#31912"
 msgid "Customize the main menu with widgets, backgrounds, and statistics. Add your own custom main menu items."
@@ -2897,7 +2897,7 @@ msgstr ""
 
 msgctxt "#31913"
 msgid "Marmalade main menu horizontal position"
-msgstr "ตำแหน่งเมนูหลักแนวนอนของ Marmalade"
+msgstr "à¸•à¸³à¹à¸«à¸™à¹ˆà¸‡à¹€à¸¡à¸™à¸¹à¸«à¸¥à¸±à¸à¹à¸™à¸§à¸™à¸­à¸™à¸‚à¸­à¸‡ Marmalade"
 
 msgctxt "#31914"
 msgid "Change the horizontal position of the main menu."
@@ -2905,39 +2905,39 @@ msgstr ""
 
 msgctxt "#31915"
 msgid "Navigation style for horizontal lists"
-msgstr "รูปแบบการเลื่อนของรายการตามแนวนอน"
+msgstr "à¸£à¸¹à¸›à¹à¸šà¸šà¸à¸²à¸£à¹€à¸¥à¸·à¹ˆà¸­à¸™à¸‚à¸­à¸‡à¸£à¸²à¸¢à¸à¸²à¸£à¸•à¸²à¸¡à¹à¸™à¸§à¸™à¸­à¸™"
 
 msgctxt "#31916"
 msgid "Change the way horizontal lists scroll in Marmalade. Default will scroll lists in a cycle. \"Fixed\" are lists with a beginning and end."
-msgstr "เปลี่ยนวิธีการเลื่อนรายการแนวนอนใน Marmalade ค่าเริ่มต้นคือเลื่อนรายการแบบหมุนวนกลับ \"คงที่\" คือรายการแบบมีจุดเริ่มต้นและสิ้นสุด"
+msgstr "à¹€à¸›à¸¥à¸µà¹ˆà¸¢à¸™à¸§à¸´à¸˜à¸µà¸à¸²à¸£à¹€à¸¥à¸·à¹ˆà¸­à¸™à¸£à¸²à¸¢à¸à¸²à¸£à¹à¸™à¸§à¸™à¸­à¸™à¹ƒà¸™ Marmalade à¸„à¹ˆà¸²à¹€à¸£à¸´à¹ˆà¸¡à¸•à¹‰à¸™à¸„à¸·à¸­à¹€à¸¥à¸·à¹ˆà¸­à¸™à¸£à¸²à¸¢à¸à¸²à¸£à¹à¸šà¸šà¸«à¸¡à¸¸à¸™à¸§à¸™à¸à¸¥à¸±à¸š \"à¸„à¸‡à¸—à¸µà¹ˆ\" à¸„à¸·à¸­à¸£à¸²à¸¢à¸à¸²à¸£à¹à¸šà¸šà¸¡à¸µà¸ˆà¸¸à¸”à¹€à¸£à¸´à¹ˆà¸¡à¸•à¹‰à¸™à¹à¸¥à¸°à¸ªà¸´à¹‰à¸™à¸ªà¸¸à¸”"
 
 msgctxt "#31917"
 msgid "When enabled text scrolls automatically. When disabled manual scrolling is required. Note that not every textbox has a manual button."
-msgstr "หากเปิดใช้งานการเลื่อนอักษรโดยอัตโนมัติ หากปิดใช้งาน จะต้องเลื่อนด้วยตนเอง ข้อควรจำ ไม่ใช่ทุกกล่องข้อความจะมีปุ่มด้วยตนเอง"
+msgstr "à¸«à¸²à¸à¹€à¸›à¸´à¸”à¹ƒà¸Šà¹‰à¸‡à¸²à¸™à¸à¸²à¸£à¹€à¸¥à¸·à¹ˆà¸­à¸™à¸­à¸±à¸à¸©à¸£à¹‚à¸”à¸¢à¸­à¸±à¸•à¹‚à¸™à¸¡à¸±à¸•à¸´ à¸«à¸²à¸à¸›à¸´à¸”à¹ƒà¸Šà¹‰à¸‡à¸²à¸™ à¸ˆà¸°à¸•à¹‰à¸­à¸‡à¹€à¸¥à¸·à¹ˆà¸­à¸™à¸”à¹‰à¸§à¸¢à¸•à¸™à¹€à¸­à¸‡ à¸‚à¹‰à¸­à¸„à¸§à¸£à¸ˆà¸³ à¹„à¸¡à¹ˆà¹ƒà¸Šà¹ˆà¸—à¸¸à¸à¸à¸¥à¹ˆà¸­à¸‡à¸‚à¹‰à¸­à¸„à¸§à¸²à¸¡à¸ˆà¸°à¸¡à¸µà¸›à¸¸à¹ˆà¸¡à¸”à¹‰à¸§à¸¢à¸•à¸™à¹€à¸­à¸‡"
 
 msgctxt "#31918"
 msgid "Projects the current playing video on the background behind the panels."
-msgstr "นำเสนอวิดีโอที่กำลังเล่นในปัจจุบันบนพื้นหลัง หลังแผงแสดงข้อมูล"
+msgstr "à¸™à¸³à¹€à¸ªà¸™à¸­à¸§à¸´à¸”à¸µà¹‚à¸­à¸—à¸µà¹ˆà¸à¸³à¸¥à¸±à¸‡à¹€à¸¥à¹ˆà¸™à¹ƒà¸™à¸›à¸±à¸ˆà¸ˆà¸¸à¸šà¸±à¸™à¸šà¸™à¸žà¸·à¹‰à¸™à¸«à¸¥à¸±à¸‡ à¸«à¸¥à¸±à¸‡à¹à¸œà¸‡à¹à¸ªà¸”à¸‡à¸‚à¹‰à¸­à¸¡à¸¹à¸¥"
 
 msgctxt "#31919"
 msgid "Projects the visualisation on the background behind the panels when music is played."
-msgstr "นำเสนอการแสดงแสงสีบนพื้นหลัง หลังแผงแสดงข้อมูล เมื่อเพลงถูกเล่น"
+msgstr "à¸™à¸³à¹€à¸ªà¸™à¸­à¸à¸²à¸£à¹à¸ªà¸”à¸‡à¹à¸ªà¸‡à¸ªà¸µà¸šà¸™à¸žà¸·à¹‰à¸™à¸«à¸¥à¸±à¸‡ à¸«à¸¥à¸±à¸‡à¹à¸œà¸‡à¹à¸ªà¸”à¸‡à¸‚à¹‰à¸­à¸¡à¸¹à¸¥ à¹€à¸¡à¸·à¹ˆà¸­à¹€à¸žà¸¥à¸‡à¸–à¸¹à¸à¹€à¸¥à¹ˆà¸™"
 
 msgctxt "#31920"
 msgid "Displays a widget on the Home screen with media information when music is playing."
-msgstr "แสดงตัวแขวนบนหน้าจอหลัก ด้วยข้อมูลสื่อเมื่อเพลงทำการเล่น"
+msgstr "à¹à¸ªà¸”à¸‡à¸•à¸±à¸§à¹à¸‚à¸§à¸™à¸šà¸™à¸«à¸™à¹‰à¸²à¸ˆà¸­à¸«à¸¥à¸±à¸ à¸”à¹‰à¸§à¸¢à¸‚à¹‰à¸­à¸¡à¸¹à¸¥à¸ªà¸·à¹ˆà¸­à¹€à¸¡à¸·à¹ˆà¸­à¹€à¸žà¸¥à¸‡à¸—à¸³à¸à¸²à¸£à¹€à¸¥à¹ˆà¸™"
 
 msgctxt "#31921"
 msgid "Displays a widget on the Home screen with media information when a movie or episode is playing."
-msgstr "แสดงตัวแขวนบนหน้าจอหลัก ด้วยข้อมูลสื่อภาพยนตร์หรือตอนเมื่อทำการเล่น"
+msgstr "à¹à¸ªà¸”à¸‡à¸•à¸±à¸§à¹à¸‚à¸§à¸™à¸šà¸™à¸«à¸™à¹‰à¸²à¸ˆà¸­à¸«à¸¥à¸±à¸ à¸”à¹‰à¸§à¸¢à¸‚à¹‰à¸­à¸¡à¸¹à¸¥à¸ªà¸·à¹ˆà¸­à¸ à¸²à¸žà¸¢à¸™à¸•à¸£à¹Œà¸«à¸£à¸·à¸­à¸•à¸­à¸™à¹€à¸¡à¸·à¹ˆà¸­à¸—à¸³à¸à¸²à¸£à¹€à¸¥à¹ˆà¸™"
 
 msgctxt "#31922"
 msgid "This enables custom genre backgrounds when browsing through the videolibrary's genre node. Filenames should match the genre label. Extension must be .jpg."
-msgstr "นี่จะเปิดใช้พื้นหลังตามประเภทที่กำหนดเอง เมื่อเรียกดูไปยังระดับประเภทของคลังข้อมูลวิดีโอ ชื่อแฟ้มต้องตรงกับชื่อประเภท ส่วนขยายต้องเป็น .jpg"
+msgstr "à¸™à¸µà¹ˆà¸ˆà¸°à¹€à¸›à¸´à¸”à¹ƒà¸Šà¹‰à¸žà¸·à¹‰à¸™à¸«à¸¥à¸±à¸‡à¸•à¸²à¸¡à¸›à¸£à¸°à¹€à¸ à¸—à¸—à¸µà¹ˆà¸à¸³à¸«à¸™à¸”à¹€à¸­à¸‡ à¹€à¸¡à¸·à¹ˆà¸­à¹€à¸£à¸µà¸¢à¸à¸”à¸¹à¹„à¸›à¸¢à¸±à¸‡à¸£à¸°à¸”à¸±à¸šà¸›à¸£à¸°à¹€à¸ à¸—à¸‚à¸­à¸‡à¸„à¸¥à¸±à¸‡à¸‚à¹‰à¸­à¸¡à¸¹à¸¥à¸§à¸´à¸”à¸µà¹‚à¸­ à¸Šà¸·à¹ˆà¸­à¹à¸Ÿà¹‰à¸¡à¸•à¹‰à¸­à¸‡à¸•à¸£à¸‡à¸à¸±à¸šà¸Šà¸·à¹ˆà¸­à¸›à¸£à¸°à¹€à¸ à¸— à¸ªà¹ˆà¸§à¸™à¸‚à¸¢à¸²à¸¢à¸•à¹‰à¸­à¸‡à¹€à¸›à¹‡à¸™ .jpg"
 
 msgctxt "#31924"
 msgid "This enables custom genre backgrounds when browsing through the musiclibrary's genre node. Filenames should match the genre label. Extension must be .jpg."
-msgstr "นี่จะเปิดใช้พื้นหลังตามประเภทที่กำหนดเอง เมื่อเรียกดูไปยังระดับประเภทของคลังข้อมูลเพลง ชื่อแฟ้มต้องตรงกับชื่อประเภท ส่วนขยายต้องเป็น .jpg"
+msgstr "à¸™à¸µà¹ˆà¸ˆà¸°à¹€à¸›à¸´à¸”à¹ƒà¸Šà¹‰à¸žà¸·à¹‰à¸™à¸«à¸¥à¸±à¸‡à¸•à¸²à¸¡à¸›à¸£à¸°à¹€à¸ à¸—à¸—à¸µà¹ˆà¸à¸³à¸«à¸™à¸”à¹€à¸­à¸‡ à¹€à¸¡à¸·à¹ˆà¸­à¹€à¸£à¸µà¸¢à¸à¸”à¸¹à¹„à¸›à¸¢à¸±à¸‡à¸£à¸°à¸”à¸±à¸šà¸›à¸£à¸°à¹€à¸ à¸—à¸‚à¸­à¸‡à¸„à¸¥à¸±à¸‡à¸‚à¹‰à¸­à¸¡à¸¹à¸¥à¹€à¸žà¸¥à¸‡ à¸Šà¸·à¹ˆà¸­à¹à¸Ÿà¹‰à¸¡à¸•à¹‰à¸­à¸‡à¸•à¸£à¸‡à¸à¸±à¸šà¸Šà¸·à¹ˆà¸­à¸›à¸£à¸°à¹€à¸ à¸— à¸ªà¹ˆà¸§à¸™à¸‚à¸¢à¸²à¸¢à¸•à¹‰à¸­à¸‡à¹€à¸›à¹‡à¸™ .jpg"
 
 msgctxt "#31925"
 msgid "Choose what to display for the menu items background."
@@ -2949,11 +2949,11 @@ msgstr ""
 
 msgctxt "#31927"
 msgid "Resets all above values to their defaults."
-msgstr "ย้อนคืนค่าด้านบนทั้งหมด สู่ค่าเริ่มต้น"
+msgstr "à¸¢à¹‰à¸­à¸™à¸„à¸·à¸™à¸„à¹ˆà¸²à¸”à¹‰à¸²à¸™à¸šà¸™à¸—à¸±à¹‰à¸‡à¸«à¸¡à¸” à¸ªà¸¹à¹ˆà¸„à¹ˆà¸²à¹€à¸£à¸´à¹ˆà¸¡à¸•à¹‰à¸™"
 
 msgctxt "#31928"
 msgid "Marmalade main menu layout"
-msgstr "การจัดวางเมนูหลักของ Marmalade"
+msgstr "à¸à¸²à¸£à¸ˆà¸±à¸”à¸§à¸²à¸‡à¹€à¸¡à¸™à¸¹à¸«à¸¥à¸±à¸à¸‚à¸­à¸‡ Marmalade"
 
 msgctxt "#31929"
 msgid "This setting defines the main menu layout. Options are 5 items, 3 items, 1 items, or icons for the default horizontal menu. You can also choose a vertical menu layout."
@@ -2961,11 +2961,11 @@ msgstr ""
 
 msgctxt "#31930"
 msgid "Choose a widget to display on the Home screen to have easy access to content from the library."
-msgstr "เลือกตัวแขวนที่จะแสดงในหน้าจอหลัก เพื่อให้ง่ายในการเข้าถึงเนื้อหาจากคลังข้อมูล"
+msgstr "à¹€à¸¥à¸·à¸­à¸à¸•à¸±à¸§à¹à¸‚à¸§à¸™à¸—à¸µà¹ˆà¸ˆà¸°à¹à¸ªà¸”à¸‡à¹ƒà¸™à¸«à¸™à¹‰à¸²à¸ˆà¸­à¸«à¸¥à¸±à¸ à¹€à¸žà¸·à¹ˆà¸­à¹ƒà¸«à¹‰à¸‡à¹ˆà¸²à¸¢à¹ƒà¸™à¸à¸²à¸£à¹€à¸‚à¹‰à¸²à¸–à¸¶à¸‡à¹€à¸™à¸·à¹‰à¸­à¸«à¸²à¸ˆà¸²à¸à¸„à¸¥à¸±à¸‡à¸‚à¹‰à¸­à¸¡à¸¹à¸¥"
 
 msgctxt "#31931"
 msgid "Video plot preference"
-msgstr "เรื่องย่อวิดีโอที่อ้างอิง"
+msgstr "à¹€à¸£à¸·à¹ˆà¸­à¸‡à¸¢à¹ˆà¸­à¸§à¸´à¸”à¸µà¹‚à¸­à¸—à¸µà¹ˆà¸­à¹‰à¸²à¸‡à¸­à¸´à¸‡"
 
 msgctxt "#31932"
 msgid "Show plot outline in the library views and full plot in the video information dialog or vice versa. Falls back to full plot if no outline is available."
@@ -2973,15 +2973,15 @@ msgstr ""
 
 msgctxt "#31933"
 msgid "Select an item to display on the left top of the main menu"
-msgstr "เลือกรายการที่จะแสดงในซ้ายบนของเมนูหลัก"
+msgstr "à¹€à¸¥à¸·à¸­à¸à¸£à¸²à¸¢à¸à¸²à¸£à¸—à¸µà¹ˆà¸ˆà¸°à¹à¸ªà¸”à¸‡à¹ƒà¸™à¸‹à¹‰à¸²à¸¢à¸šà¸™à¸‚à¸­à¸‡à¹€à¸¡à¸™à¸¹à¸«à¸¥à¸±à¸"
 
 msgctxt "#31935"
 msgid "Switch places with another menu item. Opens a dialog with a list of menu items to choose from."
-msgstr "สลับที่กับรายการเมนูอื่น เปิดกล่องโต้ตอบที่มีรายการของเมนู เพื่อเลือกจาก"
+msgstr "à¸ªà¸¥à¸±à¸šà¸—à¸µà¹ˆà¸à¸±à¸šà¸£à¸²à¸¢à¸à¸²à¸£à¹€à¸¡à¸™à¸¹à¸­à¸·à¹ˆà¸™ à¹€à¸›à¸´à¸”à¸à¸¥à¹ˆà¸­à¸‡à¹‚à¸•à¹‰à¸•à¸­à¸šà¸—à¸µà¹ˆà¸¡à¸µà¸£à¸²à¸¢à¸à¸²à¸£à¸‚à¸­à¸‡à¹€à¸¡à¸™à¸¹ à¹€à¸žà¸·à¹ˆà¸­à¹€à¸¥à¸·à¸­à¸à¸ˆà¸²à¸"
 
 msgctxt "#31937"
 msgid "Show the RSS feed on the bottom or top of the screen, depending on main menu position. Enabling this setting makes the submenu permanently visible."
-msgstr "แสดงตัวดึงข้อมูล RSS ที่ด้านล่างหรือด้านบนของหน้าจอ, ขึ้นอยู่กับตำแหน่งของเมนูหลัก เมื่อเปิดใช้การตั้งค่านี้ จะทำให้เมนูย่อยปรากฎอย่างถาวร"
+msgstr "à¹à¸ªà¸”à¸‡à¸•à¸±à¸§à¸”à¸¶à¸‡à¸‚à¹‰à¸­à¸¡à¸¹à¸¥ RSS à¸—à¸µà¹ˆà¸”à¹‰à¸²à¸™à¸¥à¹ˆà¸²à¸‡à¸«à¸£à¸·à¸­à¸”à¹‰à¸²à¸™à¸šà¸™à¸‚à¸­à¸‡à¸«à¸™à¹‰à¸²à¸ˆà¸­, à¸‚à¸¶à¹‰à¸™à¸­à¸¢à¸¹à¹ˆà¸à¸±à¸šà¸•à¸³à¹à¸«à¸™à¹ˆà¸‡à¸‚à¸­à¸‡à¹€à¸¡à¸™à¸¹à¸«à¸¥à¸±à¸ à¹€à¸¡à¸·à¹ˆà¸­à¹€à¸›à¸´à¸”à¹ƒà¸Šà¹‰à¸à¸²à¸£à¸•à¸±à¹‰à¸‡à¸„à¹ˆà¸²à¸™à¸µà¹‰ à¸ˆà¸°à¸—à¸³à¹ƒà¸«à¹‰à¹€à¸¡à¸™à¸¹à¸¢à¹ˆà¸­à¸¢à¸›à¸£à¸²à¸à¸Žà¸­à¸¢à¹ˆà¸²à¸‡à¸–à¸²à¸§à¸£"
 
 msgctxt "#31938"
 msgid "Enables extra information in the TV show library, like TV show status, next / latest episode, etc. Depends on TheMovieDb Helper add-on."
@@ -2989,7 +2989,7 @@ msgstr ""
 
 msgctxt "#31939"
 msgid "Hide Infopanel on scrolling"
-msgstr "ซ่อนแผงข้อมูลเมื่อทำการเลื่อน"
+msgstr "à¸‹à¹ˆà¸­à¸™à¹à¸œà¸‡à¸‚à¹‰à¸­à¸¡à¸¹à¸¥à¹€à¸¡à¸·à¹ˆà¸­à¸—à¸³à¸à¸²à¸£à¹€à¸¥à¸·à¹ˆà¸­à¸™"
 
 msgctxt "#31940"
 msgid "Hides the infopanel while scrolling through the library. Set the amount of seconds to wait for the infopanel to appear when scrolling has stopped."
@@ -2997,7 +2997,7 @@ msgstr ""
 
 msgctxt "#31941"
 msgid "Kiosk mode"
-msgstr "โหมด Kiosk"
+msgstr "à¹‚à¸«à¸¡à¸” Kiosk"
 
 msgctxt "#31942"
 msgid "Disables the slide out menu (media menu) in the library as well as certain buttons in the media information dialogs."
@@ -3005,7 +3005,7 @@ msgstr ""
 
 msgctxt "#31943"
 msgid "Watched status indicator"
-msgstr "ตัวชี้สถานะการรับชม"
+msgstr "à¸•à¸±à¸§à¸Šà¸µà¹‰à¸ªà¸–à¸²à¸™à¸°à¸à¸²à¸£à¸£à¸±à¸šà¸Šà¸¡"
 
 msgctxt "#31944"
 msgid "Choose which overlays to show on thumbs in icon based views. Note that the \"Resume\" flag takes precedent over any watched status. After activating an overlay you must also enable it in each views settings. "
@@ -3013,35 +3013,35 @@ msgstr ""
 
 msgctxt "#31945"
 msgid "This toggles the layout of the List view. Default is a 7 item layout with extended info, \"Slim List\" is a 14 item, more basic layout"
-msgstr "นี่จะสลับการจัดวางของมุมมองรายการ ค่าเริ่มต้นคือ 7 รายการ จัดวางพร้อมข้อมูลเพิ่มเติม, \"รายการแบบบาง\" จะมี 14 รายการ, จัดวางแบบเรียบง่ายกว่า"
+msgstr "à¸™à¸µà¹ˆà¸ˆà¸°à¸ªà¸¥à¸±à¸šà¸à¸²à¸£à¸ˆà¸±à¸”à¸§à¸²à¸‡à¸‚à¸­à¸‡à¸¡à¸¸à¸¡à¸¡à¸­à¸‡à¸£à¸²à¸¢à¸à¸²à¸£ à¸„à¹ˆà¸²à¹€à¸£à¸´à¹ˆà¸¡à¸•à¹‰à¸™à¸„à¸·à¸­ 7 à¸£à¸²à¸¢à¸à¸²à¸£ à¸ˆà¸±à¸”à¸§à¸²à¸‡à¸žà¸£à¹‰à¸­à¸¡à¸‚à¹‰à¸­à¸¡à¸¹à¸¥à¹€à¸žà¸´à¹ˆà¸¡à¹€à¸•à¸´à¸¡, \"à¸£à¸²à¸¢à¸à¸²à¸£à¹à¸šà¸šà¸šà¸²à¸‡\" à¸ˆà¸°à¸¡à¸µ 14 à¸£à¸²à¸¢à¸à¸²à¸£, à¸ˆà¸±à¸”à¸§à¸²à¸‡à¹à¸šà¸šà¹€à¸£à¸µà¸¢à¸šà¸‡à¹ˆà¸²à¸¢à¸à¸§à¹ˆà¸²"
 
 msgctxt "#31950"
 msgid "WEATHER"
-msgstr "สภาพอากาศ"
+msgstr "à¸ªà¸ à¸²à¸žà¸­à¸²à¸à¸²à¸¨"
 
 msgctxt "#31951"
 msgid "PICTURES"
-msgstr "รูปภาพ"
+msgstr "à¸£à¸¹à¸›à¸ à¸²à¸ž"
 
 msgctxt "#31952"
 msgid "LIVE TV"
-msgstr "ทีวี สด"
+msgstr "à¸—à¸µà¸§à¸µ à¸ªà¸”"
 
 msgctxt "#31953"
 msgid "VIDEOS"
-msgstr "วิดีโอ"
+msgstr "à¸§à¸´à¸”à¸µà¹‚à¸­"
 
 msgctxt "#31954"
 msgid "MOVIES"
-msgstr "ภาพยนตร์"
+msgstr "à¸ à¸²à¸žà¸¢à¸™à¸•à¸£à¹Œ"
 
 msgctxt "#31955"
 msgid "TV SHOWS"
-msgstr "รายการทีวี"
+msgstr "à¸£à¸²à¸¢à¸à¸²à¸£à¸—à¸µà¸§à¸µ"
 
 msgctxt "#31956"
 msgid "MUSIC"
-msgstr "เพลง"
+msgstr "à¹€à¸žà¸¥à¸‡"
 
 msgctxt "#31957"
 msgid "Apps"
@@ -3049,23 +3049,23 @@ msgstr ""
 
 msgctxt "#31958"
 msgid "PLAY DISC"
-msgstr "เล่นแผ่น"
+msgstr "à¹€à¸¥à¹ˆà¸™à¹à¸œà¹ˆà¸™"
 
 msgctxt "#31959"
 msgid "SYSTEM"
-msgstr "ระบบ"
+msgstr "à¸£à¸°à¸šà¸š"
 
 msgctxt "#31960"
 msgid "CONCERTS"
-msgstr "คอนเสิร์ต"
+msgstr "à¸„à¸­à¸™à¹€à¸ªà¸´à¸£à¹Œà¸•"
 
 msgctxt "#31961"
 msgid "Hide ratings in list views"
-msgstr "ซ่อนเรตติ้งในมุมมองรายการ"
+msgstr "à¸‹à¹ˆà¸­à¸™à¹€à¸£à¸•à¸•à¸´à¹‰à¸‡à¹ƒà¸™à¸¡à¸¸à¸¡à¸¡à¸­à¸‡à¸£à¸²à¸¢à¸à¸²à¸£"
 
 msgctxt "#31962"
 msgid "This toggles the visibility of ratings in views of type List, LowList and TriPanel, except if sorted by rating."
-msgstr "นี่จะสลับการปรากฎของเรตติ้งในมุมมองแบบ รายการ, รายการแบบต่ำ และสามแผงข้อมูล, ยกเว้นถ้าเรียงตามเรตติ้ง"
+msgstr "à¸™à¸µà¹ˆà¸ˆà¸°à¸ªà¸¥à¸±à¸šà¸à¸²à¸£à¸›à¸£à¸²à¸à¸Žà¸‚à¸­à¸‡à¹€à¸£à¸•à¸•à¸´à¹‰à¸‡à¹ƒà¸™à¸¡à¸¸à¸¡à¸¡à¸­à¸‡à¹à¸šà¸š à¸£à¸²à¸¢à¸à¸²à¸£, à¸£à¸²à¸¢à¸à¸²à¸£à¹à¸šà¸šà¸•à¹ˆà¸³ à¹à¸¥à¸°à¸ªà¸²à¸¡à¹à¸œà¸‡à¸‚à¹‰à¸­à¸¡à¸¹à¸¥, à¸¢à¸à¹€à¸§à¹‰à¸™à¸–à¹‰à¸²à¹€à¸£à¸µà¸¢à¸‡à¸•à¸²à¸¡à¹€à¸£à¸•à¸•à¸´à¹‰à¸‡"
 
 msgctxt "#31963"
 msgid "Open Sans"
@@ -3176,16 +3176,16 @@ msgstr ""
 
 #~ msgctxt "#31015"
 #~ msgid "Set path to video genre fanart folder"
-#~ msgstr "กำหนดเสันทางไปยังโฟลเดอร์แฟนอาร์ตประเภทวิดีโอ"
+#~ msgstr "à¸à¸³à¸«à¸™à¸”à¹€à¸ªà¸±à¸™à¸—à¸²à¸‡à¹„à¸›à¸¢à¸±à¸‡à¹‚à¸Ÿà¸¥à¹€à¸”à¸­à¸£à¹Œà¹à¸Ÿà¸™à¸­à¸²à¸£à¹Œà¸•à¸›à¸£à¸°à¹€à¸ à¸—à¸§à¸´à¸”à¸µà¹‚à¸­"
 
 #~ msgctxt "#31111"
 #~ msgid "Similar movies"
-#~ msgstr "ภาพยนตร์ที่คล้ายกัน"
+#~ msgstr "à¸ à¸²à¸žà¸¢à¸™à¸•à¸£à¹Œà¸—à¸µà¹ˆà¸„à¸¥à¹‰à¸²à¸¢à¸à¸±à¸™"
 
 #~ msgctxt "#31115"
 #~ msgid "Similar TV shows"
-#~ msgstr "รายการทีวีที่คล้ายกัน"
+#~ msgstr "à¸£à¸²à¸¢à¸à¸²à¸£à¸—à¸µà¸§à¸µà¸—à¸µà¹ˆà¸„à¸¥à¹‰à¸²à¸¢à¸à¸±à¸™"
 
 #~ msgctxt "#31938"
 #~ msgid "Enables extra information in the TV show library, like TV show status, next / latest episode, etc. Depends on TV Show Next Aired add-on."
-#~ msgstr "เปิดใช้งานข้อมูลพิเศษในคลังข้อมูลรายการทีวี, อย่างสถานะรายการทีวี, ตอนต่อไป / ล่าสุด, อื่นๆ ขึ้นอยู่กับส่วนเสริม TV Show Next Aired"
+#~ msgstr "à¹€à¸›à¸´à¸”à¹ƒà¸Šà¹‰à¸‡à¸²à¸™à¸‚à¹‰à¸­à¸¡à¸¹à¸¥à¸žà¸´à¹€à¸¨à¸©à¹ƒà¸™à¸„à¸¥à¸±à¸‡à¸‚à¹‰à¸­à¸¡à¸¹à¸¥à¸£à¸²à¸¢à¸à¸²à¸£à¸—à¸µà¸§à¸µ, à¸­à¸¢à¹ˆà¸²à¸‡à¸ªà¸–à¸²à¸™à¸°à¸£à¸²à¸¢à¸à¸²à¸£à¸—à¸µà¸§à¸µ, à¸•à¸­à¸™à¸•à¹ˆà¸­à¹„à¸› / à¸¥à¹ˆà¸²à¸ªà¸¸à¸”, à¸­à¸·à¹ˆà¸™à¹† à¸‚à¸¶à¹‰à¸™à¸­à¸¢à¸¹à¹ˆà¸à¸±à¸šà¸ªà¹ˆà¸§à¸™à¹€à¸ªà¸£à¸´à¸¡ TV Show Next Aired"

@@ -1,6 +1,6 @@
 # Kodi Media Center language file
 # Addon Name: Marmalade Build
-# Addon id: skin.aeon.nox.OpenCode
+# Addon id: skin.marmalade
 # Addon Provider: OpenCode
 msgid ""
 msgstr ""
@@ -9,7 +9,7 @@ msgstr ""
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "PO-Revision-Date: 2023-06-25 10:42+0000\n"
 "Last-Translator: Christian Gade <gade@kodi.tv>\n"
-"Language-Team: Lithuanian <https://kodi.weblate.cloud/projects/kodi-add-ons-skins/skin-aeon-nox-OpenCode/lt_lt/>\n"
+"Language-Team: Lithuanian <https://kodi.weblate.cloud/projects/kodi-add-ons-skins/skin.marmalade/lt_lt/>\n"
 "Language: lt_lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,7 +19,7 @@ msgstr ""
 
 msgctxt "#31000"
 msgid "Directed by"
-msgstr "Režisierius"
+msgstr "ReÅ¾isierius"
 
 msgctxt "#31001"
 msgid "Written by"
@@ -27,7 +27,7 @@ msgstr "Scenaristas"
 
 msgctxt "#31002"
 msgid "Blurred album thumb"
-msgstr "Neryški albumo miniatiūra"
+msgstr "NeryÅ¡ki albumo miniatiÅ«ra"
 
 msgctxt "#31003"
 msgid "Power Options"
@@ -47,7 +47,7 @@ msgstr "Rodinio parinktys"
 
 msgctxt "#31007"
 msgid "Setup home"
-msgstr "Nustatyti pradinį ekraną"
+msgstr "Nustatyti pradinÄ¯ ekranÄ…"
 
 msgctxt "#31008"
 msgid "Full screen"
@@ -55,7 +55,7 @@ msgstr "Visame ekrane"
 
 msgctxt "#31009"
 msgid "Total Duration"
-msgstr "Bendra trukmė"
+msgstr "Bendra trukmÄ—"
 
 msgctxt "#31010"
 msgid "Next episode"
@@ -87,7 +87,7 @@ msgstr "Plakatas"
 
 msgctxt "#31017"
 msgid "Set path to music genre fanart folder"
-msgstr "Nustatyti kelią iki muzikos žanrų Fanart aplanko"
+msgstr "Nustatyti keliÄ… iki muzikos Å¾anrÅ³ Fanart aplanko"
 
 msgctxt "#31018"
 msgid "InfoPanel"
@@ -103,15 +103,15 @@ msgstr "Papildomas Fanart"
 
 msgctxt "#31021"
 msgid "Stage curtains"
-msgstr "Scenos uždanga"
+msgstr "Scenos uÅ¾danga"
 
 msgctxt "#31022"
 msgid "Set multi-image background"
-msgstr "Nustatyti kelių atvaizdų foną"
+msgstr "Nustatyti keliÅ³ atvaizdÅ³ fonÄ…"
 
 msgctxt "#31023"
 msgid "Set single image background"
-msgstr "Nustatyti vieno atvaizdo foną"
+msgstr "Nustatyti vieno atvaizdo fonÄ…"
 
 msgctxt "#31024"
 msgid "Page"
@@ -123,11 +123,11 @@ msgstr "Elementai"
 
 msgctxt "#31026"
 msgid "Misc Options"
-msgstr "Įvairios parinktys"
+msgstr "Ä®vairios parinktys"
 
 msgctxt "#31027"
 msgid "Set item background"
-msgstr "Nustatyti elemento foną"
+msgstr "Nustatyti elemento fonÄ…"
 
 msgctxt "#31028"
 msgid "Live Background"
@@ -159,7 +159,7 @@ msgstr "Rekomenduojami epizodai"
 
 msgctxt "#31035"
 msgid "Random songs"
-msgstr "Atsitiktinės dainos"
+msgstr "AtsitiktinÄ—s dainos"
 
 msgctxt "#31036"
 msgid "Random albums"
@@ -183,11 +183,11 @@ msgstr "Dabar atkuriama"
 
 msgctxt "#31041"
 msgid "Select widget"
-msgstr "Pasirinkti valdiklį"
+msgstr "Pasirinkti valdiklÄ¯"
 
 msgctxt "#31042"
 msgid "Show \"Now Playing\" information blended in the background"
-msgstr "Rodyti \"Dabar atkuriama\" informaciją sulietą su fonu"
+msgstr "Rodyti \"Dabar atkuriama\" informacijÄ… sulietÄ… su fonu"
 
 msgctxt "#31043"
 msgid "Platform"
@@ -195,43 +195,43 @@ msgstr "Platforma"
 
 msgctxt "#31044"
 msgid "Views: Plot outline | Info dialog: Full plot"
-msgstr "Rodiniai: siužeto kontūrai | Informacinis dialogas: pilnas siužetas"
+msgstr "Rodiniai: siuÅ¾eto kontÅ«rai | Informacinis dialogas: pilnas siuÅ¾etas"
 
 msgctxt "#31045"
 msgid "Views: Full plot | Info dialog: Plot outline"
-msgstr "Rodiniai: pilnas siužetas | Informacinis dialogas: siužeto kontūrai"
+msgstr "Rodiniai: pilnas siuÅ¾etas | Informacinis dialogas: siuÅ¾eto kontÅ«rai"
 
 msgctxt "#31046"
 msgid "SEEKING"
-msgstr "IEŠKOMA"
+msgstr "IEÅ KOMA"
 
 msgctxt "#31047"
 msgid "Set item icon"
-msgstr "Nustatyti elemento piktogramą"
+msgstr "Nustatyti elemento piktogramÄ…"
 
 msgctxt "#31048"
 msgid "Visualisation Presets"
-msgstr "Vizualizacijos išankstinės parinktys"
+msgstr "Vizualizacijos iÅ¡ankstinÄ—s parinktys"
 
 msgctxt "#31049"
 msgid "Select infoline"
-msgstr "Pasirinkti infoliniją"
+msgstr "Pasirinkti infolinijÄ…"
 
 msgctxt "#31050"
 msgid "Sort: Ascending"
-msgstr "Rūšiuoti: didėjančiai"
+msgstr "RÅ«Å¡iuoti: didÄ—janÄiai"
 
 msgctxt "#31051"
 msgid "Sort: Descending"
-msgstr "Rūšiuoti: mažėjančiai"
+msgstr "RÅ«Å¡iuoti: maÅ¾Ä—janÄiai"
 
 msgctxt "#31052"
 msgid "Movie library statistics"
-msgstr "Filmų bibliotekos statistika"
+msgstr "FilmÅ³ bibliotekos statistika"
 
 msgctxt "#31053"
 msgid "TV Show library statistics"
-msgstr "TV laidų bibliotekos statistika"
+msgstr "TV laidÅ³ bibliotekos statistika"
 
 msgctxt "#31054"
 msgid "Music library statistics"
@@ -239,15 +239,15 @@ msgstr "Muzikos bibliotekos statistika"
 
 msgctxt "#31055"
 msgid "Open playlist"
-msgstr "Atidaryti grojaraštį"
+msgstr "Atidaryti grojaraÅ¡tÄ¯"
 
 msgctxt "#31056"
 msgid "Save playlist"
-msgstr "Išsaugoti grojaraštį"
+msgstr "IÅ¡saugoti grojaraÅ¡tÄ¯"
 
 msgctxt "#31057"
 msgid "Close playlist"
-msgstr "Uždaryti grojaraštį"
+msgstr "UÅ¾daryti grojaraÅ¡tÄ¯"
 
 msgctxt "#31058"
 msgid "PVR information"
@@ -259,11 +259,11 @@ msgstr "Artist Slideshow"
 
 msgctxt "#31060"
 msgid "This file is stacked, select the part you want to play from."
-msgstr "Šis failas yra sugrupuotas - pasirinkite dalį, kurią norite atkurti."
+msgstr "Å is failas yra sugrupuotas - pasirinkite dalÄ¯, kuriÄ… norite atkurti."
 
 msgctxt "#31061"
 msgid "Total addons / Favourites statistics"
-msgstr "Viso priedų / Mėgstamiausiųjų statistika"
+msgstr "Viso priedÅ³ / MÄ—gstamiausiÅ³jÅ³ statistika"
 
 msgctxt "#31062"
 msgid "Random movie fanart"
@@ -275,7 +275,7 @@ msgstr "Atsitiktinis TV laidos Fanart"
 
 msgctxt "#31064"
 msgid "Random video fanart"
-msgstr "Atsitiktinis vaizdo įrašo Fanart"
+msgstr "Atsitiktinis vaizdo Ä¯raÅ¡o Fanart"
 
 msgctxt "#31065"
 msgid "Random music fanart"
@@ -287,7 +287,7 @@ msgstr "Atsitiktinis Fanart"
 
 msgctxt "#31067"
 msgid "Update rating"
-msgstr "Atnaujinti reitingą"
+msgstr "Atnaujinti reitingÄ…"
 
 msgctxt "#31068"
 msgid "CD Wall"
@@ -295,7 +295,7 @@ msgstr "CD siena"
 
 msgctxt "#31069"
 msgid "Change location"
-msgstr "Pakeisti vietovę"
+msgstr "Pakeisti vietovÄ™"
 
 msgctxt "#31070"
 msgid "Enable PreshowExperience integration"
@@ -303,27 +303,27 @@ msgstr ""
 
 msgctxt "#31071"
 msgid "While browsing the library"
-msgstr "Naršant bibliotekoje"
+msgstr "NarÅ¡ant bibliotekoje"
 
 msgctxt "#31072"
 msgid "On open video info"
-msgstr "Atidarytoje vaizdo įrašo informacijoje"
+msgstr "Atidarytoje vaizdo Ä¯raÅ¡o informacijoje"
 
 msgctxt "#31073"
 msgid "Move menu item"
-msgstr "Perkelti meniu elementą"
+msgstr "Perkelti meniu elementÄ…"
 
 msgctxt "#31074"
 msgid "Choose item to swap places with"
-msgstr "Pasirinkite elementą, su kuriuo sukeisti vietomis"
+msgstr "Pasirinkite elementÄ…, su kuriuo sukeisti vietomis"
 
 msgctxt "#31075"
 msgid "No extra features available"
-msgstr "Nėra papildomų ypatybių"
+msgstr "NÄ—ra papildomÅ³ ypatybiÅ³"
 
 msgctxt "#31076"
 msgid "Landscape"
-msgstr "Gulsčias"
+msgstr "GulsÄias"
 
 msgctxt "#31077"
 msgid "ShowCase"
@@ -343,23 +343,23 @@ msgstr "Tvarkyti submeniu"
 
 msgctxt "#31081"
 msgid "Enable custom submenus"
-msgstr "Įjungti individualius submeniu"
+msgstr "Ä®jungti individualius submeniu"
 
 msgctxt "#31082"
 msgid "Detach RSS feed from the main menu"
-msgstr "Atskirti RSS sklaidos kanalą nuo pagrindinio meniu"
+msgstr "Atskirti RSS sklaidos kanalÄ… nuo pagrindinio meniu"
 
 msgctxt "#31083"
 msgid "Enable Next Aired information in the videolibrary"
-msgstr "Įjungti Next Aired informaciją vaizdo bibliotekoje"
+msgstr "Ä®jungti Next Aired informacijÄ… vaizdo bibliotekoje"
 
 msgctxt "#31084"
 msgid "Conditional weather"
-msgstr "Sąlyginiai orai"
+msgstr "SÄ…lyginiai orai"
 
 msgctxt "#31085"
 msgid "Musicvideo library statistics"
-msgstr "Muzikinių vaizdo klipų bibliotekos statistika"
+msgstr "MuzikiniÅ³ vaizdo klipÅ³ bibliotekos statistika"
 
 msgctxt "#31086"
 msgid "Icon"
@@ -367,19 +367,19 @@ msgstr "Piktograma"
 
 msgctxt "#31087"
 msgid "Banner"
-msgstr "Reklamjuostė"
+msgstr "ReklamjuostÄ—"
 
 msgctxt "#31088"
 msgid "BannerWall"
-msgstr "Reklamjuosčių siena"
+msgstr "ReklamjuosÄiÅ³ siena"
 
 msgctxt "#31089"
 msgid "Play item on startup"
-msgstr "Atkurti elementą paleidžiant"
+msgstr "Atkurti elementÄ… paleidÅ¾iant"
 
 msgctxt "#31090"
 msgid "Seconds"
-msgstr "Sekundės"
+msgstr "SekundÄ—s"
 
 msgctxt "#31091"
 msgid "Select items"
@@ -391,31 +391,31 @@ msgstr "Fanart visame ekrane"
 
 msgctxt "#31093"
 msgid "LowList toggle"
-msgstr "Žemo sąrašo perjungimas"
+msgstr "Å½emo sÄ…raÅ¡o perjungimas"
 
 msgctxt "#31094"
 msgid "List view layout"
-msgstr "Sąrašo rodinio išdėstymas"
+msgstr "SÄ…raÅ¡o rodinio iÅ¡dÄ—stymas"
 
 msgctxt "#31095"
 msgid "Slim List"
-msgstr "Siauras sąrašas"
+msgstr "Siauras sÄ…raÅ¡as"
 
 msgctxt "#31096"
 msgid "Concert locations"
-msgstr "Koncertų vietos"
+msgstr "KoncertÅ³ vietos"
 
 msgctxt "#31097"
 msgid "Movie playlist statistics"
-msgstr "Filmų grojaraščio statistika"
+msgstr "FilmÅ³ grojaraÅ¡Äio statistika"
 
 msgctxt "#31098"
 msgid "TV Show playlist statistics"
-msgstr "TV laidų grojaraščio statistika"
+msgstr "TV laidÅ³ grojaraÅ¡Äio statistika"
 
 msgctxt "#31099"
 msgid "Musicvideo playlist statistics"
-msgstr "Muzikinių vaizdo klipų grojaraščio statistika"
+msgstr "MuzikiniÅ³ vaizdo klipÅ³ grojaraÅ¡Äio statistika"
 
 msgctxt "#31100"
 msgid "View:"
@@ -423,7 +423,7 @@ msgstr "Rodinys:"
 
 msgctxt "#31101"
 msgid "Choose view"
-msgstr "Pasirinkite rodinį"
+msgstr "Pasirinkite rodinÄ¯"
 
 msgctxt "#31102"
 msgid "Background"
@@ -435,11 +435,11 @@ msgstr "N/A"
 
 msgctxt "#31104"
 msgid "Similar artists"
-msgstr "Panašūs atlikėjai"
+msgstr "PanaÅ¡Å«s atlikÄ—jai"
 
 msgctxt "#31105"
 msgid "More albums from"
-msgstr "Daugiau albumų iš"
+msgstr "Daugiau albumÅ³ iÅ¡"
 
 msgctxt "#31106"
 msgid "On info"
@@ -451,11 +451,11 @@ msgstr "Pastovus"
 
 msgctxt "#31108"
 msgid "Enable artist information feed (if available)"
-msgstr "Įjungti atlikėjo informacijos sklaidos kanalą (jei prieinama)"
+msgstr "Ä®jungti atlikÄ—jo informacijos sklaidos kanalÄ… (jei prieinama)"
 
 msgctxt "#31109"
 msgid "Unwatched episode count"
-msgstr "Neperžiūrėtų epizodų skaitliukas"
+msgstr "NeperÅ¾iÅ«rÄ—tÅ³ epizodÅ³ skaitliukas"
 
 msgctxt "#31110"
 msgid "Solid color backgrounds"
@@ -463,15 +463,15 @@ msgstr ""
 
 msgctxt "#31111"
 msgid "Similar"
-msgstr "Panašus"
+msgstr "PanaÅ¡us"
 
 msgctxt "#31112"
 msgid "Movies directed by"
-msgstr "Filmai, kuriuos režisavo"
+msgstr "Filmai, kuriuos reÅ¾isavo"
 
 msgctxt "#31113"
 msgid "Movies written by"
-msgstr "Filmai, kuriems scenarijų parašė"
+msgstr "Filmai, kuriems scenarijÅ³ paraÅ¡Ä—"
 
 msgctxt "#31114"
 msgid "More from"
@@ -491,11 +491,11 @@ msgstr "Atsarginis"
 
 msgctxt "#31118"
 msgid "Cache movie extrafanart"
-msgstr "Laikyti papildomą filmo Fanart podėlyje"
+msgstr "Laikyti papildomÄ… filmo Fanart podÄ—lyje"
 
 msgctxt "#31119"
 msgid "Show the movies from this director in your library or view online information on this director on TMDb?"
-msgstr "Rodyti šio režisieriaus filmus bibliotekoje ar peržiūrėti interneto informaciją apie šį režisierių iš TMDb?"
+msgstr "Rodyti Å¡io reÅ¾isieriaus filmus bibliotekoje ar perÅ¾iÅ«rÄ—ti interneto informacijÄ… apie Å¡Ä¯ reÅ¾isieriÅ³ iÅ¡ TMDb?"
 
 msgctxt "#31120"
 msgid "TMDb"
@@ -503,23 +503,23 @@ msgstr "TMDb"
 
 msgctxt "#31121"
 msgid "Enable autocomplete"
-msgstr "Įjungti automatinį užbaigimą"
+msgstr "Ä®jungti automatinÄ¯ uÅ¾baigimÄ…"
 
 msgctxt "#31122"
 msgid "Enables the autocomplete feature of the virtual keyboard"
-msgstr "Įjungia virtualios klaviatūros automatinio teksto užbaigimo funkciją"
+msgstr "Ä®jungia virtualios klaviatÅ«ros automatinio teksto uÅ¾baigimo funkcijÄ…"
 
 msgctxt "#31123"
 msgid "Album review"
-msgstr "Albumo apžvalga"
+msgstr "Albumo apÅ¾valga"
 
 msgctxt "#31124"
 msgid "Show Background \"Now Playing\" Video"
-msgstr "Rodyti \"Dabar atkuriamą\" vaizdo įrašą fone"
+msgstr "Rodyti \"Dabar atkuriamÄ…\" vaizdo Ä¯raÅ¡Ä… fone"
 
 msgctxt "#31125"
 msgid "Show Background \"Now Playing\" Visualisation"
-msgstr "Rodyti \"Dabar atkuriamą\" vizualizaciją fone"
+msgstr "Rodyti \"Dabar atkuriamÄ…\" vizualizacijÄ… fone"
 
 msgctxt "#31126"
 msgid "TheMovieDb Helper provides details about movies, tvshows and actors from TMDb."
@@ -531,11 +531,11 @@ msgstr ""
 
 msgctxt "#31128"
 msgid "Channels View"
-msgstr "Kanalų rodinys"
+msgstr "KanalÅ³ rodinys"
 
 msgctxt "#31129"
 msgid "Hide Fanart in full screen visualisation"
-msgstr "Slėpti Fanart viso ekrano vizualizacijoje"
+msgstr "SlÄ—pti Fanart viso ekrano vizualizacijoje"
 
 msgctxt "#31130"
 msgid "Use \"Enigma2-style\" channel OSD"
@@ -551,7 +551,7 @@ msgstr "Imtuvas:"
 
 msgctxt "#31133"
 msgid "Timeline channels-type:"
-msgstr "Laiko juostos kanalų tipas:"
+msgstr "Laiko juostos kanalÅ³ tipas:"
 
 msgctxt "#31134"
 msgid "Timeline view-type:"
@@ -559,55 +559,55 @@ msgstr "Laiko juostos rodinio tipas:"
 
 msgctxt "#31135"
 msgid "Infobar Options"
-msgstr "Informacinės juostos parinktys"
+msgstr "InformacinÄ—s juostos parinktys"
 
 msgctxt "#31136"
 msgid "Infobar type:"
-msgstr "Informacinės juostos tipas:"
+msgstr "InformacinÄ—s juostos tipas:"
 
 msgctxt "#31137"
 msgid "Hide encryption information"
-msgstr "Slėpti šifravimo informaciją"
+msgstr "SlÄ—pti Å¡ifravimo informacijÄ…"
 
 msgctxt "#31138"
 msgid "Hide tuner information"
-msgstr "Slėpti imtuvo informaciją"
+msgstr "SlÄ—pti imtuvo informacijÄ…"
 
 msgctxt "#31139"
 msgid "Hide signal information"
-msgstr "Slėpti signalo informaciją"
+msgstr "SlÄ—pti signalo informacijÄ…"
 
 msgctxt "#31140"
 msgid "Sideblade Options"
-msgstr "Šoninio meniu parinktys"
+msgstr "Å oninio meniu parinktys"
 
 msgctxt "#31141"
 msgid "Hide Guide"
-msgstr "Slėpti gidą"
+msgstr "SlÄ—pti gidÄ…"
 
 msgctxt "#31142"
 msgid "Settings level"
-msgstr "Nustatymų lygis"
+msgstr "NustatymÅ³ lygis"
 
 msgctxt "#31143"
 msgid "Hide Recordings"
-msgstr "Slėpti įrašymus"
+msgstr "SlÄ—pti Ä¯raÅ¡ymus"
 
 msgctxt "#31144"
 msgid "Hide Timer"
-msgstr "Slėpti laikmatį"
+msgstr "SlÄ—pti laikmatÄ¯"
 
 msgctxt "#31145"
 msgid "Hide Search"
-msgstr "Slėpti paiešką"
+msgstr "SlÄ—pti paieÅ¡kÄ…"
 
 msgctxt "#31146"
 msgid "Rated"
-msgstr "Įvertinta"
+msgstr "Ä®vertinta"
 
 msgctxt "#31147"
 msgid "Change rating"
-msgstr "Pakeisti įvertinimą"
+msgstr "Pakeisti Ä¯vertinimÄ…"
 
 msgctxt "#31148"
 msgid "List local library items"
@@ -615,7 +615,7 @@ msgstr "Rodyti lokalius bibliotekos elementus"
 
 msgctxt "#31149"
 msgid "Online information from TMDb"
-msgstr "Informacija iš TMDb"
+msgstr "Informacija iÅ¡ TMDb"
 
 msgctxt "#31150"
 msgid "IMDb logo"
@@ -631,11 +631,11 @@ msgstr "Plakatas"
 
 msgctxt "#31153"
 msgid "Disable views"
-msgstr "Išjungti rodinius"
+msgstr "IÅ¡jungti rodinius"
 
 msgctxt "#31154"
 msgid "Show Artist Slideshow when playing music"
-msgstr "Rodyti atlikėjų skaidres atkuriant muziką"
+msgstr "Rodyti atlikÄ—jÅ³ skaidres atkuriant muzikÄ…"
 
 msgctxt "#31155"
 msgid "Widgets"
@@ -651,19 +651,19 @@ msgstr "Submeniu visada matomas"
 
 msgctxt "#31158"
 msgid "Disable the Search icon "
-msgstr "Išjungti paieškos piktogramą"
+msgstr "IÅ¡jungti paieÅ¡kos piktogramÄ…"
 
 msgctxt "#31159"
 msgid "Event log"
-msgstr "Įvykių žurnalas"
+msgstr "Ä®vykiÅ³ Å¾urnalas"
 
 msgctxt "#31160"
 msgid "Extended"
-msgstr "Išplėstas"
+msgstr "IÅ¡plÄ—stas"
 
 msgctxt "#31161"
 msgid "Choose the position of the RSS feed. Top of the screen, bottom of the screen or the default location directly underneath the main menu."
-msgstr "Pasirinkite RSS sklaidos kanalo poziciją. Ekrano viršus, ekrano apačia ar numatytoji vieta tiesiai po pagrindiniu meniu."
+msgstr "Pasirinkite RSS sklaidos kanalo pozicijÄ…. Ekrano virÅ¡us, ekrano apaÄia ar numatytoji vieta tiesiai po pagrindiniu meniu."
 
 msgctxt "#31162"
 msgid "Alternate"
@@ -671,63 +671,63 @@ msgstr "Kintamas"
 
 msgctxt "#31163"
 msgid "This movie is Unrated"
-msgstr "Šis lilmas yra neįvertintas"
+msgstr "Å is lilmas yra neÄ¯vertintas"
 
 msgctxt "#31164"
 msgid "Enable live background for movie sets"
-msgstr "Įjungti gyvą foną filmų rinkiniams"
+msgstr "Ä®jungti gyvÄ… fonÄ… filmÅ³ rinkiniams"
 
 msgctxt "#31165"
 msgid "Enable to display live background for movie sets when browsing your movie library"
-msgstr "Įjunkite, jei norite, kad būtų atvaizduojamas gyvas fonas filmų rinkiniams naršant filmų bibliotekoje"
+msgstr "Ä®junkite, jei norite, kad bÅ«tÅ³ atvaizduojamas gyvas fonas filmÅ³ rinkiniams narÅ¡ant filmÅ³ bibliotekoje"
 
 msgctxt "#31166"
 msgid "Enable description for a movies rating"
-msgstr "Įjungti filmų įvertinimo aprašymą"
+msgstr "Ä®jungti filmÅ³ Ä¯vertinimo apraÅ¡ymÄ…"
 
 msgctxt "#31167"
 msgid "This setting displays a reason for a movies rating. You need to use a script like Rating Update to add these values (prefix must be Rated  including a space after Rated)"
-msgstr "Šis nustatymas atvaizduoja filmų įvertinimo priežastį. Jums reikia naudoti scenarijų, tokį kaip Rating Update, kad pridėti šias reikšmes (reikalingas priešdėlis Rated su po jo sekančiu tarpu)"
+msgstr "Å is nustatymas atvaizduoja filmÅ³ Ä¯vertinimo prieÅ¾astÄ¯. Jums reikia naudoti scenarijÅ³, tokÄ¯ kaip Rating Update, kad pridÄ—ti Å¡ias reikÅ¡mes (reikalingas prieÅ¡dÄ—lis Rated su po jo sekanÄiu tarpu)"
 
 msgctxt "#31168"
 msgid "Enable to make the submenu permanently visible. Default is hidden until pressing down."
-msgstr "Įjunkite, jei norite, kad submeniu būtų visada matomi. Pagal nutylėjimą jis bus paslėptas kol nepaspausite žemyn."
+msgstr "Ä®junkite, jei norite, kad submeniu bÅ«tÅ³ visada matomi. Pagal nutylÄ—jimÄ… jis bus paslÄ—ptas kol nepaspausite Å¾emyn."
 
 msgctxt "#31169"
 msgid "This setting hides the Search icon on the home screen."
-msgstr "Šis nustatymas paslepia paieškos piktogramą pradiniame ekrane"
+msgstr "Å is nustatymas paslepia paieÅ¡kos piktogramÄ… pradiniame ekrane"
 
 msgctxt "#31170"
 msgid "Enabling this setting will hide the alphanumeric label displaying the current position when scrolling through your library."
-msgstr "Įjungus šį nustatymą, bus paslėpta raidinė-skaitinė etiketė, rodanti esamą poziciją, kai slenkama bibliotekos sąrašu."
+msgstr "Ä®jungus Å¡Ä¯ nustatymÄ…, bus paslÄ—pta raidinÄ—-skaitinÄ— etiketÄ—, rodanti esamÄ… pozicijÄ…, kai slenkama bibliotekos sÄ…raÅ¡u."
 
 msgctxt "#31171"
 msgid "This setting will activate fullscreen mode automatically after starting to play music."
-msgstr "Šis nustatymas automatiškai aktyvuos viso ekrano režimą, pradėjus muzikos atkūrimą."
+msgstr "Å is nustatymas automatiÅ¡kai aktyvuos viso ekrano reÅ¾imÄ…, pradÄ—jus muzikos atkÅ«rimÄ…."
 
 msgctxt "#31172"
 msgid "Set the path to your music collection for displaying artist logos in the music visualisation and in some views that support it."
-msgstr "Nustatyti kelią iki muzikos kolekcijos, kad būtų rodomi atlikėjų logotipai rodiniuose bei kai kuriuose tai palaikančiuose rodiniuose."
+msgstr "Nustatyti keliÄ… iki muzikos kolekcijos, kad bÅ«tÅ³ rodomi atlikÄ—jÅ³ logotipai rodiniuose bei kai kuriuose tai palaikanÄiuose rodiniuose."
 
 msgctxt "#31173"
 msgid "Blur background (video info dialog)"
-msgstr "Išplaukęs fonas (vaizdo įrašo informacijos dialogas)"
+msgstr "IÅ¡plaukÄ™s fonas (vaizdo Ä¯raÅ¡o informacijos dialogas)"
 
 msgctxt "#31174"
 msgid "Blur background behind information"
-msgstr "Išblukinti foną už informacijos"
+msgstr "IÅ¡blukinti fonÄ… uÅ¾ informacijos"
 
 msgctxt "#31175"
 msgid "Set path to music collection/artwork (for artist logos)"
-msgstr "Nustatyti kelią iki muzikos kolekcijos/iliustracijų (atlikėjų logotipams)"
+msgstr "Nustatyti keliÄ… iki muzikos kolekcijos/iliustracijÅ³ (atlikÄ—jÅ³ logotipams)"
 
 msgctxt "#31176"
 msgid "Trending Movies"
-msgstr "Populiarūs filmai"
+msgstr "PopuliarÅ«s filmai"
 
 msgctxt "#31177"
 msgid "Top Rentals"
-msgstr "Dažniausiai nuomojami"
+msgstr "DaÅ¾niausiai nuomojami"
 
 msgctxt "#31178"
 msgid "Trending Shows"
@@ -739,7 +739,7 @@ msgstr "Televizijos nustatymai"
 
 msgctxt "#31180"
 msgid "Minutes left"
-msgstr "Liko minučių"
+msgstr "Liko minuÄiÅ³"
 
 msgctxt "#31181"
 msgid "Hour"
@@ -747,7 +747,7 @@ msgstr "Valandos"
 
 msgctxt "#31182"
 msgid "Minute left"
-msgstr "Liko minutė"
+msgstr "Liko minutÄ—"
 
 msgctxt "#31183"
 msgid "Hour left"
@@ -755,79 +755,79 @@ msgstr "Liko valanda"
 
 msgctxt "#31184"
 msgid "Seconds left"
-msgstr "Liko sekundžių"
+msgstr "Liko sekundÅ¾iÅ³"
 
 msgctxt "#31185"
 msgid "Hours left"
-msgstr "Liko valandų"
+msgstr "Liko valandÅ³"
 
 msgctxt "#31186"
 msgid "Handwritten"
-msgstr "Rašytas ranka"
+msgstr "RaÅ¡ytas ranka"
 
 msgctxt "#31187"
 msgid "Music layout alignment"
-msgstr "Muzikos išdėstymo lygiavimas"
+msgstr "Muzikos iÅ¡dÄ—stymo lygiavimas"
 
 msgctxt "#31188"
 msgid "Status indicators"
-msgstr "Būsenos indikatoriai"
+msgstr "BÅ«senos indikatoriai"
 
 msgctxt "#31189"
 msgid "Layout"
-msgstr "Išdėstymas"
+msgstr "IÅ¡dÄ—stymas"
 
 msgctxt "#31190"
 msgid "Video info"
-msgstr "Vaizdo įrašo informacija"
+msgstr "Vaizdo Ä¯raÅ¡o informacija"
 
 msgctxt "#31191"
 msgid "Enable cases for live backgrounds"
-msgstr "Įjungti dėkliukus gyviems fonams"
+msgstr "Ä®jungti dÄ—kliukus gyviems fonams"
 
 msgctxt "#31192"
 msgid "Set default background"
-msgstr "Nustatyti numatytąjį foną"
+msgstr "Nustatyti numatytÄ…jÄ¯ fonÄ…"
 
 msgctxt "#31193"
 msgid "Display extrafanart"
-msgstr "Rodyti papildomą Fanart"
+msgstr "Rodyti papildomÄ… Fanart"
 
 msgctxt "#31194"
 msgid "Display runtime in hours and minutes"
-msgstr "Atvaizduoti trukmę valandomis ir minutėmis"
+msgstr "Atvaizduoti trukmÄ™ valandomis ir minutÄ—mis"
 
 msgctxt "#31195"
 msgid "Show time remaining on fullscreen info"
-msgstr "Rodyti likusi laiką viso ekrano informacijoje"
+msgstr "Rodyti likusi laikÄ… viso ekrano informacijoje"
 
 msgctxt "#31196"
 msgid "Replace default with Extended Info (some features and extras (+) will be unavailable)"
-msgstr "Pakeisti numatytąjį Extended Info scenarijumi (kai kurios funkcijos ir papildiniai (+) taps neprieinami)"
+msgstr "Pakeisti numatytÄ…jÄ¯ Extended Info scenarijumi (kai kurios funkcijos ir papildiniai (+) taps neprieinami)"
 
 msgctxt "#31197"
 msgid "Enable info rating (works with US Ratings only)"
-msgstr "Įjungti informacinį reitingą (veikia tik su JAV reitingais)"
+msgstr "Ä®jungti informacinÄ¯ reitingÄ… (veikia tik su JAV reitingais)"
 
 msgctxt "#31198"
 msgid "This setting controls the appearance of cases when using Live Backgrounds"
-msgstr "Šis nustatymas valdo dėkliukų atvaizdavimą naudojant gyvus fonus"
+msgstr "Å is nustatymas valdo dÄ—kliukÅ³ atvaizdavimÄ… naudojant gyvus fonus"
 
 msgctxt "#31199"
 msgid "Used to select the default/fallback image skin wide"
-msgstr "Naudojamas parinti numatytąjį/atsarginį atvaizdą visoje teminėje išvaizdoje"
+msgstr "Naudojamas parinti numatytÄ…jÄ¯/atsarginÄ¯ atvaizdÄ… visoje teminÄ—je iÅ¡vaizdoje"
 
 msgctxt "#31200"
 msgid "The Image Resource Select Add-on is used to choose a Kodi resource image pack similiar to weather artwork and icons."
-msgstr "'The Image Resource Select' priedas naudojamas Kodi resursų atvaizdų paketo parinkimui, panašiai kaip orų iliustracijų ar piktogramų."
+msgstr "'The Image Resource Select' priedas naudojamas Kodi resursÅ³ atvaizdÅ³ paketo parinkimui, panaÅ¡iai kaip orÅ³ iliustracijÅ³ ar piktogramÅ³."
 
 msgctxt "#31201"
 msgid "Changes the runtime labels throughout the skin from minutes to hours/minutes"
-msgstr "Pakeisti trukmės etiketės visoje teminėje išvaizdoje iš minučių į valandas/minutes"
+msgstr "Pakeisti trukmÄ—s etiketÄ—s visoje teminÄ—je iÅ¡vaizdoje iÅ¡ minuÄiÅ³ Ä¯ valandas/minutes"
 
 msgctxt "#31202"
 msgid "Show the remaining time for currently playing videos when pressing info"
-msgstr "Rodyti šiuo metu atkuriamų vaizdo įrašų likusį atkūrimo laiką paspaudus informacijos mygtuką"
+msgstr "Rodyti Å¡iuo metu atkuriamÅ³ vaizdo Ä¯raÅ¡Å³ likusÄ¯ atkÅ«rimo laikÄ… paspaudus informacijos mygtukÄ…"
 
 msgctxt "#31203"
 msgid "In Theaters"
@@ -839,11 +839,11 @@ msgstr "Gretai pasirodys"
 
 msgctxt "#31205"
 msgid "Lyrics Source"
-msgstr "Dainų tekstų šaltinis"
+msgstr "DainÅ³ tekstÅ³ Å¡altinis"
 
 msgctxt "#31206"
 msgid "Opening This Week"
-msgstr "Pradedama rodyti šią savaitę"
+msgstr "Pradedama rodyti Å¡iÄ… savaitÄ™"
 
 msgctxt "#31207"
 msgid "Upcoming"
@@ -851,7 +851,7 @@ msgstr "Artimiausi"
 
 msgctxt "#31208"
 msgid "Top Box Office"
-msgstr "Daugiausiai gavo pajamų"
+msgstr "Daugiausiai gavo pajamÅ³"
 
 msgctxt "#31209"
 msgid "In Cinemas"
@@ -859,11 +859,11 @@ msgstr "Kino teatruose"
 
 msgctxt "#31210"
 msgid "Popular Movies"
-msgstr "Populiarūs filmai"
+msgstr "PopuliarÅ«s filmai"
 
 msgctxt "#31211"
 msgid "Top Rated Movies"
-msgstr "Geriausiai įvertinti filmai"
+msgstr "Geriausiai Ä¯vertinti filmai"
 
 msgctxt "#31212"
 msgid "Popular TV"
@@ -871,19 +871,19 @@ msgstr "Populiarios TV laidos"
 
 msgctxt "#31213"
 msgid "Top Rated TV"
-msgstr "Geriausiai įvertintos TV laidos"
+msgstr "Geriausiai Ä¯vertintos TV laidos"
 
 msgctxt "#31214"
 msgid "Currently Airing TV"
-msgstr "Šiuo metu rodomos TV laidos"
+msgstr "Å iuo metu rodomos TV laidos"
 
 msgctxt "#31215"
 msgid "TV Airing Today"
-msgstr "Šiandien rodomos TV laidos"
+msgstr "Å iandien rodomos TV laidos"
 
 msgctxt "#31216"
 msgid "Longer details"
-msgstr "Ilgesnės detalės"
+msgstr "IlgesnÄ—s detalÄ—s"
 
 msgctxt "#31217"
 msgid "Single logo"
@@ -891,11 +891,11 @@ msgstr "Vienas logotipas"
 
 msgctxt "#31218"
 msgid "Use vinyl record instead of blank CD for disc fallback"
-msgstr "Naudoti vinilinį įrašą vietoje tuščio CD kaip atsarginį disko atvaizdą"
+msgstr "Naudoti vinilinÄ¯ Ä¯raÅ¡Ä… vietoje tuÅ¡Äio CD kaip atsarginÄ¯ disko atvaizdÄ…"
 
 msgctxt "#31219"
 msgid "Language flags"
-msgstr "Kalbos vėiavos"
+msgstr "Kalbos vÄ—iavos"
 
 msgctxt "#31220"
 msgid "RSS Feed"
@@ -919,23 +919,23 @@ msgstr "Laiko juostos atvaizdavimas"
 
 msgctxt "#31225"
 msgid "Time remaining label"
-msgstr "Likusio laiko etiketė"
+msgstr "Likusio laiko etiketÄ—"
 
 msgctxt "#31226"
 msgid "Time elapsed/Total duration"
-msgstr "Praėjęs laikas/Bendra trukmė"
+msgstr "PraÄ—jÄ™s laikas/Bendra trukmÄ—"
 
 msgctxt "#31227"
 msgid "Time elapsed/Time remaining"
-msgstr "Praėjęs laikas/Likęs laikas"
+msgstr "PraÄ—jÄ™s laikas/LikÄ™s laikas"
 
 msgctxt "#31228"
 msgid "Time remaining/Total duration"
-msgstr "Likęs laikas/Bendra trukmė"
+msgstr "LikÄ™s laikas/Bendra trukmÄ—"
 
 msgctxt "#31229"
 msgid "Extended Panel"
-msgstr "Išplėstinis skydelis"
+msgstr "IÅ¡plÄ—stinis skydelis"
 
 msgctxt "#31230"
 msgid "Panel"
@@ -947,11 +947,11 @@ msgstr "Valdiklio stilius"
 
 msgctxt "#31232"
 msgid "Replace Play Button"
-msgstr "Pakeisti atkūrimo mygtuką"
+msgstr "Pakeisti atkÅ«rimo mygtukÄ…"
 
 msgctxt "#31233"
 msgid "Hide artwork"
-msgstr "Slėpti iliustraciją"
+msgstr "SlÄ—pti iliustracijÄ…"
 
 msgctxt "#31234"
 msgid "Next aired"
@@ -959,35 +959,35 @@ msgstr "Kita transliacija"
 
 msgctxt "#31235"
 msgid "Slide Left"
-msgstr "Slinkti kairėn"
+msgstr "Slinkti kairÄ—n"
 
 msgctxt "#31236"
 msgid "Slide Right"
-msgstr "Slinkti dešinėn"
+msgstr "Slinkti deÅ¡inÄ—n"
 
 msgctxt "#31237"
 msgid "Cache tv extrafanart"
-msgstr "Laikyti papildomą TV Fanart podėlyje"
+msgstr "Laikyti papildomÄ… TV Fanart podÄ—lyje"
 
 msgctxt "#31238"
 msgid "SongList"
-msgstr "Dainų sąrašas"
+msgstr "DainÅ³ sÄ…raÅ¡as"
 
 msgctxt "#31239"
 msgid "RightList"
-msgstr "Dešinys sąrašas"
+msgstr "DeÅ¡inys sÄ…raÅ¡as"
 
 msgctxt "#31240"
 msgid "FanartList"
-msgstr "Fanart sąrašas"
+msgstr "Fanart sÄ…raÅ¡as"
 
 msgctxt "#31241"
 msgid "LowList"
-msgstr "Žemas sąrašas"
+msgstr "Å½emas sÄ…raÅ¡as"
 
 msgctxt "#31242"
 msgid "BigList"
-msgstr "Didelis sąrašas"
+msgstr "Didelis sÄ…raÅ¡as"
 
 msgctxt "#31243"
 msgid "Posters"
@@ -1019,7 +1019,7 @@ msgstr "BigFan"
 
 msgctxt "#31250"
 msgid "BigInfo"
-msgstr "Didelė informacija"
+msgstr "DidelÄ— informacija"
 
 msgctxt "#31251"
 msgid "Gallery"
@@ -1027,31 +1027,31 @@ msgstr "Galerija"
 
 msgctxt "#31252"
 msgid "TopBar"
-msgstr "Viršutinė juosta"
+msgstr "VirÅ¡utinÄ— juosta"
 
 msgctxt "#31253"
 msgid "Banners"
-msgstr "Reklamjuostės"
+msgstr "ReklamjuostÄ—s"
 
 msgctxt "#31254"
 msgid "Smaller posters"
-msgstr "Mažesni plakatai"
+msgstr "MaÅ¾esni plakatai"
 
 msgctxt "#31255"
 msgid "Mediaflags"
-msgstr "Media vėliavos"
+msgstr "Media vÄ—liavos"
 
 msgctxt "#31256"
 msgid "Brochure"
-msgstr "Brošiūra"
+msgstr "BroÅ¡iÅ«ra"
 
 msgctxt "#31257"
 msgid "Movie set titles"
-msgstr "Filmų rinkinių pavadinimai"
+msgstr "FilmÅ³ rinkiniÅ³ pavadinimai"
 
 msgctxt "#31258"
 msgid "Blur background (extended info dialog)"
-msgstr "Išplaukęs fonas (Extended Info dialogas)"
+msgstr "IÅ¡plaukÄ™s fonas (Extended Info dialogas)"
 
 msgctxt "#31259"
 msgid "Center"
@@ -1059,11 +1059,11 @@ msgstr "Centras"
 
 msgctxt "#31260"
 msgid "Set background rotation speed"
-msgstr "Nustatyti fono sukimosi greitį"
+msgstr "Nustatyti fono sukimosi greitÄ¯"
 
 msgctxt "#31261"
 msgid "Choose the position of the RSS feed. Top of the screen or bottom of the screen."
-msgstr "Pasirinkite RSS sklaidos kanalo poziciją. Ekrano viršus ar apačia."
+msgstr "Pasirinkite RSS sklaidos kanalo pozicijÄ…. Ekrano virÅ¡us ar apaÄia."
 
 msgctxt "#31262"
 msgid "Hides the labels below the icons on the main menu."
@@ -1071,35 +1071,35 @@ msgstr "Paslepia etiketes po piktogramomis pagrindiniame meniu."
 
 msgctxt "#31263"
 msgid "Hide menu labels"
-msgstr "Slėpti meniu etiketes"
+msgstr "SlÄ—pti meniu etiketes"
 
 msgctxt "#31264"
 msgid "Displays artist fanart provided by the Artist Slideshow addon as the background of the home menu."
-msgstr "Atvaizduoja Artist Slideshow priedo pateiktus atlikėjo Fanart pagrindinio meniu fone."
+msgstr "Atvaizduoja Artist Slideshow priedo pateiktus atlikÄ—jo Fanart pagrindinio meniu fone."
 
 msgctxt "#31265"
 msgid "This will reset the main menu to its defaults.[CR]This action cannot be undone."
-msgstr "Tai atstatys numatytąjį pagrindinį meniu.[CR]Šio veiksmo atšaukti negalima."
+msgstr "Tai atstatys numatytÄ…jÄ¯ pagrindinÄ¯ meniu.[CR]Å io veiksmo atÅ¡aukti negalima."
 
 msgctxt "#31266"
 msgid "Hide player control buttons"
-msgstr "Slėpti grotuvo valdymo mygtukus"
+msgstr "SlÄ—pti grotuvo valdymo mygtukus"
 
 msgctxt "#31267"
 msgid "Hide time & date"
-msgstr "Slėpti datą ir laiką"
+msgstr "SlÄ—pti datÄ… ir laikÄ…"
 
 msgctxt "#31268"
 msgid "Hide Album"
-msgstr "Slėpti albumą"
+msgstr "SlÄ—pti albumÄ…"
 
 msgctxt "#31269"
 msgid "Hide next track widget"
-msgstr "Slėpti kito takelio valdiklį"
+msgstr "SlÄ—pti kito takelio valdiklÄ¯"
 
 msgctxt "#31270"
 msgid "Add to CouchPotato"
-msgstr "Pridėti į CouchPotato"
+msgstr "PridÄ—ti Ä¯ CouchPotato"
 
 msgctxt "#31271"
 msgid "Click for more"
@@ -1111,7 +1111,7 @@ msgstr "Apdovanojimai"
 
 msgctxt "#31273"
 msgid "Recording widget"
-msgstr "Įrašymo valdiklis"
+msgstr "Ä®raÅ¡ymo valdiklis"
 
 msgctxt "#31274"
 msgid "Artwork"
@@ -1119,7 +1119,7 @@ msgstr "Iliustracija"
 
 msgctxt "#31275"
 msgid "Case"
-msgstr "Dėkliukas"
+msgstr "DÄ—kliukas"
 
 msgctxt "#31276"
 msgid "Style"
@@ -1127,15 +1127,15 @@ msgstr "Stilius"
 
 msgctxt "#31277"
 msgid "Sort by"
-msgstr "Rūšiuoti pagal"
+msgstr "RÅ«Å¡iuoti pagal"
 
 msgctxt "#31278"
 msgid "Sort order"
-msgstr "Rūšiavimo tvarka"
+msgstr "RÅ«Å¡iavimo tvarka"
 
 msgctxt "#31279"
 msgid "Add-on status"
-msgstr "Priedo būsena"
+msgstr "Priedo bÅ«sena"
 
 msgctxt "#31280"
 msgid "Time & Date"
@@ -1143,23 +1143,23 @@ msgstr "Laikas ir data"
 
 msgctxt "#31281"
 msgid "Choose skin colors"
-msgstr "Pasirinkti teminės išvaizdos spalvas"
+msgstr "Pasirinkti teminÄ—s iÅ¡vaizdos spalvas"
 
 msgctxt "#31282"
 msgid "Enable startup intro"
-msgstr "Įjungti paleidimo įžangą"
+msgstr "Ä®jungti paleidimo Ä¯Å¾angÄ…"
 
 msgctxt "#31283"
 msgid "Auto open sidemenu when hovering over the top left corner"
-msgstr "Automatiškai atidaryti šoninį meniu, kai užvedama pele virš viršutinio kairiojo kampo"
+msgstr "AutomatiÅ¡kai atidaryti Å¡oninÄ¯ meniu, kai uÅ¾vedama pele virÅ¡ virÅ¡utinio kairiojo kampo"
 
 msgctxt "#31284"
 msgid "Enable Advanced Widgets"
-msgstr "Įjungti sudėtingesnius valdiklius"
+msgstr "Ä®jungti sudÄ—tingesnius valdiklius"
 
 msgctxt "#31285"
 msgid "Global Widget Backgrounds"
-msgstr "Globalūs valdiklių fonai"
+msgstr "GlobalÅ«s valdikliÅ³ fonai"
 
 msgctxt "#31286"
 msgid "Opacity"
@@ -1167,31 +1167,31 @@ msgstr "Skadrumas"
 
 msgctxt "#31287"
 msgid "Show list widget information"
-msgstr "Rodyti valdiklio sąrašo informaciją"
+msgstr "Rodyti valdiklio sÄ…raÅ¡o informacijÄ…"
 
 msgctxt "#31288"
 msgid "Enable panel widget information"
-msgstr "Įjungti valdiklio skydelio informaciją"
+msgstr "Ä®jungti valdiklio skydelio informacijÄ…"
 
 msgctxt "#31289"
 msgid "Hide widgets when not focused"
-msgstr "Slėpti valdiklius, kai jei nepasirinkti"
+msgstr "SlÄ—pti valdiklius, kai jei nepasirinkti"
 
 msgctxt "#31290"
 msgid "This will auto open the sidemenu (where available) when hovering over the top left corner of the screen using a mouse."
-msgstr "Tai automatiškai atidarys šoninį meniu (jei jis yra), kai užvedama pele virš viršutinio kairiojo ekrano kampo."
+msgstr "Tai automatiÅ¡kai atidarys Å¡oninÄ¯ meniu (jei jis yra), kai uÅ¾vedama pele virÅ¡ virÅ¡utinio kairiojo ekrano kampo."
 
 msgctxt "#31291"
 msgid "Disable scrolling label"
-msgstr "Išjungti slinkimo etiketę"
+msgstr "IÅ¡jungti slinkimo etiketÄ™"
 
 msgctxt "#31292"
 msgid "InfoPopup"
-msgstr "Iššokantis informacijos langas"
+msgstr "IÅ¡Å¡okantis informacijos langas"
 
 msgctxt "#31293"
 msgid "Small Icons"
-msgstr "Mažos piktogramos"
+msgstr "MaÅ¾os piktogramos"
 
 msgctxt "#31294"
 msgid "Focused Main Menu"
@@ -1211,15 +1211,15 @@ msgstr "Nepasirinktas submeniu"
 
 msgctxt "#31298"
 msgid "Focused Icons label"
-msgstr "Pasirinktos piktogramos etiketė"
+msgstr "Pasirinktos piktogramos etiketÄ—"
 
 msgctxt "#31299"
 msgid "Unfocused Icons label"
-msgstr "Nepasirinktos piktogramos etiketė"
+msgstr "Nepasirinktos piktogramos etiketÄ—"
 
 msgctxt "#31300"
 msgid "Overview"
-msgstr "Apžvalga"
+msgstr "ApÅ¾valga"
 
 msgctxt "#31301"
 msgid "Last Updated"
@@ -1235,11 +1235,11 @@ msgstr "Sistemos juostos"
 
 msgctxt "#31304"
 msgid "Highlight"
-msgstr "Paryškinimas"
+msgstr "ParyÅ¡kinimas"
 
 msgctxt "#31305"
 msgid "Unwatched episode"
-msgstr "Neperžiūrėtas epizodas"
+msgstr "NeperÅ¾iÅ«rÄ—tas epizodas"
 
 msgctxt "#31306"
 msgid "Customize colors"
@@ -1247,7 +1247,7 @@ msgstr "Pritaikyti spalvas"
 
 msgctxt "#31307"
 msgid "Hide Fanart"
-msgstr "Slėpti Fanart"
+msgstr "SlÄ—pti Fanart"
 
 msgctxt "#31308"
 msgid "Focused text"
@@ -1279,7 +1279,7 @@ msgstr "Skydelis"
 
 msgctxt "#31315"
 msgid "A required script is [B]NOT INSTALLED[/B]. Press INSTALL to download automatically. Press CANCEL if you would like to return to System Settings and switch skins. You may need to restart Kodi after installation completes."
-msgstr "Būtinas priedas yra [B]NEĮDIEGTAS[/B]. Paspauskite ĮDIEGTI, norėdami atsisiųsti automatiškai. Paspauskite ATŠAUKTI, jei norite grįžti į sistemos nustatymus ir perjungti temines išvaizdas. Baigus diegimą gali reikėti iš naujo paleisti Kodi."
+msgstr "BÅ«tinas priedas yra [B]NEÄ®DIEGTAS[/B]. Paspauskite Ä®DIEGTI, norÄ—dami atsisiÅ³sti automatiÅ¡kai. Paspauskite ATÅ AUKTI, jei norite grÄ¯Å¾ti Ä¯ sistemos nustatymus ir perjungti temines iÅ¡vaizdas. Baigus diegimÄ… gali reikÄ—ti iÅ¡ naujo paleisti Kodi."
 
 msgctxt "#31316"
 msgid "A skin reload is [B]REQUIRED[/B] to disable the media menu and certain buttons that were loaded during startup.[CR]Press CANCEL to abort the requested changes."
@@ -1287,15 +1287,15 @@ msgstr ""
 
 msgctxt "#31317"
 msgid "Set Fanart Path"
-msgstr "Nurodyti Fanart kelią"
+msgstr "Nurodyti Fanart keliÄ…"
 
 msgctxt "#31318"
-msgid "[B]CONFIGURE LibreELEC SETTINGS[/B][CR]Setup system option · Manage network[CR]Configure services · About LibreELEC"
-msgstr "[B]KONFIGŪRUOTI LibreELEC NUSTATYMUS[/B][CR]Nustatyti sistemos parinktis · Valdyti tinklą[CR]Konfigūruoti paslaugas · Apie LibreELEC"
+msgid "[B]CONFIGURE LibreELEC SETTINGS[/B][CR]Setup system option Â· Manage network[CR]Configure services Â· About LibreELEC"
+msgstr "[B]KONFIGÅªRUOTI LibreELEC NUSTATYMUS[/B][CR]Nustatyti sistemos parinktis Â· Valdyti tinklÄ…[CR]KonfigÅ«ruoti paslaugas Â· Apie LibreELEC"
 
 msgctxt "#31319"
 msgid "Due to recent updates it is [B]RECOMMENDED[/B] to reset the Main Menu. Certain issues may be resolved by re-setting up your widgets but if issues continue please reset the Main Menu. Press CANCEL to ignore this warning and continue."
-msgstr "Dėl paskutinio atnaujinimo [B]REKOMENDUOJAMA[/B] atstatyti pagrindinį meniu. Tam tikros problemos gali išspręstios iš naujos nustatant valdiklius, tačiau problemos išlieka - atstatykite pagrindinį meniu. Paspauskite ATŠAUKTI, jei norite ignoruoti šį įspėjimą ir tęsti toliau."
+msgstr "DÄ—l paskutinio atnaujinimo [B]REKOMENDUOJAMA[/B] atstatyti pagrindinÄ¯ meniu. Tam tikros problemos gali iÅ¡sprÄ™stios iÅ¡ naujos nustatant valdiklius, taÄiau problemos iÅ¡lieka - atstatykite pagrindinÄ¯ meniu. Paspauskite ATÅ AUKTI, jei norite ignoruoti Å¡Ä¯ Ä¯spÄ—jimÄ… ir tÄ™sti toliau."
 
 msgctxt "#31320"
 msgid "Last Logged In"
@@ -1307,11 +1307,11 @@ msgstr "Karaoke dainos pasirinkimas"
 
 msgctxt "#31322"
 msgid "This will disable the screensaver during music playback by hiding the visualization. This may cause unwanted [B]IMAGE RETENTION[/B] if not used carefully. Do you accept the risks and want to enable this setting?"
-msgstr "Tai išjungs ekrano užsklandą muzikos atkūrimo metu paslepiant vizualizaciją. Tai gali sukelti nepageidaujamą [B]ATVAIZDŲ SAUGOJIMĄ[/B], jei naudojama neatsargiai. Ar prisiimate riziką ir norite įjungti šį nustatymą?"
+msgstr "Tai iÅ¡jungs ekrano uÅ¾sklandÄ… muzikos atkÅ«rimo metu paslepiant vizualizacijÄ…. Tai gali sukelti nepageidaujamÄ… [B]ATVAIZDÅ² SAUGOJIMÄ„[/B], jei naudojama neatsargiai. Ar prisiimate rizikÄ… ir norite Ä¯jungti Å¡Ä¯ nustatymÄ…?"
 
 msgctxt "#31323"
 msgid "If you cannot locate the directory containing your background images, please add that location as a source in Kodi's File Manager. For more information visit http://kodi.wiki/view/File_manager"
-msgstr "Jei negalite rasti aplanko su fono atvaizdais, pridėkite šią vietą kaip šaltinį Kodi failų tvarkyklėje. Daugiau informacijos galite rasti čia http://kodi.wiki/view/File_manager"
+msgstr "Jei negalite rasti aplanko su fono atvaizdais, pridÄ—kite Å¡iÄ… vietÄ… kaip Å¡altinÄ¯ Kodi failÅ³ tvarkyklÄ—je. Daugiau informacijos galite rasti Äia http://kodi.wiki/view/File_manager"
 
 msgctxt "#31324"
 msgid "Aired"
@@ -1339,11 +1339,11 @@ msgstr "Daroma ekrano nuotrauka"
 
 msgctxt "#31330"
 msgid "This script is not available in the default Kodi repositiory. The Marmalade OpenCode repo is needed to use the click to install feature, without it this script must be installed manually."
-msgstr "Šio scenarijaus nėra numatytoje Kodi saugykloje. Norint paspaudus įdiegti funkciją, reikalinga Marmalade OpenCode saugykla, be jos scenarijų reikės diegti rankiniu būdu."
+msgstr "Å io scenarijaus nÄ—ra numatytoje Kodi saugykloje. Norint paspaudus Ä¯diegti funkcijÄ…, reikalinga Marmalade OpenCode saugykla, be jos scenarijÅ³ reikÄ—s diegti rankiniu bÅ«du."
 
 msgctxt "#31331"
 msgid "Installed"
-msgstr "Įdiegta"
+msgstr "Ä®diegta"
 
 msgctxt "#31332"
 msgid "Not Installed or Disabled"
@@ -1351,11 +1351,11 @@ msgstr ""
 
 msgctxt "#31333"
 msgid "The default behavior is to display Music information for 10 seconds after a song is played or the next track in your queue begins. To display permanently reactivate the info and do not toggle it off a second time."
-msgstr "Numatytoji elgsena yra muzikos informacijos atvaizdavimas 10 sekundžių po dainos atkūrimo arba kai pradedamas kito takelio eilėje atkūrimas. Jei norite, kad būtų atvaizduojama visada, iš naujo aktyvuokite informacijos langą ir neperjunkite jo antrą kartą."
+msgstr "Numatytoji elgsena yra muzikos informacijos atvaizdavimas 10 sekundÅ¾iÅ³ po dainos atkÅ«rimo arba kai pradedamas kito takelio eilÄ—je atkÅ«rimas. Jei norite, kad bÅ«tÅ³ atvaizduojama visada, iÅ¡ naujo aktyvuokite informacijos langÄ… ir neperjunkite jo antrÄ… kartÄ…."
 
 msgctxt "#31334"
 msgid "Required"
-msgstr "Būtinas"
+msgstr "BÅ«tinas"
 
 msgctxt "#31335"
 msgid "Recommended"
@@ -1367,15 +1367,15 @@ msgstr "Pasirinktinai"
 
 msgctxt "#31337"
 msgid "Install or change settings of supported add-ons"
-msgstr "Įdiegti palaikomus priedus ar pakeisti jų nustatymus"
+msgstr "Ä®diegti palaikomus priedus ar pakeisti jÅ³ nustatymus"
 
 msgctxt "#31338"
 msgid "Enable or disable system debug logging"
-msgstr "Įjungti arba išjungti sistemos derinimo žurnalo rašymą"
+msgstr "Ä®jungti arba iÅ¡jungti sistemos derinimo Å¾urnalo raÅ¡ymÄ…"
 
 msgctxt "#31339"
 msgid "Enable or disable skin debug info"
-msgstr "Įjungti arba išjungti teminės išvaizdos derinimo informaciją"
+msgstr "Ä®jungti arba iÅ¡jungti teminÄ—s iÅ¡vaizdos derinimo informacijÄ…"
 
 msgctxt "#31340"
 msgid "Color customization"
@@ -1387,15 +1387,15 @@ msgstr "NEPALAIKOMA"
 
 msgctxt "#31342"
 msgid "Display the status of some add-ons supported in Marmalade OpenCode. Select an add-on to install or open its settings if already installed."
-msgstr "Atvaizduoti kai kurių Marmalade OpenCode palaikomų priedų statusą. Pasirinkite priedą, jei norite jį įdiegti ar atidaryti nustatymus, jei jis jau įdiegtas."
+msgstr "Atvaizduoti kai kuriÅ³ Marmalade OpenCode palaikomÅ³ priedÅ³ statusÄ…. Pasirinkite priedÄ…, jei norite jÄ¯ Ä¯diegti ar atidaryti nustatymus, jei jis jau Ä¯diegtas."
 
 msgctxt "#31343"
 msgid "Display background name"
-msgstr "Rodyti fono vardą"
+msgstr "Rodyti fono vardÄ…"
 
 msgctxt "#31344"
 msgid "Display title of movie/tvshow/artist on home screen if the background has a fanart slideshow as background."
-msgstr "Atvaizduoti filmo/TV laidos/atlikėjo pavadinimą pradiniame ekrane, jei fone yra Fanart skaidrių peržiūra."
+msgstr "Atvaizduoti filmo/TV laidos/atlikÄ—jo pavadinimÄ… pradiniame ekrane, jei fone yra Fanart skaidriÅ³ perÅ¾iÅ«ra."
 
 msgctxt "#31345"
 msgid "Main Menu Customizer"
@@ -1407,23 +1407,23 @@ msgstr "OSD progreso juosta"
 
 msgctxt "#31347"
 msgid "Hide CD"
-msgstr "Slėpti CD"
+msgstr "SlÄ—pti CD"
 
 msgctxt "#31348"
 msgid "Dimmer"
-msgstr "Apšietimo regulaitorius"
+msgstr "ApÅ¡ietimo regulaitorius"
 
 msgctxt "#31349"
 msgid "Left"
-msgstr "Kairė"
+msgstr "KairÄ—"
 
 msgctxt "#31350"
 msgid "Right"
-msgstr "Dešinė"
+msgstr "DeÅ¡inÄ—"
 
 msgctxt "#31351"
 msgid "Enable Netflix style pause screen popup"
-msgstr "Įjungti Netflix stiliaus pauzės ekrano iššokantį langą"
+msgstr "Ä®jungti Netflix stiliaus pauzÄ—s ekrano iÅ¡Å¡okantÄ¯ langÄ…"
 
 msgctxt "#31352"
 msgid "Inactive"
@@ -1431,19 +1431,19 @@ msgstr "Neaktyvus"
 
 msgctxt "#31353"
 msgid "Shows an overview of the movie or episode 5 seconds after the video is paused."
-msgstr "Atvaizduoja filmo ar epizodo apžvalgą po 5 sekundžių, kai vaizdo įrašas buvo pristabdytas."
+msgstr "Atvaizduoja filmo ar epizodo apÅ¾valgÄ… po 5 sekundÅ¾iÅ³, kai vaizdo Ä¯raÅ¡as buvo pristabdytas."
 
 msgctxt "#31354"
 msgid "Fade unfocused"
-msgstr "Išblukinti nepasirinktą"
+msgstr "IÅ¡blukinti nepasirinktÄ…"
 
 msgctxt "#31355"
 msgid "You're watching"
-msgstr "Jūs žiūrite"
+msgstr "JÅ«s Å¾iÅ«rite"
 
 msgctxt "#31356"
 msgid "Hardware decoding"
-msgstr "Aparatinės įrangos dekodavimas"
+msgstr "AparatinÄ—s Ä¯rangos dekodavimas"
 
 msgctxt "#31357"
 msgid "Decoder"
@@ -1463,7 +1463,7 @@ msgstr "Didelis"
 
 msgctxt "#31361"
 msgid "Compact"
-msgstr "Kompaktiškas"
+msgstr "KompaktiÅ¡kas"
 
 msgctxt "#31362"
 msgid "Name only"
@@ -1483,15 +1483,15 @@ msgstr "Pritaikymas"
 
 msgctxt "#31366"
 msgid "Setup the on-screen display during fullscreen video playback."
-msgstr "Nustatyti atvaizdavimą ekrane, kai vaizdo įrašas atkuriamas visame ekrane."
+msgstr "Nustatyti atvaizdavimÄ… ekrane, kai vaizdo Ä¯raÅ¡as atkuriamas visame ekrane."
 
 msgctxt "#31367"
 msgid "Setup the on-screen display during fullscreen music playback."
-msgstr "Nustatyti atvaizdavimą ekrane, kai muzika atkuriamas visame ekrane."
+msgstr "Nustatyti atvaizdavimÄ… ekrane, kai muzika atkuriamas visame ekrane."
 
 msgctxt "#31368"
 msgid "Choose settings for the video and music information screens."
-msgstr "Pasirinkite vaizdo įrašo ir muzikos informacijos langų nustatymus."
+msgstr "Pasirinkite vaizdo Ä¯raÅ¡o ir muzikos informacijos langÅ³ nustatymus."
 
 msgctxt "#31369"
 msgid "Million"
@@ -1499,19 +1499,19 @@ msgstr "Milijonas"
 
 msgctxt "#31370"
 msgid "Full plot"
-msgstr "Pilnas siužetas"
+msgstr "Pilnas siuÅ¾etas"
 
 msgctxt "#31371"
 msgid "Views and widget plot preference"
-msgstr "Rodinių ir valdiklių siužeto pasirinkimas"
+msgstr "RodiniÅ³ ir valdikliÅ³ siuÅ¾eto pasirinkimas"
 
 msgctxt "#31372"
 msgid "Choose if library views and widgets should display plot outline or full plot. Falls back to full plot if no outline is available. This does not effect certain areas with limited space for the plot that have this enabled by default"
-msgstr "Pasirinkite ar bibliotekos rodiniai ir valdikliai turi atvaizduoti siužeto kontūrus ar pilną siužetą. Jei kontūrų nėra, bus rodomas pilnas siužetas. Tai neturi įtakos tam tikroms sritims, kurios turi ribotą vietą siužetui ir šį nustatymą įjungtą pagal nutylėjimą."
+msgstr "Pasirinkite ar bibliotekos rodiniai ir valdikliai turi atvaizduoti siuÅ¾eto kontÅ«rus ar pilnÄ… siuÅ¾etÄ…. Jei kontÅ«rÅ³ nÄ—ra, bus rodomas pilnas siuÅ¾etas. Tai neturi Ä¯takos tam tikroms sritims, kurios turi ribotÄ… vietÄ… siuÅ¾etui ir Å¡Ä¯ nustatymÄ… Ä¯jungtÄ… pagal nutylÄ—jimÄ…."
 
 msgctxt "#31373"
 msgid "Customize the colors displayed throughout the skin."
-msgstr "Pritaikykite teminės išvaizdos spalvas."
+msgstr "Pritaikykite teminÄ—s iÅ¡vaizdos spalvas."
 
 msgctxt "#31374"
 msgid "Latest"
@@ -1519,7 +1519,7 @@ msgstr "Naujausi"
 
 msgctxt "#31375"
 msgid "Video OSD"
-msgstr "Vaizdo įrašų OSD"
+msgstr "Vaizdo Ä¯raÅ¡Å³ OSD"
 
 msgctxt "#31376"
 msgid "Music OSD"
@@ -1527,19 +1527,19 @@ msgstr "Muzikos OSD"
 
 msgctxt "#31377"
 msgid "Altering this shortcut may prevent access to the Main Menu customizer and several skin options.[CR]Are you sure you want to perform the requested changes to this shortcut?"
-msgstr "Šios nuorodos pakeitimas gali neleisti pasiekti pagrindinio meniu pritaikymo meniu ir kai kurių teminės išvaizdos parinkčių.[CR]Ar tikrai norite atlikti pakeitimus šiai nuorodai?"
+msgstr "Å ios nuorodos pakeitimas gali neleisti pasiekti pagrindinio meniu pritaikymo meniu ir kai kuriÅ³ teminÄ—s iÅ¡vaizdos parinkÄiÅ³.[CR]Ar tikrai norite atlikti pakeitimus Å¡iai nuorodai?"
 
 msgctxt "#31378"
 msgid "Toggle SYSTEM DEBUG LOGGING on or off. When activated a visible debug overlay will appear in the top left corner of your screen. This is NOT the same as SKIN DEBUG INFO."
-msgstr "Išjunkite arba įjunkite SISTEMOS DERINIMO ŽURNALO RAŠYMĄ. Kai aktyvuota, ekrano viršutiniame kairiajame kampe atsiras matoma derinimo perdanga. Ta NE pats kaip TEMINĖS IŠVAIZDOS DERINIMO INFORMACIJA."
+msgstr "IÅ¡junkite arba Ä¯junkite SISTEMOS DERINIMO Å½URNALO RAÅ YMÄ„. Kai aktyvuota, ekrano virÅ¡utiniame kairiajame kampe atsiras matoma derinimo perdanga. Ta NE pats kaip TEMINÄ–S IÅ VAIZDOS DERINIMO INFORMACIJA."
 
 msgctxt "#31379"
 msgid "Toggle SKIN DEBUG INFO on or off. When activated a visible debug overlay will appear in the top left corner of your screen. This is NOT the same as SYSTEM DEBUG LOGGING."
-msgstr "Išjunkite arba įjunkite TEMINĖS IŠVAIZDOS DERINIMO INFORMACIJĄ. Kai aktyvuota, ekrano viršutiniame kairiajame kampe atsiras matoma derinimo perdanga. Ta NE pats kaip SISTEMOS DERINIMO ŽURNALO RAŠYMAS."
+msgstr "IÅ¡junkite arba Ä¯junkite TEMINÄ–S IÅ VAIZDOS DERINIMO INFORMACIJÄ„. Kai aktyvuota, ekrano virÅ¡utiniame kairiajame kampe atsiras matoma derinimo perdanga. Ta NE pats kaip SISTEMOS DERINIMO Å½URNALO RAÅ YMAS."
 
 msgctxt "#31380"
 msgid "Activating this setting will enable the skins built-in startup intro video."
-msgstr "Aktyvavus šį nustatymą, bus įjungtas integruotas teminės išvaizdos įžanginis vaizdo įrašas."
+msgstr "Aktyvavus Å¡Ä¯ nustatymÄ…, bus Ä¯jungtas integruotas teminÄ—s iÅ¡vaizdos Ä¯Å¾anginis vaizdo Ä¯raÅ¡as."
 
 msgctxt "#31381"
 msgid "Will open the settings for the AutoComplete add-on."
@@ -1547,35 +1547,35 @@ msgstr "Bus atidaryti AutoComplete priedo nustatymai."
 
 msgctxt "#31382"
 msgid "Resets the path to your video genre fanart folder."
-msgstr "Atstato vaizdo įrašų žanrų Fanart aplanko kelią."
+msgstr "Atstato vaizdo Ä¯raÅ¡Å³ Å¾anrÅ³ Fanart aplanko keliÄ…."
 
 msgctxt "#31383"
 msgid "Resets the path to your music genre fanart folder."
-msgstr "Atstato muzikos žanrų Fanart aplanko kelią."
+msgstr "Atstato muzikos Å¾anrÅ³ Fanart aplanko keliÄ…."
 
 msgctxt "#31384"
 msgid "This activates animated snow falling over all backgrounds.[CR]This may cause perfomance issues on low powered devices."
-msgstr "Tai aktyvuoja animuotą snaigių kritimą virš visų fonų.[CR]Tai gali sukelti našumo problemos mažo galingumo įrenginiuose."
+msgstr "Tai aktyvuoja animuotÄ… snaigiÅ³ kritimÄ… virÅ¡ visÅ³ fonÅ³.[CR]Tai gali sukelti naÅ¡umo problemos maÅ¾o galingumo Ä¯renginiuose."
 
 msgctxt "#31385"
 msgid "Use this to control the opacity of the widgets. [CR]100% has no transparency."
-msgstr "Naudokite tai valdiklių skaidrumo valdymui.[CR]100% bus visiškai neskaidrus."
+msgstr "Naudokite tai valdikliÅ³ skaidrumo valdymui.[CR]100% bus visiÅ¡kai neskaidrus."
 
 msgctxt "#31386"
 msgid "This will set a global background overriding any per-widget settings."
-msgstr "Tai nustatys globalų foną perrašant visus atskirų valdiklių nustatymus."
+msgstr "Tai nustatys globalÅ³ fonÄ… perraÅ¡ant visus atskirÅ³ valdikliÅ³ nustatymus."
 
 msgctxt "#31387"
 msgid "When enabled LIST style widgets will autoscroll. This does not effect PANEL style Widgets."
-msgstr "Kai įjungta SĄRAŠO stiliaus valdikliai slinks automatiškai. Tai neturi įtakos SKYDELIO tipo valdikliams."
+msgstr "Kai Ä¯jungta SÄ„RAÅ O stiliaus valdikliai slinks automatiÅ¡kai. Tai neturi Ä¯takos SKYDELIO tipo valdikliams."
 
 msgctxt "#31388"
 msgid "This setting will activate cases for the info that appears when you are focused on a widget. The widget info must be enabled in the settings of the widget for it to appear."
-msgstr "Šis nustatymas aktyvuos dėkliukus informacijai, kuri atsiranda pasirinkus valdiklį. Valdiklio informacija turi būti įjungta valdiklio nustatymuose, kad būtų matoma."
+msgstr "Å is nustatymas aktyvuos dÄ—kliukus informacijai, kuri atsiranda pasirinkus valdiklÄ¯. Valdiklio informacija turi bÅ«ti Ä¯jungta valdiklio nustatymuose, kad bÅ«tÅ³ matoma."
 
 msgctxt "#31389"
 msgid "Global setting that shows the information for the focused item above or below depending on the PANEL widget location. This will override any per-widget settings and has NO effect on LIST widgets."
-msgstr "Globalus nustatymas, kuris rodo informaciją virš arba po pasirinktu elementu, priklausomai nuo SKYDELIO tipo valdiklio vietos. Tai perrašys visus atskirų valdiklių nustatymus ir NETURĖS įtakos SĄRAŠO tipo valdikliams."
+msgstr "Globalus nustatymas, kuris rodo informacijÄ… virÅ¡ arba po pasirinktu elementu, priklausomai nuo SKYDELIO tipo valdiklio vietos. Tai perraÅ¡ys visus atskirÅ³ valdikliÅ³ nustatymus ir NETURÄ–S Ä¯takos SÄ„RAÅ O tipo valdikliams."
 
 msgctxt "#31390"
 msgid "Skin default"
@@ -1587,7 +1587,7 @@ msgstr "Arial"
 
 msgctxt "#31392"
 msgid "When enabled all widgets will be hidden until you have navigated to it."
-msgstr "Kai įjungta, visi valdikliai bus paslėpti kol neužeisite ant jų."
+msgstr "Kai Ä¯jungta, visi valdikliai bus paslÄ—pti kol neuÅ¾eisite ant jÅ³."
 
 msgctxt "#31393"
 msgid "Ends at"
@@ -1595,15 +1595,15 @@ msgstr "Baigiasi"
 
 msgctxt "#31394"
 msgid "Replace default info with Netflix style"
-msgstr "Pakeisti numatytąją informaciją Netflix stiliumi."
+msgstr "Pakeisti numatytÄ…jÄ… informacijÄ… Netflix stiliumi."
 
 msgctxt "#31395"
 msgid "Use colored genres"
-msgstr "Naudoti spalvotus žanrus"
+msgstr "Naudoti spalvotus Å¾anrus"
 
 msgctxt "#31396"
 msgid "Lighter colors"
-msgstr "Šviesesnės spalvos"
+msgstr "Å viesesnÄ—s spalvos"
 
 msgctxt "#31397"
 msgid "Custom Widget"
@@ -1618,64 +1618,64 @@ msgid "Customize the settings for the Live TV section."
 msgstr "Pritaikyti televizijos skyriaus nustatymus"
 
 msgctxt "#31400"
-msgid "[B]CONFIGURE INTERFACE SETTINGS[/B][CR]Change the skin · Set language and region[CR]Set up a screensaver · Setup master lock"
+msgid "[B]CONFIGURE INTERFACE SETTINGS[/B][CR]Change the skin Â· Set language and region[CR]Set up a screensaver Â· Setup master lock"
 msgstr ""
 
 msgctxt "#31401"
-msgid "[B]CONFIGURE PLAYER SETTINGS[/B][CR]Configure video playback · Configure music playback[CR]Configure picture slideshow · Configure video language and subtitles"
-msgstr "[B]KONFIGŪRUOTI GROTUVO NUSTATYMUS[/B][CR]Konfigūruoti vaizdo įrašų atkūrimą · Konfigūruoti muzikos atkūrimą[CR]Konfigūruoti skaidrių peržiūrą · Konfigūruoti vaizdo įrašų kalbos ir subtitrų nustatymus"
+msgid "[B]CONFIGURE PLAYER SETTINGS[/B][CR]Configure video playback Â· Configure music playback[CR]Configure picture slideshow Â· Configure video language and subtitles"
+msgstr "[B]KONFIGÅªRUOTI GROTUVO NUSTATYMUS[/B][CR]KonfigÅ«ruoti vaizdo Ä¯raÅ¡Å³ atkÅ«rimÄ… Â· KonfigÅ«ruoti muzikos atkÅ«rimÄ…[CR]KonfigÅ«ruoti skaidriÅ³ perÅ¾iÅ«rÄ… Â· KonfigÅ«ruoti vaizdo Ä¯raÅ¡Å³ kalbos ir subtitrÅ³ nustatymus"
 
 msgctxt "#31402"
-msgid "[B]CONFIGURE MEDIA SETTINGS[/B][CR]Manage sources · Set default select action[CR]Configure metadata options · Configure file list options"
+msgid "[B]CONFIGURE MEDIA SETTINGS[/B][CR]Manage sources Â· Set default select action[CR]Configure metadata options Â· Configure file list options"
 msgstr ""
 
 msgctxt "#31403"
 msgid "Reset skin settings"
-msgstr "Atstatyti teminės išvaizdos nustatymus"
+msgstr "Atstatyti teminÄ—s iÅ¡vaizdos nustatymus"
 
 msgctxt "#31404"
 msgid "This will RESET ALL skin settings, selecting YES in the dialog that appears is irreversible. This DOES NOT affect the Main Menu items you have set in the Main Menu Customizer."
-msgstr "Tai negrįžtamai ATSTATYS VISUS teminės išvaizdos nustatymus, jei pasirinksite TAIP dialoge, kuris pasirodys. Tai NETURI įtakos pagrindinio meniu elementams, kuriuos nustatėte pagrindinio meniu pritaikymo lange."
+msgstr "Tai negrÄ¯Å¾tamai ATSTATYS VISUS teminÄ—s iÅ¡vaizdos nustatymus, jei pasirinksite TAIP dialoge, kuris pasirodys. Tai NETURI Ä¯takos pagrindinio meniu elementams, kuriuos nustatÄ—te pagrindinio meniu pritaikymo lange."
 
 msgctxt "#31405"
-msgid "[B]MONITOR YOUR SYSTEM[/B][CR]Check out your hardware[CR]Check Kodi revision number · Monitor CPU usage"
+msgid "[B]MONITOR YOUR SYSTEM[/B][CR]Check out your hardware[CR]Check Kodi revision number Â· Monitor CPU usage"
 msgstr ""
 
 msgctxt "#31406"
-msgid "[B]CONFIGURE SYSTEM SETTINGS[/B][CR]Setup and calibrate displays · Configure audio output[CR]Set power saving options · Configure proxy settings · Enable debugging"
+msgid "[B]CONFIGURE SYSTEM SETTINGS[/B][CR]Setup and calibrate displays Â· Configure audio output[CR]Set power saving options Â· Configure proxy settings Â· Enable debugging"
 msgstr ""
 
 msgctxt "#31407"
-msgid "[B]CONFIGURE PROFILES[/B][CR]Setup and manage user profiles[CR]Change password · Enable login screen"
+msgid "[B]CONFIGURE PROFILES[/B][CR]Setup and manage user profiles[CR]Change password Â· Enable login screen"
 msgstr ""
 
 msgctxt "#31408"
 msgid "Enable to show a LiveTV widget displaying what is currently recording and the next timer that is scheduled to record."
-msgstr "Įjunkite, jei norite kad būtų atvaizduojamas televizijos valdiklis su dabartinio įrašymo informacija ir kitu suplanuotu įrašymo laikmačiu."
+msgstr "Ä®junkite, jei norite kad bÅ«tÅ³ atvaizduojamas televizijos valdiklis su dabartinio Ä¯raÅ¡ymo informacija ir kitu suplanuotu Ä¯raÅ¡ymo laikmaÄiu."
 
 msgctxt "#31409"
-msgid "[B]CONFIGURE LIVE TV SETTINGS[/B][CR]Change full screen info[CR]Manage Guide data settings  •  Configure recording options"
+msgid "[B]CONFIGURE LIVE TV SETTINGS[/B][CR]Change full screen info[CR]Manage Guide data settings  â€¢  Configure recording options"
 msgstr ""
 
 msgctxt "#31410"
-msgid "[B]CONFIGURE SERVICE SETTINGS[/B][CR]Setup control of Kodi via UPnP and HTTP · Configure file sharing[CR]Enable Zeroconf · Configure AirPlay"
-msgstr "[B]KONFIGŪRUOTI PASLAUGŲ NUSTATYMUS[/B][CR]Nustatyti Kodi valdymą per UPnP ir HTTP · Konfigūruoti failų bendrinimą[CR]Įjungti Zeroconf · Konfigūruoti AirPlay"
+msgid "[B]CONFIGURE SERVICE SETTINGS[/B][CR]Setup control of Kodi via UPnP and HTTP Â· Configure file sharing[CR]Enable Zeroconf Â· Configure AirPlay"
+msgstr "[B]KONFIGÅªRUOTI PASLAUGÅ² NUSTATYMUS[/B][CR]Nustatyti Kodi valdymÄ… per UPnP ir HTTP Â· KonfigÅ«ruoti failÅ³ bendrinimÄ…[CR]Ä®jungti Zeroconf Â· KonfigÅ«ruoti AirPlay"
 
 msgctxt "#31411"
 msgid "Will override the General Theme color."
-msgstr "Perrašys pagrindinės temos spalvą."
+msgstr "PerraÅ¡ys pagrindinÄ—s temos spalvÄ…."
 
 msgctxt "#31412"
 msgid "Select section"
-msgstr "Pasirinkite skyrių"
+msgstr "Pasirinkite skyriÅ³"
 
 msgctxt "#31413"
 msgid "Local subtitle available"
-msgstr "Galimi lokalūs subtitrai"
+msgstr "Galimi lokalÅ«s subtitrai"
 
 msgctxt "#31414"
 msgid "Set the Main Theme color used throughout the skin."
-msgstr "Nustatyti pagrindinės temos spalvą naudojamą visoje teminėje išvaizdoje."
+msgstr "Nustatyti pagrindinÄ—s temos spalvÄ… naudojamÄ… visoje teminÄ—je iÅ¡vaizdoje."
 
 msgctxt "#31415"
 msgid "Set the Highlight color used throughout the skin."
@@ -1683,67 +1683,67 @@ msgstr ""
 
 msgctxt "#31416"
 msgid "Set to add color to the UnWatched Episode count."
-msgstr "Nustatykite norėdami pridėti spalvą neperžiūrėtų epizodų skaitliukui."
+msgstr "Nustatykite norÄ—dami pridÄ—ti spalvÄ… neperÅ¾iÅ«rÄ—tÅ³ epizodÅ³ skaitliukui."
 
 msgctxt "#31417"
 msgid "Set the Main Menu Theme color."
-msgstr "Nustatyti pagrindinio meniu temos spalvą."
+msgstr "Nustatyti pagrindinio meniu temos spalvÄ…."
 
 msgctxt "#31418"
 msgid "Choose the color for the TopBar in views and other sections not on the Home screen."
-msgstr "pasirinkite viršutinės juostos spalvą rodiniuose ir kituose ne pradinio ekrano skyriuose."
+msgstr "pasirinkite virÅ¡utinÄ—s juostos spalvÄ… rodiniuose ir kituose ne pradinio ekrano skyriuose."
 
 msgctxt "#31419"
 msgid "Enable this to change the default transparent color to a more solid FULL COLOR image."
-msgstr "Įjunkite šį nustatymą norėdami pakeisti numatytąjį spalvos skaidrumą į labiau vientisą PILNOS SPALVOS atvaizdą."
+msgstr "Ä®junkite Å¡Ä¯ nustatymÄ… norÄ—dami pakeisti numatytÄ…jÄ¯ spalvos skaidrumÄ… Ä¯ labiau vientisÄ… PILNOS SPALVOS atvaizdÄ…."
 
 msgctxt "#31420"
 msgid "Choose the color of the Progress bar displayed during fullscreen video playback."
-msgstr "Pasirinkite progreso juostos spalvą, kai vaizdo įrašas atkuriamas visame ekrane."
+msgstr "Pasirinkite progreso juostos spalvÄ…, kai vaizdo Ä¯raÅ¡as atkuriamas visame ekrane."
 
 msgctxt "#31421"
 msgid "Select your Kodi user profile[CR]to login and continue"
-msgstr "Pasirinkite savo Kodi profilį,[CR]norėdami prisijungti ir tęsti"
+msgstr "Pasirinkite savo Kodi profilÄ¯,[CR]norÄ—dami prisijungti ir tÄ™sti"
 
 msgctxt "#31422"
 msgid "Customize the Widget Highlight color on the home screen."
-msgstr "Pritaikyti valdiklio paryškinimo spalvą pradiniame ekrane."
+msgstr "Pritaikyti valdiklio paryÅ¡kinimo spalvÄ… pradiniame ekrane."
 
 msgctxt "#31423"
 msgid "Will override the General Highlight color."
-msgstr "Tai perrašys pagrindinę paryškinimo spalvą."
+msgstr "Tai perraÅ¡ys pagrindinÄ™ paryÅ¡kinimo spalvÄ…."
 
 msgctxt "#31424"
 msgid "This will change the color of the Widget background when selecting one of the Colored options in the Global setting in the Widgets section or individually in the Menu Customizer if you did not enable Global backgrounds."
-msgstr "Tai pakeis valdiklio fono spalvą, kai pasirenkama viena iš spalvinių parinkčių valdiklių skyriaus globaliose parinktyse ar nustatoma atskirai meniu pritaikymo lange, jei nesate įjungę globalių fonų"
+msgstr "Tai pakeis valdiklio fono spalvÄ…, kai pasirenkama viena iÅ¡ spalviniÅ³ parinkÄiÅ³ valdikliÅ³ skyriaus globaliose parinktyse ar nustatoma atskirai meniu pritaikymo lange, jei nesate Ä¯jungÄ™ globaliÅ³ fonÅ³"
 
 msgctxt "#31425"
 msgid "Use this to customize the color on the Home window for the item selected."
-msgstr "Naudokite tai, jei norite pritaikyti pasirinkto elemento spalvą pradiniame lange."
+msgstr "Naudokite tai, jei norite pritaikyti pasirinkto elemento spalvÄ… pradiniame lange."
 
 msgctxt "#31426"
 msgid "Enter text here..."
-msgstr "Įrašykite tekstą čia..."
+msgstr "Ä®raÅ¡ykite tekstÄ… Äia..."
 
 msgctxt "#31427"
 msgid "Skin Shortcuts is responsible for handeling all aspects of the main menu."
-msgstr "Skin Shortcuts yra atsakingas už visų pagrindinio meniu aspektų valdymą."
+msgstr "Skin Shortcuts yra atsakingas uÅ¾ visÅ³ pagrindinio meniu aspektÅ³ valdymÄ…."
 
 msgctxt "#31428"
 msgid "The Grab Fanart script provides the random fanart slideshows for the main menu."
-msgstr "Grab Fanart scenarijus sukuria atsitiktinių Fanart skaidrių peržiūrą pagrindiniame meniu.."
+msgstr "Grab Fanart scenarijus sukuria atsitiktiniÅ³ Fanart skaidriÅ³ perÅ¾iÅ«rÄ… pagrindiniame meniu.."
 
 msgctxt "#31429"
 msgid "Library Data Provider is a service that runs in the background to provide library data for widgets and live backgrounds as well as playlist statistics for infolines."
-msgstr "Library Data Provider yra paslauga, kuri veikia fone ir pateikia bibliotekos duomenis valdikliams ir gyviems fonams, o taip pat generuoja grojaraščių statistiką informacinėms eilutėms."
+msgstr "Library Data Provider yra paslauga, kuri veikia fone ir pateikia bibliotekos duomenis valdikliams ir gyviems fonams, o taip pat generuoja grojaraÅ¡ÄiÅ³ statistikÄ… informacinÄ—ms eilutÄ—ms."
 
 msgctxt "#31430"
 msgid "Resource image addon for displaying the default white studio icons throughout the skin."
-msgstr "Resource image priedas, skirtas numatytųjų baltų studijų piktogramų atvaizdavimui visoje teminėje išvaizdoje."
+msgstr "Resource image priedas, skirtas numatytÅ³jÅ³ baltÅ³ studijÅ³ piktogramÅ³ atvaizdavimui visoje teminÄ—je iÅ¡vaizdoje."
 
 msgctxt "#31431"
 msgid "Resource image addon for displaying the default white recording label icons throughout the skin."
-msgstr "Resource image priedas, skirtas numatytųjų baltų įrašų studijų piktogramų atvaizdavimui visoje teminėje išvaizdoje."
+msgstr "Resource image priedas, skirtas numatytÅ³jÅ³ baltÅ³ Ä¯raÅ¡Å³ studijÅ³ piktogramÅ³ atvaizdavimui visoje teminÄ—je iÅ¡vaizdoje."
 
 msgctxt "#31432"
 msgid "Embuary Info displays extended cast, crew, and video info metadata."
@@ -1751,7 +1751,7 @@ msgstr ""
 
 msgctxt "#31433"
 msgid "Skin Info Service is used to display movie set information throughout the skin."
-msgstr "Skin Info Service yra naudojamas filmų rinkinių atvaizdavimui visoje teminėje išvaizdoje."
+msgstr "Skin Info Service yra naudojamas filmÅ³ rinkiniÅ³ atvaizdavimui visoje teminÄ—je iÅ¡vaizdoje."
 
 msgctxt "#31434"
 msgid "Alt fanart"
@@ -1763,26 +1763,26 @@ msgstr "Alt. piktograma"
 
 msgctxt "#31436"
 msgid "Center date and time when infoline is empty"
-msgstr "Centruoti datą ir laiką, kai nėra informacinės eilutės"
+msgstr "Centruoti datÄ… ir laikÄ…, kai nÄ—ra informacinÄ—s eilutÄ—s"
 
 msgctxt "#31437"
 msgid "Use paused label"
-msgstr "Naudoti pauzė etiketę"
+msgstr "Naudoti pauzÄ— etiketÄ™"
 
 msgctxt "#31438"
 msgid "Click to install Artist Slideshow"
-msgstr "Paspauskite norėdami įdiegti Artist Slideshow"
+msgstr "Paspauskite norÄ—dami Ä¯diegti Artist Slideshow"
 
 msgctxt "#31439"
 msgid "There are no default backgrounds in this skin, would you like to choose one now?[CR]You can still select one in Skin settings > General if you choose No."
-msgstr "Ši teminė išvaizda neturi numatytųjų fono atvaizdų, ar norite išsirinkti juos dabar?[CR]Jūs bet kada galėsite juos pasirinkti nuėję į Teminės išvaizdos nustatymai > Pagrindiniai, jei paspausite Ne."
+msgstr "Å i teminÄ— iÅ¡vaizda neturi numatytÅ³jÅ³ fono atvaizdÅ³, ar norite iÅ¡sirinkti juos dabar?[CR]JÅ«s bet kada galÄ—site juos pasirinkti nuÄ—jÄ™ Ä¯ TeminÄ—s iÅ¡vaizdos nustatymai > Pagrindiniai, jei paspausite Ne."
 
 msgctxt "#31440"
 msgid "Recently played channels"
 msgstr "Neseniai atkurti kanalai"
 
 msgctxt "#31441"
-msgid "[B]CONFIGURE GAME SETTINGS[/B][CR]Change gameplay options[CR]Keyboard settings  •  Configure rewind settings"
+msgid "[B]CONFIGURE GAME SETTINGS[/B][CR]Change gameplay options[CR]Keyboard settings  â€¢  Configure rewind settings"
 msgstr ""
 
 msgctxt "#31442"
@@ -1791,11 +1791,11 @@ msgstr "Fono pritemdymas"
 
 msgctxt "#31443"
 msgid "Thumb"
-msgstr "Miniatiūra"
+msgstr "MiniatiÅ«ra"
 
 msgctxt "#31444"
 msgid "Disable widget fanart"
-msgstr "Išjungti valdiklio Fanart"
+msgstr "IÅ¡jungti valdiklio Fanart"
 
 msgctxt "#31445"
 msgid "Main menu"
@@ -1803,26 +1803,26 @@ msgstr "Pagrindinis meniu"
 
 msgctxt "#31446"
 msgid "Hide Main Menu elements when pressing back"
-msgstr "Slėpti pagrindinio meniu elementus paspaudus atgal"
+msgstr "SlÄ—pti pagrindinio meniu elementus paspaudus atgal"
 
 msgctxt "#31447"
 msgid "Show a popup displaying answers to some FREQUENTLY ASKED QUESTIONS posted by users in the skins thread on the Kodi forums."
-msgstr "Rodyti iššokantį langą su atsakymais į kai kuriuos DAŽNIAUSIAI UŽDUODAMUS KLAUSIMUS Kodi forumo teminės išvaizdos gijoje."
+msgstr "Rodyti iÅ¡Å¡okantÄ¯ langÄ… su atsakymais Ä¯ kai kuriuos DAÅ½NIAUSIAI UÅ½DUODAMUS KLAUSIMUS Kodi forumo teminÄ—s iÅ¡vaizdos gijoje."
 
 msgctxt "#31448"
-msgid "[B]CONFIGURE ADD-ONS[/B][CR]Manage your installed Add-ons[CR]Browse for and install Add-ons  •  Check for Add-on updates"
+msgid "[B]CONFIGURE ADD-ONS[/B][CR]Manage your installed Add-ons[CR]Browse for and install Add-ons  â€¢  Check for Add-on updates"
 msgstr ""
 
 msgctxt "#31449"
 msgid "Save & Exit"
-msgstr "Išsaugoti ir išeiti"
+msgstr "IÅ¡saugoti ir iÅ¡eiti"
 
 msgctxt "#31450"
-msgid "  •  Open Settings "
-msgstr "  •  Atidaryti nustatymus "
+msgid "  â€¢  Open Settings "
+msgstr "  â€¢  Atidaryti nustatymus "
 
 msgctxt "#31451"
-msgid "  •  Click to Install or Enable"
+msgid "  â€¢  Click to Install or Enable"
 msgstr ""
 
 msgctxt "#31452"
@@ -1831,19 +1831,19 @@ msgstr "Premjera"
 
 msgctxt "#31453"
 msgid "Down for more"
-msgstr "Žemyn, jei norite pamatyti daugiau"
+msgstr "Å½emyn, jei norite pamatyti daugiau"
 
 msgctxt "#31454"
 msgid "Up or down"
-msgstr "Aukštyn arba žemyn"
+msgstr "AukÅ¡tyn arba Å¾emyn"
 
 msgctxt "#31455"
 msgid "Up to return"
-msgstr "Aukštyn, jei norite grįžti"
+msgstr "AukÅ¡tyn, jei norite grÄ¯Å¾ti"
 
 msgctxt "#31456"
 msgid "Library using Global Search"
-msgstr "Biblioteka naudoja globalią paiešką"
+msgstr "Biblioteka naudoja globaliÄ… paieÅ¡kÄ…"
 
 msgctxt "#31457"
 msgid "YouTube"
@@ -1855,7 +1855,7 @@ msgstr "TheMovieDB"
 
 msgctxt "#31459"
 msgid "Radio groups"
-msgstr "Radijo grupės"
+msgstr "Radijo grupÄ—s"
 
 msgctxt "#31460"
 msgid "Mini fullscreen info"
@@ -1863,31 +1863,31 @@ msgstr "Viso ekrano mini informacija"
 
 msgctxt "#31461"
 msgid "This option requires a Weather fanart pack. If one is not installed, click GET MORE to choose one. After installation you can select it as your weather background. This is also used to display conditional Weather backgrounds for the Main Menu."
-msgstr "Šiai parinkčiai reikalingas orų Fanart paketas. Jei jis neįdiegtas, paspauskite GAUTI DAUGIAU, norėdami jį atsisiųsti. Baigus diegimą, galite jį nustatyti kaip orų foną. Jis taip pat naudojamas sąlyginio orų fono atvaizdavimui pagrindiniame meniu."
+msgstr "Å iai parinkÄiai reikalingas orÅ³ Fanart paketas. Jei jis neÄ¯diegtas, paspauskite GAUTI DAUGIAU, norÄ—dami jÄ¯ atsisiÅ³sti. Baigus diegimÄ…, galite jÄ¯ nustatyti kaip orÅ³ fonÄ…. Jis taip pat naudojamas sÄ…lyginio orÅ³ fono atvaizdavimui pagrindiniame meniu."
 
 msgctxt "#31462"
 msgid "This option requires a Weather icon pack. If one is not installed, click GET MORE to choose one. After installation you can select it as your Weather icons."
-msgstr "Šiai parinkčiai reikalingas orų piktogramų paketas. Jei jis neįdiegtas, paspauskite GAUTI DAUGIAU, norėdami jį atsisiųsti. Baigus diegimą, galite jį naudoti orų piktogramoms."
+msgstr "Å iai parinkÄiai reikalingas orÅ³ piktogramÅ³ paketas. Jei jis neÄ¯diegtas, paspauskite GAUTI DAUGIAU, norÄ—dami jÄ¯ atsisiÅ³sti. Baigus diegimÄ…, galite jÄ¯ naudoti orÅ³ piktogramoms."
 
 msgctxt "#31463"
 msgid "When enabled pressing BACK or BACKSPACE will hide all Main Menu elements. This does not work when media is Playing or Paused."
-msgstr "Kai įjungta, paspaudus BACK arba BACKSPACE, pagrindinio meniu elementai bus paslėpti. Ši funkcija neveikia, kai atkuriamas media įrašas ar jo atkūrimas pristabdytas."
+msgstr "Kai Ä¯jungta, paspaudus BACK arba BACKSPACE, pagrindinio meniu elementai bus paslÄ—pti. Å i funkcija neveikia, kai atkuriamas media Ä¯raÅ¡as ar jo atkÅ«rimas pristabdytas."
 
 msgctxt "#31464"
 msgid "This will center the Date and Time when the Menu item does not have a chosen InfoLine."
-msgstr "Tai sucentruos datą ir laiką, kai meniu elementas neturi parinktos informacinės eilutės."
+msgstr "Tai sucentruos datÄ… ir laikÄ…, kai meniu elementas neturi parinktos informacinÄ—s eilutÄ—s."
 
 msgctxt "#31465"
 msgid "Video & Music information"
-msgstr "Vaizdo įrašų ir muzikos informacija"
+msgstr "Vaizdo Ä¯raÅ¡Å³ ir muzikos informacija"
 
 msgctxt "#31466"
 msgid "Press [B]LEFT[/B] to show Plot[CR]Press [B]RIGHT[/B] to show Cast.[CR]Use [B]UP[/B] or [B]DOWN[/B] to scroll."
-msgstr "Paspauskite [B]KAIRĖN[/B], kad parodyti siužetą[CR]Paspauskite [B]DEŠINĖN[/B], kad parodyti vaidmenis.[CR]naudokite [B]AUKŠTYN[/B] arba [B]ŽEMYN[/B] norėdami slinkti sąrašu."
+msgstr "Paspauskite [B]KAIRÄ–N[/B], kad parodyti siuÅ¾etÄ…[CR]Paspauskite [B]DEÅ INÄ–N[/B], kad parodyti vaidmenis.[CR]naudokite [B]AUKÅ TYN[/B] arba [B]Å½EMYN[/B] norÄ—dami slinkti sÄ…raÅ¡u."
 
 msgctxt "#31467"
 msgid "This will disable the TopBar completely and ignore all on/off view settings."
-msgstr "Tai visiškai paslėps viršutinę juostą ir ignoruos visus rodinio įjungtus/išjungtus nustatymus"
+msgstr "Tai visiÅ¡kai paslÄ—ps virÅ¡utinÄ™ juostÄ… ir ignoruos visus rodinio Ä¯jungtus/iÅ¡jungtus nustatymus"
 
 msgctxt "#31468"
 msgid "Restore"
@@ -1895,15 +1895,15 @@ msgstr "Atstatyti"
 
 msgctxt "#31469"
 msgid "Disable the TopBar"
-msgstr "Išjungti viršutinę juostą"
+msgstr "IÅ¡jungti virÅ¡utinÄ™ juostÄ…"
 
 msgctxt "#31470"
 msgid "Set Weather background"
-msgstr "Nustatyti orų foną"
+msgstr "Nustatyti orÅ³ fonÄ…"
 
 msgctxt "#31471"
 msgid "Set Weather icons"
-msgstr "Nustatyti orų piktogramas"
+msgstr "Nustatyti orÅ³ piktogramas"
 
 msgctxt "#31472"
 msgid "Library using Kodi"
@@ -1915,7 +1915,7 @@ msgstr ""
 
 msgctxt "#31474"
 msgid "CU LRC Lyrics is used to download, sync, and display lyrics during fullscreen music playback."
-msgstr "CU LRC Lyrics yra naudojamas norint atsisiųsti, sinchronizuoti ar atvaizduoti dainų žodžius, atkuriant muziką visame ekrane."
+msgstr "CU LRC Lyrics yra naudojamas norint atsisiÅ³sti, sinchronizuoti ar atvaizduoti dainÅ³ Å¾odÅ¾ius, atkuriant muzikÄ… visame ekrane."
 
 msgctxt "#31475"
 msgid "critics"
@@ -1923,15 +1923,15 @@ msgstr ""
 
 msgctxt "#31476"
 msgid "TV - Show Next Aired provides information of previous and next to air episodes in your library. It also provides a TV Guide for the next week or two."
-msgstr "TV - Show Next Aired pateikia praėjusių ir būsimų epizodų informaciją jūsų bibliotekoje. Jis taip pat pateikia TV gidą vienai ar dviems savaitėms į priekį."
+msgstr "TV - Show Next Aired pateikia praÄ—jusiÅ³ ir bÅ«simÅ³ epizodÅ³ informacijÄ… jÅ«sÅ³ bibliotekoje. Jis taip pat pateikia TV gidÄ… vienai ar dviems savaitÄ—ms Ä¯ priekÄ¯."
 
 msgctxt "#31477"
 msgid "Trakt is used to synchronize your collection and personal ratings to your Trakt.tv account."
-msgstr "Trakt naudojamas jūsų kolekcijos ir asmeninių reitingų sinchronizavimui su jūsų Trakt.tv paskyra."
+msgstr "Trakt naudojamas jÅ«sÅ³ kolekcijos ir asmeniniÅ³ reitingÅ³ sinchronizavimui su jÅ«sÅ³ Trakt.tv paskyra."
 
 msgctxt "#31478"
 msgid "Artist Slideshow is used to display artist fanart for both the home screen and during fullscreen music playback."
-msgstr "Artist Slideshow naudojamas atlikėjo Fanart atvaizdavimui pradiniame ekrane ir atkuriant muziką visame ekrane."
+msgstr "Artist Slideshow naudojamas atlikÄ—jo Fanart atvaizdavimui pradiniame ekrane ir atkuriant muzikÄ… visame ekrane."
 
 msgctxt "#31479"
 msgid "PreshowExperience can create sequences of trivia slides, show video bumpers, play trailers and more to bring the experience of a movie theater to your living room."
@@ -1959,7 +1959,7 @@ msgstr "Play regular"
 
 msgctxt "#31485"
 msgid "Eject disc"
-msgstr "Išstumti diską"
+msgstr "IÅ¡stumti diskÄ…"
 
 msgctxt "#31486"
 msgid "Use Video Lyrics mod"
@@ -1978,7 +1978,7 @@ msgid "Hide episode thumb when hiding plot for unwatched items"
 msgstr ""
 
 msgctxt "#31490"
-msgid "[B]CONFIGURE CoreELEC SETTINGS[/B][CR]Setup system option · Manage network[CR]Configure services · About CoreELEC"
+msgid "[B]CONFIGURE CoreELEC SETTINGS[/B][CR]Setup system option Â· Manage network[CR]Configure services Â· About CoreELEC"
 msgstr ""
 
 msgctxt "#31491"
@@ -2023,7 +2023,7 @@ msgstr ""
 
 msgctxt "#31501"
 msgid "Channel group"
-msgstr "Kanalų grupė"
+msgstr "KanalÅ³ grupÄ—"
 
 msgctxt "#31502"
 msgid "Live TV"
@@ -2031,19 +2031,19 @@ msgstr "Televizija"
 
 msgctxt "#31503"
 msgid "Add Group"
-msgstr "Pridėti grupę"
+msgstr "PridÄ—ti grupÄ™"
 
 msgctxt "#31504"
 msgid "Rename Group"
-msgstr "Pervadinti grupę"
+msgstr "Pervadinti grupÄ™"
 
 msgctxt "#31505"
 msgid "Delete Group"
-msgstr "Pašalinti grupę"
+msgstr "PaÅ¡alinti grupÄ™"
 
 msgctxt "#31506"
 msgid "Available Groups"
-msgstr "Galimos grupės"
+msgstr "Galimos grupÄ—s"
 
 msgctxt "#31507"
 msgid "Show clearart in tv information"
@@ -2063,7 +2063,7 @@ msgstr ""
 
 msgctxt "#31511"
 msgid "Channel Options"
-msgstr "Kanalų parinktys"
+msgstr "KanalÅ³ parinktys"
 
 msgctxt "#31512"
 msgid "Enable fullscreen information for recordings"
@@ -2151,7 +2151,7 @@ msgstr ""
 
 msgctxt "#31533"
 msgid "Unwatched movies"
-msgstr "Neperžiūrėti filmai"
+msgstr "NeperÅ¾iÅ«rÄ—ti filmai"
 
 msgctxt "#31534"
 msgid "Best picture winners"
@@ -2159,11 +2159,11 @@ msgstr ""
 
 msgctxt "#31535"
 msgid "Unwatched TV Shows"
-msgstr "Neperžiūrėtos TV laidos"
+msgstr "NeperÅ¾iÅ«rÄ—tos TV laidos"
 
 msgctxt "#31536"
 msgid "Recent recordings"
-msgstr "Paskutiniai įrašymai"
+msgstr "Paskutiniai Ä¯raÅ¡ymai"
 
 msgctxt "#31537"
 msgid "System & Weather"
@@ -2343,7 +2343,7 @@ msgstr ""
 
 msgctxt "#31581"
 msgid "Unwatched music videos"
-msgstr "Neperžiūrėti muzikiniai klipai"
+msgstr "NeperÅ¾iÅ«rÄ—ti muzikiniai klipai"
 
 msgctxt "#31582"
 msgid "Most played music videos"
@@ -2355,7 +2355,7 @@ msgstr ""
 
 msgctxt "#31584"
 msgid "Random artists"
-msgstr "Atsitiktiniai atlikėjai"
+msgstr "Atsitiktiniai atlikÄ—jai"
 
 msgctxt "#31585"
 msgid "Most played songs"
@@ -2390,15 +2390,15 @@ msgid "Favourites dialog"
 msgstr ""
 
 msgctxt "#31593"
-msgid "[B]CONFIGURE SKIN SETTINGS[/B][CR]Customize the main menu · Choose skin colors[CR]Set up widgets · Enable optional features"
+msgid "[B]CONFIGURE SKIN SETTINGS[/B][CR]Customize the main menu Â· Choose skin colors[CR]Set up widgets Â· Enable optional features"
 msgstr ""
 
 msgctxt "#31594"
-msgid "[B]OPEN FILE MANAGER[/B][CR]Access files from within Kodi[CR]Add source · Perform file operations"
+msgid "[B]OPEN FILE MANAGER[/B][CR]Access files from within Kodi[CR]Add source Â· Perform file operations"
 msgstr ""
 
 msgctxt "#31595"
-msgid "[B]OPEN THE EVENT LOG[/B][CR]Library update reports · Failed scrapes · Missing files[CR]PVR events · Add-on events"
+msgid "[B]OPEN THE EVENT LOG[/B][CR]Library update reports Â· Failed scrapes Â· Missing files[CR]PVR events Â· Add-on events"
 msgstr ""
 
 msgctxt "#31596"
@@ -2423,11 +2423,11 @@ msgstr ""
 
 msgctxt "#31601"
 msgid "Show discart in movie information"
-msgstr "Rodyti disko iliustraciją filmo informacijoje"
+msgstr "Rodyti disko iliustracijÄ… filmo informacijoje"
 
 msgctxt "#31602"
 msgid "Show plot and cast when pressing info during video playback"
-msgstr "Rodyti siužetą ir vaidmenis, paspaudus informacijos mygtuką, kai atkuriamas vaizdo įrašas"
+msgstr "Rodyti siuÅ¾etÄ… ir vaidmenis, paspaudus informacijos mygtukÄ…, kai atkuriamas vaizdo Ä¯raÅ¡as"
 
 msgctxt "#31603"
 msgid "Marmalade main menu navigation style"
@@ -2439,7 +2439,7 @@ msgstr "Informacija"
 
 msgctxt "#31605"
 msgid "Alternate layout"
-msgstr "Pakaitinis išdėstymas"
+msgstr "Pakaitinis iÅ¡dÄ—stymas"
 
 msgctxt "#31606"
 msgid "Logo"
@@ -2451,7 +2451,7 @@ msgstr "HD/SD/3D indikatoriai"
 
 msgctxt "#31608"
 msgid "Cases"
-msgstr "Dėkliukai"
+msgstr "DÄ—kliukai"
 
 msgctxt "#31609"
 msgid "Discart"
@@ -2459,19 +2459,19 @@ msgstr "Disko iliustracija"
 
 msgctxt "#31610"
 msgid "Small Shift"
-msgstr "Mažas pakėlimas"
+msgstr "MaÅ¾as pakÄ—limas"
 
 msgctxt "#31611"
 msgid "Oscar statue"
-msgstr "Oskaro statulėlė"
+msgstr "Oskaro statulÄ—lÄ—"
 
 msgctxt "#31612"
 msgid "Replace Choose art button"
-msgstr "Pakeisti iliustracijos pakeitimo mygtuką"
+msgstr "Pakeisti iliustracijos pakeitimo mygtukÄ…"
 
 msgctxt "#31613"
 msgid "Choose where the Trailer button should be placed"
-msgstr "Pasirinkite anonso mygtuko vietą"
+msgstr "Pasirinkite anonso mygtuko vietÄ…"
 
 msgctxt "#31614"
 msgid "Also known as"
@@ -2531,15 +2531,15 @@ msgstr ""
 
 msgctxt "#31680"
 msgid "Select a shortcut for this item."
-msgstr "Pasirinkite šio elemento nuorodą."
+msgstr "Pasirinkite Å¡io elemento nuorodÄ…."
 
 msgctxt "#31681"
 msgid "Customize the label. Can also accept some label formatting."
-msgstr "Pritaikyti šią etiketę. Taip pat gali palaikyti tam tikrą etikečių formatavimą."
+msgstr "Pritaikyti Å¡iÄ… etiketÄ™. Taip pat gali palaikyti tam tikrÄ… etikeÄiÅ³ formatavimÄ…."
 
 msgctxt "#31682"
 msgid "Change the selected shorcuts command. Can also be used to enter a custom command."
-msgstr "Pakeisti pasirinktos nuorodos komandą. Taip pat gali būti naudojamas savos komandos įvedimui."
+msgstr "Pakeisti pasirinktos nuorodos komandÄ…. Taip pat gali bÅ«ti naudojamas savos komandos Ä¯vedimui."
 
 msgctxt "#31683"
 msgid "Edit and arrange submenu items"
@@ -2547,11 +2547,11 @@ msgstr "Redaguoti ir pertvarkyti submeniu elementus"
 
 msgctxt "#31684"
 msgid "Select the item image used for the Icons menu layout."
-msgstr "Pasirinkite elemento atvaizdą, kuris bus naudojamas piktogramų meniu išdėstyme."
+msgstr "Pasirinkite elemento atvaizdÄ…, kuris bus naudojamas piktogramÅ³ meniu iÅ¡dÄ—styme."
 
 msgctxt "#31685"
 msgid "Choose a widget to display for this home menu item."
-msgstr "Pasirinkite šio pagrindinio meniu elemento valdiklį."
+msgstr "Pasirinkite Å¡io pagrindinio meniu elemento valdiklÄ¯."
 
 msgctxt "#31700"
 msgid "Widget options"
@@ -2567,11 +2567,11 @@ msgstr "Valdiklio fonas"
 
 msgctxt "#31703"
 msgid "Panel label style"
-msgstr "Skydelio etiketės stilius"
+msgstr "Skydelio etiketÄ—s stilius"
 
 msgctxt "#31704"
 msgid "List label style"
-msgstr "Sąrašo etiketės stilius"
+msgstr "SÄ…raÅ¡o etiketÄ—s stilius"
 
 msgctxt "#31705"
 msgid "Panel widget info"
@@ -2583,23 +2583,23 @@ msgstr "Iliustracija"
 
 msgctxt "#31707"
 msgid "Case"
-msgstr "Dėkliukas"
+msgstr "DÄ—kliukas"
 
 msgctxt "#31708"
 msgid "Sort by"
-msgstr "Rūšiuoti pagal"
+msgstr "RÅ«Å¡iuoti pagal"
 
 msgctxt "#31709"
 msgid "Sort order"
-msgstr "Rūšiavimo tvarka"
+msgstr "RÅ«Å¡iavimo tvarka"
 
 msgctxt "#31710"
 msgid "Configure custom list"
-msgstr "Konfigūruoti savą sąrašą"
+msgstr "KonfigÅ«ruoti savÄ… sÄ…raÅ¡Ä…"
 
 msgctxt "#31711"
 msgid "List extended"
-msgstr "Sąrašas išplėstas"
+msgstr "SÄ…raÅ¡as iÅ¡plÄ—stas"
 
 msgctxt "#31712"
 msgid "Panel"
@@ -2607,23 +2607,23 @@ msgstr "Skydelis"
 
 msgctxt "#31713"
 msgid "Panel extended"
-msgstr "Skydelis išplėstas"
+msgstr "Skydelis iÅ¡plÄ—stas"
 
 msgctxt "#31714"
 msgid "Compact panel"
-msgstr "Kompaktiškas skydelis"
+msgstr "KompaktiÅ¡kas skydelis"
 
 msgctxt "#31715"
 msgid "Compact panel extended"
-msgstr "Kompaktiškas skydelis išplėstas"
+msgstr "KompaktiÅ¡kas skydelis iÅ¡plÄ—stas"
 
 msgctxt "#31716"
 msgid "Mixed extended"
-msgstr "Mišrus išplėstas"
+msgstr "MiÅ¡rus iÅ¡plÄ—stas"
 
 msgctxt "#31717"
 msgid "Configure custom list"
-msgstr "Konfigūruoti savą sąrašą"
+msgstr "KonfigÅ«ruoti savÄ… sÄ…raÅ¡Ä…"
 
 msgctxt "#31718"
 msgid "Square poster"
@@ -2635,7 +2635,7 @@ msgstr "Skaidrus logotipas"
 
 msgctxt "#31720"
 msgid "Character art"
-msgstr "Personažo iliustracija"
+msgstr "PersonaÅ¾o iliustracija"
 
 msgctxt "#31721"
 msgid "Glass"
@@ -2647,7 +2647,7 @@ msgstr "Skaidrus skydelis"
 
 msgctxt "#31723"
 msgid "Flat"
-msgstr "Plokščias"
+msgstr "PlokÅ¡Äias"
 
 msgctxt "#31724"
 msgid "Clear white"
@@ -2659,7 +2659,7 @@ msgstr "Spalvotas numatytasis"
 
 msgctxt "#31726"
 msgid "Colored flat"
-msgstr "Spalvotas plokščias"
+msgstr "Spalvotas plokÅ¡Äias"
 
 msgctxt "#31727"
 msgid "Colored clear"
@@ -2679,23 +2679,23 @@ msgstr "Rodyti pasirinktame elemente"
 
 msgctxt "#31731"
 msgid "Show next to to title"
-msgstr "Rodyti šalia pavadinimo"
+msgstr "Rodyti Å¡alia pavadinimo"
 
 msgctxt "#31732"
 msgid "In progress movies"
-msgstr "Nebaigti žiūrėti filmai"
+msgstr "Nebaigti Å¾iÅ«rÄ—ti filmai"
 
 msgctxt "#31733"
 msgid "In progress episodes"
-msgstr "Nebaigti žiūrėti epizodai"
+msgstr "Nebaigti Å¾iÅ«rÄ—ti epizodai"
 
 msgctxt "#31734"
 msgid "Random genre"
-msgstr "Atsitiktinis žanras"
+msgstr "Atsitiktinis Å¾anras"
 
 msgctxt "#31735"
 msgid "Enable advanced widgets"
-msgstr "Įjungti sudėtingesnius valdiklius"
+msgstr "Ä®jungti sudÄ—tingesnius valdiklius"
 
 msgctxt "#31736"
 msgid "Opacity"
@@ -2703,23 +2703,23 @@ msgstr "Skadrumas"
 
 msgctxt "#31737"
 msgid "Global widget backgrounds"
-msgstr "Globalūs valdiklių fonai"
+msgstr "GlobalÅ«s valdikliÅ³ fonai"
 
 msgctxt "#31738"
 msgid "Auto scroll list widgets"
-msgstr "Automatiškai slinkti sąrašo valdiklius"
+msgstr "AutomatiÅ¡kai slinkti sÄ…raÅ¡o valdiklius"
 
 msgctxt "#31739"
 msgid "List widget info"
-msgstr "Sąrašo valdiklio informacija"
+msgstr "SÄ…raÅ¡o valdiklio informacija"
 
 msgctxt "#31740"
 msgid "Case on widget info"
-msgstr "Dėkliukas valdiklio informacijoje"
+msgstr "DÄ—kliukas valdiklio informacijoje"
 
 msgctxt "#31741"
 msgid "Case on widget info dialog"
-msgstr "Dėkliukas valdiklio informacijos dialoge"
+msgstr "DÄ—kliukas valdiklio informacijos dialoge"
 
 msgctxt "#31742"
 msgid "Cast on widget info dialog"
@@ -2727,7 +2727,7 @@ msgstr "Vaidmenys valdiklio informacijos dialoge"
 
 msgctxt "#31743"
 msgid "Match info dialog background to widget background"
-msgstr "Priderinti informacijos dialogo foną prie valdiklio fono"
+msgstr "Priderinti informacijos dialogo fonÄ… prie valdiklio fono"
 
 msgctxt "#31744"
 msgid "Global panel widget info"
@@ -2735,71 +2735,71 @@ msgstr "Globali skydelio valdiklio informacija"
 
 msgctxt "#31745"
 msgid "Hide widget when not focused"
-msgstr "Slėpti valdiklį, kai neparinktas"
+msgstr "SlÄ—pti valdiklÄ¯, kai neparinktas"
 
 msgctxt "#31746"
 msgid "Match widget panel"
-msgstr "Priderinti valdiklio skydelį"
+msgstr "Priderinti valdiklio skydelÄ¯"
 
 msgctxt "#31747"
 msgid "Blu-Ray Case"
-msgstr "Blu-Ray dėkliukas"
+msgstr "Blu-Ray dÄ—kliukas"
 
 msgctxt "#31748"
 msgid "This setting enables more widget customization. Disable to use Marmalade default widgets."
-msgstr "Ši parinktis įjungia daugiau valdiklio pritaikymo parinkčių. Išjunkite, jei norite naudoti numatytuosius Marmalade valdiklius."
+msgstr "Å i parinktis Ä¯jungia daugiau valdiklio pritaikymo parinkÄiÅ³. IÅ¡junkite, jei norite naudoti numatytuosius Marmalade valdiklius."
 
 msgctxt "#31749"
 msgid "Change the transparency of the artwork and background."
-msgstr "Pakeisti iliustracijos ir fono skaidrumą."
+msgstr "Pakeisti iliustracijos ir fono skaidrumÄ…."
 
 msgctxt "#31750"
 msgid "Enable to use the same background throughout the home screen. Disable to set each background individually in the home menu customizer."
-msgstr "naudoti tą patį foną visame pradiniame ekrane. Išjunkite, jei norite nustatyti savus fonus pagrindinio meniu pritaikyme."
+msgstr "naudoti tÄ… patÄ¯ fonÄ… visame pradiniame ekrane. IÅ¡junkite, jei norite nustatyti savus fonus pagrindinio meniu pritaikyme."
 
 msgctxt "#31751"
 msgid "Choose the background style."
-msgstr "Pasirinkite fono stilių."
+msgstr "Pasirinkite fono stiliÅ³."
 
 msgctxt "#31752"
 msgid "The list style widgets will automatically scroll if enabled."
-msgstr "Kai įjungta, sąrašo stiliaus valdikliai slinks automatiškai."
+msgstr "Kai Ä¯jungta, sÄ…raÅ¡o stiliaus valdikliai slinks automatiÅ¡kai."
 
 msgctxt "#31753"
 msgid "Choose how information is displayed next to the list style widget."
-msgstr "Pasirinkite kaip rodyti informaciją šalia sąrašo stiliaus valdiklio."
+msgstr "Pasirinkite kaip rodyti informacijÄ… Å¡alia sÄ…raÅ¡o stiliaus valdiklio."
 
 msgctxt "#31754"
 msgid "Choose a case for the widget information poster. Match will use the same case as the widget."
-msgstr "Pasirinkite valdiklio informacijos plakato dėkliuką. Pritaikytas naudos tą patį dėkliuką kaip ir valdiklis."
+msgstr "Pasirinkite valdiklio informacijos plakato dÄ—kliukÄ…. Pritaikytas naudos tÄ… patÄ¯ dÄ—kliukÄ… kaip ir valdiklis."
 
 msgctxt "#31755"
 msgid "Choose a case for the information dialog poster. Match will use the same case as the widget."
-msgstr "Pasirinkite informacijos dialogo plakato dėkliuką. Pritaikytas naudos tą patį dėkliuką kaip ir valdiklis."
+msgstr "Pasirinkite informacijos dialogo plakato dÄ—kliukÄ…. Pritaikytas naudos tÄ… patÄ¯ dÄ—kliukÄ… kaip ir valdiklis."
 
 msgctxt "#31756"
 msgid "Show movie and tv show cast details within the information dialog."
-msgstr "Rodyti filmų ir TV laidų vaidmenis informacijos dialoge."
+msgstr "Rodyti filmÅ³ ir TV laidÅ³ vaidmenis informacijos dialoge."
 
 msgctxt "#31757"
 msgid "Enable to use the widget background in the information dialog."
-msgstr "Įjunkite, jei norite naudoti valdiklio foną informacijos dialoge."
+msgstr "Ä®junkite, jei norite naudoti valdiklio fonÄ… informacijos dialoge."
 
 msgctxt "#31758"
 msgid "Enable to show widget information for all panel widgets. Disable to individually select in the home menu customizer."
-msgstr "Įjunkite, jei norite rodyti valdiklio informaciją visiems skydelio valdikliams. Išjunkite, jei norite pasirinkti individualiai kiekvienam elementui pagrindinio meniu pritaikyme."
+msgstr "Ä®junkite, jei norite rodyti valdiklio informacijÄ… visiems skydelio valdikliams. IÅ¡junkite, jei norite pasirinkti individualiai kiekvienam elementui pagrindinio meniu pritaikyme."
 
 msgctxt "#31759"
 msgid "If enabled widgets will not be visible throughout the home screen until they are focused."
-msgstr "Kai įjungta, valdikliai nebus matomi pradiniame ekrane, kol jie nebus pasirinkti."
+msgstr "Kai Ä¯jungta, valdikliai nebus matomi pradiniame ekrane, kol jie nebus pasirinkti."
 
 msgctxt "#31760"
 msgid "Configure custom Widget 1"
-msgstr "Konfigūruoti savą valdiklį 1"
+msgstr "KonfigÅ«ruoti savÄ… valdiklÄ¯ 1"
 
 msgctxt "#31761"
 msgid "Configure custom Widget 2"
-msgstr "Konfigūruoti savą valdiklį 2"
+msgstr "KonfigÅ«ruoti savÄ… valdiklÄ¯ 2"
 
 msgctxt "#31800"
 msgid "Video addons"
@@ -2815,15 +2815,15 @@ msgstr "Video priedai / Audio priedai"
 
 msgctxt "#31803"
 msgid "Program addons"
-msgstr "Programų priedai"
+msgstr "ProgramÅ³ priedai"
 
 msgctxt "#31804"
 msgid "Picture addons"
-msgstr "Paveikslėlių priedai"
+msgstr "PaveikslÄ—liÅ³ priedai"
 
 msgctxt "#31850"
 msgid "Budget"
-msgstr "Biudžetas"
+msgstr "BiudÅ¾etas"
 
 msgctxt "#31851"
 msgid "Revenue"
@@ -2831,7 +2831,7 @@ msgstr "Pajamos"
 
 msgctxt "#31852"
 msgid "Displays a larger ratings classification image with standard descriptions.[CR]Works with U.S. MPAA ratings only."
-msgstr "Atvaizduoja didesnį reitingų klasifikacijos atvaizdą su standartiniu aprašymu.[CR]Veiia tiks su U.S. MPAA reitingais."
+msgstr "Atvaizduoja didesnÄ¯ reitingÅ³ klasifikacijos atvaizdÄ… su standartiniu apraÅ¡ymu.[CR]Veiia tiks su U.S. MPAA reitingais."
 
 msgctxt "#31853"
 msgid "Choose where to display the PreshowExperience button. The Default is to hide the Trailer button. Other options are replace the Play button or place it in the + (Extras) section."
@@ -2843,51 +2843,51 @@ msgstr ""
 
 msgctxt "#31855"
 msgid "Enable this setting to replace the Default info with online info provided by the ExtendedInfo script. You can use the Marmalade OpenCode version or the Defaults provided by the script if you enable the option in the settings for ExtendedInfo."
-msgstr "Naudokite šį nustatymą norėdami pakeisti numatytąją informaciją, ExtendedInfo scenarijaus pateikta informacija iš interneto. Galite naudoti Marmalade OpenCode ar scenarijaus pateiktą numatytąją versiją, jei įjungsite šią parinktį ExtendedInfo nustatymuose."
+msgstr "Naudokite Å¡Ä¯ nustatymÄ… norÄ—dami pakeisti numatytÄ…jÄ… informacijÄ…, ExtendedInfo scenarijaus pateikta informacija iÅ¡ interneto. Galite naudoti Marmalade OpenCode ar scenarijaus pateiktÄ… numatytÄ…jÄ… versijÄ…, jei Ä¯jungsite Å¡iÄ… parinktÄ¯ ExtendedInfo nustatymuose."
 
 msgctxt "#31856"
 msgid "Use this to select the multi-fanart cycle speed skin wide."
-msgstr "Naudokite norėdami pasirinkti kelių Fanart keitimo greitį visoje teminėje išvaizdoje."
+msgstr "Naudokite norÄ—dami pasirinkti keliÅ³ Fanart keitimo greitÄ¯ visoje teminÄ—je iÅ¡vaizdoje."
 
 msgctxt "#31900"
 msgid "My rating"
-msgstr "Mano įvertinimas"
+msgstr "Mano Ä¯vertinimas"
 
 msgctxt "#31901"
 msgid "36 Hour Forecast"
-msgstr "36 valandų prognozė"
+msgstr "36 valandÅ³ prognozÄ—"
 
 msgctxt "#31902"
 msgid "Hourly Forecast"
-msgstr "Valandinė prognozė"
+msgstr "ValandinÄ— prognozÄ—"
 
 msgctxt "#31903"
 msgid "Weekend Forecast"
-msgstr "Savaitgalio prognozė"
+msgstr "Savaitgalio prognozÄ—"
 
 msgctxt "#31904"
 msgid "10 Day Forecast"
-msgstr "10 dienų prognozė"
+msgstr "10 dienÅ³ prognozÄ—"
 
 msgctxt "#31908"
 msgid "Chance of Precipitation"
-msgstr "Kritulių tikimybė"
+msgstr "KrituliÅ³ tikimybÄ—"
 
 msgctxt "#31909"
 msgid "Fetching forecast info..."
-msgstr "Atsiunčiama prognozės informacija..."
+msgstr "AtsiunÄiama prognozÄ—s informacija..."
 
 msgctxt "#31910"
 msgid "Map & Alerts"
-msgstr "Žemėlapis ir įspėjimai"
+msgstr "Å½emÄ—lapis ir Ä¯spÄ—jimai"
 
 msgctxt "#31911"
 msgid "Setup the Marmalade main menu"
-msgstr "Nustatyti Marmalade pagrindinį meniu"
+msgstr "Nustatyti Marmalade pagrindinÄ¯ meniu"
 
 msgctxt "#31912"
 msgid "Customize the main menu with widgets, backgrounds, and statistics. Add your own custom main menu items."
-msgstr "Pritaikykite pagrindinio meniu valdiklius, foną ir statistiką. Pridėkite individualius pagrindinio meniu elementus."
+msgstr "Pritaikykite pagrindinio meniu valdiklius, fonÄ… ir statistikÄ…. PridÄ—kite individualius pagrindinio meniu elementus."
 
 msgctxt "#31913"
 msgid "Marmalade main menu horizontal position"
@@ -2895,43 +2895,43 @@ msgstr "Marmalade pagrindinio meniu horizontali pozicija"
 
 msgctxt "#31914"
 msgid "Change the horizontal position of the main menu."
-msgstr "Pakeisti pagrindinio meniu horizontaliąją poziciją"
+msgstr "Pakeisti pagrindinio meniu horizontaliÄ…jÄ… pozicijÄ…"
 
 msgctxt "#31915"
 msgid "Navigation style for horizontal lists"
-msgstr "Horizontalių sąrašų navigacijos stilius"
+msgstr "HorizontaliÅ³ sÄ…raÅ¡Å³ navigacijos stilius"
 
 msgctxt "#31916"
 msgid "Change the way horizontal lists scroll in Marmalade. Default will scroll lists in a cycle. \"Fixed\" are lists with a beginning and end."
-msgstr "Pakeiskite horizontalių sąrašų slinkties būdą Marmalade teminėje išvaizdoje. Numatytasis yra slinkimas ratu. \"Fiksuotas\" yra sąrašai su pradžia ir pabaiga."
+msgstr "Pakeiskite horizontaliÅ³ sÄ…raÅ¡Å³ slinkties bÅ«dÄ… Marmalade teminÄ—je iÅ¡vaizdoje. Numatytasis yra slinkimas ratu. \"Fiksuotas\" yra sÄ…raÅ¡ai su pradÅ¾ia ir pabaiga."
 
 msgctxt "#31917"
 msgid "When enabled text scrolls automatically. When disabled manual scrolling is required. Note that not every textbox has a manual button."
-msgstr "Kai įjungta, tekstas slenka automatiškai. Kai išjungta, reikalingas rankinis slinkimas. Atkreipkite dėmesį, kad nekiekvienas tekstinis laukelis turi rankinį mygtuką."
+msgstr "Kai Ä¯jungta, tekstas slenka automatiÅ¡kai. Kai iÅ¡jungta, reikalingas rankinis slinkimas. Atkreipkite dÄ—mesÄ¯, kad nekiekvienas tekstinis laukelis turi rankinÄ¯ mygtukÄ…."
 
 msgctxt "#31918"
 msgid "Projects the current playing video on the background behind the panels."
-msgstr "Projektuoja šiuo metu atkuriama vaizdą fone už skydelių."
+msgstr "Projektuoja Å¡iuo metu atkuriama vaizdÄ… fone uÅ¾ skydeliÅ³."
 
 msgctxt "#31919"
 msgid "Projects the visualisation on the background behind the panels when music is played."
-msgstr "Projektuoja vizualizaciją fone už skydelių, kai atkuriama muzika."
+msgstr "Projektuoja vizualizacijÄ… fone uÅ¾ skydeliÅ³, kai atkuriama muzika."
 
 msgctxt "#31920"
 msgid "Displays a widget on the Home screen with media information when music is playing."
-msgstr "Atvaizduoja valdiklį su media įrašo informacija pradiniame ekrane, kai atkuriama muzika."
+msgstr "Atvaizduoja valdiklÄ¯ su media Ä¯raÅ¡o informacija pradiniame ekrane, kai atkuriama muzika."
 
 msgctxt "#31921"
 msgid "Displays a widget on the Home screen with media information when a movie or episode is playing."
-msgstr "Atvaizduoja valdiklį su media įrašo informacija pradiniame ekrane, kai atkuriamas filmas ar epizodas."
+msgstr "Atvaizduoja valdiklÄ¯ su media Ä¯raÅ¡o informacija pradiniame ekrane, kai atkuriamas filmas ar epizodas."
 
 msgctxt "#31922"
 msgid "This enables custom genre backgrounds when browsing through the videolibrary's genre node. Filenames should match the genre label. Extension must be .jpg."
-msgstr "Tai įjungia individualius žanro fonus, kai naršoma vaizdo bibliotekos žanrų mazge. Failų pavadinimai turi atitikti žanrų etiketes. Plėtiniai turi būti .jpg."
+msgstr "Tai Ä¯jungia individualius Å¾anro fonus, kai narÅ¡oma vaizdo bibliotekos Å¾anrÅ³ mazge. FailÅ³ pavadinimai turi atitikti Å¾anrÅ³ etiketes. PlÄ—tiniai turi bÅ«ti .jpg."
 
 msgctxt "#31924"
 msgid "This enables custom genre backgrounds when browsing through the musiclibrary's genre node. Filenames should match the genre label. Extension must be .jpg."
-msgstr "Tai įjungia individualius žanro fonus, kai naršoma muzikos bibliotekos žanrų mazge. Failų pavadinimai turi atitikti žanrų etiketes. Plėtiniai turi būti .jpg."
+msgstr "Tai Ä¯jungia individualius Å¾anro fonus, kai narÅ¡oma muzikos bibliotekos Å¾anrÅ³ mazge. FailÅ³ pavadinimai turi atitikti Å¾anrÅ³ etiketes. PlÄ—tiniai turi bÅ«ti .jpg."
 
 msgctxt "#31925"
 msgid "Choose what to display for the menu items background."
@@ -2943,39 +2943,39 @@ msgstr ""
 
 msgctxt "#31927"
 msgid "Resets all above values to their defaults."
-msgstr "Atstatykite visas aukščiau esančias reikšmes į numatytąsias."
+msgstr "Atstatykite visas aukÅ¡Äiau esanÄias reikÅ¡mes Ä¯ numatytÄ…sias."
 
 msgctxt "#31928"
 msgid "Marmalade main menu layout"
-msgstr "Marmalade pagrindinio meniu išdėstymas"
+msgstr "Marmalade pagrindinio meniu iÅ¡dÄ—stymas"
 
 msgctxt "#31929"
 msgid "This setting defines the main menu layout. Options are 5 items, 3 items, 1 items, or icons for the default horizontal menu. You can also choose a vertical menu layout."
-msgstr "Šis nustatymas apibrėžia pagrindinio meniu išdėstymą. Galima pasirinkti 5 elementus, 3 elementus, 1 elementą ar piktogramas horizontaliame meniu. Taip pat galite pasirinkti vertikalų meniu išdėstymą."
+msgstr "Å is nustatymas apibrÄ—Å¾ia pagrindinio meniu iÅ¡dÄ—stymÄ…. Galima pasirinkti 5 elementus, 3 elementus, 1 elementÄ… ar piktogramas horizontaliame meniu. Taip pat galite pasirinkti vertikalÅ³ meniu iÅ¡dÄ—stymÄ…."
 
 msgctxt "#31930"
 msgid "Choose a widget to display on the Home screen to have easy access to content from the library."
-msgstr "Pasirinkite valdiklį, kuris bus rodomas pagrindiniame lange, kad galėtumėte lengvai pasiekti bibliotekos turinį."
+msgstr "Pasirinkite valdiklÄ¯, kuris bus rodomas pagrindiniame lange, kad galÄ—tumÄ—te lengvai pasiekti bibliotekos turinÄ¯."
 
 msgctxt "#31931"
 msgid "Video plot preference"
-msgstr "Vaizdo siužeto pasirinkimas"
+msgstr "Vaizdo siuÅ¾eto pasirinkimas"
 
 msgctxt "#31932"
 msgid "Show plot outline in the library views and full plot in the video information dialog or vice versa. Falls back to full plot if no outline is available."
-msgstr "Rodyti siužeto kontūrus bibliotekos rodiniuose ir pilną siužetą vaizdo informacijos dialogo lange arba atvirkščiai. Grįžtama prie pilno siužeto, jei nėra kontūrų."
+msgstr "Rodyti siuÅ¾eto kontÅ«rus bibliotekos rodiniuose ir pilnÄ… siuÅ¾etÄ… vaizdo informacijos dialogo lange arba atvirkÅ¡Äiai. GrÄ¯Å¾tama prie pilno siuÅ¾eto, jei nÄ—ra kontÅ«rÅ³."
 
 msgctxt "#31933"
 msgid "Select an item to display on the left top of the main menu"
-msgstr "Pasirinkite elementą, kuris bus rodomas pagrindinio meniu viršutiniame kairiajame kampe"
+msgstr "Pasirinkite elementÄ…, kuris bus rodomas pagrindinio meniu virÅ¡utiniame kairiajame kampe"
 
 msgctxt "#31935"
 msgid "Switch places with another menu item. Opens a dialog with a list of menu items to choose from."
-msgstr "Sukeisti vietomis su kitu meniu elementu. Atidaro dialogo langą su galimų meniu elementų pasirinkimu."
+msgstr "Sukeisti vietomis su kitu meniu elementu. Atidaro dialogo langÄ… su galimÅ³ meniu elementÅ³ pasirinkimu."
 
 msgctxt "#31937"
 msgid "Show the RSS feed on the bottom or top of the screen, depending on main menu position. Enabling this setting makes the submenu permanently visible."
-msgstr "Rodyti RSS sklaidos kanalą ekrano apačioje arba viršuje, priklausomai nuo pagrindinio meniu pozicijos. Įjungus šį nustatymą, submeniu bus rodomas visada."
+msgstr "Rodyti RSS sklaidos kanalÄ… ekrano apaÄioje arba virÅ¡uje, priklausomai nuo pagrindinio meniu pozicijos. Ä®jungus Å¡Ä¯ nustatymÄ…, submeniu bus rodomas visada."
 
 msgctxt "#31938"
 msgid "Enables extra information in the TV show library, like TV show status, next / latest episode, etc. Depends on TheMovieDb Helper add-on."
@@ -2983,31 +2983,31 @@ msgstr ""
 
 msgctxt "#31939"
 msgid "Hide Infopanel on scrolling"
-msgstr "Slėpti informacinį skydelį slenkant"
+msgstr "SlÄ—pti informacinÄ¯ skydelÄ¯ slenkant"
 
 msgctxt "#31940"
 msgid "Hides the infopanel while scrolling through the library. Set the amount of seconds to wait for the infopanel to appear when scrolling has stopped."
-msgstr "Paslepia informacinį skydelį, kai slenkama bibliotekos sąrašu. Nustatykite laiką sekundėmis, po kurio turi vėl atsirasti informacinis skydelis baigus slinkimą."
+msgstr "Paslepia informacinÄ¯ skydelÄ¯, kai slenkama bibliotekos sÄ…raÅ¡u. Nustatykite laikÄ… sekundÄ—mis, po kurio turi vÄ—l atsirasti informacinis skydelis baigus slinkimÄ…."
 
 msgctxt "#31941"
 msgid "Kiosk mode"
-msgstr "Kiosko režimas"
+msgstr "Kiosko reÅ¾imas"
 
 msgctxt "#31942"
 msgid "Disables the slide out menu (media menu) in the library as well as certain buttons in the media information dialogs."
-msgstr "Išjungia išslenkantį meniu (media meniu) bibliotekoje, o taip pat ir tam tikrus mygtukus media informacijos dialoguose."
+msgstr "IÅ¡jungia iÅ¡slenkantÄ¯ meniu (media meniu) bibliotekoje, o taip pat ir tam tikrus mygtukus media informacijos dialoguose."
 
 msgctxt "#31943"
 msgid "Watched status indicator"
-msgstr "Peržiūrėjimo būsenos indikatorius"
+msgstr "PerÅ¾iÅ«rÄ—jimo bÅ«senos indikatorius"
 
 msgctxt "#31944"
 msgid "Choose which overlays to show on thumbs in icon based views. Note that the \"Resume\" flag takes precedent over any watched status. After activating an overlay you must also enable it in each views settings. "
-msgstr "Pasirinkite, kurias perdangas rodyti virš miniatiūrų piktogramomis paremtuose rodiniuose. Atkreipkite dėmesį, kad vėliava \"Tęsti\" turi pirmenybę prieš bet kokią kitą peržiūrėjimo būseną. Aktyvavus perdangą, taip pat reikia ją įjungti kiekvieno rodinio nustatymuose."
+msgstr "Pasirinkite, kurias perdangas rodyti virÅ¡ miniatiÅ«rÅ³ piktogramomis paremtuose rodiniuose. Atkreipkite dÄ—mesÄ¯, kad vÄ—liava \"TÄ™sti\" turi pirmenybÄ™ prieÅ¡ bet kokiÄ… kitÄ… perÅ¾iÅ«rÄ—jimo bÅ«senÄ…. Aktyvavus perdangÄ…, taip pat reikia jÄ… Ä¯jungti kiekvieno rodinio nustatymuose."
 
 msgctxt "#31945"
 msgid "This toggles the layout of the List view. Default is a 7 item layout with extended info, \"Slim List\" is a 14 item, more basic layout"
-msgstr "Tai perjungia sąrašo rodinio išdėstymą. Numatytasis yra 7 elementų išdėstymas su papildoma informacija, \"Siauras sąrašas\" yra 14 elementų, supaprastintas išdėstymas."
+msgstr "Tai perjungia sÄ…raÅ¡o rodinio iÅ¡dÄ—stymÄ…. Numatytasis yra 7 elementÅ³ iÅ¡dÄ—stymas su papildoma informacija, \"Siauras sÄ…raÅ¡as\" yra 14 elementÅ³, supaprastintas iÅ¡dÄ—stymas."
 
 msgctxt "#31950"
 msgid "WEATHER"
@@ -3015,7 +3015,7 @@ msgstr "ORAI"
 
 msgctxt "#31951"
 msgid "PICTURES"
-msgstr "PAVEIKSLĖLIAI"
+msgstr "PAVEIKSLÄ–LIAI"
 
 msgctxt "#31952"
 msgid "LIVE TV"
@@ -3023,7 +3023,7 @@ msgstr "TELEVIZIJA"
 
 msgctxt "#31953"
 msgid "VIDEOS"
-msgstr "VAIZDO ĮRAŠAI"
+msgstr "VAIZDO Ä®RAÅ AI"
 
 msgctxt "#31954"
 msgid "MOVIES"
@@ -3043,7 +3043,7 @@ msgstr "Programos"
 
 msgctxt "#31958"
 msgid "PLAY DISC"
-msgstr "ATKURTI DISKĄ"
+msgstr "ATKURTI DISKÄ„"
 
 msgctxt "#31959"
 msgid "SYSTEM"
@@ -3055,11 +3055,11 @@ msgstr "KONCERTAI"
 
 msgctxt "#31961"
 msgid "Hide ratings in list views"
-msgstr "Slėpti įvertinimus sąrašo rodiniuose"
+msgstr "SlÄ—pti Ä¯vertinimus sÄ…raÅ¡o rodiniuose"
 
 msgctxt "#31962"
 msgid "This toggles the visibility of ratings in views of type List, LowList and TriPanel, except if sorted by rating."
-msgstr "Perjungia įvertinimų matomumą sąrašo, žemo sąrašo ir TriPanel rodiniuose, išskyrus atvejus, kai rūšiuojama pagal įvertinimą."
+msgstr "Perjungia Ä¯vertinimÅ³ matomumÄ… sÄ…raÅ¡o, Å¾emo sÄ…raÅ¡o ir TriPanel rodiniuose, iÅ¡skyrus atvejus, kai rÅ«Å¡iuojama pagal Ä¯vertinimÄ…."
 
 msgctxt "#31963"
 msgid "Open Sans"
@@ -3079,27 +3079,27 @@ msgstr "OpenCase modifikacija"
 
 msgctxt "#31970"
 msgid "Rate on Trakt"
-msgstr "Įvertinti Trakt sistemoje"
+msgstr "Ä®vertinti Trakt sistemoje"
 
 msgctxt "#31971"
 msgid "Hide visualization behind fanart (works best with waveform)"
-msgstr "Slėpti vizualizaciją už Fanart (geriausiai veikia su Waveform)"
+msgstr "SlÄ—pti vizualizacijÄ… uÅ¾ Fanart (geriausiai veikia su Waveform)"
 
 msgctxt "#31972"
 msgid "Autoplay music in fullscreen"
-msgstr "Automatiškai atkurti muziką visame ekrane"
+msgstr "AutomatiÅ¡kai atkurti muzikÄ… visame ekrane"
 
 msgctxt "#31973"
 msgid "Mod delay"
-msgstr "Modifikacijos uždelsimas"
+msgstr "Modifikacijos uÅ¾delsimas"
 
 msgctxt "#31974"
 msgid "Select the style of cases used in all views"
-msgstr "Pasirinkite dėkliukių, naudojamų visuose rodiniuose, stilių"
+msgstr "Pasirinkite dÄ—kliukiÅ³, naudojamÅ³ visuose rodiniuose, stiliÅ³"
 
 msgctxt "#31975"
 msgid "Use colored icons and mediaflags"
-msgstr "Naudoti spalvotas piktogramas ir media vėliavas"
+msgstr "Naudoti spalvotas piktogramas ir media vÄ—liavas"
 
 msgctxt "#31978"
 msgid "Reset main menu items to their defaults"
@@ -3107,39 +3107,39 @@ msgstr "Atstatyti numatytuosius pagrindinio meniu elementus"
 
 msgctxt "#31979"
 msgid "Sliding set discart"
-msgstr "Slenkančios rinkinio diskų iliustracijos"
+msgstr "SlenkanÄios rinkinio diskÅ³ iliustracijos"
 
 msgctxt "#31980"
 msgid "Change the way the home menu scrolls in Marmalade. Default will scroll in a cycle. \"Fixed\" has a beginning and end."
-msgstr "Pasirinkite kaip bus slenkamas Marmalade pagrindinis meniu. Pagal nutylėjimą jis slinks ratu. \"Fisksuotas\" turi pradžią ir pabaigą."
+msgstr "Pasirinkite kaip bus slenkamas Marmalade pagrindinis meniu. Pagal nutylÄ—jimÄ… jis slinks ratu. \"Fisksuotas\" turi pradÅ¾iÄ… ir pabaigÄ…."
 
 msgctxt "#31981"
 msgid "Show Plot and Cast information when pressing info button during video playback."
-msgstr "Rodyti siužeto ir vaidmenų informaciją paspaudus informacijos mygtuką, kai atkuriamas vaizdo įrašas."
+msgstr "Rodyti siuÅ¾eto ir vaidmenÅ³ informacijÄ… paspaudus informacijos mygtukÄ…, kai atkuriamas vaizdo Ä¯raÅ¡as."
 
 msgctxt "#31982"
 msgid "Display discart for  movies in information screen."
-msgstr "Atvaizduoti disko iliustraciją filmų informacijos ekrane."
+msgstr "Atvaizduoti disko iliustracijÄ… filmÅ³ informacijos ekrane."
 
 msgctxt "#31983"
 msgid "Swap locations of Trailer and Cinema Experience buttons. Location is either in extras (+) or in the info dialog."
-msgstr "Sukeisti vietomis anonso ir Cinema Experience mygtukus. Vieta gali būti arba papildiniuose (+), arba informacijos dialoge."
+msgstr "Sukeisti vietomis anonso ir Cinema Experience mygtukus. Vieta gali bÅ«ti arba papildiniuose (+), arba informacijos dialoge."
 
 msgctxt "#31984"
 msgid "When activated the default mediaflags and icons are changed to colored versions"
-msgstr "Kai aktyvuota, numatytosios media vėliavos ir piktogramos yra pakeičiamos spalvotomis versijomis"
+msgstr "Kai aktyvuota, numatytosios media vÄ—liavos ir piktogramos yra pakeiÄiamos spalvotomis versijomis"
 
 msgctxt "#31986"
 msgid "Select case style used in all views. Default or clear cases."
-msgstr "Pasirinkite dėkliukų stilių, kuris bus naudojamas visuose rodiniuose. Numatytieji arba skaidrūs dėkliukai."
+msgstr "Pasirinkite dÄ—kliukÅ³ stiliÅ³, kuris bus naudojamas visuose rodiniuose. Numatytieji arba skaidrÅ«s dÄ—kliukai."
 
 msgctxt "#31987"
 msgid "Enable this setting to hide the \"Disable views\" button in the sidemenu."
-msgstr "Įjunkite šį nustatymą, jei norite paslėpti \"Išjungti rodinius\" mygtuką šoniniame meniu."
+msgstr "Ä®junkite Å¡Ä¯ nustatymÄ…, jei norite paslÄ—pti \"IÅ¡jungti rodinius\" mygtukÄ… Å¡oniniame meniu."
 
 msgctxt "#31988"
 msgid "Enable setting to animate backgrounds for views and the homescreen"
-msgstr "Įjunkite nustatymą, jei norite animuoti rodinių fonus pradiniame ekrane"
+msgstr "Ä®junkite nustatymÄ…, jei norite animuoti rodiniÅ³ fonus pradiniame ekrane"
 
 msgctxt "#31989"
 msgid "Animate backgrounds"
@@ -3151,11 +3151,11 @@ msgstr ""
 
 msgctxt "#31991"
 msgid " Change default Widget to display a panel type style"
-msgstr "Pasirinkite numatytąjį valdiklį skydelio tipo stiliaus rodymui"
+msgstr "Pasirinkite numatytÄ…jÄ¯ valdiklÄ¯ skydelio tipo stiliaus rodymui"
 
 msgctxt "#31992"
 msgid "Change panel style layout. Choose between compact or expanded layouts."
-msgstr "Pakeisti skydelio stiliaus išdėstymą. Parinkite tarp kompaktiško ir išplėstinio išdėstymo."
+msgstr "Pakeisti skydelio stiliaus iÅ¡dÄ—stymÄ…. Parinkite tarp kompaktiÅ¡ko ir iÅ¡plÄ—stinio iÅ¡dÄ—stymo."
 
 msgctxt "#31993"
 msgid "Fake discart"
@@ -3167,68 +3167,68 @@ msgstr "Vertikalus meniu"
 
 #~ msgctxt "#31316"
 #~ msgid "A skin reload is [B]REQUIRED[/B]. Press CANCEL to abort the requested changes."
-#~ msgstr "[B]REIKIA[/B] iš naujo įkelti teminę išvaizdą. Paspauskite ATŠAUKTI, jei norite atšaukti pakeitimus."
+#~ msgstr "[B]REIKIA[/B] iÅ¡ naujo Ä¯kelti teminÄ™ iÅ¡vaizdÄ…. Paspauskite ATÅ AUKTI, jei norite atÅ¡aukti pakeitimus."
 
 #~ msgctxt "#31015"
 #~ msgid "Set path to video genre fanart folder"
-#~ msgstr "Nustatyti kelią iki video žanrų Fanart aplanko"
+#~ msgstr "Nustatyti keliÄ… iki video Å¾anrÅ³ Fanart aplanko"
 
 #~ msgctxt "#31070"
 #~ msgid "Enable CinemaVision integration"
-#~ msgstr "Įjungti CinemaVision integraciją"
+#~ msgstr "Ä®jungti CinemaVision integracijÄ…"
 
 #~ msgctxt "#31479"
 #~ msgid "CinemaVision can create sequences of trivia slides, show video bumpers, play trailers and more to bring the experience of a movie theater to your living room."
-#~ msgstr "CinemaVision gali sukurti trivialių skaidrių, vaizdo įrašų anonsų ir kt. seką, kad sukurtų kino teatro įspūdį tiesiog jūsų namuose."
+#~ msgstr "CinemaVision gali sukurti trivialiÅ³ skaidriÅ³, vaizdo Ä¯raÅ¡Å³ anonsÅ³ ir kt. sekÄ…, kad sukurtÅ³ kino teatro Ä¯spÅ«dÄ¯ tiesiog jÅ«sÅ³ namuose."
 
 #~ msgctxt "#31853"
 #~ msgid "Choose where to display the CinemaVision button. The Default is to hide the Trailer button. Other options are replace the Play button or place it in the + (Extras) section."
-#~ msgstr "Pasirinkite kur atvaizduoti CinemaVision mygtuką. Numatytoji vieta yra vietoje anonso mygtuko. Kitos galimybės yra pakeisti atkūrimo mygtuką ar padėti į + (Papildiniai) skyrių."
+#~ msgstr "Pasirinkite kur atvaizduoti CinemaVision mygtukÄ…. Numatytoji vieta yra vietoje anonso mygtuko. Kitos galimybÄ—s yra pakeisti atkÅ«rimo mygtukÄ… ar padÄ—ti Ä¯ + (Papildiniai) skyriÅ³."
 
 #~ msgctxt "#31854"
 #~ msgid "Use this setting to override the location of the Trailers button when using the Default setting for the CinemaVision button."
-#~ msgstr "Naudokite šį nustatymą norėdami perrašyti anonsų mygtuko vietą, kai naudojate numatytąjį CinemaVision mygtuko nustatymą."
+#~ msgstr "Naudokite Å¡Ä¯ nustatymÄ… norÄ—dami perraÅ¡yti anonsÅ³ mygtuko vietÄ…, kai naudojate numatytÄ…jÄ¯ CinemaVision mygtuko nustatymÄ…."
 
 #~ msgctxt "#31990"
 #~ msgid "Choose where the CinemaVision button should be placed"
-#~ msgstr "Pasirinkite CinemaVision mygtuko vietą"
+#~ msgstr "Pasirinkite CinemaVision mygtuko vietÄ…"
 
 #~ msgctxt "#31111"
 #~ msgid "Similar movies"
-#~ msgstr "Panašūs filmai"
+#~ msgstr "PanaÅ¡Å«s filmai"
 
 #~ msgctxt "#31115"
 #~ msgid "Similar TV shows"
-#~ msgstr "Panašios TV laidos"
+#~ msgstr "PanaÅ¡ios TV laidos"
 
 #~ msgctxt "#31415"
 #~ msgid "Set the Highlight Bar color used throughout the skin."
-#~ msgstr "Nustatyti paryškinimo juostos spalvą naudojamą visoje teminėje išvaizdoje."
+#~ msgstr "Nustatyti paryÅ¡kinimo juostos spalvÄ… naudojamÄ… visoje teminÄ—je iÅ¡vaizdoje."
 
 #~ msgctxt "#31110"
 #~ msgid "Colorbox Script provides the blurred images for the Music and Video info dialogs as well as the fullscreen music blurred background."
-#~ msgstr "Colorbox scenarijus suteikia išblukusius atvaizdus muzikos ir vaizdo įrašų dialogo langams bei muzikos viso ekrano režimo fonui."
+#~ msgstr "Colorbox scenarijus suteikia iÅ¡blukusius atvaizdus muzikos ir vaizdo Ä¯raÅ¡Å³ dialogo langams bei muzikos viso ekrano reÅ¾imo fonui."
 
 #~ msgctxt "#31473"
 #~ msgid "Artwork Beef is an Artwork Downloader and manager used to add or remove standard and extended artwork to your library."
-#~ msgstr "Artwork Beef yra iliustracijų atsiuntiklis ir tvarkyklė, naudojamas norint pridėti ar pašalinti standartines ar papildomas iliustracijas jūsų bibliotekoje."
+#~ msgstr "Artwork Beef yra iliustracijÅ³ atsiuntiklis ir tvarkyklÄ—, naudojamas norint pridÄ—ti ar paÅ¡alinti standartines ar papildomas iliustracijas jÅ«sÅ³ bibliotekoje."
 
 #~ msgctxt "#31475"
 #~ msgid "Skin Helper Service Widgets adds more options available as Widgets for your menu items. "
-#~ msgstr "Skin Helper Service Widgets prideda daugiau galimų valdiklių parinkčių jūsų meniu elementams."
+#~ msgstr "Skin Helper Service Widgets prideda daugiau galimÅ³ valdikliÅ³ parinkÄiÅ³ jÅ«sÅ³ meniu elementams."
 
 #~ msgctxt "#31480"
 #~ msgid "Library Editor Script uses JSON to directly edit your database information."
-#~ msgstr "Library Editor Script naudoja JSON tiesioginiam jūsų duomenų bazės informacijos redagavimui."
+#~ msgstr "Library Editor Script naudoja JSON tiesioginiam jÅ«sÅ³ duomenÅ³ bazÄ—s informacijos redagavimui."
 
 #~ msgctxt "#31938"
 #~ msgid "Enables extra information in the TV show library, like TV show status, next / latest episode, etc. Depends on TV Show Next Aired add-on."
-#~ msgstr "Įgalina papildomos informacijos rodymą TV laidų bibliotekoje, pvz., TV laidos būsena, kitas / naujausias epizodas ir t.t. Priklauso nuo TV Show Next Aired priedo."
+#~ msgstr "Ä®galina papildomos informacijos rodymÄ… TV laidÅ³ bibliotekoje, pvz., TV laidos bÅ«sena, kitas / naujausias epizodas ir t.t. Priklauso nuo TV Show Next Aired priedo."
 
 #~ msgctxt "#31332"
 #~ msgid "Not Installed"
-#~ msgstr "Neįdiegta"
+#~ msgstr "NeÄ¯diegta"
 
 #~ msgctxt "#31451"
-#~ msgid "  •  Click to Install"
-#~ msgstr "  •  Paspauskite norėdami įdiegti"
+#~ msgid "  â€¢  Click to Install"
+#~ msgstr "  â€¢  Paspauskite norÄ—dami Ä¯diegti"

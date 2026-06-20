@@ -10,7 +10,7 @@
 		<res width="1920" height="1080" aspect="16:9" default="true" folder="16x9" />
 	</extension>
 	<extension point="xbmc.addon.metadata">
-		<summary lang="en_GB">Marmalade Build - Modern orange-themed skin based on Aeon Nox</summary>
+		<summary lang="en_GB">Marmalade Build - Modern orange-themed custom build</summary>
 		<description lang="en_GB">A modern, easy-to-configure skin with orange accents and marmalade-inspired design. Features fully customizable home menu with widgets, live backgrounds, and multiple view types.</description>
 		<platform>all</platform>
 		<license>GNU GPL v2.0</license>

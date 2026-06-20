@@ -1,6 +1,6 @@
 # Kodi Media Center language file
 # Addon Name: Marmalade Build
-# Addon id: skin.aeon.nox.OpenCode
+# Addon id: skin.marmalade
 # Addon Provider: OpenCode
 msgid ""
 msgstr ""
@@ -9,7 +9,7 @@ msgstr ""
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "PO-Revision-Date: 2022-02-22 01:13+0000\n"
 "Last-Translator: Christian Gade <gade@kodi.tv>\n"
-"Language-Team: Amharic (Ethiopia) <https://kodi.weblate.cloud/projects/kodi-add-ons-skins/skin-aeon-nox-OpenCode/am_et/>\n"
+"Language-Team: Amharic (Ethiopia) <https://kodi.weblate.cloud/projects/kodi-add-ons-skins/skin.marmalade/am_et/>\n"
 "Language: am_et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,7 +31,7 @@ msgstr ""
 
 msgctxt "#31003"
 msgid "Power Options"
-msgstr "የሀይል ምርጫዎች"
+msgstr "á‹¨áˆ€á‹­áˆ áˆáˆ­áŒ«á‹Žá‰½"
 
 msgctxt "#31004"
 msgid "Working"
@@ -39,11 +39,11 @@ msgstr ""
 
 msgctxt "#31005"
 msgid "Fixed"
-msgstr "በፍጥነት"
+msgstr "á‰ ááŒ¥áŠá‰µ"
 
 msgctxt "#31006"
 msgid "View Options"
-msgstr "ምርጫዎችን መመልከቻ"
+msgstr "áˆáˆ­áŒ«á‹Žá‰½áŠ• áˆ˜áˆ˜áˆáŠ¨á‰»"
 
 msgctxt "#31007"
 msgid "Setup home"
@@ -51,11 +51,11 @@ msgstr ""
 
 msgctxt "#31008"
 msgid "Full screen"
-msgstr "በሙል መመልከቻ ዘዴ"
+msgstr "á‰ áˆ™áˆ áˆ˜áˆ˜áˆáŠ¨á‰» á‹˜á‹´"
 
 msgctxt "#31009"
 msgid "Total Duration"
-msgstr "ጠቅላላ የሚፈጀው ጊዜ"
+msgstr "áŒ á‰…áˆ‹áˆ‹ á‹¨áˆšáˆáŒ€á‹ áŒŠá‹œ"
 
 msgctxt "#31010"
 msgid "Next episode"
@@ -75,7 +75,7 @@ msgstr ""
 
 msgctxt "#31014"
 msgid "Extras"
-msgstr "ተጨማሪዎች"
+msgstr "á‰°áŒ¨áˆ›áˆªá‹Žá‰½"
 
 msgctxt "#31015"
 msgid "Set path to movie genre fanart folder"
@@ -95,7 +95,7 @@ msgstr ""
 
 msgctxt "#31019"
 msgid "Network"
-msgstr "ኔትዎርክ"
+msgstr "áŠ”á‰µá‹Žáˆ­áŠ­"
 
 msgctxt "#31020"
 msgid "Extra-fanart"
@@ -115,15 +115,15 @@ msgstr ""
 
 msgctxt "#31024"
 msgid "Page"
-msgstr "ገጽ"
+msgstr "áŒˆáŒ½"
 
 msgctxt "#31025"
 msgid "Items"
-msgstr "እቃዎች"
+msgstr "áŠ¥á‰ƒá‹Žá‰½"
 
 msgctxt "#31026"
 msgid "Misc Options"
-msgstr "የተለያዩ ምርጫዎች"
+msgstr "á‹¨á‰°áˆˆá‹«á‹© áˆáˆ­áŒ«á‹Žá‰½"
 
 msgctxt "#31027"
 msgid "Set item background"
@@ -143,7 +143,7 @@ msgstr ""
 
 msgctxt "#31031"
 msgid "Random movies"
-msgstr "በደፈናው ሙቪ"
+msgstr "á‰ á‹°áˆáŠ“á‹ áˆ™á‰ª"
 
 msgctxt "#31032"
 msgid "Recommended movies"
@@ -163,7 +163,7 @@ msgstr ""
 
 msgctxt "#31036"
 msgid "Random albums"
-msgstr "በደፈናው አልበም"
+msgstr "á‰ á‹°áˆáŠ“á‹ áŠ áˆá‰ áˆ"
 
 msgctxt "#31037"
 msgid "Recent albums"
@@ -175,11 +175,11 @@ msgstr ""
 
 msgctxt "#31039"
 msgid "Actions"
-msgstr "ተግባሮች"
+msgstr "á‰°áŒá‰£áˆ®á‰½"
 
 msgctxt "#31040"
 msgid "Now Playing"
-msgstr "አሁን የሚጫወተው"
+msgstr "áŠ áˆáŠ• á‹¨áˆšáŒ«á‹ˆá‰°á‹"
 
 msgctxt "#31041"
 msgid "Select widget"
@@ -203,7 +203,7 @@ msgstr ""
 
 msgctxt "#31046"
 msgid "SEEKING"
-msgstr "በ መፈለግ ላይ"
+msgstr "á‰  áˆ˜áˆáˆˆáŒ áˆ‹á‹­"
 
 msgctxt "#31047"
 msgid "Set item icon"
@@ -219,11 +219,11 @@ msgstr ""
 
 msgctxt "#31050"
 msgid "Sort: Ascending"
-msgstr "መለያ እየጨመረ በሚሄድ"
+msgstr "áˆ˜áˆˆá‹« áŠ¥á‹¨áŒ¨áˆ˜áˆ¨ á‰ áˆšáˆ„á‹µ"
 
 msgctxt "#31051"
 msgid "Sort: Descending"
-msgstr "መለያ እየቀነሰ በሚሄድ"
+msgstr "áˆ˜áˆˆá‹« áŠ¥á‹¨á‰€áŠáˆ° á‰ áˆšáˆ„á‹µ"
 
 msgctxt "#31052"
 msgid "Movie library statistics"
@@ -239,15 +239,15 @@ msgstr ""
 
 msgctxt "#31055"
 msgid "Open playlist"
-msgstr "ዝርዝሮችን መክፈቻ"
+msgstr "á‹áˆ­á‹áˆ®á‰½áŠ• áˆ˜áŠ­áˆá‰»"
 
 msgctxt "#31056"
 msgid "Save playlist"
-msgstr "ዝርዝሮችን ማስቀመጫ"
+msgstr "á‹áˆ­á‹áˆ®á‰½áŠ• áˆ›áˆµá‰€áˆ˜áŒ«"
 
 msgctxt "#31057"
 msgid "Close playlist"
-msgstr "ዝርዝሮችን መዝጊያ"
+msgstr "á‹áˆ­á‹áˆ®á‰½áŠ• áˆ˜á‹áŒŠá‹«"
 
 msgctxt "#31058"
 msgid "PVR information"
@@ -259,7 +259,7 @@ msgstr ""
 
 msgctxt "#31060"
 msgid "This file is stacked, select the part you want to play from."
-msgstr "ይህ ፋይል በጣም ትልቅ ነው ማጫወት የሚፈልጉትን ክፍል ይምረጡ"
+msgstr "á‹­áˆ… á‹á‹­áˆ á‰ áŒ£áˆ á‰µáˆá‰… áŠá‹ áˆ›áŒ«á‹ˆá‰µ á‹¨áˆšáˆáˆáŒ‰á‰µáŠ• áŠ­ááˆ á‹­áˆáˆ¨áŒ¡"
 
 msgctxt "#31061"
 msgid "Total addons / Favourites statistics"
@@ -363,7 +363,7 @@ msgstr ""
 
 msgctxt "#31086"
 msgid "Icon"
-msgstr "ምልክት"
+msgstr "áˆáˆáŠ­á‰µ"
 
 msgctxt "#31087"
 msgid "Banner"
@@ -427,7 +427,7 @@ msgstr ""
 
 msgctxt "#31102"
 msgid "Background"
-msgstr "መደብ"
+msgstr "áˆ˜á‹°á‰¥"
 
 msgctxt "#31103"
 msgid "N/A"
@@ -515,7 +515,7 @@ msgstr ""
 
 msgctxt "#31124"
 msgid "Show Background \"Now Playing\" Video"
-msgstr "መደቡን ማሳያ \"አሁን የሚታየውን\" ቪዲዩ"
+msgstr "áˆ˜á‹°á‰¡áŠ• áˆ›áˆ³á‹« \"áŠ áˆáŠ• á‹¨áˆšá‰³á‹¨á‹áŠ•\" á‰ªá‹²á‹©"
 
 msgctxt "#31125"
 msgid "Show Background \"Now Playing\" Visualisation"
@@ -587,7 +587,7 @@ msgstr ""
 
 msgctxt "#31142"
 msgid "Settings level"
-msgstr "የማሰናጃ ደረጃዎች"
+msgstr "á‹¨áˆ›áˆ°áŠ“áŒƒ á‹°áˆ¨áŒƒá‹Žá‰½"
 
 msgctxt "#31143"
 msgid "Hide Recordings"
@@ -839,7 +839,7 @@ msgstr ""
 
 msgctxt "#31205"
 msgid "Lyrics Source"
-msgstr "የግጥም ምንጭ"
+msgstr "á‹¨áŒáŒ¥áˆ áˆáŠ•áŒ­"
 
 msgctxt "#31206"
 msgid "Opening This Week"
@@ -999,7 +999,7 @@ msgstr ""
 
 msgctxt "#31245"
 msgid "Wall"
-msgstr "ምልክቶች"
+msgstr "áˆáˆáŠ­á‰¶á‰½"
 
 msgctxt "#31246"
 msgid "Fullscreen Wall"
@@ -1127,7 +1127,7 @@ msgstr ""
 
 msgctxt "#31277"
 msgid "Sort by"
-msgstr "መለያ በ"
+msgstr "áˆ˜áˆˆá‹« á‰ "
 
 msgctxt "#31278"
 msgid "Sort order"
@@ -1223,7 +1223,7 @@ msgstr ""
 
 msgctxt "#31301"
 msgid "Last Updated"
-msgstr "መጨረሻ የተሻሻለው"
+msgstr "áˆ˜áŒ¨áˆ¨áˆ» á‹¨á‰°áˆ»áˆ»áˆˆá‹"
 
 msgctxt "#31302"
 msgid "Menu Bar"
@@ -1290,7 +1290,7 @@ msgid "Set Fanart Path"
 msgstr ""
 
 msgctxt "#31318"
-msgid "[B]CONFIGURE LibreELEC SETTINGS[/B][CR]Setup system option · Manage network[CR]Configure services · About LibreELEC"
+msgid "[B]CONFIGURE LibreELEC SETTINGS[/B][CR]Setup system option Â· Manage network[CR]Configure services Â· About LibreELEC"
 msgstr ""
 
 msgctxt "#31319"
@@ -1299,11 +1299,11 @@ msgstr ""
 
 msgctxt "#31320"
 msgid "Last Logged In"
-msgstr "መጨረሻ የገባው"
+msgstr "áˆ˜áŒ¨áˆ¨áˆ» á‹¨áŒˆá‰£á‹"
 
 msgctxt "#31321"
 msgid "Karaoke Song Selector"
-msgstr "ካሪዮኪ ዘፈን መራጭ"
+msgstr "áŠ«áˆªá‹®áŠª á‹˜áˆáŠ• áˆ˜áˆ«áŒ­"
 
 msgctxt "#31322"
 msgid "This will disable the screensaver during music playback by hiding the visualization. This may cause unwanted [B]IMAGE RETENTION[/B] if not used carefully. Do you accept the risks and want to enable this setting?"
@@ -1315,7 +1315,7 @@ msgstr ""
 
 msgctxt "#31324"
 msgid "Aired"
-msgstr "የተላለፈ"
+msgstr "á‹¨á‰°áˆ‹áˆˆáˆ"
 
 msgctxt "#31325"
 msgid "REQUIRED scripts are necessary for basic skin functions."
@@ -1331,7 +1331,7 @@ msgstr ""
 
 msgctxt "#31328"
 msgid "Recently Added"
-msgstr "በቅርብ ጊዜ የተጨመር"
+msgstr "á‰ á‰…áˆ­á‰¥ áŒŠá‹œ á‹¨á‰°áŒ¨áˆ˜áˆ­"
 
 msgctxt "#31329"
 msgid "Taking a Screenshot"
@@ -1515,15 +1515,15 @@ msgstr ""
 
 msgctxt "#31374"
 msgid "Latest"
-msgstr "ዘመናዊ"
+msgstr "á‹˜áˆ˜áŠ“á‹Š"
 
 msgctxt "#31375"
 msgid "Video OSD"
-msgstr "ቪዲዮ OSD"
+msgstr "á‰ªá‹²á‹® OSD"
 
 msgctxt "#31376"
 msgid "Music OSD"
-msgstr "ሙዚቃ OSD"
+msgstr "áˆ™á‹šá‰ƒ OSD"
 
 msgctxt "#31377"
 msgid "Altering this shortcut may prevent access to the Main Menu customizer and several skin options.[CR]Are you sure you want to perform the requested changes to this shortcut?"
@@ -1579,7 +1579,7 @@ msgstr ""
 
 msgctxt "#31390"
 msgid "Skin default"
-msgstr "መደበኛ"
+msgstr "áˆ˜á‹°á‰ áŠ›"
 
 msgctxt "#31391"
 msgid "Arial"
@@ -1591,7 +1591,7 @@ msgstr ""
 
 msgctxt "#31393"
 msgid "Ends at"
-msgstr "መጨረሻ በ"
+msgstr "áˆ˜áŒ¨áˆ¨áˆ» á‰ "
 
 msgctxt "#31394"
 msgid "Replace default info with Netflix style"
@@ -1618,15 +1618,15 @@ msgid "Customize the settings for the Live TV section."
 msgstr ""
 
 msgctxt "#31400"
-msgid "[B]CONFIGURE INTERFACE SETTINGS[/B][CR]Change the skin · Set language and region[CR]Set up a screensaver · Setup master lock"
+msgid "[B]CONFIGURE INTERFACE SETTINGS[/B][CR]Change the skin Â· Set language and region[CR]Set up a screensaver Â· Setup master lock"
 msgstr ""
 
 msgctxt "#31401"
-msgid "[B]CONFIGURE PLAYER SETTINGS[/B][CR]Configure video playback · Configure music playback[CR]Configure picture slideshow · Configure video language and subtitles"
+msgid "[B]CONFIGURE PLAYER SETTINGS[/B][CR]Configure video playback Â· Configure music playback[CR]Configure picture slideshow Â· Configure video language and subtitles"
 msgstr ""
 
 msgctxt "#31402"
-msgid "[B]CONFIGURE MEDIA SETTINGS[/B][CR]Manage sources · Set default select action[CR]Configure metadata options · Configure file list options"
+msgid "[B]CONFIGURE MEDIA SETTINGS[/B][CR]Manage sources Â· Set default select action[CR]Configure metadata options Â· Configure file list options"
 msgstr ""
 
 msgctxt "#31403"
@@ -1638,15 +1638,15 @@ msgid "This will RESET ALL skin settings, selecting YES in the dialog that appea
 msgstr ""
 
 msgctxt "#31405"
-msgid "[B]MONITOR YOUR SYSTEM[/B][CR]Check out your hardware[CR]Check Kodi revision number · Monitor CPU usage"
+msgid "[B]MONITOR YOUR SYSTEM[/B][CR]Check out your hardware[CR]Check Kodi revision number Â· Monitor CPU usage"
 msgstr ""
 
 msgctxt "#31406"
-msgid "[B]CONFIGURE SYSTEM SETTINGS[/B][CR]Setup and calibrate displays · Configure audio output[CR]Set power saving options · Configure proxy settings · Enable debugging"
+msgid "[B]CONFIGURE SYSTEM SETTINGS[/B][CR]Setup and calibrate displays Â· Configure audio output[CR]Set power saving options Â· Configure proxy settings Â· Enable debugging"
 msgstr ""
 
 msgctxt "#31407"
-msgid "[B]CONFIGURE PROFILES[/B][CR]Setup and manage user profiles[CR]Change password · Enable login screen"
+msgid "[B]CONFIGURE PROFILES[/B][CR]Setup and manage user profiles[CR]Change password Â· Enable login screen"
 msgstr ""
 
 msgctxt "#31408"
@@ -1654,11 +1654,11 @@ msgid "Enable to show a LiveTV widget displaying what is currently recording and
 msgstr ""
 
 msgctxt "#31409"
-msgid "[B]CONFIGURE LIVE TV SETTINGS[/B][CR]Change full screen info[CR]Manage Guide data settings  •  Configure recording options"
+msgid "[B]CONFIGURE LIVE TV SETTINGS[/B][CR]Change full screen info[CR]Manage Guide data settings  â€¢  Configure recording options"
 msgstr ""
 
 msgctxt "#31410"
-msgid "[B]CONFIGURE SERVICE SETTINGS[/B][CR]Setup control of Kodi via UPnP and HTTP · Configure file sharing[CR]Enable Zeroconf · Configure AirPlay"
+msgid "[B]CONFIGURE SERVICE SETTINGS[/B][CR]Setup control of Kodi via UPnP and HTTP Â· Configure file sharing[CR]Enable Zeroconf Â· Configure AirPlay"
 msgstr ""
 
 msgctxt "#31411"
@@ -1671,7 +1671,7 @@ msgstr ""
 
 msgctxt "#31413"
 msgid "Local subtitle available"
-msgstr "የ አካባቢ ንዑስ አርእስት ዝግጁ ነው"
+msgstr "á‹¨ áŠ áŠ«á‰£á‰¢ áŠ•á‹‘áˆµ áŠ áˆ­áŠ¥áˆµá‰µ á‹áŒáŒ áŠá‹"
 
 msgctxt "#31414"
 msgid "Set the Main Theme color used throughout the skin."
@@ -1782,7 +1782,7 @@ msgid "Recently played channels"
 msgstr ""
 
 msgctxt "#31441"
-msgid "[B]CONFIGURE GAME SETTINGS[/B][CR]Change gameplay options[CR]Keyboard settings  •  Configure rewind settings"
+msgid "[B]CONFIGURE GAME SETTINGS[/B][CR]Change gameplay options[CR]Keyboard settings  â€¢  Configure rewind settings"
 msgstr ""
 
 msgctxt "#31442"
@@ -1810,7 +1810,7 @@ msgid "Show a popup displaying answers to some FREQUENTLY ASKED QUESTIONS posted
 msgstr ""
 
 msgctxt "#31448"
-msgid "[B]CONFIGURE ADD-ONS[/B][CR]Manage your installed Add-ons[CR]Browse for and install Add-ons  •  Check for Add-on updates"
+msgid "[B]CONFIGURE ADD-ONS[/B][CR]Manage your installed Add-ons[CR]Browse for and install Add-ons  â€¢  Check for Add-on updates"
 msgstr ""
 
 msgctxt "#31449"
@@ -1818,11 +1818,11 @@ msgid "Save & Exit"
 msgstr ""
 
 msgctxt "#31450"
-msgid "  •  Open Settings "
+msgid "  â€¢  Open Settings "
 msgstr ""
 
 msgctxt "#31451"
-msgid "  •  Click to Install or Enable"
+msgid "  â€¢  Click to Install or Enable"
 msgstr ""
 
 msgctxt "#31452"
@@ -1978,12 +1978,12 @@ msgid "Hide episode thumb when hiding plot for unwatched items"
 msgstr ""
 
 msgctxt "#31490"
-msgid "[B]CONFIGURE CoreELEC SETTINGS[/B][CR]Setup system option · Manage network[CR]Configure services · About CoreELEC"
+msgid "[B]CONFIGURE CoreELEC SETTINGS[/B][CR]Setup system option Â· Manage network[CR]Configure services Â· About CoreELEC"
 msgstr ""
 
 msgctxt "#31491"
 msgid "Muted"
-msgstr "ተቀንሷል"
+msgstr "á‰°á‰€áŠ•áˆ·áˆ"
 
 msgctxt "#31492"
 msgid "The metadata and artwork module provides both metadata and artwork from sites like TMDB, musicbrainz and fanart.tv. It has settings used for the Skin Helper scripts."
@@ -2023,23 +2023,23 @@ msgstr ""
 
 msgctxt "#31501"
 msgid "Channel group"
-msgstr "የ ጣቢያ ቡድን"
+msgstr "á‹¨ áŒ£á‰¢á‹« á‰¡á‹µáŠ•"
 
 msgctxt "#31502"
 msgid "Live TV"
-msgstr "ቲቪ በቀጥታ"
+msgstr "á‰²á‰ª á‰ á‰€áŒ¥á‰³"
 
 msgctxt "#31503"
 msgid "Add Group"
-msgstr "ቡድን መጨመሪያ"
+msgstr "á‰¡á‹µáŠ• áˆ˜áŒ¨áˆ˜áˆªá‹«"
 
 msgctxt "#31504"
 msgid "Rename Group"
-msgstr "ቡድን እንደገና መሰየሚያ"
+msgstr "á‰¡á‹µáŠ• áŠ¥áŠ•á‹°áŒˆáŠ“ áˆ˜áˆ°á‹¨áˆšá‹«"
 
 msgctxt "#31505"
 msgid "Delete Group"
-msgstr "ቡድን ማጥፊያ"
+msgstr "á‰¡á‹µáŠ• áˆ›áŒ¥áŠá‹«"
 
 msgctxt "#31506"
 msgid "Available Groups"
@@ -2063,7 +2063,7 @@ msgstr ""
 
 msgctxt "#31511"
 msgid "Channel Options"
-msgstr "የጣቢያ ምርጫዎች"
+msgstr "á‹¨áŒ£á‰¢á‹« áˆáˆ­áŒ«á‹Žá‰½"
 
 msgctxt "#31512"
 msgid "Enable fullscreen information for recordings"
@@ -2151,7 +2151,7 @@ msgstr ""
 
 msgctxt "#31533"
 msgid "Unwatched movies"
-msgstr "ያልታዩ ሙቪዎች"
+msgstr "á‹«áˆá‰³á‹© áˆ™á‰ªá‹Žá‰½"
 
 msgctxt "#31534"
 msgid "Best picture winners"
@@ -2355,7 +2355,7 @@ msgstr ""
 
 msgctxt "#31584"
 msgid "Random artists"
-msgstr "በደፈናው ከያኒ"
+msgstr "á‰ á‹°áˆáŠ“á‹ áŠ¨á‹«áŠ’"
 
 msgctxt "#31585"
 msgid "Most played songs"
@@ -2390,15 +2390,15 @@ msgid "Favourites dialog"
 msgstr ""
 
 msgctxt "#31593"
-msgid "[B]CONFIGURE SKIN SETTINGS[/B][CR]Customize the main menu · Choose skin colors[CR]Set up widgets · Enable optional features"
+msgid "[B]CONFIGURE SKIN SETTINGS[/B][CR]Customize the main menu Â· Choose skin colors[CR]Set up widgets Â· Enable optional features"
 msgstr ""
 
 msgctxt "#31594"
-msgid "[B]OPEN FILE MANAGER[/B][CR]Access files from within Kodi[CR]Add source · Perform file operations"
+msgid "[B]OPEN FILE MANAGER[/B][CR]Access files from within Kodi[CR]Add source Â· Perform file operations"
 msgstr ""
 
 msgctxt "#31595"
-msgid "[B]OPEN THE EVENT LOG[/B][CR]Library update reports · Failed scrapes · Missing files[CR]PVR events · Add-on events"
+msgid "[B]OPEN THE EVENT LOG[/B][CR]Library update reports Â· Failed scrapes Â· Missing files[CR]PVR events Â· Add-on events"
 msgstr ""
 
 msgctxt "#31596"
@@ -2435,7 +2435,7 @@ msgstr ""
 
 msgctxt "#31604"
 msgid "Information"
-msgstr "መረጃ"
+msgstr "áˆ˜áˆ¨áŒƒ"
 
 msgctxt "#31605"
 msgid "Alternate layout"
@@ -2443,7 +2443,7 @@ msgstr ""
 
 msgctxt "#31606"
 msgid "Logo"
-msgstr "አርማ"
+msgstr "áŠ áˆ­áˆ›"
 
 msgctxt "#31607"
 msgid "HD/SD/3D indicators"
@@ -2590,7 +2590,7 @@ msgstr ""
 
 msgctxt "#31708"
 msgid "Sort by"
-msgstr "መለያ በ"
+msgstr "áˆ˜áˆˆá‹« á‰ "
 
 msgctxt "#31709"
 msgid "Sort order"
@@ -2686,7 +2686,7 @@ msgstr ""
 
 msgctxt "#31732"
 msgid "In progress movies"
-msgstr "ሙቪ በ ሂደት ላይ"
+msgstr "áˆ™á‰ª á‰  áˆ‚á‹°á‰µ áˆ‹á‹­"
 
 msgctxt "#31733"
 msgid "In progress episodes"
@@ -2861,31 +2861,31 @@ msgstr ""
 
 msgctxt "#31901"
 msgid "36 Hour Forecast"
-msgstr "የ 36 ሰአት ግምት"
+msgstr "á‹¨ 36 áˆ°áŠ á‰µ áŒáˆá‰µ"
 
 msgctxt "#31902"
 msgid "Hourly Forecast"
-msgstr "የሰአት ግምት"
+msgstr "á‹¨áˆ°áŠ á‰µ áŒáˆá‰µ"
 
 msgctxt "#31903"
 msgid "Weekend Forecast"
-msgstr "የሳምንቱ መጨረሻ ግምት"
+msgstr "á‹¨áˆ³áˆáŠ•á‰± áˆ˜áŒ¨áˆ¨áˆ» áŒáˆá‰µ"
 
 msgctxt "#31904"
 msgid "10 Day Forecast"
-msgstr "የ 10 ቀን ግምት"
+msgstr "á‹¨ 10 á‰€áŠ• áŒáˆá‰µ"
 
 msgctxt "#31908"
 msgid "Chance of Precipitation"
-msgstr "የ መዝነብ እድል"
+msgstr "á‹¨ áˆ˜á‹áŠá‰¥ áŠ¥á‹µáˆ"
 
 msgctxt "#31909"
 msgid "Fetching forecast info..."
-msgstr "ግምት በመፈለግ ላይ..."
+msgstr "áŒáˆá‰µ á‰ áˆ˜áˆáˆˆáŒ áˆ‹á‹­..."
 
 msgctxt "#31910"
 msgid "Map & Alerts"
-msgstr "ካርታ & ማስጠንቀቂያ"
+msgstr "áŠ«áˆ­á‰³ & áˆ›áˆµáŒ áŠ•á‰€á‰‚á‹«"
 
 msgctxt "#31911"
 msgid "Setup the Marmalade main menu"
@@ -3020,31 +3020,31 @@ msgstr ""
 
 msgctxt "#31950"
 msgid "WEATHER"
-msgstr "የ አየር ንብረት"
+msgstr "á‹¨ áŠ á‹¨áˆ­ áŠ•á‰¥áˆ¨á‰µ"
 
 msgctxt "#31951"
 msgid "PICTURES"
-msgstr "ስእሎች"
+msgstr "áˆµáŠ¥áˆŽá‰½"
 
 msgctxt "#31952"
 msgid "LIVE TV"
-msgstr "በቀጥታ የሚሰራጭ ቲቪ"
+msgstr "á‰ á‰€áŒ¥á‰³ á‹¨áˆšáˆ°áˆ«áŒ­ á‰²á‰ª"
 
 msgctxt "#31953"
 msgid "VIDEOS"
-msgstr "ቪዲዮዎች"
+msgstr "á‰ªá‹²á‹®á‹Žá‰½"
 
 msgctxt "#31954"
 msgid "MOVIES"
-msgstr "ሙቪዎች"
+msgstr "áˆ™á‰ªá‹Žá‰½"
 
 msgctxt "#31955"
 msgid "TV SHOWS"
-msgstr "የ ቲቪ ትእይንቶች"
+msgstr "á‹¨ á‰²á‰ª á‰µáŠ¥á‹­áŠ•á‰¶á‰½"
 
 msgctxt "#31956"
 msgid "MUSIC"
-msgstr "ሙዚቃ"
+msgstr "áˆ™á‹šá‰ƒ"
 
 msgctxt "#31957"
 msgid "Apps"
@@ -3052,11 +3052,11 @@ msgstr ""
 
 msgctxt "#31958"
 msgid "PLAY DISC"
-msgstr "ዲስክ ማጫወቻ"
+msgstr "á‹²áˆµáŠ­ áˆ›áŒ«á‹ˆá‰»"
 
 msgctxt "#31959"
 msgid "SYSTEM"
-msgstr "ስርአቱ"
+msgstr "áˆµáˆ­áŠ á‰±"
 
 msgctxt "#31960"
 msgid "CONCERTS"

@@ -1,6 +1,6 @@
 # Kodi Media Center language file
 # Addon Name: Marmalade Build
-# Addon id: skin.aeon.nox.OpenCode
+# Addon id: skin.marmalade
 # Addon Provider: OpenCode
 msgid ""
 msgstr ""
@@ -9,7 +9,7 @@ msgstr ""
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "PO-Revision-Date: 2023-06-25 10:42+0000\n"
 "Last-Translator: Christian Gade <gade@kodi.tv>\n"
-"Language-Team: Icelandic <https://kodi.weblate.cloud/projects/kodi-add-ons-skins/skin-aeon-nox-OpenCode/is_is/>\n"
+"Language-Team: Icelandic <https://kodi.weblate.cloud/projects/kodi-add-ons-skins/skin.marmalade/is_is/>\n"
 "Language: is_is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,19 +19,19 @@ msgstr ""
 
 msgctxt "#31000"
 msgid "Directed by"
-msgstr "Leikstýrt af"
+msgstr "LeikstÃ½rt af"
 
 msgctxt "#31001"
 msgid "Written by"
-msgstr "Höfundur"
+msgstr "HÃ¶fundur"
 
 msgctxt "#31002"
 msgid "Blurred album thumb"
-msgstr "Þokukennd smámynd albúms"
+msgstr "Ãžokukennd smÃ¡mynd albÃºms"
 
 msgctxt "#31003"
 msgid "Power Options"
-msgstr "Gangstýring"
+msgstr "GangstÃ½ring"
 
 msgctxt "#31004"
 msgid "Working"
@@ -43,35 +43,35 @@ msgstr "Fast"
 
 msgctxt "#31006"
 msgid "View Options"
-msgstr "Valkostir skoðunar"
+msgstr "Valkostir skoÃ°unar"
 
 msgctxt "#31007"
 msgid "Setup home"
-msgstr "Uppsetning forsíðu"
+msgstr "Uppsetning forsÃ­Ã°u"
 
 msgctxt "#31008"
 msgid "Full screen"
-msgstr "Fylla skjá"
+msgstr "Fylla skjÃ¡"
 
 msgctxt "#31009"
 msgid "Total Duration"
-msgstr "Heildar tímalengd"
+msgstr "Heildar tÃ­malengd"
 
 msgctxt "#31010"
 msgid "Next episode"
-msgstr "Næsti þáttur"
+msgstr "NÃ¦sti Ã¾Ã¡ttur"
 
 msgctxt "#31011"
 msgid "Latest episode"
-msgstr "Nýjasti þáttur"
+msgstr "NÃ½jasti Ã¾Ã¡ttur"
 
 msgctxt "#31012"
 msgid "Airs"
-msgstr "Sýnt"
+msgstr "SÃ½nt"
 
 msgctxt "#31013"
 msgid "Statistics"
-msgstr "Tölfræði"
+msgstr "TÃ¶lfrÃ¦Ã°i"
 
 msgctxt "#31014"
 msgid "Extras"
@@ -87,11 +87,11 @@ msgstr "Veggspjald"
 
 msgctxt "#31017"
 msgid "Set path to music genre fanart folder"
-msgstr "Setja inn slóð á möppu aðdáendamynda fyrir tónlistarflokka"
+msgstr "Setja inn slÃ³Ã° Ã¡ mÃ¶ppu aÃ°dÃ¡endamynda fyrir tÃ³nlistarflokka"
 
 msgctxt "#31018"
 msgid "InfoPanel"
-msgstr "Uppl.borð"
+msgstr "Uppl.borÃ°"
 
 msgctxt "#31019"
 msgid "Network"
@@ -99,11 +99,11 @@ msgstr "Netkerfi"
 
 msgctxt "#31020"
 msgid "Extra-fanart"
-msgstr "Auka-aðdáendamyndir"
+msgstr "Auka-aÃ°dÃ¡endamyndir"
 
 msgctxt "#31021"
 msgid "Stage curtains"
-msgstr "Sviðsmynd"
+msgstr "SviÃ°smynd"
 
 msgctxt "#31022"
 msgid "Set multi-image background"
@@ -115,7 +115,7 @@ msgstr "Setja inn staka bakgrunnsmynd"
 
 msgctxt "#31024"
 msgid "Page"
-msgstr "Síða"
+msgstr "SÃ­Ã°a"
 
 msgctxt "#31025"
 msgid "Items"
@@ -123,11 +123,11 @@ msgstr "Hlutir"
 
 msgctxt "#31026"
 msgid "Misc Options"
-msgstr "Ýmsir valkostir"
+msgstr "Ãmsir valkostir"
 
 msgctxt "#31027"
 msgid "Set item background"
-msgstr "Setja inn bakgrunn atriðis"
+msgstr "Setja inn bakgrunn atriÃ°is"
 
 msgctxt "#31028"
 msgid "Live Background"
@@ -135,59 +135,59 @@ msgstr "Lifandi bakgrunnur"
 
 msgctxt "#31029"
 msgid "Recent movies"
-msgstr "Nýlegar kvikmyndir"
+msgstr "NÃ½legar kvikmyndir"
 
 msgctxt "#31030"
 msgid "Recent episodes"
-msgstr "Nýlegir þættir"
+msgstr "NÃ½legir Ã¾Ã¦ttir"
 
 msgctxt "#31031"
 msgid "Random movies"
-msgstr "Kvikmyndir af handahófi"
+msgstr "Kvikmyndir af handahÃ³fi"
 
 msgctxt "#31032"
 msgid "Recommended movies"
-msgstr "Kvikmyndir - mælt með"
+msgstr "Kvikmyndir - mÃ¦lt meÃ°"
 
 msgctxt "#31033"
 msgid "Random episodes"
-msgstr "Þættir af handahófi"
+msgstr "ÃžÃ¦ttir af handahÃ³fi"
 
 msgctxt "#31034"
 msgid "Recommended episodes"
-msgstr "Þættir - mælt með"
+msgstr "ÃžÃ¦ttir - mÃ¦lt meÃ°"
 
 msgctxt "#31035"
 msgid "Random songs"
-msgstr "Lög af handahófi"
+msgstr "LÃ¶g af handahÃ³fi"
 
 msgctxt "#31036"
 msgid "Random albums"
-msgstr "Hljómplötur af handahófi"
+msgstr "HljÃ³mplÃ¶tur af handahÃ³fi"
 
 msgctxt "#31037"
 msgid "Recent albums"
-msgstr "Nýlegar hljómplötur"
+msgstr "NÃ½legar hljÃ³mplÃ¶tur"
 
 msgctxt "#31038"
 msgid "Recommended albums"
-msgstr "Hljómplötur - mælt með"
+msgstr "HljÃ³mplÃ¶tur - mÃ¦lt meÃ°"
 
 msgctxt "#31039"
 msgid "Actions"
-msgstr "Aðgerðir"
+msgstr "AÃ°gerÃ°ir"
 
 msgctxt "#31040"
 msgid "Now Playing"
-msgstr "Í spilun"
+msgstr "Ã spilun"
 
 msgctxt "#31041"
 msgid "Select widget"
-msgstr "Veldu viðmótshluta"
+msgstr "Veldu viÃ°mÃ³tshluta"
 
 msgctxt "#31042"
 msgid "Show \"Now Playing\" information blended in the background"
-msgstr "Sýna \"Í spilun\" upplýsingar í bakgrunni"
+msgstr "SÃ½na \"Ã spilun\" upplÃ½singar Ã­ bakgrunni"
 
 msgctxt "#31043"
 msgid "Platform"
@@ -195,11 +195,11 @@ msgstr "Pallur"
 
 msgctxt "#31044"
 msgid "Views: Plot outline | Info dialog: Full plot"
-msgstr "Útlit: Söguþráður samantekt | Upplýsingar: Fullur söguþráður"
+msgstr "Ãštlit: SÃ¶guÃ¾rÃ¡Ã°ur samantekt | UpplÃ½singar: Fullur sÃ¶guÃ¾rÃ¡Ã°ur"
 
 msgctxt "#31045"
 msgid "Views: Full plot | Info dialog: Plot outline"
-msgstr "Útlit: Fullur söguþráður | Upplýsingar: Söguþráður samantekt"
+msgstr "Ãštlit: Fullur sÃ¶guÃ¾rÃ¡Ã°ur | UpplÃ½singar: SÃ¶guÃ¾rÃ¡Ã°ur samantekt"
 
 msgctxt "#31046"
 msgid "SEEKING"
@@ -207,35 +207,35 @@ msgstr "LEITAR"
 
 msgctxt "#31047"
 msgid "Set item icon"
-msgstr "Veldu táknmynd hlutar"
+msgstr "Veldu tÃ¡knmynd hlutar"
 
 msgctxt "#31048"
 msgid "Visualisation Presets"
-msgstr "Forstillingar sjónhrifa"
+msgstr "Forstillingar sjÃ³nhrifa"
 
 msgctxt "#31049"
 msgid "Select infoline"
-msgstr "Veldu upplýsingalínu"
+msgstr "Veldu upplÃ½singalÃ­nu"
 
 msgctxt "#31050"
 msgid "Sort: Ascending"
-msgstr "Raða: Hækkandi"
+msgstr "RaÃ°a: HÃ¦kkandi"
 
 msgctxt "#31051"
 msgid "Sort: Descending"
-msgstr "Raða: Lækkandi"
+msgstr "RaÃ°a: LÃ¦kkandi"
 
 msgctxt "#31052"
 msgid "Movie library statistics"
-msgstr "Tölfræði kvikmyndasafns"
+msgstr "TÃ¶lfrÃ¦Ã°i kvikmyndasafns"
 
 msgctxt "#31053"
 msgid "TV Show library statistics"
-msgstr "Tölfræði sjónvarpsþáttasafns"
+msgstr "TÃ¶lfrÃ¦Ã°i sjÃ³nvarpsÃ¾Ã¡ttasafns"
 
 msgctxt "#31054"
 msgid "Music library statistics"
-msgstr "Tölfræði tónlistarsafns"
+msgstr "TÃ¶lfrÃ¦Ã°i tÃ³nlistarsafns"
 
 msgctxt "#31055"
 msgid "Open playlist"
@@ -251,43 +251,43 @@ msgstr "Loka spilunarlista"
 
 msgctxt "#31058"
 msgid "PVR information"
-msgstr "Upplýsingar PVR-upptökutækis"
+msgstr "UpplÃ½singar PVR-upptÃ¶kutÃ¦kis"
 
 msgctxt "#31059"
 msgid "Artist Slideshow"
-msgstr "Skyggnusýning með flytjanda"
+msgstr "SkyggnusÃ½ning meÃ° flytjanda"
 
 msgctxt "#31060"
 msgid "This file is stacked, select the part you want to play from."
-msgstr "Þessi skrá er stöfluð, veldu þann part sem þú vilt byrja að spila úr."
+msgstr "Ãžessi skrÃ¡ er stÃ¶fluÃ°, veldu Ã¾ann part sem Ã¾Ãº vilt byrja aÃ° spila Ãºr."
 
 msgctxt "#31061"
 msgid "Total addons / Favourites statistics"
-msgstr "Allar viðbætur / Tölfræði eftirlæta"
+msgstr "Allar viÃ°bÃ¦tur / TÃ¶lfrÃ¦Ã°i eftirlÃ¦ta"
 
 msgctxt "#31062"
 msgid "Random movie fanart"
-msgstr "Aðdáendamyndir kvikmynda af handahófi"
+msgstr "AÃ°dÃ¡endamyndir kvikmynda af handahÃ³fi"
 
 msgctxt "#31063"
 msgid "Random TV show fanart"
-msgstr "Aðdáendamyndir sjónvarpsþátta af handahófi"
+msgstr "AÃ°dÃ¡endamyndir sjÃ³nvarpsÃ¾Ã¡tta af handahÃ³fi"
 
 msgctxt "#31064"
 msgid "Random video fanart"
-msgstr "Aðdáendamyndir myndskeiða af handahófi"
+msgstr "AÃ°dÃ¡endamyndir myndskeiÃ°a af handahÃ³fi"
 
 msgctxt "#31065"
 msgid "Random music fanart"
-msgstr "Aðdáendamyndir tónlistar af handahófi"
+msgstr "AÃ°dÃ¡endamyndir tÃ³nlistar af handahÃ³fi"
 
 msgctxt "#31066"
 msgid "Random fanart"
-msgstr "Aðdáendamyndir af handahófi"
+msgstr "AÃ°dÃ¡endamyndir af handahÃ³fi"
 
 msgctxt "#31067"
 msgid "Update rating"
-msgstr "Uppfæra stjörnugjöf"
+msgstr "UppfÃ¦ra stjÃ¶rnugjÃ¶f"
 
 msgctxt "#31068"
 msgid "CD Wall"
@@ -295,7 +295,7 @@ msgstr "CD-veggur"
 
 msgctxt "#31069"
 msgid "Change location"
-msgstr "Breyta staðsetningu"
+msgstr "Breyta staÃ°setningu"
 
 msgctxt "#31070"
 msgid "Enable PreshowExperience integration"
@@ -303,35 +303,35 @@ msgstr ""
 
 msgctxt "#31071"
 msgid "While browsing the library"
-msgstr "Á meðan flett er upp í safni"
+msgstr "Ã meÃ°an flett er upp Ã­ safni"
 
 msgctxt "#31072"
 msgid "On open video info"
-msgstr "Við opnun myndupplýsinga"
+msgstr "ViÃ° opnun myndupplÃ½singa"
 
 msgctxt "#31073"
 msgid "Move menu item"
-msgstr "Færa valmyndaratriði"
+msgstr "FÃ¦ra valmyndaratriÃ°i"
 
 msgctxt "#31074"
 msgid "Choose item to swap places with"
-msgstr "Veldu atriði til að skipta um stað við"
+msgstr "Veldu atriÃ°i til aÃ° skipta um staÃ° viÃ°"
 
 msgctxt "#31075"
 msgid "No extra features available"
-msgstr "Engir aukaeiginleikar í boði"
+msgstr "Engir aukaeiginleikar Ã­ boÃ°i"
 
 msgctxt "#31076"
 msgid "Landscape"
-msgstr "Lárétt"
+msgstr "LÃ¡rÃ©tt"
 
 msgctxt "#31077"
 msgid "ShowCase"
-msgstr "Sýnisumslag"
+msgstr "SÃ½nisumslag"
 
 msgctxt "#31078"
 msgid "TriPanel"
-msgstr "Þríspjald"
+msgstr "ÃžrÃ­spjald"
 
 msgctxt "#31079"
 msgid "Shift"
@@ -343,87 +343,87 @@ msgstr "Stilla undirvalmynd"
 
 msgctxt "#31081"
 msgid "Enable custom submenus"
-msgstr "Virkja sérstillingar undirvalmyndar"
+msgstr "Virkja sÃ©rstillingar undirvalmyndar"
 
 msgctxt "#31082"
 msgid "Detach RSS feed from the main menu"
-msgstr "Losa RSS-streymi frá aðalvalmynd"
+msgstr "Losa RSS-streymi frÃ¡ aÃ°alvalmynd"
 
 msgctxt "#31083"
 msgid "Enable Next Aired information in the videolibrary"
-msgstr "Virkja 'Næst sýnt' upplýsingar í myndefnissafni"
+msgstr "Virkja 'NÃ¦st sÃ½nt' upplÃ½singar Ã­ myndefnissafni"
 
 msgctxt "#31084"
 msgid "Conditional weather"
-msgstr "Skilyrt veður"
+msgstr "Skilyrt veÃ°ur"
 
 msgctxt "#31085"
 msgid "Musicvideo library statistics"
-msgstr "Tölfræði tónlistarmyndbandasafns"
+msgstr "TÃ¶lfrÃ¦Ã°i tÃ³nlistarmyndbandasafns"
 
 msgctxt "#31086"
 msgid "Icon"
-msgstr "Táknmynd"
+msgstr "TÃ¡knmynd"
 
 msgctxt "#31087"
 msgid "Banner"
-msgstr "Borði"
+msgstr "BorÃ°i"
 
 msgctxt "#31088"
 msgid "BannerWall"
-msgstr "BorðaVeggur"
+msgstr "BorÃ°aVeggur"
 
 msgctxt "#31089"
 msgid "Play item on startup"
-msgstr "Spila atriði í ræsingu"
+msgstr "Spila atriÃ°i Ã­ rÃ¦singu"
 
 msgctxt "#31090"
 msgid "Seconds"
-msgstr "Sekúndur"
+msgstr "SekÃºndur"
 
 msgctxt "#31091"
 msgid "Select items"
-msgstr "Velja atriði"
+msgstr "Velja atriÃ°i"
 
 msgctxt "#31092"
 msgid "Fullscreen fanart"
-msgstr "Aðdáendamyndir á heilskjá"
+msgstr "AÃ°dÃ¡endamyndir Ã¡ heilskjÃ¡"
 
 msgctxt "#31093"
 msgid "LowList toggle"
-msgstr "LárListi breyta"
+msgstr "LÃ¡rListi breyta"
 
 msgctxt "#31094"
 msgid "List view layout"
-msgstr "Útlit listasýnar"
+msgstr "Ãštlit listasÃ½nar"
 
 msgctxt "#31095"
 msgid "Slim List"
-msgstr "Mjór listi"
+msgstr "MjÃ³r listi"
 
 msgctxt "#31096"
 msgid "Concert locations"
-msgstr "Staðsetning tónleika"
+msgstr "StaÃ°setning tÃ³nleika"
 
 msgctxt "#31097"
 msgid "Movie playlist statistics"
-msgstr "Tölfræði spilunarlista kvikmynda"
+msgstr "TÃ¶lfrÃ¦Ã°i spilunarlista kvikmynda"
 
 msgctxt "#31098"
 msgid "TV Show playlist statistics"
-msgstr "Tölfræði spilunarlista sjónvarpsþátta"
+msgstr "TÃ¶lfrÃ¦Ã°i spilunarlista sjÃ³nvarpsÃ¾Ã¡tta"
 
 msgctxt "#31099"
 msgid "Musicvideo playlist statistics"
-msgstr "Tölfræði spilunarlista tónlistarmyndbanda"
+msgstr "TÃ¶lfrÃ¦Ã°i spilunarlista tÃ³nlistarmyndbanda"
 
 msgctxt "#31100"
 msgid "View:"
-msgstr "Sýn:"
+msgstr "SÃ½n:"
 
 msgctxt "#31101"
 msgid "Choose view"
-msgstr "Veldu sýn"
+msgstr "Veldu sÃ½n"
 
 msgctxt "#31102"
 msgid "Background"
@@ -435,27 +435,27 @@ msgstr "E/T"
 
 msgctxt "#31104"
 msgid "Similar artists"
-msgstr "Svipaðir flytjendur"
+msgstr "SvipaÃ°ir flytjendur"
 
 msgctxt "#31105"
 msgid "More albums from"
-msgstr "Fleiri hljómplötur með"
+msgstr "Fleiri hljÃ³mplÃ¶tur meÃ°"
 
 msgctxt "#31106"
 msgid "On info"
-msgstr "Á upplýsingum"
+msgstr "Ã upplÃ½singum"
 
 msgctxt "#31107"
 msgid "Persistent"
-msgstr "Viðvarandi"
+msgstr "ViÃ°varandi"
 
 msgctxt "#31108"
 msgid "Enable artist information feed (if available)"
-msgstr "Virkja upplýsingastreymi um flytjanda (ef í boði)"
+msgstr "Virkja upplÃ½singastreymi um flytjanda (ef Ã­ boÃ°i)"
 
 msgctxt "#31109"
 msgid "Unwatched episode count"
-msgstr "Fjöldi þátta sem ekki er búið að horfa á"
+msgstr "FjÃ¶ldi Ã¾Ã¡tta sem ekki er bÃºiÃ° aÃ° horfa Ã¡"
 
 msgctxt "#31110"
 msgid "Solid color backgrounds"
@@ -467,15 +467,15 @@ msgstr ""
 
 msgctxt "#31112"
 msgid "Movies directed by"
-msgstr "Kvikmyndir leikstýrt af"
+msgstr "Kvikmyndir leikstÃ½rt af"
 
 msgctxt "#31113"
 msgid "Movies written by"
-msgstr "Kvikmyndir skrifaðar af"
+msgstr "Kvikmyndir skrifaÃ°ar af"
 
 msgctxt "#31114"
 msgid "More from"
-msgstr "Meira frá"
+msgstr "Meira frÃ¡"
 
 msgctxt "#31115"
 msgid "Alternate sublabel"
@@ -483,7 +483,7 @@ msgstr ""
 
 msgctxt "#31116"
 msgid "cycle fanart"
-msgstr "fletta aðdáendamyndum"
+msgstr "fletta aÃ°dÃ¡endamyndum"
 
 msgctxt "#31117"
 msgid "Fallback"
@@ -491,11 +491,11 @@ msgstr "Til vara"
 
 msgctxt "#31118"
 msgid "Cache movie extrafanart"
-msgstr "Setja viðbótaraðdáendamyndir í skyndiminni"
+msgstr "Setja viÃ°bÃ³taraÃ°dÃ¡endamyndir Ã­ skyndiminni"
 
 msgctxt "#31119"
 msgid "Show the movies from this director in your library or view online information on this director on TMDb?"
-msgstr "Sýna myndir frá þessum leikstjóra í safninu eða sýna upplýsingar um þennan leikstjóra sem eru á TMDb?"
+msgstr "SÃ½na myndir frÃ¡ Ã¾essum leikstjÃ³ra Ã­ safninu eÃ°a sÃ½na upplÃ½singar um Ã¾ennan leikstjÃ³ra sem eru Ã¡ TMDb?"
 
 msgctxt "#31120"
 msgid "TMDb"
@@ -503,23 +503,23 @@ msgstr "TMDb"
 
 msgctxt "#31121"
 msgid "Enable autocomplete"
-msgstr "Virkja sjálfklárun"
+msgstr "Virkja sjÃ¡lfklÃ¡run"
 
 msgctxt "#31122"
 msgid "Enables the autocomplete feature of the virtual keyboard"
-msgstr "Virkjar sjálfklárun á sýndarlyklaborði"
+msgstr "Virkjar sjÃ¡lfklÃ¡run Ã¡ sÃ½ndarlyklaborÃ°i"
 
 msgctxt "#31123"
 msgid "Album review"
-msgstr "Umsagnir um plötu"
+msgstr "Umsagnir um plÃ¶tu"
 
 msgctxt "#31124"
 msgid "Show Background \"Now Playing\" Video"
-msgstr "Sýna \"Í spilun\" myndskeið í bakgrunni"
+msgstr "SÃ½na \"Ã spilun\" myndskeiÃ° Ã­ bakgrunni"
 
 msgctxt "#31125"
 msgid "Show Background \"Now Playing\" Visualisation"
-msgstr "Sýna \"Í spilun\" sjónhrif í bakgrunni"
+msgstr "SÃ½na \"Ã spilun\" sjÃ³nhrif Ã­ bakgrunni"
 
 msgctxt "#31126"
 msgid "TheMovieDb Helper provides details about movies, tvshows and actors from TMDb."
@@ -531,11 +531,11 @@ msgstr ""
 
 msgctxt "#31128"
 msgid "Channels View"
-msgstr "Rásasýn"
+msgstr "RÃ¡sasÃ½n"
 
 msgctxt "#31129"
 msgid "Hide Fanart in full screen visualisation"
-msgstr "Fela aðdáendamyndir í sjónhrifum í heilskjá"
+msgstr "Fela aÃ°dÃ¡endamyndir Ã­ sjÃ³nhrifum Ã­ heilskjÃ¡"
 
 msgctxt "#31130"
 msgid "Use \"Enigma2-style\" channel OSD"
@@ -547,15 +547,15 @@ msgstr ""
 
 msgctxt "#31132"
 msgid "Tuner:"
-msgstr "Móttakari:"
+msgstr "MÃ³ttakari:"
 
 msgctxt "#31133"
 msgid "Timeline channels-type:"
-msgstr "Tegund rása á tímalínu:"
+msgstr "Tegund rÃ¡sa Ã¡ tÃ­malÃ­nu:"
 
 msgctxt "#31134"
 msgid "Timeline view-type:"
-msgstr "Tegund ásýndar tímalínu:"
+msgstr "Tegund Ã¡sÃ½ndar tÃ­malÃ­nu:"
 
 msgctxt "#31135"
 msgid "Infobar Options"
@@ -567,15 +567,15 @@ msgstr ""
 
 msgctxt "#31137"
 msgid "Hide encryption information"
-msgstr "Fela upplýsingar um dulritun"
+msgstr "Fela upplÃ½singar um dulritun"
 
 msgctxt "#31138"
 msgid "Hide tuner information"
-msgstr "Fela upplýsingar um móttakara"
+msgstr "Fela upplÃ½singar um mÃ³ttakara"
 
 msgctxt "#31139"
 msgid "Hide signal information"
-msgstr "Fela upplýsingar um tíðnimerki"
+msgstr "Fela upplÃ½singar um tÃ­Ã°nimerki"
 
 msgctxt "#31140"
 msgid "Sideblade Options"
@@ -583,19 +583,19 @@ msgstr ""
 
 msgctxt "#31141"
 msgid "Hide Guide"
-msgstr "Fela dagskrárvísi"
+msgstr "Fela dagskrÃ¡rvÃ­si"
 
 msgctxt "#31142"
 msgid "Settings level"
-msgstr "Ítarleiki stillinga"
+msgstr "Ãtarleiki stillinga"
 
 msgctxt "#31143"
 msgid "Hide Recordings"
-msgstr "Fela upptökur"
+msgstr "Fela upptÃ¶kur"
 
 msgctxt "#31144"
 msgid "Hide Timer"
-msgstr "Fela niðurteljara"
+msgstr "Fela niÃ°urteljara"
 
 msgctxt "#31145"
 msgid "Hide Search"
@@ -615,15 +615,15 @@ msgstr ""
 
 msgctxt "#31149"
 msgid "Online information from TMDb"
-msgstr "Upplýsingar af neti frá TMDb"
+msgstr "UpplÃ½singar af neti frÃ¡ TMDb"
 
 msgctxt "#31150"
 msgid "IMDb logo"
-msgstr "Vörumerki IMDb"
+msgstr "VÃ¶rumerki IMDb"
 
 msgctxt "#31151"
 msgid "View settings"
-msgstr "Stillingar sýnar"
+msgstr "Stillingar sÃ½nar"
 
 msgctxt "#31152"
 msgid "Poster"
@@ -631,7 +631,7 @@ msgstr "Veggspjald"
 
 msgctxt "#31153"
 msgid "Disable views"
-msgstr "Gera sýnir óvirkar"
+msgstr "Gera sÃ½nir Ã³virkar"
 
 msgctxt "#31154"
 msgid "Show Artist Slideshow when playing music"
@@ -639,7 +639,7 @@ msgstr ""
 
 msgctxt "#31155"
 msgid "Widgets"
-msgstr "Viðmótshlutar"
+msgstr "ViÃ°mÃ³tshlutar"
 
 msgctxt "#31156"
 msgid "Clearart"
@@ -647,19 +647,19 @@ msgstr ""
 
 msgctxt "#31157"
 msgid "Submenu always visible"
-msgstr "Undirvalmynd alltaf sýnileg"
+msgstr "Undirvalmynd alltaf sÃ½nileg"
 
 msgctxt "#31158"
 msgid "Disable the Search icon "
-msgstr "Gera leitartákn óvirkt "
+msgstr "Gera leitartÃ¡kn Ã³virkt "
 
 msgctxt "#31159"
 msgid "Event log"
-msgstr "Atvikaskrá"
+msgstr "AtvikaskrÃ¡"
 
 msgctxt "#31160"
 msgid "Extended"
-msgstr "Viðaukið"
+msgstr "ViÃ°aukiÃ°"
 
 msgctxt "#31161"
 msgid "Choose the position of the RSS feed. Top of the screen, bottom of the screen or the default location directly underneath the main menu."
@@ -671,7 +671,7 @@ msgstr "Til skiptis"
 
 msgctxt "#31163"
 msgid "This movie is Unrated"
-msgstr "Þessi kvikmynd er ekki með einkunn"
+msgstr "Ãžessi kvikmynd er ekki meÃ° einkunn"
 
 msgctxt "#31164"
 msgid "Enable live background for movie sets"
@@ -723,7 +723,7 @@ msgstr ""
 
 msgctxt "#31176"
 msgid "Trending Movies"
-msgstr "Kvikmyndir í umræðunni"
+msgstr "Kvikmyndir Ã­ umrÃ¦Ã°unni"
 
 msgctxt "#31177"
 msgid "Top Rentals"
@@ -731,15 +731,15 @@ msgstr "Oftast leigt"
 
 msgctxt "#31178"
 msgid "Trending Shows"
-msgstr "Þættir í umræðunni"
+msgstr "ÃžÃ¦ttir Ã­ umrÃ¦Ã°unni"
 
 msgctxt "#31179"
 msgid "Live TV settings"
-msgstr "Stillingar beinnar útsendingar"
+msgstr "Stillingar beinnar Ãºtsendingar"
 
 msgctxt "#31180"
 msgid "Minutes left"
-msgstr "Mínútur eftir"
+msgstr "MÃ­nÃºtur eftir"
 
 msgctxt "#31181"
 msgid "Hour"
@@ -747,7 +747,7 @@ msgstr "Klukkustund"
 
 msgctxt "#31182"
 msgid "Minute left"
-msgstr "Mínúta eftir"
+msgstr "MÃ­nÃºta eftir"
 
 msgctxt "#31183"
 msgid "Hour left"
@@ -755,7 +755,7 @@ msgstr "Klukkustund eftir"
 
 msgctxt "#31184"
 msgid "Seconds left"
-msgstr "Sekúndur eftir"
+msgstr "SekÃºndur eftir"
 
 msgctxt "#31185"
 msgid "Hours left"
@@ -763,7 +763,7 @@ msgstr "Klukkustundir eftir"
 
 msgctxt "#31186"
 msgid "Handwritten"
-msgstr "Handskrifað"
+msgstr "HandskrifaÃ°"
 
 msgctxt "#31187"
 msgid "Music layout alignment"
@@ -771,7 +771,7 @@ msgstr ""
 
 msgctxt "#31188"
 msgid "Status indicators"
-msgstr "Ástandsvísar"
+msgstr "ÃstandsvÃ­sar"
 
 msgctxt "#31189"
 msgid "Layout"
@@ -779,7 +779,7 @@ msgstr "Framsetning"
 
 msgctxt "#31190"
 msgid "Video info"
-msgstr "Upplýsingar um myndskeið"
+msgstr "UpplÃ½singar um myndskeiÃ°"
 
 msgctxt "#31191"
 msgid "Enable cases for live backgrounds"
@@ -787,15 +787,15 @@ msgstr ""
 
 msgctxt "#31192"
 msgid "Set default background"
-msgstr "Stilla sjálfgefinn bakgrunn"
+msgstr "Stilla sjÃ¡lfgefinn bakgrunn"
 
 msgctxt "#31193"
 msgid "Display extrafanart"
-msgstr "Birta viðbótaraðdáendamyndir"
+msgstr "Birta viÃ°bÃ³taraÃ°dÃ¡endamyndir"
 
 msgctxt "#31194"
 msgid "Display runtime in hours and minutes"
-msgstr "Birta keyrslutíma í klukkustundum og mínútum"
+msgstr "Birta keyrslutÃ­ma Ã­ klukkustundum og mÃ­nÃºtum"
 
 msgctxt "#31195"
 msgid "Show time remaining on fullscreen info"
@@ -831,63 +831,63 @@ msgstr ""
 
 msgctxt "#31203"
 msgid "In Theaters"
-msgstr "Í sýningarsölum"
+msgstr "Ã sÃ½ningarsÃ¶lum"
 
 msgctxt "#31204"
 msgid "ComingSoon"
-msgstr "Kemur bráðum"
+msgstr "Kemur brÃ¡Ã°um"
 
 msgctxt "#31205"
 msgid "Lyrics Source"
-msgstr "Frumkóði lagatexta"
+msgstr "FrumkÃ³Ã°i lagatexta"
 
 msgctxt "#31206"
 msgid "Opening This Week"
-msgstr "Frumsýnt í þessari viku"
+msgstr "FrumsÃ½nt Ã­ Ã¾essari viku"
 
 msgctxt "#31207"
 msgid "Upcoming"
-msgstr "Á næstunni"
+msgstr "Ã nÃ¦stunni"
 
 msgctxt "#31208"
 msgid "Top Box Office"
-msgstr "Söluhæst"
+msgstr "SÃ¶luhÃ¦st"
 
 msgctxt "#31209"
 msgid "In Cinemas"
-msgstr "Í kvikmyndahúsum"
+msgstr "Ã kvikmyndahÃºsum"
 
 msgctxt "#31210"
 msgid "Popular Movies"
-msgstr "Vinsælar kvikmyndir"
+msgstr "VinsÃ¦lar kvikmyndir"
 
 msgctxt "#31211"
 msgid "Top Rated Movies"
-msgstr "Kvikmyndir með hæsta einkunn"
+msgstr "Kvikmyndir meÃ° hÃ¦sta einkunn"
 
 msgctxt "#31212"
 msgid "Popular TV"
-msgstr "Vinsælt í sjónvarpi"
+msgstr "VinsÃ¦lt Ã­ sjÃ³nvarpi"
 
 msgctxt "#31213"
 msgid "Top Rated TV"
-msgstr "Sjónvarpsþættir með hæstu einkunn"
+msgstr "SjÃ³nvarpsÃ¾Ã¦ttir meÃ° hÃ¦stu einkunn"
 
 msgctxt "#31214"
 msgid "Currently Airing TV"
-msgstr "Núna í sjónvarpinu"
+msgstr "NÃºna Ã­ sjÃ³nvarpinu"
 
 msgctxt "#31215"
 msgid "TV Airing Today"
-msgstr "í sjónvarpinu í dag"
+msgstr "Ã­ sjÃ³nvarpinu Ã­ dag"
 
 msgctxt "#31216"
 msgid "Longer details"
-msgstr "Nánari upplýsingar"
+msgstr "NÃ¡nari upplÃ½singar"
 
 msgctxt "#31217"
 msgid "Single logo"
-msgstr "Eitt táknmerki"
+msgstr "Eitt tÃ¡knmerki"
 
 msgctxt "#31218"
 msgid "Use vinyl record instead of blank CD for disc fallback"
@@ -895,19 +895,19 @@ msgstr ""
 
 msgctxt "#31219"
 msgid "Language flags"
-msgstr "Tungumálafánar"
+msgstr "TungumÃ¡lafÃ¡nar"
 
 msgctxt "#31220"
 msgid "RSS Feed"
-msgstr "RSS-fréttastreymi"
+msgstr "RSS-frÃ©ttastreymi"
 
 msgctxt "#31221"
 msgid "Big"
-msgstr "Stórt"
+msgstr "StÃ³rt"
 
 msgctxt "#31222"
 msgid "Mini"
-msgstr "Smátt"
+msgstr "SmÃ¡tt"
 
 msgctxt "#31223"
 msgid "Raleway"
@@ -919,35 +919,35 @@ msgstr ""
 
 msgctxt "#31225"
 msgid "Time remaining label"
-msgstr "Merki fyrir eftirlifandi tíma"
+msgstr "Merki fyrir eftirlifandi tÃ­ma"
 
 msgctxt "#31226"
 msgid "Time elapsed/Total duration"
-msgstr "Tímalengd liðin/heildar"
+msgstr "TÃ­malengd liÃ°in/heildar"
 
 msgctxt "#31227"
 msgid "Time elapsed/Time remaining"
-msgstr "Tímalengd liðin/eftir"
+msgstr "TÃ­malengd liÃ°in/eftir"
 
 msgctxt "#31228"
 msgid "Time remaining/Total duration"
-msgstr "Tímalengd eftir/heildar"
+msgstr "TÃ­malengd eftir/heildar"
 
 msgctxt "#31229"
 msgid "Extended Panel"
-msgstr "Útvíkkað borð"
+msgstr "ÃštvÃ­kkaÃ° borÃ°"
 
 msgctxt "#31230"
 msgid "Panel"
-msgstr "Stjórnborð"
+msgstr "StjÃ³rnborÃ°"
 
 msgctxt "#31231"
 msgid "Widget Style"
-msgstr "Stíll viðmótshluta"
+msgstr "StÃ­ll viÃ°mÃ³tshluta"
 
 msgctxt "#31232"
 msgid "Replace Play Button"
-msgstr "Skipta út afspilunarhnapp"
+msgstr "Skipta Ãºt afspilunarhnapp"
 
 msgctxt "#31233"
 msgid "Hide artwork"
@@ -955,7 +955,7 @@ msgstr "Fela myndefni"
 
 msgctxt "#31234"
 msgid "Next aired"
-msgstr "Næst í loftið"
+msgstr "NÃ¦st Ã­ loftiÃ°"
 
 msgctxt "#31235"
 msgid "Slide Left"
@@ -963,7 +963,7 @@ msgstr "Renna til vinstri"
 
 msgctxt "#31236"
 msgid "Slide Right"
-msgstr "Renna til hægri"
+msgstr "Renna til hÃ¦gri"
 
 msgctxt "#31237"
 msgid "Cache tv extrafanart"
@@ -983,15 +983,15 @@ msgstr ""
 
 msgctxt "#31241"
 msgid "LowList"
-msgstr "Lág-listi"
+msgstr "LÃ¡g-listi"
 
 msgctxt "#31242"
 msgid "BigList"
-msgstr "Stór_listi"
+msgstr "StÃ³r_listi"
 
 msgctxt "#31243"
 msgid "Posters"
-msgstr "Plaköt"
+msgstr "PlakÃ¶t"
 
 msgctxt "#31244"
 msgid "MyFlix"
@@ -1003,7 +1003,7 @@ msgstr "Veggur"
 
 msgctxt "#31246"
 msgid "Fullscreen Wall"
-msgstr "Veggur í skjáfylli"
+msgstr "Veggur Ã­ skjÃ¡fylli"
 
 msgctxt "#31247"
 msgid "InfoWall"
@@ -1011,7 +1011,7 @@ msgstr "Uppl.veggur"
 
 msgctxt "#31248"
 msgid "BannerPlex"
-msgstr "BorðaPlex"
+msgstr "BorÃ°aPlex"
 
 msgctxt "#31249"
 msgid "BigFan"
@@ -1031,7 +1031,7 @@ msgstr "Toppstika"
 
 msgctxt "#31253"
 msgid "Banners"
-msgstr "Borðar"
+msgstr "BorÃ°ar"
 
 msgctxt "#31254"
 msgid "Smaller posters"
@@ -1043,7 +1043,7 @@ msgstr ""
 
 msgctxt "#31256"
 msgid "Brochure"
-msgstr "Bæklingur"
+msgstr "BÃ¦klingur"
 
 msgctxt "#31257"
 msgid "Movie set titles"
@@ -1055,7 +1055,7 @@ msgstr ""
 
 msgctxt "#31259"
 msgid "Center"
-msgstr "Miðja"
+msgstr "MiÃ°ja"
 
 msgctxt "#31260"
 msgid "Set background rotation speed"
@@ -1083,35 +1083,35 @@ msgstr ""
 
 msgctxt "#31266"
 msgid "Hide player control buttons"
-msgstr "Fela stjórnhnappa spilarans"
+msgstr "Fela stjÃ³rnhnappa spilarans"
 
 msgctxt "#31267"
 msgid "Hide time & date"
-msgstr "Fela tíma og dagsetningu"
+msgstr "Fela tÃ­ma og dagsetningu"
 
 msgctxt "#31268"
 msgid "Hide Album"
-msgstr "Fela hljómplötu"
+msgstr "Fela hljÃ³mplÃ¶tu"
 
 msgctxt "#31269"
 msgid "Hide next track widget"
-msgstr "Fela 'næsta lag' viðmótshluta"
+msgstr "Fela 'nÃ¦sta lag' viÃ°mÃ³tshluta"
 
 msgctxt "#31270"
 msgid "Add to CouchPotato"
-msgstr "Bæta við CouchPotato"
+msgstr "BÃ¦ta viÃ° CouchPotato"
 
 msgctxt "#31271"
 msgid "Click for more"
-msgstr "Smelltu til að sjá meira"
+msgstr "Smelltu til aÃ° sjÃ¡ meira"
 
 msgctxt "#31272"
 msgid "Awards"
-msgstr "Viðurkenningar"
+msgstr "ViÃ°urkenningar"
 
 msgctxt "#31273"
 msgid "Recording widget"
-msgstr "Upptökuviðmótshluti"
+msgstr "UpptÃ¶kuviÃ°mÃ³tshluti"
 
 msgctxt "#31274"
 msgid "Artwork"
@@ -1119,27 +1119,27 @@ msgstr "Myndskreytingar"
 
 msgctxt "#31275"
 msgid "Case"
-msgstr "Stafstaða"
+msgstr "StafstaÃ°a"
 
 msgctxt "#31276"
 msgid "Style"
-msgstr "Stíll"
+msgstr "StÃ­ll"
 
 msgctxt "#31277"
 msgid "Sort by"
-msgstr "Raða eftir"
+msgstr "RaÃ°a eftir"
 
 msgctxt "#31278"
 msgid "Sort order"
-msgstr "Röðunarátt"
+msgstr "RÃ¶Ã°unarÃ¡tt"
 
 msgctxt "#31279"
 msgid "Add-on status"
-msgstr "Staða viðbótar"
+msgstr "StaÃ°a viÃ°bÃ³tar"
 
 msgctxt "#31280"
 msgid "Time & Date"
-msgstr "Tími og dagsetning"
+msgstr "TÃ­mi og dagsetning"
 
 msgctxt "#31281"
 msgid "Choose skin colors"
@@ -1147,7 +1147,7 @@ msgstr "Veldu liti skinns"
 
 msgctxt "#31282"
 msgid "Enable startup intro"
-msgstr "Virkja kynningu við ræsingu"
+msgstr "Virkja kynningu viÃ° rÃ¦singu"
 
 msgctxt "#31283"
 msgid "Auto open sidemenu when hovering over the top left corner"
@@ -1155,15 +1155,15 @@ msgstr ""
 
 msgctxt "#31284"
 msgid "Enable Advanced Widgets"
-msgstr "Virkja ítarlega viðmótshluta"
+msgstr "Virkja Ã­tarlega viÃ°mÃ³tshluta"
 
 msgctxt "#31285"
 msgid "Global Widget Backgrounds"
-msgstr "Víðværir bakgrunnar viðmótshluta"
+msgstr "VÃ­Ã°vÃ¦rir bakgrunnar viÃ°mÃ³tshluta"
 
 msgctxt "#31286"
 msgid "Opacity"
-msgstr "Ógegnsæi"
+msgstr "Ã“gegnsÃ¦i"
 
 msgctxt "#31287"
 msgid "Show list widget information"
@@ -1175,7 +1175,7 @@ msgstr ""
 
 msgctxt "#31289"
 msgid "Hide widgets when not focused"
-msgstr "Fela viðmótshluta þegar þeir eru ekki virkir"
+msgstr "Fela viÃ°mÃ³tshluta Ã¾egar Ã¾eir eru ekki virkir"
 
 msgctxt "#31290"
 msgid "This will auto open the sidemenu (where available) when hovering over the top left corner of the screen using a mouse."
@@ -1191,15 +1191,15 @@ msgstr ""
 
 msgctxt "#31293"
 msgid "Small Icons"
-msgstr "Litlar táknmyndir"
+msgstr "Litlar tÃ¡knmyndir"
 
 msgctxt "#31294"
 msgid "Focused Main Menu"
-msgstr "Virk aðalvalmynd"
+msgstr "Virk aÃ°alvalmynd"
 
 msgctxt "#31295"
 msgid "Unfocused Main Menu"
-msgstr "Óvirk aðalvalmynd"
+msgstr "Ã“virk aÃ°alvalmynd"
 
 msgctxt "#31296"
 msgid "Focused Submenu"
@@ -1207,23 +1207,23 @@ msgstr "Virk undirvalmynd"
 
 msgctxt "#31297"
 msgid "Unfocused Submenu"
-msgstr "Óvirk undirvalmynd"
+msgstr "Ã“virk undirvalmynd"
 
 msgctxt "#31298"
 msgid "Focused Icons label"
-msgstr "Virkt merki táknmyndar"
+msgstr "Virkt merki tÃ¡knmyndar"
 
 msgctxt "#31299"
 msgid "Unfocused Icons label"
-msgstr "Óvirkt merki táknmyndar"
+msgstr "Ã“virkt merki tÃ¡knmyndar"
 
 msgctxt "#31300"
 msgid "Overview"
-msgstr "Yfirsýn"
+msgstr "YfirsÃ½n"
 
 msgctxt "#31301"
 msgid "Last Updated"
-msgstr "Síðast uppfært"
+msgstr "SÃ­Ã°ast uppfÃ¦rt"
 
 msgctxt "#31302"
 msgid "Menu Bar"
@@ -1235,19 +1235,19 @@ msgstr "Kerfisstikur"
 
 msgctxt "#31304"
 msgid "Highlight"
-msgstr "Áherslulitað"
+msgstr "ÃherslulitaÃ°"
 
 msgctxt "#31305"
 msgid "Unwatched episode"
-msgstr "Þáttur sem ekki er búið að horfa á"
+msgstr "ÃžÃ¡ttur sem ekki er bÃºiÃ° aÃ° horfa Ã¡"
 
 msgctxt "#31306"
 msgid "Customize colors"
-msgstr "Sérsníða liti"
+msgstr "SÃ©rsnÃ­Ã°a liti"
 
 msgctxt "#31307"
 msgid "Hide Fanart"
-msgstr "Fela aðdáendamyndir"
+msgstr "Fela aÃ°dÃ¡endamyndir"
 
 msgctxt "#31308"
 msgid "Focused text"
@@ -1255,11 +1255,11 @@ msgstr "Virkur texti"
 
 msgctxt "#31309"
 msgid "Memory Used"
-msgstr "Minni í notkun"
+msgstr "Minni Ã­ notkun"
 
 msgctxt "#31310"
 msgid "Unfocused text"
-msgstr "Óvirkur texti"
+msgstr "Ã“virkur texti"
 
 msgctxt "#31311"
 msgid "New InfoPanel"
@@ -1275,7 +1275,7 @@ msgstr ""
 
 msgctxt "#31314"
 msgid "Panel"
-msgstr "Stjórnborð"
+msgstr "StjÃ³rnborÃ°"
 
 msgctxt "#31315"
 msgid "A required script is [B]NOT INSTALLED[/B]. Press INSTALL to download automatically. Press CANCEL if you would like to return to System Settings and switch skins. You may need to restart Kodi after installation completes."
@@ -1287,10 +1287,10 @@ msgstr ""
 
 msgctxt "#31317"
 msgid "Set Fanart Path"
-msgstr "Breyta slóð fyrir aðdáendamyndir"
+msgstr "Breyta slÃ³Ã° fyrir aÃ°dÃ¡endamyndir"
 
 msgctxt "#31318"
-msgid "[B]CONFIGURE LibreELEC SETTINGS[/B][CR]Setup system option · Manage network[CR]Configure services · About LibreELEC"
+msgid "[B]CONFIGURE LibreELEC SETTINGS[/B][CR]Setup system option Â· Manage network[CR]Configure services Â· About LibreELEC"
 msgstr ""
 
 msgctxt "#31319"
@@ -1299,7 +1299,7 @@ msgstr ""
 
 msgctxt "#31320"
 msgid "Last Logged In"
-msgstr "Síðasta innskráning"
+msgstr "SÃ­Ã°asta innskrÃ¡ning"
 
 msgctxt "#31321"
 msgid "Karaoke Song Selector"
@@ -1315,7 +1315,7 @@ msgstr ""
 
 msgctxt "#31324"
 msgid "Aired"
-msgstr "Sýnt"
+msgstr "SÃ½nt"
 
 msgctxt "#31325"
 msgid "REQUIRED scripts are necessary for basic skin functions."
@@ -1331,7 +1331,7 @@ msgstr ""
 
 msgctxt "#31328"
 msgid "Recently Added"
-msgstr "Nýlega bætt við"
+msgstr "NÃ½lega bÃ¦tt viÃ°"
 
 msgctxt "#31329"
 msgid "Taking a Screenshot"
@@ -1355,15 +1355,15 @@ msgstr ""
 
 msgctxt "#31334"
 msgid "Required"
-msgstr "Nauðsynlegt"
+msgstr "NauÃ°synlegt"
 
 msgctxt "#31335"
 msgid "Recommended"
-msgstr "Mælt með"
+msgstr "MÃ¦lt meÃ°"
 
 msgctxt "#31336"
 msgid "Optional"
-msgstr "Valfrjálst"
+msgstr "ValfrjÃ¡lst"
 
 msgctxt "#31337"
 msgid "Install or change settings of supported add-ons"
@@ -1419,7 +1419,7 @@ msgstr "Vinstri"
 
 msgctxt "#31350"
 msgid "Right"
-msgstr "Hægri"
+msgstr "HÃ¦gri"
 
 msgctxt "#31351"
 msgid "Enable Netflix style pause screen popup"
@@ -1427,7 +1427,7 @@ msgstr ""
 
 msgctxt "#31352"
 msgid "Inactive"
-msgstr "Óvirkt"
+msgstr "Ã“virkt"
 
 msgctxt "#31353"
 msgid "Shows an overview of the movie or episode 5 seconds after the video is paused."
@@ -1439,19 +1439,19 @@ msgstr ""
 
 msgctxt "#31355"
 msgid "You're watching"
-msgstr "Þú ert að horfa á"
+msgstr "ÃžÃº ert aÃ° horfa Ã¡"
 
 msgctxt "#31356"
 msgid "Hardware decoding"
-msgstr "Afkóðun í vélbúnaði"
+msgstr "AfkÃ³Ã°un Ã­ vÃ©lbÃºnaÃ°i"
 
 msgctxt "#31357"
 msgid "Decoder"
-msgstr "Afkóðari"
+msgstr "AfkÃ³Ã°ari"
 
 msgctxt "#31358"
 msgid "Icon only"
-msgstr "Einungis táknmynd"
+msgstr "Einungis tÃ¡knmynd"
 
 msgctxt "#31359"
 msgid "Logo & Channel name"
@@ -1459,11 +1459,11 @@ msgstr ""
 
 msgctxt "#31360"
 msgid "Large"
-msgstr "Stórt"
+msgstr "StÃ³rt"
 
 msgctxt "#31361"
 msgid "Compact"
-msgstr "Þjappað"
+msgstr "ÃžjappaÃ°"
 
 msgctxt "#31362"
 msgid "Name only"
@@ -1475,11 +1475,11 @@ msgstr ""
 
 msgctxt "#31364"
 msgid "Timeshift"
-msgstr "Tímaflakk"
+msgstr "TÃ­maflakk"
 
 msgctxt "#31365"
 msgid "Customization"
-msgstr "Sérsníðing"
+msgstr "SÃ©rsnÃ­Ã°ing"
 
 msgctxt "#31366"
 msgid "Setup the on-screen display during fullscreen video playback."
@@ -1495,11 +1495,11 @@ msgstr ""
 
 msgctxt "#31369"
 msgid "Million"
-msgstr "Milljón"
+msgstr "MilljÃ³n"
 
 msgctxt "#31370"
 msgid "Full plot"
-msgstr "Allur söguþráðurinn"
+msgstr "Allur sÃ¶guÃ¾rÃ¡Ã°urinn"
 
 msgctxt "#31371"
 msgid "Views and widget plot preference"
@@ -1515,15 +1515,15 @@ msgstr ""
 
 msgctxt "#31374"
 msgid "Latest"
-msgstr "Nýjast"
+msgstr "NÃ½jast"
 
 msgctxt "#31375"
 msgid "Video OSD"
-msgstr "Myndbandaskjár"
+msgstr "MyndbandaskjÃ¡r"
 
 msgctxt "#31376"
 msgid "Music OSD"
-msgstr "Tónlistarskjár"
+msgstr "TÃ³nlistarskjÃ¡r"
 
 msgctxt "#31377"
 msgid "Altering this shortcut may prevent access to the Main Menu customizer and several skin options.[CR]Are you sure you want to perform the requested changes to this shortcut?"
@@ -1579,7 +1579,7 @@ msgstr ""
 
 msgctxt "#31390"
 msgid "Skin default"
-msgstr "Sjálfgefið í skinni"
+msgstr "SjÃ¡lfgefiÃ° Ã­ skinni"
 
 msgctxt "#31391"
 msgid "Arial"
@@ -1591,7 +1591,7 @@ msgstr ""
 
 msgctxt "#31393"
 msgid "Ends at"
-msgstr "Endar á"
+msgstr "Endar Ã¡"
 
 msgctxt "#31394"
 msgid "Replace default info with Netflix style"
@@ -1603,11 +1603,11 @@ msgstr ""
 
 msgctxt "#31396"
 msgid "Lighter colors"
-msgstr "Ljósari litir"
+msgstr "LjÃ³sari litir"
 
 msgctxt "#31397"
 msgid "Custom Widget"
-msgstr "Sérsniðinn viðmótshluti"
+msgstr "SÃ©rsniÃ°inn viÃ°mÃ³tshluti"
 
 msgctxt "#31398"
 msgid "Do you want to reset ALL skin settings and color customizations to their defaults?[CR]This action cannot be undone."
@@ -1618,15 +1618,15 @@ msgid "Customize the settings for the Live TV section."
 msgstr ""
 
 msgctxt "#31400"
-msgid "[B]CONFIGURE INTERFACE SETTINGS[/B][CR]Change the skin · Set language and region[CR]Set up a screensaver · Setup master lock"
+msgid "[B]CONFIGURE INTERFACE SETTINGS[/B][CR]Change the skin Â· Set language and region[CR]Set up a screensaver Â· Setup master lock"
 msgstr ""
 
 msgctxt "#31401"
-msgid "[B]CONFIGURE PLAYER SETTINGS[/B][CR]Configure video playback · Configure music playback[CR]Configure picture slideshow · Configure video language and subtitles"
+msgid "[B]CONFIGURE PLAYER SETTINGS[/B][CR]Configure video playback Â· Configure music playback[CR]Configure picture slideshow Â· Configure video language and subtitles"
 msgstr ""
 
 msgctxt "#31402"
-msgid "[B]CONFIGURE MEDIA SETTINGS[/B][CR]Manage sources · Set default select action[CR]Configure metadata options · Configure file list options"
+msgid "[B]CONFIGURE MEDIA SETTINGS[/B][CR]Manage sources Â· Set default select action[CR]Configure metadata options Â· Configure file list options"
 msgstr ""
 
 msgctxt "#31403"
@@ -1638,15 +1638,15 @@ msgid "This will RESET ALL skin settings, selecting YES in the dialog that appea
 msgstr ""
 
 msgctxt "#31405"
-msgid "[B]MONITOR YOUR SYSTEM[/B][CR]Check out your hardware[CR]Check Kodi revision number · Monitor CPU usage"
+msgid "[B]MONITOR YOUR SYSTEM[/B][CR]Check out your hardware[CR]Check Kodi revision number Â· Monitor CPU usage"
 msgstr ""
 
 msgctxt "#31406"
-msgid "[B]CONFIGURE SYSTEM SETTINGS[/B][CR]Setup and calibrate displays · Configure audio output[CR]Set power saving options · Configure proxy settings · Enable debugging"
+msgid "[B]CONFIGURE SYSTEM SETTINGS[/B][CR]Setup and calibrate displays Â· Configure audio output[CR]Set power saving options Â· Configure proxy settings Â· Enable debugging"
 msgstr ""
 
 msgctxt "#31407"
-msgid "[B]CONFIGURE PROFILES[/B][CR]Setup and manage user profiles[CR]Change password · Enable login screen"
+msgid "[B]CONFIGURE PROFILES[/B][CR]Setup and manage user profiles[CR]Change password Â· Enable login screen"
 msgstr ""
 
 msgctxt "#31408"
@@ -1654,11 +1654,11 @@ msgid "Enable to show a LiveTV widget displaying what is currently recording and
 msgstr ""
 
 msgctxt "#31409"
-msgid "[B]CONFIGURE LIVE TV SETTINGS[/B][CR]Change full screen info[CR]Manage Guide data settings  •  Configure recording options"
+msgid "[B]CONFIGURE LIVE TV SETTINGS[/B][CR]Change full screen info[CR]Manage Guide data settings  â€¢  Configure recording options"
 msgstr ""
 
 msgctxt "#31410"
-msgid "[B]CONFIGURE SERVICE SETTINGS[/B][CR]Setup control of Kodi via UPnP and HTTP · Configure file sharing[CR]Enable Zeroconf · Configure AirPlay"
+msgid "[B]CONFIGURE SERVICE SETTINGS[/B][CR]Setup control of Kodi via UPnP and HTTP Â· Configure file sharing[CR]Enable Zeroconf Â· Configure AirPlay"
 msgstr ""
 
 msgctxt "#31411"
@@ -1667,11 +1667,11 @@ msgstr ""
 
 msgctxt "#31412"
 msgid "Select section"
-msgstr "Velja aðgerð"
+msgstr "Velja aÃ°gerÃ°"
 
 msgctxt "#31413"
 msgid "Local subtitle available"
-msgstr "Texti í boði á tölvu"
+msgstr "Texti Ã­ boÃ°i Ã¡ tÃ¶lvu"
 
 msgctxt "#31414"
 msgid "Set the Main Theme color used throughout the skin."
@@ -1703,7 +1703,7 @@ msgstr ""
 
 msgctxt "#31421"
 msgid "Select your Kodi user profile[CR]to login and continue"
-msgstr "Veldu Kodi notanda[CR]til að skrá þig inn og halda áfram"
+msgstr "Veldu Kodi notanda[CR]til aÃ° skrÃ¡ Ã¾ig inn og halda Ã¡fram"
 
 msgctxt "#31422"
 msgid "Customize the Widget Highlight color on the home screen."
@@ -1723,7 +1723,7 @@ msgstr ""
 
 msgctxt "#31426"
 msgid "Enter text here..."
-msgstr "Settu hér inn texta..."
+msgstr "Settu hÃ©r inn texta..."
 
 msgctxt "#31427"
 msgid "Skin Shortcuts is responsible for handeling all aspects of the main menu."
@@ -1779,10 +1779,10 @@ msgstr ""
 
 msgctxt "#31440"
 msgid "Recently played channels"
-msgstr "Nýlega spilaðar rásir"
+msgstr "NÃ½lega spilaÃ°ar rÃ¡sir"
 
 msgctxt "#31441"
-msgid "[B]CONFIGURE GAME SETTINGS[/B][CR]Change gameplay options[CR]Keyboard settings  •  Configure rewind settings"
+msgid "[B]CONFIGURE GAME SETTINGS[/B][CR]Change gameplay options[CR]Keyboard settings  â€¢  Configure rewind settings"
 msgstr ""
 
 msgctxt "#31442"
@@ -1791,7 +1791,7 @@ msgstr ""
 
 msgctxt "#31443"
 msgid "Thumb"
-msgstr "Smámynd"
+msgstr "SmÃ¡mynd"
 
 msgctxt "#31444"
 msgid "Disable widget fanart"
@@ -1799,7 +1799,7 @@ msgstr ""
 
 msgctxt "#31445"
 msgid "Main menu"
-msgstr "Aðalvalmynd"
+msgstr "AÃ°alvalmynd"
 
 msgctxt "#31446"
 msgid "Hide Main Menu elements when pressing back"
@@ -1810,32 +1810,32 @@ msgid "Show a popup displaying answers to some FREQUENTLY ASKED QUESTIONS posted
 msgstr ""
 
 msgctxt "#31448"
-msgid "[B]CONFIGURE ADD-ONS[/B][CR]Manage your installed Add-ons[CR]Browse for and install Add-ons  •  Check for Add-on updates"
+msgid "[B]CONFIGURE ADD-ONS[/B][CR]Manage your installed Add-ons[CR]Browse for and install Add-ons  â€¢  Check for Add-on updates"
 msgstr ""
 
 msgctxt "#31449"
 msgid "Save & Exit"
-msgstr "Vista og fara út"
+msgstr "Vista og fara Ãºt"
 
 msgctxt "#31450"
-msgid "  •  Open Settings "
-msgstr "  •  Opna stillingar "
+msgid "  â€¢  Open Settings "
+msgstr "  â€¢  Opna stillingar "
 
 msgctxt "#31451"
-msgid "  •  Click to Install or Enable"
+msgid "  â€¢  Click to Install or Enable"
 msgstr ""
 
 msgctxt "#31452"
 msgid "Premiered"
-msgstr "Frumsýnd"
+msgstr "FrumsÃ½nd"
 
 msgctxt "#31453"
 msgid "Down for more"
-msgstr "Niður fyrir meira"
+msgstr "NiÃ°ur fyrir meira"
 
 msgctxt "#31454"
 msgid "Up or down"
-msgstr "Upp eða niður"
+msgstr "Upp eÃ°a niÃ°ur"
 
 msgctxt "#31455"
 msgid "Up to return"
@@ -1899,15 +1899,15 @@ msgstr ""
 
 msgctxt "#31470"
 msgid "Set Weather background"
-msgstr "Setja bakgrunn fyrir veður"
+msgstr "Setja bakgrunn fyrir veÃ°ur"
 
 msgctxt "#31471"
 msgid "Set Weather icons"
-msgstr "Setja táknmyndir fyrir veður"
+msgstr "Setja tÃ¡knmyndir fyrir veÃ°ur"
 
 msgctxt "#31472"
 msgid "Library using Kodi"
-msgstr "Aðgerðasafn sem notar Kodi"
+msgstr "AÃ°gerÃ°asafn sem notar Kodi"
 
 msgctxt "#31473"
 msgid "Helper script to edit basic metadata information of library items with support to automatically update the .nfo file of movies, TV shows, episodes and music videos."
@@ -1943,7 +1943,7 @@ msgstr ""
 
 msgctxt "#31481"
 msgid "Ubuntu condensed"
-msgstr "Þjappað"
+msgstr "ÃžjappaÃ°"
 
 msgctxt "#31482"
 msgid "Fira sans"
@@ -1959,7 +1959,7 @@ msgstr ""
 
 msgctxt "#31485"
 msgid "Eject disc"
-msgstr "Henda út diski"
+msgstr "Henda Ãºt diski"
 
 msgctxt "#31486"
 msgid "Use Video Lyrics mod"
@@ -1978,7 +1978,7 @@ msgid "Hide episode thumb when hiding plot for unwatched items"
 msgstr ""
 
 msgctxt "#31490"
-msgid "[B]CONFIGURE CoreELEC SETTINGS[/B][CR]Setup system option · Manage network[CR]Configure services · About CoreELEC"
+msgid "[B]CONFIGURE CoreELEC SETTINGS[/B][CR]Setup system option Â· Manage network[CR]Configure services Â· About CoreELEC"
 msgstr ""
 
 msgctxt "#31491"
@@ -2023,27 +2023,27 @@ msgstr ""
 
 msgctxt "#31501"
 msgid "Channel group"
-msgstr "Rásahópur"
+msgstr "RÃ¡sahÃ³pur"
 
 msgctxt "#31502"
 msgid "Live TV"
-msgstr "Bein sjónvarpsútsending"
+msgstr "Bein sjÃ³nvarpsÃºtsending"
 
 msgctxt "#31503"
 msgid "Add Group"
-msgstr "Bæta við hópi"
+msgstr "BÃ¦ta viÃ° hÃ³pi"
 
 msgctxt "#31504"
 msgid "Rename Group"
-msgstr "Endurnefna hóp"
+msgstr "Endurnefna hÃ³p"
 
 msgctxt "#31505"
 msgid "Delete Group"
-msgstr "Eyða hópi"
+msgstr "EyÃ°a hÃ³pi"
 
 msgctxt "#31506"
 msgid "Available Groups"
-msgstr "Tiltækir hópar"
+msgstr "TiltÃ¦kir hÃ³par"
 
 msgctxt "#31507"
 msgid "Show clearart in tv information"
@@ -2063,7 +2063,7 @@ msgstr ""
 
 msgctxt "#31511"
 msgid "Channel Options"
-msgstr "Valmöguleikar rása"
+msgstr "ValmÃ¶guleikar rÃ¡sa"
 
 msgctxt "#31512"
 msgid "Enable fullscreen information for recordings"
@@ -2151,7 +2151,7 @@ msgstr ""
 
 msgctxt "#31533"
 msgid "Unwatched movies"
-msgstr "Óskoðaðar kvikmyndir"
+msgstr "Ã“skoÃ°aÃ°ar kvikmyndir"
 
 msgctxt "#31534"
 msgid "Best picture winners"
@@ -2159,11 +2159,11 @@ msgstr ""
 
 msgctxt "#31535"
 msgid "Unwatched TV Shows"
-msgstr "Óskoðaðir sjónvarpsþættir"
+msgstr "Ã“skoÃ°aÃ°ir sjÃ³nvarpsÃ¾Ã¦ttir"
 
 msgctxt "#31536"
 msgid "Recent recordings"
-msgstr "Nýlegar upptökur"
+msgstr "NÃ½legar upptÃ¶kur"
 
 msgctxt "#31537"
 msgid "System & Weather"
@@ -2175,7 +2175,7 @@ msgstr ""
 
 msgctxt "#31539"
 msgid "Random TV Shows"
-msgstr "Handahófskenndir sjónvarpsþættir"
+msgstr "HandahÃ³fskenndir sjÃ³nvarpsÃ¾Ã¦ttir"
 
 msgctxt "#31540"
 msgid "Unwatched episodes"
@@ -2199,11 +2199,11 @@ msgstr ""
 
 msgctxt "#31545"
 msgid "Crew"
-msgstr "Tökulið"
+msgstr "TÃ¶kuliÃ°"
 
 msgctxt "#31546"
 msgid "Known for"
-msgstr "Þekkt/ur fyrir"
+msgstr "Ãžekkt/ur fyrir"
 
 msgctxt "#31547"
 msgid "Image gallery"
@@ -2299,7 +2299,7 @@ msgstr ""
 
 msgctxt "#31570"
 msgid "Hide Channels"
-msgstr "Fela rásir"
+msgstr "Fela rÃ¡sir"
 
 msgctxt "#31571"
 msgid "Show plots in set"
@@ -2323,7 +2323,7 @@ msgstr ""
 
 msgctxt "#31576"
 msgid "Reboot to Android"
-msgstr "Endurræsa yfir í Android"
+msgstr "EndurrÃ¦sa yfir Ã­ Android"
 
 msgctxt "#31577"
 msgid "Auto hide OSD"
@@ -2331,7 +2331,7 @@ msgstr ""
 
 msgctxt "#31578"
 msgid "Random music videos"
-msgstr "Handahófskennd tónlistarmyndbönd"
+msgstr "HandahÃ³fskennd tÃ³nlistarmyndbÃ¶nd"
 
 msgctxt "#31579"
 msgid "Random music videos (artists)"
@@ -2343,7 +2343,7 @@ msgstr ""
 
 msgctxt "#31581"
 msgid "Unwatched music videos"
-msgstr "Óskoðuð tónlistarmyndbönd"
+msgstr "Ã“skoÃ°uÃ° tÃ³nlistarmyndbÃ¶nd"
 
 msgctxt "#31582"
 msgid "Most played music videos"
@@ -2355,11 +2355,11 @@ msgstr ""
 
 msgctxt "#31584"
 msgid "Random artists"
-msgstr "Handahófskenndir flytjendur"
+msgstr "HandahÃ³fskenndir flytjendur"
 
 msgctxt "#31585"
 msgid "Most played songs"
-msgstr "Mest spiluðu lögin"
+msgstr "Mest spiluÃ°u lÃ¶gin"
 
 msgctxt "#31586"
 msgid "Prefer clean pause screen"
@@ -2390,15 +2390,15 @@ msgid "Favourites dialog"
 msgstr ""
 
 msgctxt "#31593"
-msgid "[B]CONFIGURE SKIN SETTINGS[/B][CR]Customize the main menu · Choose skin colors[CR]Set up widgets · Enable optional features"
+msgid "[B]CONFIGURE SKIN SETTINGS[/B][CR]Customize the main menu Â· Choose skin colors[CR]Set up widgets Â· Enable optional features"
 msgstr ""
 
 msgctxt "#31594"
-msgid "[B]OPEN FILE MANAGER[/B][CR]Access files from within Kodi[CR]Add source · Perform file operations"
+msgid "[B]OPEN FILE MANAGER[/B][CR]Access files from within Kodi[CR]Add source Â· Perform file operations"
 msgstr ""
 
 msgctxt "#31595"
-msgid "[B]OPEN THE EVENT LOG[/B][CR]Library update reports · Failed scrapes · Missing files[CR]PVR events · Add-on events"
+msgid "[B]OPEN THE EVENT LOG[/B][CR]Library update reports Â· Failed scrapes Â· Missing files[CR]PVR events Â· Add-on events"
 msgstr ""
 
 msgctxt "#31596"
@@ -2435,19 +2435,19 @@ msgstr ""
 
 msgctxt "#31604"
 msgid "Information"
-msgstr "Upplýsingar"
+msgstr "UpplÃ½singar"
 
 msgctxt "#31605"
 msgid "Alternate layout"
-msgstr "Önnur framsetning"
+msgstr "Ã–nnur framsetning"
 
 msgctxt "#31606"
 msgid "Logo"
-msgstr "Vörumerki"
+msgstr "VÃ¶rumerki"
 
 msgctxt "#31607"
 msgid "HD/SD/3D indicators"
-msgstr "Ástandsvísar HD/SD/3D"
+msgstr "ÃstandsvÃ­sar HD/SD/3D"
 
 msgctxt "#31608"
 msgid "Cases"
@@ -2463,7 +2463,7 @@ msgstr ""
 
 msgctxt "#31611"
 msgid "Oscar statue"
-msgstr "Óskarsstytta"
+msgstr "Ã“skarsstytta"
 
 msgctxt "#31612"
 msgid "Replace Choose art button"
@@ -2499,11 +2499,11 @@ msgstr ""
 
 msgctxt "#31620"
 msgid "Floor"
-msgstr "Flötur"
+msgstr "FlÃ¶tur"
 
 msgctxt "#31621"
 msgid "Live TV & Weather"
-msgstr "Sjónvarp í beinni og veður"
+msgstr "SjÃ³nvarp Ã­ beinni og veÃ°ur"
 
 msgctxt "#31622"
 msgid "Set movie genre icons"
@@ -2531,7 +2531,7 @@ msgstr ""
 
 msgctxt "#31680"
 msgid "Select a shortcut for this item."
-msgstr "Veldu flýtilyklasamsetningu fyrir þetta atriði."
+msgstr "Veldu flÃ½tilyklasamsetningu fyrir Ã¾etta atriÃ°i."
 
 msgctxt "#31681"
 msgid "Customize the label. Can also accept some label formatting."
@@ -2555,15 +2555,15 @@ msgstr ""
 
 msgctxt "#31700"
 msgid "Widget options"
-msgstr "Valkostir viðmótshluta"
+msgstr "Valkostir viÃ°mÃ³tshluta"
 
 msgctxt "#31701"
 msgid "Widget style"
-msgstr "Stíll viðmótshluta"
+msgstr "StÃ­ll viÃ°mÃ³tshluta"
 
 msgctxt "#31702"
 msgid "Widget background"
-msgstr "Bakgrunnur viðmótshluta"
+msgstr "Bakgrunnur viÃ°mÃ³tshluta"
 
 msgctxt "#31703"
 msgid "Panel label style"
@@ -2583,15 +2583,15 @@ msgstr "Myndefni"
 
 msgctxt "#31707"
 msgid "Case"
-msgstr "Stafstaða"
+msgstr "StafstaÃ°a"
 
 msgctxt "#31708"
 msgid "Sort by"
-msgstr "Raða eftir"
+msgstr "RaÃ°a eftir"
 
 msgctxt "#31709"
 msgid "Sort order"
-msgstr "Röðunarátt"
+msgstr "RÃ¶Ã°unarÃ¡tt"
 
 msgctxt "#31710"
 msgid "Configure custom list"
@@ -2603,7 +2603,7 @@ msgstr ""
 
 msgctxt "#31712"
 msgid "Panel"
-msgstr "Stjórnborð"
+msgstr "StjÃ³rnborÃ°"
 
 msgctxt "#31713"
 msgid "Panel extended"
@@ -2671,7 +2671,7 @@ msgstr ""
 
 msgctxt "#31729"
 msgid "Show on panel"
-msgstr "Sýna á borði"
+msgstr "SÃ½na Ã¡ borÃ°i"
 
 msgctxt "#31730"
 msgid "Show on focused item"
@@ -2683,11 +2683,11 @@ msgstr ""
 
 msgctxt "#31732"
 msgid "In progress movies"
-msgstr "Kvikmyndir í gangi"
+msgstr "Kvikmyndir Ã­ gangi"
 
 msgctxt "#31733"
 msgid "In progress episodes"
-msgstr "Þættir í gangi"
+msgstr "ÃžÃ¦ttir Ã­ gangi"
 
 msgctxt "#31734"
 msgid "Random genre"
@@ -2695,11 +2695,11 @@ msgstr ""
 
 msgctxt "#31735"
 msgid "Enable advanced widgets"
-msgstr "Virkja ítarlega viðmótshluta"
+msgstr "Virkja Ã­tarlega viÃ°mÃ³tshluta"
 
 msgctxt "#31736"
 msgid "Opacity"
-msgstr "Ógegnsæi"
+msgstr "Ã“gegnsÃ¦i"
 
 msgctxt "#31737"
 msgid "Global widget backgrounds"
@@ -2795,23 +2795,23 @@ msgstr ""
 
 msgctxt "#31760"
 msgid "Configure custom Widget 1"
-msgstr "Stilla sérsniðinn viðmótshluta 1"
+msgstr "Stilla sÃ©rsniÃ°inn viÃ°mÃ³tshluta 1"
 
 msgctxt "#31761"
 msgid "Configure custom Widget 2"
-msgstr "Stilla sérsniðinn viðmótshluta 2"
+msgstr "Stilla sÃ©rsniÃ°inn viÃ°mÃ³tshluta 2"
 
 msgctxt "#31800"
 msgid "Video addons"
-msgstr "Viðbætur fyrir mynd"
+msgstr "ViÃ°bÃ¦tur fyrir mynd"
 
 msgctxt "#31801"
 msgid "Audio addons"
-msgstr "Viðbætur fyrir hljóð"
+msgstr "ViÃ°bÃ¦tur fyrir hljÃ³Ã°"
 
 msgctxt "#31802"
 msgid "Video addons / Audio addons"
-msgstr "Viðbætur fyrir mynd / Viðbætur fyrir hljóð"
+msgstr "ViÃ°bÃ¦tur fyrir mynd / ViÃ°bÃ¦tur fyrir hljÃ³Ã°"
 
 msgctxt "#31803"
 msgid "Program addons"
@@ -2823,7 +2823,7 @@ msgstr ""
 
 msgctxt "#31850"
 msgid "Budget"
-msgstr "Kostnaður"
+msgstr "KostnaÃ°ur"
 
 msgctxt "#31851"
 msgid "Revenue"
@@ -2851,39 +2851,39 @@ msgstr ""
 
 msgctxt "#31900"
 msgid "My rating"
-msgstr "Mín einkunn"
+msgstr "MÃ­n einkunn"
 
 msgctxt "#31901"
 msgid "36 Hour Forecast"
-msgstr "36 klst veðurspá"
+msgstr "36 klst veÃ°urspÃ¡"
 
 msgctxt "#31902"
 msgid "Hourly Forecast"
-msgstr "Veðurspá fyrir klukkustundir"
+msgstr "VeÃ°urspÃ¡ fyrir klukkustundir"
 
 msgctxt "#31903"
 msgid "Weekend Forecast"
-msgstr "Veðurspá helgarinnar"
+msgstr "VeÃ°urspÃ¡ helgarinnar"
 
 msgctxt "#31904"
 msgid "10 Day Forecast"
-msgstr "10 daga veðurspá"
+msgstr "10 daga veÃ°urspÃ¡"
 
 msgctxt "#31908"
 msgid "Chance of Precipitation"
-msgstr "Líkur á úrkomu"
+msgstr "LÃ­kur Ã¡ Ãºrkomu"
 
 msgctxt "#31909"
 msgid "Fetching forecast info..."
-msgstr "Næ í veðurspá..."
+msgstr "NÃ¦ Ã­ veÃ°urspÃ¡..."
 
 msgctxt "#31910"
 msgid "Map & Alerts"
-msgstr "Kort & Viðvaranir"
+msgstr "Kort & ViÃ°varanir"
 
 msgctxt "#31911"
 msgid "Setup the Marmalade main menu"
-msgstr "Setja upp Marmalade aðavalmynd"
+msgstr "Setja upp Marmalade aÃ°avalmynd"
 
 msgctxt "#31912"
 msgid "Customize the main menu with widgets, backgrounds, and statistics. Add your own custom main menu items."
@@ -2891,7 +2891,7 @@ msgstr ""
 
 msgctxt "#31913"
 msgid "Marmalade main menu horizontal position"
-msgstr "Marmalade aðalvalmynd lárétt staða"
+msgstr "Marmalade aÃ°alvalmynd lÃ¡rÃ©tt staÃ°a"
 
 msgctxt "#31914"
 msgid "Change the horizontal position of the main menu."
@@ -2899,39 +2899,39 @@ msgstr ""
 
 msgctxt "#31915"
 msgid "Navigation style for horizontal lists"
-msgstr "Leiðarstýring fyrir lárétta lista"
+msgstr "LeiÃ°arstÃ½ring fyrir lÃ¡rÃ©tta lista"
 
 msgctxt "#31916"
 msgid "Change the way horizontal lists scroll in Marmalade. Default will scroll lists in a cycle. \"Fixed\" are lists with a beginning and end."
-msgstr "Breyta því hvernig láréttur listi færist í Marmalade. Sjálfgefin stilling færir listann í hringi. \"Fixed\" eru listar með upphafi og enda."
+msgstr "Breyta Ã¾vÃ­ hvernig lÃ¡rÃ©ttur listi fÃ¦rist Ã­ Marmalade. SjÃ¡lfgefin stilling fÃ¦rir listann Ã­ hringi. \"Fixed\" eru listar meÃ° upphafi og enda."
 
 msgctxt "#31917"
 msgid "When enabled text scrolls automatically. When disabled manual scrolling is required. Note that not every textbox has a manual button."
-msgstr "Ef virkjað, færast listar sjálfkrafa. Ef ekki virkjað þarf að færa lista handvirkt. Ath. að ekki öll textabox eru með takka fyrir handvirkt."
+msgstr "Ef virkjaÃ°, fÃ¦rast listar sjÃ¡lfkrafa. Ef ekki virkjaÃ° Ã¾arf aÃ° fÃ¦ra lista handvirkt. Ath. aÃ° ekki Ã¶ll textabox eru meÃ° takka fyrir handvirkt."
 
 msgctxt "#31918"
 msgid "Projects the current playing video on the background behind the panels."
-msgstr "Sýnir myndefni í bakgrunni fyrir aftan borðin."
+msgstr "SÃ½nir myndefni Ã­ bakgrunni fyrir aftan borÃ°in."
 
 msgctxt "#31919"
 msgid "Projects the visualisation on the background behind the panels when music is played."
-msgstr "Sýnir myndskreytingu í bakgrunni fyrir aftan borðin þegar tónlist er spiluð."
+msgstr "SÃ½nir myndskreytingu Ã­ bakgrunni fyrir aftan borÃ°in Ã¾egar tÃ³nlist er spiluÃ°."
 
 msgctxt "#31920"
 msgid "Displays a widget on the Home screen with media information when music is playing."
-msgstr "Sýnir viðmótshluta á forsíðu með upplýsingum þegar tónlist er spiluð."
+msgstr "SÃ½nir viÃ°mÃ³tshluta Ã¡ forsÃ­Ã°u meÃ° upplÃ½singum Ã¾egar tÃ³nlist er spiluÃ°."
 
 msgctxt "#31921"
 msgid "Displays a widget on the Home screen with media information when a movie or episode is playing."
-msgstr "Sýnir viðmótshluta á forsíðu með upplýsingum þegar kvikmynd eða þáttur er í spilun."
+msgstr "SÃ½nir viÃ°mÃ³tshluta Ã¡ forsÃ­Ã°u meÃ° upplÃ½singum Ã¾egar kvikmynd eÃ°a Ã¾Ã¡ttur er Ã­ spilun."
 
 msgctxt "#31922"
 msgid "This enables custom genre backgrounds when browsing through the videolibrary's genre node. Filenames should match the genre label. Extension must be .jpg."
-msgstr "Þetta virkjar sérsniðna bakgrunns flokka þegar flett er í gegnum myndefnissafn í flokka ham. Skráanöfn eiga vera þau sömu og flokka merking. Endingar skrá verða að vera .jpg."
+msgstr "Ãžetta virkjar sÃ©rsniÃ°na bakgrunns flokka Ã¾egar flett er Ã­ gegnum myndefnissafn Ã­ flokka ham. SkrÃ¡anÃ¶fn eiga vera Ã¾au sÃ¶mu og flokka merking. Endingar skrÃ¡ verÃ°a aÃ° vera .jpg."
 
 msgctxt "#31924"
 msgid "This enables custom genre backgrounds when browsing through the musiclibrary's genre node. Filenames should match the genre label. Extension must be .jpg."
-msgstr "Þetta virkjar sérsniðna bakgrunns flokka þegar flett er í gegnum myndefnissafn í flokka ham. Skráanöfn eiga vera þau sömu og flokka merking. Endingar skrá verða að vera .jpg."
+msgstr "Ãžetta virkjar sÃ©rsniÃ°na bakgrunns flokka Ã¾egar flett er Ã­ gegnum myndefnissafn Ã­ flokka ham. SkrÃ¡anÃ¶fn eiga vera Ã¾au sÃ¶mu og flokka merking. Endingar skrÃ¡ verÃ°a aÃ° vera .jpg."
 
 msgctxt "#31925"
 msgid "Choose what to display for the menu items background."
@@ -2943,11 +2943,11 @@ msgstr ""
 
 msgctxt "#31927"
 msgid "Resets all above values to their defaults."
-msgstr "Endursetjið allar stillingar hér að ofan sem sjálfgefnar."
+msgstr "EndursetjiÃ° allar stillingar hÃ©r aÃ° ofan sem sjÃ¡lfgefnar."
 
 msgctxt "#31928"
 msgid "Marmalade main menu layout"
-msgstr "Marmalade uppsetning aðalvalmyndar"
+msgstr "Marmalade uppsetning aÃ°alvalmyndar"
 
 msgctxt "#31929"
 msgid "This setting defines the main menu layout. Options are 5 items, 3 items, 1 items, or icons for the default horizontal menu. You can also choose a vertical menu layout."
@@ -2955,27 +2955,27 @@ msgstr ""
 
 msgctxt "#31930"
 msgid "Choose a widget to display on the Home screen to have easy access to content from the library."
-msgstr "Veldu viðmótshluta til að sýna á forsíðu til að auðvelda aðgang að gögnum úr safni."
+msgstr "Veldu viÃ°mÃ³tshluta til aÃ° sÃ½na Ã¡ forsÃ­Ã°u til aÃ° auÃ°velda aÃ°gang aÃ° gÃ¶gnum Ãºr safni."
 
 msgctxt "#31931"
 msgid "Video plot preference"
-msgstr "Myndefnis söguþráður, stillingar"
+msgstr "Myndefnis sÃ¶guÃ¾rÃ¡Ã°ur, stillingar"
 
 msgctxt "#31932"
 msgid "Show plot outline in the library views and full plot in the video information dialog or vice versa. Falls back to full plot if no outline is available."
-msgstr "Sýna úrdrátt á söguþræði í safnaham og allan söguþráð í upplýsingaglugga myndar eða öfugt. Til vara sýnir allan söguþráð er úrdráttur er ekki til."
+msgstr "SÃ½na ÃºrdrÃ¡tt Ã¡ sÃ¶guÃ¾rÃ¦Ã°i Ã­ safnaham og allan sÃ¶guÃ¾rÃ¡Ã° Ã­ upplÃ½singaglugga myndar eÃ°a Ã¶fugt. Til vara sÃ½nir allan sÃ¶guÃ¾rÃ¡Ã° er ÃºrdrÃ¡ttur er ekki til."
 
 msgctxt "#31933"
 msgid "Select an item to display on the left top of the main menu"
-msgstr "Veldu atriði til að birta efst vinstra megin á aðalvalmyndinni"
+msgstr "Veldu atriÃ°i til aÃ° birta efst vinstra megin Ã¡ aÃ°alvalmyndinni"
 
 msgctxt "#31935"
 msgid "Switch places with another menu item. Opens a dialog with a list of menu items to choose from."
-msgstr "Skiptið um staðsetningu við annan hlut í valmynd. Opnar glugga með lista af hlutum til að velja úr."
+msgstr "SkiptiÃ° um staÃ°setningu viÃ° annan hlut Ã­ valmynd. Opnar glugga meÃ° lista af hlutum til aÃ° velja Ãºr."
 
 msgctxt "#31937"
 msgid "Show the RSS feed on the bottom or top of the screen, depending on main menu position. Enabling this setting makes the submenu permanently visible."
-msgstr "Sýnið RSS slá efst eða neðst á skjá, eftir staðsetningu aðalvalmyndar. Með því að virkja þessa stillingu verður undirvalmynd alltaf sýnileg."
+msgstr "SÃ½niÃ° RSS slÃ¡ efst eÃ°a neÃ°st Ã¡ skjÃ¡, eftir staÃ°setningu aÃ°alvalmyndar. MeÃ° Ã¾vÃ­ aÃ° virkja Ã¾essa stillingu verÃ°ur undirvalmynd alltaf sÃ½nileg."
 
 msgctxt "#31938"
 msgid "Enables extra information in the TV show library, like TV show status, next / latest episode, etc. Depends on TheMovieDb Helper add-on."
@@ -2983,7 +2983,7 @@ msgstr ""
 
 msgctxt "#31939"
 msgid "Hide Infopanel on scrolling"
-msgstr "Fela upplýsingaborð þegar flett er"
+msgstr "Fela upplÃ½singaborÃ° Ã¾egar flett er"
 
 msgctxt "#31940"
 msgid "Hides the infopanel while scrolling through the library. Set the amount of seconds to wait for the infopanel to appear when scrolling has stopped."
@@ -2991,7 +2991,7 @@ msgstr ""
 
 msgctxt "#31941"
 msgid "Kiosk mode"
-msgstr "Sjálfsalastilling (kiosk)"
+msgstr "SjÃ¡lfsalastilling (kiosk)"
 
 msgctxt "#31942"
 msgid "Disables the slide out menu (media menu) in the library as well as certain buttons in the media information dialogs."
@@ -2999,7 +2999,7 @@ msgstr ""
 
 msgctxt "#31943"
 msgid "Watched status indicator"
-msgstr "Merki fyrir stöðu áhorfs"
+msgstr "Merki fyrir stÃ¶Ã°u Ã¡horfs"
 
 msgctxt "#31944"
 msgid "Choose which overlays to show on thumbs in icon based views. Note that the \"Resume\" flag takes precedent over any watched status. After activating an overlay you must also enable it in each views settings. "
@@ -3007,19 +3007,19 @@ msgstr ""
 
 msgctxt "#31945"
 msgid "This toggles the layout of the List view. Default is a 7 item layout with extended info, \"Slim List\" is a 14 item, more basic layout"
-msgstr "Þetta breytir útliti lista. Sjálfgefið eru 7 atriði með viðbótarupplýsingum. \"Mjór listi\" eru 14 atriði með einfaldari framsetningu"
+msgstr "Ãžetta breytir Ãºtliti lista. SjÃ¡lfgefiÃ° eru 7 atriÃ°i meÃ° viÃ°bÃ³tarupplÃ½singum. \"MjÃ³r listi\" eru 14 atriÃ°i meÃ° einfaldari framsetningu"
 
 msgctxt "#31950"
 msgid "WEATHER"
-msgstr "VEÐUR"
+msgstr "VEÃUR"
 
 msgctxt "#31951"
 msgid "PICTURES"
-msgstr "LJÓSMYNDIR"
+msgstr "LJÃ“SMYNDIR"
 
 msgctxt "#31952"
 msgid "LIVE TV"
-msgstr "BEIN ÚTSENDING"
+msgstr "BEIN ÃšTSENDING"
 
 msgctxt "#31953"
 msgid "VIDEOS"
@@ -3031,11 +3031,11 @@ msgstr "KVIKMYNDIR"
 
 msgctxt "#31955"
 msgid "TV SHOWS"
-msgstr "SJÓNVARPSÞÆTTIR"
+msgstr "SJÃ“NVARPSÃžÃ†TTIR"
 
 msgctxt "#31956"
 msgid "MUSIC"
-msgstr "TÓNLIST"
+msgstr "TÃ“NLIST"
 
 msgctxt "#31957"
 msgid "Apps"
@@ -3051,15 +3051,15 @@ msgstr "KERFI"
 
 msgctxt "#31960"
 msgid "CONCERTS"
-msgstr "TÓNLEIKAR"
+msgstr "TÃ“NLEIKAR"
 
 msgctxt "#31961"
 msgid "Hide ratings in list views"
-msgstr "Fela stjörnugjöf í listum"
+msgstr "Fela stjÃ¶rnugjÃ¶f Ã­ listum"
 
 msgctxt "#31962"
 msgid "This toggles the visibility of ratings in views of type List, LowList and TriPanel, except if sorted by rating."
-msgstr "Felur/sýnir stjörnugjöf í LágListi og Þríspjaldi, nema flokkað sé eftir stjörnugjöf."
+msgstr "Felur/sÃ½nir stjÃ¶rnugjÃ¶f Ã­ LÃ¡gListi og ÃžrÃ­spjaldi, nema flokkaÃ° sÃ© eftir stjÃ¶rnugjÃ¶f."
 
 msgctxt "#31963"
 msgid "Open Sans"
@@ -3146,7 +3146,7 @@ msgstr ""
 
 msgctxt "#31989"
 msgid "Animate backgrounds"
-msgstr "Myndlífga bakgrunna"
+msgstr "MyndlÃ­fga bakgrunna"
 
 msgctxt "#31990"
 msgid "Choose where the PreshowExperience button should be placed"
@@ -3166,32 +3166,32 @@ msgstr ""
 
 msgctxt "#31994"
 msgid "Vertical Menu"
-msgstr "Lóðrétt valmynd"
+msgstr "LÃ³Ã°rÃ©tt valmynd"
 
 #~ msgctxt "#31015"
 #~ msgid "Set path to video genre fanart folder"
-#~ msgstr "Setja inn slóð á möppu aðdáendamynda fyrir myndefnisflokka"
+#~ msgstr "Setja inn slÃ³Ã° Ã¡ mÃ¶ppu aÃ°dÃ¡endamynda fyrir myndefnisflokka"
 
 #~ msgctxt "#31070"
 #~ msgid "Enable CinemaVision integration"
-#~ msgstr "Virkja samþættingu CinemaVision"
+#~ msgstr "Virkja samÃ¾Ã¦ttingu CinemaVision"
 
 #~ msgctxt "#31111"
 #~ msgid "Similar movies"
-#~ msgstr "Svipaðar kvikmyndir"
+#~ msgstr "SvipaÃ°ar kvikmyndir"
 
 #~ msgctxt "#31115"
 #~ msgid "Similar TV shows"
-#~ msgstr "Svipaðir sjónvarpsþættir"
+#~ msgstr "SvipaÃ°ir sjÃ³nvarpsÃ¾Ã¦ttir"
 
 #~ msgctxt "#31938"
 #~ msgid "Enables extra information in the TV show library, like TV show status, next / latest episode, etc. Depends on TV Show Next Aired add-on."
-#~ msgstr "Virkjar auka upplýsingar í sjónvarpsþáttasafni eins og stöðu þátta, næsti / síðasti þáttur osfrv. Er háð TV Show Next Aired viðbót."
+#~ msgstr "Virkjar auka upplÃ½singar Ã­ sjÃ³nvarpsÃ¾Ã¡ttasafni eins og stÃ¶Ã°u Ã¾Ã¡tta, nÃ¦sti / sÃ­Ã°asti Ã¾Ã¡ttur osfrv. Er hÃ¡Ã° TV Show Next Aired viÃ°bÃ³t."
 
 #~ msgctxt "#31332"
 #~ msgid "Not Installed"
 #~ msgstr "Ekki uppsett"
 
 #~ msgctxt "#31451"
-#~ msgid "  •  Click to Install"
-#~ msgstr "  •  Smelltu til að setja upp"
+#~ msgid "  â€¢  Click to Install"
+#~ msgstr "  â€¢  Smelltu til aÃ° setja upp"
