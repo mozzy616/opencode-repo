@@ -1163,8 +1163,53 @@ def play_episode(eid, title, link, show_title, season, show_imdb_id="", episode_
 
 def show_settings():
     import xbmcaddon
-    xbmcaddon.Addon('plugin.video.streamlord').openSettings()
-    xbmcplugin.endOfDirectory(HANDLE)
+    d = xbmcgui.Dialog()
+    if d.yesno("StreamLord", "Authorize Real-Debrid easily?", "", "Use your phone to link RD - no typing!"):
+        auth_rd_device()
+    else:
+        xbmcaddon.Addon('plugin.video.streamlord').openSettings()
+    xbmcplugin.endOfDirectory(HANDLE, updateListing=True)
+
+def auth_rd_device():
+    import time
+    client_id = "X245A4XAIBGVM"
+    try:
+        data = urllib.parse.urlencode({"client_id": client_id, "new_credentials": "yes"}).encode()
+        req = urllib.request.Request("https://api.real-debrid.com/oauth/v2/device/code", data=data,
+                                     headers={"User-Agent": "Kodi/21", "Content-Type": "application/x-www-form-urlencoded"})
+        with urllib.request.urlopen(req, timeout=15) as r:
+            result = json.loads(r.read())
+    except Exception as e:
+        xbmcgui.Dialog().ok("Error", "Could not connect to Real-Debrid.", str(e))
+        return
+
+    device_code = result.get("device_code", "")
+    user_code = result.get("user_code", "")
+    direct_url = result.get("direct_verification_url", "https://real-debrid.com/device")
+
+    xbmcgui.Dialog().ok("Authorize Real-Debrid",
+                         "1. Open this on your phone/PC:",
+                         direct_url,
+                         "2. Enter this code: [B]%s[/B]" % user_code,
+                         "",
+                         "Press OK when done and we'll link your account.")
+
+    for attempt in range(60):
+        xbmc.sleep(2000)
+        try:
+            poll_url = "https://api.real-debrid.com/oauth/v2/device/credentials?client_id=%s&code=%s" % (client_id, device_code)
+            req = urllib.request.Request(poll_url, headers={"User-Agent": "Kodi/21"})
+            with urllib.request.urlopen(req, timeout=15) as r:
+                creds = json.loads(r.read())
+            if creds.get("client_secret"):
+                token = creds["client_secret"]
+                import xbmcaddon
+                xbmcaddon.Addon('plugin.video.streamlord').setSetting('rd_token', token)
+                xbmcgui.Dialog().ok("Success!", "Real-Debrid linked!", "Your API token has been saved.")
+                return
+        except:
+            pass
+    xbmcgui.Dialog().ok("Timeout", "Authorization timed out.", "Try again.")
 
 def _rd_token():
     try:
