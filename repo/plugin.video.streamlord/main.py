@@ -725,11 +725,13 @@ def play_via_LordPlayer(magnet, title):
             magnet += TRACKERS
 
         player_type = int(ADDON.getSetting("player_type") or "0")
+        rd_token = ADDON.getSetting("rd_token") or ""
+        xbmc.log("[StreamLord] play_via_LordPlayer: player_type=%d rd_token=%s" % (player_type, "YES" if rd_token else "NO"), xbmc.LOGINFO)
         if player_type == 1:
-            rd_token = ADDON.getSetting("rd_token") or ""
             if not rd_token:
                 xbmcgui.Dialog().ok("StreamLord", "RD token not set. Add it in StreamLord settings.")
                 return False
+            xbmc.log("[StreamLord] Using RD for Xbox playback", xbmc.LOGINFO)
             prog = xbmcgui.DialogProgress()
             prog.create("StreamLord RD", "Checking Real-Debrid cache...")
             url = rd_unrestrict(magnet, rd_token, prog)
