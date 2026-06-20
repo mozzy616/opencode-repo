@@ -988,13 +988,34 @@ def play_movie(mid, title, watch_link="", imdb_id="", year=""):
 
     deduped.sort(key=lambda s: (QUALITY_ORDER.get(s[1], 99), -(int(s[2]) if s[2] else 0)))
 
+    # Batch-check RD cache
+    rd_cached = set()
+    rd_token = _get_rd_token()
+    if rd_token:
+        hashes = [s[4] for s in deduped if s[4] and len(s[4]) == 40]
+        if hashes:
+            try:
+                hash_list = "/" + "/".join(hashes[:50])
+                req = urllib.request.Request(
+                    "https://api.real-debrid.com/rest/1.0/torrents/instantAvailability" + hash_list,
+                    headers={"Authorization": "Bearer " + rd_token, "User-Agent": "Kodi/21"})
+                with urllib.request.urlopen(req, timeout=15) as r:
+                    avail = json.loads(r.read())
+                for h in hashes:
+                    if h in avail and avail[h].get("rd"):
+                        rd_cached.add(h)
+            except:
+                pass
+
     items = []
     for s in deduped:
         name = s[6] if len(s) > 6 else ""
         label = "%s %s" % (s[1], s[5]) if s[5] else s[1]
         if s[2]:
             label += " [S:%s]" % s[2]
-        if len(s) > 7 and s[7]:
+        if s[4] in rd_cached:
+            label += " [B][COLOR green]RD CACHED[/COLOR][/B]"
+        elif len(s) > 7 and s[7]:
             label += " [RD]"
         if name:
             label = "%s - %s" % (name[:60], label)
@@ -1116,13 +1137,34 @@ def play_episode(eid, title, link, show_title, season, show_imdb_id="", episode_
 
     deduped.sort(key=lambda s: (QUALITY_ORDER.get(s[1], 99), -(int(s[2]) if s[2] else 0)))
 
+    # Batch-check RD cache
+    rd_cached = set()
+    rd_token = _get_rd_token()
+    if rd_token:
+        hashes = [s[4] for s in deduped if s[4] and len(s[4]) == 40]
+        if hashes:
+            try:
+                hash_list = "/" + "/".join(hashes[:50])
+                req = urllib.request.Request(
+                    "https://api.real-debrid.com/rest/1.0/torrents/instantAvailability" + hash_list,
+                    headers={"Authorization": "Bearer " + rd_token, "User-Agent": "Kodi/21"})
+                with urllib.request.urlopen(req, timeout=15) as r:
+                    avail = json.loads(r.read())
+                for h in hashes:
+                    if h in avail and avail[h].get("rd"):
+                        rd_cached.add(h)
+            except:
+                pass
+
     items = []
     for s in deduped:
         name = s[6] if len(s) > 6 else ""
         label = "%s %s" % (s[1], s[5]) if s[5] else s[1]
         if s[2]:
             label += " [S:%s]" % s[2]
-        if len(s) > 7 and s[7]:
+        if s[4] in rd_cached:
+            label += " [B][COLOR green]RD CACHED[/COLOR][/B]"
+        elif len(s) > 7 and s[7]:
             label += " [RD]"
         if name:
             label = "%s - %s" % (name[:60], label)
