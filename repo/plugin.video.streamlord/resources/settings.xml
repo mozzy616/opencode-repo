@@ -6,7 +6,7 @@
         <setting id="pm_token" type="text" label="Premiumize API Token" default="" />
     </category>
     <category label="Player">
-        <setting id="player_type" type="enum" label="Torrent Player" values="LordPlayer (Torrest)|LordPlayer Xbox (Seedr.cc)" default="0" />
+        <setting id="player_type" type="enum" label="Player Mode" values="Torrest (Windows)|Real-Debrid (Xbox/Cloud)" default="0" />
     </category>
     <category label="Downloads">
         <setting id="download_path" type="folder" label="Download folder" default="special://home/userdata/downloads/" />

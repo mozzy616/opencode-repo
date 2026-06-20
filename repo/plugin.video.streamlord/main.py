@@ -734,13 +734,15 @@ def play_via_LordPlayer(magnet, title):
         if TRACKERS not in magnet:
             magnet += TRACKERS
 
-        rd_token = _get_rd_token()
-        # Always use RD if token is set (for Xbox)
-        if rd_token:
+        import xbmcaddon
+        pt = xbmcaddon.Addon('plugin.video.streamlord').getSetting('player_type')
+
+        if pt == "1":
+            rd_token = _get_rd_token()
             if not rd_token:
-                xbmcgui.Dialog().ok("StreamLord", "RD token not set. Add it in StreamLord settings.")
+                xbmcgui.Dialog().ok("StreamLord", "Set Real-Debrid token in Settings > Debrid Services.")
                 return False
-            xbmc.log("[StreamLord] Using RD for Xbox playback", xbmc.LOGINFO)
+            xbmc.log("[StreamLord] Using RD (cloud mode)", xbmc.LOGINFO)
             prog = xbmcgui.DialogProgress()
             prog.create("StreamLord RD", "Checking Real-Debrid cache...")
             url = rd_unrestrict(magnet, rd_token, prog)
@@ -755,7 +757,7 @@ def play_via_LordPlayer(magnet, title):
         else:
             player_id = "plugin.video.lordplayer"
             plugin_url = "plugin://%s/play_magnet?magnet=%s&buffer=true" % (player_id, urllib.parse.quote(magnet, safe=''))
-            xbmc.log("[StreamLord] Playing via %s" % player_id, xbmc.LOGINFO)
+            xbmc.log("[StreamLord] Playing via %s (Torrest)" % player_id, xbmc.LOGINFO)
             li = xbmcgui.ListItem(path=plugin_url, label=title)
             li.setProperty("IsPlayable", "true")
             xbmcplugin.setResolvedUrl(HANDLE, True, li)
