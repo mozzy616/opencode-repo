@@ -160,9 +160,9 @@
         <assets><icon>icon.png</icon></assets>
     </extension>
 </addon>
-<addon id="plugin.video.streamlord" name="StreamLord" version="3.0.3" provider-name="opencode">
+<addon id="plugin.video.streamlord" name="StreamLord" version="3.0.4" provider-name="opencode">
     <requires>
-        <import addon="xbmc.python" version="3.0.3"/>
+        <import addon="xbmc.python" version="3.0.4"/>
         <import addon="script.module.cocoscrapers"/>
         <import addon="script.module.resolveurl"/>
         <import addon="inputstream.adaptive"/>
