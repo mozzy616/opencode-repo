@@ -714,16 +714,21 @@ def _autoplay_monitor(imdb_id, season, episode, show_title):
         monitor.waitForAbort(1)
     if not player.isPlaying() or monitor.abortRequested():
         return
-    total = player.getTotalTime()
+    for _ in range(30):
+        total = player.getTotalTime()
+        if total > 60:
+            break
+        monitor.waitForAbort(1)
     if total <= 0:
-        return
+        total = 0
     s_int = int(season) if season else 0
     e_int = int(episode) if episode else 0
     next_s, next_e = s_int, e_int + 1
     while player.isPlaying() and not monitor.abortRequested():
-        remaining = int(total - player.getTime())
-        if remaining <= 25:
-            break
+        if total > 0:
+            remaining = int(total - player.getTime())
+            if remaining <= 25:
+                break
         monitor.waitForAbort(1)
     if not player.isPlaying() or monitor.abortRequested():
         return
