@@ -31,10 +31,10 @@ ADDONS = [
     ("resource.images.weatherfanart.single", "resource.images.weatherfanart.single-0.0.6.zip"),
     ("inputstream.adaptive", "inputstream.adaptive-21.5.19.zip"),
     ("plugin.video.lordplayer", "plugin.video.lordplayer-1.0.0.zip"),
-    ("plugin.video.streamlord", "plugin.video.streamlord-1.0.0.zip"),
+    ("plugin.video.streamlord", "plugin.video.streamlord-3.1.0.zip"),
     ("plugin.video.xprime", "plugin.video.xprime-1.0.1.zip"),
     ("plugin.program.koditoolbox", "plugin.program.koditoolbox-1.0.0.zip"),
-    ("plugin.video.lordplayerxbox", "plugin.video.lordplayerxbox-1.0.0.zip"),
+
     ("skin.marmalade", "skin.marmalade-1.0.0.zip"),
 ]
 

@@ -632,136 +632,19 @@ def _tr(method, path, params=None):
     with urllib.request.urlopen(req, timeout=15) as resp:
         return json.loads(resp.read().decode("utf-8", errors="replace"))
 
-def rd_unrestrict(magnet, rd_token, prog=None):
-    """Use Real-Debrid API to convert magnet to direct stream URL."""
-    import re, hashlib
-    try:
-        def _rd_get(path, token):
-            url = "https://api.real-debrid.com/rest/1.0/" + path
-            req = urllib.request.Request(url,
-                                         headers={"Authorization": "Bearer " + token,
-                                                  "User-Agent": "Kodi/21"})
-            try:
-                with urllib.request.urlopen(req, timeout=15) as r:
-                    return json.loads(r.read().decode("utf-8", errors="replace"))
-            except urllib.error.HTTPError as e:
-                xbmc.log("[StreamLord] RD GET %s = %d %s" % (path, e.code, str(e)[:100]), xbmc.LOGERROR)
-                raise
-        def _rd_post(path, data, token):
-            url = "https://api.real-debrid.com/rest/1.0/" + path
-            body = urllib.parse.urlencode(data).encode()
-            req = urllib.request.Request(url, data=body,
-                                         headers={"Authorization": "Bearer " + token,
-                                                  "User-Agent": "Kodi/21",
-                                                  "Content-Type": "application/x-www-form-urlencoded"})
-            try:
-                with urllib.request.urlopen(req, timeout=15) as r:
-                    return json.loads(r.read().decode("utf-8", errors="replace"))
-            except urllib.error.HTTPError as e:
-                xbmc.log("[StreamLord] RD POST %s = %d %s" % (path, e.code, str(e)[:100]), xbmc.LOGERROR)
-                raise
-
-        m = re.search(r"btih:([a-fA-F0-9]{40})", magnet)
-        if not m:
-            return None
-        info_hash = m.group(1).lower()
-
-        # Check instant availability first
-        if prog:
-            prog.update(0, "Checking RD cache...")
-        avail = _rd_get("torrents/instantAvailability/%s" % info_hash, rd_token)
-        if avail and info_hash in avail:
-            variants = avail[info_hash].get("rd", [])
-            if variants:
-                for v in variants:
-                    for fid, finfo in v.items():
-                        dl = _rd_post("unrestrict/link",
-                                      {"link": "https://real-debrid.com/d/%s/%s" % (info_hash, finfo.get("filename", fid))},
-                                      rd_token)
-                        if dl and dl.get("download"):
-                            if prog: prog.update(100, "Cached! Playing...")
-                            return dl["download"]
-                        break
-                    break
-
-        # Not cached — add magnet and wait
-        if prog:
-            prog.update(5, "Adding to RD...")
-        add = _rd_post("torrents/addMagnet", {"magnet": magnet}, rd_token)
-        if not add or "id" not in add:
-            raise Exception("RD addMagnet failed: %s" % str(add)[:100])
-        tid = add["id"]
-
-        for attempt in range(120):
-            xbmc.sleep(3000)
-            if prog and prog.iscanceled():
-                return None
-            info = _rd_get("torrents/info/%s" % tid, rd_token)
-            if not info:
-                continue
-            st = info.get("status", "")
-            pct = info.get("progress", 0)
-            if prog:
-                prog.update(int(pct), "RD: %s %d%%" % (st, pct))
-            if st == "waiting_files_selection":
-                files = info.get("files", [])
-                ids = ",".join(str(f["id"]) for f in files
-                              if any(f.get("path","").lower().endswith(e)
-                                     for e in (".mp4",".mkv",".avi",".ts")))
-                if not ids and files:
-                    ids = str(files[0]["id"])
-                if ids:
-                    _rd_post("torrents/selectFiles/%s" % tid, {"files": ids}, rd_token)
-            elif st == "downloaded":
-                for link in info.get("links", []):
-                    dl = _rd_post("unrestrict/link", {"link": link}, rd_token)
-                    if dl and dl.get("download"):
-                        if prog: prog.update(100, "Playing!")
-                        return dl["download"]
-                return None
-            elif st in ("magnet_error", "error", "virus", "dead"):
-                return None
-        return None
-    except Exception as e:
-        xbmcgui.Dialog().ok("RD Error", str(e)[:200])
-        xbmc.log("[StreamLord] RD unrestrict error: %s" % str(e), xbmc.LOGERROR)
-        return None
-
 def play_via_LordPlayer(magnet, title):
     try:
         if not magnet.startswith("magnet:"):
             return False
         if TRACKERS not in magnet:
             magnet += TRACKERS
-
-        import xbmcaddon
-        pt = xbmcaddon.Addon('plugin.video.streamlord').getSetting('player_type')
-
-        if pt == "1":
-            rd_token = _get_rd_token()
-            if not rd_token:
-                xbmcgui.Dialog().ok("StreamLord", "Set Real-Debrid token in Settings > Debrid Services.")
-                return False
-            xbmc.log("[StreamLord] Using RD (cloud mode)", xbmc.LOGINFO)
-            prog = xbmcgui.DialogProgress()
-            prog.create("StreamLord RD", "Checking Real-Debrid cache...")
-            url = rd_unrestrict(magnet, rd_token, prog)
-            prog.close()
-            if url:
-                li = xbmcgui.ListItem(path=url, label=title)
-                li.setProperty("IsPlayable", "true")
-                xbmcplugin.setResolvedUrl(HANDLE, True, li)
-                return True
-            xbmcgui.Dialog().ok("StreamLord", "Torrent not streamable via RD. May not be cached.")
-            return False
-        else:
-            player_id = "plugin.video.lordplayer"
-            plugin_url = "plugin://%s/play_magnet?magnet=%s&buffer=true" % (player_id, urllib.parse.quote(magnet, safe=''))
-            xbmc.log("[StreamLord] Playing via %s (Torrest)" % player_id, xbmc.LOGINFO)
-            li = xbmcgui.ListItem(path=plugin_url, label=title)
-            li.setProperty("IsPlayable", "true")
-            xbmcplugin.setResolvedUrl(HANDLE, True, li)
-            return True
+        player_id = "plugin.video.lordplayer"
+        plugin_url = "plugin://%s/play_magnet?magnet=%s&buffer=true" % (player_id, urllib.parse.quote(magnet, safe=''))
+        xbmc.log("[StreamLord] Playing via %s" % player_id, xbmc.LOGINFO)
+        li = xbmcgui.ListItem(path=plugin_url, label=title)
+        li.setProperty("IsPlayable", "true")
+        xbmcplugin.setResolvedUrl(HANDLE, True, li)
+        return True
     except Exception as e:
         xbmc.log("[StreamLord] play_via_LordPlayer error: %s" % str(e), xbmc.LOGERROR)
         return False
@@ -990,35 +873,12 @@ def play_movie(mid, title, watch_link="", imdb_id="", year=""):
 
     deduped.sort(key=lambda s: (QUALITY_ORDER.get(s[1], 99), -(int(s[2]) if s[2] else 0)))
 
-    # Batch-check RD cache
-    rd_cached = set()
-    rd_token = _get_rd_token()
-    if rd_token:
-        hashes = [s[4] for s in deduped if s[4] and len(s[4]) == 40]
-        if hashes:
-            try:
-                hash_list = "/" + "/".join(hashes[:50])
-                req = urllib.request.Request(
-                    "https://api.real-debrid.com/rest/1.0/torrents/instantAvailability" + hash_list,
-                    headers={"Authorization": "Bearer " + rd_token, "User-Agent": "Kodi/21"})
-                with urllib.request.urlopen(req, timeout=15) as r:
-                    avail = json.loads(r.read())
-                for h in hashes:
-                    if h in avail and avail[h].get("rd"):
-                        rd_cached.add(h)
-            except:
-                pass
-
     items = []
     for s in deduped:
         name = s[6] if len(s) > 6 else ""
         label = "%s %s" % (s[1], s[5]) if s[5] else s[1]
         if s[2]:
             label += " [S:%s]" % s[2]
-        if s[4] in rd_cached:
-            label += " *** RD CACHED ***"
-        elif len(s) > 7 and s[7]:
-            label += " [RD]"
         if name:
             label = "%s - %s" % (name[:60], label)
         items.append(label)
@@ -1139,35 +999,12 @@ def play_episode(eid, title, link, show_title, season, show_imdb_id="", episode_
 
     deduped.sort(key=lambda s: (QUALITY_ORDER.get(s[1], 99), -(int(s[2]) if s[2] else 0)))
 
-    # Batch-check RD cache
-    rd_cached = set()
-    rd_token = _get_rd_token()
-    if rd_token:
-        hashes = [s[4] for s in deduped if s[4] and len(s[4]) == 40]
-        if hashes:
-            try:
-                hash_list = "/" + "/".join(hashes[:50])
-                req = urllib.request.Request(
-                    "https://api.real-debrid.com/rest/1.0/torrents/instantAvailability" + hash_list,
-                    headers={"Authorization": "Bearer " + rd_token, "User-Agent": "Kodi/21"})
-                with urllib.request.urlopen(req, timeout=15) as r:
-                    avail = json.loads(r.read())
-                for h in hashes:
-                    if h in avail and avail[h].get("rd"):
-                        rd_cached.add(h)
-            except:
-                pass
-
     items = []
     for s in deduped:
         name = s[6] if len(s) > 6 else ""
         label = "%s %s" % (s[1], s[5]) if s[5] else s[1]
         if s[2]:
             label += " [S:%s]" % s[2]
-        if s[4] in rd_cached:
-            label += " *** RD CACHED ***"
-        elif len(s) > 7 and s[7]:
-            label += " [RD]"
         if name:
             label = "%s - %s" % (name[:60], label)
         items.append(label)
@@ -1229,94 +1066,8 @@ def play_episode(eid, title, link, show_title, season, show_imdb_id="", episode_
 
 def show_settings():
     import xbmcaddon
-    d = xbmcgui.Dialog()
-    if d.yesno("StreamLord v1.0.5", "Authorize Real-Debrid easily?", "", "Use your phone to link RD - no typing!"):
-        auth_rd_device()
-    else:
-        xbmcaddon.Addon('plugin.video.streamlord').openSettings()
+    xbmcaddon.Addon('plugin.video.streamlord').openSettings()
     xbmcplugin.endOfDirectory(HANDLE, updateListing=True)
-
-def auth_rd_device():
-    import time, xbmcaddon
-    client_id = "X245A4XAIBGVM"
-    try:
-        url = "https://api.real-debrid.com/oauth/v2/device/code?client_id=%s&new_credentials=yes" % client_id
-        req = urllib.request.Request(url, headers={"User-Agent": "Kodi/21"})
-        with urllib.request.urlopen(req, timeout=15) as r:
-            result = json.loads(r.read())
-    except Exception as e:
-        xbmcgui.Dialog().ok("Error", "Could not connect to RD. " + str(e))
-        return
-
-    device_code = result.get("device_code", "")
-    user_code = result.get("user_code", "")
-    direct_url = result.get("direct_verification_url", "https://real-debrid.com/device")
-
-    xbmcgui.Dialog().ok("Authorize Real-Debrid",
-                         "Open: %s\nEnter code: %s" % (direct_url, user_code))
-
-    for attempt in range(60):
-        xbmc.sleep(2000)
-        try:
-            poll_url = "https://api.real-debrid.com/oauth/v2/device/credentials?client_id=%s&code=%s" % (client_id, device_code)
-            req = urllib.request.Request(poll_url, headers={"User-Agent": "Kodi/21"})
-            with urllib.request.urlopen(req, timeout=15) as r:
-                creds = json.loads(r.read())
-            if creds.get("client_secret"):
-                api_token = creds["client_secret"]
-                xbmcaddon.Addon('plugin.video.streamlord').setSetting('rd_token', api_token)
-                try:
-                    cache = xbmcvfs.translatePath("special://profile/addon_data/plugin.video.streamlord/rd.txt")
-                    os.makedirs(os.path.dirname(cache), exist_ok=True)
-                    with open(cache, "w") as f:
-                        f.write(api_token)
-                except:
-                    pass
-                xbmcgui.Dialog().ok("Success!", "Real-Debrid linked!")
-                return
-        except:
-            pass
-    xbmcgui.Dialog().ok("Timeout", "Authorization timed out. Try again.")
-    xbmcplugin.endOfDirectory(HANDLE, updateListing=True)
-
-def _exchange_rd_token(client_id, client_secret):
-    return None
-
-def _rd_token():
-    try:
-        import xbmcaddon
-        return xbmcaddon.Addon('plugin.video.streamlord').getSetting('rd_token').strip()
-    except:
-        return ""
-    return None
-    try:
-        import xbmcaddon
-        return xbmcaddon.Addon('plugin.video.streamlord').getSetting('rd_token').strip()
-    except:
-        return ""
-
-def _get_rd_token():
-    # Check settings first, then file backup, try alt token
-    token = _rd_token()
-    if token:
-        return token
-    cache = xbmcvfs.translatePath("special://profile/addon_data/plugin.video.streamlord/rd.txt")
-    try:
-        with open(cache) as f:
-            token = f.read().strip()
-            if token:
-                return token
-    except:
-        pass
-    # Try alt token from OAuth
-    try:
-        import xbmcaddon
-        alt = xbmcaddon.Addon('plugin.video.streamlord').getSetting('rd_token_alt').strip()
-        if alt:
-            return alt
-    except:
-        pass
-    return ""
 
 def handle_download(magnet, title):
     dest = xbmcgui.Dialog().browse(0, "Choose download folder", "files", "", False, True, _get_download_path())
@@ -1324,126 +1075,7 @@ def handle_download(magnet, title):
         xbmc.log("[StreamLord] Download cancelled by user", xbmc.LOGINFO)
         return
     xbmc.log("[StreamLord] Download selected: %s" % dest, xbmc.LOGINFO)
-    choices = ["Download via LordPlayer"]
-    if _rd_token():
-        choices.append("Download via Real-Debrid")
-    pick = xbmcgui.Dialog().select("Download method", choices)
-    if pick == 0:
-        download_via_LordPlayer(magnet, title, dest)
-    elif pick == 1 and _rd_token():
-        download_via_rd(magnet, title, dest)
-
-def download_via_rd(magnet, title, dest):
-    try:
-        import threading
-        token = _rd_token()
-        if not token:
-            xbmcgui.Dialog().ok("StreamLord", "Real-Debrid not configured.\nSet RD token in Settings.")
-            return
-        if TRACKERS not in magnet:
-            magnet += TRACKERS
-        hdr = {"Authorization": "Bearer " + token, "User-Agent": USER_AGENT}
-        req = urllib.request.Request("https://api.real-debrid.com/rest/1.0/torrents/addMagnet",
-                                     data=urllib.parse.urlencode({"magnet": magnet}).encode(),
-                                     headers=hdr)
-        with urllib.request.urlopen(req, timeout=30) as r:
-            rd = json.loads(r.read())
-        tid = rd["id"]
-        xbmc.log("[StreamLord] RD torrent added: %s" % tid, xbmc.LOGINFO)
-        for _ in range(90):
-            req = urllib.request.Request("https://api.real-debrid.com/rest/1.0/torrents/info/%s" % tid, headers=hdr)
-            with urllib.request.urlopen(req, timeout=15) as r:
-                info = json.loads(r.read())
-            status = info.get("status")
-            if status == "magnet_conversion":
-                xbmc.sleep(2000)
-                continue
-            if status in ("downloading", "downloaded"):
-                break
-            if status == "waiting_files_selection":
-                req = urllib.request.Request("https://api.real-debrid.com/rest/1.0/torrents/selectFiles/%s" % tid,
-                                             data=urllib.parse.urlencode({"files": "all"}).encode(),
-                                             headers=hdr)
-                urllib.request.urlopen(req, timeout=15)
-                continue
-            xbmc.sleep(2000)
-        prog = xbmcgui.DialogProgress()
-        prog.create("StreamLord - RD Processing")
-        while not prog.iscanceled():
-            req = urllib.request.Request("https://api.real-debrid.com/rest/1.0/torrents/info/%s" % tid, headers=hdr)
-            with urllib.request.urlopen(req, timeout=15) as r:
-                info = json.loads(r.read())
-            cur = info.get("progress", 0)
-            prog.update(int(cur), "%d%%" % int(cur))
-            if info.get("status") == "downloaded" or cur >= 100:
-                break
-            xbmc.sleep(3000)
-        prog.close()
-        links = [l for l in info.get("links", [])]
-        if not links:
-            xbmcgui.Dialog().ok("StreamLord", "No files from RD")
-            return
-        cancel = threading.Event()
-        monitor = xbmc.Monitor()
-        for link in links:
-            req = urllib.request.Request("https://api.real-debrid.com/rest/1.0/unrestrict/link",
-                                         data=urllib.parse.urlencode({"link": link}).encode(),
-                                         headers=hdr)
-            with urllib.request.urlopen(req, timeout=30) as r:
-                ul = json.loads(r.read())
-            dl_url = ul.get("download")
-            filename = ul.get("filename", "video.mp4")
-            if not dl_url:
-                continue
-            out = os.path.join(dest, filename)
-            xbmc.log("[StreamLord] RD downloading: %s -> %s" % (dl_url[:80], out), xbmc.LOGINFO)
-            dl_prog = xbmcgui.DialogProgress()
-            dl_prog.create("StreamLord - Saving %s" % filename)
-            result = {"ok": False, "err": ""}
-            def run_dl():
-                try:
-                    dl_req = urllib.request.Request(dl_url, headers={"User-Agent": USER_AGENT})
-                    with urllib.request.urlopen(dl_req, timeout=300) as src:
-                        total = int(src.headers.get("Content-Length", 0))
-                        wrote = 0
-                        with open(out, "wb") as f:
-                            while not cancel.is_set():
-                                chunk = src.read(65536)
-                                if not chunk:
-                                    break
-                                f.write(chunk)
-                                wrote += len(chunk)
-                                if total:
-                                    pct = int(wrote / total * 100)
-                                    dl_prog.update(pct, "%d / %d MB" % (wrote // 1048576, total // 1048576))
-                    result["ok"] = True
-                except Exception as ex:
-                    result["err"] = str(ex)
-            t = threading.Thread(target=run_dl, daemon=True)
-            t.start()
-            while t.is_alive():
-                if dl_prog.iscanceled():
-                    cancel.set()
-                if monitor.waitForAbort(1):
-                    break
-            dl_prog.close()
-            if result["err"]:
-                xbmcgui.Dialog().ok("RD Download Error", result["err"])
-                return
-            if not result["ok"]:
-                xbmcgui.Dialog().notification("Download Cancelled", filename, xbmcgui.NOTIFICATION_WARNING, 3000)
-                return
-        xbmcgui.Dialog().notification("Download Complete", filename, xbmcgui.NOTIFICATION_INFO, 5000)
-    except urllib.error.HTTPError as e:
-        msg = str(e)
-        if e.code == 451:
-            msg = "Torrent blocked by Real-Debrid (copyright).\nTry a different source."
-        xbmc.log("[StreamLord] RD download error: %s" % msg, xbmc.LOGERROR)
-        xbmcgui.Dialog().ok("RD Download Error", msg)
-    except Exception as e:
-        import traceback
-        xbmc.log("[StreamLord] RD download error: %s\n%s" % (str(e), traceback.format_exc()), xbmc.LOGERROR)
-        xbmcgui.Dialog().ok("RD Download Error", str(e))
+    download_via_LordPlayer(magnet, title, dest)
 
 GENRES = ["action", "adventure", "animation", "comedy", "crime", "documentary", "drama", "family", "fantasy", "history", "horror", "music", "mystery", "romance", "sci-fi", "thriller", "war", "western"]
 
@@ -1610,7 +1242,6 @@ def show_menu():
         ("[B]Top IMDb[/B]", "top_imdb", "DefaultVideo.png"),
         ("[B]Genres[/B]", "genres", "DefaultVideo.png"),
         ("[B]LordPlayer[/B]", "lordplayer", "DefaultAddon.png"),
-        ("[B]Authorize Real-Debrid[/B]", "rd_auth", "DefaultAddon.png"),
         ("[B]Settings[/B]", "settings", "DefaultAddon.png"),
     ]
     for label, action, icon in items:
@@ -1856,9 +1487,6 @@ def main():
             streamlord_play(p.get("url", ""), p.get("show_title", ""), p.get("season", "1"), p.get("episode", "1"))
         elif a == "settings":
             show_settings()
-        elif a == "rd_auth":
-            auth_rd_device()
-            xbmcplugin.endOfDirectory(HANDLE)
         elif a == "movie_detail":
             movie_detail(p.get("slug", ""), p.get("link", ""))
         elif a == "tvshow_detail":
