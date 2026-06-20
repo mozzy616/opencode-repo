@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <settings>
+    <category label="Playback">
+        <setting id="autoplay_next" type="bool" label="Auto-play next episode" default="false" />
+    </category>
     <category label="Downloads">
         <setting id="download_path" type="folder" label="Download folder" default="special://home/userdata/downloads/" />
     </category>
