@@ -680,7 +680,7 @@ def rd_unrestrict(magnet, rd_token, prog=None):
             prog.update(5, "Adding to RD...")
         add = _rd_post("torrents/addMagnet", {"magnet": magnet}, rd_token)
         if not add or "id" not in add:
-            return None
+            raise Exception("RD addMagnet failed: %s" % str(add)[:100])
         tid = add["id"]
 
         for attempt in range(120):
@@ -714,6 +714,7 @@ def rd_unrestrict(magnet, rd_token, prog=None):
                 return None
         return None
     except Exception as e:
+        xbmcgui.Dialog().ok("RD Error", str(e)[:200])
         xbmc.log("[StreamLord] RD unrestrict error: %s" % str(e), xbmc.LOGERROR)
         return None
 
