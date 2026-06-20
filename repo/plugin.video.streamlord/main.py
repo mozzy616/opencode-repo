@@ -1188,11 +1188,7 @@ def auth_rd_device():
     direct_url = result.get("direct_verification_url", "https://real-debrid.com/device")
 
     xbmcgui.Dialog().ok("Authorize Real-Debrid",
-                         "1. Open this on your phone/PC:",
-                         direct_url,
-                         "2. Enter this code: [B]%s[/B]" % user_code,
-                         "",
-                         "Press OK when done and we'll link your account.")
+                         "1. Open: %s\n2. Enter code: %s\n\nPress OK when done." % (direct_url, user_code))
 
     for attempt in range(60):
         xbmc.sleep(2000)
@@ -1205,11 +1201,11 @@ def auth_rd_device():
                 token = creds["client_secret"]
                 import xbmcaddon
                 xbmcaddon.Addon('plugin.video.streamlord').setSetting('rd_token', token)
-                xbmcgui.Dialog().ok("Success!", "Real-Debrid linked!", "Your API token has been saved.")
+                xbmcgui.Dialog().ok("Success!", "Real-Debrid linked! Your token is saved.")
                 return
         except:
             pass
-    xbmcgui.Dialog().ok("Timeout", "Authorization timed out.", "Try again.")
+    xbmcgui.Dialog().ok("Timeout", "Authorization timed out. Try again.")
 
 def _rd_token():
     try:
