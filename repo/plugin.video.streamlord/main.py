@@ -728,6 +728,9 @@ def play_via_LordPlayer(magnet, title):
         player_type = int(ADDON.getSetting("player_type") or "0")
         rd_token = ADDON.getSetting("rd_token") or ""
         xbmc.log("[StreamLord] play_via_LordPlayer: player_type=%d rd_token=%s" % (player_type, "YES" if rd_token else "NO"), xbmc.LOGINFO)
+        # Auto-use RD if token is set but player mode not switched
+        if rd_token and player_type == 0:
+            player_type = 1
         if player_type == 1:
             if not rd_token:
                 xbmcgui.Dialog().ok("StreamLord", "RD token not set. Add it in StreamLord settings.")
