@@ -702,61 +702,51 @@ def _prebuffer_torrest(magnet):
         xbmc.log("[StreamLord] _prebuffer_torrest error: %s" % str(e), xbmc.LOGERROR)
         return None
 
-def _autoplay_worker(imdb_id, season, episode, show_title):
-    try:
-        import xbmcaddon
-        if xbmcaddon.Addon('plugin.video.streamlord').getSetting('autoplay_next') != 'true':
-            return
-        player = xbmc.Player()
-        monitor = xbmc.Monitor()
-        for _ in range(10):
-            if player.isPlaying():
-                break
-            monitor.waitForAbort(1)
-        if not player.isPlaying():
-            return
-        total = player.getTotalTime()
-        if total <= 0:
-            return
-        s_int = int(season) if season else 0
-        e_int = int(episode) if episode else 0
-        next_s, next_e = s_int, e_int + 1
-        while player.isPlaying() and not monitor.abortRequested():
-            remaining = int(total - player.getTime())
-            if remaining <= 20:
-                break
-            monitor.waitForAbort(1)
-        if not player.isPlaying() or monitor.abortRequested():
-            return
-        xbmc.log("[StreamLord] Auto-play: scraping next S%02dE%02d" % (next_s, next_e), xbmc.LOGINFO)
+def _autoplay_monitor(imdb_id, season, episode, show_title):
+    import xbmcaddon
+    if xbmcaddon.Addon('plugin.video.streamlord').getSetting('autoplay_next') != 'true':
+        return
+    player = xbmc.Player()
+    monitor = xbmc.Monitor()
+    for _ in range(30):
+        if player.isPlaying():
+            break
+        monitor.waitForAbort(1)
+    if not player.isPlaying() or monitor.abortRequested():
+        return
+    total = player.getTotalTime()
+    if total <= 0:
+        return
+    s_int = int(season) if season else 0
+    e_int = int(episode) if episode else 0
+    next_s, next_e = s_int, e_int + 1
+    while player.isPlaying() and not monitor.abortRequested():
+        remaining = int(total - player.getTime())
+        if remaining <= 25:
+            break
+        monitor.waitForAbort(1)
+    if not player.isPlaying() or monitor.abortRequested():
+        return
+    xbmc.log("[StreamLord] Auto-play: scraping next S%02dE%02d" % (next_s, next_e), xbmc.LOGINFO)
+    magnet = _scrape_best_magnet(imdb_id, show_title, next_s, next_e)
+    if not magnet and next_e != 1:
+        next_s, next_e = s_int + 1, 1
+        xbmc.log("[StreamLord] Auto-play: trying next season S%02dE%02d" % (next_s, next_e), xbmc.LOGINFO)
         magnet = _scrape_best_magnet(imdb_id, show_title, next_s, next_e)
-        if not magnet and next_e == 1:
-            return
-        if not magnet:
-            next_s, next_e = s_int + 1, 1
-            xbmc.log("[StreamLord] Auto-play: trying next season S%02dE%02d" % (next_s, next_e), xbmc.LOGINFO)
-            magnet = _scrape_best_magnet(imdb_id, show_title, next_s, next_e)
-        if not magnet:
-            xbmc.log("[StreamLord] Auto-play: no source found", xbmc.LOGINFO)
-            return
-        serve = _prebuffer_torrest(magnet)
-        if not serve:
-            xbmc.log("[StreamLord] Auto-play: prebuffer failed", xbmc.LOGINFO)
-            return
-        while player.isPlaying() and not monitor.abortRequested():
-            monitor.waitForAbort(1)
-        if not monitor.abortRequested():
-            xbmc.log("[StreamLord] Auto-play: playing next S%02dE%02d" % (next_s, next_e), xbmc.LOGINFO)
-            li = xbmcgui.ListItem(path=serve, label="%s S%02dE%02d" % (show_title, next_s, next_e))
-            li.setProperty("IsPlayable", "true")
-            xbmc.Player().play(serve, li)
-    except Exception as e:
-        xbmc.log("[StreamLord] _autoplay_worker error: %s" % str(e), xbmc.LOGERROR)
-
-def _start_autoplay_next(imdb_id, season, episode, show_title):
-    import threading
-    t = threading.Thread(target=_autoplay_worker, args=(imdb_id, season, episode, show_title), daemon=True)
-    t.start()
+    if not magnet:
+        xbmc.log("[StreamLord] Auto-play: no source found", xbmc.LOGINFO)
+        return
+    serve = _prebuffer_torrest(magnet)
+    if not serve:
+        xbmc.log("[StreamLord] Auto-play: prebuffer failed", xbmc.LOGINFO)
+        return
+    while player.isPlaying() and not monitor.abortRequested():
+        monitor.waitForAbort(1)
+    if not monitor.abortRequested():
+        xbmc.log("[StreamLord] Auto-play: playing next S%02dE%02d" % (next_s, next_e), xbmc.LOGINFO)
+        li = xbmcgui.ListItem(path=serve, label="%s S%02dE%02d" % (show_title, next_s, next_e))
+        li.setProperty("IsPlayable", "true")
+        xbmc.Player().play(serve, li)
 
 def download_via_LordPlayer(magnet, title, dest):
     try:
@@ -1163,7 +1153,7 @@ def play_episode(eid, title, link, show_title, season, show_imdb_id="", episode_
     action = xbmcgui.Dialog().select("Choose action", ["Play", "Download"])
     if action == 0:
         if play_via_LordPlayer(chosen[3], full_title):
-            _start_autoplay_next(show_imdb_id, season_num, ep_num, show_title)
+            _autoplay_monitor(show_imdb_id, season_num, ep_num, show_title)
             return
     elif action == 1:
         handle_download(chosen[3], full_title)
