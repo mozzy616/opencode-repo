@@ -1014,7 +1014,7 @@ def play_movie(mid, title, watch_link="", imdb_id="", year=""):
         if s[2]:
             label += " [S:%s]" % s[2]
         if s[4] in rd_cached:
-            label += " [B][COLOR green]RD CACHED[/COLOR][/B]"
+            label += " *** RD CACHED ***"
         elif len(s) > 7 and s[7]:
             label += " [RD]"
         if name:
@@ -1163,7 +1163,7 @@ def play_episode(eid, title, link, show_title, season, show_imdb_id="", episode_
         if s[2]:
             label += " [S:%s]" % s[2]
         if s[4] in rd_cached:
-            label += " [B][COLOR green]RD CACHED[/COLOR][/B]"
+            label += " *** RD CACHED ***"
         elif len(s) > 7 and s[7]:
             label += " [RD]"
         if name:
