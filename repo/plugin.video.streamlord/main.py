@@ -1201,10 +1201,7 @@ def auth_rd_device():
     direct_url = result.get("direct_verification_url", "https://real-debrid.com/device")
 
     xbmcgui.Dialog().ok("Authorize Real-Debrid",
-                         "1. Open: %s" % direct_url,
-                         "2. Enter code: %s" % user_code,
-                         "",
-                         "Press OK when done.")
+                         "Open: %s\nEnter code: %s" % (direct_url, user_code))
 
     for attempt in range(60):
         xbmc.sleep(2000)
