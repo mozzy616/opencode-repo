@@ -34,6 +34,7 @@ ADDONS = [
     ("plugin.video.streamlord", "plugin.video.streamlord-1.0.0.zip"),
     ("plugin.video.xprime", "plugin.video.xprime-1.0.1.zip"),
     ("plugin.program.koditoolbox", "plugin.program.koditoolbox-1.0.0.zip"),
+    ("plugin.video.lordplayerxbox", "plugin.video.lordplayerxbox-1.0.0.zip"),
     ("skin.marmalade", "skin.marmalade-1.0.0.zip"),
 ]
 
