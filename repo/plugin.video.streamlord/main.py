@@ -639,9 +639,14 @@ def play_via_LordPlayer(magnet, title):
         if TRACKERS not in magnet:
             magnet += TRACKERS
 
-        # Use LordPlayer plugin URL - proven reliable playback
-        plugin_url = "plugin://plugin.video.lordplayer/play_magnet?magnet=%s&buffer=true" % urllib.parse.quote(magnet, safe='')
-        xbmc.log("[StreamLord] Playing via LordPlayer plugin: %s" % plugin_url[:100], xbmc.LOGINFO)
+        player_type = int(ADDON.getSetting("player_type") or "0")
+        if player_type == 1:
+            player_id = "plugin.video.lordplayerxbox"
+        else:
+            player_id = "plugin.video.lordplayer"
+
+        plugin_url = "plugin://%s/play_magnet?magnet=%s&buffer=true" % (player_id, urllib.parse.quote(magnet, safe=''))
+        xbmc.log("[StreamLord] Playing via %s" % player_id, xbmc.LOGINFO)
 
         li = xbmcgui.ListItem(path=plugin_url, label=title)
         li.setProperty("IsPlayable", "true")
