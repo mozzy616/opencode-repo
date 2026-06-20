@@ -725,7 +725,7 @@ def play_via_LordPlayer(magnet, title):
         if TRACKERS not in magnet:
             magnet += TRACKERS
 
-        rd_token = ADDON.getSetting("rd_token") or ""
+        rd_token = _get_rd_token()
         # Always use RD if token is set (for Xbox)
         if rd_token:
             if not rd_token:
@@ -1213,6 +1213,14 @@ def auth_rd_device():
                 token = creds["client_secret"]
                 import xbmcaddon
                 xbmcaddon.Addon('plugin.video.streamlord').setSetting('rd_token', token)
+                # Also save to file backup
+                try:
+                    cache = xbmcvfs.translatePath("special://profile/addon_data/plugin.video.streamlord/rd.txt")
+                    os.makedirs(os.path.dirname(cache), exist_ok=True)
+                    with open(cache, "w") as f:
+                        f.write(token)
+                except:
+                    pass
                 xbmcgui.Dialog().ok("Success!", "Real-Debrid linked! Your token is saved.")
                 # Auto-set player to Xbox mode
                 try:
@@ -1230,6 +1238,22 @@ def _rd_token():
         return xbmcaddon.Addon('plugin.video.streamlord').getSetting('rd_token').strip()
     except:
         return ""
+
+def _get_rd_token():
+    # Check settings first, then file backup
+    token = _rd_token()
+    if token:
+        return token
+    # Read from file backup
+    cache = xbmcvfs.translatePath("special://profile/addon_data/plugin.video.streamlord/rd.txt")
+    try:
+        with open(cache) as f:
+            token = f.read().strip()
+            if token:
+                return token
+    except:
+        pass
+    return ""
 
 def handle_download(magnet, title):
     dest = xbmcgui.Dialog().browse(0, "Choose download folder", "files", "", False, True, _get_download_path())
