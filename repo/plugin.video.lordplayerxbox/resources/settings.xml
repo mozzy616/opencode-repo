@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings>
+    <category label="Seedr.cc (Free)">
+        <setting id="seedr_user" type="text" label="Seedr Username/Email" default=""/>
+        <setting id="seedr_pass" type="text" label="Seedr Password" option="hidden" default=""/>
+    </category>
+</settings>
