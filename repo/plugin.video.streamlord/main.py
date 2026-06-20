@@ -717,7 +717,7 @@ def play_via_LordPlayer(magnet, title):
         if player_type == 1:
             rd_token = ADDON.getSetting("rd_token") or ""
             if not rd_token:
-                xbmcgui.Dialog().ok("StreamLord", "Real-Debrid token not set.", "Add it in StreamLord settings.")
+                xbmcgui.Dialog().ok("StreamLord", "RD token not set. Add it in StreamLord settings.")
                 return False
             url = rd_unrestrict(magnet, rd_token)
             if url:
@@ -725,8 +725,7 @@ def play_via_LordPlayer(magnet, title):
                 li.setProperty("IsPlayable", "true")
                 xbmcplugin.setResolvedUrl(HANDLE, True, li)
                 return True
-            xbmcgui.Dialog().ok("StreamLord", "Torrent could not be streamed via RD.",
-                                 "It may not be cached or is too new.")
+            xbmcgui.Dialog().ok("StreamLord", "Torrent not streamable via RD. May not be cached.")
             return False
         else:
             player_id = "plugin.video.lordplayer"
@@ -1180,7 +1179,7 @@ def auth_rd_device():
         with urllib.request.urlopen(req, timeout=15) as r:
             result = json.loads(r.read())
     except Exception as e:
-        xbmcgui.Dialog().ok("Error", "Could not connect to Real-Debrid.", str(e))
+        xbmcgui.Dialog().ok("Error", "Could not connect to RD. " + str(e))
         return
 
     device_code = result.get("device_code", "")
@@ -1202,6 +1201,11 @@ def auth_rd_device():
                 import xbmcaddon
                 xbmcaddon.Addon('plugin.video.streamlord').setSetting('rd_token', token)
                 xbmcgui.Dialog().ok("Success!", "Real-Debrid linked! Your token is saved.")
+                # Auto-set player to Xbox mode
+                try:
+                    xbmcaddon.Addon('plugin.video.streamlord').setSetting('player_type', '1')
+                except:
+                    pass
                 return
         except:
             pass
