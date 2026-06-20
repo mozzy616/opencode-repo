@@ -1164,7 +1164,7 @@ def play_episode(eid, title, link, show_title, season, show_imdb_id="", episode_
 def show_settings():
     import xbmcaddon
     d = xbmcgui.Dialog()
-    if d.yesno("StreamLord", "Authorize Real-Debrid easily?", "", "Use your phone to link RD - no typing!"):
+    if d.yesno("StreamLord v1.0.5", "Authorize Real-Debrid easily?", "", "Use your phone to link RD - no typing!"):
         auth_rd_device()
     else:
         xbmcaddon.Addon('plugin.video.streamlord').openSettings()
