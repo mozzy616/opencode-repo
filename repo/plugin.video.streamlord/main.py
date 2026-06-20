@@ -1510,6 +1510,7 @@ def show_menu():
         ("[B]Top IMDb[/B]", "top_imdb", "DefaultVideo.png"),
         ("[B]Genres[/B]", "genres", "DefaultVideo.png"),
         ("[B]LordPlayer[/B]", "lordplayer", "DefaultAddon.png"),
+        ("[B]Authorize Real-Debrid[/B]", "rd_auth", "DefaultAddon.png"),
         ("[B]Settings[/B]", "settings", "DefaultAddon.png"),
     ]
     for label, action, icon in items:
@@ -1755,6 +1756,9 @@ def main():
             streamlord_play(p.get("url", ""), p.get("show_title", ""), p.get("season", "1"), p.get("episode", "1"))
         elif a == "settings":
             show_settings()
+        elif a == "rd_auth":
+            auth_rd_device()
+            xbmcplugin.endOfDirectory(HANDLE)
         elif a == "movie_detail":
             movie_detail(p.get("slug", ""), p.get("link", ""))
         elif a == "tvshow_detail":
