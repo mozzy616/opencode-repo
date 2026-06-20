@@ -725,13 +725,9 @@ def play_via_LordPlayer(magnet, title):
         if TRACKERS not in magnet:
             magnet += TRACKERS
 
-        player_type = int(ADDON.getSetting("player_type") or "0")
         rd_token = ADDON.getSetting("rd_token") or ""
-        xbmc.log("[StreamLord] play_via_LordPlayer: player_type=%d rd_token=%s" % (player_type, "YES" if rd_token else "NO"), xbmc.LOGINFO)
-        # Auto-use RD if token is set but player mode not switched
-        if rd_token and player_type == 0:
-            player_type = 1
-        if player_type == 1:
+        # Always use RD if token is set (for Xbox)
+        if rd_token:
             if not rd_token:
                 xbmcgui.Dialog().ok("StreamLord", "RD token not set. Add it in StreamLord settings.")
                 return False
@@ -749,14 +745,12 @@ def play_via_LordPlayer(magnet, title):
             return False
         else:
             player_id = "plugin.video.lordplayer"
-
-        plugin_url = "plugin://%s/play_magnet?magnet=%s&buffer=true" % (player_id, urllib.parse.quote(magnet, safe=''))
-        xbmc.log("[StreamLord] Playing via %s" % player_id, xbmc.LOGINFO)
-
-        li = xbmcgui.ListItem(path=plugin_url, label=title)
-        li.setProperty("IsPlayable", "true")
-        xbmcplugin.setResolvedUrl(HANDLE, True, li)
-        return True
+            plugin_url = "plugin://%s/play_magnet?magnet=%s&buffer=true" % (player_id, urllib.parse.quote(magnet, safe=''))
+            xbmc.log("[StreamLord] Playing via %s" % player_id, xbmc.LOGINFO)
+            li = xbmcgui.ListItem(path=plugin_url, label=title)
+            li.setProperty("IsPlayable", "true")
+            xbmcplugin.setResolvedUrl(HANDLE, True, li)
+            return True
     except Exception as e:
         xbmc.log("[StreamLord] play_via_LordPlayer error: %s" % str(e), xbmc.LOGERROR)
         return False
