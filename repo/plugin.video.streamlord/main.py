@@ -1173,9 +1173,8 @@ def auth_rd_device():
     import time
     client_id = "X245A4XAIBGVM"
     try:
-        data = urllib.parse.urlencode({"client_id": client_id, "new_credentials": "yes"}).encode()
-        req = urllib.request.Request("https://api.real-debrid.com/oauth/v2/device/code", data=data,
-                                     headers={"User-Agent": "Kodi/21", "Content-Type": "application/x-www-form-urlencoded"})
+        url = "https://api.real-debrid.com/oauth/v2/device/code?client_id=%s&new_credentials=yes" % client_id
+        req = urllib.request.Request(url, headers={"User-Agent": "Kodi/21"})
         with urllib.request.urlopen(req, timeout=15) as r:
             result = json.loads(r.read())
     except Exception as e:
