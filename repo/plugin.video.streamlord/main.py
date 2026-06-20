@@ -637,21 +637,29 @@ def rd_unrestrict(magnet, rd_token, prog=None):
     import re, hashlib
     try:
         def _rd_get(path, token):
-            import base64
-            req = urllib.request.Request("https://api.real-debrid.com/rest/1.0/" + path,
+            url = "https://api.real-debrid.com/rest/1.0/" + path
+            req = urllib.request.Request(url,
                                          headers={"Authorization": "Bearer " + token,
                                                   "User-Agent": "Kodi/21"})
-            with urllib.request.urlopen(req, timeout=15) as r:
-                return json.loads(r.read().decode("utf-8", errors="replace"))
+            try:
+                with urllib.request.urlopen(req, timeout=15) as r:
+                    return json.loads(r.read().decode("utf-8", errors="replace"))
+            except urllib.error.HTTPError as e:
+                xbmc.log("[StreamLord] RD GET %s = %d %s" % (path, e.code, str(e)[:100]), xbmc.LOGERROR)
+                raise
         def _rd_post(path, data, token):
+            url = "https://api.real-debrid.com/rest/1.0/" + path
             body = urllib.parse.urlencode(data).encode()
-            req = urllib.request.Request("https://api.real-debrid.com/rest/1.0/" + path,
-                                         data=body,
+            req = urllib.request.Request(url, data=body,
                                          headers={"Authorization": "Bearer " + token,
                                                   "User-Agent": "Kodi/21",
                                                   "Content-Type": "application/x-www-form-urlencoded"})
-            with urllib.request.urlopen(req, timeout=15) as r:
-                return json.loads(r.read().decode("utf-8", errors="replace"))
+            try:
+                with urllib.request.urlopen(req, timeout=15) as r:
+                    return json.loads(r.read().decode("utf-8", errors="replace"))
+            except urllib.error.HTTPError as e:
+                xbmc.log("[StreamLord] RD POST %s = %d %s" % (path, e.code, str(e)[:100]), xbmc.LOGERROR)
+                raise
 
         m = re.search(r"btih:([a-fA-F0-9]{40})", magnet)
         if not m:
@@ -1211,20 +1219,7 @@ def auth_rd_device():
             with urllib.request.urlopen(req, timeout=15) as r:
                 creds = json.loads(r.read())
             if creds.get("client_secret"):
-                # Exchange for REST API access_token (not client_secret!)
-                token_url = "https://api.real-debrid.com/oauth/v2/token"
-                token_data = urllib.parse.urlencode({
-                    "client_id": creds.get("client_id", client_id),
-                    "client_secret": creds["client_secret"],
-                    "code": device_code,
-                    "grant_type": "http://oauth.net/grant_type/device/1.0"
-                }).encode()
-                token_req = urllib.request.Request(token_url, data=token_data,
-                                                   headers={"Content-Type": "application/x-www-form-urlencoded",
-                                                            "User-Agent": "Kodi/21"})
-                with urllib.request.urlopen(token_req, timeout=15) as r2:
-                    token_result = json.loads(r2.read())
-                api_token = token_result.get("access_token") or token_result.get("token") or creds["client_secret"]
+                api_token = creds["client_secret"]
                 xbmcaddon.Addon('plugin.video.streamlord').setSetting('rd_token', api_token)
                 try:
                     cache = xbmcvfs.translatePath("special://profile/addon_data/plugin.video.streamlord/rd.txt")
@@ -1257,17 +1252,24 @@ def _rd_token():
         return ""
 
 def _get_rd_token():
-    # Check settings first, then file backup
+    # Check settings first, then file backup, try alt token
     token = _rd_token()
     if token:
         return token
-    # Read from file backup
     cache = xbmcvfs.translatePath("special://profile/addon_data/plugin.video.streamlord/rd.txt")
     try:
         with open(cache) as f:
             token = f.read().strip()
             if token:
                 return token
+    except:
+        pass
+    # Try alt token from OAuth
+    try:
+        import xbmcaddon
+        alt = xbmcaddon.Addon('plugin.video.streamlord').getSetting('rd_token_alt').strip()
+        if alt:
+            return alt
     except:
         pass
     return ""
