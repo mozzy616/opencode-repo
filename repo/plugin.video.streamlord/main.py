@@ -632,6 +632,80 @@ def _tr(method, path, params=None):
     with urllib.request.urlopen(req, timeout=15) as resp:
         return json.loads(resp.read().decode("utf-8", errors="replace"))
 
+def rd_unrestrict(magnet, rd_token):
+    """Use Real-Debrid API to convert magnet to direct stream URL."""
+    import re, hashlib
+    try:
+        def _rd_get(path, token):
+            req = urllib.request.Request("https://api.real-debrid.com/rest/1.0/" + path,
+                                         headers={"Authorization": "Bearer " + token,
+                                                  "User-Agent": "Kodi/21"})
+            with urllib.request.urlopen(req, timeout=15) as r:
+                return json.loads(r.read().decode("utf-8", errors="replace"))
+        def _rd_post(path, data, token):
+            body = urllib.parse.urlencode(data).encode()
+            req = urllib.request.Request("https://api.real-debrid.com/rest/1.0/" + path,
+                                         data=body,
+                                         headers={"Authorization": "Bearer " + token,
+                                                  "User-Agent": "Kodi/21",
+                                                  "Content-Type": "application/x-www-form-urlencoded"})
+            with urllib.request.urlopen(req, timeout=15) as r:
+                return json.loads(r.read().decode("utf-8", errors="replace"))
+
+        m = re.search(r"btih:([a-fA-F0-9]{40})", magnet)
+        if not m:
+            return None
+        info_hash = m.group(1).lower()
+
+        # Check instant availability
+        avail = _rd_get("torrents/instantAvailability/%s" % info_hash, rd_token)
+        if avail and info_hash in avail:
+            variants = avail[info_hash].get("rd", [])
+            if variants:
+                for v in variants:
+                    for fid, finfo in v.items():
+                        dl = _rd_post("unrestrict/link",
+                                      {"link": "https://real-debrid.com/d/%s/%s" % (info_hash, finfo.get("filename", fid))},
+                                      rd_token)
+                        if dl and dl.get("download"):
+                            return dl["download"]
+                        break
+                    break
+
+        # Not cached - add and wait
+        add = _rd_post("torrents/addMagnet", {"magnet": magnet}, rd_token)
+        if not add or "id" not in add:
+            return None
+        tid = add["id"]
+
+        for _ in range(60):
+            xbmc.sleep(5000)
+            info = _rd_get("torrents/info/%s" % tid, rd_token)
+            if not info:
+                continue
+            st = info.get("status", "")
+            if st == "waiting_files_selection":
+                files = info.get("files", [])
+                ids = ",".join(str(f["id"]) for f in files
+                              if any(f.get("path","").lower().endswith(e)
+                                     for e in (".mp4",".mkv",".avi",".ts")))
+                if not ids and files:
+                    ids = str(files[0]["id"])
+                if ids:
+                    _rd_post("torrents/selectFiles/%s" % tid, {"files": ids}, rd_token)
+            elif st == "downloaded":
+                for link in info.get("links", []):
+                    dl = _rd_post("unrestrict/link", {"link": link}, rd_token)
+                    if dl and dl.get("download"):
+                        return dl["download"]
+                return None
+            elif st in ("magnet_error", "error", "virus", "dead"):
+                return None
+        return None
+    except Exception as e:
+        xbmc.log("[StreamLord] RD unrestrict error: %s" % str(e), xbmc.LOGERROR)
+        return None
+
 def play_via_LordPlayer(magnet, title):
     try:
         if not magnet.startswith("magnet:"):
@@ -641,7 +715,19 @@ def play_via_LordPlayer(magnet, title):
 
         player_type = int(ADDON.getSetting("player_type") or "0")
         if player_type == 1:
-            player_id = "plugin.video.lordplayerxbox"
+            rd_token = ADDON.getSetting("rd_token") or ""
+            if not rd_token:
+                xbmcgui.Dialog().ok("StreamLord", "Real-Debrid token not set.", "Add it in StreamLord settings.")
+                return False
+            url = rd_unrestrict(magnet, rd_token)
+            if url:
+                li = xbmcgui.ListItem(path=url, label=title)
+                li.setProperty("IsPlayable", "true")
+                xbmcplugin.setResolvedUrl(HANDLE, True, li)
+                return True
+            xbmcgui.Dialog().ok("StreamLord", "Torrent could not be streamed via RD.",
+                                 "It may not be cached or is too new.")
+            return False
         else:
             player_id = "plugin.video.lordplayer"
 
