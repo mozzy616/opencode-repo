@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<settings>
-    <category label="Real-Debrid">
-        <setting id="rd_token" type="text" label="Real-Debrid API Token" default=""/>
-    </category>
-</settings>
