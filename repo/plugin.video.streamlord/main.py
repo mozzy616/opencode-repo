@@ -632,7 +632,7 @@ def _tr(method, path, params=None):
     with urllib.request.urlopen(req, timeout=15) as resp:
         return json.loads(resp.read().decode("utf-8", errors="replace"))
 
-def rd_unrestrict(magnet, rd_token):
+def rd_unrestrict(magnet, rd_token, prog=None):
     """Use Real-Debrid API to convert magnet to direct stream URL."""
     import re, hashlib
     try:
@@ -657,7 +657,9 @@ def rd_unrestrict(magnet, rd_token):
             return None
         info_hash = m.group(1).lower()
 
-        # Check instant availability
+        # Check instant availability first
+        if prog:
+            prog.update(0, "Checking RD cache...")
         avail = _rd_get("torrents/instantAvailability/%s" % info_hash, rd_token)
         if avail and info_hash in avail:
             variants = avail[info_hash].get("rd", [])
@@ -668,22 +670,30 @@ def rd_unrestrict(magnet, rd_token):
                                       {"link": "https://real-debrid.com/d/%s/%s" % (info_hash, finfo.get("filename", fid))},
                                       rd_token)
                         if dl and dl.get("download"):
+                            if prog: prog.update(100, "Cached! Playing...")
                             return dl["download"]
                         break
                     break
 
-        # Not cached - add and wait
+        # Not cached — add magnet and wait
+        if prog:
+            prog.update(5, "Adding to RD...")
         add = _rd_post("torrents/addMagnet", {"magnet": magnet}, rd_token)
         if not add or "id" not in add:
             return None
         tid = add["id"]
 
-        for _ in range(60):
-            xbmc.sleep(5000)
+        for attempt in range(120):
+            xbmc.sleep(3000)
+            if prog and prog.iscanceled():
+                return None
             info = _rd_get("torrents/info/%s" % tid, rd_token)
             if not info:
                 continue
             st = info.get("status", "")
+            pct = info.get("progress", 0)
+            if prog:
+                prog.update(int(pct), "RD: %s %d%%" % (st, pct))
             if st == "waiting_files_selection":
                 files = info.get("files", [])
                 ids = ",".join(str(f["id"]) for f in files
@@ -697,6 +707,7 @@ def rd_unrestrict(magnet, rd_token):
                 for link in info.get("links", []):
                     dl = _rd_post("unrestrict/link", {"link": link}, rd_token)
                     if dl and dl.get("download"):
+                        if prog: prog.update(100, "Playing!")
                         return dl["download"]
                 return None
             elif st in ("magnet_error", "error", "virus", "dead"):
@@ -719,7 +730,10 @@ def play_via_LordPlayer(magnet, title):
             if not rd_token:
                 xbmcgui.Dialog().ok("StreamLord", "RD token not set. Add it in StreamLord settings.")
                 return False
-            url = rd_unrestrict(magnet, rd_token)
+            prog = xbmcgui.DialogProgress()
+            prog.create("StreamLord RD", "Checking Real-Debrid cache...")
+            url = rd_unrestrict(magnet, rd_token, prog)
+            prog.close()
             if url:
                 li = xbmcgui.ListItem(path=url, label=title)
                 li.setProperty("IsPlayable", "true")
