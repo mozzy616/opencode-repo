@@ -1210,10 +1210,14 @@ def auth_rd_device():
             with urllib.request.urlopen(req, timeout=15) as r:
                 creds = json.loads(r.read())
             if creds.get("client_secret"):
-                token = creds["client_secret"]
+                secret = creds["client_secret"]
+                client = creds.get("client_id", client_id)
+                # Exchange OAuth creds for API token
+                token = _exchange_rd_token(client, secret)
+                if not token:
+                    token = secret  # Fallback: try client_secret as token
                 import xbmcaddon
                 xbmcaddon.Addon('plugin.video.streamlord').setSetting('rd_token', token)
-                # Also save to file backup
                 try:
                     cache = xbmcvfs.translatePath("special://profile/addon_data/plugin.video.streamlord/rd.txt")
                     os.makedirs(os.path.dirname(cache), exist_ok=True)
@@ -1222,17 +1226,39 @@ def auth_rd_device():
                 except:
                     pass
                 xbmcgui.Dialog().ok("Success!", "Real-Debrid linked! Your token is saved.")
-                # Auto-set player to Xbox mode
-                try:
-                    xbmcaddon.Addon('plugin.video.streamlord').setSetting('player_type', '1')
-                except:
-                    pass
                 return
         except:
             pass
     xbmcgui.Dialog().ok("Timeout", "Authorization timed out. Try again.")
 
+def _exchange_rd_token(client_id, client_secret):
+    """Try to get the actual API token from OAuth credentials."""
+    try:
+        url = "https://api.real-debrid.com/oauth/v2/token"
+        data = urllib.parse.urlencode({
+            "client_id": client_id,
+            "client_secret": client_secret,
+            "code": client_secret,
+            "grant_type": "http://api.real-debrid.com/grants/api_token"
+        }).encode()
+        req = urllib.request.Request(url, data=data,
+                                     headers={"Content-Type": "application/x-www-form-urlencoded",
+                                              "User-Agent": "Kodi/21"})
+        with urllib.request.urlopen(req, timeout=15) as r:
+            result = json.loads(r.read())
+            if result.get("access_token"):
+                return result["access_token"]
+    except:
+        pass
+    return None
+
 def _rd_token():
+    try:
+        import xbmcaddon
+        return xbmcaddon.Addon('plugin.video.streamlord').getSetting('rd_token').strip()
+    except:
+        return ""
+    return None
     try:
         import xbmcaddon
         return xbmcaddon.Addon('plugin.video.streamlord').getSetting('rd_token').strip()
