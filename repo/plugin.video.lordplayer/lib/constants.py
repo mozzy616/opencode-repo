@@ -10,7 +10,12 @@ def _detect_platform():
     if "ANDROID_STORAGE" in os.environ:
         if "arm64" in machine or "aarch64" in machine:
             return "android_arm64", "libtorrest.so", "torrest"
-        return "android_arm", "libtorrest.so", "torrest"
+        if "arm" in machine:
+            return "android_arm", "libtorrest.so", "torrest"
+        if "x86_64" in machine or "amd64" in machine:
+            return "android_x64", "libtorrest.so", "torrest"
+        if "x86" in machine or "i686" in machine or "i386" in machine:
+            return "android_x86", "libtorrest.so", "torrest"
 
     if system == "Windows":
         bits = struct.calcsize("P") * 8
