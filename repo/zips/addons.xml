@@ -123,7 +123,7 @@
         <assets><icon>icon.png</icon><fanart>fanart.jpg</fanart></assets>
     </extension>
 </addon>
-<addon id="plugin.video.lordplayer" name="LordPlayer" provider-name="opencode" version="1.0.0">
+<addon id="plugin.video.lordplayer" name="LordPlayer" provider-name="opencode" version="1.0.1">
     <requires>
         <import addon="script.module.requests" version="2.22.0"/>
         <import addon="script.module.routing" version="0.2.3"/>

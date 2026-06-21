@@ -22,6 +22,11 @@ QUALITY_ORDER = {'4K': 0, '1080p': 1, '1080p': 1, '720p': 2, 'SD': 3, 'SCR': 4, 
 TRACKERS = "&tr=udp://tracker.opentrackr.org:1337/announce&tr=udp://open.stealth.si:80/announce&tr=udp://tracker.torrent.eu.org:451/announce"
 
 _ADDON = None
+_silent = False
+
+def set_silent(val):
+    global _silent
+    _silent = val
 
 def _get_setting(key):
     global _ADDON
@@ -452,8 +457,10 @@ def collect_results_episode(progress, imdb, tvshowtitle, title, season, episode,
 def search_movie(imdb, title, year):
     if not init():
         return []
-    progress = xbmcgui.DialogProgress()
-    progress.create("StreamLord", "Searching %d scrapers..." % len(_scrapers))
+    progress = None
+    if not _silent:
+        progress = xbmcgui.DialogProgress()
+        progress.create("StreamLord", "Searching %d scrapers..." % len(_scrapers))
     try:
         res = collect_results_movie(progress, imdb=imdb, title=title, year=year)
         xbmc.log("[StreamLord] Movie scraper results: %d total" % len(res), xbmc.LOGINFO)
@@ -465,14 +472,17 @@ def search_movie(imdb, title, year):
             xbmc.log("[StreamLord]   [%s] hash=%s seeds=%s url=%s" % (q, h, s, u), xbmc.LOGINFO)
         return res
     finally:
-        try: progress.close()
-        except: pass
+        if progress:
+            try: progress.close()
+            except: pass
 
 def search_episode(imdb, tvshowtitle, title, season, episode, year):
     if not init():
         return []
-    progress = xbmcgui.DialogProgress()
-    progress.create("StreamLord", "Searching %d scrapers..." % len(_scrapers))
+    progress = None
+    if not _silent:
+        progress = xbmcgui.DialogProgress()
+        progress.create("StreamLord", "Searching %d scrapers..." % len(_scrapers))
     try:
         res = collect_results_episode(progress, imdb=imdb, tvshowtitle=tvshowtitle, title=title, season=str(season), episode=str(episode), year=year)
         xbmc.log("[StreamLord] Episode scraper results: %d total" % len(res), xbmc.LOGINFO)
@@ -484,5 +494,6 @@ def search_episode(imdb, tvshowtitle, title, season, episode, year):
             xbmc.log("[StreamLord]   [%s] hash=%s seeds=%s url=%s" % (q, h, s, u), xbmc.LOGINFO)
         return res
     finally:
-        try: progress.close()
-        except: pass
+        if progress:
+            try: progress.close()
+            except: pass
