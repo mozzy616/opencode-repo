@@ -1520,7 +1520,7 @@ def _show_tpb_results(results, label, meta=None):
 
 def show_menu():
     items = [
-        ("[B]Search All Torrents[/B]", "search", "DefaultSearch.png"),
+        ("[B]Search All Torrents[/B]", "search", "DefaultAddonsSearch.png"),
         ("[B]Hot Movies[/B]", "movies", "DefaultMovies.png"),
         ("[B]TV Series[/B]", "tvseries", "DefaultTVShows.png"),
         ("[B]Top IMDb[/B]", "top_imdb", "DefaultVideo.png"),
