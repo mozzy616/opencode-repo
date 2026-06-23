@@ -76,8 +76,6 @@ def extract_listings(html):
         quality = quality_m.group(1) if quality_m else ""
         thumb_m = re.search(r'data-original="([^"]*)"', item)
         thumb = thumb_m.group(1) if thumb_m else ""
-        year_m = re.search(r'class="jt-info"[^>]*>(\d{4})<', item)
-        year = year_m.group(1) if year_m else ""
         is_tv = "/tvshow/" in link
         results.append({
             "title": title,
@@ -85,88 +83,9 @@ def extract_listings(html):
             "quality": quality,
             "thumb": thumb if thumb.startswith("http") else BASE + thumb,
             "type": "tvshow" if is_tv else "movie",
-            "slug": link.split("/")[-1] if link else "",
-            "year": year
+            "slug": link.split("/")[-1] if link else ""
         })
     return results
-
-_TMDB_CACHE = {}
-
-def _tmdb_lookup(title, mtype="movie"):
-    key = "%s|%s" % (title.lower().strip(), mtype)
-    if key in _TMDB_CACHE:
-        return _TMDB_CACHE[key]
-    try:
-        url = "%s/search/%s?api_key=%s&language=en-US&query=%s&page=1" % (
-            TMDB_BASE_URL, mtype, TMDB_KEY, urllib.parse.quote(title))
-        req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
-        with urllib.request.urlopen(req, timeout=10) as r:
-            data = json.loads(r.read().decode("utf-8", errors="replace"))
-        results = data.get("results", [])
-        if results:
-            best = results[0]
-            meta = {
-                "title": best.get("title") or best.get("name", title),
-                "year": int((best.get("release_date") or best.get("first_air_date") or "0")[:4] or 0),
-                "plot": best.get("overview", ""),
-                "rating": best.get("vote_average", 0),
-                "mediatype": mtype if mtype == "movie" else "tvshow",
-            }
-            poster = best.get("poster_path", "")
-            backdrop = best.get("backdrop_path", "")
-            art = {}
-            if poster:
-                art["thumb"] = _tmdb_img(poster)
-                art["poster"] = _tmdb_img(poster, "w500")
-            if backdrop:
-                art["fanart"] = _tmdb_img(backdrop, "w1280")
-            if art:
-                meta["art"] = art
-            _TMDB_CACHE[key] = meta
-            return meta
-    except:
-        pass
-    _TMDB_CACHE[key] = {}
-    return {}
-
-def _apply_tmdb_meta(li, title, mtype="movie", thumb=""):
-    meta = _tmdb_lookup(title, mtype)
-    if not meta:
-        meta = {"mediatype": mtype, "title": title}
-    else:
-        meta["mediatype"] = mtype
-    # Ensure proper types
-    info = {}
-    for k, v in meta.items():
-        if k == "art":
-            continue
-        if v is None:
-            continue
-        if k == "year":
-            try:
-                info[k] = int(v)
-            except:
-                pass
-        elif k == "rating":
-            try:
-                info[k] = float(v)
-            except:
-                pass
-        elif isinstance(v, str):
-            info[k] = v
-        elif isinstance(v, (int, float)):
-            info[k] = v
-    li.setInfo("video", info)
-    if thumb and "art" not in meta:
-        li.setArt({"thumb": thumb})
-    if "art" in meta:
-        art = dict(meta["art"])
-        if thumb and "thumb" not in art:
-            art["thumb"] = thumb
-        li.setArt(art)
-
-def _apply_tmdb_meta_tv(li, title, thumb=""):
-    _apply_tmdb_meta(li, title, "tv", thumb)
 
 def extract_pagination(html):
     pages = re.findall(r'\?page=(\d+)[^>]*>', html)
@@ -184,7 +103,9 @@ def list_movies(page=1):
     items = extract_listings(html)
     for item in items:
         li = xbmcgui.ListItem(label=item["title"])
-        _apply_tmdb_meta(li, item["title"], "movie", item["thumb"])
+        li.setInfo("video", {"title": item["title"]})
+        li.setArt({"thumb": item["thumb"], "fanart": item["thumb"], "icon": "DefaultVideo.png"})
+        _tmdb_enrich_item(li, item["title"], media_type="movie")
         xbmcplugin.addDirectoryItem(HANDLE, get_url(action="movie_detail", slug=item["slug"], link=item["link"]), li, isFolder=True)
     max_page = extract_pagination(html)
     if page < max_page and page < 50:
@@ -198,7 +119,9 @@ def list_tvseries(page=1):
     items = extract_listings(html)
     for item in items:
         li = xbmcgui.ListItem(label=item["title"])
-        _apply_tmdb_meta(li, item["title"], "tv", item["thumb"])
+        li.setInfo("video", {"title": item["title"]})
+        li.setArt({"thumb": item["thumb"], "fanart": item["thumb"], "icon": "DefaultTVShows.png"})
+        _tmdb_enrich_item(li, item["title"], media_type="tv")
         xbmcplugin.addDirectoryItem(HANDLE, get_url(action="tvshow_detail", slug=item["slug"], link=item["link"]), li, isFolder=True)
     max_page = extract_pagination(html)
     if page < max_page and page < 50:
@@ -214,9 +137,10 @@ def list_genre(genre="action", page=1):
     items = extract_listings(html)
     for item in items:
         li = xbmcgui.ListItem(label=item["title"])
-        mtype = "tv" if item["type"] == "tvshow" else "movie"
-        _apply_tmdb_meta(li, item["title"], mtype, item["thumb"])
+        li.setInfo("video", {"title": item["title"]})
+        li.setArt({"thumb": item["thumb"], "fanart": item["thumb"], "icon": "DefaultVideo.png"})
         action = "tvshow_detail" if item["type"] == "tvshow" else "movie_detail"
+        _tmdb_enrich_item(li, item["title"], media_type=item.get("type", ""))
         xbmcplugin.addDirectoryItem(HANDLE, get_url(action=action, slug=item["slug"], link=item["link"]), li, isFolder=True)
     max_page = extract_pagination(html)
     if page < max_page and page < 50:
@@ -308,9 +232,21 @@ def movie_detail(slug, link):
         label += " [%s]" % year
     if rating:
         label += " [IMDb: %s]" % rating
+    fanart_url = ""
+    if imdb_id:
+        tmdb_info = _tmdb_find_by_imdb(imdb_id)
+        if tmdb_info:
+            backdrop = tmdb_info.get("backdrop_path") or tmdb_info.get("poster_path", "")
+            if backdrop:
+                fanart_url = _tmdb_img(backdrop, "original")
+    if not fanart_url and thumb:
+        fanart_url = thumb
+    if fanart_url:
+        xbmcplugin.setPluginFanart(HANDLE, fanart_url)
+    rating_f = float(rating) if rating else 0
     li = xbmcgui.ListItem(label=label)
-    li.setInfo("video", {"title": title, "plot": desc, "year": year, "genre": ", ".join(genres[:5])})
-    li.setArt({"thumb": thumb, "icon": "DefaultVideo.png"})
+    li.setInfo("video", {"title": title, "plot": desc, "year": year, "genre": ", ".join(genres[:5]), "rating": rating_f})
+    li.setArt({"thumb": thumb, "fanart": fanart_url, "icon": "DefaultVideo.png"})
     li.setProperty("IsPlayable", "true")
     xbmcplugin.addDirectoryItem(HANDLE, get_url(action="play_movie", mid=mid, title=title, watch_link=watch_link, imdb_id=imdb_id, year=year), li, isFolder=False)
     xbmcplugin.endOfDirectory(HANDLE)
@@ -344,12 +280,23 @@ def tvshow_detail(slug, link):
                 imdb_m = re.search(r'imdb=tt(\d+)', embed_url)
                 if imdb_m:
                     imdb_id = "tt" + imdb_m.group(1)
+    fanart_url = ""
+    if imdb_id:
+        tmdb_info = _tmdb_find_by_imdb(imdb_id)
+        if tmdb_info:
+            backdrop = tmdb_info.get("backdrop_path") or tmdb_info.get("poster_path", "")
+            if backdrop:
+                fanart_url = _tmdb_img(backdrop, "original")
+    if not fanart_url and thumb:
+        fanart_url = thumb
+    if fanart_url:
+        xbmcplugin.setPluginFanart(HANDLE, fanart_url)
     seasons = re.findall(r'id="season(\d+)"', html)
     for season in seasons:
         label = "Season %s" % season
         li = xbmcgui.ListItem(label=label)
         li.setInfo("video", {"title": "%s - Season %s" % (title, season)})
-        li.setArt({"thumb": thumb, "icon": "DefaultTVShows.png"})
+        li.setArt({"thumb": thumb, "fanart": fanart_url, "icon": "DefaultTVShows.png"})
         xbmcplugin.addDirectoryItem(HANDLE, get_url(action="season_episodes", link=link, season=season, show_title=title, thumb=thumb, show_imdb_id=imdb_id), li, isFolder=True)
     xbmcplugin.endOfDirectory(HANDLE)
 
@@ -362,14 +309,25 @@ def season_episodes(link, season, show_title, thumb, show_imdb_id=""):
         xbmcplugin.endOfDirectory(HANDLE)
         return
     content = m.group(1)
+    fanart_url = ""
+    if show_imdb_id:
+        tmdb_info = _tmdb_find_by_imdb(show_imdb_id)
+        if tmdb_info:
+            backdrop = tmdb_info.get("backdrop_path") or tmdb_info.get("poster_path", "")
+            if backdrop:
+                fanart_url = _tmdb_img(backdrop, "original")
+    if not fanart_url and thumb:
+        fanart_url = thumb
+    if fanart_url:
+        xbmcplugin.setPluginFanart(HANDLE, fanart_url)
     episodes = re.findall(r'<a href="(/tvshow/[^"]+/episode-(\d+))"[^>]*>(.*?)</a>', content, re.DOTALL)
     for ep_link, ep_id, ep_name in episodes:
         ep_name = re.sub(r'<[^>]+>', '', ep_name).strip()
         ep_num_m = re.search(r'(\d+)', ep_name)
         episode_num = ep_num_m.group(1) if ep_num_m else ep_id
         li = xbmcgui.ListItem(label=ep_name)
-        li.setInfo("video", {"title": ep_name, "tvshowtitle": show_title, "episode": int(episode_num)})
-        li.setArt({"thumb": thumb, "icon": "DefaultTVShows.png"})
+        li.setInfo("video", {"title": ep_name, "tvshowtitle": show_title, "episode": int(episode_num), "season": int(season)})
+        li.setArt({"thumb": thumb, "fanart": fanart_url, "icon": "DefaultTVShows.png"})
         li.setProperty("IsPlayable", "true")
         full_link = BASE + ep_link if ep_link.startswith("/") else ep_link
         xbmcplugin.addDirectoryItem(HANDLE, get_url(action="play_episode", eid=ep_id, episode_num=episode_num, title=ep_name, link=full_link, show_title=show_title, season=season, show_imdb_id=show_imdb_id), li, isFolder=False)
@@ -416,11 +374,47 @@ def _tmdb_tv(tmdb_id):
         req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
         with urllib.request.urlopen(req, timeout=10) as r:
             data = json.loads(r.read().decode("utf-8", errors="replace"))
-        return (data.get("seasons", []), data.get("name", ""),
-                data.get("poster_path", ""), data.get("backdrop_path", ""),
-                data.get("overview", ""), data.get("first_air_date", ""))
+        return data.get("seasons", []), data.get("name", ""), data.get("poster_path", ""), data.get("backdrop_path", "")
     except:
-        return [], "", "", "", "", ""
+        return [], "", "", ""
+
+def _tmdb_enrich_item(li, title, year="", media_type=""):
+    try:
+        results = _tmdb_search(title)
+        for r in results:
+            mt = r.get("media_type", "")
+            if mt not in ("movie", "tv"):
+                continue
+            if media_type and mt != media_type:
+                continue
+            backdrop = r.get("backdrop_path", "")
+            if backdrop:
+                li.setArt({"fanart": _tmdb_img(backdrop, "original")})
+            plot = r.get("overview", "")
+            rating = r.get("vote_average", 0)
+            ryear = (r.get("release_date") or r.get("first_air_date") or "")[:4]
+            info = {"plot": plot, "rating": rating}
+            if ryear:
+                info["year"] = ryear
+            li.setInfo("video", info)
+            break
+    except:
+        pass
+
+def _tmdb_find_by_imdb(imdb_id):
+    try:
+        url = "%s/find/%s?api_key=%s&language=en-US&external_source=imdb_id" % (
+            TMDB_BASE_URL, imdb_id, TMDB_KEY)
+        req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+        with urllib.request.urlopen(req, timeout=10) as r:
+            data = json.loads(r.read().decode("utf-8", errors="replace"))
+        results = data.get("tv_results", [])
+        if results:
+            return results[0]
+        return None
+    except:
+        return None
+
 
 def _tmdb_episodes(tmdb_id, season_num):
     try:
@@ -456,6 +450,7 @@ def search_streamlord(query="", browse_tmdb="", browse_season=""):
         return
 
     items = []
+    fanart_url = ""
     for r in results:
         mtype = r.get("media_type", "")
         if mtype not in ("movie", "tv"):
@@ -463,39 +458,35 @@ def search_streamlord(query="", browse_tmdb="", browse_season=""):
         title = r.get("title") or r.get("name", "Unknown")
         year = (r.get("release_date") or r.get("first_air_date") or "")[:4]
         tid = r.get("id")
-        thumb = _tmdb_img(r.get("poster_path", ""))
-        backdrop = _tmdb_img(r.get("backdrop_path", ""), "w1280")
-        overview = r.get("overview", "")
+        poster = r.get("poster_path", "")
+        thumb = _tmdb_img(poster)
+        backdrop = r.get("backdrop_path", "")
+        if backdrop and not fanart_url:
+            fanart_url = _tmdb_img(backdrop, "original")
+        plot = r.get("overview", "")
         rating = r.get("vote_average", 0)
-        items.append((tid, title, year, mtype, thumb, backdrop, overview, rating))
+        items.append((tid, title, year, mtype, thumb, plot, rating))
 
     if not items:
         xbmcgui.Dialog().notification("StreamLord", "No results found", xbmcgui.NOTIFICATION_INFO, 3000)
         xbmcplugin.endOfDirectory(HANDLE)
         return
 
-    for tid, title, year, mtype, thumb, backdrop, overview, rating in items:
+    if fanart_url:
+        xbmcplugin.setPluginFanart(HANDLE, fanart_url)
+
+    for tid, title, year, mtype, thumb, plot, rating in items:
         label = title
         if year:
             label += " [%s]" % year
         label += " (%s)" % mtype.upper()
         li = xbmcgui.ListItem(label=label)
-        info = {"title": title, "year": int(year) if year.isdigit() else 0,
-                "mediatype": "movie" if mtype == "movie" else "tvshow"}
-        if mtype == "tv":
-            info["tvshowtitle"] = title
-        if overview:
-            info["plot"] = overview
-        if rating:
-            info["rating"] = float(rating)
-        li.setInfo("video", info)
-        art = {"thumb": thumb, "icon": "DefaultVideo.png" if mtype == "movie" else "DefaultTVShows.png"}
-        if backdrop:
-            art["fanart"] = backdrop
-        li.setArt(art)
+        li.setInfo("video", {"title": title, "year": year, "plot": plot, "rating": rating})
+        li.setArt({"thumb": thumb, "fanart": fanart_url, "icon": "DefaultVideo.png" if mtype == "movie" else "DefaultTVShows.png"})
         if mtype == "movie":
             li.setProperty("IsPlayable", "true")
-            xbmcplugin.addDirectoryItem(HANDLE, get_url(action="tpb_play_movie", title=title, year=year, tmdb_id=str(tid)), li, isFolder=False)
+            xbmcplugin.addDirectoryItem(HANDLE, get_url(action="play_movie", mid="", title=title,
+                watch_link="", imdb_id="", year=year, tmdb_id=str(tid)), li, isFolder=False)
         else:
             xbmcplugin.addDirectoryItem(HANDLE, get_url(action="search_streamlord", browse_tmdb=str(tid)), li, isFolder=True)
 
@@ -506,13 +497,14 @@ def search_streamlord(query="", browse_tmdb="", browse_season=""):
 
 
 def _sl_browse_seasons(tmdb_id):
-    seasons, show_name, poster, backdrop, overview, first_air = _tmdb_tv(tmdb_id)
+    seasons, show_name, poster, fanart = _tmdb_tv(tmdb_id)
     if not seasons:
         xbmcgui.Dialog().notification("StreamLord", "No seasons found", xbmcgui.NOTIFICATION_INFO, 3000)
         xbmcplugin.endOfDirectory(HANDLE)
         return
-    thumb = _tmdb_img(poster)
-    fanart = _tmdb_img(backdrop, "w1280") if backdrop else ""
+    fanart_url = _tmdb_img(fanart, "original")
+    if fanart_url:
+        xbmcplugin.setPluginFanart(HANDLE, fanart_url)
     for s in seasons:
         snum = s.get("season_number", 0)
         if snum == 0:
@@ -520,8 +512,9 @@ def _sl_browse_seasons(tmdb_id):
         eps = s.get("episode_count", 0)
         label = "Season %d [%d episodes]" % (snum, eps)
         li = xbmcgui.ListItem(label=label)
-        li.setInfo("video", {"tvshowtitle": show_name, "title": "Season %d" % snum, "mediatype": "season"})
-        li.setArt({"thumb": thumb, "fanart": fanart, "icon": "DefaultTVShows.png"})
+        s_poster = s.get("poster_path") or poster
+        li.setInfo("video", {"title": "%s - S%d" % (show_name, snum), "tvshowtitle": show_name})
+        li.setArt({"thumb": _tmdb_img(s_poster), "fanart": fanart_url, "icon": "DefaultTVShows.png"})
         xbmcplugin.addDirectoryItem(HANDLE, get_url(action="search_streamlord", browse_tmdb=tmdb_id,
             browse_season=str(snum)), li, isFolder=True)
     li = xbmcgui.ListItem("[B]New Search[/B]")
@@ -532,33 +525,31 @@ def _sl_browse_seasons(tmdb_id):
 
 def _sl_browse_episodes(tmdb_id, season_num):
     episodes = _tmdb_episodes(tmdb_id, season_num)
-    _, show_name, poster, backdrop, overview, first_air = _tmdb_tv(tmdb_id)
+    _, show_name, poster, fanart = _tmdb_tv(tmdb_id)
     if not episodes:
         xbmcgui.Dialog().notification("StreamLord", "No episodes found", xbmcgui.NOTIFICATION_INFO, 3000)
         xbmcplugin.endOfDirectory(HANDLE)
         return
+    fanart_url = _tmdb_img(fanart, "original")
+    if fanart_url:
+        xbmcplugin.setPluginFanart(HANDLE, fanart_url)
     for ep in episodes:
         epnum = ep.get("episode_number", 0)
         epname = ep.get("name", "Episode %d" % epnum)
         label = "S%02dE%02d - %s" % (int(season_num), epnum, epname)
         li = xbmcgui.ListItem(label=label)
-        ep_overview = ep.get("overview", "")
-        li.setInfo("video", {"title": epname, "tvshowtitle": show_name, "plot": ep_overview, "mediatype": "episode"})
-        art = {"icon": "DefaultTVShows.png"}
-        if poster:
-            art["thumb"] = _tmdb_img(poster)
-            art["poster"] = _tmdb_img(poster, "w500")
-        if backdrop:
-            art["fanart"] = _tmdb_img(backdrop, "w1280")
-        still = ep.get("still_path", "")
-        if still:
-            art["thumb"] = _tmdb_img(still)
-        li.setArt(art)
-        xbmcplugin.addDirectoryItem(HANDLE, get_url(action="tpb_play_episode",
-            show_title=show_name, season=str(season_num), episode=str(epnum), tmdb_id=tmdb_id,
-            poster=urllib.parse.quote(poster or ""), backdrop=urllib.parse.quote(backdrop or ""),
-            overview=urllib.parse.quote(overview or ""), first_air=urllib.parse.quote(first_air or "")),
-            li, isFolder=True)
+        ep_still = ep.get("still_path") or poster
+        li.setInfo("video", {"title": epname, "season": int(season_num), "episode": epnum,
+                             "tvshowtitle": show_name, "plot": ep.get("overview", ""),
+                             "aired": ep.get("air_date", ""), "rating": ep.get("vote_average", 0)})
+        li.setArt({"thumb": _tmdb_img(ep_still), "fanart": fanart_url, "icon": "DefaultTVShows.png"})
+        li.setProperty("IsPlayable", "true")
+        # Search StreamLord site for this specific show + season + episode
+        sl_query = urllib.parse.quote("%s s%02de%02d" % (show_name, int(season_num), epnum), safe='')
+        sl_url = BASE + "/search/%s" % sl_query
+        xbmcplugin.addDirectoryItem(HANDLE, get_url(action="streamlord_play",
+            url=sl_url, show_title=show_name, season=str(season_num), episode=str(epnum)),
+            li, isFolder=False)
     li = xbmcgui.ListItem("[B]Back to Seasons[/B]")
     li.setArt({"icon": "DefaultFolderBack.png"})
     xbmcplugin.addDirectoryItem(HANDLE, get_url(action="search_streamlord", browse_tmdb=tmdb_id), li, isFolder=True)
@@ -625,6 +616,7 @@ def do_search(query="", browse_tmdb="", browse_season=""):
         return
 
     items = []
+    fanart_url = ""
     for r in results:
         mtype = r.get("media_type", "")
         if mtype not in ("movie", "tv"):
@@ -632,22 +624,31 @@ def do_search(query="", browse_tmdb="", browse_season=""):
         title = r.get("title") or r.get("name", "Unknown")
         year = (r.get("release_date") or r.get("first_air_date") or "")[:4]
         tid = r.get("id")
-        thumb = _tmdb_img(r.get("poster_path", ""))
-        items.append((tid, title, year, mtype, thumb))
+        poster = r.get("poster_path", "")
+        backdrop = r.get("backdrop_path", "")
+        thumb = _tmdb_img(poster)
+        if backdrop and not fanart_url:
+            fanart_url = _tmdb_img(backdrop, "original")
+        plot = r.get("overview", "")
+        rating = r.get("vote_average", 0)
+        items.append((tid, title, year, mtype, thumb, plot, rating))
 
     if not items:
         xbmcgui.Dialog().notification("StreamLord", "No results found", xbmcgui.NOTIFICATION_INFO, 3000)
         xbmcplugin.endOfDirectory(HANDLE)
         return
 
-    for tid, title, year, mtype, thumb in items:
+    if fanart_url:
+        xbmcplugin.setPluginFanart(HANDLE, fanart_url)
+
+    for tid, title, year, mtype, thumb, plot, rating in items:
         label = title
         if year:
             label += " [%s]" % year
         label += " (%s)" % mtype.upper()
         li = xbmcgui.ListItem(label=label)
-        li.setInfo("video", {"title": title, "year": year})
-        li.setArt({"thumb": thumb, "icon": "DefaultVideo.png" if mtype == "movie" else "DefaultTVShows.png"})
+        li.setInfo("video", {"title": title, "year": year, "plot": plot, "rating": rating})
+        li.setArt({"thumb": thumb, "fanart": fanart_url, "icon": "DefaultVideo.png" if mtype == "movie" else "DefaultTVShows.png"})
         if mtype == "movie":
             li.setProperty("IsPlayable", "true")
             xbmcplugin.addDirectoryItem(HANDLE, get_url(action="play_movie", mid="", title=title,
@@ -662,12 +663,14 @@ def do_search(query="", browse_tmdb="", browse_season=""):
 
 
 def _browse_seasons(tmdb_id):
-    seasons, show_name, poster = _tmdb_tv(tmdb_id)[:3]
+    seasons, show_name, poster, fanart = _tmdb_tv(tmdb_id)
     if not seasons:
         xbmcgui.Dialog().notification("StreamLord", "No seasons found", xbmcgui.NOTIFICATION_INFO, 3000)
         xbmcplugin.endOfDirectory(HANDLE)
         return
-    thumb = _tmdb_img(poster)
+    fanart_url = _tmdb_img(fanart, "original")
+    if fanart_url:
+        xbmcplugin.setPluginFanart(HANDLE, fanart_url)
     for s in seasons:
         snum = s.get("season_number", 0)
         if snum == 0:
@@ -675,8 +678,9 @@ def _browse_seasons(tmdb_id):
         eps = s.get("episode_count", 0)
         label = "Season %d [%d episodes]" % (snum, eps)
         li = xbmcgui.ListItem(label=label)
-        li.setInfo("video", {"title": "%s - S%d" % (show_name, snum)})
-        li.setArt({"thumb": thumb, "icon": "DefaultTVShows.png"})
+        s_poster = s.get("poster_path") or poster
+        li.setInfo("video", {"title": "%s - S%d" % (show_name, snum), "tvshowtitle": show_name})
+        li.setArt({"thumb": _tmdb_img(s_poster), "fanart": fanart_url, "icon": "DefaultTVShows.png"})
         xbmcplugin.addDirectoryItem(HANDLE, get_url(action="search", browse_tmdb=tmdb_id,
             browse_season=str(snum)), li, isFolder=True)
     li = xbmcgui.ListItem("[B]New Search[/B]")
@@ -687,7 +691,7 @@ def _browse_seasons(tmdb_id):
 
 def _browse_episodes(tmdb_id, season_num):
     episodes = _tmdb_episodes(tmdb_id, season_num)
-    _, show_name, *_ = _tmdb_tv(tmdb_id)
+    _, show_name, poster, fanart = _tmdb_tv(tmdb_id)
     if not episodes:
         xbmcgui.Dialog().notification("StreamLord", "No episodes found", xbmcgui.NOTIFICATION_INFO, 3000)
         xbmcplugin.endOfDirectory(HANDLE)
@@ -702,18 +706,25 @@ def _browse_episodes(tmdb_id, season_num):
     except:
         imdb_id = ""
 
+    fanart_url = _tmdb_img(fanart, "original")
+    if fanart_url:
+        xbmcplugin.setPluginFanart(HANDLE, fanart_url)
+
     for ep in episodes:
         epnum = ep.get("episode_number", 0)
         epname = ep.get("name", "Episode %d" % epnum)
         label = "S%02dE%02d - %s" % (int(season_num), epnum, epname)
         li = xbmcgui.ListItem(label=label)
+        ep_still = ep.get("still_path") or poster
         li.setInfo("video", {"title": epname, "season": int(season_num), "episode": epnum,
-                             "tvshowtitle": show_name})
-        li.setArt({"icon": "DefaultTVShows.png"})
+                             "tvshowtitle": show_name, "plot": ep.get("overview", ""),
+                             "aired": ep.get("air_date", ""), "rating": ep.get("vote_average", 0)})
+        li.setArt({"thumb": _tmdb_img(ep_still), "fanart": fanart_url, "icon": "DefaultTVShows.png"})
+        li.setProperty("IsPlayable", "true")
         xbmcplugin.addDirectoryItem(HANDLE, get_url(action="play_episode", eid="",
             title="S%02dE%02d" % (int(season_num), epnum), link="", show_title=show_name,
             season=str(season_num), show_imdb_id=imdb_id, episode_num=str(epnum)),
-            li, isFolder=True)
+            li, isFolder=False)
 
     li = xbmcgui.ListItem("[B]Back to Seasons[/B]")
     li.setArt({"icon": "DefaultFolderBack.png"})
@@ -752,13 +763,37 @@ def play_via_LordPlayer(magnet, title):
         xbmc.log("[StreamLord] play_via_LordPlayer error: %s" % str(e), xbmc.LOGERROR)
         return False
 
+def play_via_serve_url(serve_url, title):
+    try:
+        xbmc.log("[StreamLord] Playing via serve URL: %s" % serve_url, xbmc.LOGINFO)
+        li = xbmcgui.ListItem(path=serve_url, label=title)
+        li.setProperty("IsPlayable", "true")
+        xbmcplugin.setResolvedUrl(HANDLE, True, li)
+        return True
+    except Exception as e:
+        xbmc.log("[StreamLord] play_via_serve_url error: %s" % str(e), xbmc.LOGERROR)
+        return False
+
+def play_http_url(url, title):
+    try:
+        xbmc.log("[StreamLord] Playing HTTP URL: %s" % url, xbmc.LOGINFO)
+        li = xbmcgui.ListItem(path=url, label=title)
+        li.setProperty("IsPlayable", "true")
+        xbmc.Player().play(url, li)
+        return True
+    except Exception as e:
+        xbmc.log("[StreamLord] play_http_url error: %s" % str(e), xbmc.LOGERROR)
+        return False
+
 def _scrape_best_magnet(imdb_id, show_title, season, episode):
     try:
         s_int = int(season) if season else 0
         e_int = int(episode) if episode else 0
         pattern = re.compile(r'[Ss]%02d[Ee]%02d' % (s_int, e_int), re.IGNORECASE)
         import scraper_manager as sm
+        sm.set_silent(True)
         results = sm.search_episode(imdb=imdb_id, tvshowtitle=show_title, title="S%02dE%02d" % (s_int, e_int), season=str(s_int), episode=str(e_int), year='')
+        sm.set_silent(False)
         best = None
         for s in results:
             if pattern.search(s.get('name', '')) or not s.get('name'):
@@ -799,57 +834,92 @@ def _prebuffer_torrest(magnet):
         if not vids:
             return None
         fid = vids[0]["id"]
+        try:
+            _tr("PUT", "/torrents/%s/files/%s/download" % (info_hash, fid), {"buffer": "true"})
+        except:
+            pass
         serve = "http://127.0.0.1:61235/torrents/%s/files/%s/serve" % (info_hash, fid)
-        return serve
+        return {"serve": serve, "hash": info_hash, "fid": fid}
     except Exception as e:
         xbmc.log("[StreamLord] _prebuffer_torrest error: %s" % str(e), xbmc.LOGERROR)
         return None
 
 def _autoplay_monitor(imdb_id, season, episode, show_title):
     import xbmcaddon
-    if xbmcaddon.Addon('plugin.video.streamlord').getSetting('autoplay_next') != 'true':
-        return
-    player = xbmc.Player()
-    monitor = xbmc.Monitor()
-    for _ in range(30):
-        if player.isPlaying():
-            break
-        monitor.waitForAbort(1)
-    if not player.isPlaying() or monitor.abortRequested():
-        return
-    total = player.getTotalTime()
-    if total <= 0:
-        return
-    s_int = int(season) if season else 0
-    e_int = int(episode) if episode else 0
-    next_s, next_e = s_int, e_int + 1
-    while player.isPlaying() and not monitor.abortRequested():
-        remaining = int(total - player.getTime())
-        if remaining <= 25:
-            break
-        monitor.waitForAbort(1)
-    if not player.isPlaying() or monitor.abortRequested():
-        return
-    xbmc.log("[StreamLord] Auto-play: scraping next S%02dE%02d" % (next_s, next_e), xbmc.LOGINFO)
-    magnet = _scrape_best_magnet(imdb_id, show_title, next_s, next_e)
-    if not magnet and next_e != 1:
-        next_s, next_e = s_int + 1, 1
-        xbmc.log("[StreamLord] Auto-play: trying next season S%02dE%02d" % (next_s, next_e), xbmc.LOGINFO)
+    try:
+        if xbmcaddon.Addon('plugin.video.streamlord').getSetting('autoplay_next') != 'true':
+            xbmc.log("[StreamLord] Autoplay: setting is off", xbmc.LOGINFO)
+            return
+        xbmc.log("[StreamLord] Autoplay: starting monitor for S%02dE%02d" % (int(season or 0), int(episode or 0)), xbmc.LOGINFO)
+        player = xbmc.Player()
+        monitor = xbmc.Monitor()
+        for _ in range(180):
+            if player.isPlaying():
+                break
+            monitor.waitForAbort(1)
+        if not player.isPlaying():
+            xbmc.log("[StreamLord] Autoplay: playback never started after 180s", xbmc.LOGINFO)
+            return
+        if monitor.abortRequested():
+            xbmc.log("[StreamLord] Autoplay: Kodi shutting down", xbmc.LOGINFO)
+            return
+        for _ in range(30):
+            total = player.getTotalTime()
+            if total > 60:
+                break
+            monitor.waitForAbort(1)
+        xbmc.log("[StreamLord] Autoplay: total time=%ds" % total, xbmc.LOGINFO)
+        s_int = int(season) if season else 0
+        e_int = int(episode) if episode else 0
+        next_s, next_e = s_int, e_int + 1
+        while player.isPlaying() and not monitor.abortRequested():
+            if total > 0:
+                remaining = int(total - player.getTime())
+                if remaining <= 240:
+                    break
+            monitor.waitForAbort(1)
+        if not player.isPlaying():
+            xbmc.log("[StreamLord] Autoplay: playback ended naturally", xbmc.LOGINFO)
+        elif monitor.abortRequested():
+            xbmc.log("[StreamLord] Autoplay: Kodi shutting down", xbmc.LOGINFO)
+            return
+        xbmc.log("[StreamLord] Autoplay: scraping next S%02dE%02d" % (next_s, next_e), xbmc.LOGINFO)
         magnet = _scrape_best_magnet(imdb_id, show_title, next_s, next_e)
-    if not magnet:
-        xbmc.log("[StreamLord] Auto-play: no source found", xbmc.LOGINFO)
-        return
-    serve = _prebuffer_torrest(magnet)
-    if not serve:
-        xbmc.log("[StreamLord] Auto-play: prebuffer failed", xbmc.LOGINFO)
-        return
-    while player.isPlaying() and not monitor.abortRequested():
-        monitor.waitForAbort(1)
-    if not monitor.abortRequested():
-        xbmc.log("[StreamLord] Auto-play: playing next S%02dE%02d" % (next_s, next_e), xbmc.LOGINFO)
-        li = xbmcgui.ListItem(path=serve, label="%s S%02dE%02d" % (show_title, next_s, next_e))
-        li.setProperty("IsPlayable", "true")
-        xbmc.Player().play(serve, li)
+        if not magnet and next_e != 1:
+            next_s, next_e = s_int + 1, 1
+            xbmc.log("[StreamLord] Autoplay: trying next season S%02dE%02d" % (next_s, next_e), xbmc.LOGINFO)
+            magnet = _scrape_best_magnet(imdb_id, show_title, next_s, next_e)
+        if not magnet:
+            xbmc.log("[StreamLord] Autoplay: no magnet for next episode", xbmc.LOGINFO)
+            return
+        xbmc.log("[StreamLord] Autoplay: prebuffering magnet", xbmc.LOGINFO)
+        info = _prebuffer_torrest(magnet)
+        if not info:
+            xbmc.log("[StreamLord] Autoplay: prebuffer failed", xbmc.LOGINFO)
+            return
+        serve = info["serve"]
+        info_hash = info["hash"]
+        for _ in range(120):
+            st = _tr("GET", "/torrents/%s/status" % info_hash)
+            dl = st.get("downloaded", 0) or 0
+            if dl > 100 * 1024 * 1024:
+                break
+            tot = st.get("total_size", 0) or 0
+            if tot > 0 and dl >= tot * 0.10:
+                break
+            xbmc.sleep(1000)
+        while player.isPlaying() and not monitor.abortRequested():
+            monitor.waitForAbort(1)
+        if not monitor.abortRequested():
+            xbmc.sleep(15000)
+            xbmc.log("[StreamLord] Autoplay: final buffer wait done for S%02dE%02d" % (next_s, next_e), xbmc.LOGINFO)
+            xbmc.log("[StreamLord] Autoplay: playing next S%02dE%02d via Player().play()" % (next_s, next_e), xbmc.LOGINFO)
+            if play_http_url(serve, "%s S%02dE%02d" % (show_title, next_s, next_e)):
+                _autoplay_monitor(imdb_id, next_s, next_e, show_title)
+    except Exception as e:
+        import traceback
+        xbmc.log("[StreamLord] Autoplay CRASH: %s" % str(e), xbmc.LOGERROR)
+        xbmc.log("[StreamLord] Autoplay traceback: %s" % traceback.format_exc(), xbmc.LOGERROR)
 
 def download_via_LordPlayer(magnet, title, dest):
     try:
@@ -1256,7 +1326,9 @@ def play_episode(eid, title, link, show_title, season, show_imdb_id="", episode_
     action = xbmcgui.Dialog().select("Choose action", ["Play", "Download"])
     if action == 0:
         if play_via_LordPlayer(chosen[3], full_title):
+            xbmc.log("[StreamLord] Calling _autoplay_monitor S%02dE%02d imdb=%s" % (s_int, e_int, show_imdb_id), xbmc.LOGINFO)
             _autoplay_monitor(show_imdb_id, season_num, ep_num, show_title)
+            xbmc.log("[StreamLord] _autoplay_monitor returned", xbmc.LOGINFO)
             return
     elif action == 1:
         handle_download(chosen[3], full_title)
@@ -1304,6 +1376,7 @@ def search_tpb_menu(query="", browse_tmdb="", browse_season=""):
         return
 
     items = []
+    fanart_url = ""
     for r in results:
         mtype = r.get("media_type", "")
         if mtype not in ("movie", "tv"):
@@ -1311,39 +1384,34 @@ def search_tpb_menu(query="", browse_tmdb="", browse_season=""):
         title = r.get("title") or r.get("name", "Unknown")
         year = (r.get("release_date") or r.get("first_air_date") or "")[:4]
         tid = r.get("id")
-        thumb = _tmdb_img(r.get("poster_path", ""))
-        backdrop = _tmdb_img(r.get("backdrop_path", ""), "w1280")
-        overview = r.get("overview", "")
+        poster = r.get("poster_path", "")
+        thumb = _tmdb_img(poster)
+        backdrop = r.get("backdrop_path", "")
+        if backdrop and not fanart_url:
+            fanart_url = _tmdb_img(backdrop, "original")
+        plot = r.get("overview", "")
         rating = r.get("vote_average", 0)
-        items.append((tid, title, year, mtype, thumb, backdrop, overview, rating))
+        items.append((tid, title, year, mtype, thumb, plot, rating))
 
     if not items:
         xbmcgui.Dialog().notification("StreamLord", "No results found", xbmcgui.NOTIFICATION_INFO, 3000)
         xbmcplugin.endOfDirectory(HANDLE)
         return
 
-    for tid, title, year, mtype, thumb, backdrop, overview, rating in items:
+    if fanart_url:
+        xbmcplugin.setPluginFanart(HANDLE, fanart_url)
+
+    for tid, title, year, mtype, thumb, plot, rating in items:
         label = title
         if year:
             label += " [%s]" % year
         label += " (%s)" % mtype.upper()
         li = xbmcgui.ListItem(label=label)
-        info = {"title": title, "year": int(year) if year.isdigit() else 0,
-                "mediatype": "movie" if mtype == "movie" else "tvshow"}
-        if mtype == "tv":
-            info["tvshowtitle"] = title
-        if overview:
-            info["plot"] = overview
-        if rating:
-            info["rating"] = float(rating)
-        li.setInfo("video", info)
-        art = {"thumb": thumb, "icon": "DefaultVideo.png" if mtype == "movie" else "DefaultTVShows.png"}
-        if backdrop:
-            art["fanart"] = backdrop
-        li.setArt(art)
+        li.setInfo("video", {"title": title, "year": year, "plot": plot, "rating": rating})
+        li.setArt({"thumb": thumb, "fanart": fanart_url, "icon": "DefaultVideo.png" if mtype == "movie" else "DefaultTVShows.png"})
         if mtype == "movie":
             li.setProperty("IsPlayable", "true")
-            xbmcplugin.addDirectoryItem(HANDLE, get_url(action="tpb_play_movie", title=title, year=year, tmdb_id=str(tid)), li, isFolder=False)
+            xbmcplugin.addDirectoryItem(HANDLE, get_url(action="tpb_play_movie", title=title, year=year), li, isFolder=False)
         else:
             xbmcplugin.addDirectoryItem(HANDLE, get_url(action="tpb_search", browse_tmdb=str(tid)), li, isFolder=True)
 
@@ -1354,13 +1422,14 @@ def search_tpb_menu(query="", browse_tmdb="", browse_season=""):
 
 
 def _tpb_browse_seasons(tmdb_id):
-    seasons, show_name, poster = _tmdb_tv(tmdb_id)[:3]
+    seasons, show_name, poster, fanart = _tmdb_tv(tmdb_id)
     if not seasons:
         xbmcgui.Dialog().notification("StreamLord", "No seasons found", xbmcgui.NOTIFICATION_INFO, 3000)
         xbmcplugin.endOfDirectory(HANDLE)
         return
-    thumb = _tmdb_img(poster)
-    fanart = _tmdb_img(backdrop, "w1280") if backdrop else ""
+    fanart_url = _tmdb_img(fanart, "original")
+    if fanart_url:
+        xbmcplugin.setPluginFanart(HANDLE, fanart_url)
     for s in seasons:
         snum = s.get("season_number", 0)
         if snum == 0:
@@ -1368,8 +1437,9 @@ def _tpb_browse_seasons(tmdb_id):
         eps = s.get("episode_count", 0)
         label = "Season %d [%d episodes]" % (snum, eps)
         li = xbmcgui.ListItem(label=label)
-        li.setInfo("video", {"tvshowtitle": show_name, "title": "Season %d" % snum, "mediatype": "season"})
-        li.setArt({"thumb": thumb, "fanart": fanart, "icon": "DefaultTVShows.png"})
+        s_poster = s.get("poster_path") or poster
+        li.setInfo("video", {"title": "%s - S%d" % (show_name, snum), "tvshowtitle": show_name})
+        li.setArt({"thumb": _tmdb_img(s_poster), "fanart": fanart_url, "icon": "DefaultTVShows.png"})
         xbmcplugin.addDirectoryItem(HANDLE, get_url(action="tpb_search", browse_tmdb=tmdb_id,
             browse_season=str(snum)), li, isFolder=True)
     li = xbmcgui.ListItem("[B]New Search[/B]")
@@ -1380,33 +1450,28 @@ def _tpb_browse_seasons(tmdb_id):
 
 def _tpb_browse_episodes(tmdb_id, season_num):
     episodes = _tmdb_episodes(tmdb_id, season_num)
-    _, show_name, poster, backdrop, overview, first_air = _tmdb_tv(tmdb_id)
+    _, show_name, poster, fanart = _tmdb_tv(tmdb_id)
     if not episodes:
         xbmcgui.Dialog().notification("StreamLord", "No episodes found", xbmcgui.NOTIFICATION_INFO, 3000)
         xbmcplugin.endOfDirectory(HANDLE)
         return
+    fanart_url = _tmdb_img(fanart, "original")
+    if fanart_url:
+        xbmcplugin.setPluginFanart(HANDLE, fanart_url)
     for ep in episodes:
         epnum = ep.get("episode_number", 0)
         epname = ep.get("name", "Episode %d" % epnum)
         label = "S%02dE%02d - %s" % (int(season_num), epnum, epname)
         li = xbmcgui.ListItem(label=label)
-        ep_overview = ep.get("overview", "")
-        li.setInfo("video", {"title": epname, "tvshowtitle": show_name, "plot": ep_overview, "mediatype": "episode"})
-        art = {"icon": "DefaultTVShows.png"}
-        if poster:
-            art["thumb"] = _tmdb_img(poster)
-            art["poster"] = _tmdb_img(poster, "w500")
-        if backdrop:
-            art["fanart"] = _tmdb_img(backdrop, "w1280")
-        still = ep.get("still_path", "")
-        if still:
-            art["thumb"] = _tmdb_img(still)
-        li.setArt(art)
+        ep_still = ep.get("still_path") or poster
+        li.setInfo("video", {"title": epname, "season": int(season_num), "episode": epnum,
+                             "tvshowtitle": show_name, "plot": ep.get("overview", ""),
+                             "aired": ep.get("air_date", ""), "rating": ep.get("vote_average", 0)})
+        li.setArt({"thumb": _tmdb_img(ep_still), "fanart": fanart_url, "icon": "DefaultTVShows.png"})
+        li.setProperty("IsPlayable", "true")
         xbmcplugin.addDirectoryItem(HANDLE, get_url(action="tpb_play_episode",
-            show_title=show_name, season=str(season_num), episode=str(epnum), tmdb_id=tmdb_id,
-            poster=urllib.parse.quote(poster or ""), backdrop=urllib.parse.quote(backdrop or ""),
-            overview=urllib.parse.quote(overview or ""), first_air=urllib.parse.quote(first_air or "")),
-            li, isFolder=True)
+            show_title=show_name, season=str(season_num), episode=str(epnum)),
+            li, isFolder=False)
     li = xbmcgui.ListItem("[B]Back to Seasons[/B]")
     li.setArt({"icon": "DefaultFolderBack.png"})
     xbmcplugin.addDirectoryItem(HANDLE, get_url(action="tpb_search", browse_tmdb=tmdb_id), li, isFolder=True)
@@ -1416,106 +1481,51 @@ def _tpb_browse_episodes(tmdb_id, season_num):
     xbmcplugin.endOfDirectory(HANDLE)
 
 
-def tpb_play_movie(title, year, tmdb_id=""):
+def tpb_play_movie(title, year):
     q = "%s %s" % (title, year) if year else title
     results = search_tpb(q)
-    meta = _get_tmdb_meta("movie", tmdb_id, title, year) if tmdb_id else {}
-    _show_tpb_results(results, q, meta)
+    _show_tpb_results(results, q)
 
 
-def tpb_play_episode(show_title, season, episode, tmdb_id="", poster="", backdrop="", overview="", first_air=""):
+def tpb_play_episode(show_title, season, episode):
     q = "%s S%02dE%02d" % (show_title, int(season), int(episode))
     results = search_tpb(q)
     pattern = re.compile(r'[Ss]%02d[Ee]%02d' % (int(season), int(episode)), re.IGNORECASE)
     filtered = [s for s in results if pattern.search(s.get('name', ''))] if len(results) > 1 else results
-    meta = {}
-    if poster or backdrop or overview:
-        meta["tvshowtitle"] = show_title
-        meta["title"] = "S%02dE%02d" % (int(season), int(episode))
-        meta["mediatype"] = "episode"
-        if overview:
-            meta["plot"] = urllib.parse.unquote(overview)
-        art = {}
-        if poster:
-            art["thumb"] = _tmdb_img(urllib.parse.unquote(poster))
-            art["poster"] = _tmdb_img(urllib.parse.unquote(poster), "w500")
-        if backdrop:
-            art["fanart"] = _tmdb_img(urllib.parse.unquote(backdrop), "w1280")
-        if art:
-            meta["art"] = art
-    _show_tpb_results(filtered or results, q, meta)
+    _show_tpb_results(filtered or results, q)
 
 
-def _get_tmdb_meta(mtype, tmdb_id, title, year="", season="", episode=""):
-    meta = {"title": title, "mediatype": "movie" if mtype == "movie" else "episode"}
-    if year:
-        meta["year"] = int(year) if year.isdigit() else 0
-    try:
-        if mtype == "movie":
-            url = "%s/movie/%s?api_key=%s&language=en-US&append_to_response=credits" % (
-                TMDB_BASE_URL, tmdb_id, TMDB_KEY)
-        else:
-            url = "%s/tv/%s?api_key=%s&language=en-US" % (TMDB_BASE_URL, tmdb_id, TMDB_KEY)
-        req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
-        with urllib.request.urlopen(req, timeout=10) as r:
-            data = json.loads(r.read().decode("utf-8", errors="replace"))
-        if mtype == "movie":
-            meta["title"] = data.get("title", title)
-            meta["year"] = int((data.get("release_date") or "")[:4] or year)
-            meta["plot"] = data.get("overview", "")
-            meta["rating"] = data.get("vote_average", 0)
-        else:
-            meta["tvshowtitle"] = data.get("name", title)
-            meta["plot"] = data.get("overview", "")
-            meta["rating"] = data.get("vote_average", 0)
-        poster = data.get("poster_path", "")
-        if poster:
-            meta["art"] = {"thumb": _tmdb_img(poster), "poster": _tmdb_img(poster, "w500")}
-        backdrop = data.get("backdrop_path", "")
-        if backdrop:
-            meta.setdefault("art", {})["fanart"] = _tmdb_img(backdrop, "w1280")
-    except:
-        pass
-    return meta
-
-
-def _show_tpb_results(results, label, meta=None):
-    meta = meta or {}
+def _show_tpb_results(results, label):
     if not results:
         xbmcgui.Dialog().notification("StreamLord", "No results on TPB", xbmcgui.NOTIFICATION_INFO, 3000)
         return
     qo = {'4K': 0, '1080p': 1, '1080': 1, '720p': 2, '720': 2, 'SD': 3, 'SCR': 4, 'CAM': 5}
     ss = sorted(results, key=lambda s: (qo.get(s.get('quality', 'SD'), 99), -(int(s.get('seeders', 0)))))
+    slist = []
     for s in ss:
         name = s.get('name', '')
-        short = name[:80] + ".." if len(name) > 82 else name
+        short = name[:60] + ".." if len(name) > 62 else name
         lbl = "%s %s" % (s.get('quality', '?'), s.get('size', '')) if s.get('size') else s.get('quality', '?')
         if s.get('seeders'):
             lbl += " [S:%s]" % s['seeders']
         if short:
             lbl = "%s - %s" % (short, lbl)
-        li = xbmcgui.ListItem(label=lbl)
-        info = {}
-        for k, v in meta.items():
-            if k == "art" or v is None:
-                continue
-            if k == "year":
-                try: info[k] = int(v)
-                except: pass
-            elif k == "rating":
-                try: info[k] = float(v)
-                except: pass
-            elif isinstance(v, (str, int, float)):
-                info[k] = v
-        if info:
-            li.setInfo("video", info)
-        if "art" in meta:
-            li.setArt(meta["art"])
-        magnet = s.get('url', '') or s.get('magnet', '')
-        li.setPath(magnet)
-        li.setProperty("IsPlayable", "true")
-        xbmcplugin.addDirectoryItem(HANDLE, get_url(action="play_magnet", magnet=urllib.parse.quote(magnet), title=name), li, isFolder=False)
-    xbmcplugin.endOfDirectory(HANDLE)
+        slist.append(lbl)
+    idx = xbmcgui.Dialog().select("TPB: %s" % label, slist)
+    if idx < 0:
+        return
+    chosen = ss[idx]
+    magnet = chosen.get('url', '') or chosen.get('magnet', '')
+    if not magnet.startswith("magnet:"):
+        xbmcgui.Dialog().ok("StreamLord", "Not a magnet link.")
+        return
+    if int(chosen.get('seeders', 0)) == 0 and not xbmcgui.Dialog().yesno("StreamLord", "0 seeders. Try anyway?"):
+        return
+    action = xbmcgui.Dialog().select("Choose action", ["Play", "Download"])
+    if action == 0:
+        play_via_LordPlayer(magnet, label)
+    elif action == 1:
+        handle_download(magnet, label)
 
 def show_menu():
     items = [
@@ -1539,7 +1549,8 @@ def show_menu():
 def list_genres():
     for genre in GENRES:
         li = xbmcgui.ListItem(genre.capitalize())
-        li.setArt({"icon": "DefaultVideo.png"})
+        li.setInfo("video", {"genre": genre.capitalize(), "title": genre.capitalize()})
+        li.setArt({"thumb": "DefaultGenre.png", "icon": "DefaultVideo.png"})
         xbmcplugin.addDirectoryItem(HANDLE, get_url(action="genre", genre=genre), li, isFolder=True)
     xbmcplugin.endOfDirectory(HANDLE)
 
@@ -1551,7 +1562,9 @@ def list_top_imdb(page=1):
     items = extract_listings(html)
     for item in items:
         li = xbmcgui.ListItem(label=item["title"])
-        _apply_tmdb_meta(li, item["title"], "movie", item["thumb"])
+        li.setInfo("video", {"title": item["title"]})
+        li.setArt({"thumb": item["thumb"], "fanart": item["thumb"], "icon": "DefaultVideo.png"})
+        _tmdb_enrich_item(li, item["title"], media_type="movie")
         xbmcplugin.addDirectoryItem(HANDLE, get_url(action="movie_detail", slug=item["slug"], link=item["link"]), li, isFolder=True)
     max_page = extract_pagination(html)
     if page < max_page and page < 50:
@@ -1565,7 +1578,8 @@ def fight_sports_menu():
     import watchwrestling as ww
     for label, slug in ww.CATEGORIES:
         li = xbmcgui.ListItem(label)
-        li.setArt({"icon": "DefaultVideo.png"})
+        li.setInfo("video", {"title": label})
+        li.setArt({"thumb": "DefaultVideo.png", "icon": "DefaultVideo.png"})
         xbmcplugin.addDirectoryItem(HANDLE, get_url(action="fight_category", cat_slug=slug), li, isFolder=True)
     xbmcplugin.endOfDirectory(HANDLE)
 
@@ -1574,7 +1588,8 @@ def fight_category(cat_slug, page=1):
     posts, has_next = ww.list_category(cat_slug, page)
     for post in posts:
         li = xbmcgui.ListItem(label=post["title"])
-        li.setArt({"thumb": post["thumb"], "icon": "DefaultVideo.png"})
+        li.setInfo("video", {"title": post["title"]})
+        li.setArt({"thumb": post["thumb"], "fanart": post.get("thumb", ""), "icon": "DefaultVideo.png"})
         xbmcplugin.addDirectoryItem(HANDLE, get_url(action="fight_post", url=post["link"]), li, isFolder=True)
     if has_next:
         li = xbmcgui.ListItem("[B]Next Page >[/B]")
@@ -1585,9 +1600,14 @@ def fight_post(url):
     import watchwrestling as ww
     detail = ww.get_post_detail(url)
     search_title = ww.clean_title(detail["title"])
+    thumb = detail.get("thumb", "")
+    fanart_url = thumb if thumb else ""
+    if fanart_url:
+        xbmcplugin.setPluginFanart(HANDLE, fanart_url)
     # Torrent search option (primary)
     li = xbmcgui.ListItem(label="[B]Search Torrents: %s[/B]" % search_title)
-    li.setArt({"icon": "DefaultVideo.png"})
+    li.setInfo("video", {"title": "Search Torrents: %s" % search_title, "plot": detail.get("desc", "")})
+    li.setArt({"thumb": thumb, "fanart": fanart_url, "icon": "DefaultVideo.png"})
     xbmcplugin.addDirectoryItem(HANDLE, get_url(action="fight_torrent_search", title=search_title), li, isFolder=False)
     # Also list any embed video links as secondary options
     if detail["videos"]:
@@ -1598,8 +1618,8 @@ def fight_post(url):
             label = v.get("label", "") or "Video %d" % (idx + 1)
             li = xbmcgui.ListItem(label=label)
             li.setProperty("IsPlayable", "true")
-            li.setInfo("video", {"title": detail["title"], "plot": detail["desc"]})
-            li.setArt({"thumb": detail["thumb"], "icon": "DefaultVideo.png"})
+            li.setInfo("video", {"title": detail["title"], "plot": detail.get("desc", "")})
+            li.setArt({"thumb": thumb, "fanart": fanart_url, "icon": "DefaultVideo.png"})
             xbmcplugin.addDirectoryItem(HANDLE, get_url(action="fight_play", video_url=v["url"], title=detail["title"]), li, isFolder=False)
     xbmcplugin.endOfDirectory(HANDLE)
 
@@ -1782,17 +1802,17 @@ def main():
         elif a == "tpb_search":
             search_tpb_menu(p.get("query", ""), p.get("browse_tmdb", ""), p.get("browse_season", ""))
         elif a == "tpb_play_movie":
-            tpb_play_movie(p.get("title", ""), p.get("year", ""), p.get("tmdb_id", ""))
+            tpb_play_movie(p.get("title", ""), p.get("year", ""))
         elif a == "tpb_play_episode":
-            tpb_play_episode(p.get("show_title", ""), p.get("season", ""), p.get("episode", ""),
-                           p.get("tmdb_id", ""), p.get("poster", ""), p.get("backdrop", ""),
-                           p.get("overview", ""), p.get("first_air", ""))
-        elif a == "play_magnet":
-            magnet = urllib.parse.unquote(p.get("magnet", ""))
-            if magnet.startswith("magnet:"):
-                play_via_LordPlayer(magnet, p.get("title", ""))
-            else:
-                xbmcplugin.endOfDirectory(HANDLE)
+            tpb_play_episode(p.get("show_title", ""), p.get("season", ""), p.get("episode", ""))
+        elif a == "fight_category":
+            fight_category(p.get("cat_slug", ""), int(p.get("page", "1")))
+        elif a == "fight_post":
+            fight_post(p.get("url", ""))
+        elif a == "fight_play":
+            fight_play(p.get("video_url", ""), p.get("title", ""))
+        elif a == "fight_torrent_search":
+            fight_torrent_search(p.get("title", ""))
         else:
             show_menu()
     except Exception as e:
