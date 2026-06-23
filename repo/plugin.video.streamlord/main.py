@@ -710,11 +710,10 @@ def _browse_episodes(tmdb_id, season_num):
         li.setInfo("video", {"title": epname, "season": int(season_num), "episode": epnum,
                              "tvshowtitle": show_name})
         li.setArt({"icon": "DefaultTVShows.png"})
-        li.setProperty("IsPlayable", "true")
         xbmcplugin.addDirectoryItem(HANDLE, get_url(action="play_episode", eid="",
             title="S%02dE%02d" % (int(season_num), epnum), link="", show_title=show_name,
             season=str(season_num), show_imdb_id=imdb_id, episode_num=str(epnum)),
-            li, isFolder=False)
+            li, isFolder=True)
 
     li = xbmcgui.ListItem("[B]Back to Seasons[/B]")
     li.setArt({"icon": "DefaultFolderBack.png"})
