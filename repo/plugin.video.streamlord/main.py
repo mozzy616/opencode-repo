@@ -554,12 +554,11 @@ def _sl_browse_episodes(tmdb_id, season_num):
         if still:
             art["thumb"] = _tmdb_img(still)
         li.setArt(art)
-        li.setProperty("IsPlayable", "true")
         xbmcplugin.addDirectoryItem(HANDLE, get_url(action="tpb_play_episode",
             show_title=show_name, season=str(season_num), episode=str(epnum), tmdb_id=tmdb_id,
             poster=urllib.parse.quote(poster or ""), backdrop=urllib.parse.quote(backdrop or ""),
             overview=urllib.parse.quote(overview or ""), first_air=urllib.parse.quote(first_air or "")),
-            li, isFolder=False)
+            li, isFolder=True)
     li = xbmcgui.ListItem("[B]Back to Seasons[/B]")
     li.setArt({"icon": "DefaultFolderBack.png"})
     xbmcplugin.addDirectoryItem(HANDLE, get_url(action="search_streamlord", browse_tmdb=tmdb_id), li, isFolder=True)
@@ -1404,12 +1403,11 @@ def _tpb_browse_episodes(tmdb_id, season_num):
         if still:
             art["thumb"] = _tmdb_img(still)
         li.setArt(art)
-        li.setProperty("IsPlayable", "true")
         xbmcplugin.addDirectoryItem(HANDLE, get_url(action="tpb_play_episode",
             show_title=show_name, season=str(season_num), episode=str(epnum), tmdb_id=tmdb_id,
             poster=urllib.parse.quote(poster or ""), backdrop=urllib.parse.quote(backdrop or ""),
             overview=urllib.parse.quote(overview or ""), first_air=urllib.parse.quote(first_air or "")),
-            li, isFolder=False)
+            li, isFolder=True)
     li = xbmcgui.ListItem("[B]Back to Seasons[/B]")
     li.setArt({"icon": "DefaultFolderBack.png"})
     xbmcplugin.addDirectoryItem(HANDLE, get_url(action="tpb_search", browse_tmdb=tmdb_id), li, isFolder=True)
@@ -1523,8 +1521,6 @@ def _show_tpb_results(results, label, meta=None):
 def show_menu():
     items = [
         ("[B]Search All Torrents[/B]", "search", "DefaultSearch.png"),
-        ("[B]TPB Search[/B]", "tpb_search", "DefaultSearch.png"),
-        ("[B]Search StreamLord[/B]", "search_streamlord", "DefaultSearch.png"),
         ("[B]Hot Movies[/B]", "movies", "DefaultMovies.png"),
         ("[B]TV Series[/B]", "tvseries", "DefaultTVShows.png"),
         ("[B]Top IMDb[/B]", "top_imdb", "DefaultVideo.png"),

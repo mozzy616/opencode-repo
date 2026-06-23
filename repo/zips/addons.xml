@@ -111,7 +111,7 @@
         <provides>video</provides>
     </extension>
 </addon>
-<addon id="plugin.video.streamlord" name="StreamLord" version="3.3.6" provider-name="opencode">
+<addon id="plugin.video.streamlord" name="StreamLord" version="3.4.0" provider-name="opencode">
     <requires>
         <import addon="xbmc.python" version="3.0.0"/>
         <import addon="script.module.cocoscrapers"/>
