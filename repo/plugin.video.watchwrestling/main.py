@@ -81,7 +81,7 @@ def list_categories():
     for label, url, icon in categories:
         li = xbmcgui.ListItem(label)
         li.setArt({"icon": icon})
-        xbmcplugin.addDirectoryItem(HANDLE, get_url(action="list_posts", url=urllib.parse.quote(url, safe=""), page="1"), li, isFolder=True)
+        xbmcplugin.addDirectoryItem(HANDLE, get_url(action="list_posts", url=url, page="1"), li, isFolder=True)
     xbmcplugin.endOfDirectory(HANDLE)
 
 def list_posts(url, page=1):
@@ -110,7 +110,7 @@ def list_posts(url, page=1):
             li.setInfo("video", {"title": title, "plot": summary})
         if thumb:
             li.setArt({"thumb": thumb})
-        xbmcplugin.addDirectoryItem(HANDLE, get_url(action="post_detail", url=urllib.parse.quote(post_url, safe="")), li, isFolder=True)
+        xbmcplugin.addDirectoryItem(HANDLE, get_url(action="post_detail", url=post_url), li, isFolder=True)
 
     # Pagination
     if page < 50:
@@ -118,7 +118,7 @@ def list_posts(url, page=1):
         if next_m:
             next_page = int(next_m.group(1))
             li = xbmcgui.ListItem("[B]Next Page >[/B]")
-            xbmcplugin.addDirectoryItem(HANDLE, get_url(action="list_posts", url=urllib.parse.quote(url, safe=""), page=str(next_page)), li, isFolder=True)
+            xbmcplugin.addDirectoryItem(HANDLE, get_url(action="list_posts", url=url, page=str(next_page)), li, isFolder=True)
     xbmcplugin.endOfDirectory(HANDLE)
 
 def post_detail(url):
@@ -159,7 +159,7 @@ def post_detail(url):
                         li.setArt({"thumb": thumb})
                     li.setProperty("IsPlayable", "true")
                     li.setPath(video_url)
-                    xbmcplugin.addDirectoryItem(HANDLE, get_url(action="resolve_video", url=urllib.parse.quote(video_url, safe=""), title=urllib.parse.quote(display, safe="")), li, isFolder=False)
+                    xbmcplugin.addDirectoryItem(HANDLE, get_url(action="resolve_video", url=video_url, title=display), li, isFolder=False)
         else:
             # Single links without sections
             for encoded, label in vision_links:
@@ -172,7 +172,7 @@ def post_detail(url):
                     li.setArt({"thumb": thumb})
                 li.setProperty("IsPlayable", "true")
                 li.setPath(video_url)
-                xbmcplugin.addDirectoryItem(HANDLE, get_url(action="resolve_video", url=urllib.parse.quote(video_url, safe=""), title=urllib.parse.quote(label.strip(), safe="")), li, isFolder=False)
+                xbmcplugin.addDirectoryItem(HANDLE, get_url(action="resolve_video", url=video_url, title=label.strip()), li, isFolder=False)
     elif not vision_links:
         xbmcgui.Dialog().notification("Watch Wrestling", "No video links found", xbmcgui.NOTIFICATION_INFO, 3000)
 
