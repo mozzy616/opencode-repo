@@ -2,15 +2,13 @@
 import xbmcgui
 import xbmcplugin
 import xbmc
+import xbmcvfs
 import sys
 import re
 import base64
 import urllib.parse
 import urllib.request
 from urllib.parse import urlparse
-import xbmcgui
-import xbmcplugin
-import xbmc
 
 HANDLE = int(sys.argv[1])
 URL = sys.argv[0]
@@ -184,13 +182,17 @@ def fetch_embed(url):
 
     # Try browser engine first
     try:
-        from resources.lib.browserengine import get_engine
+        import sys
+        engine_path = xbmcvfs.translatePath("special://home/addons/service.browserengine/resources/lib")
+        if engine_path not in sys.path:
+            sys.path.insert(0, engine_path)
+        from browserengine import get_engine
         engine = get_engine()
         html = engine.fetch(url, referer=BASE, timeout=30000)
         if html:
             xbmc.log("[WatchWrestling] Browser engine returned %d bytes" % len(html), xbmc.LOGINFO)
-    except:
-        pass
+    except Exception as e:
+        xbmc.log("[WatchWrestling] Browser engine error: %s" % str(e), xbmc.LOGERROR)
 
     # Fallback to cloudscraper
     if not html:
@@ -215,13 +217,17 @@ def fetch_embed(url):
     if 'window.location.href' in html and 'djt2.com/' in html:
         xbmc.log("[WatchWrestling] Got redirect page, trying browser engine retry with longer timeout", xbmc.LOGWARNING)
         try:
-            from resources.lib.browserengine import get_engine
+            import sys
+            engine_path = xbmcvfs.translatePath("special://home/addons/service.browserengine/resources/lib")
+            if engine_path not in sys.path:
+                sys.path.insert(0, engine_path)
+            from browserengine import get_engine
             engine = get_engine()
             html = engine.fetch(url, referer=BASE, timeout=60000, wait_for_selector="video,.video-js,iframe[src*='dailymotion'],iframe[src*='youtube'],iframe[src*='dood']")
             if html:
                 xbmc.log("[WatchWrestling] Retry returned %d bytes" % len(html), xbmc.LOGINFO)
-        except:
-            pass
+        except Exception as e:
+            xbmc.log("[WatchWrestling] Retry error: %s" % str(e), xbmc.LOGERROR)
 
     # Look for iframe
     iframe_m = re.search(r'<iframe[^>]*src="([^"]*)"', html)
