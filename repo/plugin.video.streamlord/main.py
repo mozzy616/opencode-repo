@@ -1498,16 +1498,25 @@ def _show_tpb_results(results, label, meta=None):
         if short:
             lbl = "%s - %s" % (short, lbl)
         li = xbmcgui.ListItem(label=lbl)
-        li.setInfo("video", meta)
+        info = {}
+        for k, v in meta.items():
+            if k == "art" or v is None:
+                continue
+            if k == "year":
+                try: info[k] = int(v)
+                except: pass
+            elif k == "rating":
+                try: info[k] = float(v)
+                except: pass
+            elif isinstance(v, (str, int, float)):
+                info[k] = v
+        if info:
+            li.setInfo("video", info)
         if "art" in meta:
             li.setArt(meta["art"])
         magnet = s.get('url', '') or s.get('magnet', '')
         li.setPath(magnet)
         li.setProperty("IsPlayable", "true")
-        li.addContextMenuItems([
-            ("Play", "PlayMedia(%s)" % magnet),
-            ("Download", "RunScript(plugin.video.streamlord, action=download, url=%s, title=%s)" % (urllib.parse.quote(magnet), urllib.parse.quote(name)))
-        ])
         xbmcplugin.addDirectoryItem(HANDLE, get_url(action="play_magnet", magnet=urllib.parse.quote(magnet), title=name), li, isFolder=False)
     xbmcplugin.endOfDirectory(HANDLE)
 
