@@ -337,9 +337,11 @@ def _tmdb_tv(tmdb_id):
         req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
         with urllib.request.urlopen(req, timeout=10) as r:
             data = json.loads(r.read().decode("utf-8", errors="replace"))
-        return data.get("seasons", []), data.get("name", ""), data.get("poster_path", "")
+        return (data.get("seasons", []), data.get("name", ""),
+                data.get("poster_path", ""), data.get("backdrop_path", ""),
+                data.get("overview", ""), data.get("first_air_date", ""))
     except:
-        return [], "", ""
+        return [], "", "", "", "", ""
 
 def _tmdb_episodes(tmdb_id, season_num):
     try:
@@ -411,7 +413,7 @@ def search_streamlord(query="", browse_tmdb="", browse_season=""):
 
 
 def _sl_browse_seasons(tmdb_id):
-    seasons, show_name, poster = _tmdb_tv(tmdb_id)
+    seasons, show_name, poster, backdrop, overview, first_air = _tmdb_tv(tmdb_id)
     if not seasons:
         xbmcgui.Dialog().notification("StreamLord", "No seasons found", xbmcgui.NOTIFICATION_INFO, 3000)
         xbmcplugin.endOfDirectory(HANDLE)
@@ -435,7 +437,7 @@ def _sl_browse_seasons(tmdb_id):
 
 def _sl_browse_episodes(tmdb_id, season_num):
     episodes = _tmdb_episodes(tmdb_id, season_num)
-    _, show_name, _ = _tmdb_tv(tmdb_id)
+    _, show_name, poster, backdrop, overview, first_air = _tmdb_tv(tmdb_id)
     if not episodes:
         xbmcgui.Dialog().notification("StreamLord", "No episodes found", xbmcgui.NOTIFICATION_INFO, 3000)
         xbmcplugin.endOfDirectory(HANDLE)
@@ -449,7 +451,9 @@ def _sl_browse_episodes(tmdb_id, season_num):
         li.setArt({"icon": "DefaultTVShows.png"})
         li.setProperty("IsPlayable", "true")
         xbmcplugin.addDirectoryItem(HANDLE, get_url(action="tpb_play_episode",
-            show_title=show_name, season=str(season_num), episode=str(epnum), tmdb_id=tmdb_id),
+            show_title=show_name, season=str(season_num), episode=str(epnum), tmdb_id=tmdb_id,
+            poster=urllib.parse.quote(poster or ""), backdrop=urllib.parse.quote(backdrop or ""),
+            overview=urllib.parse.quote(overview or ""), first_air=urllib.parse.quote(first_air or "")),
             li, isFolder=False)
     li = xbmcgui.ListItem("[B]Back to Seasons[/B]")
     li.setArt({"icon": "DefaultFolderBack.png"})
@@ -554,7 +558,7 @@ def do_search(query="", browse_tmdb="", browse_season=""):
 
 
 def _browse_seasons(tmdb_id):
-    seasons, show_name, poster = _tmdb_tv(tmdb_id)
+    seasons, show_name, poster = _tmdb_tv(tmdb_id)[:3]
     if not seasons:
         xbmcgui.Dialog().notification("StreamLord", "No seasons found", xbmcgui.NOTIFICATION_INFO, 3000)
         xbmcplugin.endOfDirectory(HANDLE)
@@ -579,7 +583,7 @@ def _browse_seasons(tmdb_id):
 
 def _browse_episodes(tmdb_id, season_num):
     episodes = _tmdb_episodes(tmdb_id, season_num)
-    _, show_name, _ = _tmdb_tv(tmdb_id)
+    _, show_name, *_ = _tmdb_tv(tmdb_id)
     if not episodes:
         xbmcgui.Dialog().notification("StreamLord", "No episodes found", xbmcgui.NOTIFICATION_INFO, 3000)
         xbmcplugin.endOfDirectory(HANDLE)
@@ -1233,7 +1237,7 @@ def search_tpb_menu(query="", browse_tmdb="", browse_season=""):
 
 
 def _tpb_browse_seasons(tmdb_id):
-    seasons, show_name, poster = _tmdb_tv(tmdb_id)
+    seasons, show_name, poster = _tmdb_tv(tmdb_id)[:3]
     if not seasons:
         xbmcgui.Dialog().notification("StreamLord", "No seasons found", xbmcgui.NOTIFICATION_INFO, 3000)
         xbmcplugin.endOfDirectory(HANDLE)
@@ -1257,7 +1261,7 @@ def _tpb_browse_seasons(tmdb_id):
 
 def _tpb_browse_episodes(tmdb_id, season_num):
     episodes = _tmdb_episodes(tmdb_id, season_num)
-    _, show_name, _ = _tmdb_tv(tmdb_id)
+    _, show_name, poster, backdrop, overview, first_air = _tmdb_tv(tmdb_id)
     if not episodes:
         xbmcgui.Dialog().notification("StreamLord", "No episodes found", xbmcgui.NOTIFICATION_INFO, 3000)
         xbmcplugin.endOfDirectory(HANDLE)
@@ -1271,7 +1275,9 @@ def _tpb_browse_episodes(tmdb_id, season_num):
         li.setArt({"icon": "DefaultTVShows.png"})
         li.setProperty("IsPlayable", "true")
         xbmcplugin.addDirectoryItem(HANDLE, get_url(action="tpb_play_episode",
-            show_title=show_name, season=str(season_num), episode=str(epnum), tmdb_id=tmdb_id),
+            show_title=show_name, season=str(season_num), episode=str(epnum), tmdb_id=tmdb_id,
+            poster=urllib.parse.quote(poster or ""), backdrop=urllib.parse.quote(backdrop or ""),
+            overview=urllib.parse.quote(overview or ""), first_air=urllib.parse.quote(first_air or "")),
             li, isFolder=False)
     li = xbmcgui.ListItem("[B]Back to Seasons[/B]")
     li.setArt({"icon": "DefaultFolderBack.png"})
@@ -1289,12 +1295,26 @@ def tpb_play_movie(title, year, tmdb_id=""):
     _show_tpb_results(results, q, meta)
 
 
-def tpb_play_episode(show_title, season, episode, tmdb_id=""):
+def tpb_play_episode(show_title, season, episode, tmdb_id="", poster="", backdrop="", overview="", first_air=""):
     q = "%s S%02dE%02d" % (show_title, int(season), int(episode))
     results = search_tpb(q)
     pattern = re.compile(r'[Ss]%02d[Ee]%02d' % (int(season), int(episode)), re.IGNORECASE)
     filtered = [s for s in results if pattern.search(s.get('name', ''))] if len(results) > 1 else results
-    meta = _get_tmdb_meta("episode", tmdb_id, show_title, "", season, episode) if tmdb_id else {}
+    meta = {}
+    if poster or backdrop or overview:
+        meta["tvshowtitle"] = show_title
+        meta["title"] = "S%02dE%02d" % (int(season), int(episode))
+        meta["mediatype"] = "episode"
+        if overview:
+            meta["plot"] = urllib.parse.unquote(overview)
+        art = {}
+        if poster:
+            art["thumb"] = _tmdb_img(urllib.parse.unquote(poster))
+            art["poster"] = _tmdb_img(urllib.parse.unquote(poster), "w500")
+        if backdrop:
+            art["fanart"] = _tmdb_img(urllib.parse.unquote(backdrop), "w1280")
+        if art:
+            meta["art"] = art
     _show_tpb_results(filtered or results, q, meta)
 
 
@@ -1630,7 +1650,9 @@ def main():
         elif a == "tpb_play_movie":
             tpb_play_movie(p.get("title", ""), p.get("year", ""), p.get("tmdb_id", ""))
         elif a == "tpb_play_episode":
-            tpb_play_episode(p.get("show_title", ""), p.get("season", ""), p.get("episode", ""), p.get("tmdb_id", ""))
+            tpb_play_episode(p.get("show_title", ""), p.get("season", ""), p.get("episode", ""),
+                           p.get("tmdb_id", ""), p.get("poster", ""), p.get("backdrop", ""),
+                           p.get("overview", ""), p.get("first_air", ""))
         elif a == "play_magnet":
             magnet = urllib.parse.unquote(p.get("magnet", ""))
             if magnet.startswith("magnet:"):
