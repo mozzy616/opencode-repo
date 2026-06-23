@@ -122,11 +122,12 @@
         <provides>video</provides>
     </extension>
 </addon>
-<addon id="plugin.video.watchwrestling" name="Watch Wrestling" version="1.0.0" provider-name="opencode">
+<addon id="plugin.video.watchwrestling" name="Watch Wrestling" version="1.0.1" provider-name="opencode">
     <requires>
         <import addon="xbmc.python" version="3.0.0" />
         <import addon="script.module.requests" />
         <import addon="script.module.resolveurl" />
+        <import addon="script.module.cloudrequest" optional="true" />
         <import addon="inputstream.adaptive" />
     </requires>
     <extension point="xbmc.python.pluginsource" library="main.py">

@@ -7,7 +7,10 @@ import re
 import base64
 import urllib.parse
 import urllib.request
-import json
+from urllib.parse import urlparse
+import xbmcgui
+import xbmcplugin
+import xbmc
 
 HANDLE = int(sys.argv[1])
 URL = sys.argv[0]
@@ -175,6 +178,37 @@ def post_detail(url):
 
     xbmcplugin.endOfDirectory(HANDLE)
 
+def fetch_embed(url):
+    """Fetch Cloudflare-protected embed page and extract video/iframe URL"""
+    try:
+        import cloudscraper
+        scraper = cloudscraper.create_scraper()
+        resp = scraper.get(url, headers={"Referer": BASE}, timeout=15)
+        html = resp.text
+    except:
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT, "Referer": BASE})
+            with urllib.request.urlopen(req, timeout=10) as r:
+                html = r.read().decode("utf-8", errors="replace")
+        except:
+            return None, None
+
+    # Look for iframe
+    iframe_m = re.search(r'<iframe[^>]*src="([^"]*)"', html)
+    if iframe_m:
+        return iframe_m.group(1), html
+
+    # Look for direct video URL
+    for pat in [r'src="(https?://[^"]*\.m3u8[^"]*)"', r'src="(https?://[^"]*\.mp4[^"]*)"',
+                r'(https?://[^"\'\s]+/manifest[^"\'\s]*\.m3u8[^"\'\s]*)',
+                r'(https?://[^"\'\s]+\.m3u8[^"\'\s]*)',
+                r'(https?://[^"\'\s]+\.mp4[^"\'\s]*)']:
+        m = re.search(pat, html)
+        if m:
+            return m.group(1), html
+
+    return None, html
+
 def resolve_video(url, title):
     try:
         resolved = try_resolveurl(url)
@@ -188,7 +222,51 @@ def resolve_video(url, title):
             return
     except:
         pass
-    
+
+    # Try to fetch the embed page (Cloudflare bypass)
+    embed_url, html = fetch_embed(url)
+    if embed_url:
+        if not embed_url.startswith("http"):
+            if embed_url.startswith("//"):
+                embed_url = "https:" + embed_url
+            elif embed_url.startswith("/"):
+                parsed = urlparse(url)
+                embed_url = "%s://%s%s" % (parsed.scheme, parsed.netloc, embed_url)
+        
+        # Try resolveurl on the embed URL
+        try:
+            resolved = try_resolveurl(embed_url)
+            if resolved:
+                li = xbmcgui.ListItem(path=resolved, label=title)
+                li.setProperty("IsPlayable", "true")
+                if ".m3u8" in resolved:
+                    li.setProperty("inputstreamaddon", "inputstream.adaptive")
+                    li.setProperty("inputstream.adaptive.manifest_type", "hls")
+                xbmcplugin.setResolvedUrl(HANDLE, True, li)
+                return
+        except:
+            pass
+
+        # Try following iframe chain
+        for _ in range(3):
+            nested_url, _ = fetch_embed(embed_url)
+            if nested_url:
+                try:
+                    resolved = try_resolveurl(nested_url)
+                    if resolved:
+                        li = xbmcgui.ListItem(path=resolved, label=title)
+                        li.setProperty("IsPlayable", "true")
+                        if ".m3u8" in resolved:
+                            li.setProperty("inputstreamaddon", "inputstream.adaptive")
+                            li.setProperty("inputstream.adaptive.manifest_type", "hls")
+                        xbmcplugin.setResolvedUrl(HANDLE, True, li)
+                        return
+                except:
+                    pass
+                embed_url = nested_url
+            else:
+                break
+
     # Direct play
     li = xbmcgui.ListItem(path=url, label=title)
     li.setProperty("IsPlayable", "true")
