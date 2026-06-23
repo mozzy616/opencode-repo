@@ -222,6 +222,10 @@ def fetch_embed(url):
 
     urls = extract_media_urls(html)
     xbmc.log("[WatchWrestling] Extracted %d media URLs" % len(urls), xbmc.LOGINFO)
+    if not urls and len(html) > 100:
+        # Debug: log first part of HTML to help find video patterns
+        snippet = html[:2000].replace('\n', ' ').replace('\r', '')
+        xbmc.log("[WatchWrestling] HTML start: %s" % snippet, xbmc.LOGINFO)
     return urls, html
 
     # Look for iframe
