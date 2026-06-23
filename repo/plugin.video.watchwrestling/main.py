@@ -4,6 +4,7 @@ import xbmcplugin
 import xbmc
 import xbmcvfs
 import sys
+import os
 import re
 import base64
 import urllib.parse
@@ -223,9 +224,15 @@ def fetch_embed(url):
     urls = extract_media_urls(html)
     xbmc.log("[WatchWrestling] Extracted %d media URLs" % len(urls), xbmc.LOGINFO)
     if not urls and len(html) > 100:
-        # Debug: log first part of HTML to help find video patterns
-        snippet = html[:2000].replace('\n', ' ').replace('\r', '')
-        xbmc.log("[WatchWrestling] HTML start: %s" % snippet, xbmc.LOGINFO)
+        # Save full HTML for debugging
+        try:
+            debug_path = xbmcvfs.translatePath("special://home/userdata/addon_data/plugin.video.watchwrestling/debug.html")
+            os.makedirs(os.path.dirname(debug_path), exist_ok=True)
+            with open(debug_path, 'w', encoding='utf-8') as f:
+                f.write(html)
+            xbmc.log("[WatchWrestling] Saved debug HTML to %s (%d bytes)" % (debug_path, len(html)), xbmc.LOGINFO)
+        except:
+            pass
     return urls, html
 
     # Look for iframe
