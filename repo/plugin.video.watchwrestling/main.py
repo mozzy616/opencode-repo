@@ -180,7 +180,7 @@ def fetch_embed(url):
     """Fetch Cloudflare-protected embed page and extract video/iframe URL"""
     html = ""
 
-    # Try browser engine first
+    # Try browser engine via FlareSolverr
     try:
         import sys
         engine_path = xbmcvfs.translatePath("special://home/addons/service.browserengine/resources/lib")
@@ -188,14 +188,17 @@ def fetch_embed(url):
             sys.path.insert(0, engine_path)
         from browserengine import get_engine
         engine = get_engine()
-        html = engine.fetch(url, referer=BASE, timeout=30000)
+        if engine.ready:
+            html = engine.fetch(url, referer=BASE, timeout=60000)
+        else:
+            html = engine._fallback_fetch(url, referer=BASE)
         if html:
-            xbmc.log("[WatchWrestling] Browser engine returned %d bytes" % len(html), xbmc.LOGINFO)
+            xbmc.log("[WatchWrestling] Got %d bytes from %s" % (len(html), "FlareSolverr" if engine.ready else "fallback"), xbmc.LOGINFO)
     except Exception as e:
         xbmc.log("[WatchWrestling] Browser engine error: %s" % str(e), xbmc.LOGERROR)
 
-    # Fallback to cloudscraper
-    if not html:
+    # Fallback cloudscraper
+    if not html or 'window.location.href' in html:
         try:
             import cloudscraper
             scraper = cloudscraper.create_scraper()
@@ -204,7 +207,7 @@ def fetch_embed(url):
         except:
             pass
 
-    # Fallback to basic request
+    # Final fallback
     if not html:
         try:
             req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT, "Referer": BASE})
@@ -213,21 +216,11 @@ def fetch_embed(url):
         except:
             return None, None
 
-    # Check for redirect/Google redirect spam page
-    if 'window.location.href' in html and 'djt2.com/' in html:
-        xbmc.log("[WatchWrestling] Got redirect page, trying browser engine retry with longer timeout", xbmc.LOGWARNING)
-        try:
-            import sys
-            engine_path = xbmcvfs.translatePath("special://home/addons/service.browserengine/resources/lib")
-            if engine_path not in sys.path:
-                sys.path.insert(0, engine_path)
-            from browserengine import get_engine
-            engine = get_engine()
-            html = engine.fetch(url, referer=BASE, timeout=60000, wait_for_selector="video,.video-js,iframe[src*='dailymotion'],iframe[src*='youtube'],iframe[src*='dood']")
-            if html:
-                xbmc.log("[WatchWrestling] Retry returned %d bytes" % len(html), xbmc.LOGINFO)
-        except Exception as e:
-            xbmc.log("[WatchWrestling] Retry error: %s" % str(e), xbmc.LOGERROR)
+    # Check for redirect spam
+    if 'window.location.href' in html and 'djt2.com/' in html and len(html) < 3000:
+        xbmc.log("[WatchWrestling] Got redirect spam, FlareSolverr may be needed", xbmc.LOGWARNING)
+
+    return extract_media_urls(html), html
 
     # Look for iframe
     iframe_m = re.search(r'<iframe[^>]*src="([^"]*)"', html)
@@ -245,65 +238,79 @@ def fetch_embed(url):
 
     return None, html
 
+def extract_media_urls(html):
+    """Extract video/embed URLs from embed page HTML"""
+    urls = []
+    for pat in [
+        r'<iframe[^>]*src="((?:https?:)?//[^"]*)"',
+        r"<iframe[^>]*src='((?:https?:)?//[^']*)'",
+    ]:
+        for m in re.finditer(pat, html):
+            src = m.group(1)
+            if src.startswith("//"):
+                src = "https:" + src
+            if any(exclude in src for exclude in ["javascript:", "ads", "cloudflare", "a-ads", "cmp."]):
+                continue
+            if not src.startswith("http"):
+                continue
+            urls.append(src)
+    # Also look for direct video sources
+    for pat in [r'(https?://[^"\'\s]+\.m3u8[^"\'\s]*)', r'(https?://[^"\'\s]+\.mp4[^"\'\s]*)']:
+        for m in re.finditer(pat, html):
+            urls.append(m.group(1))
+    return urls
+
 def resolve_video(url, title):
+    # Try resolveurl first
     try:
         resolved = try_resolveurl(url)
         if resolved:
-            li = xbmcgui.ListItem(path=resolved, label=title)
-            li.setProperty("IsPlayable", "true")
-            if ".m3u8" in resolved:
-                li.setProperty("inputstreamaddon", "inputstream.adaptive")
-                li.setProperty("inputstream.adaptive.manifest_type", "hls")
-            xbmcplugin.setResolvedUrl(HANDLE, True, li)
+            play_url(resolved, title)
             return
     except:
         pass
 
-    # Try to fetch the embed page (Cloudflare bypass)
-    embed_url, html = fetch_embed(url)
-    if embed_url:
-        if not embed_url.startswith("http"):
-            if embed_url.startswith("//"):
-                embed_url = "https:" + embed_url
-            elif embed_url.startswith("/"):
-                parsed = urlparse(url)
-                embed_url = "%s://%s%s" % (parsed.scheme, parsed.netloc, embed_url)
+    # Fetch embed page via browser engine
+    media_urls, html = fetch_embed(url)
+    
+    # Follow iframe chain iteratively
+    seen = {url}
+    queue = media_urls or []
+    depth = 0
+    while queue and depth < 4:
+        embed_url = queue.pop(0)
+        if embed_url in seen:
+            continue
+        seen.add(embed_url)
         
-        # Try resolveurl on the embed URL
+        # Already a media file
+        if '.m3u8' in embed_url or '.mp4' in embed_url:
+            play_url(embed_url, title)
+            return
+        
+        # Try resolveurl
         try:
             resolved = try_resolveurl(embed_url)
             if resolved:
-                li = xbmcgui.ListItem(path=resolved, label=title)
-                li.setProperty("IsPlayable", "true")
-                if ".m3u8" in resolved:
-                    li.setProperty("inputstreamaddon", "inputstream.adaptive")
-                    li.setProperty("inputstream.adaptive.manifest_type", "hls")
-                xbmcplugin.setResolvedUrl(HANDLE, True, li)
+                play_url(resolved, title)
                 return
         except:
             pass
+        
+        # Follow one level deeper
+        if any(x in embed_url for x in ['php', '.php', 'embed', 'blog.djt2', 'djshashi', 'dailymotion', 'dood', 'stream', 'play']):
+            nested_urls, _ = fetch_embed(embed_url)
+            if nested_urls:
+                for nu in nested_urls:
+                    if nu not in seen:
+                        queue.append(nu)
+                depth += 1
+                xbmc.log("[WatchWrestling] Depth %d: queue size %d" % (depth, len(queue)), xbmc.LOGINFO)
 
-        # Try following iframe chain
-        for _ in range(3):
-            nested_url, _ = fetch_embed(embed_url)
-            if nested_url:
-                try:
-                    resolved = try_resolveurl(nested_url)
-                    if resolved:
-                        li = xbmcgui.ListItem(path=resolved, label=title)
-                        li.setProperty("IsPlayable", "true")
-                        if ".m3u8" in resolved:
-                            li.setProperty("inputstreamaddon", "inputstream.adaptive")
-                            li.setProperty("inputstream.adaptive.manifest_type", "hls")
-                        xbmcplugin.setResolvedUrl(HANDLE, True, li)
-                        return
-                except:
-                    pass
-                embed_url = nested_url
-            else:
-                break
+    xbmc.log("[WatchWrestling] No playable URL found after %d levels" % depth, xbmc.LOGINFO)
+    xbmcgui.Dialog().notification("Watch Wrestling", "Could not extract video", xbmcgui.NOTIFICATION_INFO, 3000)
 
-    # Direct play
+def play_url(url, title):
     li = xbmcgui.ListItem(path=url, label=title)
     li.setProperty("IsPlayable", "true")
     if ".m3u8" in url:
