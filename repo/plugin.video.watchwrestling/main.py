@@ -243,6 +243,7 @@ def fetch_embed(url):
 def extract_media_urls(html):
     """Extract video/embed URLs from embed page HTML"""
     urls = []
+    # Standard iframes
     for pat in [
         r'<iframe[^>]*src="((?:https?:)?//[^"]*)"',
         r"<iframe[^>]*src='((?:https?:)?//[^']*)'",
@@ -251,15 +252,39 @@ def extract_media_urls(html):
             src = m.group(1)
             if src.startswith("//"):
                 src = "https:" + src
-            if any(exclude in src for exclude in ["javascript:", "ads", "cloudflare", "a-ads", "cmp."]):
+            if any(exclude in src.lower() for exclude in ["javascript:", "ads", "cloudflare", "a-ads", "cmp.", "google", "gstatic", "doubleclick", "prebid", "smilewanted", "onetag", "omnitag"]):
                 continue
             if not src.startswith("http"):
                 continue
             urls.append(src)
-    # Also look for direct video sources
-    for pat in [r'(https?://[^"\'\s]+\.m3u8[^"\'\s]*)', r'(https?://[^"\'\s]+\.mp4[^"\'\s]*)']:
+    
+    # JavaScript video players   
+    for pat in [
+        r'(?:file|src|source|video|video_url|videoUrl|streamUrl|url)\s*[:=]\s*[\'"](https?://[^\'"]+(?:\.m3u8|\.mp4|\.ts|/manifest)[^\'"]*)[\'"]',
+        r'[\'"]((?:https?:)?//[^\'"]*dailymotion[^\'"]*\d+)[\'"]',
+        r'[\'"]((?:https?:)?//[^\'"]*dood[^\'"]*(?:/e/|/d/)[^\'"]*)[\'"]',
+        r'[\'"]((?:https?:)?//[^\'"]*streamtape[^\'"]*/v/[^\'"]*)[\'"]',
+        r'[\'"]((?:https?:)?//[^\'"]*voe\.sx[^\'"]*)[\'"]',
+        r'[\'"]((?:https?:)?//[^\'"]*ok\.ru[^\'"]*)[\'"]',
+    ]:
+        for m in re.finditer(pat, html, re.IGNORECASE):
+            u = m.group(1)
+            if u.startswith("//"):
+                u = "https:" + u
+            if u.startswith("http") and u not in urls:
+                urls.append(u)
+
+    # Look for base64 encoded URLs or eval-based embeds
+    for pat in [r'eval\(.*?\)', r'atob\([\'"]([^\'"]+)[\'"]\)']:
         for m in re.finditer(pat, html):
-            urls.append(m.group(1))
+            # Try to decode base64 strings
+            try:
+                decoded = base64.b64decode(m.group(1)).decode('utf-8')
+                if 'http' in decoded:
+                    urls.append(decoded)
+            except:
+                pass
+    
     return urls
 
 def resolve_video(url, title):
