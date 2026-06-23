@@ -1,51 +1,30 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <shortcuts>
 	<shortcut>
-		<defaultID>130</defaultID>
-		<label>130</label>
-		<label2 />
-		<icon />
-		<thumb />
-		<action>ActivateWindow(SystemInfo)</action>
-	</shortcut>
-	<shortcut>
-		<defaultID>33060</defaultID>
-		<label>33060</label>
-		<label2 />
-		<icon />
-		<thumb />
-		<action>ActivateWindow(shutdownmenu)</action>
-	</shortcut>
-	<shortcut>
-		<defaultID>20077</defaultID>
-		<label>20077</label>
-		<label2 />
-		<icon />
-		<thumb />
-		<action>ActivateWindow(SkinSettings)</action>
-	</shortcut>
-	<shortcut>
-		<defaultID>7</defaultID>
 		<label>7</label>
-		<label2 />
-		<icon />
+		<label2>32034</label2>
+		<icon>DefaultFolder.png</icon>
 		<thumb />
 		<action>ActivateWindow(FileManager)</action>
-	</shortcut>
+		</shortcut>
 	<shortcut>
-		<defaultID>13200</defaultID>
 		<label>13200</label>
-		<label2 />
-		<icon />
+		<label2>32034</label2>
+		<icon>UnknownUser.png</icon>
 		<thumb />
 		<action>ActivateWindow(Profiles)</action>
-	</shortcut>
+		</shortcut>
 	<shortcut>
-		<defaultID>31159</defaultID>
-		<label>31159</label>
-		<label2 />
-		<icon />
+		<label>10007</label>
+		<label2>32034</label2>
+		<icon>DefaultShortcut.png</icon>
 		<thumb />
-		<action>ActivateWindow(Eventlog)</action>
-	</shortcut>
-</shortcuts>
+		<action>ActivateWindow(SystemInfo)</action>
+		</shortcut>
+	<shortcut>
+		<label>14111</label>
+		<label2>32034</label2>
+		<icon>UnknownUser.png</icon>
+		<thumb />
+		<action>ActivateWindow(EventLog,events://,return)</action>
+		</shortcut>
+	</shortcuts>

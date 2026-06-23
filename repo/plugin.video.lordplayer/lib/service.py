@@ -50,7 +50,7 @@ class DaemonMonitor(xbmc.Monitor):
         kwargs = dict(config=config, dest_dir=os.path.join(kodi.ADDON_DATA, "bin"), work_dir=kodi.ADDON_DATA,
                       android_extra_dirs=(kodi.translatePath("special://xbmcbin"),))
 
-        if os.path.exists(LIB_PATH) and not settings.get_force_LordPlayer():
+        if LIB_NAME and os.path.exists(LIB_PATH) and not settings.get_force_LordPlayer():
             logging.info("Configuring LordPlayer libray (%s)", LIB_NAME)
             self._daemon = LordPlayerLibraryDaemon(LIB_NAME, BASE_DIRECTORY, **kwargs)
         else:
@@ -104,7 +104,7 @@ class DaemonMonitor(xbmc.Monitor):
             logging.debug("Need to update daemon settings")
             r = self._request("put", self._settings_set_uri, json=kodi_settings)
             if r.status_code != 200:
-                xbmcgui.Dialog().ok(kodi.translate(30102), r.json()["error"])
+                logging.warning("Failed updating daemon settings: %s", r.text[:200])
                 return False
 
         return True

@@ -1,9 +1,0 @@
-<favourites>
-    <favourite name="StreamLord" thumb="C:\Users\user\AppData\Roaming\Kodi\addons\plugin.video.streamlord\icon.png">ActivateWindow(10025,"plugin://plugin.video.streamlord/",return)</favourite>
-    <favourite name="XPrime" thumb="C:\Users\user\AppData\Roaming\Kodi\addons\plugin.video.xprime\icon.png">ActivateWindow(10025,"plugin://plugin.video.xprime/",return)</favourite>
-    <favourite name="LordPlayer" thumb="C:\Users\user\AppData\Roaming\Kodi\addons\plugin.video.lordplayer\icon.png">ActivateWindow(10025,"plugin://plugin.video.lordplayer/",return)</favourite>
-    <favourite name="[COLOR orange]XX THOTS[/COLOR]" thumb="C:\Users\user\AppData\Roaming\Kodi\addons\plugin.video.xxthots\icon.png">ActivateWindow(10025,"plugin://plugin.video.xxthots/",return)</favourite>
-    <favourite name="Freeomovie" thumb="C:\Users\user\AppData\Roaming\Kodi\addons\plugin.video.freeomovie\icon.png">ActivateWindow(10025,"plugin://plugin.video.freeomovie/",return)</favourite>
-    <favourite name="MP3 Streams" thumb="C:\Users\user\AppData\Roaming\Kodi\addons\plugin.audio.mp3streams\icon.png">ActivateWindow(10502,"plugin://plugin.audio.mp3streams/",return)</favourite>
-    <favourite name="Open Roms" thumb="C:\Users\user\AppData\Roaming\Kodi\addons\plugin.program.openroms\icon.png">RunScript("plugin.program.openroms")</favourite>
-</favourites>

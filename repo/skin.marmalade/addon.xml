@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="skin.marmalade" version="1.0.0" name="Marmalade Build" provider-name="opencode">
+<addon id="skin.marmalade" version="1.0.1" name="Marmalade Build" provider-name="opencode">
 	<requires>
 		<import addon="xbmc.gui" version="5.17.0" />
 		<import addon="script.skinshortcuts" version="2.0.1" />
