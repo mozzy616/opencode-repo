@@ -130,14 +130,37 @@ def _tmdb_lookup(title, mtype="movie"):
     return {}
 
 def _apply_tmdb_meta(li, title, mtype="movie", thumb=""):
-    li.setInfo("video", {"mediatype": mtype})
     meta = _tmdb_lookup(title, mtype)
-    if meta:
-        li.setInfo("video", meta)
+    if not meta:
+        meta = {"mediatype": mtype, "title": title}
+    else:
+        meta["mediatype"] = mtype
+    # Ensure proper types
+    info = {}
+    for k, v in meta.items():
+        if k == "art":
+            continue
+        if v is None:
+            continue
+        if k == "year":
+            try:
+                info[k] = int(v)
+            except:
+                pass
+        elif k == "rating":
+            try:
+                info[k] = float(v)
+            except:
+                pass
+        elif isinstance(v, str):
+            info[k] = v
+        elif isinstance(v, (int, float)):
+            info[k] = v
+    li.setInfo("video", info)
     if thumb and "art" not in meta:
         li.setArt({"thumb": thumb})
     if "art" in meta:
-        art = meta["art"]
+        art = dict(meta["art"])
         if thumb and "thumb" not in art:
             art["thumb"] = thumb
         li.setArt(art)
