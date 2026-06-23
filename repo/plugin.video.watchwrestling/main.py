@@ -220,7 +220,9 @@ def fetch_embed(url):
     if 'window.location.href' in html and 'djt2.com/' in html and len(html) < 3000:
         xbmc.log("[WatchWrestling] Got redirect spam, FlareSolverr may be needed", xbmc.LOGWARNING)
 
-    return extract_media_urls(html), html
+    urls = extract_media_urls(html)
+    xbmc.log("[WatchWrestling] Extracted %d media URLs" % len(urls), xbmc.LOGINFO)
+    return urls, html
 
     # Look for iframe
     iframe_m = re.search(r'<iframe[^>]*src="([^"]*)"', html)
@@ -277,6 +279,9 @@ def resolve_video(url, title):
     seen = {url}
     queue = media_urls or []
     depth = 0
+    xbmc.log("[WatchWrestling] Starting chain with %d URLs" % len(queue), xbmc.LOGINFO)
+    for i, qurl in enumerate(queue[:5]):
+        xbmc.log("[WatchWrestling] Queue[%d] = %s" % (i, qurl[:120]), xbmc.LOGINFO)
     while queue and depth < 4:
         embed_url = queue.pop(0)
         if embed_url in seen:
