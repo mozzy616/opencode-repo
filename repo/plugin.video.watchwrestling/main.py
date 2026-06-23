@@ -180,18 +180,48 @@ def post_detail(url):
 
 def fetch_embed(url):
     """Fetch Cloudflare-protected embed page and extract video/iframe URL"""
+    html = ""
+
+    # Try browser engine first
     try:
-        import cloudscraper
-        scraper = cloudscraper.create_scraper()
-        resp = scraper.get(url, headers={"Referer": BASE}, timeout=15)
-        html = resp.text
+        from resources.lib.browserengine import get_engine
+        engine = get_engine()
+        html = engine.fetch(url, referer=BASE, timeout=30000)
+        if html:
+            xbmc.log("[WatchWrestling] Browser engine returned %d bytes" % len(html), xbmc.LOGINFO)
     except:
+        pass
+
+    # Fallback to cloudscraper
+    if not html:
+        try:
+            import cloudscraper
+            scraper = cloudscraper.create_scraper()
+            resp = scraper.get(url, headers={"Referer": BASE}, timeout=15)
+            html = resp.text
+        except:
+            pass
+
+    # Fallback to basic request
+    if not html:
         try:
             req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT, "Referer": BASE})
             with urllib.request.urlopen(req, timeout=10) as r:
                 html = r.read().decode("utf-8", errors="replace")
         except:
             return None, None
+
+    # Check for redirect/Google redirect spam page
+    if 'window.location.href' in html and 'djt2.com/' in html:
+        xbmc.log("[WatchWrestling] Got redirect page, trying browser engine retry with longer timeout", xbmc.LOGWARNING)
+        try:
+            from resources.lib.browserengine import get_engine
+            engine = get_engine()
+            html = engine.fetch(url, referer=BASE, timeout=60000, wait_for_selector="video,.video-js,iframe[src*='dailymotion'],iframe[src*='youtube'],iframe[src*='dood']")
+            if html:
+                xbmc.log("[WatchWrestling] Retry returned %d bytes" % len(html), xbmc.LOGINFO)
+        except:
+            pass
 
     # Look for iframe
     iframe_m = re.search(r'<iframe[^>]*src="([^"]*)"', html)
