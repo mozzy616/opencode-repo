@@ -122,19 +122,6 @@
         <provides>video</provides>
     </extension>
 </addon>
-<addon id="plugin.video.watchwrestling" name="Watch Wrestling" version="1.0.4" provider-name="opencode">
-    <requires>
-        <import addon="xbmc.python" version="3.0.0" />
-        <import addon="script.module.requests" />
-        <import addon="script.module.resolveurl" />
-        <import addon="service.browserengine" optional="true" />
-        <import addon="script.module.cloudrequest" optional="true" />
-        <import addon="inputstream.adaptive" />
-    </requires>
-    <extension point="xbmc.python.pluginsource" library="main.py">
-        <provides>video</provides>
-    </extension>
-</addon>
 <addon id="plugin.video.xprime" version="1.0.1" name="XPrime" provider-name="opencode">
     <requires>
         <import addon="script.module.six"/>
@@ -758,20 +745,6 @@
         <description lang="sv_SE">Skinntillägg som tillhandahåller enkel hantering och översikt av användargenvägar (om skinnet stöder det)</description>
         <description lang="zh_CN">皮肤加载项，提供简单的用户快捷方式管理和列表（需要皮肤支持）</description>
         <description lang="zh_TW">插件为皮肤提供了简单的管理和用户连接方式列表 (需要皮肤支持)</description>
-    </extension>
-</addon>
-<addon id="service.browserengine" name="Browser Engine" version="1.0.0" provider-name="opencode">
-    <requires>
-        <import addon="xbmc.python" version="3.0.0" />
-    </requires>
-    <extension point="xbmc.service" library="service.py" start="startup" />
-    <extension point="xbmc.addon.metadata">
-        <summary lang="en_GB">Browser Engine for Cloudflare bypass</summary>
-        <description lang="en_GB">Runs a local FlareSolverr browser engine to bypass Cloudflare challenges and JavaScript redirects. Other addons can use this to fetch pages that require a real browser.</description>
-        <platform>windows-x86_64</platform>
-        <assets>
-            <icon>icon.png</icon>
-        </assets>
     </extension>
 </addon>
 <addon id="skin.marmalade" version="1.0.1" name="Marmalade Build" provider-name="opencode">
