@@ -223,14 +223,17 @@ def fetch_embed(url):
 
     urls = extract_media_urls(html)
     xbmc.log("[WatchWrestling] Extracted %d media URLs" % len(urls), xbmc.LOGINFO)
-    if not urls and len(html) > 100:
+    if len(html) > 100 and (not urls or len(html) > 50000):
         # Save full HTML for debugging
         try:
-            debug_path = xbmcvfs.translatePath("special://home/userdata/addon_data/plugin.video.watchwrestling/debug.html")
-            os.makedirs(os.path.dirname(debug_path), exist_ok=True)
+            debug_dir = xbmcvfs.translatePath("special://home/userdata/addon_data/plugin.video.watchwrestling")
+            os.makedirs(debug_dir, exist_ok=True)
+            # Use URL hash as filename
+            fn = "debug_%s.html" % base64.b64encode(url[:60].encode()).decode()[:12].replace("/", "_")
+            debug_path = os.path.join(debug_dir, fn)
             with open(debug_path, 'w', encoding='utf-8') as f:
                 f.write(html)
-            xbmc.log("[WatchWrestling] Saved debug HTML to %s (%d bytes)" % (debug_path, len(html)), xbmc.LOGINFO)
+            xbmc.log("[WatchWrestling] Saved debug HTML to %s (%d bytes)" % (fn, len(html)), xbmc.LOGINFO)
         except:
             pass
     return urls, html
@@ -263,7 +266,7 @@ def extract_media_urls(html):
             src = m.group(1)
             if src.startswith("//"):
                 src = "https:" + src
-            if any(exclude in src.lower() for exclude in ["javascript:", "ads", "cloudflare", "a-ads", "cmp.", "google", "gstatic", "doubleclick", "prebid", "smilewanted", "onetag", "omnitag"]):
+            if any(exclude in src.lower() for exclude in ["javascript:", "cloudflare", "a-ads", "cmp.", "google", "gstatic", "prebid", "smilewanted", "onetag", "omnitag"]):
                 continue
             if not src.startswith("http"):
                 continue
