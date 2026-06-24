@@ -326,9 +326,18 @@ def resolve_video(url, title):
     if link_id:
         view_url = "https://djt2.com/includes/view.php?id=%s" % link_id
         xbmc.log("[WatchWrestling] Trying view.php API: %s" % view_url, xbmc.LOGINFO)
-        # Also try variations
-        for vu in [view_url, "https://djt2.com/includes/view.php?linkId=%s" % link_id,
-                   "https://djt2.com/wp-content/view.php?id=%s" % link_id]:
+        api_html = ""
+        # Try cloudscraper first (most reliable for CF bypass)
+        try:
+            import cloudscraper
+            scraper = cloudscraper.create_scraper()
+            resp = scraper.get(view_url, headers={"Referer": url, "User-Agent": USER_AGENT}, timeout=15)
+            api_html = resp.text
+            xbmc.log("[WatchWrestling] cloudscraper view.php: %d bytes" % len(api_html), xbmc.LOGINFO)
+        except Exception as e:
+            xbmc.log("[WatchWrestling] cloudscraper view.php error: %s" % str(e), xbmc.LOGERROR)
+        # Try FlareSolverr
+        if not api_html or len(api_html) < 100:
             try:
                 import json
                 engine_path = xbmcvfs.translatePath("special://home/addons/service.browserengine/resources/lib")
@@ -337,17 +346,15 @@ def resolve_video(url, title):
                 from browserengine import get_engine
                 engine = get_engine()
                 if engine.ready:
-                    api_html = engine.fetch(vu, referer=url, timeout=30000)
-                else:
-                    api_html = engine._fallback_fetch(vu, referer=url)
-                if api_html and len(api_html) > 100:
-                    xbmc.log("[WatchWrestling] view.php returned %d bytes" % len(api_html), xbmc.LOGINFO)
-                    api_urls = extract_media_urls(api_html)
-                    if api_urls:
-                        media_urls.extend(api_urls)
-                        break
-            except Exception as e:
-                xbmc.log("[WatchWrestling] view.php error: %s" % str(e), xbmc.LOGERROR)
+                    api_html = engine.fetch(view_url, referer=url, timeout=30000)
+                    xbmc.log("[WatchWrestling] FlareSolverr view.php: %d bytes" % len(api_html), xbmc.LOGINFO)
+            except:
+                pass
+        if api_html and len(api_html) > 100 and '404' not in api_html[:200]:
+            api_urls = extract_media_urls(api_html)
+            if api_urls:
+                media_urls = api_urls
+                xbmc.log("[WatchWrestling] view.php gave %d media URLs" % len(api_urls), xbmc.LOGINFO)
 
     # Follow iframe chain iteratively
     seen = {url}
