@@ -361,6 +361,11 @@ def resolve_video(url, title):
             
             if api_json and api_json.get('success') and api_json.get('long_url'):
                 long_url = api_json['long_url']
+                # Append autoplay as the page JS does
+                if '?' in long_url:
+                    long_url += '&autoplay=1'
+                else:
+                    long_url += '?autoplay=1'
                 xbmc.log("[WatchWrestling] view.php returned long_url: %s" % long_url[:120], xbmc.LOGINFO)
                 media_urls = [long_url]
             else:
@@ -399,6 +404,14 @@ def resolve_video(url, title):
         # Follow one level deeper
         if any(x in embed_url for x in ['php', '.php', 'embed', 'blog.djt2', 'djshashi', 'dailymotion', 'dood', 'stream', 'play']):
             nested_urls, _ = fetch_embed(embed_url)
+            # Also search the fetched HTML for JavaScript redirects
+            if html and not nested_urls:
+                rd = re.findall(r'window\.location(?:\.href)?\s*=\s*[\'"]([^\'"]+)[\'"]', html)
+                rd2 = re.findall(r'window\.location(?:\.href)?\s*=\s*[\'"]?(https?://[^\'"]+)[\'"]', html)
+                for r in rd + rd2:
+                    if 'http' in r and r not in seen:
+                        nested_urls.append(r)
+                        xbmc.log("[WatchWrestling] Found JS redirect: %s" % r[:120], xbmc.LOGINFO)
             if nested_urls:
                 for nu in nested_urls:
                     if nu not in seen:
