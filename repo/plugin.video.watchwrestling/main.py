@@ -311,9 +311,44 @@ def resolve_video(url, title):
     except:
         pass
 
+    # Check if this is a blog.djt2.com URL - extract linkId
+    link_id = ""
+    if 'blog.djt2.com' in url:
+        m = re.search(r'blog\.djt2\.com/([A-Za-z0-9]+)', url)
+        if m:
+            link_id = m.group(1)
+            xbmc.log("[WatchWrestling] Found linkId: %s" % link_id, xbmc.LOGINFO)
+
     # Fetch embed page via browser engine
     media_urls, html = fetch_embed(url)
     
+    # If it's a blog.djt2 page, try the view.php API for the actual video
+    if link_id:
+        view_url = "https://djt2.com/includes/view.php?id=%s" % link_id
+        xbmc.log("[WatchWrestling] Trying view.php API: %s" % view_url, xbmc.LOGINFO)
+        # Also try variations
+        for vu in [view_url, "https://djt2.com/includes/view.php?linkId=%s" % link_id,
+                   "https://djt2.com/wp-content/view.php?id=%s" % link_id]:
+            try:
+                import json
+                engine_path = xbmcvfs.translatePath("special://home/addons/service.browserengine/resources/lib")
+                if engine_path not in sys.path:
+                    sys.path.insert(0, engine_path)
+                from browserengine import get_engine
+                engine = get_engine()
+                if engine.ready:
+                    api_html = engine.fetch(vu, referer=url, timeout=30000)
+                else:
+                    api_html = engine._fallback_fetch(vu, referer=url)
+                if api_html and len(api_html) > 100:
+                    xbmc.log("[WatchWrestling] view.php returned %d bytes" % len(api_html), xbmc.LOGINFO)
+                    api_urls = extract_media_urls(api_html)
+                    if api_urls:
+                        media_urls.extend(api_urls)
+                        break
+            except Exception as e:
+                xbmc.log("[WatchWrestling] view.php error: %s" % str(e), xbmc.LOGERROR)
+
     # Follow iframe chain iteratively
     seen = {url}
     queue = media_urls or []
