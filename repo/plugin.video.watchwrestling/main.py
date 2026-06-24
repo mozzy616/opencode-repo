@@ -324,7 +324,7 @@ def resolve_video(url, title):
     
     # If it's a blog.djt2 page, try the view.php API for the actual video
     if link_id:
-        view_url = "https://djt2.com/includes/view.php?id=%s" % link_id
+        view_url = "https://djt2.com/includes/view.php?alias=%s" % link_id
         xbmc.log("[WatchWrestling] Trying view.php API: %s" % view_url, xbmc.LOGINFO)
         api_html = ""
         # Try cloudscraper first (most reliable for CF bypass)
@@ -350,11 +350,24 @@ def resolve_video(url, title):
                     xbmc.log("[WatchWrestling] FlareSolverr view.php: %d bytes" % len(api_html), xbmc.LOGINFO)
             except:
                 pass
-        if api_html and len(api_html) > 100 and '404' not in api_html[:200]:
-            api_urls = extract_media_urls(api_html)
-            if api_urls:
-                media_urls = api_urls
-                xbmc.log("[WatchWrestling] view.php gave %d media URLs" % len(api_urls), xbmc.LOGINFO)
+        if api_html and len(api_html) > 100:
+            # Parse JSON response from view.php
+            try:
+                api_json = __import__('json').loads(api_html) if api_html.strip().startswith('{') else None
+            except:
+                # Might be wrapped in HTML/JSON formatter
+                pre_m = re.search(r'<pre>({.*?})</pre>', api_html, re.DOTALL)
+                api_json = __import__('json').loads(pre_m.group(1)) if pre_m else None
+            
+            if api_json and api_json.get('success') and api_json.get('long_url'):
+                long_url = api_json['long_url']
+                xbmc.log("[WatchWrestling] view.php returned long_url: %s" % long_url[:120], xbmc.LOGINFO)
+                media_urls = [long_url]
+            else:
+                api_urls = extract_media_urls(api_html)
+                if api_urls:
+                    media_urls = api_urls
+                    xbmc.log("[WatchWrestling] view.php gave %d media URLs" % len(api_urls), xbmc.LOGINFO)
 
     # Follow iframe chain iteratively
     seen = {url}
