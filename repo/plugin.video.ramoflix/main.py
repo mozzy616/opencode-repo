@@ -143,9 +143,9 @@ def watch(url):
     if is_tv:
         # TV show - extract server embed list and season data
         server_items = re.findall(r'<li[^>]*data-load-embed="([^"]*)"[^>]*data-load-embed-host="([^"]*)"[^>]*data-load-season="([^"]*)"[^>]*data-load-episode="([^"]*)"[^>]*>', html)
-    tvid = data.get("tvid", "")
-    imdb_id = data.get("tvimdbid", "") or data.get("imdb_id", "")
-    tmdb_id = data.get("id", "")
+        tvid = data.get("tvid", "")
+        imdb_id = data.get("tvimdbid", "") or data.get("imdb_id", "")
+        tmdb_id = data.get("id", "")
 
         server_urls = {
             "embedru": "https://vidsrc.stream/embed/tv/{imdb}/{s}/{e}",
