@@ -205,63 +205,69 @@ def play_video(url, title):
         import resolveurl
         resolved = resolveurl.resolve(url)
         if resolved:
-            li = xbmcgui.ListItem(path=resolved, label=title)
-            li.setProperty("IsPlayable", "true")
-            if ".m3u8" in resolved:
-                li.setProperty("inputstreamaddon", "inputstream.adaptive")
-                li.setProperty("inputstream.adaptive.manifest_type", "hls")
-            xbmcplugin.setResolvedUrl(HANDLE, True, li)
+            play_url(resolved, title)
             return
     except:
         pass
 
-    # Fetch embed page and extract video URLs
+    # Try fetching the page and extracting playable URLs
     html = fetch(url)
     if html:
-        for i in range(3):
-            # Find iframes
-            iframe = re.search(r'<iframe[^>]*src="([^"]*)"', html)
-            if iframe:
-                src = iframe.group(1)
-                if src.startswith("//"):
-                    src = "https:" + src
-                if not src.startswith("http"):
-                    continue
-                # Try resolveurl on the iframe URL
-                try:
-                    import resolveurl
-                    resolved = resolveurl.resolve(src)
-                    if resolved:
-                        li = xbmcgui.ListItem(path=resolved, label=title)
-                        li.setProperty("IsPlayable", "true")
-                        if ".m3u8" in resolved:
-                            li.setProperty("inputstreamaddon", "inputstream.adaptive")
-                            li.setProperty("inputstream.adaptive.manifest_type", "hls")
-                        xbmcplugin.setResolvedUrl(HANDLE, True, li)
-                        return
-                except:
-                    pass
-                # Follow the iframe chain
-                html = fetch(src)
-                if html:
-                    continue
-            break
+        # Search for any playable URL recursively (up to 3 levels deep)
+        final_url = find_playable_url(html, url, 3)
+        if final_url:
+            play_url(final_url, title)
+            return
 
-        # Look for direct video/m3u8 in the page
-        for pat in [r'(https?://[^"\'\s]+\.m3u8[^"\'\s]*)', r'(https?://[^"\'\s]+\.mp4[^"\'\s]*)',
-                     r'file\s*:\s*"(https?://[^"]*)"', r'src\s*:\s*"(https?://[^"]*)"']:
-            m = re.search(pat, html)
-            if m:
-                vurl = m.group(1)
-                li = xbmcgui.ListItem(path=vurl, label=title)
-                li.setProperty("IsPlayable", "true")
-                if ".m3u8" in vurl:
-                    li.setProperty("inputstreamaddon", "inputstream.adaptive")
-                    li.setProperty("inputstream.adaptive.manifest_type", "hls")
-                xbmcplugin.setResolvedUrl(HANDLE, True, li)
-                return
+    # Last resort: direct play
+    play_url(url, title)
 
-    # Direct play as last resort
+def find_playable_url(html, source_url, depth):
+    if depth <= 0:
+        return None
+
+    # Check for direct m3u8/mp4
+    for pat in [
+        r'(https?://[^"\'<>\s]+\.m3u8[^"\'<>\s]*)',
+        r'(https?://[^"\'<>\s]+\.mp4[^"\'<>\s]*)',
+        r'file\s*:\s*"(https?://[^"]*)"',
+        r"file\s*:\s*'(https?://[^']*)'",
+    ]:
+        m = re.search(pat, html)
+        if m:
+            return m.group(1)
+
+    # Find iframes
+    iframes = re.findall(r'<iframe[^>]*src="([^"]*)"', html)
+    iframes += re.findall(r"<iframe[^>]*src='([^']*)'", html)
+    
+    for src in iframes:
+        if src.startswith("//"):
+            src = "https:" + src
+        if not src.startswith("http"):
+            continue
+        if "javascript:" in src or "about:" in src:
+            continue
+
+        # Try resolveurl on the iframe
+        try:
+            import resolveurl
+            resolved = resolveurl.resolve(src)
+            if resolved:
+                return resolved
+        except:
+            pass
+
+        # Follow the iframe
+        inner_html = fetch(src)
+        if inner_html:
+            result = find_playable_url(inner_html, src, depth - 1)
+            if result:
+                return result
+
+    return None
+
+def play_url(url, title):
     li = xbmcgui.ListItem(path=url, label=title)
     li.setProperty("IsPlayable", "true")
     if ".m3u8" in url:
