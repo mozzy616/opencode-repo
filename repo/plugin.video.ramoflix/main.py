@@ -143,8 +143,9 @@ def watch(url):
     if is_tv:
         # TV show - extract server embed list and season data
         server_items = re.findall(r'<li[^>]*data-load-embed="([^"]*)"[^>]*data-load-embed-host="([^"]*)"[^>]*data-load-season="([^"]*)"[^>]*data-load-episode="([^"]*)"[^>]*>', html)
-        tvid = data.get("tvid", "")
-        imdb_id = data.get("tvimdbid", "")
+    tvid = data.get("tvid", "")
+    imdb_id = data.get("tvimdbid", "") or data.get("imdb_id", "")
+    tmdb_id = data.get("id", "")
 
         server_urls = {
             "embedru": "https://vidsrc.stream/embed/tv/{imdb}/{s}/{e}",
@@ -192,34 +193,83 @@ def watch(url):
         if thumb:
             li.setArt({"thumb": thumb})
         li.setProperty("IsPlayable", "true")
-        xbmcplugin.addDirectoryItem(HANDLE, get_url(action="play", url=surl, title=label), li, isFolder=False)
+        # Pass TMDB/IMDB IDs as part of URL for play_video to use
+        play_url_path = surl
+        if imdb_id:
+            play_url_path += "|imdb=" + imdb_id
+        if tmdb_id:
+            play_url_path += "|tmdb=" + tmdb_id
+        xbmcplugin.addDirectoryItem(HANDLE, get_url(action="play", url=play_url_path, title=label), li, isFolder=False)
 
     xbmcplugin.endOfDirectory(HANDLE)
 
 def play_video(url, title):
-    url = urllib.parse.unquote(url)
+    url_raw = urllib.parse.unquote(url)
     title = urllib.parse.unquote(title)
+    
+    # Extract pipe-delimited IDs: url|imdb=tt123|tmdb=456
+    imdb_id = ""
+    tmdb_id = ""
+    if "|imdb=" in url_raw:
+        parts = url_raw.split("|")
+        url = parts[0]
+        for p in parts[1:]:
+            if p.startswith("imdb="):
+                imdb_id = p[5:]
+            elif p.startswith("tmdb="):
+                tmdb_id = p[5:]
+    else:
+        url = url_raw
+        imdb_match = re.search(r'tt(\d+)', url)
+        tmdb_match = re.search(r'/(\d{5,8})(?:/|\?|$)', url)
+        if imdb_match:
+            imdb_id = "tt" + imdb_match.group(1)
+        if tmdb_match:
+            tmdb_id = tmdb_match.group(1)
+        
+    if tmdb_id or imdb_id:
+        # Try the simple vidsrc API that works directly
+        if tmdb_id:
+            simple_urls = [
+                "https://vidsrc.xyz/embed/movie/%s" % tmdb_id,
+                "https://vidsrc.in/embed/movie/%s" % tmdb_id,
+            ]
+        elif imdb_id:
+            simple_urls = [
+                "https://vidsrc.xyz/embed/movie/%s" % imdb_id,
+                "https://vidsrc.in/embed/movie/%s" % imdb_id,
+            ]
+        else:
+            simple_urls = []
+        
+        for surl in simple_urls:
+            try:
+                import resolveurl
+                resolved = resolveurl.resolve(surl)
+                if resolved:
+                    play_url(resolved, title)
+                    return
+            except:
+                pass
+            
+            # Try CocoScrapers for torrent sources
+            try:
+                from scraper_manager import search_movie
+                results = search_movie(imdb=imdb_id, title=title, year="")
+                if results:
+                    # Use the first result
+                    magnet = results[0].get('url') or results[0].get('magnet', '')
+                    if magnet.startswith('magnet:'):
+                        try:
+                            import xbmc
+                            xbmc.executebuiltin('PlayMedia(plugin://plugin.video.lordplayer/play/%s)' % magnet)
+                            return
+                        except:
+                            pass
+            except:
+                pass
 
-    # Try resolveurl first
-    try:
-        import resolveurl
-        resolved = resolveurl.resolve(url)
-        if resolved:
-            play_url(resolved, title)
-            return
-    except:
-        pass
-
-    # Try fetching the page and extracting playable URLs
-    html = fetch(url)
-    if html:
-        # Search for any playable URL recursively (up to 3 levels deep)
-        final_url = find_playable_url(html, url, 3)
-        if final_url:
-            play_url(final_url, title)
-            return
-
-    # Last resort: direct play
+    # Direct play as last resort
     play_url(url, title)
 
 def find_playable_url(html, source_url, depth):
