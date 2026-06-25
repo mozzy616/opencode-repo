@@ -8,11 +8,8 @@ UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
 
 # Patch urllib to handle 308 redirects
 class RedirectHandler(urllib.request.HTTPRedirectHandler):
-    def redirect_request(self, req, fp, code, msg, headers, newurl):
-        if code in (301, 302, 303, 307, 308):
-            return urllib.request.HTTPRedirectHandler.redirect_request(self, req, fp, code, msg, headers, newurl)
-        return None
-    http_error_308 = urllib.request.HTTPRedirectHandler.http_error_301
+    def http_error_308(self, req, fp, code, msg, headers):
+        return self.redirect_request(req, fp, code, msg, headers, req.get_full_url()) if hasattr(self, 'redirect_request') else None
 _opener = urllib.request.build_opener(RedirectHandler)
 
 def get_url(**kw):
