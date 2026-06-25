@@ -140,12 +140,16 @@ def watch(url):
     if thumb and not thumb.startswith("http"):
         thumb = "https:" + thumb
 
+    tvid = data.get("tvid", "")
+    imdb_id = data.get("tvimdbid", "") or data.get("imdb_id", "")
+    tmdb_id = data.get("id", "")
+
     if is_tv:
         # TV show - extract server embed list and season data
         server_items = re.findall(r'<li[^>]*data-load-embed="([^"]*)"[^>]*data-load-embed-host="([^"]*)"[^>]*data-load-season="([^"]*)"[^>]*data-load-episode="([^"]*)"[^>]*>', html)
-        tvid = data.get("tvid", "")
-        imdb_id = data.get("tvimdbid", "") or data.get("imdb_id", "")
-        tmdb_id = data.get("id", "")
+        # Override with TV-specific IDs
+        d_id = data.get("tvid", "") or tmdb_id
+        d_imdb = data.get("tvimdbid", "") or imdb_id
 
         server_urls = {
             "embedru": "https://vidsrc.stream/embed/tv/{imdb}/{s}/{e}",
@@ -163,7 +167,7 @@ def watch(url):
         for tid, host, s, e in server_items:
             if host in server_urls and host not in seen:
                 seen.add(host)
-                surl = server_urls[host].format(id=tvid, imdb=imdb_id, s=s, e=e)
+                surl = server_urls[host].format(id=d_id, imdb=d_imdb, s=s, e=e)
                 sname = server_names.get(host, host)
                 servers.append((sname, surl))
 
