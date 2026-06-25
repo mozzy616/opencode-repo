@@ -6,13 +6,22 @@ HANDLE = int(sys.argv[1])
 BASE = "https://ramoflix.net"
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
 
+# Patch urllib to handle 308 redirects
+class RedirectHandler(urllib.request.HTTPRedirectHandler):
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        if code in (301, 302, 303, 307, 308):
+            return urllib.request.HTTPRedirectHandler.redirect_request(self, req, fp, code, msg, headers, newurl)
+        return None
+    http_error_308 = urllib.request.HTTPRedirectHandler.http_error_301
+_opener = urllib.request.build_opener(RedirectHandler)
+
 def get_url(**kw):
     return "{}?{}".format(sys.argv[0], urllib.parse.urlencode(kw))
 
 def fetch(url):
     try:
         req = urllib.request.Request(url, headers={"User-Agent": UA})
-        with urllib.request.urlopen(req, timeout=15) as r:
+        with _opener.open(req, timeout=15) as r:
             return r.read().decode("utf-8", errors="replace")
     except Exception as e:
         xbmc.log("[RamoFlix] fetch error: %s" % str(e), xbmc.LOGERROR)
@@ -141,16 +150,16 @@ def watch(url):
         imdb_id = data.get("tvimdbid", "")
 
         server_urls = {
-            "Vidfast": "https://vidfast.pro/tv/{id}/{s}/{e}",
+            "embedru": "https://vidsrc.stream/embed/tv/{imdb}/{s}/{e}",
             "movieclub": "https://vidsrc.wtf/api/1/tv/?id={id}&s={s}&e={e}",
             "vidlink": "https://player.videasy.net/tv/{id}/{s}/{e}",
             "Openvid": "https://111movies.com/tv/{imdb}/{s}/{e}?autoPlay=true",
-            "embedru": "https://vidsrc.stream/embed/tv/{imdb}/{s}/{e}",
         }
         server_names = {
-            "Vidfast": "Vidsrc", "movieclub": "Vidwtf",
-            "vidlink": "Videasy", "Openvid": "111movies",
             "embedru": "Vidsrc.stream",
+            "movieclub": "Vidsrc.wtf",
+            "vidlink": "Videasy",
+            "Openvid": "111movies",
         }
         seen = set()
         for tid, host, s, e in server_items:
