@@ -62,7 +62,7 @@ def list_categories():
         elif path:
             li = xbmcgui.ListItem(label)
             li.setArt({"icon": "DefaultVideo.png"})
-            xbmcplugin.addDirectoryItem(HANDLE, get_url(action="list", url=urllib.parse.quote(BASE + path, safe=""), page="1"), li, isFolder=True)
+            xbmcplugin.addDirectoryItem(HANDLE, get_url(action="list", url=BASE + path, page="1"), li, isFolder=True)
     xbmcplugin.endOfDirectory(HANDLE)
 
 def search():
@@ -89,13 +89,13 @@ def list_posts(url):
         li = xbmcgui.ListItem(label=title)
         if thumb:
             li.setArt({"thumb": thumb, "poster": thumb})
-        xbmcplugin.addDirectoryItem(HANDLE, get_url(action="watch", url=urllib.parse.quote(link, safe="")), li, isFolder=True)
+        xbmcplugin.addDirectoryItem(HANDLE, get_url(action="watch", url=link), li, isFolder=True)
 
     # Pagination
     next_m = re.search(r'<a class="[^"]*next[^"]*" href="([^"]*)"', html)
     if next_m:
         li = xbmcgui.ListItem("[B]Next Page >[/B]")
-        xbmcplugin.addDirectoryItem(HANDLE, get_url(action="list", url=urllib.parse.quote(next_m.group(1), safe=""), page="0"), li, isFolder=True)
+        xbmcplugin.addDirectoryItem(HANDLE, get_url(action="list", url=next_m.group(1), page="0"), li, isFolder=True)
     xbmcplugin.endOfDirectory(HANDLE)
 
 def watch(url):
@@ -135,7 +135,8 @@ def watch(url):
     }
     for key, name in server_names.items():
         if key in data and data[key]:
-            servers.append((name, data[key]))
+            url = data[key].replace("\\/", "/")
+            servers.append((name, url))
 
     if not servers:
         xbmcgui.Dialog().notification("RamoFlix", "No servers found", xbmcgui.NOTIFICATION_INFO, 3000)
@@ -145,6 +146,7 @@ def watch(url):
     thumb = data.get("image", "")
     if thumb and not thumb.startswith("http"):
         thumb = "https:" + thumb
+    thumb = thumb.replace("\\/", "/")
 
     for sname, surl in servers:
         label = "%s - %s" % (title, sname)
@@ -155,7 +157,7 @@ def watch(url):
         if thumb:
             li.setArt({"thumb": thumb})
         li.setProperty("IsPlayable", "true")
-        xbmcplugin.addDirectoryItem(HANDLE, get_url(action="play", url=urllib.parse.quote(surl, safe=""), title=urllib.parse.quote(label, safe="")), li, isFolder=False)
+        xbmcplugin.addDirectoryItem(HANDLE, get_url(action="play", url=surl, title=label), li, isFolder=False)
 
     xbmcplugin.endOfDirectory(HANDLE)
 
