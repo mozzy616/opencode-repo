@@ -11,7 +11,7 @@ HANDLE = int(sys.argv[1])
 URL = sys.argv[0]
 
 ADDON = xbmcaddon.Addon('plugin.video.livetv')
-M3U_URL = ADDON.getSetting('m3u_url').strip() or 'https://iptv-org.github.io/iptv/index.m3u'
+M3U_URL = ADDON.getSetting('m3u_url').strip() or 'https://iptv-org.github.io/iptv/countries/us.m3u'
 UA = ADDON.getSetting('user_agent').strip() or 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
 
 def get_url(**kwargs):
