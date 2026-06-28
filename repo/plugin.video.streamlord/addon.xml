@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="plugin.video.streamlord" name="StreamLord" version="3.5.0" provider-name="opencode">
+<addon id="plugin.video.streamlord" name="StreamLord" version="3.6.0" provider-name="opencode">
     <requires>
         <import addon="xbmc.python" version="3.0.0"/>
         <import addon="script.module.cocoscrapers"/>
-        <import addon="script.module.resolveurl"/>
         <import addon="inputstream.adaptive"/>
     </requires>
     <extension point="xbmc.python.pluginsource" library="main.py">

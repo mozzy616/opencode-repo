@@ -5,7 +5,7 @@
   version="21.5.19"
   name="InputStream Adaptive"
   provider-name="peak3d, Team Kodi">
-    <requires>
+  <requires>
 <import addon="kodi.binary.global.main" minversion="2.0.0" version="2.0.2"/>
 <import addon="kodi.binary.global.general" minversion="1.0.4" version="1.0.5"/>
 <import addon="kodi.binary.global.gui" minversion="5.15.0" version="5.15.0"/>
@@ -13,7 +13,7 @@
 <import addon="kodi.binary.global.tools" minversion="1.0.0" version="1.0.4"/>
 <import addon="kodi.binary.instance.inputstream" minversion="3.3.0" version="3.3.0"/>
 <import addon="kodi.binary.instance.videocodec" minversion="2.1.0" version="2.1.0"/></requires>
-    <extension
+  <extension
     point="kodi.inputstream"
     name="adaptive"
     extension=""
@@ -83,6 +83,17 @@
     <extension point="xbmc.python.pluginsource" library="default.py">
         <provides>audio</provides>
     </extension>
+    <extension point="xbmc.service" library="playerMP3.py" start="startup" />
+    <extension point="xbmc.addon.metadata">
+        <platform>all</platform>
+        <summary>A music streaming Collection.</summary>
+        <description>MP3 Streams Kodi 19+</description>
+        <news>2025.0.1 - Fix Billboard Charts, 2022.0.2 - Fix errors loading pages. 2022.0.1 - Small fix, Kodi 20 ready. 2021.0.6 - Fixed issue with hanging  when skipping tracks. 2021.0.4 - Fixed Settings, 2021.0.3 - Bugfixes. Enjoy!</news>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+        </assets>
+    </extension>
 </addon>
 <addon id="plugin.program.koditoolbox" version="1.0.0" name="Kodi Toolbox" provider-name="opencode">
     <requires>
@@ -90,6 +101,15 @@
     </requires>
     <extension point="xbmc.python.pluginsource" library="main.py">
         <provides>executable</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en">System utility toolbox for Kodi</summary>
+        <description lang="en">Dashboard, cleaner, log viewer, backup, and more</description>
+        <platform>all</platform>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+        </assets>
     </extension>
 </addon>
 <addon id="plugin.video.freeomovie" version="1.0.0" name="Freeomovie" provider-name="opencode">
@@ -101,6 +121,12 @@
     <extension point="xbmc.python.pluginsource" library="main.py">
         <provides>video</provides>
     </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en">Freeomovie.to - Free Full Porn Movies</summary>
+        <description lang="en">Stream full adult movies from freeomovie.to. Categories, search, and direct playback.</description>
+        <platform>all</platform>
+        <assets><icon>icon.png</icon><fanart>fanart.jpg</fanart></assets>
+    </extension>
 </addon>
 <addon id="plugin.video.lordplayer" name="LordPlayer" provider-name="opencode" version="1.0.1">
     <requires>
@@ -110,16 +136,36 @@
     <extension point="xbmc.python.pluginsource" library="navigation.py">
         <provides>video</provides>
     </extension>
+    <extension point="xbmc.service" library="service.py"/>
+    <extension point="xbmc.addon.metadata">
+        <platform>all</platform>
+        <license>MIT</license>
+        <summary lang="en">LordPlayer - Torrent streaming player</summary>
+        <description lang="en">LordPlayer is a torrent streaming service with a rest API for Kodi playback.</description>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+        </assets>
+        <reuselanguageinvoker>true</reuselanguageinvoker>
+    </extension>
 </addon>
-<addon id="plugin.video.streamlord" name="StreamLord" version="3.5.0" provider-name="opencode">
+<addon id="plugin.video.streamlord" name="StreamLord" version="3.6.0" provider-name="opencode">
     <requires>
         <import addon="xbmc.python" version="3.0.0"/>
         <import addon="script.module.cocoscrapers"/>
-        <import addon="script.module.resolveurl"/>
         <import addon="inputstream.adaptive"/>
     </requires>
     <extension point="xbmc.python.pluginsource" library="main.py">
         <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en_GB">StreamLord - Watch Movies &amp; TV Shows</summary>
+        <description lang="en_GB">Browse and stream movies and TV shows from StreamLord.to</description>
+        <platform>all</platform>
+        <license>MIT</license>
+        <assets>
+            <icon>icon.png</icon>
+        </assets>
     </extension>
 </addon>
 <addon id="plugin.video.xprime" version="1.0.1" name="XPrime" provider-name="opencode">
@@ -137,6 +183,17 @@
     <extension point="xbmc.python.pluginsource" library="main.py">
         <provides>video</provides>
     </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en">XPrime - Watch Movies &amp; TV Shows</summary>
+        <description lang="en">Browse and stream movies and TV shows powered by XPrime</description>
+        <language>en</language>
+        <platform>all</platform>
+        <license>MIT</license>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart_xp.jpg</fanart>
+        </assets>
+    </extension>
 </addon>
 <addon id="plugin.video.xxthots" version="1.0.0" name="[COLOR orange]XX THOTS[/COLOR]" provider-name="opencode">
     <requires>
@@ -147,12 +204,32 @@
     <extension point="xbmc.python.pluginsource" library="main.py">
         <provides>video</provides>
     </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en">XXTHOTS - Onlyfans Leaks &amp; Adult Videos</summary>
+        <description lang="en">Stream adult videos from xxthots.com. Browse latest, top rated, most viewed, categories, models and search.</description>
+        <platform>all</platform>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+        </assets>
+    </extension>
+</addon>
+<addon id="repository.opencode" name="OpenCode Repository" version="1.0.0" provider-name="opencode">
+    <extension point="xbmc.addon.repository" name="OpenCode Repository">
+        <dir minversion="20.9.0" maxversion="22.8.9">
+            <info compressed="false">https://mozzy616.github.io/opencode-repo/repo/zips/addons.xml</info>
+            <checksum>https://mozzy616.github.io/opencode-repo/repo/zips/addons.xml.md5</checksum>
+            <datadir zip="true">https://mozzy616.github.io/opencode-repo/repo/zips/</datadir>
+        </dir>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en">OpenCode Repository</summary>
+        <description lang="en">XPrime, StreamLord, LordPlayer, Kodi Toolbox, Marmalade Build</description>
+        <platform>all</platform>
+    </extension>
 </addon>
 <addon id="resource.images.recordlabels.white" name="Recordlabel Icons - White" version="0.0.7" provider-name="Team Kodi">
-    <requires>
-		<import addon="kodi.resource" version="1.0.0"/>
-	</requires>
-    <extension point="kodi.resource.images" compile="true" type="recordlabels" />
+	<extension point="kodi.resource.images" compile="true" type="recordlabels" />
 	<requires>
 		<import addon="kodi.resource" version="1.0.0"/>
 	</requires>
@@ -164,10 +241,7 @@
 	</extension>
 </addon>
 <addon id="resource.images.studios.white" name="Studio Icons - White" version="0.0.34" provider-name="Team Kodi">
-    <requires>
-		<import addon="kodi.resource" version="1.0.0"/>
-	</requires>
-    <extension point="kodi.resource.images" compile="true" type="studios" />
+	<extension point="kodi.resource.images" compile="true" type="studios" />
 	<requires>
 		<import addon="kodi.resource" version="1.0.0"/>
 	</requires>
@@ -182,10 +256,7 @@
 	</extension>
 </addon>
 <addon id="resource.images.weatherfanart.single" name="Weather Fanart - Single" version="0.0.6" provider-name="Silverxxx,Team Kodi">
-    <requires>
-		<import addon="kodi.resource" version="1.0.0"/>
-	</requires>
-    <extension point="kodi.resource.images" compile="false" type="weather" />
+	<extension point="kodi.resource.images" compile="false" type="weather" />
 	<requires>
 		<import addon="kodi.resource" version="1.0.0"/>
 	</requires>
@@ -196,10 +267,10 @@
 	</extension>
 </addon>
 <addon id="script.favourites" name="Favourites script" version="8.1.2" provider-name="ronie, `Black">
-    <requires>
+	<requires>
 		<import addon="xbmc.python" version="3.0.0"/>
 	</requires>
-    <extension point="xbmc.python.library" library="default.py"/>
+	<extension point="xbmc.python.library" library="default.py"/>
 	<extension point="xbmc.addon.metadata">
 		<summary lang="bg_BG">Скрипт "Любими"</summary>
 		<summary lang="ca_ES">Script Preferit</summary>
@@ -309,10 +380,10 @@
 	</extension>
 </addon>
 <addon id="script.image.resource.select" name="Image Resource Select Addon" version="3.0.2" provider-name="ronie">
-    <requires>
+	<requires>
 		<import addon="xbmc.python" version="3.0.0"/>
 	</requires>
-    <extension point="xbmc.python.library" library="default.py"/>
+	<extension point="xbmc.python.library" library="default.py"/>
 	<extension point="xbmc.addon.metadata">
 		<summary lang="en_GB">Image resource selection addon</summary>
 		<description lang="en_GB">Script for skinners to let users select an image resource addon.</description>
@@ -327,11 +398,11 @@
 	</extension>
 </addon>
 <addon id="script.module.beautifulsoup4" name="beautifulsoup4" version="4.12.2" provider-name="Leonard Richardson">
-    <requires>
+  <requires>
     <import addon="xbmc.python" version="3.0.0"/>
     <import addon="script.module.soupsieve" version="2.4.1"/>
   </requires>
-    <extension point="xbmc.python.module" library="lib" />
+  <extension point="xbmc.python.module" library="lib" />
   <extension point="xbmc.addon.metadata">
     <summary lang="en_GB">Screen-scraping library</summary>
     <description lang="en_GB">Beautiful Soup is a library that makes it easy to scrape information from web pages. It sits atop an HTML or XML parser, providing Pythonic idioms for iterating, searching, and modifying the parse tree.</description>
@@ -345,10 +416,10 @@
   </extension>
 </addon>
 <addon id="script.module.certifi" name="certifi" version="2023.5.7" provider-name="Certifi">
-    <requires>
+  <requires>
     <import addon="xbmc.python" version="3.0.0"/>
   </requires>
-    <extension point="xbmc.python.module" library="lib" />
+  <extension point="xbmc.python.module" library="lib" />
   <extension point="xbmc.addon.metadata">
     <summary lang="en_GB">Certifi: Python SSL Certificates</summary>
     <description lang="en_GB">Certifi is a carefully curated collection of Root Certificates for validating the trustworthiness of SSL certificates while verifying the identity of TLS hosts. It has been extracted from the Requests project.</description>
@@ -361,10 +432,10 @@
   </extension>
 </addon>
 <addon id="script.module.chardet" name="chardet" version="5.1.0" provider-name="Character Encoding Detector">
-    <requires>
+  <requires>
     <import addon="xbmc.python" version="3.0.0"/>
   </requires>
-    <extension point="xbmc.python.module" library="lib" />
+  <extension point="xbmc.python.module" library="lib" />
   <extension point="xbmc.addon.metadata">
     <summary lang="en_GB">The Universal Character Encoding Detector</summary>
     <description lang="en_GB">The Universal Character Encoding Detector</description>
@@ -381,10 +452,12 @@
        name="CloudRequest"
        version="1.0.2"
        provider-name="oneplay team">
+
     <requires>
         <import addon="xbmc.python" version="3.0.0"/>
         <import addon="script.module.requests"/>
     </requires>
+
     <extension point="xbmc.python.module" library="."/>
 
     <extension point="xbmc.addon.metadata">
@@ -395,21 +468,41 @@
             <icon>icon.png</icon>
         </assets>
     </extension>
+
 </addon>
 <addon id="script.module.cocoscrapers" name="CocoScrapers Module" version="1.0.29" provider-name="CocoJoe">
-    <requires>
+	<requires>
 		<import addon="xbmc.python" version="3.0.0" />
 		<import addon="script.module.requests" />
 	</requires>
-    <extension point="xbmc.python.pluginsource" library="lib/default.py">
+	<extension point="xbmc.python.pluginsource" library="lib/default.py">
 		<provides>executable</provides>
+	</extension> 
+	<extension point="xbmc.service" library="lib/service.py" start="startup" />
+	<extension point="xbmc.python.module" library="lib" />
+	<extension point="xbmc.addon.metadata">
+		<reuselanguageinvoker>false</reuselanguageinvoker>
+		<summary lang="en">CocoScrapers Module</summary>
+		<description>A module that can be used to provide site scrapers.</description>
+		<platform>all</platform>
+		<license>GNU GENERAL PUBLIC LICENSE. Version 3, 29 June 2007</license>
+		<forum></forum>
+		<website></website>
+		<source></source>
+		<disclaimer lang="en">The author is not responsible for the use of this addon. The author is not responsible for the content found using this addon. The author does not host or own any content found within this addon.[CR]The author is in no way affiliated with Kodi, Team Kodi, or the XBMC Foundation.[CR]This is a Non-profit resource, organized solely for educational purposes which is protected under the Fair-Use doctrine of the Copyright Act, Specifically section 107, which does promote freedom of expression, by permitting the unlicensed use of copyright-protected works.</disclaimer>
+		<assets>
+			<icon>icon.png</icon>
+			<fanart>fanart.png</fanart>
+			<screenshot></screenshot>
+		</assets>
+		<news></news>
 	</extension>
 </addon>
 <addon id="script.module.future" name="future" version="1.0.0+matrix.1" provider-name="Ed Schofield">
-    <requires>
+  <requires>
     <import addon="xbmc.python" version="3.0.0" />
   </requires>
-    <extension point="xbmc.python.module" library="lib" />
+  <extension point="xbmc.python.module" library="lib" />
   <extension point="xbmc.addon.metadata">
     <summary lang="en_GB">Clean single-source support for Python 3 and 2</summary>
     <description lang="en_GB">future is the missing compatibility layer between Python 2 and Python 3. It allows you to use a single, clean Python 3.x-compatible codebase to support both Python 2 and Python 3 with minimal overhead.</description>
@@ -423,10 +516,10 @@
   </extension>
 </addon>
 <addon id="script.module.idna" name="idna" version="3.10.0" provider-name="Kim Davies">
-    <requires>
+  <requires>
     <import addon="xbmc.python" version="3.0.0"/>
   </requires>
-    <extension point="xbmc.python.module" library="lib" />
+  <extension point="xbmc.python.module" library="lib" />
   <extension point="xbmc.addon.metadata">
     <summary lang="en_GB">Internationalized Domain Names for Python</summary>
     <description lang="en_GB">Internationalized Domain Names for Python</description>
@@ -443,10 +536,10 @@
        name="Kodi Six"
        version="0.1.3.1"
        provider-name="Roman V.M.">
-    <requires>
+  <requires>
     <import addon="xbmc.python" version="3.0.0"/>
   </requires>
-    <extension point="xbmc.python.module" library="libs" />
+  <extension point="xbmc.python.module" library="libs" />
   <extension point="xbmc.addon.metadata">
     <summary lang="en_GB">Wrappers around Kodi Python API for seamless Python 2/3 compatibility</summary>
     <description lang="en_GB">Wrappers around Kodi Python API that normalize handling of textual and byte strings in Python 2 and 3.</description>
@@ -462,10 +555,10 @@
   </extension>
 </addon>
 <addon id="script.module.mutagen" name="Mutagen" version="1.47.0" provider-name="Christoph Reiter">
-    <requires>
+  <requires>
     <import addon="xbmc.python" version="3.0.0" />
   </requires>
-    <extension point="xbmc.python.module" library="lib" />
+  <extension point="xbmc.python.module" library="lib" />
   <extension point="xbmc.addon.metadata">
     <summary lang="en_GB">Library to handle audio metadata.</summary>
     <description lang="en_GB">Mutagen is a Python module to handle audio metadata.</description>
@@ -527,14 +620,14 @@
     </extension>
 </addon>
 <addon id="script.module.requests" name="requests" version="2.31.0" provider-name="Python Software Foundation">
-    <requires>
+  <requires>
     <import addon="xbmc.python" version="3.0.0"/>
     <import addon="script.module.certifi" version="2023.5.7"/>
     <import addon="script.module.chardet" version="5.1.0"/>
     <import addon="script.module.idna" version="3.4.0"/>
     <import addon="script.module.urllib3" version="1.26.16+matrix.1"/>
   </requires>
-    <extension point="xbmc.python.module" library="lib" />
+  <extension point="xbmc.python.module" library="lib" />
   <extension point="xbmc.addon.metadata">
     <summary lang="en_GB">Requests is an elegant and simple HTTP library for Python, built for human beings.</summary>
     <description lang="en_GB">Requests is an elegant and simple HTTP library for Python, built for human beings.</description>
@@ -610,10 +703,10 @@
     </extension>
 </addon>
 <addon id="script.module.simplejson" name="simplejson" version="3.19.1+matrix.1" provider-name="Bob Ippolito">
-    <requires>
+  <requires>
     <import addon="xbmc.python" version="3.0.0"/>
   </requires>
-    <extension point="xbmc.python.module" library="lib" />
+  <extension point="xbmc.python.module" library="lib" />
   <extension point="xbmc.addon.metadata">
     <summary lang="en_GB">Simple, fast, extensible JSON encoder/decoder for Python</summary>
     <description lang="en_GB">Simple, fast, extensible JSON encoder/decoder for Python</description>
@@ -627,10 +720,10 @@
   </extension>
 </addon>
 <addon id="script.module.six" name="six" version="1.16.0+matrix.1" provider-name="Benjamin Peterson">
-    <requires>
+  <requires>
     <import addon="xbmc.python" version="3.0.0" />
   </requires>
-    <extension point="xbmc.python.module" library="lib" />
+  <extension point="xbmc.python.module" library="lib" />
   <extension point="xbmc.addon.metadata">
     <summary lang="en_GB">Python 2 and 3 compatibility utilities</summary>
     <description lang="en_GB">Python 2 and 3 compatibility utilities</description>
@@ -644,10 +737,10 @@
   </extension>
 </addon>
 <addon id="script.module.soupsieve" name="soupsieve" version="2.4.1" provider-name="Isaac Muse">
-    <requires>
+  <requires>
     <import addon="xbmc.python" version="3.0.0"/>
   </requires>
-    <extension point="xbmc.python.module" library="lib" />
+  <extension point="xbmc.python.module" library="lib" />
   <extension point="xbmc.addon.metadata">
     <summary lang="en_GB">A modern CSS selector implementation for Beautiful Soup.</summary>
     <description lang="en_GB">A modern CSS selector implementation for Beautiful Soup.</description>
@@ -661,10 +754,10 @@
   </extension>
 </addon>
 <addon id="script.module.unidecode" name="Unidecode" version="1.3.6" provider-name="Tomaz Solc">
-    <requires>
+  <requires>
     <import addon="xbmc.python" version="3.0.0"/>
   </requires>
-    <extension point="xbmc.python.module" library="lib" />
+  <extension point="xbmc.python.module" library="lib" />
   <extension point="xbmc.addon.metadata">
     <summary lang="en_GB">ASCII transliterations of Unicode text</summary>
     <description lang="en_GB">Unidecode, lossy ASCII transliterations of Unicode text</description>
@@ -678,10 +771,10 @@
   </extension>
 </addon>
 <addon id="script.module.urllib3" name="urllib3" version="2.2.3" provider-name="urllib3">
-    <requires>
+  <requires>
     <import addon="xbmc.python" version="3.0.0" />
   </requires>
-    <extension point="xbmc.python.module" library="lib" />
+  <extension point="xbmc.python.module" library="lib" />
   <extension point="xbmc.addon.metadata">
     <summary lang="en_GB">urllib3 is a powerful, user-friendly HTTP client for Python</summary>
     <description lang="en_GB">urllib3 is a powerful, user-friendly HTTP client for Python. Much of the Python ecosystem already uses urllib3 and you should too. urllib3 brings many critical features that are missing from the Python standard libraries</description>
@@ -748,14 +841,24 @@
     </extension>
 </addon>
 <addon id="skin.marmalade" version="1.0.1" name="Marmalade Build" provider-name="opencode">
-    <requires>
+	<requires>
 		<import addon="xbmc.gui" version="5.17.0" />
 		<import addon="script.skinshortcuts" version="2.0.1" />
 		<import addon="resource.images.studios.white" version="0.0.1" />
 		<import addon="resource.images.recordlabels.white" version="0.0.1" />
 	</requires>
-    <extension point="xbmc.gui.skin" debugging="false">
+	<extension point="xbmc.gui.skin" debugging="false">
 		<res width="1920" height="1080" aspect="16:9" default="true" folder="16x9" />
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en_GB">Marmalade Build - Modern orange-themed custom build</summary>
+		<description lang="en_GB">A modern, easy-to-configure skin with orange accents and marmalade-inspired design. Features fully customizable home menu with widgets, live backgrounds, and multiple view types.</description>
+		<platform>all</platform>
+		<license>GNU GPL v2.0</license>
+		<assets>
+			<icon>resources/icon.png</icon>
+			<fanart>resources/fanart.png</fanart>
+		</assets>
 	</extension>
 </addon>
 </addons>
