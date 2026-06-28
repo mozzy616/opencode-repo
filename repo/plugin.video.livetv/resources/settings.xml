@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <settings>
     <category label="Playlist">
-        <setting id="m3u_url" type="text" label="M3U Playlist URL" default="https://iptv-org.github.io/iptv/countries/us.m3u" />
+        <setting id="m3u_url" type="text" label="M3U Playlist URL" default="https://raw.githubusercontent.com/Free-TV/IPTV/master/playlist.m3u8" />
         <setting id="user_agent" type="text" label="User-Agent" default="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36" />
+        <setting id="country_code" type="text" label="Country Filter (leave blank for all)" default="US" />
     </category>
 </settings>

@@ -12,8 +12,9 @@ HANDLE = int(sys.argv[1])
 URL = sys.argv[0]
 
 ADDON = xbmcaddon.Addon('plugin.video.livetv')
-M3U_URL = ADDON.getSetting('m3u_url').strip() or 'https://iptv-org.github.io/iptv/countries/us.m3u'
+M3U_URL = ADDON.getSetting('m3u_url').strip() or 'https://raw.githubusercontent.com/Free-TV/IPTV/master/playlist.m3u8'
 UA = ADDON.getSetting('user_agent').strip() or 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+COUNTRY = ADDON.getSetting('country_code').strip().upper()
 
 def get_url(**kwargs):
     return '{0}?{1}'.format(URL, urllib.parse.urlencode(kwargs))
@@ -44,6 +45,15 @@ def parse_m3u(raw):
             m = re.search(r'group-title="([^"]*)"', line)
             if m:
                 current_group = m.group(1) or 'Other'
+            country = ''
+            cm = re.search(r'tvg-country="([^"]*)"', line)
+            if cm:
+                country = cm.group(1).strip().upper()
+            if COUNTRY and country and country != COUNTRY:
+                i += 1
+                while i < len(lines) and lines[i].strip() != '' and not lines[i].strip().startswith('#EXTINF:'):
+                    i += 1
+                continue
             tvg_logo = ''
             lm = re.search(r'tvg-logo="([^"]*)"', line)
             if lm:
