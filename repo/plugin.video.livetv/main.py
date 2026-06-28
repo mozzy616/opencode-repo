@@ -5,6 +5,7 @@ import xbmcaddon
 import sys
 import urllib.request
 import urllib.error
+import urllib.parse
 import re
 
 HANDLE = int(sys.argv[1])
@@ -51,9 +52,25 @@ def parse_m3u(raw):
             nm = re.search(r',(.+)', line)
             if nm:
                 name = nm.group(1).strip()
+            headers = {}
             i += 1
-            while i < len(lines) and (lines[i].strip() == '' or lines[i].strip().startswith('#EXTVLCOPT') or lines[i].strip().startswith('#KODIPROP')):
-                i += 1
+            while i < len(lines):
+                opt = lines[i].strip()
+                if opt == '':
+                    i += 1
+                    continue
+                if opt.startswith('#EXTVLCOPT:http-user-agent='):
+                    headers['User-Agent'] = opt.split('=', 1)[1]
+                    i += 1
+                    continue
+                if opt.startswith('#EXTVLCOPT:http-referrer='):
+                    headers['Referer'] = opt.split('=', 1)[1]
+                    i += 1
+                    continue
+                if opt.startswith('#EXTVLCOPT') or opt.startswith('#KODIPROP'):
+                    i += 1
+                    continue
+                break
             if i < len(lines):
                 url = lines[i].strip()
                 if url and not url.startswith('#'):
@@ -63,6 +80,7 @@ def parse_m3u(raw):
                         'name': name or 'Unknown',
                         'url': url,
                         'logo': tvg_logo,
+                        'headers': headers,
                     })
         i += 1
     log('Parsed %d categories, %d total channels' % (len(categories), sum(len(v) for v in categories.values())))
@@ -79,19 +97,26 @@ def show_categories(categories):
     xbmcplugin.addDirectoryItems(HANDLE, items, len(items))
     xbmcplugin.endOfDirectory(HANDLE)
 
+def _set_isa_props(li, url, headers):
+    is_hls = url.endswith('.m3u8') or '.m3u8' in url
+    if is_hls:
+        li.setProperty('inputstreamaddon', 'inputstream.adaptive')
+        li.setProperty('inputstream.adaptive.manifest_type', 'hls')
+        li.setProperty('inputstream.adaptive.max_buffer_size', '52428800')
+    if headers:
+        h = '&'.join('%s=%s' % (k, urllib.parse.quote(v)) for k, v in headers.items())
+        li.setProperty('inputstream.adaptive.stream_headers', h)
+    li.setMimeType('application/x-mpegURL')
+    li.setContentLookup(False)
+    li.setProperty('IsPlayable', 'true')
+
 def show_channels(cat_name, channels):
     items = []
     for ch in channels:
         li = xbmcgui.ListItem(label=ch['name'])
         if ch['logo']:
             li.setArt({'thumb': ch['logo']})
-        li.setProperty('IsPlayable', 'true')
-        li.setMimeType('application/x-mpegURL')
-        li.setContentLookup(False)
-        is_hls = ch['url'].endswith('.m3u8') or '.m3u8' in ch['url']
-        if is_hls:
-            li.setProperty('inputstreamaddon', 'inputstream.adaptive')
-            li.setProperty('inputstream.adaptive.manifest_type', 'hls')
+        _set_isa_props(li, ch['url'], ch.get('headers'))
         items.append((get_url(action='play', url=ch['url'], name=ch['name']), li, False))
     xbmcplugin.addDirectoryItems(HANDLE, items, len(items))
     xbmcplugin.endOfDirectory(HANDLE)
@@ -99,13 +124,8 @@ def show_channels(cat_name, channels):
 def play_channel(url, name):
     log('Playing: %s' % url[:100])
     li = xbmcgui.ListItem(path=url, label=name)
-    li.setProperty('IsPlayable', 'true')
-    li.setMimeType('application/x-mpegURL')
-    li.setContentLookup(False)
-    is_hls = url.endswith('.m3u8') or '.m3u8' in url
-    if is_hls:
-        li.setProperty('inputstreamaddon', 'inputstream.adaptive')
-        li.setProperty('inputstream.adaptive.manifest_type', 'hls')
+    p = dict(urllib.parse.parse_qsl(sys.argv[2].lstrip('?')))
+    _set_isa_props(li, url, {})
     xbmcplugin.setResolvedUrl(HANDLE, True, li)
 
 def main():
