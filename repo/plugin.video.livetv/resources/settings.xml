@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <settings>
     <category label="Source">
-        <setting id="source_type" type="select" label="Source" values="Pluto TV (USA)|Custom M3U URL" default="0" />
-        <setting id="m3u_url" type="text" label="M3U Playlist URL" default="https://raw.githubusercontent.com/Free-TV/IPTV/master/playlist.m3u8" enable="eq(-1,1)" />
+        <setting id="source_preset" type="select" label="Channel List" values="Pluto TV (USA)|D Guide|The Loop TV Guide|Mad Titan TV Guide|TVPass|Custom M3U URL" default="0" />
+        <setting id="m3u_url" type="text" label="Custom M3U URL" default="https://raw.githubusercontent.com/Free-TV/IPTV/master/playlist.m3u8" enable="eq(-1,5)" />
         <setting id="user_agent" type="text" label="User-Agent" default="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36" />
-        <setting id="country_code" type="text" label="Country Filter (M3U only)" default="US" enable="eq(-2,1)" />
+        <setting id="country_code" type="text" label="Country Filter (M3U only)" default="US" enable="eq(-2,5)" />
     </category>
 </settings>

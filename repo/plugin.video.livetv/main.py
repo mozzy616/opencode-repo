@@ -13,13 +13,22 @@ HANDLE = int(sys.argv[1])
 URL = sys.argv[0]
 
 ADDON = xbmcaddon.Addon('plugin.video.livetv')
-SOURCE_TYPE = ADDON.getSetting('source_type').strip() or 'pluto'
+PRESET_ID = ADDON.getSettingInt('source_preset')
 M3U_URL = ADDON.getSetting('m3u_url').strip()
 UA = ADDON.getSetting('user_agent').strip() or 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
 COUNTRY = ADDON.getSetting('country_code').strip().upper()
 
 PLUTO_URL = 'https://i.mjh.nz/PlutoTV/us.xml'
 PLUTO_STITCHER = 'https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/{id}/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel'
+
+PRESETS = [
+    {'name': 'Pluto TV (USA)', 'url': None, 'is_pluto': True},
+    {'name': 'D Guide', 'url': 'https://s.id/d9M3U8', 'is_pluto': False},
+    {'name': 'The Loop TV Guide', 'url': 'https://bit.ly/4oo63xG', 'is_pluto': False},
+    {'name': 'Mad Titan TV Guide', 'url': 'https://magnetic.website/jet/playlists/titan.m3u8', 'is_pluto': False},
+    {'name': 'TVPass', 'url': 'https://tvpass.org/playlist/m3u', 'is_pluto': False},
+    {'name': 'Custom M3U URL', 'url': None, 'is_pluto': False},
+]
 
 CATEGORY_KEYWORDS = [
     ('Movies', ['movie', 'film', 'cinema', 'thriller', 'horror', 'action', 'western', 'fantasy', 'flicks', 'cult']),
@@ -34,6 +43,14 @@ CATEGORY_KEYWORDS = [
     ('Kids', ['kid', 'cartoon', 'family', 'disney', 'nick', 'pbs']),
     ('Sports', ['sport', 'nfl', 'nba', 'mlb', 'nhl', 'fight', 'wwe', 'aew', 'boxing', 'mma']),
 ]
+
+def is_pluto():
+    return PRESETS[PRESET_ID]['is_pluto']
+
+def get_m3u_url():
+    if PRESET_ID < len(PRESETS) and PRESETS[PRESET_ID]['url']:
+        return PRESETS[PRESET_ID]['url']
+    return M3U_URL
 
 def get_url(**kwargs):
     return '{0}?{1}'.format(URL, urllib.parse.urlencode(kwargs))
@@ -59,7 +76,6 @@ def fetch_url(url):
             return r.read().decode('utf-8', errors='replace')
     except Exception as e:
         log('Fetch error: %s' % str(e))
-        xbmcgui.Dialog().ok('Live TV', 'Failed to fetch:\n%s' % str(e))
         return None
 
 def get_pluto_channels():
@@ -83,8 +99,8 @@ def get_pluto_channels():
                 break
         if cat == 'Other':
             if name.startswith('Pluto TV '):
-                cat = name.replace('Pluto TV ', '').split()[0] if name.replace('Pluto TV ', '').strip() else 'Entertainment'
-                cat = cat.capitalize()
+                rest = name.replace('Pluto TV ', '').strip()
+                cat = rest.split()[0].capitalize() if rest else 'Entertainment'
             elif name.startswith('BET '):
                 cat = 'BET'
             elif name.startswith('CBS '):
@@ -102,7 +118,11 @@ def get_pluto_channels():
     return categories
 
 def fetch_m3u():
-    raw = fetch_url(M3U_URL)
+    url = get_m3u_url()
+    if not url:
+        xbmcgui.Dialog().ok('Live TV', 'No M3U URL configured.\nEnter one in Settings or pick a different preset.')
+        return None
+    raw = fetch_url(url)
     return raw
 
 def parse_m3u(raw):
@@ -201,7 +221,7 @@ def main():
         action = p.get('action', '')
         if action == 'category':
             cat_name = p.get('name', '')
-            if SOURCE_TYPE == 'pluto':
+            if is_pluto():
                 categories = get_pluto_channels()
             else:
                 raw = fetch_m3u()
@@ -216,7 +236,7 @@ def main():
         elif action == 'play':
             play_channel(p.get('url', ''), p.get('name', 'Channel'))
         else:
-            if SOURCE_TYPE == 'pluto':
+            if is_pluto():
                 categories = get_pluto_channels()
             else:
                 raw = fetch_m3u()
@@ -225,7 +245,7 @@ def main():
                     return
                 categories = parse_m3u(raw)
             if not categories:
-                msg = 'No channels found. Check your source setting.' if SOURCE_TYPE == 'pluto' else 'No channels found.\nCheck your M3U URL in settings.'
+                msg = 'No channels found.' if is_pluto() else 'No channels found.\nCheck your M3U URL in settings.'
                 xbmcgui.Dialog().ok('Live TV', msg)
                 xbmcplugin.endOfDirectory(HANDLE)
                 return
