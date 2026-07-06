@@ -8,15 +8,30 @@ import urllib.error
 import urllib.parse
 import re
 import xml.etree.ElementTree as ET
+import json
 
 HANDLE = int(sys.argv[1])
 URL = sys.argv[0]
 
 ADDON = xbmcaddon.Addon('plugin.video.livetv')
-PRESET_ID = ADDON.getSettingInt('source_preset')
-M3U_URL = ADDON.getSetting('m3u_url').strip()
-UA = ADDON.getSetting('user_agent').strip() or 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
-COUNTRY = ADDON.getSetting('country_code').strip().upper()
+
+def _get_int(key, default=0):
+    try:
+        val = ADDON.getSetting(key)
+        return int(val) if val else default
+    except:
+        return default
+
+def _get_str(key, default=''):
+    try:
+        return ADDON.getSetting(key).strip()
+    except:
+        return default
+
+PRESET_ID = _get_int('source_preset', default=1)
+M3U_URL = _get_str('m3u_url')
+UA = _get_str('user_agent') or 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+COUNTRY = _get_str('country_code').upper()
 
 PLUTO_URL = 'https://i.mjh.nz/PlutoTV/us.xml'
 PLUTO_STITCHER = 'https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/{id}/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel'
@@ -24,9 +39,9 @@ PLUTO_STITCHER = 'https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls
 PRESETS = [
     {'name': 'Pluto TV (USA)', 'url': None, 'is_pluto': True},
     {'name': 'D Guide', 'url': 'https://s.id/d9M3U8', 'is_pluto': False},
-    {'name': 'The Loop TV Guide', 'url': 'https://bit.ly/4oo63xG', 'is_pluto': False},
-    {'name': 'Mad Titan TV Guide', 'url': 'https://magnetic.website/jet/playlists/titan.m3u8', 'is_pluto': False},
-    {'name': 'TVPass', 'url': 'https://tvpass.org/playlist/m3u', 'is_pluto': False},
+    {'name': 'Free-TV IPTV', 'url': 'https://raw.githubusercontent.com/Free-TV/IPTV/master/playlist.m3u8', 'is_pluto': False},
+    {'name': 'IPTV-Org', 'url': 'https://iptv-org.github.io/iptv/index.m3u8', 'is_pluto': False},
+    {'name': 'IPTV-Common', 'url': 'https://raw.githubusercontent.com/iptv-org/iptv/master/index.m3u8', 'is_pluto': False},
     {'name': 'Custom M3U URL', 'url': None, 'is_pluto': False},
 ]
 
@@ -174,7 +189,7 @@ def parse_m3u(raw):
                 break
             if i < len(lines):
                 url = lines[i].strip()
-                if url and not url.startswith('#'):
+                if url and not url.startswith('#') and (url.startswith('http://') or url.startswith('https://')):
                     if current_group not in categories:
                         categories[current_group] = []
                     categories[current_group].append({
@@ -202,17 +217,17 @@ def show_channels(cat_name, channels):
     items = []
     for ch in channels:
         li = xbmcgui.ListItem(label=ch['name'])
-        if ch['logo']:
+        if ch.get('logo'):
             li.setArt({'thumb': ch['logo']})
         _set_isa_props(li, ch['url'], ch.get('headers'))
-        items.append((get_url(action='play', url=ch['url'], name=ch['name']), li, False))
+        items.append((get_url(action='play', url=ch['url'], name=ch['name'], headers=json.dumps(ch.get('headers', {}))), li, False))
     xbmcplugin.addDirectoryItems(HANDLE, items, len(items))
     xbmcplugin.endOfDirectory(HANDLE)
 
-def play_channel(url, name):
+def play_channel(url, name, headers=None):
     log('Playing: %s' % url[:100])
     li = xbmcgui.ListItem(path=url, label=name)
-    _set_isa_props(li, url)
+    _set_isa_props(li, url, headers or {})
     xbmcplugin.setResolvedUrl(HANDLE, True, li)
 
 def main():
@@ -233,8 +248,10 @@ def main():
                 show_channels(cat_name, channels)
             else:
                 xbmcgui.Dialog().ok('Live TV', 'No channels in "%s"' % cat_name)
+                xbmcplugin.endOfDirectory(HANDLE)
         elif action == 'play':
-            play_channel(p.get('url', ''), p.get('name', 'Channel'))
+            headers = json.loads(urllib.parse.unquote(p.get('headers', '{}')))
+            play_channel(p.get('url', ''), p.get('name', 'Channel'), headers)
         else:
             if is_pluto():
                 categories = get_pluto_channels()
