@@ -880,4 +880,23 @@
 		</assets>
 	</extension>
 </addon>
+
+<addon id="plugin.video.steamrip" version="1.0.0" name="SteamRIP" provider-name="opencode">
+    <requires>
+        <import addon="xbmc.python" version="3.0.0"/>
+        <import addon="script.module.beautifulsoup4" version="4.9.0"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en">Free PC Games from SteamRIP</summary>
+        <description lang="en">Browse and download pre-installed PC games from steamrip.com. Search, browse by category, and get direct download links with metadata and artwork.</description>
+        <platform>all</platform>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+        </assets>
+    </extension>
+</addon>
 </addons>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings version="1">
+  <section id="plugin.video.steamrip">
+    <category label="General">
+      <group id="1">
+        <setting id="max_results" type="integer" label="Max games per page" default="20">
+          <level>0</level>
+          <constraints>
+            <minimum>10</minimum>
+            <step>10</step>
+            <maximum>100</maximum>
+          </constraints>
+        </setting>
+        <setting id="enable_cache" type="boolean" label="Enable page cache" default="true">
+          <level>0</level>
+        </setting>
+        <setting id="cache_ttl" type="integer" label="Cache TTL (minutes)" default="30">
+          <level>0</level>
+          <visible>eq(-1,true)</visible>
+          <constraints>
+            <minimum>5</minimum>
+            <step>5</step>
+            <maximum>120</maximum>
+          </constraints>
+        </setting>
+      </group>
+    </category>
+    <category label="Downloads">
+      <group id="2">
+        <setting id="custom_dl_path" type="folder" label="Custom download folder" default="">
+          <level>0</level>
+        </setting>
+        <setting id="open_browser" type="boolean" label="Open download links in browser" default="true">
+          <level>0</level>
+        </setting>
+      </group>
+    </category>
+  </section>
+</settings>

@@ -1,0 +1,58 @@
+# Kodi Media Center language file
+# Addon Name: SteamRIP
+# Addon id: plugin.video.steamrip
+# Addon Provider: lambdax
+
+msgid ""
+msgstr ""
+"Project-Id-Version: XBMC Addons\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Kodi Translation Team\n"
+"Language-Team: English (https://kodi.weblate.cloud/projects/kodi-core/)\n"
+"Language: en_GB\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgctxt "#30000"
+msgid "Popular Games"
+msgstr ""
+
+msgctxt "#30001"
+msgid "Recently Added"
+msgstr ""
+
+msgctxt "#30002"
+msgid "All Games (A-Z)"
+msgstr ""
+
+msgctxt "#30003"
+msgid "Categories"
+msgstr ""
+
+msgctxt "#30004"
+msgid "Search"
+msgstr ""
+
+msgctxt "#30005"
+msgid "Download Links"
+msgstr ""
+
+msgctxt "#30006"
+msgid "Screenshots"
+msgstr ""
+
+msgctxt "#30007"
+msgid "System Requirements"
+msgstr ""
+
+msgctxt "#30008"
+msgid "Next Page"
+msgstr ""
+
+msgctxt "#30009"
+msgid "Previous Page"
+msgstr ""

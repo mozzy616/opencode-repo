@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.video.steamrip"
+       name="SteamRIP"
+       version="1.0.0"
+       provider-name="lambdax">
+  <requires>
+    <import addon="xbmc.python" version="3.0.0"/>
+    <import addon="script.module.beautifulsoup4" version="4.9.0"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource"
+             library="default.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en_GB">Free PC Games from SteamRIP</summary>
+    <description lang="en_GB">Browse and download pre-installed PC games from steamrip.com. Features game metadata, fan art, and direct download links.</description>
+    <disclaimer lang="en_GB">This addon only indexes publicly available content from steamrip.com</disclaimer>
+    <platform>all</platform>
+    <language>en</language>
+    <license>MIT</license>
+    <website>https://steamrip.com</website>
+    <source>https://steamrip.com</source>
+    <assets>
+      <icon>icon.png</icon>
+      <fanart>fanart.jpg</fanart>
+      <screenshot>resources/screenshot-01.jpg</screenshot>
+    </assets>
+  </extension>
+</addon>
