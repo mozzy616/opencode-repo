@@ -168,6 +168,34 @@
         <reuselanguageinvoker>true</reuselanguageinvoker>
     </extension>
 </addon>
+<addon id="plugin.video.steamrip"
+       name="SteamRIP"
+       version="1.0.0"
+       provider-name="lambdax">
+  <requires>
+    <import addon="xbmc.python" version="3.0.0"/>
+    <import addon="script.module.beautifulsoup4" version="4.9.0"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource"
+             library="default.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en_GB">Free PC Games from SteamRIP</summary>
+    <description lang="en_GB">Browse and download pre-installed PC games from steamrip.com. Features game metadata, fan art, and direct download links.</description>
+    <disclaimer lang="en_GB">This addon only indexes publicly available content from steamrip.com</disclaimer>
+    <platform>all</platform>
+    <language>en</language>
+    <license>MIT</license>
+    <website>https://steamrip.com</website>
+    <source>https://steamrip.com</source>
+    <assets>
+      <icon>icon.png</icon>
+      <fanart>fanart.jpg</fanart>
+      <screenshot>resources/screenshot-01.jpg</screenshot>
+    </assets>
+  </extension>
+</addon>
 <addon id="plugin.video.streamlord" name="StreamLord" version="3.6.0" provider-name="opencode">
     <requires>
         <import addon="xbmc.python" version="3.0.0"/>
@@ -184,6 +212,37 @@
         <license>MIT</license>
         <assets>
             <icon>icon.png</icon>
+        </assets>
+    </extension>
+</addon>
+<addon id="plugin.video.torrentx"
+       name="Torrent X"
+       version="1.0.0"
+       provider-name="TorrentX">
+    <requires>
+        <import addon="xbmc.python" version="3.0.0"/>
+        <import addon="xbmc.json" version="12.0.0"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource"
+               library="default.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en_GB">Adult torrent streaming addon</summary>
+        <description lang="en_GB">
+            Torrent X searches and streams adult torrents.
+            Features: New Videos, Popular Videos, and Search.
+            Uses Lordplayer for playback.
+        </description>
+        <adult>true</adult>
+        <platform>all</platform>
+        <language>en</language>
+        <license>GPL-3.0</license>
+        <website></website>
+        <source></source>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
         </assets>
     </extension>
 </addon>

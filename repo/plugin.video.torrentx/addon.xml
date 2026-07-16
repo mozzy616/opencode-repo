@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.video.torrentx"
+       name="Torrent X"
+       version="1.0.0"
+       provider-name="TorrentX">
+    <requires>
+        <import addon="xbmc.python" version="3.0.0"/>
+        <import addon="xbmc.json" version="12.0.0"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource"
+               library="default.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en_GB">Adult torrent streaming addon</summary>
+        <description lang="en_GB">
+            Torrent X searches and streams adult torrents.
+            Features: New Videos, Popular Videos, and Search.
+            Uses Lordplayer for playback.
+        </description>
+        <adult>true</adult>
+        <platform>all</platform>
+        <language>en</language>
+        <license>GPL-3.0</license>
+        <website></website>
+        <source></source>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+        </assets>
+    </extension>
+</addon>

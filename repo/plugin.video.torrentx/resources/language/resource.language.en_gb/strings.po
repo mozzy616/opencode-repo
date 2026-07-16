@@ -1,0 +1,27 @@
+﻿# Kodi Media Center language file
+# Addon Name: Torrent X
+# Addon id: plugin.video.torrentx
+
+msgctxt "#30001"
+msgid "New Videos"
+msgstr ""
+
+msgctxt "#30002"
+msgid "Popular Videos"
+msgstr ""
+
+msgctxt "#30003"
+msgid "Search"
+msgstr ""
+
+msgctxt "#30004"
+msgid "Latest adult torrents"
+msgstr ""
+
+msgctxt "#30005"
+msgid "Most seeded adult torrents"
+msgstr ""
+
+msgctxt "#30006"
+msgid "Search for adult content"
+msgstr ""
