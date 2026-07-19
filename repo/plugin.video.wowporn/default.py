@@ -365,7 +365,7 @@ def play_video(page_url):
     li.setProperty("inputstream", "inputstream.adaptive")
     li.setProperty("inputstream.adaptive.manifest_headers", headers)
     li.setProperty("inputstream.adaptive.stream_headers", headers)
-    li.setProperty("inputstream.adaptive.manifest_update_parameter", "full")
+    li.setProperty("inputstream.adaptive.max_resolution", "480")
     li.setMimeType("application/vnd.apple.mpegurl")
     li.setContentLookup(False)
 
