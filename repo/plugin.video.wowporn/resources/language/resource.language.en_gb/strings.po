@@ -1,0 +1,19 @@
+﻿# Kodi Media Center language file
+# Addon Name: WowPorn
+# Addon id: plugin.video.wowporn
+
+msgctxt "#30001"
+msgid "Categories"
+msgstr ""
+
+msgctxt "#30002"
+msgid "New Videos"
+msgstr ""
+
+msgctxt "#30003"
+msgid "Top Videos"
+msgstr ""
+
+msgctxt "#30004"
+msgid "Search"
+msgstr ""
