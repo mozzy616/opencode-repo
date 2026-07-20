@@ -2,7 +2,6 @@ import xbmcgui
 import xbmcplugin
 import xbmc
 import xbmcvfs
-import xbmcaddon
 import sys
 import json
 import re
@@ -356,6 +355,16 @@ def _tmdb_find_by_imdb(imdb_id):
         return None
 
 
+def _tmdb_get_imdb_id(tmdb_id, media_type="movie"):
+    try:
+        url = "%s/%s/%s/external_ids?api_key=%s" % (TMDB_BASE_URL, media_type, tmdb_id, TMDB_KEY)
+        req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+        with urllib.request.urlopen(req, timeout=10) as r:
+            data = json.loads(r.read().decode("utf-8", errors="replace"))
+        return data.get("imdb_id", "")
+    except:
+        return ""
+
 def _tmdb_episodes(tmdb_id, season_num):
     try:
         url = "%s/tv/%s/season/%s?api_key=%s&language=en-US" % (
@@ -484,6 +493,7 @@ def _sl_browse_episodes(tmdb_id, season_num):
                              "aired": ep.get("air_date", ""), "rating": ep.get("vote_average", 0)})
         li.setArt({"thumb": _tmdb_img(ep_still), "fanart": fanart_url, "icon": "DefaultTVShows.png"})
         li.setProperty("IsPlayable", "true")
+        # Search StreamLord site for this specific show + season + episode
         sl_query = urllib.parse.quote("%s s%02de%02d" % (show_name, int(season_num), epnum), safe='')
         sl_url = BASE + "/search/%s" % sl_query
         xbmcplugin.addDirectoryItem(HANDLE, get_url(action="streamlord_play",
@@ -499,12 +509,14 @@ def _sl_browse_episodes(tmdb_id, season_num):
 
 
 def streamlord_play(url, show_title, season, episode):
+    """Search StreamLord site for episode, extract embed/sources"""
     html = fetch(url)
     items = extract_listings(html)
     if not items:
         xbmcgui.Dialog().notification("StreamLord", "No results on StreamLord", xbmcgui.NOTIFICATION_INFO, 3000)
         return
 
+    # Filter for matching season/episode
     pattern = re.compile(r'[Ss]%02d[Ee]%02d' % (int(season), int(episode)), re.IGNORECASE)
     matching = []
     for item in items:
@@ -512,7 +524,7 @@ def streamlord_play(url, show_title, season, episode):
             matching.append(item)
 
     if not matching:
-        matching = items
+        matching = items  # Show all if no exact match
 
     for item in matching[:10]:
         li = xbmcgui.ListItem(label=item["title"])
@@ -671,7 +683,7 @@ def _browse_episodes(tmdb_id, season_num):
     xbmcplugin.addDirectoryItem(HANDLE, get_url(action="search"), li, isFolder=True)
     xbmcplugin.endOfDirectory(HANDLE)
 
-# --- Torrent playback ---
+# --- Torrent playback (uses LordPlayer plugin) ---
 TRACKERS = "&tr=udp://tracker.opentrackr.org:1337/announce&tr=udp://open.stealth.si:80/announce&tr=udp://tracker.torrent.eu.org:451/announce"
 
 def _tr(method, path, params=None):
@@ -683,13 +695,20 @@ def _tr(method, path, params=None):
     with urllib.request.urlopen(req, timeout=15) as resp:
         return json.loads(resp.read().decode("utf-8", errors="replace"))
 
+def get_lordplayer_id():
+    for lid in ["plugin.video.lordplayer", "plugin.video.lordplayer.droid"]:
+        if xbmc.getCondVisibility("System.HasAddon({})".format(lid)):
+            return lid
+    return "plugin.video.lordplayer"
+
+
 def play_via_LordPlayer(magnet, title):
     try:
         if not magnet.startswith("magnet:"):
             return False
         if TRACKERS not in magnet:
             magnet += TRACKERS
-        player_id = "plugin.video.lordplayer"
+        player_id = get_lordplayer_id()
         plugin_url = "plugin://%s/play_magnet?magnet=%s&buffer=true" % (player_id, urllib.parse.quote(magnet, safe=''))
         xbmc.log("[StreamLord] Playing via %s" % player_id, xbmc.LOGINFO)
         li = xbmcgui.ListItem(path=plugin_url, label=title)
@@ -722,22 +741,12 @@ def play_http_url(url, title):
         xbmc.log("[StreamLord] play_http_url error: %s" % str(e), xbmc.LOGERROR)
         return False
 
-def _try_torrest_serve(magnet, title):
-    info = _prebuffer_torrest(magnet)
-    if info:
-        serve = info["serve"]
-        if play_via_serve_url(serve, title):
-            return True
-    return False
-
 def _play_rd_url(url, title):
+    """Play a Real-Debrid direct download link."""
     try:
         xbmc.log("[StreamLord] RD Play: %s" % url[:100], xbmc.LOGINFO)
         li = xbmcgui.ListItem(path=url, label=title)
         li.setProperty("IsPlayable", "true")
-        li.setMimeType("video/x-matroska")
-        li.setContentLookup(False)
-        li.setProperty("inputstreamaddon", "inputstream.adaptive")
         xbmcplugin.setResolvedUrl(HANDLE, True, li)
         return True
     except Exception as e:
@@ -745,35 +754,49 @@ def _play_rd_url(url, title):
         return False
 
 def _rd_download(url, filename, title):
+    """Download via Real-Debrid direct link."""
     import resources.lib.rd_resolver as rd
     dest = xbmcgui.Dialog().browse(0, "Choose download folder", "files", "", False, True, _get_download_path())
     if not dest:
         return
     rd.download_file(url, dest, filename, title)
 
-def _fetch_rd_hashes():
+def _check_rd_cache(sources):
+    token = ""
     try:
+        import xbmcaddon
         token = xbmcaddon.Addon('plugin.video.streamlord').getSetting('rd_token').strip()
-        if not token:
-            return set()
-        import resources.lib.rd_resolver as rd
-        known = set()
-        torrents = rd.list_torrents()
-        if torrents:
-            known.update(t.get("hash", "").lower() for t in torrents if t.get("hash"))
-        return known
     except:
-        return set()
-
-
-def _try_rd_resolve(info_hash, title):
-    if not info_hash or len(info_hash) != 40:
-        return None, None
+        pass
+    if not token:
+        return sources
+    hashes = []
+    hash_to_idx = {}
+    for idx, s in enumerate(sources):
+        h = s[4]
+        if h and len(h) == 40:
+            hl = h.lower()
+            hashes.append(hl)
+            hash_to_idx[hl] = idx
+    if not hashes:
+        return sources
     try:
         from resources.lib import rd_resolver
-        return rd_resolver.resolve_torrent(info_hash, title)
-    except:
-        return None, None
+        cached = rd_resolver.is_available(hashes)
+        if cached:
+            count = 0
+            for h in cached:
+                hl = h.lower()
+                if hl in hash_to_idx:
+                    idx = hash_to_idx[hl]
+                    s = list(sources[idx])
+                    s[7] = True
+                    sources[idx] = tuple(s)
+                    count += 1
+            xbmc.log("[StreamLord] RD cache check: %d/%d cached" % (count, len(hashes)), xbmc.LOGINFO)
+    except Exception as e:
+        xbmc.log("[StreamLord] RD cache check error: %s" % str(e), xbmc.LOGERROR)
+    return sources
 
 def _scrape_best_magnet(imdb_id, show_title, season, episode):
     try:
@@ -997,7 +1020,11 @@ def _get_download_path():
     return xbmcvfs.translatePath("special://home/userdata/downloads/")
 
 
-def play_movie(mid, title, watch_link="", imdb_id="", year=""):
+def play_movie(mid, title, watch_link="", imdb_id="", year="", tmdb_id=""):
+    if not imdb_id and tmdb_id:
+        imdb_id = _tmdb_get_imdb_id(tmdb_id, "movie")
+        xbmc.log("[StreamLord] Resolved tmdb_id=%s to imdb_id=%s" % (tmdb_id, imdb_id), xbmc.LOGINFO)
+
     all_sources = []
 
     if imdb_id:
@@ -1013,8 +1040,7 @@ def play_movie(mid, title, watch_link="", imdb_id="", year=""):
                         used.add(key)
                         q = s.get('quality', '?')
                         seed = s.get('seeders', 0)
-                        debrid = s.get('debrid', False)
-                        all_sources.append(('torrent', q, seed, s.get('url', ''), s.get('hash', ''), s.get('size', ''), s.get('name', ''), debrid))
+                        all_sources.append(('torrent', q, seed, s.get('url', ''), s.get('hash', ''), s.get('size', ''), s.get('name', ''), s.get('debrid', False)))
         except Exception as e:
             xbmc.log("[StreamLord] Movie scraper error: %s" % str(e), xbmc.LOGWARNING)
 
@@ -1022,7 +1048,7 @@ def play_movie(mid, title, watch_link="", imdb_id="", year=""):
         xbmc.log("[StreamLord] CocoScrapers returned nothing, trying TPB for %s" % title, xbmc.LOGINFO)
         tpb = search_tpb(title + (" " + year if year else ""))
         for s in tpb:
-            all_sources.append(('torrent', s.get('quality', 'SD'), s.get('seeders', 0), s.get('url', ''), s.get('hash', ''), s.get('size', ''), s.get('name', ''), False))
+            all_sources.append(('torrent', s.get('quality', 'SD'), s.get('seeders', 0), s.get('url', ''), s.get('hash', ''), s.get('size', ''), s.get('name', ''), s.get('debrid', False)))
 
     deduped = []
     seen = set()
@@ -1032,24 +1058,18 @@ def play_movie(mid, title, watch_link="", imdb_id="", year=""):
             seen.add(h)
             deduped.append(s)
 
-    rd_hashes = _fetch_rd_hashes()
-    xbmc.log("[StreamLord] RD existing torrents: %d hashes" % len(rd_hashes), xbmc.LOGINFO)
+    _check_rd_cache(deduped)
 
-    def is_rd_known(s):
-        if len(s) > 7 and s[7]:
-            return True
-        return s[4].lower() in rd_hashes if s[4] else False
-
-    deduped.sort(key=lambda s: (0 if is_rd_known(s) else 1, QUALITY_ORDER.get(s[1], 99), -(int(s[2]) if s[2] else 0)))
+    deduped.sort(key=lambda s: (0 if (len(s) > 7 and s[7]) else 1, QUALITY_ORDER.get(s[1], 99), -(int(s[2]) if s[2] else 0)))
 
     items = []
     for s in deduped:
         name = s[6] if len(s) > 6 else ""
-        known = is_rd_known(s)
+        is_debrid = len(s) > 7 and s[7]
         label = "%s %s" % (s[1], s[5]) if s[5] else s[1]
         if s[2]:
             label += " [S:%s]" % s[2]
-        if known:
+        if is_debrid:
             label = "[B][COLOR cyan]RD-CACHED[/COLOR][/B] %s" % label
         if name:
             label = "%s - %s" % (name[:60], label)
@@ -1071,47 +1091,55 @@ def play_movie(mid, title, watch_link="", imdb_id="", year=""):
 
     chosen = deduped[chosen_idx]
     xbmc.log("[StreamLord] Trying %s %s" % (chosen[1], chosen[3][:50]), xbmc.LOGINFO)
-
-    # Always try RD first for any torrent
-    info_hash = chosen[4] if len(chosen) > 4 else ""
-    rd_url, rd_fname = _try_rd_resolve(info_hash, title)
-
-    if rd_url:
-        xbmc.log("[StreamLord] RD resolved!", xbmc.LOGINFO)
-        rd_actions = ["Play via RD (Instant)", "Download via RD", "Play via LordPlayer", "Download via LordPlayer"]
-        rd_idx = xbmcgui.Dialog().select("Real-Debrid - %s" % title, rd_actions)
-        if rd_idx == 0:
-            _play_rd_url(rd_url, title)
-            return
-        elif rd_idx == 1:
-            _rd_download(rd_url, rd_fname, title)
-            xbmcplugin.endOfDirectory(HANDLE)
-            return
-        elif rd_idx == 2:
-            if play_via_LordPlayer(chosen[3], title):
+    
+    is_debrid = len(chosen) > 7 and chosen[7]
+    
+    if is_debrid:
+        info_hash = chosen[4] if len(chosen) > 4 else ""
+        if info_hash:
+            from resources.lib import rd_resolver
+            rd_url, rd_fname = rd_resolver.resolve_torrent(info_hash, title)
+            if rd_url:
+                xbmc.log("[StreamLord] RD instant available!", xbmc.LOGINFO)
+                rd_actions = ["Play via RD (Instant)", "Download via RD", "Play via LordPlayer", "Download via LordPlayer"]
+                rd_idx = xbmcgui.Dialog().select("Real-Debrid Ready - %s" % title, rd_actions)
+                if rd_idx == 0:
+                    _play_rd_url(rd_url, title)
+                    return
+                elif rd_idx == 1:
+                    _rd_download(rd_url, rd_fname, title)
+                    xbmcplugin.endOfDirectory(HANDLE)
+                    return
+                elif rd_idx == 2:
+                    if play_via_LordPlayer(chosen[3], title):
+                        return
+                    xbmcplugin.endOfDirectory(HANDLE)
+                    xbmcgui.Dialog().ok("StreamLord", "Torrent failed to play.\n%s" % title)
+                    return
+                elif rd_idx == 3:
+                    handle_download(chosen[3], title)
+                    xbmcplugin.endOfDirectory(HANDLE)
+                    return
+                else:
+                    xbmcplugin.endOfDirectory(HANDLE)
+                    return
+            else:
+                xbmc.log("[StreamLord] RD resolve failed for movie", xbmc.LOGINFO)
+                if xbmcgui.Dialog().yesno("Real-Debrid", "RD could not resolve this torrent.\nTry playing via LordPlayer instead?"):
+                    if play_via_LordPlayer(chosen[3], title):
+                        return
+                    xbmcplugin.endOfDirectory(HANDLE)
+                    xbmcgui.Dialog().ok("StreamLord", "Torrent failed to play.\n%s" % title)
+                    return
+                xbmcplugin.endOfDirectory(HANDLE)
                 return
-            if _try_torrest_serve(chosen[3], title):
-                return
-            xbmcplugin.endOfDirectory(HANDLE)
-            xbmcgui.Dialog().ok("StreamLord", "Torrent failed to play.\n%s" % title)
-            return
-        elif rd_idx == 3:
-            handle_download(chosen[3], title)
-            xbmcplugin.endOfDirectory(HANDLE)
-            return
-        else:
-            xbmcplugin.endOfDirectory(HANDLE)
-            return
-
-    # RD failed or no hash — fall through to LordPlayer
-    if chosen[2] == 0 and not xbmcgui.Dialog().yesno("StreamLord", "0 seeders - may not play.\nTry anyway?"):
+    
+    if chosen[2] == 0 and not is_debrid and not xbmcgui.Dialog().yesno("StreamLord", "0 seeders - may not play.\nTry anyway?"):
         xbmcplugin.endOfDirectory(HANDLE)
         return
-    action = xbmcgui.Dialog().select("Choose action", ["Play", "Download"])
+    action = xbmcgui.Dialog().select("Choose action", ["Play via LordPlayer", "Download via LordPlayer"])
     if action == 0:
         if play_via_LordPlayer(chosen[3], title):
-            return
-        if _try_torrest_serve(chosen[3], title):
             return
     elif action == 1:
         handle_download(chosen[3], title)
@@ -1127,6 +1155,7 @@ def play_episode(eid, title, link, show_title, season, show_imdb_id="", episode_
     if isinstance(ep_num, re.Match):
         ep_num = ep_num.group(1) if ep_num else eid
 
+    # Build patterns to filter for exact episode
     s_int = int(season_num) if season_num.isdigit() else 0
     e_int = int(ep_num) if ep_num.isdigit() else 0
     exact_pattern = re.compile(r'[Ss]%02d[Ee]%02d|[Ss]%d[Ee]%02d' % (s_int, e_int, s_int, e_int), re.IGNORECASE) if s_int else re.compile(re.escape("S%sE%s" % (season_num, ep_num)), re.IGNORECASE)
@@ -1143,12 +1172,12 @@ def play_episode(eid, title, link, show_title, season, show_imdb_id="", episode_
                 for s in results:
                     key = s.get('hash') or s.get('url', '')
                     name = s.get('name', '')
+                    # Filter CocoScrapers results for exact episode match too
                     if key not in used and (exact_pattern.search(name) or not name or len(results) <= 3):
                         used.add(key)
                         q = s.get('quality', '?')
                         seed = s.get('seeders', 0)
-                        debrid = s.get('debrid', False)
-                        all_sources.append(('torrent', q, seed, s.get('url', ''), s.get('hash', ''), s.get('size', ''), s.get('name', ''), debrid))
+                        all_sources.append(('torrent', q, seed, s.get('url', ''), s.get('hash', ''), s.get('size', ''), s.get('name', ''), s.get('debrid', False)))
         except Exception as e:
             xbmc.log("[StreamLord] Episode scraper error: %s" % str(e), xbmc.LOGWARNING)
 
@@ -1158,8 +1187,9 @@ def play_episode(eid, title, link, show_title, season, show_imdb_id="", episode_
         tpb = search_tpb(q)
         for s in tpb:
             name = s.get('name', '')
+            # Filter TPB results to match exact episode pattern
             if exact_pattern.search(name) or len(tpb) <= 1:
-                all_sources.append(('torrent', s.get('quality', 'SD'), s.get('seeders', 0), s.get('url', ''), s.get('hash', ''), s.get('size', ''), s.get('name', ''), False))
+                all_sources.append(('torrent', s.get('quality', 'SD'), s.get('seeders', 0), s.get('url', ''), s.get('hash', ''), s.get('size', ''), s.get('name', ''), s.get('debrid', False)))
 
     deduped = []
     seen = set()
@@ -1169,24 +1199,18 @@ def play_episode(eid, title, link, show_title, season, show_imdb_id="", episode_
             seen.add(h)
             deduped.append(s)
 
-    rd_hashes = _fetch_rd_hashes()
-    xbmc.log("[StreamLord] RD existing torrents: %d hashes" % len(rd_hashes), xbmc.LOGINFO)
+    _check_rd_cache(deduped)
 
-    def is_rd_known(s):
-        if len(s) > 7 and s[7]:
-            return True
-        return s[4].lower() in rd_hashes if s[4] else False
-
-    deduped.sort(key=lambda s: (0 if is_rd_known(s) else 1, QUALITY_ORDER.get(s[1], 99), -(int(s[2]) if s[2] else 0)))
+    deduped.sort(key=lambda s: (0 if (len(s) > 7 and s[7]) else 1, QUALITY_ORDER.get(s[1], 99), -(int(s[2]) if s[2] else 0)))
 
     items = []
     for s in deduped:
         name = s[6] if len(s) > 6 else ""
-        known = is_rd_known(s)
+        is_debrid = len(s) > 7 and s[7]
         label = "%s %s" % (s[1], s[5]) if s[5] else s[1]
         if s[2]:
             label += " [S:%s]" % s[2]
-        if known:
+        if is_debrid:
             label = "[B][COLOR cyan]RD-CACHED[/COLOR][/B] %s" % label
         if name:
             label = "%s - %s" % (name[:60], label)
@@ -1209,57 +1233,63 @@ def play_episode(eid, title, link, show_title, season, show_imdb_id="", episode_
 
     chosen = deduped[chosen_idx]
     xbmc.log("[StreamLord] Trying %s %s" % (chosen[1], chosen[3][:80]), xbmc.LOGINFO)
-
-    # Always try RD first for any torrent
-    info_hash = chosen[4] if len(chosen) > 4 else ""
-    rd_url, rd_fname = _try_rd_resolve(info_hash, full_title)
-
-    if rd_url:
-        xbmc.log("[StreamLord] RD resolved episode!", xbmc.LOGINFO)
-        rd_actions = ["Play via RD (Instant)", "Download via RD", "Play via LordPlayer", "Download via LordPlayer"]
-        rd_idx = xbmcgui.Dialog().select("Real-Debrid - %s" % full_title, rd_actions)
-        if rd_idx == 0:
-            _play_rd_url(rd_url, full_title)
-            return
-        elif rd_idx == 1:
-            _rd_download(rd_url, rd_fname, full_title)
-            xbmcplugin.endOfDirectory(HANDLE)
-            return
-        elif rd_idx == 2:
-            if play_via_LordPlayer(chosen[3], full_title):
-                xbmc.log("[StreamLord] Calling _autoplay_monitor S%02dE%02d imdb=%s" % (s_int, e_int, show_imdb_id), xbmc.LOGINFO)
-                _autoplay_monitor(show_imdb_id, season_num, ep_num, show_title)
-                xbmc.log("[StreamLord] _autoplay_monitor returned", xbmc.LOGINFO)
+    
+    is_debrid = len(chosen) > 7 and chosen[7]
+    
+    if is_debrid:
+        info_hash = chosen[4] if len(chosen) > 4 else ""
+        if info_hash:
+            from resources.lib import rd_resolver
+            rd_url, rd_fname = rd_resolver.resolve_torrent(info_hash, full_title)
+            if rd_url:
+                xbmc.log("[StreamLord] RD episode instant available!", xbmc.LOGINFO)
+                rd_actions = ["Play via RD (Instant)", "Download via RD", "Play via LordPlayer", "Download via LordPlayer"]
+                rd_idx = xbmcgui.Dialog().select("Real-Debrid Ready - %s" % full_title, rd_actions)
+                if rd_idx == 0:
+                    _play_rd_url(rd_url, full_title)
+                    return
+                elif rd_idx == 1:
+                    _rd_download(rd_url, rd_fname, full_title)
+                    xbmcplugin.endOfDirectory(HANDLE)
+                    return
+                elif rd_idx == 2:
+                    if play_via_LordPlayer(chosen[3], full_title):
+                        xbmc.log("[StreamLord] Calling _autoplay_monitor S%02dE%02d imdb=%s" % (s_int, e_int, show_imdb_id), xbmc.LOGINFO)
+                        _autoplay_monitor(show_imdb_id, season_num, ep_num, show_title)
+                        xbmc.log("[StreamLord] _autoplay_monitor returned", xbmc.LOGINFO)
+                        return
+                    xbmcplugin.endOfDirectory(HANDLE)
+                    xbmcgui.Dialog().ok("StreamLord", "Torrent failed to play.\n%s" % full_title)
+                    return
+                elif rd_idx == 3:
+                    handle_download(chosen[3], full_title)
+                    xbmcplugin.endOfDirectory(HANDLE)
+                    return
+                else:
+                    xbmcplugin.endOfDirectory(HANDLE)
+                    return
+            else:
+                xbmc.log("[StreamLord] RD resolve failed for episode", xbmc.LOGINFO)
+                if xbmcgui.Dialog().yesno("Real-Debrid", "RD could not resolve this torrent.\nTry playing via LordPlayer instead?"):
+                    if play_via_LordPlayer(chosen[3], full_title):
+                        xbmc.log("[StreamLord] Calling _autoplay_monitor S%02dE%02d" % (s_int, e_int), xbmc.LOGINFO)
+                        _autoplay_monitor(show_imdb_id, season_num, ep_num, show_title)
+                        return
+                    xbmcplugin.endOfDirectory(HANDLE)
+                    xbmcgui.Dialog().ok("StreamLord", "Torrent failed to play.\n%s" % full_title)
+                    return
+                xbmcplugin.endOfDirectory(HANDLE)
                 return
-            if _try_torrest_serve(chosen[3], full_title):
-                xbmc.log("[StreamLord] Calling _autoplay_monitor S%02dE%02d (LordPlayer) imdb=%s" % (s_int, e_int, show_imdb_id), xbmc.LOGINFO)
-                _autoplay_monitor(show_imdb_id, season_num, ep_num, show_title)
-                return
-            xbmcplugin.endOfDirectory(HANDLE)
-            xbmcgui.Dialog().ok("StreamLord", "Torrent failed to play.\n%s" % full_title)
-            return
-        elif rd_idx == 3:
-            handle_download(chosen[3], full_title)
-            xbmcplugin.endOfDirectory(HANDLE)
-            return
-        else:
-            xbmcplugin.endOfDirectory(HANDLE)
-            return
-
-    # RD failed or no hash — fall through to LordPlayer
-    if chosen[2] == 0 and not xbmcgui.Dialog().yesno("StreamLord", "0 seeders - may not play.\nTry anyway?"):
+    
+    if chosen[2] == 0 and not is_debrid and not xbmcgui.Dialog().yesno("StreamLord", "0 seeders - may not play.\nTry anyway?"):
         xbmcplugin.endOfDirectory(HANDLE)
         return
-    action = xbmcgui.Dialog().select("Choose action", ["Play", "Download"])
+    action = xbmcgui.Dialog().select("Choose action", ["Play via LordPlayer", "Download via LordPlayer"])
     if action == 0:
         if play_via_LordPlayer(chosen[3], full_title):
             xbmc.log("[StreamLord] Calling _autoplay_monitor S%02dE%02d imdb=%s" % (s_int, e_int, show_imdb_id), xbmc.LOGINFO)
             _autoplay_monitor(show_imdb_id, season_num, ep_num, show_title)
             xbmc.log("[StreamLord] _autoplay_monitor returned", xbmc.LOGINFO)
-            return
-        if _try_torrest_serve(chosen[3], full_title):
-            xbmc.log("[StreamLord] Calling _autoplay_monitor S%02dE%02d (LordPlayer)" % (s_int, e_int), xbmc.LOGINFO)
-            _autoplay_monitor(show_imdb_id, season_num, ep_num, show_title)
             return
     elif action == 1:
         handle_download(chosen[3], full_title)
@@ -1431,64 +1461,28 @@ def _show_tpb_results(results, label):
         xbmcgui.Dialog().notification("StreamLord", "No results on TPB", xbmcgui.NOTIFICATION_INFO, 3000)
         return
     qo = {'4K': 0, '1080p': 1, '1080': 1, '720p': 2, '720': 2, 'SD': 3, 'SCR': 4, 'CAM': 5}
-    sources = []
-    used = set()
-    for s in results:
-        key = s.get('hash') or s.get('url', '')
-        if key not in used:
-            used.add(key)
-            q = s.get('quality', '?')
-            seed = s.get('seeders', 0)
-            sources.append(('torrent', q, seed, s.get('url', ''), s.get('hash', ''), s.get('size', ''), s.get('name', ''), False))
-    rd_hashes = _fetch_rd_hashes()
-    xbmc.log("[StreamLord] TPB RD existing torrents: %d hashes" % len(rd_hashes), xbmc.LOGINFO)
-
-    def is_rd_known(s):
-        return s[4].lower() in rd_hashes if s[4] else False
-
-    sources.sort(key=lambda s: (0 if is_rd_known(s) else 1, qo.get(s[1], 99), -(int(s[2]) if s[2] else 0)))
+    ss = sorted(results, key=lambda s: (qo.get(s.get('quality', 'SD'), 99), -(int(s.get('seeders', 0)))))
     slist = []
-    for s in sources:
-        name = s[6] if len(s) > 6 else ""
+    for s in ss:
+        name = s.get('name', '')
         short = name[:60] + ".." if len(name) > 62 else name
-        lbl = "%s %s" % (s[1], s[5]) if s[5] else s[1]
-        if s[2]:
-            lbl += " [S:%s]" % s[2]
-        if is_rd_known(s):
-            lbl = "[B][COLOR cyan]RD-CACHED[/COLOR][/B] %s" % lbl
+        lbl = "%s %s" % (s.get('quality', '?'), s.get('size', '')) if s.get('size') else s.get('quality', '?')
+        if s.get('seeders'):
+            lbl += " [S:%s]" % s['seeders']
         if short:
             lbl = "%s - %s" % (short, lbl)
         slist.append(lbl)
     idx = xbmcgui.Dialog().select("TPB: %s" % label, slist)
     if idx < 0:
         return
-    chosen = sources[idx]
-    magnet = chosen[3]
+    chosen = ss[idx]
+    magnet = chosen.get('url', '') or chosen.get('magnet', '')
     if not magnet.startswith("magnet:"):
         xbmcgui.Dialog().ok("StreamLord", "Not a magnet link.")
         return
-    if chosen[2] == 0 and not is_rd_known(chosen) and not xbmcgui.Dialog().yesno("StreamLord", "0 seeders. Try anyway?"):
+    if int(chosen.get('seeders', 0)) == 0 and not xbmcgui.Dialog().yesno("StreamLord", "0 seeders. Try anyway?"):
         return
-    info_hash = chosen[4] if len(chosen) > 4 else ""
-    rd_url, rd_fname = _try_rd_resolve(info_hash, label)
-    if rd_url:
-        xbmc.log("[StreamLord] TPB RD resolved!", xbmc.LOGINFO)
-        rd_actions = ["Play via RD (Instant)", "Download via RD", "Play via LordPlayer", "Download via LordPlayer"]
-        rd_idx = xbmcgui.Dialog().select("Real-Debrid - %s" % label, rd_actions)
-        if rd_idx == 0:
-            _play_rd_url(rd_url, label)
-            return
-        elif rd_idx == 1:
-            _rd_download(rd_url, rd_fname, label)
-            return
-        elif rd_idx == 2:
-            pass
-        elif rd_idx == 3:
-            handle_download(magnet, label)
-            return
-        else:
-            return
-    action = xbmcgui.Dialog().select("Choose action", ["Play", "Download"])
+    action = xbmcgui.Dialog().select("Choose action", ["Play via LordPlayer", "Download via LordPlayer"])
     if action == 0:
         play_via_LordPlayer(magnet, label)
     elif action == 1:
@@ -1508,7 +1502,7 @@ def show_menu():
         li = xbmcgui.ListItem(label)
         li.setArt({"icon": icon, "thumb": icon})
         if action == "lordplayer":
-            xbmcplugin.addDirectoryItem(HANDLE, "plugin://plugin.video.lordplayer/", li, isFolder=True)
+            xbmcplugin.addDirectoryItem(HANDLE, "plugin://{}/".format(get_lordplayer_id()), li, isFolder=True)
         else:
             xbmcplugin.addDirectoryItem(HANDLE, get_url(action=action), li, isFolder=True)
     xbmcplugin.endOfDirectory(HANDLE)
@@ -1571,10 +1565,12 @@ def fight_post(url):
     fanart_url = thumb if thumb else ""
     if fanart_url:
         xbmcplugin.setPluginFanart(HANDLE, fanart_url)
+    # Torrent search option (primary)
     li = xbmcgui.ListItem(label="[B]Search Torrents: %s[/B]" % search_title)
     li.setInfo("video", {"title": "Search Torrents: %s" % search_title, "plot": detail.get("desc", "")})
     li.setArt({"thumb": thumb, "fanart": fanart_url, "icon": "DefaultVideo.png"})
     xbmcplugin.addDirectoryItem(HANDLE, get_url(action="fight_torrent_search", title=search_title), li, isFolder=False)
+    # Also list any embed video links as secondary options
     if detail["videos"]:
         li = xbmcgui.ListItem(label="--- Embed Links (less reliable) ---")
         li.setProperty("IsPlayable", "false")
@@ -1589,6 +1585,7 @@ def fight_post(url):
     xbmcplugin.endOfDirectory(HANDLE)
 
 def search_tpb(query):
+    """Direct TPB API search, returns list of result dicts"""
     import json
     results = []
     try:
@@ -1625,7 +1622,9 @@ def fight_torrent_search(show_title):
         return
     query = kb
     xbmc.log("[StreamLord] Searching torrents: %s" % query, xbmc.LOGINFO)
+    # Try TPB directly first (works without IMDb)
     results = search_tpb(query)
+    # Also try scraper_manager as fallback
     sm.init()
     ep_results = sm.search_episode('', query, '', '1', '1', '')
     mov_results = sm.search_movie('', query, '')
@@ -1645,15 +1644,8 @@ def fight_torrent_search(show_title):
             q = s.get('quality', '?')
             seed = s.get('seeders', 0)
             all_sources.append(('torrent', q, seed, s.get('url', ''), s.get('hash', ''), s.get('size', ''), s.get('name', ''), s.get('debrid', False)))
-    rd_hashes = _fetch_rd_hashes()
-    xbmc.log("[StreamLord] Fight RD existing torrents: %d hashes" % len(rd_hashes), xbmc.LOGINFO)
-
-    def is_rd_known(s):
-        if len(s) > 7 and s[7]:
-            return True
-        return s[4].lower() in rd_hashes if s[4] else False
-
-    ss = sorted(all_sources, key=lambda s: (0 if is_rd_known(s) else 1, QUALITY_ORDER.get(s[1], 99), -(int(s[2]) if s[2] else 0)))
+    _check_rd_cache(all_sources)
+    ss = sorted(all_sources, key=lambda s: (0 if (len(s) > 7 and s[7]) else 1, QUALITY_ORDER.get(s[1], 99), -(int(s[2]) if s[2] else 0)))
     slist = []
     for s in ss:
         name = s[6] if len(s) > 6 else ""
@@ -1661,7 +1653,7 @@ def fight_torrent_search(show_title):
         lbl = "%s %s" % (s[1], s[5]) if s[5] else s[1]
         if s[2]:
             lbl += " [S:%s]" % s[2]
-        if is_rd_known(s):
+        if len(s) > 7 and s[7]:
             lbl = "[B][COLOR cyan]RD-CACHED[/COLOR][/B] %s" % lbl
         if short:
             lbl = "%s - %s" % (short, lbl)
@@ -1678,29 +1670,14 @@ def fight_torrent_search(show_title):
         xbmcgui.Dialog().ok("StreamLord", "Not a magnet link.\nTry a different source.")
         xbmcplugin.endOfDirectory(HANDLE)
         return
-    if chosen[2] == 0 and not is_rd_known(chosen) and not xbmcgui.Dialog().yesno("StreamLord", "0 seeders - may not play.\nTry anyway?"):
+    if chosen[2] == 0 and not (len(chosen) > 7 and chosen[7]) and not xbmcgui.Dialog().yesno("StreamLord", "0 seeders - may not play.\nTry anyway?"):
         xbmcplugin.endOfDirectory(HANDLE)
         return
-    info_hash = chosen[4] if len(chosen) > 4 else ""
-    rd_url, rd_fname = _try_rd_resolve(info_hash, query)
-    if rd_url:
-        xbmc.log("[StreamLord] Fight RD resolved!", xbmc.LOGINFO)
-        rd_actions = ["Play via RD (Instant)", "Download via RD", "Play via LordPlayer", "Download via LordPlayer"]
-        rd_idx = xbmcgui.Dialog().select("Real-Debrid - %s" % query, rd_actions)
-        if rd_idx == 0:
-            _play_rd_url(rd_url, query)
-            return
-        elif rd_idx == 1:
-            _rd_download(rd_url, rd_fname, query)
-            return
-        elif rd_idx == 2:
-            pass
-        elif rd_idx == 3:
-            handle_download(magnet, query)
-            return
-        else:
-            return
-    play_via_LordPlayer(magnet, query)
+    action = xbmcgui.Dialog().select("Choose action", ["Play via LordPlayer", "Download via LordPlayer"])
+    if action == 0:
+        play_via_LordPlayer(magnet, query)
+    elif action == 1:
+        handle_download(magnet, query)
 
 def fight_play(video_url, title):
     import watchwrestling as ww
@@ -1770,7 +1747,7 @@ def main():
         elif a == "season_episodes":
             season_episodes(p.get("link", ""), p.get("season", "1"), p.get("show_title", ""), p.get("thumb", ""), p.get("show_imdb_id", ""))
         elif a == "play_movie":
-            play_movie(p.get("mid", ""), p.get("title", ""), p.get("watch_link", ""), p.get("imdb_id", ""), p.get("year", ""))
+            play_movie(p.get("mid", ""), p.get("title", ""), p.get("watch_link", ""), p.get("imdb_id", ""), p.get("year", ""), p.get("tmdb_id", ""))
         elif a == "play_episode":
             play_episode(p.get("eid", ""), p.get("title", ""), p.get("link", ""), p.get("show_title", ""), p.get("season", "1"), p.get("show_imdb_id", ""), p.get("episode_num", ""))
         elif a == "tpb_search":

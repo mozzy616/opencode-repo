@@ -37,7 +37,17 @@ THUMBS = [
     os.path.join(_addon_path, "resources", "thumb3.jpg"),
     os.path.join(_addon_path, "resources", "thumb4.jpg"),
 ]
-LORDPLAYER_ID = "plugin.video.lordplayer"
+LORDPLAYER_IDS = ["plugin.video.lordplayer", "plugin.video.lordplayer.droid"]
+
+
+def get_lordplayer_id():
+    for lid in LORDPLAYER_IDS:
+        try:
+            if xbmc.getCondVisibility("System.HasAddon({})".format(lid)):
+                return lid
+        except Exception:
+            pass
+    return LORDPLAYER_IDS[0]
 MAGNET_TRACKERS = [
     "udp://tracker.opentrackr.org:1337/announce",
     "udp://tracker.openbittorrent.com:6969/announce",
@@ -472,8 +482,9 @@ def play_video(magnet_url, name):
     log("Resolving playback via Lordplayer: {}".format(name))
 
     safe_magnet = urllib.parse.quote(magnet_url, safe="")
+    lordplayer_id = get_lordplayer_id()
     lordplayer_url = "plugin://{}/play_magnet?magnet={}&buffer=true".format(
-        LORDPLAYER_ID, safe_magnet
+        lordplayer_id, safe_magnet
     )
 
     li = xbmcgui.ListItem(path=lordplayer_url, label=name)
