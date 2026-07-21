@@ -98,6 +98,10 @@ def router(param_string):
     elif action == "device_auth":
         device_auth()
 
+    elif action == "settings":
+        from resources.lib.kodi_utils import addon
+        addon().openSettings()
+
     elif action == "play_movie":
         play_movie(
             imdb_id=params.get("imdb_id", ""),

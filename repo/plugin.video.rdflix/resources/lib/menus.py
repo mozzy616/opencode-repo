@@ -1,3 +1,4 @@
+import sys
 import xbmcgui
 import xbmcplugin
 
@@ -74,12 +75,23 @@ def main_menu():
     items = [
         ("[B]Movies[/B]", build_url(action="movies_menu"), "DefaultVideo.png", {"plot": "Browse movies by category"}),
         ("[B]TV Shows[/B]", build_url(action="tvshows_menu"), "DefaultTVShows.png", {"plot": "Browse TV shows by category"}),
-        ("[B]Search[/B]", build_url(action="search"), "DefaultSearch.png", {"plot": "Search for movies and TV shows"}),
+        ("[B]Search[/B]", build_url(action="search"), "DefaultAddonsSearch.png", {"plot": "Search for movies and TV shows"}),
         ("[B]My Account[/B]", build_url(action="account"), "DefaultUser.png", {"plot": "Real-Debrid account information"}),
+        ("[B]LordPlayer[/B]", build_url(action="lordplayer"), "DefaultVideoPlay.png", {"plot": "Open LordPlayer for torrent streaming"}),
+        ("[B]Settings[/B]", build_url(action="settings"), "DefaultAddonSettings.png", {"plot": "Configure RDFlix settings"}),
     ]
+    import xbmc
     for label, url, icon, info in items:
         li = _make_li(label, info, {"icon": icon})
-        add_list_item(url, li, True)
+        if build_url(action="lordplayer") == url:
+            lid = "plugin.video.lordplayer.droid" if xbmc.getCondVisibility("System.HasAddon(plugin.video.lordplayer.droid)") else "plugin.video.lordplayer"
+            import xbmcplugin
+            xbmcplugin.addDirectoryItem(int(sys.argv[1]), "plugin://%s/" % lid, li, True)
+        elif build_url(action="settings") == url:
+            import xbmcplugin
+            xbmcplugin.addDirectoryItem(int(sys.argv[1]), build_url(action="settings"), li, True)
+        else:
+            add_list_item(url, li, True)
     end_directory()
 
 
