@@ -9,8 +9,11 @@
     <category label="Playback">
         <setting label="Quality" type="lsep"/>
         <setting id="max_quality" type="labelenum" label="Maximum Quality" values="4K|1080p|720p|SD" default="4K"/>
-        <setting id="autoplay_next" type="bool" label="Auto-play next episode" default="true"/>
-        <setting id="skip_intro_duration" type="integer" label="Skip intro duration (seconds)" default="0"/>
+        <setting id="autoplay_next" type="bool" label="Auto-play next episode" default="false"/>
+    </category>
+    <category label="Sources">
+        <setting label="Comet (ElfHosted) is already built-in. Add more URLs below if you self-host Comet or other Stremio addons." type="lsep"/>
+        <setting id="extra_stremio_urls" type="text" label="Extra Stremio Addon URLs (one per line)" default=""/>
     </category>
     <category label="Downloads">
         <setting id="download_path" type="folder" label="Download folder" default="special://home/userdata/downloads/" />

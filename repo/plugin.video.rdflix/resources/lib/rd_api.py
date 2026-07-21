@@ -49,7 +49,7 @@ def _fetch(url, method="GET", data=None, auth_required=True):
         except:
             pass
         log("HTTP %d %s body=%s" % (e.code, url.split("?")[0][-50:], body), xbmc.LOGWARNING)
-        if e.code in (401, 403):
+        if e.code in (401, 403) and "disabled_endpoint" not in body:
             notify("RDFlix", "RD token invalid. Check settings.", xbmcgui.NOTIFICATION_ERROR, 8000)
         return None
     except urllib.error.URLError as e:
