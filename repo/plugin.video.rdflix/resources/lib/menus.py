@@ -281,6 +281,9 @@ def movie_detail_view(tmdb_id, title=""):
     li.setProperty("IsPlayable", "true")
     add_list_item(build_url(action="play_movie", imdb_id=imdb_id, tmdb_id=tmdb_id, title=tmdb_title, year=year), li, False)
 
+    li = _make_li("[B]Add to Library[/B]", {"plot": "Add to Kodi movie library"}, {"icon": "DefaultAddon.png"})
+    add_list_item(build_url(action="library_add_movie", tmdb_id=tmdb_id, title=tmdb_title, year=year, imdb_id=imdb_id), li, True)
+
     recommendations = detail.get("recommendations", {}).get("results", []) if isinstance(detail.get("recommendations"), dict) else []
     if recommendations:
         rec_label = _make_li("[B]--- Recommendations ---[/B]", {}, {"icon": "DefaultVideo.png"})
@@ -322,6 +325,9 @@ def tv_detail_view(tmdb_id, title=""):
         label += "  [COLOR gold]%.1f[/COLOR]" % rating
 
     seasons = detail.get("seasons", [])
+    li = _make_li("[B]Add Show to Library[/B]", {"plot": "Create library folder for %s" % tmdb_title}, {"icon": "DefaultAddon.png"})
+    add_list_item(build_url(action="library_add_show", tmdb_id=tmdb_id, title=tmdb_title, imdb_id=imdb_id), li, True)
+
     for s in seasons:
         snum = s.get("season_number", 0)
         if snum == 0:
@@ -399,6 +405,8 @@ def season_episodes_view(tmdb_id, season, show_title, imdb_id=""):
         add_list_item(build_url(action="play_episode", imdb_id=imdb_id, tmdb_id=tmdb_id, show_title=show_title,
                                 season=str(season_num), episode=str(epnum), episode_title=epname), li, False)
 
+    li = _make_li("[B].. Back to Seasons[/B]", {}, {"icon": "DefaultFolderBack.png"})
+    add_list_item(build_url(action="tv_detail", tmdb_id=tmdb_id, title=show_title), li, True)
     end_directory()
 
 
@@ -499,5 +507,41 @@ def account_view():
         left_gb = left / (1024 * 1024 * 1024) if left else 0
         li = _make_li("[B]Traffic Left:[/B] %.2f GB" % left_gb, {"plot": ""}, {"icon": "DefaultInfo.png"})
         add_list_item(build_url(action="noop"), li, False)
+
+    li = _make_li("[B]Manage RD Torrents[/B]", {"plot": "View and manage your Real-Debrid torrents"}, {"icon": "DefaultAddon.png"})
+    add_list_item(build_url(action="rd_torrents"), li, True)
+    end_directory()
+
+
+def rd_torrents_view():
+    from resources.lib.rd_api import torrents, delete_torrent
+    items = torrents()
+    if not items:
+        li = _make_li("[B]No torrents found in RD account[/B]", {"plot": "Your RD torrent list is empty."}, {"icon": "DefaultInfo.png"})
+        add_list_item(build_url(action="noop"), li, False)
+        end_directory()
+        return
+
+    for t in items:
+        name = t.get("filename", "Unknown")
+        status = t.get("status", "?")
+        size_val = t.get("bytes", 0) or 0
+        size_str = ""
+        if size_val >= 1073741824:
+            size_str = "%.1f GB" % (size_val / 1073741824)
+        elif size_val >= 1048576:
+            size_str = "%.0f MB" % (size_val / 1048576)
+
+        if status == "downloaded":
+            status_label = "[COLOR green]%s[/COLOR]" % status
+        elif status in ("downloading", "waiting_files_selection", "magnet_conversion"):
+            status_label = "[COLOR yellow]%s[/COLOR]" % status
+        else:
+            status_label = "[COLOR gray]%s[/COLOR]" % status
+
+        label = "%s %s %s" % (status_label, size_str, name[:50])
+        li = _make_li(label, {"title": name, "plot": "Status: %s\nSize: %s\nID: %s" % (status, size_str, t.get("id", ""))}, {"icon": "DefaultVideo.png"})
+        tid = t.get("id", "")
+        add_list_item(build_url(action="rd_torrent_action", tid=tid, name=name), li, True)
 
     end_directory()

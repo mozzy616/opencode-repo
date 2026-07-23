@@ -18,4 +18,9 @@
     <category label="Downloads">
         <setting id="download_path" type="folder" label="Download folder" default="special://home/userdata/downloads/" />
     </category>
+    <category label="Library">
+        <setting label="Kodi Library Integration" type="lsep"/>
+        <setting id="library_path" type="folder" label="Library folder" default="special://profile/addon_data/plugin.video.rdflix/library/" />
+        <setting id="library_setup" type="action" label="Register Library Sources" action="RunPlugin(plugin://plugin.video.rdflix/?action=library_setup)"/>
+    </category>
 </settings>

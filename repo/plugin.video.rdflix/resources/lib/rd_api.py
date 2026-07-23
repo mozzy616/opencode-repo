@@ -136,9 +136,17 @@ def add_magnet(magnet):
     if resp and "id" in resp:
         log("Added magnet: id=%s" % resp["id"])
         return resp["id"]
-    if resp and "error" in resp or (resp and "magnet_already_added" in str(resp).lower()):
-        log("Add magnet already exists or error")
-        return None
+    if resp and ("error" in resp or "magnet_already_added" in str(resp).lower()):
+        log("Add magnet already exists, searching for it")
+        import re
+        m = re.search(r"btih:([a-fA-F0-9]{40})", magnet)
+        if m:
+            h = m.group(1).lower()
+            existing = user_torrents_list()
+            for t in existing:
+                if t.get("hash", "").lower() == h:
+                    log("Found existing torrent: id=%s status=%s" % (t.get("id"), t.get("status", "?")))
+                    return t.get("id")
     return None
 
 

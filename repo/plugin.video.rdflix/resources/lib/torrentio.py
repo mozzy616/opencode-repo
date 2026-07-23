@@ -91,6 +91,7 @@ def _build_url(base_path, rd_token=""):
 def _get_extra_urls():
     builtin = [
         "https://comet.elfhosted.com",
+        "https://mediafusion.elfhosted.com",
     ]
     urls = list(builtin)
     raw = get_setting("extra_stremio_urls", "")

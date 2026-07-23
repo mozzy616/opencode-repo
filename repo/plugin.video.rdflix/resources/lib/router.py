@@ -8,7 +8,7 @@ from resources.lib.kodi_utils import parse_params, log, dialog_ok, set_setting, 
 from resources.lib.menus import (
     main_menu, movies_menu, tvshows_menu, movies_genres, tv_genres,
     movies_list, tv_list, movie_detail_view, tv_detail_view,
-    season_episodes_view, search_view, account_view,
+    season_episodes_view, search_view, account_view, rd_torrents_view,
 )
 from resources.lib.player import play_movie, play_episode
 from resources.lib.rd_api import get_device_code, poll_device_auth, get_user
@@ -94,6 +94,89 @@ def router(param_string):
 
     elif action == "account":
         account_view()
+
+    elif action == "rd_torrents":
+        rd_torrents_view()
+
+    elif action == "rd_torrent_action":
+        from resources.lib.rd_api import torrent_info, delete_torrent, unrestrict_link
+        from resources.lib.kodi_utils import end_directory, dialog_yesno, dialog_ok, add_list_item, build_url, notify
+        tid = params.get("tid", "")
+        tname = params.get("name", "Unknown")
+        if not tid:
+            dialog_ok("RDFlix", "Invalid torrent ID")
+            end_directory()
+        else:
+            info = torrent_info(tid)
+            status = info.get("status", "?") if info else "?"
+            links = (info or {}).get("links", [])
+            if links and status == "downloaded":
+                ul = unrestrict_link(links[0])
+                if ul and ul.get("download"):
+                    import xbmcplugin
+                    li = xbmcgui.ListItem(path=ul["download"], label=tname)
+                    li.setProperty("IsPlayable", "true")
+                    xbmcplugin.setResolvedUrl(HANDLE, True, li)
+                    return
+            li = xbmcgui.ListItem("[B]Delete Torrent[/B]")
+            li.setArt({"icon": "DefaultAddon.png"})
+            add_list_item(build_url(action="rd_torrent_delete", tid=tid), li, True)
+            li = xbmcgui.ListItem("[B].. Back[/B]")
+            li.setArt({"icon": "DefaultFolderBack.png"})
+            add_list_item(build_url(action="rd_torrents"), li, True)
+            end_directory()
+
+    elif action == "rd_torrent_delete":
+        from resources.lib.rd_api import delete_torrent
+        from resources.lib.kodi_utils import dialog_yesno, end_directory, notify
+        tid = params.get("tid", "")
+        if tid and dialog_yesno("RDFlix", "Delete this torrent from Real-Debrid?"):
+            delete_torrent(tid)
+            notify("RDFlix", "Torrent deleted")
+        end_directory()
+
+    elif action == "library_add_movie":
+        from resources.lib.library import add_movie_to_library
+        add_movie_to_library(
+            params.get("tmdb_id", ""),
+            params.get("title", ""),
+            params.get("year", ""),
+            params.get("imdb_id", ""),
+        )
+        movie_detail_view(params.get("tmdb_id", ""), params.get("title", ""))
+
+    elif action == "library_add_show":
+        from resources.lib.library import add_show_to_library
+        add_show_to_library(
+            params.get("tmdb_id", ""),
+            params.get("title", ""),
+            params.get("imdb_id", ""),
+        )
+        tv_detail_view(params.get("tmdb_id", ""), params.get("title", ""))
+
+    elif action == "library_setup":
+        from resources.lib.library import set_library_source
+        set_library_source()
+        dialog_ok("RDFlix", "Library sources registered.\nGo to Kodi Settings > Media > Library > Videos to add the RDFlix folders.")
+
+    elif action == "play_from_library":
+        lib_type = params.get("type", "")
+        if lib_type == "movie":
+            play_movie(
+                imdb_id=params.get("imdb_id", ""),
+                tmdb_id=params.get("tmdb_id", ""),
+                title=params.get("title", ""),
+                year="",
+            )
+        elif lib_type == "episode":
+            play_episode(
+                imdb_id=params.get("imdb_id", ""),
+                tmdb_id=params.get("tmdb_id", ""),
+                show_title=params.get("show_title", ""),
+                season=params.get("season", "1"),
+                episode=params.get("episode", "1"),
+                episode_title="",
+            )
 
     elif action == "device_auth":
         device_auth()

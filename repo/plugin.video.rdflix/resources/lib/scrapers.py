@@ -16,24 +16,30 @@ from resources.lib.kodi_utils import log, get_setting
 TRACKERS = "&tr=udp://tracker.opentrackr.org:1337/announce&tr=udp://open.stealth.si:80/announce&tr=udp://tracker.torrent.eu.org:451/announce"
 
 TRY_COCO = False
-COCO_PATH = xbmcvfs.translatePath("special://home/addons/script.module.cocoscrapers/lib")
-if COCO_PATH not in sys.path:
-    sys.path.insert(0, COCO_PATH)
-
-try:
-    import cocoscrapers
-    from cocoscrapers.modules import client as cc_client
-    TRY_COCO = True
-    log("CocoScrapers loaded")
-except Exception as e:
-    log("CocoScrapers not available: %s" % str(e), xbmc.LOGWARNING)
-
+_coco_loaded = False
+_cc_client = None
 
 _scrapers = None
 _scrapers_lock = threading.Lock()
 HOSTDICT = ['__all__']
 SCRAPER_TIMEOUT = 10
 GLOBAL_TIMEOUT = 30
+
+
+def _try_request(url, timeout=10):
+    if _cc_client is not None:
+        try:
+            resp = _cc_client.request(url, timeout=timeout, flare=True)
+            if resp:
+                return resp
+        except:
+            pass
+    try:
+        req = urllib.request.Request(url, headers={'User-Agent': USER_AGENT})
+        with urllib.request.urlopen(req, timeout=timeout) as r:
+            return r.read().decode('utf-8', errors='replace')
+    except:
+        return None
 
 
 def _detect_quality(name):
@@ -346,15 +352,30 @@ class KnabenScraper:
 
 
 def _load_coco_scrapers():
-    global _scrapers
+    global _scrapers, _coco_loaded, _cc_client
     if _scrapers is not None:
         return True
     with _scrapers_lock:
         if _scrapers is not None:
             return True
-        scrapers = []
-        if TRY_COCO:
+
+        if not _coco_loaded:
+            coco_path = xbmcvfs.translatePath("special://home/addons/script.module.cocoscrapers/lib")
+            if coco_path not in sys.path:
+                sys.path.insert(0, coco_path)
             try:
+                import cocoscrapers
+                from cocoscrapers.modules import client as cc
+                _cc_client = cc
+                _coco_loaded = True
+                log("CocoScrapers loaded")
+            except Exception as e:
+                log("CocoScrapers not available: %s" % str(e), xbmc.LOGWARNING)
+
+        scrapers = []
+        if _coco_loaded:
+            try:
+                import cocoscrapers
                 cocoscrapers.enabledCheck = lambda mn: True
                 scrapers = cocoscrapers.sources(specified_folders=['torrents']) or []
                 exclude = ['torrentio_cached', 'mediafusion_cached', 'comet']
@@ -457,7 +478,7 @@ def search_movie(imdb, title, year):
     knaben_results = knaben.search(False, imdb, title, year, '', '', '')
     all_results.extend(knaben_results)
 
-    # Deduplicate by hash
+    # Deduplicate by hash (movie)
     seen = set()
     deduped = []
     for r in all_results:
@@ -509,7 +530,7 @@ def search_episode(imdb, tvshowtitle, season, episode, year):
     knaben_results = knaben.search(True, imdb, '', year, tvshowtitle, season, episode)
     all_results.extend(knaben_results)
 
-    # Deduplicate by hash
+    # Deduplicate by hash (episode)
     seen = set()
     deduped = []
     for r in all_results:
