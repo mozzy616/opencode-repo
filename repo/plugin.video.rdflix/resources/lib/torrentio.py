@@ -57,24 +57,35 @@ def _filter_by_quality(streams, max_quality="4K"):
     return filtered
 
 
-def _query_stremio_api(base_url, path, rd_token):
+def _query_stremio_api(base_url, path, rd_token, ad_token="", pm_token=""):
     if not base_url:
         return []
     base_url = base_url.strip().rstrip("/")
     if not base_url:
         return []
 
-    if rd_token:
-        url = "%s/realdebrid=%s%s.json" % (base_url, urllib.parse.quote(rd_token), path)
-    else:
-        url = "%s%s.json" % (base_url, path)
-
     name = base_url.split("/")[-1] if "/" in base_url else base_url
-    log("Querying %s: %s" % (name, path))
-    resp = _fetch_json(url, name)
-    if resp and "streams" in resp:
+    all_streams = []
+    seen_hashes = set()
+
+    for svc_name, token in [("realdebrid", rd_token), ("alldebrid", ad_token), ("premiumize", pm_token)]:
+        if not token:
+            continue
+        url = "%s/%s=%s%s.json" % (base_url, svc_name, urllib.parse.quote(token), path)
+        log("Querying %s (%s): %s" % (name, svc_name, path))
+        resp = _fetch_json(url, name)
+        if resp and "streams" in resp:
+            for s in resp["streams"]:
+                h = s.get("infoHash", "")
+                if h and h.lower() in seen_hashes:
+                    continue
+                if h:
+                    seen_hashes.add(h.lower())
+                all_streams.append(s)
+
+    if all_streams:
         max_quality = _get_max_quality()
-        filtered = _filter_by_quality(resp["streams"], max_quality)
+        filtered = _filter_by_quality(all_streams, max_quality)
         filtered.sort(key=lambda s: QUALITY_ORDER.get(s.get("_quality", "Unknown"), 99))
         return filtered
     return []
@@ -105,18 +116,23 @@ def _get_extra_urls():
 
 def get_movie_sources(imdb_id):
     rd_token = get_setting("rd_token", "")
+    ad_token = get_setting("ad_token", "")
+    pm_token = get_setting("pm_token", "")
     all_sources = []
 
-    url = _build_url("/stream/movie/%s" % imdb_id, rd_token)
-    resp = _fetch_json(url, "Torrentio")
-    if resp and "streams" in resp:
-        max_quality = _get_max_quality()
-        filtered = _filter_by_quality(resp["streams"], max_quality)
-        filtered.sort(key=lambda s: QUALITY_ORDER.get(s.get("_quality", "Unknown"), 99))
-        all_sources.extend(filtered)
+    for svc_name, token in [("realdebrid", rd_token), ("alldebrid", ad_token), ("premiumize", pm_token)]:
+        if not token:
+            continue
+        url = "%s/%s=%s/stream/movie/%s.json" % (TORRENTIO_BASE, svc_name, urllib.parse.quote(token), imdb_id)
+        resp = _fetch_json(url, "Torrentio")
+        if resp and "streams" in resp:
+            max_quality = _get_max_quality()
+            filtered = _filter_by_quality(resp["streams"], max_quality)
+            filtered.sort(key=lambda s: QUALITY_ORDER.get(s.get("_quality", "Unknown"), 99))
+            all_sources.extend(filtered)
 
     for extra_url in _get_extra_urls():
-        extra_sources = _query_stremio_api(extra_url, "/stream/movie/%s" % imdb_id, rd_token)
+        extra_sources = _query_stremio_api(extra_url, "/stream/movie/%s" % imdb_id, rd_token, ad_token, pm_token)
         all_sources.extend(extra_sources)
 
     log("Torrentio + extras movie total: %d sources" % len(all_sources))
@@ -125,18 +141,23 @@ def get_movie_sources(imdb_id):
 
 def get_episode_sources(imdb_id, season, episode):
     rd_token = get_setting("rd_token", "")
+    ad_token = get_setting("ad_token", "")
+    pm_token = get_setting("pm_token", "")
     all_sources = []
 
-    url = _build_url("/stream/series/%s:%s:%s" % (imdb_id, season, episode), rd_token)
-    resp = _fetch_json(url, "Torrentio")
-    if resp and "streams" in resp:
-        max_quality = _get_max_quality()
-        filtered = _filter_by_quality(resp["streams"], max_quality)
-        filtered.sort(key=lambda s: QUALITY_ORDER.get(s.get("_quality", "Unknown"), 99))
-        all_sources.extend(filtered)
+    for svc_name, token in [("realdebrid", rd_token), ("alldebrid", ad_token), ("premiumize", pm_token)]:
+        if not token:
+            continue
+        url = "%s/%s=%s/stream/series/%s:%s:%s.json" % (TORRENTIO_BASE, svc_name, urllib.parse.quote(token), imdb_id, season, episode)
+        resp = _fetch_json(url, "Torrentio")
+        if resp and "streams" in resp:
+            max_quality = _get_max_quality()
+            filtered = _filter_by_quality(resp["streams"], max_quality)
+            filtered.sort(key=lambda s: QUALITY_ORDER.get(s.get("_quality", "Unknown"), 99))
+            all_sources.extend(filtered)
 
     for extra_url in _get_extra_urls():
-        extra_sources = _query_stremio_api(extra_url, "/stream/series/%s:%s:%s" % (imdb_id, season, episode), rd_token)
+        extra_sources = _query_stremio_api(extra_url, "/stream/series/%s:%s:%s" % (imdb_id, season, episode), rd_token, ad_token, pm_token)
         all_sources.extend(extra_sources)
 
     log("Torrentio + extras episode total: %d sources" % len(all_sources))

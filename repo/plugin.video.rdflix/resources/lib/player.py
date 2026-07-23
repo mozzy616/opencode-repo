@@ -13,6 +13,9 @@ from resources.lib.tmdb_api import get_external_ids
 from resources.lib.constants import QUALITY_ORDER
 from resources.lib.scrapers import search_movie as scraper_search_movie, search_episode as scraper_search_episode
 from resources.lib.cache import get_cached_hashes, set_cached_hashes
+from resources.lib.ad_api import resolve_magnet as ad_resolve_magnet
+from resources.lib.pm_api import resolve_magnet as pm_resolve_magnet
+from resources.lib.trakt_api import scrobble_start, scrobble_stop, is_authenticated as trakt_authenticated
 import json
 
 TRACKERS = "&tr=udp://tracker.opentrackr.org:1337/announce&tr=udp://open.stealth.si:80/announce&tr=udp://tracker.torrent.eu.org:451/announce"
@@ -70,12 +73,17 @@ def _play_source(source, title):
         actual_magnet = "magnet:?xt=urn:btih:%s&dn=%s" % (info_hash[:40], urllib.parse.quote(torrent_title or title))
 
     if actual_magnet:
-        try:
-            result = resolve_magnet(actual_magnet, torrent_title or title)
-            if result and result.get("url"):
-                return _play_url(result["url"], result.get("filename", file_name))
-        except Exception as e:
-            log("Magnet resolve error: %s" % str(e), xbmc.LOGERROR)
+        result = None
+        for resolver in [resolve_magnet, ad_resolve_magnet, pm_resolve_magnet]:
+            try:
+                result = resolver(actual_magnet, torrent_title or title)
+                if result and result.get("url"):
+                    break
+            except:
+                continue
+
+        if result and result.get("url"):
+            return _play_url(result["url"], result.get("filename", file_name))
 
     is_rd_cached = source.get("isDebridCached", False)
     if actual_magnet and TRY_LORDPLAYER and not is_rd_cached:
@@ -319,7 +327,7 @@ def _detect_scraper_quality(name):
     return "SD"
 
 
-def _handle_source_action(source, title):
+def _handle_source_action(source, title, imdb_id="", season=None, episode=None, show_title=""):
     """Show Play/Download dialog for a selected source. Returns True if played."""
     if not source:
         set_resolved_url(False, xbmcgui.ListItem(label=title))
@@ -335,6 +343,11 @@ def _handle_source_action(source, title):
             dialog_ok("RDFlix", "Failed to play\n%s" % title)
             set_resolved_url(False, xbmcgui.ListItem(label=title))
             return False
+        if imdb_id and trakt_authenticated():
+            try:
+                scrobble_start("start", imdb_id, show_title or title, season, episode)
+            except:
+                pass
         return True
     elif choice == 1:
         _download_source(source, title)
@@ -611,7 +624,7 @@ def play_movie(imdb_id, tmdb_id, title, year=""):
         xbmcplugin.endOfDirectory(HANDLE)
         play_movie(imdb_id, tmdb_id, title, year)
     else:
-        _handle_source_action(choice, title)
+        _handle_source_action(choice, title, imdb_id)
 
 
 def play_episode(imdb_id, tmdb_id, show_title, season, episode, episode_title=""):
@@ -644,7 +657,7 @@ def play_episode(imdb_id, tmdb_id, show_title, season, episode, episode_title=""
         return
 
     if len(sources) == 1:
-        if _handle_source_action(sources[0], full_title):
+        if _handle_source_action(sources[0], full_title, imdb_id, season, episode, show_title):
             _autoplay_next(imdb_id, tmdb_id, show_title, s_int, e_int)
         return
 
@@ -657,7 +670,7 @@ def play_episode(imdb_id, tmdb_id, show_title, season, episode, episode_title=""
         xbmcplugin.endOfDirectory(HANDLE)
         play_episode(imdb_id, tmdb_id, show_title, season, episode, episode_title)
     else:
-        if _handle_source_action(choice, full_title):
+        if _handle_source_action(choice, full_title, imdb_id, season, episode, show_title):
             _autoplay_next(imdb_id, tmdb_id, show_title, s_int, e_int)
 
 

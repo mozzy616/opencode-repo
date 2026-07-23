@@ -6,13 +6,25 @@
         <setting label="Get your API token at real-debrid.com/apitoken" type="lsep"/>
         <setting id="auth_action" type="action" label="Authorize Device" action="RunPlugin(plugin://plugin.video.rdflix/?action=device_auth)"/>
     </category>
+    <category label="AllDebrid">
+        <setting id="ad_token" type="text" label="AllDebrid API Key" default="" option="hidden"/>
+        <setting label="Get your API key at alldebrid.com/apikeys" type="lsep"/>
+    </category>
+    <category label="Premiumize">
+        <setting id="pm_token" type="text" label="Premiumize API Key" default="" option="hidden"/>
+        <setting label="Get your API key at premiumize.me/account" type="lsep"/>
+    </category>
+    <category label="Trakt">
+        <setting id="trakt_token" type="text" label="Trakt Access Token" default="" option="hidden"/>
+        <setting id="trakt_auth" type="action" label="Authorize Trakt" action="RunPlugin(plugin://plugin.video.rdflix/?action=trakt_auth)"/>
+    </category>
     <category label="Playback">
         <setting label="Quality" type="lsep"/>
         <setting id="max_quality" type="labelenum" label="Maximum Quality" values="4K|1080p|720p|SD" default="4K"/>
         <setting id="autoplay_next" type="bool" label="Auto-play next episode" default="false"/>
     </category>
     <category label="Sources">
-        <setting label="Comet (ElfHosted) is already built-in. Add more URLs below if you self-host Comet or other Stremio addons." type="lsep"/>
+        <setting label="Comet (ElfHosted) and MediaFusion are built-in. Add more URLs below for extra Stremio addons." type="lsep"/>
         <setting id="extra_stremio_urls" type="text" label="Extra Stremio Addon URLs (one per line)" default=""/>
     </category>
     <category label="Downloads">

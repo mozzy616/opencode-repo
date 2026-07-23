@@ -181,6 +181,21 @@ def router(param_string):
     elif action == "device_auth":
         device_auth()
 
+    elif action == "trakt_auth":
+        from resources.lib.trakt_api import get_device_code, poll_token
+        from resources.lib.kodi_utils import dialog_ok, set_setting, notify
+        dc, uc, vu = get_device_code()
+        if not dc:
+            dialog_ok("RDFlix", "Failed to get Trakt device code")
+        else:
+            dialog_ok("RDFlix", "Go to %s and enter code:\n\n%s" % (vu, uc))
+            at, rt = poll_token(dc)
+            if at:
+                set_setting("trakt_token", at)
+                notify("RDFlix", "Trakt authorized successfully!")
+            else:
+                dialog_ok("RDFlix", "Trakt authorization timed out")
+
     elif action == "settings":
         from resources.lib.kodi_utils import addon
         addon().openSettings()
