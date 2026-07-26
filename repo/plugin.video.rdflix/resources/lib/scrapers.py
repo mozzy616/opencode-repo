@@ -12,6 +12,26 @@ import xbmcaddon
 
 from resources.lib.constants import ADDON_ID, USER_AGENT, LOG_PREFIX, QUALITY_ORDER
 from resources.lib.kodi_utils import log, get_setting
+from resources.lib.analytics import record_scraper_result, get_scraper_ranking
+
+_priority_cache = None
+_priority_time = 0
+
+
+def _get_scraper_priority():
+    """Get scraper execution order based on analytics success rate."""
+    global _priority_cache, _priority_time
+    now = time.time()
+    if _priority_cache is not None and now - _priority_time < 3600:
+        return _priority_cache
+    ranking = get_scraper_ranking()
+    if ranking:
+        names = [r["name"] for r in ranking if r["success_rate"] > 0]
+        _priority_cache = names
+    else:
+        _priority_cache = ["TPB", "YTS", "TorrentsCSV", "Knaben", "EZTV"]
+    _priority_time = now
+    return _priority_cache
 
 TRACKERS = "&tr=udp://tracker.opentrackr.org:1337/announce&tr=udp://open.stealth.si:80/announce&tr=udp://tracker.torrent.eu.org:451/announce"
 
@@ -459,24 +479,32 @@ def search_movie(imdb, title, year):
         })
 
     # 2. TPB
+    t0 = time.time()
     tpb = TPBScraper()
     tpb_results = tpb.search(False, imdb, title, year, '', '', '')
     all_results.extend(tpb_results)
+    record_scraper_result("TPB", len(tpb_results) > 0, int((time.time() - t0) * 1000))
 
     # 3. YTS (movies only)
+    t0 = time.time()
     yts = YTSScraper()
     yts_results = yts.search(imdb, title)
     all_results.extend(yts_results)
+    record_scraper_result("YTS", len(yts_results) > 0, int((time.time() - t0) * 1000))
 
     # 4. TorrentsCSV
+    t0 = time.time()
     csv_scraper = TorrentsCSVScraper()
     csv_results = csv_scraper.search(False, imdb, title, year, '', '', '')
     all_results.extend(csv_results)
+    record_scraper_result("TorrentsCSV", len(csv_results) > 0, int((time.time() - t0) * 1000))
 
-    # 5. Knaben
+    # 5. Knaben (movie)
+    t0 = time.time()
     knaben = KnabenScraper()
     knaben_results = knaben.search(False, imdb, title, year, '', '', '')
     all_results.extend(knaben_results)
+    record_scraper_result("Knaben", len(knaben_results) > 0, int((time.time() - t0) * 1000))
 
     # Deduplicate by hash (movie)
     seen = set()
@@ -511,24 +539,32 @@ def search_episode(imdb, tvshowtitle, season, episode, year):
         })
 
     # 2. TPB
+    t0 = time.time()
     tpb = TPBScraper()
     tpb_results = tpb.search(True, imdb, '', year, tvshowtitle, season, episode)
     all_results.extend(tpb_results)
+    record_scraper_result("TPB", len(tpb_results) > 0, int((time.time() - t0) * 1000))
 
     # 3. TorrentsCSV
+    t0 = time.time()
     csv_scraper = TorrentsCSVScraper()
     csv_results = csv_scraper.search(True, imdb, '', year, tvshowtitle, season, episode)
     all_results.extend(csv_results)
+    record_scraper_result("TorrentsCSV", len(csv_results) > 0, int((time.time() - t0) * 1000))
 
     # 4. EZTV (TV only, by IMDB ID)
+    t0 = time.time()
     eztv = EZTVScraper()
     eztv_results = eztv.search(imdb, tvshowtitle, season, episode)
     all_results.extend(eztv_results)
+    record_scraper_result("EZTV", len(eztv_results) > 0, int((time.time() - t0) * 1000))
 
-    # 5. Knaben
+    # 5. Knaben (episode)
+    t0 = time.time()
     knaben = KnabenScraper()
     knaben_results = knaben.search(True, imdb, '', year, tvshowtitle, season, episode)
     all_results.extend(knaben_results)
+    record_scraper_result("Knaben", len(knaben_results) > 0, int((time.time() - t0) * 1000))
 
     # Deduplicate by hash (episode)
     seen = set()

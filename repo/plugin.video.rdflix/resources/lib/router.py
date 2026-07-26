@@ -9,6 +9,7 @@ from resources.lib.menus import (
     main_menu, movies_menu, tvshows_menu, movies_genres, tv_genres,
     movies_list, tv_list, movie_detail_view, tv_detail_view,
     season_episodes_view, search_view, account_view, rd_torrents_view,
+    continue_watching_view, analytics_view,
 )
 from resources.lib.player import play_movie, play_episode
 from resources.lib.rd_api import get_device_code, poll_device_auth, get_user
@@ -97,6 +98,12 @@ def router(param_string):
 
     elif action == "rd_torrents":
         rd_torrents_view()
+
+    elif action == "continue_watching":
+        continue_watching_view()
+
+    elif action == "analytics":
+        analytics_view()
 
     elif action == "rd_torrent_action":
         from resources.lib.rd_api import torrent_info, delete_torrent, unrestrict_link

@@ -73,12 +73,13 @@ def _art_from_item(item, media_type="movie"):
 
 def main_menu():
     items = [
+        ("[B]Continue Watching[/B]", build_url(action="continue_watching"), "DefaultRecentlyAddedEpisodes.png", {"plot": "Resume partially watched content"}),
         ("[B]Movies[/B]", build_url(action="movies_menu"), "DefaultVideo.png", {"plot": "Browse movies by category"}),
         ("[B]TV Shows[/B]", build_url(action="tvshows_menu"), "DefaultTVShows.png", {"plot": "Browse TV shows by category"}),
         ("[B]Search[/B]", build_url(action="search"), "DefaultAddonsSearch.png", {"plot": "Search for movies and TV shows"}),
         ("[B]My Account[/B]", build_url(action="account"), "DefaultUser.png", {"plot": "Real-Debrid account information"}),
-        ("[B]LordPlayer[/B]", build_url(action="lordplayer"), "DefaultVideoPlay.png", {"plot": "Open LordPlayer for torrent streaming"}),
-        ("[B]Settings[/B]", build_url(action="settings"), "DefaultAddonSettings.png", {"plot": "Configure RDFlix settings"}),
+        ("[B]LordPlayer[/B]", build_url(action="lordplayer"), "DefaultAddon.png", {"plot": "Open LordPlayer for torrent streaming"}),
+        ("[B]Settings[/B]", build_url(action="settings"), "DefaultAddon.png", {"plot": "Configure RDFlix settings"}),
     ]
     import xbmc
     for label, url, icon, info in items:
@@ -510,6 +511,9 @@ def account_view():
 
     li = _make_li("[B]Manage RD Torrents[/B]", {"plot": "View and manage your Real-Debrid torrents"}, {"icon": "DefaultAddon.png"})
     add_list_item(build_url(action="rd_torrents"), li, True)
+
+    li = _make_li("[B]Source Analytics[/B]", {"plot": "Scraper performance and success rates"}, {"icon": "DefaultAddon.png"})
+    add_list_item(build_url(action="analytics"), li, True)
     end_directory()
 
 
@@ -543,5 +547,72 @@ def rd_torrents_view():
         li = _make_li(label, {"title": name, "plot": "Status: %s\nSize: %s\nID: %s" % (status, size_str, t.get("id", ""))}, {"icon": "DefaultVideo.png"})
         tid = t.get("id", "")
         add_list_item(build_url(action="rd_torrent_action", tid=tid, name=name), li, True)
+
+    end_directory()
+
+
+def continue_watching_view():
+    from resources.lib.analytics import get_continue_watching
+    items = get_continue_watching()
+    if not items:
+        li = _make_li("[B]No content in progress[/B]", {"plot": "Start watching something and it will appear here."}, {"icon": "DefaultInfo.png"})
+        add_list_item(build_url(action="noop"), li, False)
+        end_directory()
+        return
+
+    for item in items:
+        if item["season"] and item["episode"]:
+            label = "%s S%02dE%02d (%.0f%%)" % (
+                item["show_title"] or item["title"],
+                item["season"], item["episode"],
+                item["progress"])
+            url = build_url(
+                action="play_episode",
+                imdb_id=item["imdb_id"] or "",
+                tmdb_id=item["tmdb_id"] or "",
+                show_title=item["show_title"] or item["title"],
+                season=str(item["season"]),
+                episode=str(item["episode"]),
+                episode_title="")
+            icon = "DefaultTVShows.png"
+        else:
+            label = "%s (%.0f%%)" % (item["title"], item["progress"])
+            url = build_url(
+                action="play_movie",
+                imdb_id=item["imdb_id"] or "",
+                tmdb_id=item["tmdb_id"] or "",
+                title=item["title"], year="")
+            icon = "DefaultVideo.png"
+
+        li = _make_li(label, {"title": item["title"], "plot": "Progress: %.0f%%" % item["progress"]}, {"icon": icon})
+        li.setProperty("IsPlayable", "true")
+        add_list_item(url, li, False)
+
+    end_directory()
+
+
+def analytics_view():
+    from resources.lib.analytics import get_scraper_ranking
+    ranking = get_scraper_ranking()
+    if not ranking:
+        li = _make_li("[B]No analytics data yet[/B]", {"plot": "Data appears after you search for sources."}, {"icon": "DefaultInfo.png"})
+        add_list_item(build_url(action="noop"), li, False)
+        end_directory()
+        return
+
+    total_success = sum(r["success_count"] for r in ranking)
+    total_fail = sum(r["fail_count"] for r in ranking)
+    total_runs = total_success + total_fail
+    overall_rate = (total_success / total_runs * 100) if total_runs > 0 else 0
+
+    label = "[B]Overall: %d runs, %.0f%% success[/B]" % (total_runs, overall_rate)
+    li = _make_li(label, {"plot": "Source scraper performance analytics"}, {"icon": "DefaultInfo.png"})
+    add_list_item(build_url(action="noop"), li, False)
+
+    for r in ranking[:10]:
+        label = "%s: %d found, %.0f%% rate, %dms avg" % (
+            r["name"], r["success_count"], r["success_rate"], r["avg_time_ms"])
+        li = _make_li(label, {"plot": "Success: %d, Fail: %d" % (r["success_count"], r["fail_count"])}, {"icon": "DefaultAddon.png"})
+        add_list_item(build_url(action="noop"), li, False)
 
     end_directory()

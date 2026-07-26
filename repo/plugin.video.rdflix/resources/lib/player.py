@@ -13,7 +13,10 @@ from resources.lib.tmdb_api import get_external_ids
 from resources.lib.constants import QUALITY_ORDER
 from resources.lib.scrapers import search_movie as scraper_search_movie, search_episode as scraper_search_episode
 from resources.lib.cache import get_cached_hashes, set_cached_hashes
+from resources.lib.analytics import update_continue_watching
 from resources.lib.ad_api import resolve_magnet as ad_resolve_magnet
+from resources.lib.rd_api import add_magnet as rd_add_magnet
+import threading
 from resources.lib.pm_api import resolve_magnet as pm_resolve_magnet
 from resources.lib.trakt_api import scrobble_start, scrobble_stop, is_authenticated as trakt_authenticated
 import json
@@ -658,6 +661,7 @@ def play_episode(imdb_id, tmdb_id, show_title, season, episode, episode_title=""
 
     if len(sources) == 1:
         if _handle_source_action(sources[0], full_title, imdb_id, season, episode, show_title):
+            xbmc.sleep(3000)
             _autoplay_next(imdb_id, tmdb_id, show_title, s_int, e_int)
         return
 
@@ -671,6 +675,7 @@ def play_episode(imdb_id, tmdb_id, show_title, season, episode, episode_title=""
         play_episode(imdb_id, tmdb_id, show_title, season, episode, episode_title)
     else:
         if _handle_source_action(choice, full_title, imdb_id, season, episode, show_title):
+            xbmc.sleep(3000)
             _autoplay_next(imdb_id, tmdb_id, show_title, s_int, e_int)
 
 
@@ -684,6 +689,8 @@ def _autoplay_next(imdb_id, tmdb_id, show_title, season, episode):
 
     player = xbmc.Player()
     monitor = xbmc.Monitor()
+
+    xbmc.sleep(3000)
 
     for _ in range(240):
         if player.isPlaying():
@@ -717,6 +724,19 @@ def _autoplay_next(imdb_id, tmdb_id, show_title, season, episode):
                 waited = True
                 log("Autoplay: pre-fetching S%02dE%02d" % (next_s, next_e))
                 next_source = _fetch_next_episode_source(imdb_id, tmdb_id, show_title, next_s, next_e)
+                if next_source:
+                    magnet = next_source.get("magnet", "")
+                    info_hash = next_source.get("infoHash", "")
+                    if not magnet and info_hash and len(info_hash) >= 40:
+                        magnet = "magnet:?xt=urn:btih:%s&dn=%s" % (info_hash[:40], urllib.parse.quote(show_title))
+                    if magnet:
+                        threading.Thread(target=_precache_async, args=(magnet,), daemon=True).start()
+            if remaining <= 90 and total > 0:
+                try:
+                    pct = player.getTime() / total * 100
+                    update_continue_watching(imdb_id, tmdb_id, show_title, s_int, e_int, show_title, pct)
+                except:
+                    pass
             if remaining <= 2:
                 break
         xbmc.sleep(3000)
@@ -726,6 +746,11 @@ def _autoplay_next(imdb_id, tmdb_id, show_title, season, episode):
 
     if total > 0 and player.getTime() > 0:
         watched_pct = player.getTime() / total
+        if watched_pct >= 0.85:
+            try:
+                update_continue_watching(imdb_id, tmdb_id, show_title, s_int, e_int, show_title, 100)
+            except:
+                pass
         if watched_pct < 0.85:
             log("Autoplay: user stopped playback (%.0f%% watched)" % (watched_pct * 100))
             return
@@ -828,3 +853,12 @@ def _fetch_next_episode_source(imdb_id, tmdb_id, show_title, season, episode):
     except Exception as e:
         log("Autoplay fetch error: %s" % str(e), xbmc.LOGERROR)
     return None
+
+
+def _precache_async(magnet):
+    """Silently add magnet to RD cloud in background thread."""
+    try:
+        rd_add_magnet(magnet)
+        log("Precache: magnet added to RD")
+    except Exception as e:
+        log("Precache error: %s" % str(e))
