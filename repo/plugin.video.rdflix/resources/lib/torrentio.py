@@ -51,7 +51,7 @@ def _filter_by_quality(streams, max_quality="4K"):
         elif "cam" in title_lower or "scr" in title_lower:
             quality = "CAM"
         rank = QUALITY_ORDER.get(quality, 99)
-        if rank <= max_rank:
+        if rank >= max_rank:
             s["_quality"] = quality
             filtered.append(s)
     return filtered
