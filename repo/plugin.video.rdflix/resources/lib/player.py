@@ -724,6 +724,12 @@ def _autoplay_next(imdb_id, tmdb_id, show_title, season, episode):
     if monitor.abortRequested():
         return
 
+    if total > 0 and player.getTime() > 0:
+        watched_pct = player.getTime() / total
+        if watched_pct < 0.85:
+            log("Autoplay: user stopped playback (%.0f%% watched)" % (watched_pct * 100))
+            return
+
     # If we never pre-fetched, do it now
     if not waited:
         log("Autoplay: fetching S%02dE%02d after playback ended" % (next_s, next_e))
