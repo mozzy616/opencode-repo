@@ -840,8 +840,7 @@ def _autoplay_source(source, title):
         try:
             lid = "plugin.video.lordplayer.droid" if xbmc.getCondVisibility("System.HasAddon(plugin.video.lordplayer.droid)") else "plugin.video.lordplayer"
             plugin_url = "plugin://%s/play_magnet?magnet=%s&buffer=true" % (lid, urllib.parse.quote(magnet_link, safe=""))
-            li = xbmcgui.ListItem(path=plugin_url, label=file_name)
-            xbmc.Player().play(plugin_url, li)
+            xbmc.executebuiltin("PlayMedia(%s)" % plugin_url)
             return True
         except Exception as e:
             log("Autoplay LordPlayer error: %s" % str(e), xbmc.LOGERROR)
