@@ -18,20 +18,8 @@ _priority_cache = None
 _priority_time = 0
 
 
-def _get_scraper_priority():
-    """Get scraper execution order based on analytics success rate."""
-    global _priority_cache, _priority_time
-    now = time.time()
-    if _priority_cache is not None and now - _priority_time < 3600:
-        return _priority_cache
-    ranking = get_scraper_ranking()
-    if ranking:
-        names = [r["name"] for r in ranking if r["success_rate"] > 0]
-        _priority_cache = names
-    else:
-        _priority_cache = ["TPB", "YTS", "TorrentsCSV", "Knaben", "EZTV"]
-    _priority_time = now
-    return _priority_cache
+def _in_performance_mode():
+    return get_setting("performance_mode", "false") == "true"
 
 TRACKERS = "&tr=udp://tracker.opentrackr.org:1337/announce&tr=udp://open.stealth.si:80/announce&tr=udp://tracker.torrent.eu.org:451/announce"
 
@@ -464,6 +452,10 @@ def _collect_coco(imdb, title, year, tvshowtitle, season, episode, is_tv):
 def search_movie(imdb, title, year):
     all_results = []
 
+    if _in_performance_mode():
+        log("Performance mode: skipping all scrapers, using Stremio only")
+        return all_results
+
     # 1. CocoScrapers
     coco_results = _collect_coco(imdb, title, year, '', '', '', False)
     for r in coco_results:
@@ -524,6 +516,10 @@ def search_movie(imdb, title, year):
 def search_episode(imdb, tvshowtitle, season, episode, year):
     all_results = []
 
+    if _in_performance_mode():
+        log("Performance mode: skipping all scrapers, using Stremio only")
+        return all_results
+
     # 1. CocoScrapers
     coco_results = _collect_coco(imdb, '', year, tvshowtitle, season, episode, True)
     for r in coco_results:
@@ -578,4 +574,62 @@ def search_episode(imdb, tvshowtitle, season, episode, year):
             deduped.append(r)
 
     log("search_episode: %d total results" % len(deduped))
+    return deduped
+
+
+def search_sports(query):
+    """Pure text search across all scrapers for sports/events."""
+    all_results = []
+
+    if _in_performance_mode():
+        log("Performance mode: skipping scrapers for sports search")
+        return all_results
+
+    # CocoScrapers - search by title
+    coco_results = _collect_coco('', query, '', '', '', '', False)
+    for r in coco_results:
+        h = r.get('hash', '') or ''
+        all_results.append({
+            'hash': h[:40].lower(),
+            'magnet': r.get('magnet') or r.get('url', ''),
+            'name': r.get('name', ''),
+            'quality': r.get('quality', _detect_quality(r.get('name', ''))),
+            'seeders': int(r.get('seeders', 0)),
+            'size': str(r.get('size', '')),
+            'debrid': r.get('debrid', False),
+        })
+
+    # TPB
+    t0 = time.time()
+    tpb = TPBScraper()
+    tpb_results = tpb.search(False, '', query, '', '', '', '')
+    all_results.extend(tpb_results)
+    record_scraper_result("TPB", len(tpb_results) > 0, int((time.time() - t0) * 1000))
+
+    # TorrentsCSV
+    t0 = time.time()
+    csv_scraper = TorrentsCSVScraper()
+    csv_results = csv_scraper.search(False, '', query, '', '', '', '')
+    all_results.extend(csv_results)
+    record_scraper_result("TorrentsCSV", len(csv_results) > 0, int((time.time() - t0) * 1000))
+
+    # Knaben
+    t0 = time.time()
+    knaben = KnabenScraper()
+    knaben_results = knaben.search(False, '', query, '', '', '', '')
+    all_results.extend(knaben_results)
+    record_scraper_result("Knaben", len(knaben_results) > 0, int((time.time() - t0) * 1000))
+
+    # Deduplicate
+    seen = set()
+    deduped = []
+    for r in all_results:
+        h = r.get('hash', '')
+        if h and h not in seen:
+            seen.add(h)
+            deduped.append(r)
+        elif not h:
+            deduped.append(r)
+
+    log("search_sports: %d total results for '%s'" % (len(deduped), query))
     return deduped

@@ -124,3 +124,38 @@ def scrobble_stop(scrobble_id):
 
 def is_authenticated():
     return bool(get_setting("trakt_token", ""))
+
+
+def get_watchlist():
+    token = get_setting("trakt_token", "")
+    if not token:
+        return []
+    resp = _fetch("GET", "/users/me/watchlist?extended=full")
+    if resp and isinstance(resp, list):
+        items = []
+        for item in resp:
+            mtype = item.get("type", "")
+            if mtype == "movie":
+                movie = item.get("movie", {})
+                items.append({
+                    "type": "movie",
+                    "title": movie.get("title", "Unknown"),
+                    "year": movie.get("year", ""),
+                    "tmdb_id": movie.get("ids", {}).get("tmdb", ""),
+                    "imdb_id": movie.get("ids", {}).get("imdb", ""),
+                    "overview": movie.get("overview", ""),
+                    "rating": movie.get("rating", 0),
+                })
+            elif mtype == "show":
+                show = item.get("show", {})
+                items.append({
+                    "type": "show",
+                    "title": show.get("title", "Unknown"),
+                    "year": show.get("year", ""),
+                    "tmdb_id": show.get("ids", {}).get("tmdb", ""),
+                    "imdb_id": show.get("ids", {}).get("imdb", ""),
+                    "overview": show.get("overview", ""),
+                    "rating": show.get("rating", 0),
+                })
+        return items
+    return []

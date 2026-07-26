@@ -9,7 +9,9 @@ from resources.lib.menus import (
     main_menu, movies_menu, tvshows_menu, movies_genres, tv_genres,
     movies_list, tv_list, movie_detail_view, tv_detail_view,
     season_episodes_view, search_view, account_view, rd_torrents_view,
-    continue_watching_view, analytics_view,
+    continue_watching_view, analytics_view, surprise_me_view, watch_stats_view,
+    for_you_view, speed_test_view, trakt_watchlist_view, person_detail_view,
+    sports_search_view, livetv_menu, livetv_channels_view, livetv_play,
 )
 from resources.lib.player import play_movie, play_episode
 from resources.lib.rd_api import get_device_code, poll_device_auth, get_user
@@ -102,12 +104,94 @@ def router(param_string):
     elif action == "continue_watching":
         continue_watching_view()
 
+    elif action == "surprise_me":
+        surprise_me_view()
+
+    elif action == "watch_stats":
+        watch_stats_view()
+
+    elif action == "for_you":
+        for_you_view()
+
+    elif action == "speed_test":
+        speed_test_view()
+
+    elif action == "trakt_watchlist":
+        trakt_watchlist_view()
+
+    elif action == "person_detail":
+        person_detail_view(params.get("person_id", ""), params.get("person_name", ""))
+
+    elif action == "sports_search":
+        sports_search_view(params.get("query", ""))
+
+    elif action == "livetv":
+        livetv_menu()
+
+    elif action == "livetv_channels":
+        livetv_channels_view(params.get("group", "__all__"))
+
+    elif action == "livetv_play":
+        livetv_play(params.get("url", ""), params.get("title", ""))
+
+    elif action == "open_magnet":
+        from resources.lib.kodi_utils import keyboard_input, dialog_select, dialog_ok, set_resolved_url, end_directory, translate_path, notify, get_setting
+        from resources.lib.rd_api import resolve_magnet
+        import re, xbmcgui
+        magnet = keyboard_input("Paste a magnet link or info hash...")
+        if not magnet:
+            end_directory()
+        else:
+            magnet = magnet.strip()
+            if not magnet.startswith("magnet:") and len(magnet) == 40 and re.match(r'^[a-fA-F0-9]{40}$', magnet):
+                magnet = "magnet:?xt=urn:btih:%s" % magnet
+            choice = dialog_select("Open Magnet", ["Play", "Download"])
+            if choice == 0:
+                result = resolve_magnet(magnet, "Direct Magnet")
+                if result and result.get("url"):
+                    li = xbmcgui.ListItem(path=result["url"], label=result.get("filename", "video"))
+                    li.setProperty("IsPlayable", "true")
+                    set_resolved_url(True, li)
+                else:
+                    dialog_ok("RDFlix", "Could not resolve magnet through RD")
+                    set_resolved_url(False, xbmcgui.ListItem(label="Magnet"))
+            elif choice == 1:
+                result = resolve_magnet(magnet, "Direct Magnet")
+                if result and result.get("url"):
+                    dest = translate_path(get_setting("download_path", "special://home/userdata/downloads/"))
+                    import os
+                    os.makedirs(dest, exist_ok=True)
+                    fname = result.get("filename", "download.mp4")
+                    from resources.lib.player import _do_download
+                    _do_download(result["url"], dest, fname, "Direct Magnet")
+                end_directory()
+
+    elif action == "export_settings":
+        from resources.lib.kodi_utils import translate_path, end_directory, dialog_ok, notify
+        import shutil, os, xbmcgui
+        src = translate_path("special://profile/addon_data/plugin.video.rdflix/settings.xml")
+        dest = xbmcgui.Dialog().browse(0, "Choose export folder", "files", "", False, True, translate_path("special://home/"))
+        if dest and os.path.exists(src):
+            shutil.copy2(src, os.path.join(dest, "rdflix_settings_backup.xml"))
+            notify("RDFlix", "Settings exported to rdfix_settings_backup.xml")
+        end_directory()
+
+    elif action == "import_settings":
+        from resources.lib.kodi_utils import translate_path, end_directory, dialog_ok, notify
+        import shutil, os, xbmcgui
+        dest = translate_path("special://profile/addon_data/plugin.video.rdflix/settings.xml")
+        src = xbmcgui.Dialog().browse(1, "Select backup file", "files", ".xml", False, False, translate_path("special://home/"))
+        if src and os.path.exists(src):
+            shutil.copy2(src, dest)
+            notify("RDFlix", "Settings imported. Restart Kodi for changes.")
+        end_directory()
+
     elif action == "analytics":
         analytics_view()
 
     elif action == "rd_torrent_action":
         from resources.lib.rd_api import torrent_info, delete_torrent, unrestrict_link
-        from resources.lib.kodi_utils import end_directory, dialog_yesno, dialog_ok, add_list_item, build_url, notify
+        from resources.lib.kodi_utils import dialog_yesno, dialog_ok, add_list_item, build_url, notify
         tid = params.get("tid", "")
         tname = params.get("name", "Unknown")
         if not tid:
@@ -135,7 +219,7 @@ def router(param_string):
 
     elif action == "rd_torrent_delete":
         from resources.lib.rd_api import delete_torrent
-        from resources.lib.kodi_utils import dialog_yesno, end_directory, notify
+        from resources.lib.kodi_utils import dialog_yesno, notify
         tid = params.get("tid", "")
         if tid and dialog_yesno("RDFlix", "Delete this torrent from Real-Debrid?"):
             delete_torrent(tid)
@@ -213,6 +297,7 @@ def router(param_string):
             tmdb_id=params.get("tmdb_id", ""),
             title=params.get("title", ""),
             year=params.get("year", ""),
+            resume_pct=float(params.get("resume_pct", "0")),
         )
 
     elif action == "play_episode":
@@ -223,6 +308,7 @@ def router(param_string):
             season=params.get("season", "1"),
             episode=params.get("episode", "1"),
             episode_title=params.get("episode_title", ""),
+            resume_pct=float(params.get("resume_pct", "0")),
         )
 
     elif action == "noop":

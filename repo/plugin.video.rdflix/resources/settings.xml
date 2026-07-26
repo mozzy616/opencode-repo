@@ -22,10 +22,23 @@
         <setting label="Quality" type="lsep"/>
         <setting id="max_quality" type="labelenum" label="Maximum Quality" values="4K|1080p|720p|SD" default="4K"/>
         <setting id="autoplay_next" type="bool" label="Auto-play next episode" default="false"/>
+        <setting id="auto_subtitles" type="bool" label="Auto-search subtitles on playback" default="false"/>
+        <setting id="performance_mode" type="bool" label="Performance Mode (skip slow scrapers)" default="false"/>
+    </category>
+    <category label="Menu">
+        <setting id="show_continue" type="bool" label="Show Continue Watching" default="true"/>
+        <setting id="show_for_you" type="bool" label="Show For You" default="true"/>
+        <setting id="show_surprise" type="bool" label="Show Surprise Me" default="true"/>
+        <setting id="show_trakt_watchlist" type="bool" label="Show Trakt Watchlist" default="true"/>
+        <setting id="show_open_magnet" type="bool" label="Show Open Magnet" default="true"/>
     </category>
     <category label="Sources">
         <setting label="Comet (ElfHosted) and MediaFusion are built-in. Add more URLs below for extra Stremio addons." type="lsep"/>
         <setting id="extra_stremio_urls" type="text" label="Extra Stremio Addon URLs (one per line)" default=""/>
+    </category>
+    <category label="Live TV">
+        <setting label="Enter M3U playlist URLs below (one per line)" type="lsep"/>
+        <setting id="livetv_urls" type="text" label="M3U Playlist URLs" default="https://s.id/d9M3U8"/>
     </category>
     <category label="Downloads">
         <setting id="download_path" type="folder" label="Download folder" default="special://home/userdata/downloads/" />

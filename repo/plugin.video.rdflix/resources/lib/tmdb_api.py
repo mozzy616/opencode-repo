@@ -145,3 +145,18 @@ def get_similar(tmdb_id, media_type="movie", page=1):
     if resp:
         return resp.get("results", []), resp.get("total_pages", 1)
     return [], 1
+
+
+def person_detail(person_id):
+    url = _tmdb_url("person/%s" % person_id)
+    return _tmdb_fetch(url)
+
+
+def person_movie_credits(person_id):
+    url = _tmdb_url("person/%s/movie_credits" % person_id)
+    return _tmdb_fetch(url)
+
+
+def person_tv_credits(person_id):
+    url = _tmdb_url("person/%s/tv_credits" % person_id)
+    return _tmdb_fetch(url)

@@ -330,7 +330,7 @@ def _detect_scraper_quality(name):
     return "SD"
 
 
-def _handle_source_action(source, title, imdb_id="", season=None, episode=None, show_title=""):
+def _handle_source_action(source, title, imdb_id="", season=None, episode=None, show_title="", resume_at=0):
     """Show Play/Download dialog for a selected source. Returns True if played."""
     if not source:
         set_resolved_url(False, xbmcgui.ListItem(label=title))
@@ -346,6 +346,24 @@ def _handle_source_action(source, title, imdb_id="", season=None, episode=None, 
             dialog_ok("RDFlix", "Failed to play\n%s" % title)
             set_resolved_url(False, xbmcgui.ListItem(label=title))
             return False
+
+        if resume_at > 0:
+            xbmc.sleep(2000)
+            try:
+                player = xbmc.Player()
+                if player.isPlaying():
+                    player.seekTime(resume_at)
+                    log("Resumed playback at %ds" % resume_at)
+            except:
+                pass
+
+        if get_setting("auto_subtitles", "false") == "true":
+            xbmc.sleep(3000)
+            try:
+                xbmc.executebuiltin("ActivateWindow(subtitlesearch)")
+            except:
+                pass
+
         if imdb_id and trakt_authenticated():
             try:
                 scrobble_start("start", imdb_id, show_title or title, season, episode)
@@ -593,7 +611,7 @@ def _show_source_select(sources, title):
             return filtered[real_idx]
 
 
-def play_movie(imdb_id, tmdb_id, title, year=""):
+def play_movie(imdb_id, tmdb_id, title, year="", resume_pct=0):
     if not imdb_id and tmdb_id:
         imdb_id = _resolve_imdb_id(tmdb_id, "movie")
     if not imdb_id:
@@ -627,10 +645,10 @@ def play_movie(imdb_id, tmdb_id, title, year=""):
         xbmcplugin.endOfDirectory(HANDLE)
         play_movie(imdb_id, tmdb_id, title, year)
     else:
-        _handle_source_action(choice, title, imdb_id)
+        _handle_source_action(choice, title, imdb_id, resume_at=int(float(resume_pct) / 100 * 5400))
 
 
-def play_episode(imdb_id, tmdb_id, show_title, season, episode, episode_title=""):
+def play_episode(imdb_id, tmdb_id, show_title, season, episode, episode_title="", resume_pct=0):
     s_int = int(season) if season else 0
     e_int = int(episode) if episode else 0
     full_title = "%s S%02dE%02d" % (show_title, s_int, e_int)
@@ -660,7 +678,7 @@ def play_episode(imdb_id, tmdb_id, show_title, season, episode, episode_title=""
         return
 
     if len(sources) == 1:
-        if _handle_source_action(sources[0], full_title, imdb_id, season, episode, show_title):
+        if _handle_source_action(sources[0], full_title, imdb_id, season, episode, show_title, resume_at=int(float(resume_pct) / 100 * 2700)):
             xbmc.sleep(3000)
             _autoplay_next(imdb_id, tmdb_id, show_title, s_int, e_int)
         return
@@ -674,7 +692,7 @@ def play_episode(imdb_id, tmdb_id, show_title, season, episode, episode_title=""
         xbmcplugin.endOfDirectory(HANDLE)
         play_episode(imdb_id, tmdb_id, show_title, season, episode, episode_title)
     else:
-        if _handle_source_action(choice, full_title, imdb_id, season, episode, show_title):
+        if _handle_source_action(choice, full_title, imdb_id, season, episode, show_title, resume_at=int(float(resume_pct) / 100 * 2700)):
             xbmc.sleep(3000)
             _autoplay_next(imdb_id, tmdb_id, show_title, s_int, e_int)
 
