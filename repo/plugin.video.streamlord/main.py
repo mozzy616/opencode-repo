@@ -1650,12 +1650,9 @@ def show_menu():
         ("[B]Trakt Watchlist TV[/B]", "trakt_watchlist", "DefaultTVShows.png", {"media": "show"}),
         ("[B]Surprise Me (Movie)[/B]", "surprise_me", "DefaultVideo.png", {"media": "movie"}),
         ("[B]Surprise Me (TV)[/B]", "surprise_me", "DefaultTVShows.png", {"media": "tv"}),
-        ("[B]Live TV[/B]", "livetv_menu", "DefaultTVShows.png"),
-        ("[B]Sports Search[/B]", "sports_search", "DefaultAddonsSearch.png"),
-        ("[B]Open Magnet[/B]", "open_magnet", "DefaultAddon.png"),
-        ("[B]Top IMDb[/B]", "top_imdb", "DefaultVideo.png"),
-        ("[B]Genres[/B]", "genres", "DefaultVideo.png"),
-        ("[B]LordPlayer[/B]", "lordplayer", "DefaultAddon.png"),
+          ("[B]Live TV[/B]", "livetv_menu", "DefaultTVShows.png"),
+          ("[B]Open Magnet[/B]", "open_magnet", "DefaultAddon.png"),
+          ("[B]LordPlayer[/B]", "lordplayer", "DefaultAddon.png"),
         ("[B]Settings[/B]", "settings", "DefaultAddon.png"),
     ]
     for label, action, icon, *extra in items:
