@@ -1637,20 +1637,20 @@ def list_continue_watching():
 
 def show_menu():
     items = [
-        ("[B]Continue Watching[/B]", "continue_watching", "DefaultRecentlyAddedEpisodes.png"),
-        ("[B]Search All Torrents[/B]", "search", "DefaultAddonsSearch.png"),
-        ("[B]Hot Movies[/B]", "movies", "DefaultMovies.png"),
-        ("[B]TV Series[/B]", "tvseries", "DefaultTVShows.png"),
         ("[B]TMDB Trending Movies[/B]", "browse_tmdb", "DefaultMovies.png", {"category": "popular", "media": "movie"}),
         ("[B]TMDB Trending TV[/B]", "browse_tmdb", "DefaultTVShows.png", {"category": "popular", "media": "tv"}),
         ("[B]TMDB Movie Genres[/B]", "browse_tmdb_genres", "DefaultGenre.png", {"media": "movie"}),
         ("[B]TMDB TV Genres[/B]", "browse_tmdb_genres", "DefaultGenre.png", {"media": "tv"}),
         ("[B]TMDB Search[/B]", "tmdb_search", "DefaultAddonsSearch.png"),
+        ("[B]Continue Watching[/B]", "continue_watching", "DefaultRecentlyAddedEpisodes.png"),
+        ("[B]Search All Torrents[/B]", "search", "DefaultAddonsSearch.png"),
+        ("[B]Hot Movies[/B]", "movies", "DefaultMovies.png"),
+        ("[B]TV Series[/B]", "tvseries", "DefaultTVShows.png"),
         ("[B]Trakt Watchlist Movies[/B]", "trakt_watchlist", "DefaultVideo.png", {"media": "movie"}),
-          ("[B]Trakt Watchlist TV[/B]", "trakt_watchlist", "DefaultTVShows.png", {"media": "show"}),
-          ("[B]Live TV[/B]", "livetv_menu", "DefaultTVShows.png"),
-          ("[B]Open Magnet[/B]", "open_magnet", "DefaultAddon.png"),
-          ("[B]LordPlayer[/B]", "lordplayer", "DefaultAddon.png"),
+        ("[B]Trakt Watchlist TV[/B]", "trakt_watchlist", "DefaultTVShows.png", {"media": "show"}),
+        ("[B]Live TV[/B]", "livetv_menu", "DefaultTVShows.png"),
+        ("[B]Open Magnet[/B]", "open_magnet", "DefaultAddon.png"),
+        ("[B]LordPlayer[/B]", "lordplayer", "DefaultAddon.png"),
         ("[B]Settings[/B]", "settings", "DefaultAddon.png"),
     ]
     for label, action, icon, *extra in items:
