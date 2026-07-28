@@ -744,6 +744,9 @@ def play_http_url(url, title):
 def _play_rd_url(url, title):
     """Play a Real-Debrid direct download link."""
     try:
+        if _is_dmca_video(url):
+            xbmc.log("[StreamLord] RD URL is DMCA notice, rejecting")
+            return False
         xbmc.log("[StreamLord] RD Play: %s" % url[:100], xbmc.LOGINFO)
         li = xbmcgui.ListItem(path=url, label=title)
         li.setProperty("IsPlayable", "true")
@@ -761,7 +764,32 @@ def _rd_download(url, filename, title):
         return
     rd.download_file(url, dest, filename, title)
 
-def _check_rd_cache(sources):
+def _is_dmca_video(url):
+    try:
+        import urllib.request
+        req = urllib.request.Request(url, method="HEAD")
+        req.add_header("User-Agent", USER_AGENT)
+        with urllib.request.urlopen(req, timeout=8) as r:
+            cl = r.headers.get("Content-Length", "0")
+            size = int(cl) if cl else 0
+            if 0 < size < 52428800:
+                return True
+    except:
+        pass
+    return False
+
+
+def _get_stremio_sources(is_tv, imdb_id, season=0, episode=0):
+    """Fetch sources from torrentio + comet + mediafusion via RDFlix module."""
+    try:
+        from resources.lib import torrentio as tio
+        if is_tv:
+            return tio.get_episode_sources(imdb_id, season, episode)
+        else:
+            return tio.get_movie_sources(imdb_id)
+    except Exception as e:
+        xbmc.log("[StreamLord] Stremio sources error: %s" % str(e), xbmc.LOGERROR)
+        return []
     token = ""
     try:
         import xbmcaddon
@@ -885,13 +913,18 @@ def _autoplay_monitor(imdb_id, season, episode, show_title):
         s_int = int(season) if season else 0
         e_int = int(episode) if episode else 0
         next_s, next_e = s_int, e_int + 1
+        reached_end = False
         while player.isPlaying() and not monitor.abortRequested():
             if total > 0:
                 remaining = int(total - player.getTime())
                 if remaining <= 240:
+                    reached_end = True
                     break
             monitor.waitForAbort(1)
         if not player.isPlaying():
+            if not reached_end:
+                xbmc.log("[StreamLord] Autoplay: user pressed stop, aborting chain", xbmc.LOGINFO)
+                return
             xbmc.log("[StreamLord] Autoplay: playback ended naturally", xbmc.LOGINFO)
         elif monitor.abortRequested():
             xbmc.log("[StreamLord] Autoplay: Kodi shutting down", xbmc.LOGINFO)
@@ -1049,6 +1082,21 @@ def play_movie(mid, title, watch_link="", imdb_id="", year="", tmdb_id=""):
         tpb = search_tpb(title + (" " + year if year else ""))
         for s in tpb:
             all_sources.append(('torrent', s.get('quality', 'SD'), s.get('seeders', 0), s.get('url', ''), s.get('hash', ''), s.get('size', ''), s.get('name', ''), s.get('debrid', False)))
+
+    if imdb_id:
+        try:
+            stremio = _get_stremio_sources(False, imdb_id)
+            for s in stremio:
+                bh = s.get('behaviorHints', {})
+                ih = s.get('infoHash', '') or bh.get('infoHash', '')
+                url = s.get('url', '')
+                if not ih and ('playback' in url or 'exception' in url or 'configure' in url or 'error' in url.lower()):
+                    continue
+                magnet = "magnet:?xt=urn:btih:%s&dn=%s%s" % (ih, urllib.parse.quote(s.get('title', title)), TRACKERS) if ih else url
+                origin = s.get('_origin', '')
+                all_sources.append(('stremio', s.get('_quality', '?'), s.get('seeders', 0), magnet, ih, s.get('size', ''), origin, True))
+        except Exception as e:
+            xbmc.log("[StreamLord] Stremio movie sources error: %s" % str(e), xbmc.LOGERROR)
 
     deduped = []
     seen = set()

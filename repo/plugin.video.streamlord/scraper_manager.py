@@ -24,6 +24,9 @@ TRACKERS = "&tr=udp://tracker.opentrackr.org:1337/announce&tr=udp://open.stealth
 _ADDON = None
 _silent = False
 
+def log_sl(msg, level=xbmc.LOGINFO):
+    xbmc.log("[StreamLord] %s" % msg, level)
+
 def set_silent(val):
     global _silent
     _silent = val
@@ -331,11 +334,7 @@ def init():
             import cocoscrapers
             cocoscrapers.enabledCheck = lambda mn: True
             scrapers = cocoscrapers.sources(specified_folders=['torrents']) or []
-            xbmc.log("[StreamLord] CocoScrapers: %d torrent scrapers loaded" % len(scrapers), xbmc.LOGINFO)
-            # Exclude CocoScrapers debrid scrapers — we use our own (torrentio_debrid)
-            exclude = ['torrentio_cached', 'mediafusion_cached', 'comet']
-            scrapers = [(n, s) for n, s in scrapers if n not in exclude]
-            xbmc.log("[StreamLord] After excluding debrid scrapers: %d" % len(scrapers), xbmc.LOGINFO)
+            log_sl("CocoScrapers: %d torrent scrapers loaded" % len(scrapers))
         except Exception as e:
             xbmc.log("[StreamLord] CocoScrapers init failed: %s" % str(e), xbmc.LOGERROR)
 
@@ -355,7 +354,8 @@ def collect_results_movie(progress, imdb, title, year):
     threads = []
     lock = threading.Lock()
     total = len(_scrapers)
-    data = {'imdb': imdb, 'title': title, 'year': year, 'aliases': []}
+    data = {'imdb': imdb, 'title': title, 'year': year, 'aliases': [],
+            'debrid_service': 'Real-Debrid', 'debrid_token': _get_setting('rd_token')}
 
     class ScraperRunner(threading.Thread):
         def __init__(self, scraper, name, idx):
@@ -407,7 +407,8 @@ def collect_results_episode(progress, imdb, tvshowtitle, title, season, episode,
     threads = []
     lock = threading.Lock()
     total = len(_scrapers)
-    data = {'imdb': imdb, 'tvshowtitle': tvshowtitle, 'title': title, 'season': str(season), 'episode': str(episode), 'year': year, 'aliases': []}
+    data = {'imdb': imdb, 'tvshowtitle': tvshowtitle, 'title': title, 'season': str(season), 'episode': str(episode), 'year': year, 'aliases': [],
+            'debrid_service': 'Real-Debrid', 'debrid_token': _get_setting('rd_token')}
 
     class ScraperRunner(threading.Thread):
         def __init__(self, scraper, name, idx):
