@@ -1653,22 +1653,33 @@ def list_continue_watching():
 
 
 def show_menu():
-    items = [
-        ("[B]TMDB Trending Movies[/B]", "browse_tmdb", "DefaultMovies.png", {"category": "popular", "media": "movie"}),
-        ("[B]TMDB Trending TV[/B]", "browse_tmdb", "DefaultTVShows.png", {"category": "popular", "media": "tv"}),
-        ("[B]TMDB Movie Genres[/B]", "browse_tmdb_genres", "DefaultGenre.png", {"media": "movie"}),
-        ("[B]TMDB TV Genres[/B]", "browse_tmdb_genres", "DefaultGenre.png", {"media": "tv"}),
-        ("[B]TMDB Search[/B]", "tmdb_search", "DefaultAddonsSearch.png"),
-        ("[B]Continue Watching[/B]", "continue_watching", "DefaultRecentlyAddedEpisodes.png"),
-        ("[B]Search All Torrents[/B]", "search", "DefaultAddonsSearch.png"),
-        ("[B]Streamlord Movies[/B]", "movies", "DefaultMovies.png"),
-        ("[B]Streamlord TV Series[/B]", "tvseries", "DefaultTVShows.png"),
-        ("[B]Trakt Watchlist Movies[/B]", "trakt_watchlist", "DefaultVideo.png", {"media": "movie"}),
-        ("[B]Trakt Watchlist TV[/B]", "trakt_watchlist", "DefaultTVShows.png", {"media": "show"}),
-        ("[B]Open Magnet[/B]", "open_magnet", "DefaultAddon.png"),
-        ("[B]LordPlayer[/B]", "lordplayer", "DefaultAddon.png"),
-        ("[B]Settings[/B]", "settings", "DefaultAddon.png"),
-    ]
+    import xbmcaddon
+    s = xbmcaddon.Addon('plugin.video.streamlord').getSetting
+    
+    items = []
+    if s('show_tmdb_trending') != 'false':
+        items.append(("[B]TMDB Trending Movies[/B]", "browse_tmdb", "DefaultMovies.png", {"category": "popular", "media": "movie"}))
+        items.append(("[B]TMDB Trending TV[/B]", "browse_tmdb", "DefaultTVShows.png", {"category": "popular", "media": "tv"}))
+    if s('show_tmdb_genres') != 'false':
+        items.append(("[B]TMDB Movie Genres[/B]", "browse_tmdb_genres", "DefaultGenre.png", {"media": "movie"}))
+        items.append(("[B]TMDB TV Genres[/B]", "browse_tmdb_genres", "DefaultGenre.png", {"media": "tv"}))
+    if s('show_tmdb_search') != 'false':
+        items.append(("[B]TMDB Search[/B]", "tmdb_search", "DefaultAddonsSearch.png"))
+    if s('show_continue_watching') != 'false':
+        items.append(("[B]Continue Watching[/B]", "continue_watching", "DefaultRecentlyAddedEpisodes.png"))
+    if s('show_search_torrents') != 'false':
+        items.append(("[B]Search All Torrents[/B]", "search", "DefaultAddonsSearch.png"))
+    if s('show_streamlord_movies') != 'false':
+        items.append(("[B]Streamlord Movies[/B]", "movies", "DefaultMovies.png"))
+    if s('show_streamlord_tv') != 'false':
+        items.append(("[B]Streamlord TV Series[/B]", "tvseries", "DefaultTVShows.png"))
+    if s('show_trakt') != 'false':
+        items.append(("[B]Trakt Watchlist Movies[/B]", "trakt_watchlist", "DefaultVideo.png", {"media": "movie"}))
+        items.append(("[B]Trakt Watchlist TV[/B]", "trakt_watchlist", "DefaultTVShows.png", {"media": "show"}))
+    if s('show_open_magnet') != 'false':
+        items.append(("[B]Open Magnet[/B]", "open_magnet", "DefaultAddon.png"))
+    items.append(("[B]LordPlayer[/B]", "lordplayer", "DefaultAddon.png"))
+    items.append(("[B]Settings[/B]", "settings", "DefaultAddon.png"))
     for label, action, icon, *extra in items:
         params = extra[0] if extra else {}
         li = xbmcgui.ListItem(label)

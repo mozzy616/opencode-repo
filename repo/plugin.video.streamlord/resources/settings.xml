@@ -18,6 +18,17 @@
         <setting id="trakt_token" type="text" label="Trakt Access Token" default="" option="hidden"/>
         <setting id="trakt_auth" type="action" label="Authorize Trakt" action="RunPlugin(plugin://plugin.video.streamlord/?action=trakt_auth)"/>
     </category>
+    <category label="Menu">
+        <setting id="show_tmdb_trending" type="bool" label="Show TMDB Trending" default="true"/>
+        <setting id="show_tmdb_genres" type="bool" label="Show TMDB Genres" default="true"/>
+        <setting id="show_tmdb_search" type="bool" label="Show TMDB Search" default="true"/>
+        <setting id="show_continue_watching" type="bool" label="Show Continue Watching" default="true"/>
+        <setting id="show_search_torrents" type="bool" label="Show Search All Torrents" default="true"/>
+        <setting id="show_streamlord_movies" type="bool" label="Show Streamlord Movies" default="true"/>
+        <setting id="show_streamlord_tv" type="bool" label="Show Streamlord TV Series" default="true"/>
+        <setting id="show_trakt" type="bool" label="Show Trakt Watchlist" default="true"/>
+        <setting id="show_open_magnet" type="bool" label="Show Open Magnet" default="true"/>
+    </category>
     <category label="Playback">
         <setting id="max_quality" type="labelenum" label="Maximum Quality" values="4K|1080p|720p|SD" default="4K"/>
         <setting id="autoplay_next" type="bool" label="Auto-play next episode" default="false" />
