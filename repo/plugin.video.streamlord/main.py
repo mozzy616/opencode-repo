@@ -855,6 +855,44 @@ def _get_stremio_sources(is_tv, imdb_id, season=0, episode=0):
     except Exception as e:
         xbmc.log("[StreamLord] Stremio sources error: %s" % str(e), xbmc.LOGERROR)
         return []
+
+
+def _check_rd_cache(sources):
+    token = ""
+    try:
+        import xbmcaddon
+        token = xbmcaddon.Addon('plugin.video.streamlord').getSetting('rd_token').strip()
+    except:
+        pass
+    if not token:
+        return sources
+    from resources.lib import rd_resolver
+    hashes = []
+    hash_to_idx = {}
+    for idx, s in enumerate(sources):
+        h = s[4]
+        if h and len(h) == 40:
+            hl = h.lower()
+            hashes.append(hl)
+            hash_to_idx[hl] = idx
+    if not hashes:
+        return sources
+    try:
+        cached = rd_resolver.is_available(hashes)
+        if cached:
+            count = 0
+            for h in cached:
+                hl = h.lower()
+                if hl in hash_to_idx:
+                    idx = hash_to_idx[hl]
+                    s = list(sources[idx])
+                    s[7] = True
+                    sources[idx] = tuple(s)
+                    count += 1
+            xbmc.log("[StreamLord] RD cache check: %d/%d cached" % (count, len(hashes)), xbmc.LOGINFO)
+    except Exception as e:
+        xbmc.log("[StreamLord] RD cache check error: %s" % str(e), xbmc.LOGERROR)
+    return sources
     token = ""
     try:
         import xbmcaddon

@@ -250,3 +250,7 @@ def download_file(url, dest_path, filename, title=""):
         log("download error: %s" % str(e), xbmc.LOGERROR)
         xbmcgui.Dialog().ok("Download Error", str(e))
     return False
+
+
+def is_available(hashes):
+    return {}
