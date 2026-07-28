@@ -768,9 +768,9 @@ def _rd_download(url, filename, title):
 
 def _load_continue_watching():
     try:
-        if not xbmcvfs.exists(CONTINUE_WATCHING_FILE):
+        if not os.path.exists(CONTINUE_WATCHING_FILE):
             return []
-        with open(xbmcvfs.translatePath(CONTINUE_WATCHING_FILE), 'r') as f:
+        with open(CONTINUE_WATCHING_FILE, 'r') as f:
             return json.loads(f.read())
     except:
         return []
@@ -788,8 +788,8 @@ def _save_continue_watching(imdb_id, tmdb_id, title, season, episode, show_title
             'time': int(time.time())
         })
         data = data[:50]
-        os.makedirs(os.path.dirname(xbmcvfs.translatePath(CONTINUE_WATCHING_FILE)), exist_ok=True)
-        with open(xbmcvfs.translatePath(CONTINUE_WATCHING_FILE), 'w') as f:
+        os.makedirs(os.path.dirname(CONTINUE_WATCHING_FILE), exist_ok=True)
+        with open(CONTINUE_WATCHING_FILE, 'w') as f:
             json.dump(data, f)
     except:
         pass
@@ -1605,7 +1605,7 @@ def _show_tpb_results(results, label):
         handle_download(magnet, label)
 
 def _save_resume(title, imdb_id, tmdb_id, resume_pct, season, episode):
-    if int(float(resume_pct)) > 0 and imdb_id:
+    if imdb_id or tmdb_id:
         _save_continue_watching(imdb_id, tmdb_id, title, season, episode, title, resume_pct)
 
 
