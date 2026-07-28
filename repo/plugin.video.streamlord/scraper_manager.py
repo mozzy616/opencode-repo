@@ -413,6 +413,9 @@ def search_movie(imdb, title, year):
     try:
         res = collect_results_movie(progress, imdb=imdb, title=title, year=year)
         xbmc.log("[StreamLord] Movie scraper results: %d total" % len(res), xbmc.LOGINFO)
+        # Run standalone extras
+        res.extend(_scrape_torrentscsv(False, imdb, title, year, '', 0, 0))
+        res.extend(_scrape_knaben(False, imdb, title, year, '', 0, 0))
         for r in res:
             q = r.get('quality', '?')
             h = r.get('hash', '')[:12]
@@ -435,6 +438,11 @@ def search_episode(imdb, tvshowtitle, title, season, episode, year):
     try:
         res = collect_results_episode(progress, imdb=imdb, tvshowtitle=tvshowtitle, title=title, season=str(season), episode=str(episode), year=year)
         xbmc.log("[StreamLord] Episode scraper results: %d total" % len(res), xbmc.LOGINFO)
+        # Run standalone extras
+        res.extend(_scrape_torrentscsv(True, imdb, '', year, tvshowtitle, season, episode))
+        res.extend(_scrape_knaben(True, imdb, '', year, tvshowtitle, season, episode))
+        if imdb:
+            res.extend(_scrape_eztv(imdb, tvshowtitle, season, episode))
         for r in res:
             q = r.get('quality', '?')
             h = r.get('hash', '')[:12]
@@ -446,3 +454,90 @@ def search_episode(imdb, tvshowtitle, title, season, episode, year):
         if progress:
             try: progress.close()
             except: pass
+
+
+def _scrape_torrentscsv(is_tv, imdb, title, year, tvshowtitle, season, episode):
+    results = []
+    try:
+        if is_tv:
+            query = "%s S%02dE%02d" % (tvshowtitle, int(season or 1), int(episode or 1))
+        else:
+            query = "%s %s" % (title, year) if year else title
+        import urllib.request as ur
+        url = "https://torrents-csv.com/service/search?q=%s&size=30" % urllib.parse.quote(query)
+        req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+        with urllib.request.urlopen(req, timeout=10) as r:
+            data = json.loads(r.read().decode('utf-8', errors='replace'))
+        for item in data.get('torrents', []):
+            name = item.get('name', '')
+            ih = item.get('infohash', '')
+            if not ih or not name:
+                continue
+            seeders = int(item.get('seeders', 0) or 0)
+            magnet = "magnet:?xt=urn:btih:%s&dn=%s%s" % (ih, urllib.parse.quote(name), TRACKERS)
+            results.append({'hash': ih, 'magnet': magnet, 'url': magnet, 'quality': _detect_quality(name),
+                           'seeders': seeders, 'size': str(item.get('size_bytes', '')), '_scraper': 'torrentscsv'})
+    except:
+        pass
+    return results
+
+
+def _scrape_knaben(is_tv, imdb, title, year, tvshowtitle, season, episode):
+    results = []
+    try:
+        import urllib.request as ur
+        if is_tv:
+            query = "%s S%02dE%02d" % (tvshowtitle, int(season or 1), int(episode or 1))
+            categories = [2000000]
+        else:
+            query = "%s %s" % (title, year) if year else title
+            categories = [3000000]
+        body = json.dumps({"query": query, "categories": categories, "size": 30,
+                          "order_by": "seeders", "order_direction": "desc"}).encode("utf-8")
+        req = urllib.request.Request("https://api.knaben.org/v1", data=body,
+            headers={"User-Agent": "Mozilla/5.0", "Content-Type": "application/json", "Accept": "application/json"}, method="POST")
+        with urllib.request.urlopen(req, timeout=10) as r:
+            data = json.loads(r.read().decode('utf-8', errors='replace'))
+        for item in data.get('hits', []):
+            name = item.get('title', '')
+            ih = item.get('hash', '') or ''
+            magnet = item.get('magnetUrl', '') or ("magnet:?xt=urn:btih:%s&dn=%s%s" % (ih, urllib.parse.quote(name), TRACKERS) if ih else '')
+            if not magnet:
+                continue
+            seeders = int(item.get('seeders', 0) or 0)
+            results.append({'hash': ih, 'magnet': magnet, 'url': magnet, 'quality': _detect_quality(name),
+                           'seeders': seeders, 'size': str(item.get('bytes', '')), '_scraper': 'knaben'})
+    except:
+        pass
+    return results
+
+
+def _scrape_eztv(imdb, tvshowtitle, season, episode):
+    results = []
+    if not imdb:
+        return results
+    try:
+        import urllib.request as ur
+        url = "https://eztvx.to/api/get-torrents?imdb_id=%s&limit=50" % imdb
+        resp = _try_request(url, timeout=10)
+        if not resp:
+            return results
+        data = json.loads(resp)
+        s_int = int(season or 0)
+        e_int = int(episode or 0)
+        for item in data.get('torrents', []):
+            name = item.get('filename', item.get('title', ''))
+            ih = item.get('hash', '')
+            if not ih or not name:
+                continue
+            if s_int > 0:
+                iseason = str(item.get('season', ''))
+                iepisode = str(item.get('episode', ''))
+                if iseason and iepisode and (str(s_int) != iseason or str(e_int) != iepisode):
+                    continue
+            magnet = item.get('magnet_url', '') or ("magnet:?xt=urn:btih:%s&dn=%s%s" % (ih, urllib.parse.quote(name), TRACKERS))
+            results.append({'hash': ih, 'magnet': magnet, 'url': magnet, 'quality': _detect_quality(name),
+                           'seeders': item.get('seeds', 0), 'size': '', '_scraper': 'eztv'})
+    except:
+        pass
+    return results
