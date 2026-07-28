@@ -403,6 +403,62 @@ def collect_results_movie(progress, imdb, title, year):
 
     return results
 
+
+def collect_results_episode(progress, imdb, tvshowtitle, title, season, episode, year):
+    results = []
+    threads = []
+    lock = threading.Lock()
+    total = len(_scrapers)
+    data = {'imdb': imdb, 'tvshowtitle': tvshowtitle, 'title': title, 'season': str(season), 'episode': str(episode), 'year': year, 'aliases': [],
+            'debrid_service': 'Real-Debrid', 'debrid_token': _get_setting('rd_token'),
+            'ad_token': _get_setting('ad_token'), 'pm_token': _get_setting('pm_token')}
+
+    class ScraperRunner(threading.Thread):
+        def __init__(self, scraper, name, idx):
+            threading.Thread.__init__(self, daemon=True)
+            self.scraper = scraper
+            self.name = name
+            self.idx = idx
+        def run(self):
+            try:
+                if getattr(self.scraper, 'hasEpisodes', True) == False:
+                    return
+                log_sl("  scraper %s starting..." % self.name)
+                instance = self.scraper()
+                srcs = instance.sources(data, HOSTDICT)
+                log_sl("  scraper %s returned %d results" % (self.name, len(srcs) if srcs else 0))
+                if not srcs:
+                    return
+                with lock:
+                    for s in srcs:
+                        s['_scraper'] = self.name
+                        results.append(s)
+            except Exception as e:
+                log_sl("  scraper %s error: %s" % (self.name, str(e)), xbmc.LOGERROR)
+            finally:
+                if progress:
+                    with lock:
+                        try:
+                            pct = int((min(self.idx + 1, total) / float(total)) * 100)
+                            progress.update(pct, "Scraping: %s" % self.name[:20])
+                        except:
+                            pass
+
+    for idx, (name, scraper) in enumerate(_scrapers):
+        t = ScraperRunner(scraper, name, idx)
+        t.start()
+        threads.append(t)
+
+    deadline = time.time() + GLOBAL_TIMEOUT
+    for t in threads:
+        if progress and progress.iscanceled():
+            break
+        remaining = max(0, deadline - time.time())
+        t.join(min(remaining, SCRAPER_TIMEOUT))
+
+    return results
+
+
 def search_movie(imdb, title, year):
     if not init():
         return []
