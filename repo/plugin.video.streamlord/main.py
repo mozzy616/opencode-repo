@@ -1282,6 +1282,8 @@ def play_movie(mid, title, watch_link="", imdb_id="", year="", tmdb_id="", resum
     xbmcgui.Dialog().ok("StreamLord", "Torrent failed to play.\n%s" % title)
 
 def play_episode(eid, title, link, show_title, season, show_imdb_id="", episode_num="", tmdb_id="", resume_pct="0"):
+    if not show_imdb_id and tmdb_id:
+        show_imdb_id = _tmdb_get_imdb_id(tmdb_id, "tv")
     full_title = "%s - %s" % (show_title, title) if show_title else title
     season_num = re.search(r'\d+', season).group() if re.search(r'\d+', season) else season
     ep_num = episode_num or re.search(r'(\d+)', title) if not episode_num else episode_num
