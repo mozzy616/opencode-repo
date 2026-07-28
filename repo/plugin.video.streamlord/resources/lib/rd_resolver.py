@@ -134,30 +134,29 @@ def resolve_torrent(info_hash, title=""):
 
     dn = urllib.parse.quote(title or "video")
     magnet = "magnet:?xt=urn:btih:%s&dn=%s" % (info_hash, dn)
-    torrent_id = add_magnet(magnet)
 
+    # Check existing torrents first (avoids blocked addMagnet for cached content)
+    existing = find_existing_by_hash(info_hash)
+    if existing and existing.get("status") == "downloaded":
+        links = existing.get("links", [])
+        best = get_largest_video(existing.get("files", []))
+        if links:
+            dl = unrestrict_link(links[0])
+            if dl:
+                fn = best.get("path", title or "video.mp4") if best else (title or "video.mp4")
+                log("resolve_torrent: SUCCESS from existing %s" % info_hash[:12])
+                return dl, fn
+        elif best and best.get("download"):
+            dl = unrestrict_link(best["download"])
+            if dl:
+                fn = best.get("path", title or "video.mp4")
+                log("resolve_torrent: SUCCESS from existing (file) %s" % info_hash[:12])
+                return dl, fn
+
+    torrent_id = add_magnet(magnet)
     if not torrent_id:
-        log("resolve_torrent: addMagnet failed, trying existing")
-        existing = find_existing_by_hash(info_hash)
-        if existing:
-            torrent_id = existing.get("id")
-            log("resolve_torrent: using existing id=%s status=%s" % (torrent_id, existing.get("status", "?")))
-            if existing.get("status") == "downloaded":
-                links = existing.get("links", [])
-                best = get_largest_video(existing.get("files", []))
-                if links:
-                    dl = unrestrict_link(links[0]) or links[0]
-                    fn = best.get("path", title or "video.mp4") if best else (title or "video.mp4")
-                    log("resolve_torrent: SUCCESS from existing %s" % info_hash[:12])
-                    return dl, fn
-                elif best and best.get("download"):
-                    dl = unrestrict_link(best["download"]) or best["download"]
-                    fn = best.get("path", title or "video.mp4")
-                    log("resolve_torrent: SUCCESS from existing (file) %s" % info_hash[:12])
-                    return dl, fn
-        if not torrent_id:
-            log("resolve_torrent: FAILED - not in RD at all", xbmc.LOGINFO)
-            return None, None
+        log("resolve_torrent: FAILED - blocked by RD or not available", xbmc.LOGINFO)
+        return None, None
 
     # We have a torrent_id — wait for it to be ready
     for attempt in range(8):  # up to ~16 seconds
