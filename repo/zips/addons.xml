@@ -189,10 +189,29 @@
         <reuselanguageinvoker>true</reuselanguageinvoker>
     </extension>
 </addon>
+<addon id="plugin.video.rdflix" name="RDFlix" version="1.5.4" provider-name="opencode">
+    <requires>
+        <import addon="xbmc.python" version="3.0.0"/>
+        <import addon="script.module.cocoscrapers" optional="true"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="main.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en_GB">RDFlix - Premium Real-Debrid Streaming</summary>
+        <description lang="en_GB">Browse and stream movies and TV shows using Real-Debrid. Features instant cached playback, TMDb metadata, high-quality sources, and a premium interface.</description>
+        <platform>all</platform>
+        <license>MIT</license>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+        </assets>
+    </extension>
+</addon>
 <addon id="plugin.video.steamrip"
        name="SteamRIP"
        version="1.0.0"
-       provider-name="lambdax">
+       provider-name="opencode">
   <requires>
     <import addon="xbmc.python" version="3.0.0"/>
     <import addon="script.module.beautifulsoup4" version="4.9.0"/>
@@ -217,7 +236,7 @@
     </assets>
   </extension>
 </addon>
-$13.6.1" provider-name="opencode">
+<addon id="plugin.video.streamlord" name="StreamLord" version="3.7.0" provider-name="opencode">
     <requires>
         <import addon="xbmc.python" version="3.0.0"/>
         <import addon="script.module.cocoscrapers"/>
@@ -239,7 +258,7 @@ $13.6.1" provider-name="opencode">
 <addon id="plugin.video.torrentx"
        name="Torrent X"
        version="1.0.0"
-       provider-name="TorrentX">
+       provider-name="opencode">
     <requires>
         <import addon="xbmc.python" version="3.0.0"/>
         <import addon="xbmc.json" version="12.0.0"/>
@@ -987,43 +1006,5 @@ $13.6.1" provider-name="opencode">
 			<fanart>resources/fanart.png</fanart>
 		</assets>
 	</extension>
-</addon>
-<addon id="plugin.video.rdflix" name="RDFlix" version="1.5.4" provider-name="opencode">
-    <requires>
-        <import addon="xbmc.python" version="3.0.0"/>
-        <import addon="script.module.cocoscrapers" optional="true"/>
-    </requires>
-    <extension point="xbmc.python.pluginsource" library="main.py">
-        <provides>video</provides>
-    </extension>
-    <extension point="xbmc.addon.metadata">
-        <summary lang="en_GB">RDFlix - Premium Real-Debrid Streaming</summary>
-        <description lang="en_GB">Browse and stream movies and TV shows using Real-Debrid. Features instant cached playback, TMDb metadata, high-quality sources, and a premium interface.</description>
-        <platform>all</platform>
-        <license>MIT</license>
-        <assets>
-            <icon>icon.png</icon>
-            <fanart>fanart.jpg</fanart>
-        </assets>
-    </extension>
-</addon>
-<addon id="plugin.video.streamlord" name="StreamLord" version="3.7.0" provider-name="opencode">
-    <requires>
-        <import addon="xbmc.python" version="3.0.0"/>
-        <import addon="script.module.cocoscrapers"/>
-        <import addon="inputstream.adaptive"/>
-    </requires>
-    <extension point="xbmc.python.pluginsource" library="main.py">
-        <provides>video</provides>
-    </extension>
-    <extension point="xbmc.addon.metadata">
-        <summary lang="en_GB">StreamLord - Watch Movies &amp; TV Shows</summary>
-        <description lang="en_GB">Browse and stream movies and TV shows from StreamLord.to</description>
-        <platform>all</platform>
-        <license>MIT</license>
-        <assets>
-            <icon>icon.png</icon>
-        </assets>
-    </extension>
 </addon>
 </addons>
