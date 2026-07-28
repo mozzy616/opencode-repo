@@ -12,6 +12,7 @@ import urllib.error
 import os
 import time
 import http.cookiejar
+from resources.lib import extras as ext
 
 HANDLE = int(sys.argv[1])
 URL = sys.argv[0]
@@ -1655,18 +1656,32 @@ def show_menu():
         ("[B]Search All Torrents[/B]", "search", "DefaultAddonsSearch.png"),
         ("[B]Hot Movies[/B]", "movies", "DefaultMovies.png"),
         ("[B]TV Series[/B]", "tvseries", "DefaultTVShows.png"),
+        ("[B]TMDB Trending Movies[/B]", "browse_tmdb", "DefaultMovies.png", {"category": "popular", "media": "movie"}),
+        ("[B]TMDB Trending TV[/B]", "browse_tmdb", "DefaultTVShows.png", {"category": "popular", "media": "tv"}),
+        ("[B]TMDB Movie Genres[/B]", "browse_tmdb_genres", "DefaultGenre.png", {"media": "movie"}),
+        ("[B]TMDB TV Genres[/B]", "browse_tmdb_genres", "DefaultGenre.png", {"media": "tv"}),
+        ("[B]TMDB Search[/B]", "tmdb_search", "DefaultAddonsSearch.png"),
+        ("[B]Trakt Watchlist Movies[/B]", "trakt_watchlist", "DefaultVideo.png", {"media": "movie"}),
+        ("[B]Trakt Watchlist TV[/B]", "trakt_watchlist", "DefaultTVShows.png", {"media": "show"}),
+        ("[B]Surprise Me (Movie)[/B]", "surprise_me", "DefaultVideo.png", {"media": "movie"}),
+        ("[B]Surprise Me (TV)[/B]", "surprise_me", "DefaultTVShows.png", {"media": "tv"}),
+        ("[B]Live TV[/B]", "livetv_menu", "DefaultTVShows.png"),
+        ("[B]Sports Search[/B]", "sports_search", "DefaultAddonsSearch.png"),
+        ("[B]Open Magnet[/B]", "open_magnet", "DefaultAddon.png"),
         ("[B]Top IMDb[/B]", "top_imdb", "DefaultVideo.png"),
         ("[B]Genres[/B]", "genres", "DefaultVideo.png"),
         ("[B]LordPlayer[/B]", "lordplayer", "DefaultAddon.png"),
         ("[B]Settings[/B]", "settings", "DefaultAddon.png"),
     ]
-    for label, action, icon in items:
+    for label, action, icon, *extra in items:
+        params = extra[0] if extra else {}
         li = xbmcgui.ListItem(label)
         li.setArt({"icon": icon, "thumb": icon})
         if action == "lordplayer":
             xbmcplugin.addDirectoryItem(HANDLE, "plugin://{}/".format(get_lordplayer_id()), li, isFolder=True)
         else:
-            xbmcplugin.addDirectoryItem(HANDLE, get_url(action=action), li, isFolder=True)
+            p = get_url(action=action, **params)
+            xbmcplugin.addDirectoryItem(HANDLE, p, li, isFolder=True)
     xbmcplugin.endOfDirectory(HANDLE)
 
 def list_genres():
@@ -1920,6 +1935,38 @@ def main():
             tpb_play_episode(p.get("show_title", ""), p.get("season", ""), p.get("episode", ""))
         elif a == "continue_watching":
             list_continue_watching()
+        elif a == "browse_tmdb":
+            ext.browse_tmdb(p.get("category", "popular"), p.get("media", "movie"), int(p.get("page", "1")))
+        elif a == "browse_tmdb_genres":
+            ext.browse_tmdb_genres(p.get("media", "movie"))
+        elif a == "browse_tmdb_genre_list":
+            ext.browse_tmdb_genre_list(p.get("genre_id", ""), p.get("genre_name", ""), p.get("media", "movie"), int(p.get("page", "1")))
+        elif a == "tmdb_search":
+            ext.browse_tmdb_search(p.get("query", ""))
+        elif a == "tv_browse_seasons":
+            ext.tv_browse_seasons(p.get("tmdb_id", ""), p.get("show_title", ""), p.get("imdb_id", ""))
+        elif a == "tv_browse_episodes":
+            ext.tv_browse_episodes(p.get("tmdb_id", ""), p.get("season", ""), p.get("show_title", ""), p.get("imdb_id", ""))
+        elif a == "person_detail":
+            ext.person_detail(p.get("person_id", ""), p.get("person_name", ""))
+        elif a == "trakt_watchlist":
+            ext.browse_trakt_watchlist(p.get("media", "movie"))
+        elif a == "trakt_auth":
+            ext.trakt_auth()
+        elif a == "livetv_menu":
+            ext.livetv_menu()
+        elif a == "livetv_channels":
+            ext.livetv_channels(p.get("group", ""))
+        elif a == "livetv_play":
+            ext.livetv_play(urllib.parse.unquote(p.get("url", "")), p.get("title", ""))
+        elif a == "sports_search":
+            ext.sports_search(p.get("query", ""))
+        elif a == "open_magnet":
+            ext.open_magnet()
+        elif a == "open_magnet_play":
+            ext.open_magnet_play(p.get("magnet", ""), p.get("title", "Magnet"))
+        elif a == "surprise_me":
+            ext.surprise_me(p.get("media", "movie"))
         elif a == "fight_category":
             fight_category(p.get("cat_slug", ""), int(p.get("page", "1")))
         elif a == "fight_post":
