@@ -1180,7 +1180,7 @@ def play_movie(mid, title, watch_link="", imdb_id="", year="", tmdb_id="", resum
                         used.add(key)
                         q = s.get('quality', '?')
                         seed = s.get('seeders', 0)
-                        all_sources.append(('torrent', q, seed, s.get('url', ''), s.get('hash', ''), s.get('size', ''), s.get('name', ''), s.get('debrid', False)))
+                        all_sources.append(('torrent', q, seed, s.get('url', ''), s.get('hash', ''), s.get('size', ''), s.get('name', ''), s.get('debrid', False) or s.get('cached_checked', False)))
         except Exception as e:
             xbmc.log("[StreamLord] Movie scraper error: %s" % str(e), xbmc.LOGWARNING)
 
@@ -1188,7 +1188,7 @@ def play_movie(mid, title, watch_link="", imdb_id="", year="", tmdb_id="", resum
         xbmc.log("[StreamLord] CocoScrapers returned nothing, trying TPB for %s" % title, xbmc.LOGINFO)
         tpb = search_tpb(title + (" " + year if year else ""))
         for s in tpb:
-            all_sources.append(('torrent', s.get('quality', 'SD'), s.get('seeders', 0), s.get('url', ''), s.get('hash', ''), s.get('size', ''), s.get('name', ''), s.get('debrid', False)))
+            all_sources.append(('torrent', s.get('quality', 'SD'), s.get('seeders', 0), s.get('url', ''), s.get('hash', ''), s.get('size', ''), s.get('name', ''), s.get('debrid', False) or s.get('cached_checked', False)))
 
     if imdb_id:
         try:
@@ -1310,7 +1310,8 @@ def play_episode(eid, title, link, show_title, season, show_imdb_id="", episode_
                         used.add(key)
                         q = s.get('quality', '?')
                         seed = s.get('seeders', 0)
-                        all_sources.append(('torrent', q, seed, s.get('url', ''), s.get('hash', ''), s.get('size', ''), s.get('name', ''), s.get('debrid', False)))
+                        is_debrid = s.get('debrid', False) or s.get('cached_checked', False)
+                        all_sources.append(('torrent', q, seed, s.get('url', ''), s.get('hash', ''), s.get('size', ''), s.get('name', ''), is_debrid))
         except Exception as e:
             xbmc.log("[StreamLord] Episode scraper error: %s" % str(e), xbmc.LOGWARNING)
 
@@ -1322,7 +1323,7 @@ def play_episode(eid, title, link, show_title, season, show_imdb_id="", episode_
             name = s.get('name', '')
             # Filter TPB results to match exact episode pattern
             if exact_pattern.search(name) or len(tpb) <= 1:
-                all_sources.append(('torrent', s.get('quality', 'SD'), s.get('seeders', 0), s.get('url', ''), s.get('hash', ''), s.get('size', ''), s.get('name', ''), s.get('debrid', False)))
+                all_sources.append(('torrent', s.get('quality', 'SD'), s.get('seeders', 0), s.get('url', ''), s.get('hash', ''), s.get('size', ''), s.get('name', ''), s.get('debrid', False) or s.get('cached_checked', False)))
 
     deduped = []
     seen = set()
@@ -1804,7 +1805,7 @@ def fight_torrent_search(show_title):
             used.add(key)
             q = s.get('quality', '?')
             seed = s.get('seeders', 0)
-            all_sources.append(('torrent', q, seed, s.get('url', ''), s.get('hash', ''), s.get('size', ''), s.get('name', ''), s.get('debrid', False)))
+            all_sources.append(('torrent', q, seed, s.get('url', ''), s.get('hash', ''), s.get('size', ''), s.get('name', ''), s.get('debrid', False) or s.get('cached_checked', False)))
     _check_rd_cache(all_sources)
     ss = sorted(all_sources, key=lambda s: (0 if (len(s) > 7 and s[7]) else 1, QUALITY_ORDER.get(s[1], 99), -(int(s[2]) if s[2] else 0)))
     slist = []
