@@ -871,25 +871,29 @@ def _check_rd_cache(sources):
     hash_to_idx = {}
     for idx, s in enumerate(sources):
         h = s[4]
-        if h and len(h) == 40:
+        if h and len(h) == 40 and not (len(s) > 7 and s[7]):
             hl = h.lower()
             hashes.append(hl)
             hash_to_idx[hl] = idx
     if not hashes:
         return sources
     try:
-        cached = rd_resolver.is_available(hashes)
-        if cached:
+        existing = rd_resolver.list_torrents()
+        if existing:
+            rd_hashes = set()
+            for t in existing:
+                th = (t.get("hash") or "").lower()[:40]
+                if th and t.get("status") == "downloaded":
+                    rd_hashes.add(th)
             count = 0
-            for h in cached:
-                hl = h.lower()
-                if hl in hash_to_idx:
-                    idx = hash_to_idx[hl]
+            for h in hashes:
+                if h in rd_hashes:
+                    idx = hash_to_idx[h]
                     s = list(sources[idx])
                     s[7] = True
                     sources[idx] = tuple(s)
                     count += 1
-            xbmc.log("[StreamLord] RD cache check: %d/%d cached" % (count, len(hashes)), xbmc.LOGINFO)
+            xbmc.log("[StreamLord] RD cache check: %d cached from %d existing torrents" % (count, len(rd_hashes)), xbmc.LOGINFO)
     except Exception as e:
         xbmc.log("[StreamLord] RD cache check error: %s" % str(e), xbmc.LOGERROR)
     return sources
@@ -1200,7 +1204,7 @@ def play_movie(mid, title, watch_link="", imdb_id="", year="", tmdb_id="", resum
                 label = origin or s.get('title', title)[:50]
                 name_field = origin or s.get('title', '')
                 has_hash = bool(ih and len(ih) >= 40)
-                all_sources.append(('stremio', s.get('_quality', '?'), s.get('seeders', 0), magnet, ih, s.get('size', ''), name_field, has_hash))
+                all_sources.append(('stremio', s.get('_quality', '?'), s.get('seeders', 0), magnet, ih, s.get('size', ''), name_field, True))
         except Exception as e:
             xbmc.log("[StreamLord] Stremio movie sources error: %s" % str(e), xbmc.LOGERROR)
 
