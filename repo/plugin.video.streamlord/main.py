@@ -1197,7 +1197,9 @@ def play_movie(mid, title, watch_link="", imdb_id="", year="", tmdb_id="", resum
                     continue
                 magnet = "magnet:?xt=urn:btih:%s&dn=%s%s" % (ih, urllib.parse.quote(s.get('title', title)), TRACKERS) if ih else url
                 origin = s.get('_origin', '')
-                all_sources.append(('stremio', s.get('_quality', '?'), s.get('seeders', 0), magnet, ih, s.get('size', ''), origin, True))
+                label = origin or s.get('title', title)[:50]
+                name_field = origin or s.get('title', '')
+                all_sources.append(('stremio', s.get('_quality', '?'), s.get('seeders', 0), magnet, ih, s.get('size', ''), name_field, True))
         except Exception as e:
             xbmc.log("[StreamLord] Stremio movie sources error: %s" % str(e), xbmc.LOGERROR)
 
@@ -1217,14 +1219,23 @@ def play_movie(mid, title, watch_link="", imdb_id="", year="", tmdb_id="", resum
     for s in deduped:
         name = s[6] if len(s) > 6 else ""
         is_debrid = len(s) > 7 and s[7]
-        label = "%s %s" % (s[1], s[5]) if s[5] else s[1]
-        if s[2]:
-            label += " [S:%s]" % s[2]
+        quality = s[1]
+        seeders = s[2]
+        size_str = (" [%s]" % s[5]) if s[5] else ""
+        seed_str = (" [S:%s]" % seeders) if seeders else ""
+
         if is_debrid:
-            label = "[B][COLOR cyan]RD-CACHED[/COLOR][/B] %s" % label
-        if name:
-            label = "%s - %s" % (name[:60], label)
-        items.append(label)
+            tag = "[COLOR cyan][B]RD[/B][/COLOR]"
+        else:
+            tag = "[COLOR orange][B]LP[/B][/COLOR]"
+
+        if s[0] == 'stremio':
+            fname = name or "Unknown"
+            label = "%s %s %s%s%s" % (tag, quality, fname[:50], size_str, seed_str)
+        else:
+            label = "%s %s %s%s%s [Scraper]" % (tag, quality, (name or "Unknown")[:50], size_str, seed_str)
+
+        items.append(label.strip())
 
     if len(items) == 0:
         xbmcplugin.endOfDirectory(HANDLE)
@@ -1359,14 +1370,23 @@ def play_episode(eid, title, link, show_title, season, show_imdb_id="", episode_
     for s in deduped:
         name = s[6] if len(s) > 6 else ""
         is_debrid = len(s) > 7 and s[7]
-        label = "%s %s" % (s[1], s[5]) if s[5] else s[1]
-        if s[2]:
-            label += " [S:%s]" % s[2]
+        quality = s[1]
+        seeders = s[2]
+        size_str = (" [%s]" % s[5]) if s[5] else ""
+        seed_str = (" [S:%s]" % seeders) if seeders else ""
+
         if is_debrid:
-            label = "[B][COLOR cyan]RD-CACHED[/COLOR][/B] %s" % label
-        if name:
-            label = "%s - %s" % (name[:60], label)
-        items.append(label)
+            tag = "[COLOR cyan][B]RD[/B][/COLOR]"
+        else:
+            tag = "[COLOR orange][B]LP[/B][/COLOR]"
+
+        if s[0] == 'stremio':
+            fname = name or "Unknown"
+            label = "%s %s %s%s%s" % (tag, quality, fname[:50], size_str, seed_str)
+        else:
+            label = "%s %s %s%s%s [Scraper]" % (tag, quality, (name or "Unknown")[:50], size_str, seed_str)
+
+        items.append(label.strip())
 
     if len(items) == 0:
         li = xbmcgui.ListItem(path=link)
