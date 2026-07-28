@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <settings>
+    <category label="Real-Debrid">
+        <setting label="Authentication" type="lsep"/>
+        <setting id="rd_token" type="text" label="Real-Debrid API Token" default="" option="hidden"/>
+        <setting label="Get your API token at real-debrid.com/apitoken" type="lsep"/>
+        <setting id="auth_action" type="action" label="Authorize Device" action="RunPlugin(plugin://plugin.video.streamlord/?action=device_auth)"/>
+    </category>
+    <category label="AllDebrid">
+        <setting id="ad_token" type="text" label="AllDebrid API Key" default="" option="hidden"/>
+        <setting label="Get your API key at alldebrid.com/apikeys" type="lsep"/>
+    </category>
+    <category label="Premiumize">
+        <setting id="pm_token" type="text" label="Premiumize API Key" default="" option="hidden"/>
+        <setting label="Get your API key at premiumize.me/account" type="lsep"/>
+    </category>
     <category label="Playback">
         <setting id="autoplay_next" type="bool" label="Auto-play next episode" default="false" />
-    </category>
-    <category label="Debrid Services">
-        <setting label="Real-Debrid" type="lsep"/>
-        <setting id="rd_token" type="text" label="Real-Debrid API Token" default="" option="hidden"/>
-        <setting label="AllDebrid" type="lsep"/>
-        <setting id="ad_token" type="text" label="AllDebrid API Key" default="" option="hidden"/>
-        <setting label="Premiumize" type="lsep"/>
-        <setting id="pm_token" type="text" label="Premiumize API Key" default="" option="hidden"/>
     </category>
     <category label="Downloads">
         <setting id="download_path" type="folder" label="Download folder" default="special://home/userdata/downloads/" />

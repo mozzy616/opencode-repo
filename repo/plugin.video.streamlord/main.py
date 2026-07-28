@@ -779,6 +779,40 @@ def _is_dmca_video(url):
     return False
 
 
+def sl_device_auth():
+    """Real-Debrid OAuth device authorization."""
+    try:
+        from resources.lib import rd_api
+        device_code, user_code, verify_url = rd_api.get_device_code()
+        if not device_code:
+            xbmcgui.Dialog().ok("StreamLord", "Failed to get device code. Check connection.")
+            return
+        xbmcgui.Dialog().ok("StreamLord", "Go to this URL and enter code:\n\n%s\n\nCode: %s" % (verify_url, user_code))
+        xbmcgui.Dialog().notification("StreamLord", "Authorizing device...")
+        client_id, client_secret = rd_api.poll_device_auth(device_code)
+        if client_id and client_secret:
+            access_token, refresh_tok = rd_api.get_token(client_id, client_secret, device_code)
+            if access_token:
+                import xbmcaddon
+                addon = xbmcaddon.Addon('plugin.video.streamlord')
+                addon.setSetting('rd_token', access_token)
+                addon.setSetting('rd_refresh_token', refresh_tok or '')
+                addon.setSetting('rd_client_id', client_id)
+                addon.setSetting('rd_client_secret', client_secret)
+                xbmcgui.Dialog().notification("StreamLord", "Device authorized successfully!")
+                user = rd_api.get_user()
+                if user:
+                    xbmcgui.Dialog().notification("StreamLord", "Logged in as: %s" % user.get("username", "Unknown"))
+            else:
+                rd_api.clear_auth()
+                xbmcgui.Dialog().ok("StreamLord", "Token exchange failed. Please try again.")
+        else:
+            xbmcgui.Dialog().ok("StreamLord", "Device authorization failed or timed out.")
+    except Exception as e:
+        xbmc.log("[StreamLord] device_auth error: %s" % str(e), xbmc.LOGERROR)
+        xbmcgui.Dialog().ok("StreamLord", "Auth error: %s" % str(e))
+
+
 def _get_stremio_sources(is_tv, imdb_id, season=0, episode=0):
     """Fetch sources from torrentio + comet + mediafusion via RDFlix module."""
     try:
@@ -1812,6 +1846,8 @@ def main():
             fight_play(p.get("video_url", ""), p.get("title", ""))
         elif a == "fight_torrent_search":
             fight_torrent_search(p.get("title", ""))
+        elif a == "device_auth":
+            sl_device_auth()
         else:
             show_menu()
     except Exception as e:
