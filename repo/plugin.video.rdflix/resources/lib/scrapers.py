@@ -386,8 +386,6 @@ def _load_coco_scrapers():
                 import cocoscrapers
                 cocoscrapers.enabledCheck = lambda mn: True
                 scrapers = cocoscrapers.sources(specified_folders=['torrents']) or []
-                exclude = ['torrentio_cached', 'mediafusion_cached', 'comet']
-                scrapers = [(n, s) for n, s in scrapers if n not in exclude]
                 log("CocoScrapers: %d scrapers loaded" % len(scrapers))
             except Exception as e:
                 log("CocoScrapers init failed: %s" % str(e), xbmc.LOGERROR)
@@ -402,21 +400,22 @@ def _collect_coco(imdb, title, year, tvshowtitle, season, episode, is_tv):
     results = []
     lock = threading.Lock()
 
+    rd_token = get_setting("rd_token", "")
+
     data = {
         'imdb': imdb or '',
         'title': title or '',
         'year': year or '',
         'aliases': [],
+        'debrid_service': 'Real-Debrid',
+        'debrid_token': rd_token,
     }
     if is_tv:
         data['tvshowtitle'] = tvshowtitle or ''
         data['season'] = str(season)
         data['episode'] = str(episode)
 
-    thread_count = 0
-
     def run_scraper(scraper_class, name):
-        nonlocal thread_count
         try:
             if is_tv:
                 if getattr(scraper_class, 'hasEpisodes', True) == False:
@@ -438,14 +437,13 @@ def _collect_coco(imdb, title, year, tvshowtitle, season, episode, is_tv):
         t = threading.Thread(target=run_scraper, args=(scraper_class, name), daemon=True)
         t.start()
         threads.append(t)
-        thread_count += 1
 
     deadline = time.time() + GLOBAL_TIMEOUT
     for t in threads:
         remaining = max(0, deadline - time.time())
         t.join(min(remaining, SCRAPER_TIMEOUT))
 
-    log("CocoScrapers: %d results from %d threads" % (len(results), thread_count))
+    log("CocoScrapers: %d results from %d scrapers" % (len(results), len(_scrapers)))
     return results
 
 

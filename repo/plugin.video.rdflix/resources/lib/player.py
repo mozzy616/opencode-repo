@@ -42,9 +42,36 @@ def _play_url(url, title):
         return False
 
 
+def _is_dmca_video(url):
+    try:
+        req = urllib.request.Request(url, method="HEAD")
+        req.add_header("User-Agent", "Mozilla/5.0")
+        with urllib.request.urlopen(req, timeout=8) as r:
+            cl = r.headers.get("Content-Length", "0")
+            size = int(cl) if cl else 0
+            log("RD file size check: %d bytes" % size)
+            if 0 < size < 52428800:
+                log("RD file too small (%d bytes < 50MB), likely DMCA notice" % size)
+                return True
+    except Exception as e:
+        log("DMCA check failed: %s" % str(e))
+    return False
+
+
 def _play_source(source, title):
     magnet = source.get("magnet", "")
     info_hash = source.get("infoHash", "")
+    behavior_hints = source.get("behaviorHints", {})
+    if not info_hash:
+        info_hash = behavior_hints.get("infoHash", "")
+    if not magnet:
+        magnet = behavior_hints.get("magnet", "")
+    log("play_source: magnet=%s infoHash=%s url=%s bh_keys=%s" % (
+        (magnet or "")[:40],
+        (info_hash or "")[:16],
+        (source.get("url", "") or "")[:50],
+        list(behavior_hints.keys()) if behavior_hints else []
+    ))
 
     if not info_hash and magnet:
         m = re.search(r"btih:([a-fA-F0-9]{40})", magnet)
@@ -66,14 +93,60 @@ def _play_source(source, title):
         try:
             req = urllib.request.Request(url, method="HEAD")
             req.add_header("User-Agent", "Mozilla/5.0")
-            urllib.request.urlopen(req, timeout=5)
-            return _play_url(url, file_name)
+            resp = urllib.request.urlopen(req, timeout=8)
+            final_url = resp.geturl()
+
+            if any(x in final_url.lower() for x in ["configure", "exception", "error/", "autorize", "authorize"]):
+                log("Redirect led to auth/error page: %s" % final_url[:80])
+                raise Exception("Invalid redirect")
+
+            cl = resp.headers.get("Content-Length", "0")
+            size = int(cl) if cl else 0
+            log("RD file size check: %d bytes (via %s)" % (size, url[:40]))
+            if 0 < size < 52428800:
+                log("RD file too small, likely DMCA")
+                raise Exception("DMCA detected")
+
+            return _play_url(final_url, file_name)
         except:
-            log("Direct URL unreachable, trying magnet approach", xbmc.LOGINFO)
+            log("Direct URL unreachable or DMCA, trying magnet approach", xbmc.LOGINFO)
 
     actual_magnet = magnet
     if not actual_magnet and info_hash and len(info_hash) >= 40:
         actual_magnet = "magnet:?xt=urn:btih:%s&dn=%s" % (info_hash[:40], urllib.parse.quote(torrent_title or title))
+    
+    # Last resort: follow torrentio/comet resolve URL to get magnet from redirect
+    if not actual_magnet:
+        info_hash_found = info_hash
+        if not info_hash_found:
+            info_hash_found = source.get("info_hash") or source.get("hash") or source.get("_infoHash") or ""
+
+        # Try extracting from torrentio resolve URL redirect
+        if not info_hash_found and url and url.startswith("http"):
+            try:
+                req = urllib.request.Request(url, method="HEAD")
+                req.add_header("User-Agent", "Mozilla/5.0")
+                resp = urllib.request.urlopen(req, timeout=8)
+                final = resp.geturl()
+                # Check for hash in final RD URL or any redirect URL
+                btih = re.search(r"btih:([a-fA-F0-9]{40})", final)
+                if btih:
+                    info_hash_found = btih.group(1)
+                    log("Got info hash from redirect URL")
+                else:
+                    # Try hash as raw 40-char hex in URL
+                    h_match = re.search(r"/([a-fA-F0-9]{40})", final)
+                    if h_match:
+                        info_hash_found = h_match.group(1)
+                        log("Got info hash from redirect URL (hex match)")
+            except:
+                pass
+
+        if info_hash_found and len(info_hash_found) >= 40:
+            actual_magnet = "magnet:?xt=urn:btih:%s&dn=%s" % (info_hash_found[:40], urllib.parse.quote(torrent_title or title))
+            log("Built magnet from found hash")
+
+    log("Magnet for resolve: %s..." % (actual_magnet or "none")[:60])
 
     if actual_magnet:
         result = None
@@ -81,19 +154,33 @@ def _play_source(source, title):
             try:
                 result = resolver(actual_magnet, torrent_title or title)
                 if result and result.get("url"):
+                    log("Resolved via magnet resolver, URL: %s..." % result["url"][:60])
                     break
             except:
                 continue
 
         if result and result.get("url"):
-            return _play_url(result["url"], result.get("filename", file_name))
+            if _is_dmca_video(result["url"]):
+                log("RD returned copyright notice video, falling back to LordPlayer")
+            else:
+                return _play_url(result["url"], result.get("filename", file_name))
+        else:
+            log("No result from magnet resolvers, result=%s" % result)
 
-    is_rd_cached = source.get("isDebridCached", False)
-    if actual_magnet and TRY_LORDPLAYER and not is_rd_cached:
+    if actual_magnet and TRY_LORDPLAYER:
+        log("Falling back to LordPlayer: %s" % actual_magnet[:60])
         try:
-            return _play_via_lordplayer(actual_magnet, file_name)
-        except:
-            pass
+            result = _play_via_lordplayer(actual_magnet, file_name)
+            log("LordPlayer result: %s" % result)
+            if result:
+                return True
+        except Exception as e:
+            log("LordPlayer fallback exception: %s" % str(e), xbmc.LOGERROR)
+    elif not actual_magnet:
+        log("No magnet available for LordPlayer fallback")
+        notify("RDFlix", "This RD source has no magnet link.\nPick an orange [LP] source instead.", duration=6000)
+    elif not TRY_LORDPLAYER:
+        log("LordPlayer not available (TRY_LORDPLAYER=False)")
 
     return False
 
@@ -121,13 +208,18 @@ def _build_source_label(s):
     seeders = s.get("seeders", s.get("seed", 0))
     seed_str = " [S:%s]" % seeders if seeders else ""
     cached = s.get("isDebridCached", False) or s.get("debrid", False)
+    origin = s.get("_origin", "")
 
     if cached:
         tag = "[COLOR lime]RD[/COLOR] "
     else:
         tag = "[COLOR orange]LP[/COLOR] " if TRY_LORDPLAYER else "[COLOR orange]TR[/COLOR] "
 
-    label = "%s%s %s%s%s" % (tag, quality, stitle[:50] if stitle else "Unknown", size_str, seed_str)
+    origin_str = ""
+    if origin:
+        origin_str = " [%s]" % origin
+
+    label = "%s%s %s%s%s%s" % (tag, quality, stitle[:50] if stitle else "Unknown", size_str, seed_str, origin_str)
     return label.strip()
 
 
@@ -135,16 +227,26 @@ def _merge_sources(torrentio_sources, scraper_sources):
     all_sources = []
 
     for s in torrentio_sources:
+        bh = s.get("behaviorHints", {})
+        ihash = s.get("infoHash", "") or bh.get("infoHash", "")
+        url = s.get("url", "")
+
+        if not ihash:
+            if "playback" in url or "exception" in url or "configure" in url or "error" in url.lower():
+                log("Skipping broken %s source: %s" % (s.get("_origin", "?"), url[:60]))
+                continue
+
         all_sources.append({
-            "infoHash": s.get("infoHash", ""),
+            "infoHash": ihash,
             "title": s.get("title", ""),
             "name": s.get("name", s.get("title", "")),
-            "url": s.get("url", ""),
-            "behaviorHints": s.get("behaviorHints", {}),
+            "url": url,
+            "behaviorHints": bh,
             "_quality": s.get("_quality", "?"),
             "seeders": s.get("seeders", s.get("seed", 0)),
             "size": s.get("size", ""),
             "isDebridCached": True,
+            "_origin": s.get("_origin", ""),
         })
 
     seen_hashes = set()
@@ -173,6 +275,7 @@ def _merge_sources(torrentio_sources, scraper_sources):
             "seeders": s.get("seeders", 0),
             "size": s.get("size", ""),
             "isDebridCached": s.get("debrid", False),
+            "_origin": "Scraper",
         })
 
     all_sources.sort(key=lambda s: (
@@ -681,6 +784,7 @@ def _autoplay_next(imdb_id, tmdb_id, show_title, season, episode):
     next_e = e_int + 1
     waited = False
     next_source = None
+    reached_end = False
 
     while player.isPlaying() and not monitor.abortRequested():
         if total > 0:
@@ -703,10 +807,22 @@ def _autoplay_next(imdb_id, tmdb_id, show_title, season, episode):
                 except:
                     pass
             if remaining <= 2:
+                reached_end = True
                 break
         xbmc.sleep(3000)
 
     if monitor.abortRequested():
+        return
+
+    if not reached_end:
+        log("Autoplay: user pressed stop, aborting chain")
+        try:
+            cur_time = player.getTime()
+            if total > 0:
+                pct = cur_time / total * 100
+                update_continue_watching(imdb_id, tmdb_id, show_title, s_int, e_int, show_title, pct)
+        except:
+            pass
         return
 
     watched_pct = 1.0
@@ -746,9 +862,13 @@ def _autoplay_next(imdb_id, tmdb_id, show_title, season, episode):
 
 
 def _autoplay_source(source, title):
-    """Play a source using Player().play() for auto-play chaining."""
     magnet = source.get("magnet", "")
     info_hash = source.get("infoHash", "")
+    behavior_hints = source.get("behaviorHints", {})
+    if not info_hash:
+        info_hash = behavior_hints.get("infoHash", "")
+    if not magnet:
+        magnet = behavior_hints.get("magnet", "")
 
     if not info_hash and magnet:
         m = re.search(r"btih:([a-fA-F0-9]{40})", magnet)
@@ -764,12 +884,20 @@ def _autoplay_source(source, title):
     url = source.get("url", "")
     if url and url.startswith("http"):
         try:
-            req = urllib.request.Request(url, method="HEAD")
-            req.add_header("User-Agent", "Mozilla/5.0")
-            urllib.request.urlopen(req, timeout=5)
-            li = xbmcgui.ListItem(path=url, label=file_name)
-            xbmc.Player().play(url, li)
-            return True
+            if _is_dmca_video(url):
+                log("Autoplay: direct RD URL is DMCA notice, falling back")
+            else:
+                req = urllib.request.Request(url, method="HEAD")
+                req.add_header("User-Agent", "Mozilla/5.0")
+                resp = urllib.request.urlopen(req, timeout=8)
+                final_url = resp.geturl()
+
+                if any(x in final_url.lower() for x in ["configure", "exception", "error/", "autorize", "authorize"]):
+                    log("Autoplay: redirect led to error page, falling back")
+                else:
+                    li = xbmcgui.ListItem(path=final_url, label=file_name)
+                    xbmc.Player().play(final_url, li)
+                    return True
         except:
             pass
 
@@ -779,9 +907,12 @@ def _autoplay_source(source, title):
         try:
             result = resolve_magnet(actual_magnet, torrent_title or title)
             if result and result.get("url"):
-                li = xbmcgui.ListItem(path=result["url"], label=file_name)
-                xbmc.Player().play(result["url"], li)
-                return True
+                if _is_dmca_video(result["url"]):
+                    log("Autoplay: RD returned DMCA notice, falling back")
+                else:
+                    li = xbmcgui.ListItem(path=result["url"], label=file_name)
+                    xbmc.Player().play(result["url"], li)
+                    return True
         except Exception as e:
             log("Autoplay RD resolve error: %s" % str(e), xbmc.LOGERROR)
 

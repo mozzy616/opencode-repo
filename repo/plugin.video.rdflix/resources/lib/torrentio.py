@@ -65,6 +65,7 @@ def _query_stremio_api(base_url, path, rd_token, ad_token="", pm_token=""):
         return []
 
     name = base_url.split("/")[-1] if "/" in base_url else base_url
+    origin = "Comet" if "comet" in name else ("MF" if "mediafusion" in name else name[:8])
     all_streams = []
     seen_hashes = set()
 
@@ -81,6 +82,7 @@ def _query_stremio_api(base_url, path, rd_token, ad_token="", pm_token=""):
                     continue
                 if h:
                     seen_hashes.add(h.lower())
+                s["_origin"] = origin
                 all_streams.append(s)
 
     if all_streams:
@@ -128,6 +130,8 @@ def get_movie_sources(imdb_id):
         if resp and "streams" in resp:
             max_quality = _get_max_quality()
             filtered = _filter_by_quality(resp["streams"], max_quality)
+            for s in filtered:
+                s["_origin"] = "Torrentio"
             filtered.sort(key=lambda s: QUALITY_ORDER.get(s.get("_quality", "Unknown"), 99))
             all_sources.extend(filtered)
 
@@ -153,6 +157,8 @@ def get_episode_sources(imdb_id, season, episode):
         if resp and "streams" in resp:
             max_quality = _get_max_quality()
             filtered = _filter_by_quality(resp["streams"], max_quality)
+            for s in filtered:
+                s["_origin"] = "Torrentio"
             filtered.sort(key=lambda s: QUALITY_ORDER.get(s.get("_quality", "Unknown"), 99))
             all_sources.extend(filtered)
 
