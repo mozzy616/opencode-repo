@@ -1648,7 +1648,6 @@ def show_menu():
         ("[B]TV Series[/B]", "tvseries", "DefaultTVShows.png"),
         ("[B]Trakt Watchlist Movies[/B]", "trakt_watchlist", "DefaultVideo.png", {"media": "movie"}),
         ("[B]Trakt Watchlist TV[/B]", "trakt_watchlist", "DefaultTVShows.png", {"media": "show"}),
-        ("[B]Live TV[/B]", "livetv_menu", "DefaultTVShows.png"),
         ("[B]Open Magnet[/B]", "open_magnet", "DefaultAddon.png"),
         ("[B]LordPlayer[/B]", "lordplayer", "DefaultAddon.png"),
         ("[B]Settings[/B]", "settings", "DefaultAddon.png"),
