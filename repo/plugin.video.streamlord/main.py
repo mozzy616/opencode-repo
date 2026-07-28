@@ -1321,9 +1321,24 @@ def play_episode(eid, title, link, show_title, season, show_imdb_id="", episode_
         tpb = search_tpb(q)
         for s in tpb:
             name = s.get('name', '')
-            # Filter TPB results to match exact episode pattern
             if exact_pattern.search(name) or len(tpb) <= 1:
                 all_sources.append(('torrent', s.get('quality', 'SD'), s.get('seeders', 0), s.get('url', ''), s.get('hash', ''), s.get('size', ''), s.get('name', ''), s.get('debrid', False) or s.get('cached_checked', False)))
+
+    if show_imdb_id:
+        try:
+            stremio = _get_stremio_sources(True, show_imdb_id, s_int, e_int)
+            for s in stremio:
+                bh = s.get('behaviorHints', {})
+                ih = s.get('infoHash', '') or bh.get('infoHash', '')
+                url = s.get('url', '')
+                if not ih and ('playback' in url or 'exception' in url or 'configure' in url or 'error' in url.lower()):
+                    continue
+                magnet = "magnet:?xt=urn:btih:%s&dn=%s%s" % (ih, urllib.parse.quote(s.get('title', title)), TRACKERS) if ih else url
+                origin = s.get('_origin', '')
+                name_field = origin or s.get('title', '')
+                all_sources.append(('stremio', s.get('_quality', '?'), s.get('seeders', 0), magnet, ih, s.get('size', ''), name_field, True))
+        except Exception as e:
+            xbmc.log("[StreamLord] Stremio episode sources error: %s" % str(e), xbmc.LOGERROR)
 
     deduped = []
     seen = set()
