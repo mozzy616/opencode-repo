@@ -49,6 +49,17 @@ def _fetch(url, method="GET", data=None, auth_required=True):
         except:
             pass
         log("HTTP %d %s body=%s" % (e.code, url.split("?")[0], body[:500]), xbmc.LOGWARNING)
+        if e.code == 401 and auth_required:
+            new_token, _ = refresh_token()
+            if new_token:
+                headers["Authorization"] = "Bearer " + new_token
+                try:
+                    req = urllib.request.Request(url, data=encoded, headers=headers, method=method)
+                    with urllib.request.urlopen(req, timeout=30) as r:
+                        raw = r.read().decode("utf-8", errors="replace")
+                        return json.loads(raw) if raw else {}
+                except:
+                    pass
         if e.code in (401, 403) and "disabled_endpoint" not in body and "endpoint" not in body.lower():
             notify("RDFlix", "RD token invalid. Check settings.", xbmcgui.NOTIFICATION_ERROR, 8000)
         return None
@@ -89,8 +100,11 @@ def _oauth_fetch(url, data=None):
         return None
 
 
+RD_CLIENT_ID = "X245A4XAIBGVM"
+
 def get_device_code():
-    resp = _oauth_fetch(RD_OAUTH + "/device/code", {"client_id": "X245A4XAIBGVMW", "new_credentials": "yes"})
+    url = "%s/device/code?client_id=%s&new_credentials=yes" % (RD_OAUTH, RD_CLIENT_ID)
+    resp = _oauth_fetch(url)
     if resp:
         return resp.get("device_code"), resp.get("user_code"), resp.get("verification_url")
     return None, None, None
@@ -98,7 +112,8 @@ def get_device_code():
 
 def poll_device_auth(device_code):
     for attempt in range(60):
-        resp = _oauth_fetch(RD_OAUTH + "/device/credentials", {"client_id": "X245A4XAIBGVMW", "code": device_code})
+        url = "%s/device/credentials?client_id=%s&code=%s" % (RD_OAUTH, RD_CLIENT_ID, device_code)
+        resp = _oauth_fetch(url)
         if resp and "client_id" in resp:
             return resp.get("client_id"), resp.get("client_secret")
         if resp and resp.get("error") != "authorization_pending":
@@ -107,21 +122,43 @@ def poll_device_auth(device_code):
     return None, None
 
 
-def get_token(client_id, client_secret, device_code=""):
-    params = {
+def get_token(client_id, client_secret, code):
+    resp = _oauth_fetch(RD_OAUTH + "/token", {
         "client_id": client_id,
         "client_secret": client_secret,
+        "code": code,
         "grant_type": "http://oauth.net/grant_type/device/1.0",
-    }
-    if device_code:
-        params["code"] = device_code
-    else:
-        params["code"] = client_secret
-    resp = _oauth_fetch(RD_OAUTH + "/token", params)
+    })
     if resp and "access_token" in resp:
         return resp["access_token"], resp.get("refresh_token", "")
-    log("Token exchange response: %s" % str(resp)[:200], xbmc.LOGWARNING)
+    log("Token exchange failed: %s" % str(resp)[:200], xbmc.LOGWARNING)
     return None, None
+
+
+def refresh_token():
+    client_id = get_setting("rd_client_id", "")
+    client_secret = get_setting("rd_client_secret", "")
+    refresh = get_setting("rd_refresh_token", "")
+    if not client_id or not client_secret or not refresh:
+        log("No refresh credentials stored", xbmc.LOGWARNING)
+        return None, None
+    access_token, new_refresh = get_token(client_id, client_secret, refresh)
+    if access_token:
+        set_setting("rd_token", access_token)
+        if new_refresh:
+            set_setting("rd_refresh_token", new_refresh)
+        log("RD token refreshed successfully")
+        return access_token, new_refresh
+    log("RD token refresh failed — clearing auth", xbmc.LOGWARNING)
+    clear_auth()
+    return None, None
+
+
+def clear_auth():
+    set_setting("rd_token", "")
+    set_setting("rd_refresh_token", "")
+    set_setting("rd_client_id", "")
+    set_setting("rd_client_secret", "")
 
 
 def get_user():

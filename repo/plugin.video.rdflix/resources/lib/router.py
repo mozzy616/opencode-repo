@@ -14,7 +14,7 @@ from resources.lib.menus import (
     sports_search_view, livetv_menu, livetv_channels_view, livetv_play,
 )
 from resources.lib.player import play_movie, play_episode
-from resources.lib.rd_api import get_device_code, poll_device_auth, get_user
+from resources.lib.rd_api import get_device_code, poll_device_auth, get_user, get_token, clear_auth
 
 
 def device_auth():
@@ -28,11 +28,19 @@ def device_auth():
 
     client_id, client_secret = poll_device_auth(device_code)
     if client_id and client_secret:
-        set_setting("rd_token", client_id)
-        notify("RDFlix", "Device authorized successfully!")
-        user = get_user()
-        if user:
-            notify("RDFlix", "Logged in as: %s" % user.get("username", "Unknown"))
+        access_token, refresh = get_token(client_id, client_secret, device_code)
+        if access_token:
+            set_setting("rd_token", access_token)
+            set_setting("rd_refresh_token", refresh)
+            set_setting("rd_client_id", client_id)
+            set_setting("rd_client_secret", client_secret)
+            notify("RDFlix", "Device authorized successfully!")
+            user = get_user()
+            if user:
+                notify("RDFlix", "Logged in as: %s" % user.get("username", "Unknown"))
+        else:
+            clear_auth()
+            dialog_ok("RDFlix", "Token exchange failed. Please try again.")
     else:
         dialog_ok("RDFlix", "Device authorization failed or timed out.")
 
