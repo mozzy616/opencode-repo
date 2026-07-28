@@ -15,6 +15,7 @@
         <setting label="Get your API key at premiumize.me/account" type="lsep"/>
     </category>
     <category label="Playback">
+        <setting id="max_quality" type="labelenum" label="Maximum Quality" values="4K|1080p|720p|SD" default="4K"/>
         <setting id="autoplay_next" type="bool" label="Auto-play next episode" default="false" />
     </category>
     <category label="Downloads">
