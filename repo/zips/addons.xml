@@ -217,7 +217,7 @@
     </assets>
   </extension>
 </addon>
-<addon id="plugin.video.streamlord" name="StreamLord" version="3.6.0" provider-name="opencode">
+$13.6.1" provider-name="opencode">
     <requires>
         <import addon="xbmc.python" version="3.0.0"/>
         <import addon="script.module.cocoscrapers"/>
@@ -988,4 +988,22 @@
 		</assets>
 	</extension>
 </addon>
-</addons>
+$11.5.2" provider-name="opencode">
+    <requires>
+        <import addon="xbmc.python" version="3.0.0"/>
+        <import addon="script.module.cocoscrapers" optional="true"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="main.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en_GB">RDFlix - Premium Real-Debrid Streaming</summary>
+        <description lang="en_GB">Browse and stream movies and TV shows using Real-Debrid. Features instant cached playback, TMDb metadata, high-quality sources, and a premium interface.</description>
+        <platform>all</platform>
+        <license>MIT</license>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+        </assets>
+    </extension>
+</addon></addons>
