@@ -135,7 +135,6 @@ def _merge_sources(torrentio_sources, scraper_sources):
     all_sources = []
 
     for s in torrentio_sources:
-        rd_token = get_setting("rd_token", "")
         all_sources.append({
             "infoHash": s.get("infoHash", ""),
             "title": s.get("title", ""),
@@ -145,7 +144,7 @@ def _merge_sources(torrentio_sources, scraper_sources):
             "_quality": s.get("_quality", "?"),
             "seeders": s.get("seeders", s.get("seed", 0)),
             "size": s.get("size", ""),
-            "isDebridCached": bool(rd_token),
+            "isDebridCached": True,
         })
 
     seen_hashes = set()
@@ -222,8 +221,10 @@ def _check_rd_cache(sources):
                     sources[hash_to_idx[hkey]]["isDebridCached"] = True
                     newly_cached.append(hkey)
             log("RD instantAvailability: %d cached, checked %d" % (len(newly_cached), len(unknown)))
-    except Exception:
-        pass
+        else:
+            log("RD instantAvailability: 0 cached from %d hashes" % len(unknown))
+    except Exception as e:
+        log("RD instantAvailability failed (may be disabled): %s" % str(e), xbmc.LOGWARNING)
 
     # Step 3: Fallback - check user's RD torrents list for remaining unknown
     remaining = [h for h in unknown if h not in newly_cached]
@@ -257,60 +258,6 @@ def _check_rd_cache(sources):
 
 
 def _sort_sources(sources):
-    sources.sort(key=lambda s: (
-        not s.get("isDebridCached", False),
-        QUALITY_ORDER.get(s.get("_quality", "Unknown"), 99),
-        -(s.get("seeders", 0) or 0)
-    ))
-    return sources
-
-    hashes = []
-    hash_to_idx = {}
-    for idx, s in enumerate(sources):
-        h = s.get("infoHash", "")
-        if h and len(h) >= 40 and not s.get("isDebridCached"):
-            hl = h.lower()[:40]
-            hashes.append(hl)
-            hash_to_idx[hl] = idx
-
-    if not hashes:
-        return sources
-
-    found = 0
-
-    # Try instantAvailability first
-    try:
-        cached = instant_availability(hashes)
-        if cached:
-            for h, info in cached.items():
-                hkey = h.lower()[:40]
-                if hkey in hash_to_idx:
-                    if isinstance(info, dict) and info:
-                        idx = hash_to_idx[hkey]
-                        sources[idx]["isDebridCached"] = True
-                        found += 1
-            log("RD instantAvailability: %d/%d cached" % (found, len(hashes)))
-    except Exception as e:
-        log("RD instantAvailability failed: %s, trying torrents list..." % str(e), xbmc.LOGWARNING)
-
-    # Fallback: check against user's existing RD torrents
-    if found == 0:
-        try:
-            existing = user_torrents_list()
-            if existing:
-                rd_hashes = set()
-                for t in existing:
-                    th = (t.get("hash") or "").lower()[:40]
-                    if th and t.get("status") == "downloaded":
-                        rd_hashes.add(th)
-                for hkey, idx in hash_to_idx.items():
-                    if hkey in rd_hashes and not sources[idx].get("isDebridCached"):
-                        sources[idx]["isDebridCached"] = True
-                        found += 1
-                log("RD torrents list: %d/%d cached from %d existing" % (found, len(hashes), len(rd_hashes)))
-        except Exception as e:
-            log("RD torrents list fallback failed: %s" % str(e), xbmc.LOGWARNING)
-
     sources.sort(key=lambda s: (
         not s.get("isDebridCached", False),
         QUALITY_ORDER.get(s.get("_quality", "Unknown"), 99),
@@ -762,16 +709,23 @@ def _autoplay_next(imdb_id, tmdb_id, show_title, season, episode):
     if monitor.abortRequested():
         return
 
-    if total > 0 and player.getTime() > 0:
-        watched_pct = player.getTime() / total
-        if watched_pct >= 0.85:
-            try:
-                update_continue_watching(imdb_id, tmdb_id, show_title, s_int, e_int, show_title, 100)
-            except:
-                pass
-        if watched_pct < 0.85:
-            log("Autoplay: user stopped playback (%.0f%% watched)" % (watched_pct * 100))
-            return
+    watched_pct = 1.0
+    try:
+        cur_time = player.getTime()
+        if total > 0 and cur_time > 0:
+            watched_pct = cur_time / total
+    except:
+        log("Autoplay: player state lost after playback ended")
+        watched_pct = 1.0
+
+    if watched_pct >= 0.85:
+        try:
+            update_continue_watching(imdb_id, tmdb_id, show_title, s_int, e_int, show_title, 100)
+        except:
+            pass
+    else:
+        log("Autoplay: user stopped playback (%.0f%% watched)" % (watched_pct * 100))
+        return
 
     # If we never pre-fetched, do it now
     if not waited:
@@ -840,7 +794,9 @@ def _autoplay_source(source, title):
         try:
             lid = "plugin.video.lordplayer.droid" if xbmc.getCondVisibility("System.HasAddon(plugin.video.lordplayer.droid)") else "plugin.video.lordplayer"
             plugin_url = "plugin://%s/play_magnet?magnet=%s&buffer=true" % (lid, urllib.parse.quote(magnet_link, safe=""))
-            xbmc.executebuiltin("PlayMedia(%s)" % plugin_url)
+            li = xbmcgui.ListItem(path=plugin_url, label=file_name)
+            li.setProperty("IsPlayable", "true")
+            xbmc.Player().play(plugin_url, li)
             return True
         except Exception as e:
             log("Autoplay LordPlayer error: %s" % str(e), xbmc.LOGERROR)

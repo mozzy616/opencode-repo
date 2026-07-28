@@ -45,11 +45,11 @@ def _fetch(url, method="GET", data=None, auth_required=True):
     except urllib.error.HTTPError as e:
         body = ""
         try:
-            body = e.read().decode("utf-8", errors="replace")[:500]
+            body = e.read().decode("utf-8", errors="replace")
         except:
             pass
-        log("HTTP %d %s body=%s" % (e.code, url.split("?")[0][-50:], body), xbmc.LOGWARNING)
-        if e.code in (401, 403) and "disabled_endpoint" not in body:
+        log("HTTP %d %s body=%s" % (e.code, url.split("?")[0], body[:500]), xbmc.LOGWARNING)
+        if e.code in (401, 403) and "disabled_endpoint" not in body and "endpoint" not in body.lower():
             notify("RDFlix", "RD token invalid. Check settings.", xbmcgui.NOTIFICATION_ERROR, 8000)
         return None
     except urllib.error.URLError as e:
@@ -107,15 +107,20 @@ def poll_device_auth(device_code):
     return None, None
 
 
-def get_token(client_id, client_secret):
-    resp = _oauth_fetch(RD_OAUTH + "/token", {
+def get_token(client_id, client_secret, device_code=""):
+    params = {
         "client_id": client_id,
         "client_secret": client_secret,
-        "code": client_secret,
         "grant_type": "http://oauth.net/grant_type/device/1.0",
-    })
+    }
+    if device_code:
+        params["code"] = device_code
+    else:
+        params["code"] = client_secret
+    resp = _oauth_fetch(RD_OAUTH + "/token", params)
     if resp and "access_token" in resp:
         return resp["access_token"], resp.get("refresh_token", "")
+    log("Token exchange response: %s" % str(resp)[:200], xbmc.LOGWARNING)
     return None, None
 
 
