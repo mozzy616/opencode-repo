@@ -20,6 +20,7 @@ PARAMS = sys.argv[2]
 BASE = "https://streamlord.to"
 USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
 QUALITY_ORDER = {'4K': 0, '1080p': 1, '720p': 2, 'SD': 3, 'SCR': 4, 'CAM': 5}
+CONTINUE_WATCHING_FILE = xbmcvfs.translatePath("special://profile/addon_data/plugin.video.streamlord/continue_watching.json")
 
 cj = http.cookiejar.CookieJar()
 opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(cj))
@@ -764,6 +765,35 @@ def _rd_download(url, filename, title):
         return
     rd.download_file(url, dest, filename, title)
 
+def _load_continue_watching():
+    try:
+        if not xbmcvfs.exists(CONTINUE_WATCHING_FILE):
+            return []
+        with open(xbmcvfs.translatePath(CONTINUE_WATCHING_FILE), 'r') as f:
+            return json.loads(f.read())
+    except:
+        return []
+
+
+def _save_continue_watching(imdb_id, tmdb_id, title, season, episode, show_title, progress_pct):
+    try:
+        data = _load_continue_watching()
+        key = "%s_%s_%s" % (imdb_id, season, episode) if season else imdb_id
+        data = [d for d in data if d.get('key') != key]
+        data.insert(0, {
+            'key': key, 'imdb_id': imdb_id, 'tmdb_id': tmdb_id,
+            'title': title, 'show_title': show_title, 'season': str(season or ''),
+            'episode': str(episode or ''), 'progress': int(progress_pct),
+            'time': int(time.time())
+        })
+        data = data[:50]
+        os.makedirs(os.path.dirname(xbmcvfs.translatePath(CONTINUE_WATCHING_FILE)), exist_ok=True)
+        with open(xbmcvfs.translatePath(CONTINUE_WATCHING_FILE), 'w') as f:
+            json.dump(data, f)
+    except:
+        pass
+
+
 def _is_dmca_video(url):
     try:
         import urllib.request
@@ -1087,7 +1117,7 @@ def _get_download_path():
     return xbmcvfs.translatePath("special://home/userdata/downloads/")
 
 
-def play_movie(mid, title, watch_link="", imdb_id="", year="", tmdb_id=""):
+def play_movie(mid, title, watch_link="", imdb_id="", year="", tmdb_id="", resume_pct="0"):
     if not imdb_id and tmdb_id:
         imdb_id = _tmdb_get_imdb_id(tmdb_id, "movie")
         xbmc.log("[StreamLord] Resolved tmdb_id=%s to imdb_id=%s" % (tmdb_id, imdb_id), xbmc.LOGINFO)
@@ -1222,6 +1252,7 @@ def play_movie(mid, title, watch_link="", imdb_id="", year="", tmdb_id=""):
     action = xbmcgui.Dialog().select("Choose action", ["Play via LordPlayer", "Download via LordPlayer"])
     if action == 0:
         if play_via_LordPlayer(chosen[3], title):
+            _save_resume(title, imdb_id, tmdb_id, resume_pct, 0, 0)
             return
     elif action == 1:
         handle_download(chosen[3], title)
@@ -1230,7 +1261,7 @@ def play_movie(mid, title, watch_link="", imdb_id="", year="", tmdb_id=""):
     xbmcplugin.endOfDirectory(HANDLE)
     xbmcgui.Dialog().ok("StreamLord", "Torrent failed to play.\n%s" % title)
 
-def play_episode(eid, title, link, show_title, season, show_imdb_id="", episode_num=""):
+def play_episode(eid, title, link, show_title, season, show_imdb_id="", episode_num="", tmdb_id="", resume_pct="0"):
     full_title = "%s - %s" % (show_title, title) if show_title else title
     season_num = re.search(r'\d+', season).group() if re.search(r'\d+', season) else season
     ep_num = episode_num or re.search(r'(\d+)', title) if not episode_num else episode_num
@@ -1570,8 +1601,57 @@ def _show_tpb_results(results, label):
     elif action == 1:
         handle_download(magnet, label)
 
+def _save_resume(title, imdb_id, tmdb_id, resume_pct, season, episode):
+    if int(float(resume_pct)) > 0 and imdb_id:
+        _save_continue_watching(imdb_id, tmdb_id, title, season, episode, title, resume_pct)
+
+
+def _do_resume_seek(resume_pct):
+    if int(float(resume_pct)) > 5:
+        xbmc.sleep(2000)
+        try:
+            player = xbmc.Player()
+            if player.isPlaying():
+                total = player.getTotalTime()
+                seek_to = int(total * float(resume_pct) / 100)
+                player.seekTime(seek_to)
+                xbmc.log("[StreamLord] Resumed at %ds" % seek_to, xbmc.LOGINFO)
+        except:
+            pass
+
+
+def list_continue_watching():
+    items = _load_continue_watching()
+    if not items:
+        xbmcgui.Dialog().notification("StreamLord", "Nothing in continue watching", xbmcgui.NOTIFICATION_INFO, 3000)
+        xbmcplugin.endOfDirectory(HANDLE)
+        return
+    for item in items:
+        title = item.get('show_title') or item.get('title', 'Unknown')
+        season = item.get('season', '')
+        episode = item.get('episode', '')
+        progress = item.get('progress', 0)
+        label = title
+        if season and episode:
+            label = "%s S%02dE%02d" % (title, int(season or 0), int(episode or 0))
+        label += " [%d%%]" % progress
+        li = xbmcgui.ListItem(label=label)
+        li.setInfo("video", {"title": title, "tvshowtitle": title if season else "", "season": int(season or 0), "episode": int(episode or 0)})
+        li.setArt({"icon": "DefaultTVShows.png" if season else "DefaultVideo.png"})
+        imdb_id = item.get('imdb_id', '')
+        tmdb_id = item.get('tmdb_id', '')
+        if season and episode:
+            xbmcplugin.addDirectoryItem(HANDLE, get_url(action="play_episode", eid="", title="S%02dE%02d" % (int(season or 0), int(episode or 0)),
+                link="", show_title=title, season=season, show_imdb_id=imdb_id, episode_num=episode, tmdb_id=tmdb_id, resume_pct=str(progress)), li, isFolder=False)
+        else:
+            xbmcplugin.addDirectoryItem(HANDLE, get_url(action="play_movie", mid="", title=title, watch_link="",
+                imdb_id=imdb_id, year="", tmdb_id=tmdb_id, resume_pct=str(progress)), li, isFolder=False)
+    xbmcplugin.endOfDirectory(HANDLE)
+
+
 def show_menu():
     items = [
+        ("[B]Continue Watching[/B]", "continue_watching", "DefaultRecentlyAddedEpisodes.png"),
         ("[B]Search All Torrents[/B]", "search", "DefaultAddonsSearch.png"),
         ("[B]Hot Movies[/B]", "movies", "DefaultMovies.png"),
         ("[B]TV Series[/B]", "tvseries", "DefaultTVShows.png"),
@@ -1829,15 +1909,17 @@ def main():
         elif a == "season_episodes":
             season_episodes(p.get("link", ""), p.get("season", "1"), p.get("show_title", ""), p.get("thumb", ""), p.get("show_imdb_id", ""))
         elif a == "play_movie":
-            play_movie(p.get("mid", ""), p.get("title", ""), p.get("watch_link", ""), p.get("imdb_id", ""), p.get("year", ""), p.get("tmdb_id", ""))
+            play_movie(p.get("mid", ""), p.get("title", ""), p.get("watch_link", ""), p.get("imdb_id", ""), p.get("year", ""), p.get("tmdb_id", ""), p.get("resume_pct", "0"))
         elif a == "play_episode":
-            play_episode(p.get("eid", ""), p.get("title", ""), p.get("link", ""), p.get("show_title", ""), p.get("season", "1"), p.get("show_imdb_id", ""), p.get("episode_num", ""))
+            play_episode(p.get("eid", ""), p.get("title", ""), p.get("link", ""), p.get("show_title", ""), p.get("season", "1"), p.get("show_imdb_id", ""), p.get("episode_num", ""), p.get("tmdb_id", ""), p.get("resume_pct", "0"))
         elif a == "tpb_search":
             search_tpb_menu(p.get("query", ""), p.get("browse_tmdb", ""), p.get("browse_season", ""))
         elif a == "tpb_play_movie":
             tpb_play_movie(p.get("title", ""), p.get("year", ""))
         elif a == "tpb_play_episode":
             tpb_play_episode(p.get("show_title", ""), p.get("season", ""), p.get("episode", ""))
+        elif a == "continue_watching":
+            list_continue_watching()
         elif a == "fight_category":
             fight_category(p.get("cat_slug", ""), int(p.get("page", "1")))
         elif a == "fight_post":
