@@ -1,0 +1,34 @@
+{
+  "name": "BattleBlock Theater",
+  "description": "BattleBlock Theater is a platform game developed by The Behemoth.\n\nThe player was aboard the S.S. Friendship when the ship encounters a heavy storm that causes the ship to crash into a strange island. After the player awakens, no ship's crew members seem to be around. Moreover, it is revealed that the crew is held prisoner by cats that force the crew members to act out deadly performances in the cats' theater. The player has to pass all the levels in order to save Hatty Hattington, the best friend to one and all.\n\nThere are two game modes featured in BattleBlock Theater: Adventure Mode and the Arena. Adventure Mode resembles the game's campaign, which can be played alone or in co-op. There are multiple chapters in this mode that consist of several levels. In order to unlock the next chapter, the player has to get a certain amount of gems and pass the \"Boss Level\" which is a usual level but with a time limit. Players have the ability to collect balls of yarn in order to buy new equipment from cat guards.\n\nArena Mode is a competitive game mode for 2 to 4 players. Players take part in various mini-games to score the most points for their team and win the round.",
+  "released": "2013-04-03",
+  "rating": 3.84,
+  "metacritic": 85,
+  "genres": [
+    "Action",
+    "Adventure",
+    "Casual",
+    "Indie",
+    "Platformer"
+  ],
+  "developers": [
+    "The Behemoth"
+  ],
+  "publishers": [
+    "Microsoft Studios",
+    "The Behemoth"
+  ],
+  "platforms": [
+    "Xbox 360",
+    "Xbox One",
+    "macOS",
+    "PC",
+    "Linux"
+  ],
+  "thumbnail": "https://media.rawg.io/media/games/388/388935d851846f8ec747fffc7c765800.jpg",
+  "background": "https://media.rawg.io/media/games/388/388935d851846f8ec747fffc7c765800.jpg",
+  "banner": "",
+  "poster": "https://media.rawg.io/media/screenshots/aa6/aa6599bc6fa004d79b49bf63084bd752.jpg",
+  "fanart": "https://media.rawg.io/media/games/388/388935d851846f8ec747fffc7c765800.jpg",
+  "_thumb_local": "C:\\Users\\user\\AppData\\Roaming\\Kodi\\addons\\plugin.program.gamelauncher\\.cache\\art\\battleblock theater_thumb.jpg"
+}

@@ -1,0 +1,30 @@
+{
+  "name": "The Simpsons: Hit & Run",
+  "description": "",
+  "released": "2003-09-16",
+  "rating": 4.08,
+  "metacritic": null,
+  "genres": [
+    "Action",
+    "Racing"
+  ],
+  "developers": [
+    "Radical Entertainment"
+  ],
+  "publishers": [
+    "Vivendi Universal Games",
+    "Vivendi Games"
+  ],
+  "platforms": [
+    "Xbox",
+    "PC",
+    "GameCube",
+    "PlayStation 2"
+  ],
+  "thumbnail": "https://media.rawg.io/media/screenshots/d20/d20a46fb6d3b176b2613b2c234c710d5.jpg",
+  "background": "https://media.rawg.io/media/screenshots/d20/d20a46fb6d3b176b2613b2c234c710d5.jpg",
+  "banner": "",
+  "poster": "https://media.rawg.io/media/screenshots/da8/da82135351db974d1e9f04ca62daedb0.jpg",
+  "fanart": "https://media.rawg.io/media/screenshots/d20/d20a46fb6d3b176b2613b2c234c710d5.jpg",
+  "_thumb_local": "C:\\Users\\user\\AppData\\Roaming\\Kodi\\addons\\plugin.program.gamelauncher\\.cache\\art\\the simpsons hit and run_thumb.jpg"
+}

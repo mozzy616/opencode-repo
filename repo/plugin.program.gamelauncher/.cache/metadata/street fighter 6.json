@@ -1,0 +1,30 @@
+{
+  "name": "Street Fighter 6",
+  "description": "A new era for fighting games begins in 2023!\n\nThe evolution of fighting games starts with our traditional Fighting Ground,\nand then we're turning the genre on its head with World Tour and Battle Hub for a total of three modes where anyone can play to their liking.\nNo one starts off as a champion. You get there step by step, punch by punch.\nTake up the challenge and bring your game to the next level.",
+  "released": "2023-06-01",
+  "rating": 4.09,
+  "metacritic": null,
+  "genres": [
+    "Action",
+    "Adventure",
+    "Fighting"
+  ],
+  "developers": [
+    "Capcom"
+  ],
+  "publishers": [
+    "Capcom"
+  ],
+  "platforms": [
+    "PC",
+    "Xbox Series S/X",
+    "PlayStation 4",
+    "PlayStation 5"
+  ],
+  "thumbnail": "https://media.rawg.io/media/games/ce2/ce2463db40cec363f360c29ddcc56884.jpg",
+  "background": "https://media.rawg.io/media/games/ce2/ce2463db40cec363f360c29ddcc56884.jpg",
+  "banner": "",
+  "poster": "https://media.rawg.io/media/screenshots/e37/e37f86b2e89469788bb291b7367ca11b.jpg",
+  "fanart": "https://media.rawg.io/media/games/ce2/ce2463db40cec363f360c29ddcc56884.jpg",
+  "_thumb_local": "C:\\Users\\user\\AppData\\Roaming\\Kodi\\addons\\plugin.program.gamelauncher\\.cache\\art\\street fighter 6_thumb.jpg"
+}

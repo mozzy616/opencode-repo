@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+    <category label="Game Directories">
+        <setting id="game_dir" type="folder" label="Game Directory 1" default="" />
+        <setting id="game_dir_2" type="folder" label="Game Directory 2" default="" />
+        <setting id="game_dir_3" type="folder" label="Game Directory 3" default="" />
+        <setting id="game_dir_4" type="folder" label="Game Directory 4" default="" />
+        <setting id="game_dir_5" type="folder" label="Game Directory 5" default="" />
+        <setting id="extensions" type="text" label="Game File Extensions" default=".exe,.lnk,.bat,.cmd,.com,.jar" />
+        <setting id="recursive" type="bool" label="Scan Subdirectories" default="true" />
+        <setting id="min_file_size" type="number" label="Minimum File Size (KB)" default="512" />
+        <setting id="scan_on_start" type="bool" label="Auto-scan on Start" default="false" />
+    </category>
+    <category label="Metadata">
+        <setting id="rawg_key" type="text" label="RAWG API Key (free from rawg.io/apidocs)" default="" />
+        <setting id="enable_metadata" type="bool" label="Fetch Metadata" default="true" />
+        <setting id="prefer_steam_names" type="bool" label="Use Filename Instead of API Title" default="false" />
+    </category>
+    <category label="Launch">
+        <setting id="launch_method" type="enum" label="Launch Method" values="Launch Minimized|Launch Normal|ShellExecute" default="0" />
+        <setting id="close_kodi" type="bool" label="Minimize Kodi on Launch" default="true" />
+    </category>
+    <category label="Tools">
+        <setting id="rescan_btn" type="action" label="Scan Directories" default="Scan Now" option="close" action="RunPlugin(plugin://plugin.program.gamelauncher/?action=scan)" />
+        <setting id="clearcache_btn" type="action" label="Clear All Data and Start Fresh" default="Clear Now" option="close" action="RunPlugin(plugin://plugin.program.gamelauncher/?action=clear_cache)" />
+    </category>
+</settings>

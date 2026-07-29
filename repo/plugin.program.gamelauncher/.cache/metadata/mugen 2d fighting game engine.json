@@ -1,0 +1,25 @@
+{
+  "name": "Jecode - 2d Game Engine",
+  "description": "Jecode - Game Engine 2d\n---\n/\\Fun Fact: It just took me 2 days to make this game engine's first version/\\\n---\n/\\ One Of My Best game 'Slidy Race 2d Multiplayer' Game Link: https://scratch.mit.edu/projects/765803543/\n/\\\n/\\ Documentation:\nJTV \"Jecode Transform Value\":\n0 = Centre\n1 = Bottom Left\n2 = Bottom Right\n3 = Top Left\n4 = Top Right\nTry Using 1.5 & 3.5\n-\nSet Behavior[Enemy] :\n1 = Roam\n2 = Attacking Straight Forward\n3 = Stand idle\n-\nSet Random Behavior[Enemy] (Set Ran. Behavior Block) :\nRandomly Sets The Enemy Behavior.\n-\nSet Random Color Effect [Backdrop] (Set Ran. Color Effect Block) :\nRandomly Sets The Color Effect For Your Game Backdrop.\n-\nCreate New IS(Input System)[Player] :\nInput Values: Up, Down, Right, left, Jump.\nNote: For The Right & Left Side Of The Screen Answer Box, You Can Only Put The Right & Left Inputs.\n-\nKIS \"Keys Input System\"\nArrow Keys To Move & Jump.\n-\nTIS \"Touch Input System\"\nTouch On The Left/Right Of The Game Screen To Move\n-\nNew KIS:\nUp Arrow Key To Go Up and Not To Jump Like The Older Input System.\nDow Arrow Key To Go Down.\n-\nBroadcast From Player[Enemy] :\nCodeline Inputs:\nBrFrom(Player)To[enemy]Eqpt = {Flare};\u00a0 \u00a0- This Input Makes Shoot The Flare From Player To Enemy.\nBrFrom(Player)To[enemy]Eqpt = {Flare}Colors = {SetColorEffect};\u00a0 \u00a0-\u00a0 This Makes The Same As Before Defined Codeline But Allows You To Set The Color Effect Of The Flare.\nIfClickedSelf\n:\u00a0 \u00a0 \u00a0-\u00a0 \u00a0 Creates A Flare When The User Clicks The Player Sprite.\n\"When Enemy Received\" Inputs:\nKill - Kills The Enemy And Finishes The Game(After This, Restart The game Engine To Work Properly).\nDamage - Takes Half Of The Health From Enemy.\n-\nGame Instructions[ChatBox] :\nAsks You To Set The\u00a0 Game Instructions Which Will Read Out By The ChatBox When The Game Starts.\nIt Also Asks You To Set The Seconds Which Will Be The Time Difference That The Instructions Read Out.\n-\nAdvanced Set Behavior Block:\nInputs:\nFlappy - Enemy Glides On The Middle Of The Screen.\nPlatformer - Enemy Glides on The Bottom Of The Screen.\nSkydiver - Enemy Glides On The Top Of The Screen.\n-\nEnable WASD [Enemy] :\nEnables WASD Keys To Move Enemy And Play The Game As The Enemy is The Player 2.\n-\n---\n/\\v4.0 - Eighth Version \"Near To Finish Update: New Set JTV Enemy Block, Advanced Set Behavior Block And Enable & Disable WASD Keys For Enemy Blocks\" - Dec 11-2022./\\\n---\n/\\Versions List:\nv1.0 - First Version - Nov 24 to 25-2022.\nv1.2 - Second Version \"New Keys Input System\"\u00a0 - Nov 26-2022.\nv1.3 - Third Version \"New UI For All Tabs\" - Nov 27-2022.\nv1.4 - Fourth Version \"New Input System: TIS\" - Nov 29-2022.\nv1.5 - Fifth Version \" Mobile Friendly Update: New Set Random Enemy Behavior Block, New UI & New Add Sprites Button\" - Nov 30-2022.\nv2.0 - Sixth Version \"Mega Update: New Set Random Color Effect To Backdrop Block And New Create Input System Block\" - Dec 3-2022.\nv3.0 - Seventh Version \"Fully Finished Update: New Code Blocks Like Broadcasting & Set Game Instructions. New Right & Left Touch Input Set Answer Box In 'Create New IS' Block\" - Dec 5-2022.\nv4.0 - Eighth Version \"Near To Finish Update: New Set JTV Enemy Block, Advanced Set Behavior Block And Enable & Disable WASD Keys For Enemy Blocks\" - Dec 11-2022.\n/\\\n---\n/\\This Game Is Also Available On Scratch:\nhttps://scratch.mit.edu/projects/766915610/\n/\\\n---\n/\\------------------------------------------------------------------------------------------------------/\\",
+  "released": "2022-11-27",
+  "rating": 0.0,
+  "metacritic": null,
+  "genres": [],
+  "developers": [
+    "Anish"
+  ],
+  "publishers": [],
+  "platforms": [
+    "Web",
+    "Android",
+    "Linux",
+    "macOS",
+    "PC"
+  ],
+  "thumbnail": "https://media.rawg.io/media/screenshots/336/336de421f987fd94411375f27b7b61d3.jpg",
+  "background": "https://media.rawg.io/media/screenshots/336/336de421f987fd94411375f27b7b61d3.jpg",
+  "banner": "",
+  "poster": "https://media.rawg.io/media/screenshots/e12/e12fa6edb974daa8ec4e6f3de3629277.jpg",
+  "fanart": "https://media.rawg.io/media/screenshots/336/336de421f987fd94411375f27b7b61d3.jpg",
+  "_thumb_local": "C:\\Users\\user\\AppData\\Roaming\\Kodi\\addons\\plugin.program.gamelauncher\\.cache\\art\\mugen 2d fighting game engine_thumb.jpg"
+}
