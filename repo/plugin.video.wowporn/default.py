@@ -149,13 +149,9 @@ def scrape_categories(html):
 
 
 def scrape_video_page(html):
-    hls_match = re.search(r'content="(https://cdn\d+\.wowporn\.video/hls/[^"]+\.m3u8[^"]*)"', html)
+    hls_match = re.search(r'content="(https://cdn[\w\d]+\.wowporn\.video/hls/[^"]+\.m3u8[^"]*)"', html)
     if not hls_match:
-        hls_match = re.search(r'"contentUrl":\s*"([^"]+\.m3u8[^"]*)"', html)
-    if not hls_match:
-        src_match = re.search(r'<source[^>]*src="([^"]+\.m3u8[^"]*)"', html)
-        if src_match:
-            hls_match = src_match
+        hls_match = re.search(r'(https?://[^\s"]+\.m3u8[^\s"]*)', html)
     return hls_match.group(1) if hls_match else ""
 
 
