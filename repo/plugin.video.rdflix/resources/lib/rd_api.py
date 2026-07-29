@@ -60,7 +60,7 @@ def _fetch(url, method="GET", data=None, auth_required=True):
                         return json.loads(raw) if raw else {}
                 except:
                     pass
-        if e.code in (401, 403) and "disabled_endpoint" not in body and "endpoint" not in body.lower():
+        if e.code == 401 and "disabled_endpoint" not in body:
             notify("RDFlix", "RD token invalid. Check settings.", xbmcgui.NOTIFICATION_ERROR, 8000)
         return None
     except urllib.error.URLError as e:
