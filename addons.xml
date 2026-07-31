@@ -95,6 +95,25 @@
         </assets>
     </extension>
 </addon>
+<addon id="plugin.program.gamelauncher" name="Game Launcher" version="1.0.0" provider-name="opencode">
+    <requires>
+        <import addon="xbmc.python" version="3.0.0"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="main.py">
+        <provides>executable game</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en_GB">Game Launcher</summary>
+        <description lang="en_GB">Launch PC games directly from Kodi. Scans directories for games, fetches metadata and artwork from RAWG, and lets you browse and launch your game library.</description>
+        <platform>all</platform>
+        <license>MIT</license>
+        <source>https://github.com/opencode/plugin.program.gamelauncher</source>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+        </assets>
+    </extension>
+</addon>
 <addon id="plugin.program.koditoolbox" version="1.0.0" name="Kodi Toolbox" provider-name="opencode">
     <requires>
         <import addon="xbmc.python" version="3.0.0"/>
@@ -189,7 +208,7 @@
         <reuselanguageinvoker>true</reuselanguageinvoker>
     </extension>
 </addon>
-<addon id="plugin.video.rdflix" name="RDFlix" version="1.5.4" provider-name="opencode">
+<addon id="plugin.video.rdflix" name="RDFlix" version="1.5.5" provider-name="opencode">
     <requires>
         <import addon="xbmc.python" version="3.0.0"/>
         <import addon="script.module.cocoscrapers" optional="true"/>
@@ -236,7 +255,7 @@
     </assets>
   </extension>
 </addon>
-<addon id="plugin.video.streamlord" name="StreamLord" version="3.7.0" provider-name="opencode">
+<addon id="plugin.video.streamlord" name="StreamLord" version="3.7.1" provider-name="opencode">
     <requires>
         <import addon="xbmc.python" version="3.0.0"/>
         <import addon="script.module.cocoscrapers"/>
@@ -1006,24 +1025,5 @@
 			<fanart>resources/fanart.png</fanart>
 		</assets>
 	</extension>
-</addon>
-<addon id="plugin.program.gamelauncher" name="Game Launcher" version="1.0.0" provider-name="opencode">
-    <requires>
-        <import addon="xbmc.python" version="3.0.0"/>
-    </requires>
-    <extension point="xbmc.python.pluginsource" library="main.py">
-        <provides>executable game</provides>
-    </extension>
-    <extension point="xbmc.addon.metadata">
-        <summary lang="en_GB">Game Launcher</summary>
-        <description lang="en_GB">Launch PC games directly from Kodi. Scans directories for games, fetches metadata and artwork from RAWG, and lets you browse and launch your game library.</description>
-        <platform>all</platform>
-        <license>MIT</license>
-        <source>https://github.com/opencode/plugin.program.gamelauncher</source>
-        <assets>
-            <icon>icon.png</icon>
-            <fanart>fanart.jpg</fanart>
-        </assets>
-    </extension>
 </addon>
 </addons>
