@@ -813,7 +813,8 @@ def play_http_url(url, title):
 def _play_rd_url(url, title):
     """Play a Real-Debrid direct download link."""
     try:
-        if _is_dmca_video(url):
+        is_resolve = "resolve" in url and "torrentio" in url
+        if not is_resolve and _is_dmca_video(url):
             xbmc.log("[StreamLord] RD URL is DMCA notice, rejecting")
             return False
         xbmc.log("[StreamLord] RD Play: %s" % url[:100], xbmc.LOGINFO)
@@ -1342,6 +1343,9 @@ def play_movie(mid, title, watch_link="", imdb_id="", year="", tmdb_id="", resum
         if _play_rd_url(magnet, title):
             _save_resume(title, imdb_id, tmdb_id, resume_pct, 0, 0)
             return
+        xbmcplugin.endOfDirectory(HANDLE)
+        xbmcgui.Dialog().ok("StreamLord", "RD resolve URL failed.\n%s" % title)
+        return
 
     # If RD cached with hash, try RD first, auto-fallback to LP
     if is_debrid and info_hash:
@@ -1490,6 +1494,9 @@ def play_episode(eid, title, link, show_title, season, show_imdb_id="", episode_
         if _play_rd_url(magnet, full_title):
             _autoplay_monitor(show_imdb_id, season_num, ep_num, show_title)
             return
+        xbmcplugin.endOfDirectory(HANDLE)
+        xbmcgui.Dialog().ok("StreamLord", "RD resolve URL failed.\n%s" % full_title)
+        return
 
     if is_debrid and info_hash:
         from resources.lib import rd_resolver
