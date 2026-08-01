@@ -688,6 +688,73 @@ def _browse_episodes(tmdb_id, season_num):
 # --- Torrent playback (uses LordPlayer plugin) ---
 TRACKERS = "&tr=udp://tracker.opentrackr.org:1337/announce&tr=udp://open.stealth.si:80/announce&tr=udp://tracker.torrent.eu.org:451/announce"
 
+
+def _is_season_pack(name):
+    """Detect if a torrent name is a full season pack (not a single episode)."""
+    name = name or ""
+    has_season = bool(re.search(r'[Ss]\d{1,2}', name))
+    has_episode = bool(re.search(r'[Ss]\d{1,2}[Ee]\d{1,2}', name))
+    if not has_season or has_episode:
+        return False
+    pack_patterns = [
+        r'[Ss]\d{1,2}\s*(complete|full|season|pack)',
+        r'[Ss](eason)?\s*\d{1,2}\s*$',
+    ]
+    return any(re.search(p, name, re.IGNORECASE) for p in pack_patterns) or "complete" in name.lower() or "season" in name.lower()
+
+
+def _browse_season_pack(magnet, info_hash, title):
+    """Add season pack to RD via torrest, browse files."""
+    import os
+    if not magnet or not magnet.startswith("magnet:"):
+        return False
+    if TRACKERS not in magnet:
+        magnet += TRACKERS
+    try:
+        d = _tr("POST", "/add/magnet", {"uri": magnet, "ignore_duplicate": "true", "download": "false"})
+        th = d.get("info_hash", info_hash or "")
+        if not th:
+            return False
+        for _ in range(30):
+            st = _tr("GET", "/torrents/%s/status" % th)
+            if st.get("has_metadata"):
+                break
+            xbmc.sleep(1000)
+        files = _tr("GET", "/torrents/%s/files" % th)
+        if not files:
+            return False
+        vids = [f for f in files if f.get("path", "").lower().endswith((".mp4", ".mkv", ".avi", ".m4v", ".mov", ".webm"))]
+        if not vids:
+            vids = files
+        labels = []
+        for f in vids:
+            fname = f.get("path", "Unknown")
+            size = f.get("size", 0)
+            sz = ""
+            if size >= 1073741824:
+                sz = "%d GB" % (size // 1073741824)
+            elif size >= 1048576:
+                sz = "%d MB" % (size // 1048576)
+            ep = re.search(r'[Ss](\d{1,2})[Ee](\d{1,2})', fname)
+            if ep:
+                labels.append("S%02dE%02d - %s [%s]" % (int(ep.group(1)), int(ep.group(2)), os.path.basename(fname), sz))
+            else:
+                labels.append("%s [%s]" % (os.path.basename(fname), sz))
+        idx = xbmcgui.Dialog().select("Season Pack - %s" % title[:30], labels)
+        if idx < 0:
+            return False
+        chosen = vids[idx]
+        fid = chosen.get("id")
+        if fid is not None:
+            _tr("PUT", "/torrents/%s/files/%s/download" % (th, fid), {"buffer": "true"})
+            serve = "http://127.0.0.1:61235/torrents/%s/files/%s/serve" % (th, fid)
+            if play_http_url(serve, chosen.get("path", title)):
+                return True
+        return False
+    except Exception as e:
+        xbmc.log("[StreamLord] Season pack browse error: %s" % str(e), xbmc.LOGERROR)
+        return False
+
 def _tr(method, path, params=None):
     url = "http://127.0.0.1:61235" + path
     if params:
@@ -1231,6 +1298,8 @@ def play_movie(mid, title, watch_link="", imdb_id="", year="", tmdb_id="", resum
 
         if is_debrid:
             tag = "[COLOR cyan][B]RD[/B][/COLOR]"
+        elif _is_season_pack(name):
+            tag = "[COLOR yellow][B]PACK[/B][/COLOR]"
         else:
             tag = "[COLOR orange][B]LP[/B][/COLOR]"
 
@@ -1262,6 +1331,17 @@ def play_movie(mid, title, watch_link="", imdb_id="", year="", tmdb_id="", resum
     is_debrid = len(chosen) > 7 and chosen[7]
     info_hash = chosen[4] if len(chosen) > 4 else ""
     magnet = chosen[3]
+    name = chosen[6] if len(chosen) > 6 else ""
+
+    if _is_season_pack(name) and magnet:
+        if _browse_season_pack(magnet, info_hash, title):
+            _save_resume(title, imdb_id, tmdb_id, resume_pct, 0, 0)
+            return
+
+    if is_debrid and magnet and "resolve" in magnet:
+        if _play_rd_url(magnet, title):
+            _save_resume(title, imdb_id, tmdb_id, resume_pct, 0, 0)
+            return
 
     # If RD cached with hash, try RD first, auto-fallback to LP
     if is_debrid and info_hash:
@@ -1365,6 +1445,8 @@ def play_episode(eid, title, link, show_title, season, show_imdb_id="", episode_
 
         if is_debrid:
             tag = "[COLOR cyan][B]RD[/B][/COLOR]"
+        elif _is_season_pack(name):
+            tag = "[COLOR yellow][B]PACK[/B][/COLOR]"
         else:
             tag = "[COLOR orange][B]LP[/B][/COLOR]"
 
@@ -1397,6 +1479,17 @@ def play_episode(eid, title, link, show_title, season, show_imdb_id="", episode_
     is_debrid = len(chosen) > 7 and chosen[7]
     info_hash = chosen[4] if len(chosen) > 4 else ""
     magnet = chosen[3]
+    name = chosen[6] if len(chosen) > 6 else ""
+
+    if _is_season_pack(name) and magnet:
+        if _browse_season_pack(magnet, info_hash, full_title):
+            _autoplay_monitor(show_imdb_id, season_num, ep_num, show_title)
+            return
+
+    if is_debrid and magnet and "resolve" in magnet:
+        if _play_rd_url(magnet, full_title):
+            _autoplay_monitor(show_imdb_id, season_num, ep_num, show_title)
+            return
 
     if is_debrid and info_hash:
         from resources.lib import rd_resolver

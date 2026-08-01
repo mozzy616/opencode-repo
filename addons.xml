@@ -208,7 +208,7 @@
         <reuselanguageinvoker>true</reuselanguageinvoker>
     </extension>
 </addon>
-<addon id="plugin.video.rdflix" name="RDFlix" version="1.5.5" provider-name="opencode">
+<addon id="plugin.video.rdflix" name="RDFlix" version="1.5.6" provider-name="opencode">
     <requires>
         <import addon="xbmc.python" version="3.0.0"/>
         <import addon="script.module.cocoscrapers" optional="true"/>
@@ -255,7 +255,7 @@
     </assets>
   </extension>
 </addon>
-<addon id="plugin.video.streamlord" name="StreamLord" version="3.7.1" provider-name="opencode">
+<addon id="plugin.video.streamlord" name="StreamLord" version="3.7.2" provider-name="opencode">
     <requires>
         <import addon="xbmc.python" version="3.0.0"/>
         <import addon="script.module.cocoscrapers"/>

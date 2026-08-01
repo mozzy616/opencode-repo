@@ -49,6 +49,18 @@ def _fetch(url, method="GET", data=None, auth_required=True):
         except:
             pass
         log("HTTP %d %s body=%s" % (e.code, url.split("?")[0][-50:], body), xbmc.LOGWARNING)
+        if e.code == 401 and "bad_token" in body and auth_required:
+            new_token, _ = refresh_token()
+            if new_token:
+                log("RD token refreshed, retrying request")
+                headers["Authorization"] = "Bearer " + new_token
+                try:
+                    req2 = urllib.request.Request(url, data=encoded, headers=headers, method=method)
+                    with urllib.request.urlopen(req2, timeout=30) as r:
+                        raw = r.read().decode("utf-8", errors="replace")
+                        return json.loads(raw) if raw else {}
+                except:
+                    pass
         return None
     except urllib.error.URLError as e:
         log("URL error: %s" % str(e), xbmc.LOGWARNING)

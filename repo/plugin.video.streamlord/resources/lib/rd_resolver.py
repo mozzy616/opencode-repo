@@ -19,6 +19,14 @@ def log(msg, level=xbmc.LOGINFO):
 def _get_rd_token():
     try:
         import xbmcaddon
+        rdf = xbmcaddon.Addon('plugin.video.rdflix')
+        t = rdf.getSetting('rd_token').strip()
+        if t:
+            return t
+    except:
+        pass
+    try:
+        import xbmcaddon
         a = xbmcaddon.Addon('plugin.video.streamlord')
         return a.getSetting('rd_token').strip()
     except:
