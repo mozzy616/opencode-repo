@@ -778,7 +778,7 @@ def play_via_LordPlayer(magnet, title):
         if TRACKERS not in magnet:
             magnet += TRACKERS
         player_id = get_lordplayer_id()
-        plugin_url = "plugin://%s/play_magnet?magnet=%s&buffer=true" % (player_id, urllib.parse.quote(magnet, safe=''))
+        plugin_url = "plugin://%s/play_magnet?magnet=%s&buffer=false" % (player_id, urllib.parse.quote(magnet, safe=''))
         xbmc.log("[StreamLord] Playing via %s" % player_id, xbmc.LOGINFO)
         li = xbmcgui.ListItem(path=plugin_url, label=title)
         li.setProperty("IsPlayable", "true")
@@ -814,11 +814,35 @@ def _play_rd_url(url, title):
     """Play a Real-Debrid direct download link."""
     try:
         is_resolve = "resolve" in url and "torrentio" in url
-        if not is_resolve and _is_dmca_video(url):
-            xbmc.log("[StreamLord] RD URL is DMCA notice, rejecting")
-            return False
-        xbmc.log("[StreamLord] RD Play: %s" % url[:100], xbmc.LOGINFO)
-        li = xbmcgui.ListItem(path=url, label=title)
+        final_url = url
+        if is_resolve:
+            try:
+                req = urllib.request.Request(url, method="HEAD")
+                req.add_header("User-Agent", USER_AGENT)
+                resp = urllib.request.urlopen(req, timeout=8)
+                final_url = resp.geturl() or url
+            except Exception as e:
+                xbmc.log("[StreamLord] RD resolve URL unreachable: %s" % str(e), xbmc.LOGWARNING)
+                return False
+        else:
+            try:
+                req = urllib.request.Request(url, method="HEAD")
+                req.add_header("User-Agent", USER_AGENT)
+                resp = urllib.request.urlopen(req, timeout=8)
+                final_url = resp.geturl() or url
+                cl = resp.headers.get("Content-Length", "0")
+                size = int(cl) if cl else 0
+                if 0 < size < 52428800:
+                    xbmc.log("[StreamLord] RD URL is DMCA notice, rejecting")
+                    return False
+                if any(x in final_url.lower() for x in ["configure", "exception", "error/", "autorize", "authorize"]):
+                    xbmc.log("[StreamLord] RD URL redirected to error page, rejecting")
+                    return False
+            except Exception as e:
+                xbmc.log("[StreamLord] RD URL unreachable: %s" % str(e), xbmc.LOGWARNING)
+                return False
+        xbmc.log("[StreamLord] RD Play: %s" % final_url[:100], xbmc.LOGINFO)
+        li = xbmcgui.ListItem(path=final_url, label=title)
         li.setProperty("IsPlayable", "true")
         xbmcplugin.setResolvedUrl(HANDLE, True, li)
         return True
@@ -962,41 +986,6 @@ def _check_rd_cache(sources):
                     sources[idx] = tuple(s)
                     count += 1
             xbmc.log("[StreamLord] RD cache check: %d cached from %d existing torrents" % (count, len(rd_hashes)), xbmc.LOGINFO)
-    except Exception as e:
-        xbmc.log("[StreamLord] RD cache check error: %s" % str(e), xbmc.LOGERROR)
-    return sources
-    token = ""
-    try:
-        import xbmcaddon
-        token = xbmcaddon.Addon('plugin.video.streamlord').getSetting('rd_token').strip()
-    except:
-        pass
-    if not token:
-        return sources
-    hashes = []
-    hash_to_idx = {}
-    for idx, s in enumerate(sources):
-        h = s[4]
-        if h and len(h) == 40:
-            hl = h.lower()
-            hashes.append(hl)
-            hash_to_idx[hl] = idx
-    if not hashes:
-        return sources
-    try:
-        from resources.lib import rd_resolver
-        cached = rd_resolver.is_available(hashes)
-        if cached:
-            count = 0
-            for h in cached:
-                hl = h.lower()
-                if hl in hash_to_idx:
-                    idx = hash_to_idx[hl]
-                    s = list(sources[idx])
-                    s[7] = True
-                    sources[idx] = tuple(s)
-                    count += 1
-            xbmc.log("[StreamLord] RD cache check: %d/%d cached" % (count, len(hashes)), xbmc.LOGINFO)
     except Exception as e:
         xbmc.log("[StreamLord] RD cache check error: %s" % str(e), xbmc.LOGERROR)
     return sources
@@ -1267,7 +1256,15 @@ def play_movie(mid, title, watch_link="", imdb_id="", year="", tmdb_id="", resum
                 url = s.get('url', '')
                 if not ih and ('playback' in url or 'exception' in url or 'configure' in url or 'error' in url.lower()):
                     continue
-                magnet = "magnet:?xt=urn:btih:%s&dn=%s%s" % (ih, urllib.parse.quote(s.get('title', title)), TRACKERS) if ih else url
+                # Preserve a direct debrid download/resolve URL for instant playback
+                is_http_url = bool(url and url.startswith("http"))
+                is_bad_url = is_http_url and any(m in url.lower() for m in ("playback", "configure", "exception", "error/"))
+                if ih and is_http_url and not is_bad_url:
+                    magnet = url
+                elif ih:
+                    magnet = "magnet:?xt=urn:btih:%s&dn=%s%s" % (ih, urllib.parse.quote(s.get('title', title)), TRACKERS)
+                else:
+                    magnet = url
                 origin = s.get('_origin', '')
                 label = origin or s.get('title', title)[:50]
                 name_field = origin or s.get('title', '')
@@ -1339,13 +1336,12 @@ def play_movie(mid, title, watch_link="", imdb_id="", year="", tmdb_id="", resum
             _save_resume(title, imdb_id, tmdb_id, resume_pct, 0, 0)
             return
 
-    if is_debrid and magnet and "resolve" in magnet:
+    # RD instant/resolve URL fast path
+    if is_debrid and magnet and magnet.startswith("http"):
         if _play_rd_url(magnet, title):
             _save_resume(title, imdb_id, tmdb_id, resume_pct, 0, 0)
             return
-        xbmcplugin.endOfDirectory(HANDLE)
-        xbmcgui.Dialog().ok("StreamLord", "RD resolve URL failed.\n%s" % title)
-        return
+        xbmc.log("[StreamLord] RD direct URL failed, trying torrent resolve", xbmc.LOGINFO)
 
     # If RD cached with hash, try RD first, auto-fallback to LP
     if is_debrid and info_hash:
@@ -1358,7 +1354,10 @@ def play_movie(mid, title, watch_link="", imdb_id="", year="", tmdb_id="", resum
         # RD failed - auto fallback to LordPlayer
         xbmc.log("[StreamLord] RD failed, auto-falling back to LordPlayer", xbmc.LOGINFO)
     
-    if play_via_LordPlayer(magnet, title):
+    lp_magnet = magnet
+    if not lp_magnet.startswith("magnet:") and info_hash:
+        lp_magnet = "magnet:?xt=urn:btih:%s&dn=%s%s" % (info_hash[:40], urllib.parse.quote(title), TRACKERS)
+    if lp_magnet and play_via_LordPlayer(lp_magnet, title):
         _save_resume(title, imdb_id, tmdb_id, resume_pct, 0, 0)
         return
 
@@ -1419,7 +1418,15 @@ def play_episode(eid, title, link, show_title, season, show_imdb_id="", episode_
                 url = s.get('url', '')
                 if not ih and ('playback' in url or 'exception' in url or 'configure' in url or 'error' in url.lower()):
                     continue
-                magnet = "magnet:?xt=urn:btih:%s&dn=%s%s" % (ih, urllib.parse.quote(s.get('title', title)), TRACKERS) if ih else url
+                # Preserve a direct debrid download/resolve URL for instant playback
+                is_http_url = bool(url and url.startswith("http"))
+                is_bad_url = is_http_url and any(m in url.lower() for m in ("playback", "configure", "exception", "error/"))
+                if ih and is_http_url and not is_bad_url:
+                    magnet = url
+                elif ih:
+                    magnet = "magnet:?xt=urn:btih:%s&dn=%s%s" % (ih, urllib.parse.quote(s.get('title', title)), TRACKERS)
+                else:
+                    magnet = url
                 origin = s.get('_origin', '')
                 name_field = origin or s.get('title', '')
                 all_sources.append(('stremio', s.get('_quality', '?'), s.get('seeders', 0), magnet, ih, s.get('size', ''), name_field, True))
@@ -1490,13 +1497,12 @@ def play_episode(eid, title, link, show_title, season, show_imdb_id="", episode_
             _autoplay_monitor(show_imdb_id, season_num, ep_num, show_title)
             return
 
-    if is_debrid and magnet and "resolve" in magnet:
+    # RD instant/resolve URL fast path
+    if is_debrid and magnet and magnet.startswith("http"):
         if _play_rd_url(magnet, full_title):
             _autoplay_monitor(show_imdb_id, season_num, ep_num, show_title)
             return
-        xbmcplugin.endOfDirectory(HANDLE)
-        xbmcgui.Dialog().ok("StreamLord", "RD resolve URL failed.\n%s" % full_title)
-        return
+        xbmc.log("[StreamLord] RD direct URL failed, trying torrent resolve", xbmc.LOGINFO)
 
     if is_debrid and info_hash:
         from resources.lib import rd_resolver
@@ -1507,7 +1513,10 @@ def play_episode(eid, title, link, show_title, season, show_imdb_id="", episode_
                 return
         xbmc.log("[StreamLord] RD failed, auto-falling back to LordPlayer", xbmc.LOGINFO)
 
-    if play_via_LordPlayer(magnet, full_title):
+    lp_magnet = magnet
+    if not lp_magnet.startswith("magnet:") and info_hash:
+        lp_magnet = "magnet:?xt=urn:btih:%s&dn=%s%s" % (info_hash[:40], urllib.parse.quote(full_title), TRACKERS)
+    if lp_magnet and play_via_LordPlayer(lp_magnet, full_title):
         _autoplay_monitor(show_imdb_id, season_num, ep_num, show_title)
         return
 

@@ -42,6 +42,21 @@ def _play_url(url, title):
         return False
 
 
+def _verify_playback_started(timeout=12):
+    """Return True if a player is actively playing within `timeout` seconds."""
+    monitor = xbmc.Monitor()
+    player = xbmc.Player()
+    waited = 0
+    while waited < timeout:
+        if player.isPlaying():
+            return True
+        if monitor.abortRequested():
+            return False
+        xbmc.sleep(500)
+        waited += 1
+    return False
+
+
 def _is_dmca_video(url):
     try:
         req = urllib.request.Request(url, method="HEAD")
@@ -84,20 +99,17 @@ def _play_source(source, title):
     file_name = fname or torrent_title or title
 
     url = source.get("url", "")
-    is_resolve_url = "resolve" in url and "torrentio" in url
     if url and ("/torrent/" in url or "/stream/" in url):
         url = ""
     if not url:
         url = info_hash
 
     if url and (url.startswith("http://") or url.startswith("https://")):
-        if is_resolve_url:
-            return _play_url(url, file_name)
         try:
             req = urllib.request.Request(url, method="HEAD")
             req.add_header("User-Agent", "Mozilla/5.0")
             resp = urllib.request.urlopen(req, timeout=8)
-            final_url = resp.geturl()
+            final_url = resp.geturl() or url
 
             if any(x in final_url.lower() for x in ["configure", "exception", "error/", "autorize", "authorize"]):
                 log("Redirect led to auth/error page: %s" % final_url[:80])
@@ -110,9 +122,11 @@ def _play_source(source, title):
                 log("RD file too small, likely DMCA")
                 raise Exception("DMCA detected")
 
-            return _play_url(final_url, file_name)
-        except:
-            log("Direct URL unreachable or DMCA, trying magnet approach", xbmc.LOGINFO)
+            if _play_url(final_url, file_name):
+                return True
+            log("Direct URL play failed, trying magnet approach", xbmc.LOGINFO)
+        except Exception as e:
+            log("Direct URL unreachable or DMCA (%s), trying magnet approach" % str(e), xbmc.LOGINFO)
 
     actual_magnet = magnet
     if not actual_magnet and info_hash and len(info_hash) >= 40:
@@ -191,7 +205,7 @@ def _play_source(source, title):
 def _play_via_lordplayer(magnet, title):
     try:
         lid = "plugin.video.lordplayer.droid" if xbmc.getCondVisibility("System.HasAddon(plugin.video.lordplayer.droid)") else "plugin.video.lordplayer"
-        plugin_url = "plugin://%s/play_magnet?magnet=%s&buffer=true" % (lid, urllib.parse.quote(magnet, safe=""))
+        plugin_url = "plugin://%s/play_magnet?magnet=%s&buffer=false" % (lid, urllib.parse.quote(magnet, safe=""))
         li = xbmcgui.ListItem(path=plugin_url, label=title)
         li.setProperty("IsPlayable", "true")
         set_resolved_url(True, li)
@@ -994,16 +1008,19 @@ def _autoplay_source(source, title):
                 req = urllib.request.Request(url, method="HEAD")
                 req.add_header("User-Agent", "Mozilla/5.0")
                 resp = urllib.request.urlopen(req, timeout=8)
-                final_url = resp.geturl()
+                final_url = resp.geturl() or url
 
                 if any(x in final_url.lower() for x in ["configure", "exception", "error/", "autorize", "authorize"]):
                     log("Autoplay: redirect led to error page, falling back")
                 else:
                     li = xbmcgui.ListItem(path=final_url, label=file_name)
+                    li.setProperty("IsPlayable", "true")
                     xbmc.Player().play(final_url, li)
-                    return True
-        except:
-            pass
+                    if _verify_playback_started():
+                        return True
+                    log("Autoplay: direct RD URL playback did not start", xbmc.LOGWARNING)
+        except Exception as e:
+            log("Autoplay: direct RD URL error: %s" % str(e), xbmc.LOGINFO)
 
     # Try RD magnet resolve
     if info_hash and len(info_hash) >= 40:
@@ -1015,8 +1032,11 @@ def _autoplay_source(source, title):
                     log("Autoplay: RD returned DMCA notice, falling back")
                 else:
                     li = xbmcgui.ListItem(path=result["url"], label=file_name)
+                    li.setProperty("IsPlayable", "true")
                     xbmc.Player().play(result["url"], li)
-                    return True
+                    if _verify_playback_started():
+                        return True
+                    log("Autoplay: RD resolve playback did not start", xbmc.LOGWARNING)
         except Exception as e:
             log("Autoplay RD resolve error: %s" % str(e), xbmc.LOGERROR)
 
@@ -1026,14 +1046,15 @@ def _autoplay_source(source, title):
         magnet_link = "magnet:?xt=urn:btih:%s&dn=%s" % (info_hash[:40], urllib.parse.quote(torrent_title or title))
 
     if magnet_link and TRY_LORDPLAYER:
-        xbmc.sleep(3000)
         try:
             lid = "plugin.video.lordplayer.droid" if xbmc.getCondVisibility("System.HasAddon(plugin.video.lordplayer.droid)") else "plugin.video.lordplayer"
-            plugin_url = "plugin://%s/play_magnet?magnet=%s&buffer=true" % (lid, urllib.parse.quote(magnet_link, safe=""))
+            plugin_url = "plugin://%s/play_magnet?magnet=%s&buffer=false" % (lid, urllib.parse.quote(magnet_link, safe=""))
             li = xbmcgui.ListItem(path=plugin_url, label=file_name)
             li.setProperty("IsPlayable", "true")
             xbmc.Player().play(plugin_url, li)
-            return True
+            if _verify_playback_started(20):
+                return True
+            log("Autoplay: LordPlayer playback did not start", xbmc.LOGWARNING)
         except Exception as e:
             log("Autoplay LordPlayer error: %s" % str(e), xbmc.LOGERROR)
 

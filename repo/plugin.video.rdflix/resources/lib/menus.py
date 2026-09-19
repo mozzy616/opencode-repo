@@ -927,7 +927,7 @@ def sports_search_view(query=""):
                 xbmc.Player().play(result["url"], li)
             else:
                 lid = "plugin.video.lordplayer.droid" if xbmc.getCondVisibility("System.HasAddon(plugin.video.lordplayer.droid)") else "plugin.video.lordplayer"
-                plugin_url = "plugin://%s/play_magnet?magnet=%s&buffer=true" % (lid, urllib.parse.quote(magnet, safe=""))
+                plugin_url = "plugin://%s/play_magnet?magnet=%s&buffer=false" % (lid, urllib.parse.quote(magnet, safe=""))
                 li = xbmcgui.ListItem(path=plugin_url, label=query)
                 xbmc.Player().play(plugin_url, li)
         else:
@@ -1097,7 +1097,7 @@ def sports_search_view(query=""):
                 xbmc.Player().play(result["url"], li)
             else:
                 lid = "plugin.video.lordplayer.droid" if xbmc.getCondVisibility("System.HasAddon(plugin.video.lordplayer.droid)") else "plugin.video.lordplayer"
-                plugin_url = "plugin://%s/play_magnet?magnet=%s&buffer=true" % (lid, urllib.parse.quote(magnet, safe=""))
+                plugin_url = "plugin://%s/play_magnet?magnet=%s&buffer=false" % (lid, urllib.parse.quote(magnet, safe=""))
                 li = xbmcgui.ListItem(path=plugin_url, label=query)
                 xbmc.Player().play(plugin_url, li)
         else:
