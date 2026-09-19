@@ -3,6 +3,9 @@
     <category label="Real-Debrid">
         <setting label="Authentication" type="lsep"/>
         <setting id="rd_token" type="text" label="Real-Debrid API Token" default="" option="hidden"/>
+        <setting id="rd_refresh_token" type="text" label="Real-Debrid Refresh Token" default="" option="hidden"/>
+        <setting id="rd_client_id" type="text" label="Real-Debrid Client ID" default="" option="hidden"/>
+        <setting id="rd_client_secret" type="text" label="Real-Debrid Client Secret" default="" option="hidden"/>
         <setting label="Get your API token at real-debrid.com/apitoken" type="lsep"/>
         <setting id="auth_action" type="action" label="Authorize Device" action="RunPlugin(plugin://plugin.video.streamlord/?action=device_auth)"/>
     </category>
