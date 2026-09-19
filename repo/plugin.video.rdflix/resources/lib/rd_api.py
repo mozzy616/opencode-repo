@@ -121,17 +121,25 @@ def poll_device_auth(device_code):
     return None, None
 
 
-def get_token(client_id, client_secret, code):
-    resp = _oauth_fetch(RD_OAUTH + "/token", {
+def _token_exchange(client_id, client_secret, **params):
+    data = {
         "client_id": client_id,
         "client_secret": client_secret,
-        "code": code,
-        "grant_type": "http://oauth.net/grant_type/device/1.0",
-    })
+    }
+    data.update(params)
+    resp = _oauth_fetch(RD_OAUTH + "/token", data)
     if resp and "access_token" in resp:
         return resp["access_token"], resp.get("refresh_token", "")
     log("Token exchange failed: %s" % str(resp)[:200], xbmc.LOGWARNING)
     return None, None
+
+
+def get_token(client_id, client_secret, code):
+    return _token_exchange(
+        client_id, client_secret,
+        code=code,
+        grant_type="http://oauth.net/grant_type/device/1.0",
+    )
 
 
 def refresh_token():
@@ -141,7 +149,11 @@ def refresh_token():
     if not client_id or not client_secret or not refresh:
         log("No refresh credentials stored", xbmc.LOGWARNING)
         return None, None
-    access_token, new_refresh = get_token(client_id, client_secret, refresh)
+    access_token, new_refresh = _token_exchange(
+        client_id, client_secret,
+        refresh_token=refresh,
+        grant_type="refresh_token",
+    )
     if access_token:
         set_setting("rd_token", access_token)
         if new_refresh:
