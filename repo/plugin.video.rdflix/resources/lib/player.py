@@ -681,14 +681,16 @@ def _download_source(source, title):
     if not fname.endswith((".mp4", ".mkv", ".avi", ".m4v", ".mov", ".webm", ".ts")):
         fname += ".mp4"
 
-    download_path = get_setting("download_path", "")
-    if not download_path:
-        download_path = "special://home/userdata/downloads/"
-    dest_folder = translate_path(download_path)
-    if not dest_folder:
-        dest_folder = translate_path("special://home/userdata/downloads/")
-
     import os
+    default_path = get_setting("download_path", "")
+    if not default_path:
+        default_path = "special://home/userdata/downloads/"
+    default_path = translate_path(default_path) or translate_path("special://home/userdata/downloads/")
+
+    dest_folder = xbmcgui.Dialog().browse(0, "Choose download folder", "files", "", False, True, default_path)
+    if not dest_folder:
+        dest_folder = default_path
+
     os.makedirs(dest_folder, exist_ok=True)
 
     # 1. Direct RD download URL from torrentio/comet (RD Instant)
@@ -1101,6 +1103,8 @@ def _autoplay_next(imdb_id, tmdb_id, show_title, season, episode):
     else:
         log("Autoplay: user stopped playback (%.0f%% watched)" % (watched_pct * 100))
         return
+
+    notify("RDFlix", "Auto Play Is Finding Your Next Episode")
 
     # If we never pre-fetched, do it now
     if not waited:

@@ -1151,6 +1151,7 @@ def _autoplay_monitor(imdb_id, season, episode, show_title):
             xbmc.log("[StreamLord] Autoplay: Kodi shutting down", xbmc.LOGINFO)
             return
         xbmc.log("[StreamLord] Autoplay: preparing next S%02dE%02d" % (next_s, next_e), xbmc.LOGINFO)
+        xbmcgui.Dialog().notification("StreamLord", "Auto Play Is Finding Your Next Episode", xbmcgui.NOTIFICATION_INFO, 3000)
 
         # 1) Reuse the season pack we came from
         pack_serve = None
@@ -1293,6 +1294,45 @@ def _get_download_path():
     return xbmcvfs.translatePath("special://home/userdata/downloads/")
 
 
+def _download_chosen(chosen, title):
+    """Download a chosen source to a user-selected folder (RD first, then LordPlayer)."""
+    import os
+    is_debrid = len(chosen) > 7 and chosen[7]
+    info_hash = chosen[4] if len(chosen) > 4 else ""
+    magnet = chosen[3]
+
+    dest = xbmcgui.Dialog().browse(0, "Choose download folder", "files", "", False, True, _get_download_path())
+    if not dest:
+        xbmcplugin.endOfDirectory(HANDLE)
+        return
+
+    if is_debrid and magnet and magnet.startswith("http"):
+        fname = os.path.basename(urllib.parse.urlparse(magnet).path) or (title + ".mp4")
+        if not fname.lower().endswith((".mp4", ".mkv", ".avi", ".m4v", ".mov", ".webm", ".ts")):
+            fname += ".mp4"
+        import resources.lib.rd_resolver as rd
+        rd.download_file(magnet, dest, fname, title)
+        xbmcplugin.endOfDirectory(HANDLE)
+        return
+
+    if is_debrid and info_hash:
+        from resources.lib import rd_resolver
+        rd_url, rd_fname = rd_resolver.resolve_torrent(info_hash, title)
+        if rd_url and rd_fname:
+            import resources.lib.rd_resolver as rd
+            rd.download_file(rd_url, dest, rd_fname, title)
+            xbmcplugin.endOfDirectory(HANDLE)
+            return
+
+    if magnet and magnet.startswith("magnet:"):
+        download_via_LordPlayer(magnet, title, dest)
+        xbmcplugin.endOfDirectory(HANDLE)
+        return
+
+    xbmcgui.Dialog().ok("StreamLord", "Could not download\n%s" % title)
+    xbmcplugin.endOfDirectory(HANDLE)
+
+
 def play_movie(mid, title, watch_link="", imdb_id="", year="", tmdb_id="", resume_pct="0"):
     if not imdb_id and tmdb_id:
         imdb_id = _tmdb_get_imdb_id(tmdb_id, "movie")
@@ -1406,6 +1446,14 @@ def play_movie(mid, title, watch_link="", imdb_id="", year="", tmdb_id="", resum
     info_hash = chosen[4] if len(chosen) > 4 else ""
     magnet = chosen[3]
     name = chosen[6] if len(chosen) > 6 else ""
+
+    action = xbmcgui.Dialog().select("Choose action - %s" % title[:40], ["Play", "Download"])
+    if action < 0:
+        xbmcplugin.endOfDirectory(HANDLE)
+        return
+    if action == 1:
+        _download_chosen(chosen, title)
+        return
 
     if _is_season_pack(name) and magnet:
         if _browse_season_pack(magnet, info_hash, title):
@@ -1569,6 +1617,14 @@ def play_episode(eid, title, link, show_title, season, show_imdb_id="", episode_
     info_hash = chosen[4] if len(chosen) > 4 else ""
     magnet = chosen[3]
     name = chosen[6] if len(chosen) > 6 else ""
+
+    action = xbmcgui.Dialog().select("Choose action - %s" % full_title[:40], ["Play", "Download"])
+    if action < 0:
+        xbmcplugin.endOfDirectory(HANDLE)
+        return
+    if action == 1:
+        _download_chosen(chosen, full_title)
+        return
 
     if _is_season_pack(name) and magnet:
         res = _browse_season_pack(magnet, info_hash, full_title)
