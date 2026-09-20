@@ -435,9 +435,8 @@ def search_streamlord(query="", browse_tmdb="", browse_season=""):
         li.setInfo("video", {"title": title, "year": year, "plot": plot, "rating": rating})
         li.setArt({"thumb": thumb, "fanart": fanart_url, "icon": "DefaultVideo.png" if mtype == "movie" else "DefaultTVShows.png"})
         if mtype == "movie":
-            li.setProperty("IsPlayable", "true")
-            xbmcplugin.addDirectoryItem(HANDLE, get_url(action="play_movie", mid="", title=title,
-                watch_link="", imdb_id="", year=year, tmdb_id=str(tid)), li, isFolder=False)
+            xbmcplugin.addDirectoryItem(HANDLE, get_url(action="play_menu", is_tv="0", mid="", title=title,
+                watch_link="", imdb_id="", year=year, tmdb_id=str(tid)), li, isFolder=True)
         else:
             xbmcplugin.addDirectoryItem(HANDLE, get_url(action="search_streamlord", browse_tmdb=str(tid)), li, isFolder=True)
 
@@ -601,9 +600,8 @@ def do_search(query="", browse_tmdb="", browse_season=""):
         li.setInfo("video", {"title": title, "year": year, "plot": plot, "rating": rating})
         li.setArt({"thumb": thumb, "fanart": fanart_url, "icon": "DefaultVideo.png" if mtype == "movie" else "DefaultTVShows.png"})
         if mtype == "movie":
-            li.setProperty("IsPlayable", "true")
-            xbmcplugin.addDirectoryItem(HANDLE, get_url(action="play_movie", mid="", title=title,
-                watch_link="", imdb_id="", year=year, tmdb_id=str(tid)), li, isFolder=False)
+            xbmcplugin.addDirectoryItem(HANDLE, get_url(action="play_menu", is_tv="0", mid="", title=title,
+                watch_link="", imdb_id="", year=year, tmdb_id=str(tid)), li, isFolder=True)
         else:
             xbmcplugin.addDirectoryItem(HANDLE, get_url(action="search", browse_tmdb=str(tid)), li, isFolder=True)
 
@@ -671,11 +669,10 @@ def _browse_episodes(tmdb_id, season_num):
                              "tvshowtitle": show_name, "plot": ep.get("overview", ""),
                              "aired": ep.get("air_date", ""), "rating": ep.get("vote_average", 0)})
         li.setArt({"thumb": _tmdb_img(ep_still), "fanart": fanart_url, "icon": "DefaultTVShows.png"})
-        li.setProperty("IsPlayable", "true")
-        xbmcplugin.addDirectoryItem(HANDLE, get_url(action="play_episode", eid="",
-            title="S%02dE%02d" % (int(season_num), epnum), link="", show_title=show_name,
-            season=str(season_num), show_imdb_id=imdb_id, episode_num=str(epnum)),
-            li, isFolder=False)
+        xbmcplugin.addDirectoryItem(HANDLE, get_url(action="play_menu", is_tv="1",
+            title="S%02dE%02d" % (int(season_num), epnum), show_title=show_name,
+            season=str(season_num), imdb_id=imdb_id, episode_num=str(epnum)),
+            li, isFolder=True)
 
     li = xbmcgui.ListItem("[B]Back to Seasons[/B]")
     li.setArt({"icon": "DefaultFolderBack.png"})
@@ -1135,21 +1132,33 @@ def _autoplay_monitor(imdb_id, season, episode, show_title):
         e_int = int(episode) if episode else 0
         next_s, next_e = s_int, e_int + 1
         reached_end = False
-        while player.isPlaying() and not monitor.abortRequested():
-            if total > 0:
-                remaining = int(total - player.getTime())
-                if remaining <= 240:
+        last_time = 0
+        start_wall = time.time()
+        while not monitor.abortRequested():
+            if player.isPlaying():
+                t = player.getTime()
+                if t > 0:
+                    last_time = t
+                if total > 0:
+                    remaining = int(total - t)
+                    wall = time.time() - start_wall
+                    # Only trigger near the end; guard against bogus position
+                    # readings (e.g. during torrest buffering stalls).
+                    if remaining <= 240 and t <= wall + 90:
+                        reached_end = True
+                        break
+            else:
+                if total > 0 and last_time > 0 and (total - last_time) <= 180:
                     reached_end = True
-                    break
+                break
             monitor.waitForAbort(1)
-        if not player.isPlaying():
-            if not reached_end:
-                xbmc.log("[StreamLord] Autoplay: user pressed stop, aborting chain", xbmc.LOGINFO)
-                return
-            xbmc.log("[StreamLord] Autoplay: playback ended naturally", xbmc.LOGINFO)
-        elif monitor.abortRequested():
+        if monitor.abortRequested():
             xbmc.log("[StreamLord] Autoplay: Kodi shutting down", xbmc.LOGINFO)
             return
+        if not reached_end:
+            xbmc.log("[StreamLord] Autoplay: user pressed stop, aborting chain", xbmc.LOGINFO)
+            return
+        xbmc.log("[StreamLord] Autoplay: playback ended naturally", xbmc.LOGINFO)
         xbmc.log("[StreamLord] Autoplay: preparing next S%02dE%02d" % (next_s, next_e), xbmc.LOGINFO)
         xbmcgui.Dialog().notification("StreamLord", "Auto Play Is Finding Your Next Episode", xbmcgui.NOTIFICATION_INFO, 3000)
 
@@ -1186,19 +1195,22 @@ def _autoplay_monitor(imdb_id, season, episode, show_title):
             return
         serve = info["serve"]
         info_hash = info["hash"]
-        for _ in range(120):
-            st = _tr("GET", "/torrents/%s/status" % info_hash)
-            dl = st.get("downloaded", 0) or 0
-            if dl > 100 * 1024 * 1024:
-                break
-            tot = st.get("total_size", 0) or 0
-            if tot > 0 and dl >= tot * 0.10:
-                break
-            xbmc.sleep(1000)
+        try:
+            for _ in range(120):
+                st = _tr("GET", "/torrents/%s/status" % info_hash)
+                dl = st.get("downloaded", 0) or 0
+                if dl > 100 * 1024 * 1024:
+                    break
+                tot = st.get("total_size", 0) or 0
+                if tot > 0 and dl >= tot * 0.10:
+                    break
+                xbmc.sleep(1000)
+        except Exception as e:
+            xbmc.log("[StreamLord] Autoplay: prebuffer status check error: %s" % str(e), xbmc.LOGWARNING)
         while player.isPlaying() and not monitor.abortRequested():
             monitor.waitForAbort(1)
         if not monitor.abortRequested():
-            xbmc.sleep(15000)
+            xbmc.sleep(5000)
             xbmc.log("[StreamLord] Autoplay: final buffer wait done for S%02dE%02d" % (next_s, next_e), xbmc.LOGINFO)
             xbmc.log("[StreamLord] Autoplay: playing next S%02dE%02d via Player().play()" % (next_s, next_e), xbmc.LOGINFO)
             if play_http_url(serve, "%s S%02dE%02d" % (show_title, next_s, next_e)):
@@ -1323,7 +1335,7 @@ def _download_chosen(chosen, title):
 
     dest = xbmcgui.Dialog().browse(0, "Choose download folder", "files", "", False, True, _get_download_path())
     if not dest:
-        xbmcplugin.setResolvedUrl(HANDLE, False, xbmcgui.ListItem())
+        xbmcplugin.endOfDirectory(HANDLE)
         return
 
     if is_debrid and magnet and magnet.startswith("http"):
@@ -1331,7 +1343,7 @@ def _download_chosen(chosen, title):
         fname = _filename_from_url(final_url, title)
         import resources.lib.rd_resolver as rd
         if rd.download_file(final_url, dest, fname, title):
-            xbmcplugin.setResolvedUrl(HANDLE, False, xbmcgui.ListItem())
+            xbmcplugin.endOfDirectory(HANDLE)
             return
 
     if is_debrid and (magnet.startswith("magnet:") or info_hash):
@@ -1343,19 +1355,36 @@ def _download_chosen(chosen, title):
         if rd_url and rd_fname:
             import resources.lib.rd_resolver as rd
             if rd.download_file(rd_url, dest, rd_fname, title):
-                xbmcplugin.setResolvedUrl(HANDLE, False, xbmcgui.ListItem())
+                xbmcplugin.endOfDirectory(HANDLE)
                 return
 
     if magnet and magnet.startswith("magnet:"):
         download_via_LordPlayer(magnet, title, dest)
-        xbmcplugin.setResolvedUrl(HANDLE, False, xbmcgui.ListItem())
+        xbmcplugin.endOfDirectory(HANDLE)
         return
 
     xbmcgui.Dialog().ok("StreamLord", "Could not download\n%s" % title)
-    xbmcplugin.setResolvedUrl(HANDLE, False, xbmcgui.ListItem())
+    xbmcplugin.endOfDirectory(HANDLE)
 
 
-def play_movie(mid, title, watch_link="", imdb_id="", year="", tmdb_id="", resume_pct="0"):
+def sl_play_menu(is_tv, mid="", title="", show_title="", season="1", episode_num="", imdb_id="", tmdb_id="", watch_link="", year="", link=""):
+    label_title = ("%s - %s" % (show_title, title)) if (is_tv and show_title) else title
+    if is_tv:
+        play_url = get_url(action="play_episode", eid="", title=title, link=link, show_title=show_title, season=season, show_imdb_id=imdb_id, episode_num=episode_num, tmdb_id=tmdb_id)
+        dl_url = get_url(action="download_episode", eid="", title=title, link=link, show_title=show_title, season=season, show_imdb_id=imdb_id, episode_num=episode_num, tmdb_id=tmdb_id)
+    else:
+        play_url = get_url(action="play_movie", mid=mid, title=title, watch_link=watch_link, imdb_id=imdb_id, year=year, tmdb_id=tmdb_id)
+        dl_url = get_url(action="download_movie", mid=mid, title=title, watch_link=watch_link, imdb_id=imdb_id, year=year, tmdb_id=tmdb_id)
+
+    li = xbmcgui.ListItem("[B][COLOR lime]Play[/COLOR][/B] - %s" % label_title)
+    li.setProperty("IsPlayable", "true")
+    xbmcplugin.addDirectoryItem(HANDLE, play_url, li, isFolder=False)
+    li2 = xbmcgui.ListItem("[B][COLOR orange]Download[/COLOR][/B] - %s" % label_title)
+    xbmcplugin.addDirectoryItem(HANDLE, dl_url, li2, isFolder=True)
+    xbmcplugin.endOfDirectory(HANDLE)
+
+
+def play_movie(mid, title, watch_link="", imdb_id="", year="", tmdb_id="", resume_pct="0", download=False):
     if not imdb_id and tmdb_id:
         imdb_id = _tmdb_get_imdb_id(tmdb_id, "movie")
         xbmc.log("[StreamLord] Resolved tmdb_id=%s to imdb_id=%s" % (tmdb_id, imdb_id), xbmc.LOGINFO)
@@ -1469,6 +1498,10 @@ def play_movie(mid, title, watch_link="", imdb_id="", year="", tmdb_id="", resum
     magnet = chosen[3]
     name = chosen[6] if len(chosen) > 6 else ""
 
+    if download:
+        _download_chosen(chosen, title)
+        return
+
     action = xbmcgui.Dialog().select("Choose action - %s" % title[:40], ["Play", "Download"])
     if action < 0:
         xbmcplugin.setResolvedUrl(HANDLE, False, xbmcgui.ListItem())
@@ -1513,7 +1546,7 @@ def play_movie(mid, title, watch_link="", imdb_id="", year="", tmdb_id="", resum
     xbmcplugin.endOfDirectory(HANDLE)
     xbmcgui.Dialog().ok("StreamLord", "Torrent failed to play.\n%s" % title)
 
-def play_episode(eid, title, link, show_title, season, show_imdb_id="", episode_num="", tmdb_id="", resume_pct="0"):
+def play_episode(eid, title, link, show_title, season, show_imdb_id="", episode_num="", tmdb_id="", resume_pct="0", download=False):
     global _PACK_TH
     _PACK_TH = None
     if not show_imdb_id and tmdb_id:
@@ -1642,6 +1675,10 @@ def play_episode(eid, title, link, show_title, season, show_imdb_id="", episode_
     info_hash = chosen[4] if len(chosen) > 4 else ""
     magnet = chosen[3]
     name = chosen[6] if len(chosen) > 6 else ""
+
+    if download:
+        _download_chosen(chosen, full_title)
+        return
 
     action = xbmcgui.Dialog().select("Choose action - %s" % full_title[:40], ["Play", "Download"])
     if action < 0:
@@ -2211,6 +2248,12 @@ def main():
             play_movie(p.get("mid", ""), p.get("title", ""), p.get("watch_link", ""), p.get("imdb_id", ""), p.get("year", ""), p.get("tmdb_id", ""), p.get("resume_pct", "0"))
         elif a == "play_episode":
             play_episode(p.get("eid", ""), p.get("title", ""), p.get("link", ""), p.get("show_title", ""), p.get("season", "1"), p.get("show_imdb_id", ""), p.get("episode_num", ""), p.get("tmdb_id", ""), p.get("resume_pct", "0"))
+        elif a == "play_menu":
+            sl_play_menu((p.get("is_tv", "0") == "1"), p.get("mid", ""), p.get("title", ""), p.get("show_title", ""), p.get("season", "1"), p.get("episode_num", ""), p.get("imdb_id", ""), p.get("tmdb_id", ""), p.get("watch_link", ""), p.get("year", ""), p.get("link", ""))
+        elif a == "download_movie":
+            play_movie(p.get("mid", ""), p.get("title", ""), p.get("watch_link", ""), p.get("imdb_id", ""), p.get("year", ""), p.get("tmdb_id", ""), p.get("resume_pct", "0"), True)
+        elif a == "download_episode":
+            play_episode(p.get("eid", ""), p.get("title", ""), p.get("link", ""), p.get("show_title", ""), p.get("season", "1"), p.get("show_imdb_id", ""), p.get("episode_num", ""), p.get("tmdb_id", ""), p.get("resume_pct", "0"), True)
         elif a == "tpb_search":
             search_tpb_menu(p.get("query", ""), p.get("browse_tmdb", ""), p.get("browse_season", ""))
         elif a == "tpb_play_movie":

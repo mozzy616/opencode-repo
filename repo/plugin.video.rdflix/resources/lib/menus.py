@@ -181,6 +181,31 @@ def tv_list(category="trending", genre_id="", page=1):
     end_directory()
 
 
+def play_menu_view(is_tv, imdb_id, tmdb_id, title, show_title="", season="", episode="", episode_title="", year=""):
+    if is_tv:
+        label_title = "%s S%02dE%02d" % (show_title, int(season or 0), int(episode or 0))
+        play_action = "play_episode"
+        dl_action = "download_episode"
+    else:
+        label_title = title
+        play_action = "play_movie"
+        dl_action = "download_movie"
+
+    play_url = build_url(action=play_action, imdb_id=imdb_id, tmdb_id=tmdb_id, title=title,
+                         show_title=show_title, season=season, episode=episode, episode_title=episode_title, year=year)
+    dl_url = build_url(action=dl_action, imdb_id=imdb_id, tmdb_id=tmdb_id, title=title,
+                       show_title=show_title, season=season, episode=episode, episode_title=episode_title, year=year)
+
+    li = _make_li("[B][COLOR lime]Play[/COLOR][/B] - %s" % label_title, {"title": label_title}, {"icon": "DefaultVideo.png"})
+    li.setProperty("IsPlayable", "true")
+    add_list_item(play_url, li, False)
+
+    li = _make_li("[B][COLOR orange]Download[/COLOR][/B] - %s" % label_title, {"title": label_title}, {"icon": "DefaultFolder.png"})
+    add_list_item(dl_url, li, True)
+
+    end_directory()
+
+
 def _display_content_list(results, media_type, detail_action, page, total_pages, **route_params):
     fanart_url = ""
     for item in results:
@@ -290,8 +315,7 @@ def movie_detail_view(tmdb_id, title=""):
 
     li.setInfo("video", info)
     li.setArt(art)
-    li.setProperty("IsPlayable", "true")
-    add_list_item(build_url(action="play_movie", imdb_id=imdb_id, tmdb_id=tmdb_id, title=tmdb_title, year=year), li, False)
+    add_list_item(build_url(action="play_menu", is_tv="0", imdb_id=imdb_id, tmdb_id=tmdb_id, title=tmdb_title, year=year), li, True)
 
     for c in (detail.get("credits", {}) or {}).get("cast", [])[:6]:
         cname = c.get("name", "")
@@ -437,7 +461,6 @@ def season_episodes_view(tmdb_id, season, show_title, imdb_id=""):
         if overview:
             label += "\n[I][COLOR gray]%s[/COLOR][/I]" % overview[:120]
         li = _make_li(label, info, art)
-        li.setProperty("IsPlayable", "true")
         try:
             tag = li.getVideoInfoTag()
             tag.setTitle(epname)
@@ -449,8 +472,8 @@ def season_episodes_view(tmdb_id, season, show_title, imdb_id=""):
             tag.setFirstAired(ep.get("air_date", "") or "")
         except:
             pass
-        add_list_item(build_url(action="play_episode", imdb_id=imdb_id, tmdb_id=tmdb_id, show_title=show_title,
-                                season=str(season_num), episode=str(epnum), episode_title=epname), li, False)
+        add_list_item(build_url(action="play_menu", is_tv="1", imdb_id=imdb_id, tmdb_id=tmdb_id, show_title=show_title,
+                                title=epname, season=str(season_num), episode=str(epnum), episode_title=epname), li, True)
 
     li = _make_li("[B].. Back to Seasons[/B]", {}, {"icon": "DefaultFolderBack.png"})
     add_list_item(build_url(action="tv_detail", tmdb_id=tmdb_id, title=show_title), li, True)

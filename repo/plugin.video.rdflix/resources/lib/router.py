@@ -319,6 +319,40 @@ def router(param_string):
             resume_pct=float(params.get("resume_pct", "0")),
         )
 
+    elif action == "download_movie":
+        play_movie(
+            imdb_id=params.get("imdb_id", ""),
+            tmdb_id=params.get("tmdb_id", ""),
+            title=params.get("title", ""),
+            year=params.get("year", ""),
+            download=True,
+        )
+
+    elif action == "download_episode":
+        play_episode(
+            imdb_id=params.get("imdb_id", ""),
+            tmdb_id=params.get("tmdb_id", ""),
+            show_title=params.get("show_title", ""),
+            season=params.get("season", "1"),
+            episode=params.get("episode", "1"),
+            episode_title=params.get("episode_title", ""),
+            download=True,
+        )
+
+    elif action == "play_menu":
+        from resources.lib.menus import play_menu_view
+        play_menu_view(
+            is_tv=(params.get("is_tv", "0") == "1"),
+            imdb_id=params.get("imdb_id", ""),
+            tmdb_id=params.get("tmdb_id", ""),
+            title=params.get("title", ""),
+            show_title=params.get("show_title", ""),
+            season=params.get("season", ""),
+            episode=params.get("episode", ""),
+            episode_title=params.get("episode_title", ""),
+            year=params.get("year", ""),
+        )
+
     elif action == "noop":
         end_directory()
 

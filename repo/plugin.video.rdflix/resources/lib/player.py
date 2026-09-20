@@ -6,7 +6,7 @@ import xbmc
 import xbmcgui
 import xbmcplugin
 
-from resources.lib.kodi_utils import log, notify, dialog_ok, dialog_yesno, dialog_select, set_resolved_url, get_setting, translate_path
+from resources.lib.kodi_utils import log, notify, dialog_ok, dialog_yesno, dialog_select, set_resolved_url, get_setting, translate_path, end_directory
 from resources.lib.rd_api import resolve_magnet, unrestrict_link, instant_availability, user_torrents_list
 from resources.lib.torrentio import get_movie_sources, get_episode_sources
 from resources.lib.tmdb_api import get_external_ids
@@ -916,7 +916,7 @@ def _show_source_select(sources, title):
             return filtered[real_idx]
 
 
-def play_movie(imdb_id, tmdb_id, title, year="", resume_pct=0):
+def play_movie(imdb_id, tmdb_id, title, year="", resume_pct=0, download=False):
     if not imdb_id and tmdb_id:
         imdb_id = _resolve_imdb_id(tmdb_id, "movie")
     if not imdb_id:
@@ -925,7 +925,10 @@ def play_movie(imdb_id, tmdb_id, title, year="", resume_pct=0):
         scr_sources = scraper_search_movie("", title, year)
         if not scr_sources:
             dialog_ok("RDFlix", "No sources found for\n%s" % title)
-            set_resolved_url(False, xbmcgui.ListItem(label=title))
+            if download:
+                end_directory()
+            else:
+                set_resolved_url(False, xbmcgui.ListItem(label=title))
             return
         sources = _merge_sources([], scr_sources)
         sources = _check_rd_cache(sources)
@@ -938,22 +941,32 @@ def play_movie(imdb_id, tmdb_id, title, year="", resume_pct=0):
 
     if not sources:
         dialog_ok("RDFlix", "No sources found for\n%s" % title)
-        set_resolved_url(False, xbmcgui.ListItem(label=title))
+        if download:
+            end_directory()
+        else:
+            set_resolved_url(False, xbmcgui.ListItem(label=title))
         return
 
     choice = _show_source_select(sources, title)
     if choice is None:
-        set_resolved_url(False, xbmcgui.ListItem(label=title))
+        if download:
+            end_directory()
+        else:
+            set_resolved_url(False, xbmcgui.ListItem(label=title))
     elif choice == "rescrape":
         import xbmcplugin
         from resources.lib.kodi_utils import HANDLE, build_url
         xbmcplugin.endOfDirectory(HANDLE)
-        play_movie(imdb_id, tmdb_id, title, year)
+        play_movie(imdb_id, tmdb_id, title, year, download=download)
     else:
-        _handle_source_action(choice, title, imdb_id, resume_at=int(float(resume_pct) / 100 * 5400))
+        if download:
+            _download_source(choice, title)
+            end_directory()
+        else:
+            _handle_source_action(choice, title, imdb_id, resume_at=int(float(resume_pct) / 100 * 5400))
 
 
-def play_episode(imdb_id, tmdb_id, show_title, season, episode, episode_title="", resume_pct=0):
+def play_episode(imdb_id, tmdb_id, show_title, season, episode, episode_title="", resume_pct=0, download=False):
     _PACK_CONTEXT.clear()
     s_int = int(season) if season else 0
     e_int = int(episode) if episode else 0
@@ -967,7 +980,10 @@ def play_episode(imdb_id, tmdb_id, show_title, season, episode, episode_title=""
         scr_sources = scraper_search_episode("", show_title, season, episode, "")
         if not scr_sources:
             dialog_ok("RDFlix", "No sources found for\n%s" % full_title)
-            set_resolved_url(False, xbmcgui.ListItem(label=full_title))
+            if download:
+                end_directory()
+            else:
+                set_resolved_url(False, xbmcgui.ListItem(label=full_title))
             return
         sources = _merge_sources([], scr_sources)
         sources = _check_rd_cache(sources)
@@ -980,39 +996,53 @@ def play_episode(imdb_id, tmdb_id, show_title, season, episode, episode_title=""
 
     if not sources:
         dialog_ok("RDFlix", "No sources found for\n%s" % full_title)
-        set_resolved_url(False, xbmcgui.ListItem(label=full_title))
+        if download:
+            end_directory()
+        else:
+            set_resolved_url(False, xbmcgui.ListItem(label=full_title))
         return
 
     if len(sources) == 1:
-        res = _handle_source_action(sources[0], full_title, imdb_id, season, episode, show_title, resume_at=int(float(resume_pct) / 100 * 2700))
-        if res:
-            played_s, played_e = res
-            if not played_s:
-                played_s = s_int
-            if not played_e:
-                played_e = e_int
-            xbmc.sleep(3000)
-            _autoplay_next(imdb_id, tmdb_id, show_title, played_s, played_e)
+        if download:
+            _download_source(sources[0], full_title)
+            end_directory()
+        else:
+            res = _handle_source_action(sources[0], full_title, imdb_id, season, episode, show_title, resume_at=int(float(resume_pct) / 100 * 2700))
+            if res:
+                played_s, played_e = res
+                if not played_s:
+                    played_s = s_int
+                if not played_e:
+                    played_e = e_int
+                xbmc.sleep(3000)
+                _autoplay_next(imdb_id, tmdb_id, show_title, played_s, played_e)
         return
 
     choice = _show_source_select(sources, full_title)
     if choice is None:
-        set_resolved_url(False, xbmcgui.ListItem(label=full_title))
+        if download:
+            end_directory()
+        else:
+            set_resolved_url(False, xbmcgui.ListItem(label=full_title))
     elif choice == "rescrape":
         import xbmcplugin
         from resources.lib.kodi_utils import HANDLE
         xbmcplugin.endOfDirectory(HANDLE)
-        play_episode(imdb_id, tmdb_id, show_title, season, episode, episode_title)
+        play_episode(imdb_id, tmdb_id, show_title, season, episode, episode_title, download=download)
     else:
-        res = _handle_source_action(choice, full_title, imdb_id, season, episode, show_title, resume_at=int(float(resume_pct) / 100 * 2700))
-        if res:
-            played_s, played_e = res
-            if not played_s:
-                played_s = s_int
-            if not played_e:
-                played_e = e_int
-            xbmc.sleep(3000)
-            _autoplay_next(imdb_id, tmdb_id, show_title, played_s, played_e)
+        if download:
+            _download_source(choice, full_title)
+            end_directory()
+        else:
+            res = _handle_source_action(choice, full_title, imdb_id, season, episode, show_title, resume_at=int(float(resume_pct) / 100 * 2700))
+            if res:
+                played_s, played_e = res
+                if not played_s:
+                    played_s = s_int
+                if not played_e:
+                    played_e = e_int
+                xbmc.sleep(3000)
+                _autoplay_next(imdb_id, tmdb_id, show_title, played_s, played_e)
 
 
 def _autoplay_next(imdb_id, tmdb_id, show_title, season, episode):
