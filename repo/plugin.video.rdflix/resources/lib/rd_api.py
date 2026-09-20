@@ -8,7 +8,7 @@ import xbmc
 import xbmcgui
 
 from resources.lib.constants import RD_API, RD_OAUTH, USER_AGENT, LOG_PREFIX
-from resources.lib.kodi_utils import get_setting, log, notify
+from resources.lib.kodi_utils import get_setting, set_setting, log, notify
 
 
 def _token():
@@ -149,11 +149,7 @@ def refresh_token():
     if not client_id or not client_secret or not refresh:
         log("No refresh credentials stored", xbmc.LOGWARNING)
         return None, None
-    access_token, new_refresh = _token_exchange(
-        client_id, client_secret,
-        refresh_token=refresh,
-        grant_type="refresh_token",
-    )
+    access_token, new_refresh = get_token(client_id, client_secret, refresh)
     if access_token:
         set_setting("rd_token", access_token)
         if new_refresh:

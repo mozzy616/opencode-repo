@@ -202,11 +202,52 @@ def _play_source(source, title):
     return False
 
 
+def _prebuffer_magnet(magnet, min_bytes=10 * 1024 * 1024, timeout=45):
+    """Add magnet to torrest, select the largest video, wait for ~10MB buffered.
+    Returns a serve URL or None."""
+    if not TRY_LORDPLAYER:
+        return None
+    try:
+        uri = magnet if TRACKERS in magnet else magnet + TRACKERS
+        base = "http://127.0.0.1:61235"
+        d = _torrest_req(base, "POST", "/add/magnet", {"uri": uri, "ignore_duplicate": "true", "download": "false"})
+        th = d.get("info_hash", "")
+        if not th:
+            return None
+        for _ in range(30):
+            st = _torrest_req(base, "GET", "/torrents/%s/status" % th)
+            if st.get("has_metadata"):
+                break
+            xbmc.sleep(1000)
+        files = _torrest_req(base, "GET", "/torrents/%s/files" % th) or []
+        vids = [f for f in files if f.get("path", "").lower().endswith((".mp4", ".mkv", ".avi", ".m4v", ".mov", ".webm", ".ts"))]
+        if not vids:
+            vids = files
+        if not vids:
+            return None
+        vids.sort(key=lambda f: f.get("size", 0), reverse=True)
+        fid = vids[0].get("id")
+        try:
+            _torrest_req(base, "PUT", "/torrents/%s/files/%s/download" % (th, fid), {"buffer": "true"})
+        except Exception:
+            pass
+        for _ in range(timeout):
+            st = _torrest_req(base, "GET", "/torrents/%s/status" % th)
+            if (st.get("downloaded", 0) or 0) >= min_bytes:
+                break
+            xbmc.sleep(1000)
+        return "%s/torrents/%s/files/%s/serve" % (base, th, fid)
+    except Exception as e:
+        log("Prebuffer error: %s" % str(e), xbmc.LOGERROR)
+        return None
+
+
 def _play_via_lordplayer(magnet, title):
     try:
-        lid = "plugin.video.lordplayer.droid" if xbmc.getCondVisibility("System.HasAddon(plugin.video.lordplayer.droid)") else "plugin.video.lordplayer"
-        plugin_url = "plugin://%s/play_magnet?magnet=%s&buffer=false" % (lid, urllib.parse.quote(magnet, safe=""))
-        li = xbmcgui.ListItem(path=plugin_url, label=title)
+        serve = _prebuffer_magnet(magnet)
+        if not serve:
+            return False
+        li = xbmcgui.ListItem(path=serve, label=title)
         li.setProperty("IsPlayable", "true")
         set_resolved_url(True, li)
         return True
@@ -352,7 +393,7 @@ def _pack_file_url(f, title):
         return None
     th = f.get("th")
     try:
-        _torrest_req("http://127.0.0.1:61235", "PUT", "/torrents/%s/files/%s/download" % (th, f["id"]), {"buffer": "false"})
+        _torrest_req("http://127.0.0.1:61235", "PUT", "/torrents/%s/files/%s/download" % (th, f["id"]), {"buffer": "true"})
     except Exception:
         pass
     return "http://127.0.0.1:61235/torrents/%s/files/%s/serve" % (th, f["id"])
@@ -1185,17 +1226,16 @@ def _autoplay_source(source, title):
         magnet_link = "magnet:?xt=urn:btih:%s&dn=%s" % (info_hash[:40], urllib.parse.quote(torrent_title or title))
 
     if magnet_link and TRY_LORDPLAYER:
-        try:
-            lid = "plugin.video.lordplayer.droid" if xbmc.getCondVisibility("System.HasAddon(plugin.video.lordplayer.droid)") else "plugin.video.lordplayer"
-            plugin_url = "plugin://%s/play_magnet?magnet=%s&buffer=false" % (lid, urllib.parse.quote(magnet_link, safe=""))
-            li = xbmcgui.ListItem(path=plugin_url, label=file_name)
+        serve = _prebuffer_magnet(magnet_link)
+        if serve:
+            li = xbmcgui.ListItem(path=serve, label=file_name)
             li.setProperty("IsPlayable", "true")
-            xbmc.Player().play(plugin_url, li)
+            xbmc.Player().play(serve, li)
             if _verify_playback_started(20):
                 return True
             log("Autoplay: LordPlayer playback did not start", xbmc.LOGWARNING)
-        except Exception as e:
-            log("Autoplay LordPlayer error: %s" % str(e), xbmc.LOGERROR)
+        else:
+            log("Autoplay: LordPlayer prebuffer failed", xbmc.LOGWARNING)
 
     return False
 

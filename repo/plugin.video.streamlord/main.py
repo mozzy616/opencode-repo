@@ -823,12 +823,11 @@ def play_via_LordPlayer(magnet, title):
     try:
         if not magnet.startswith("magnet:"):
             return False
-        if TRACKERS not in magnet:
-            magnet += TRACKERS
-        player_id = get_lordplayer_id()
-        plugin_url = "plugin://%s/play_magnet?magnet=%s&buffer=false" % (player_id, urllib.parse.quote(magnet, safe=''))
-        xbmc.log("[StreamLord] Playing via %s" % player_id, xbmc.LOGINFO)
-        li = xbmcgui.ListItem(path=plugin_url, label=title)
+        info = _prebuffer_torrest(magnet, min_bytes=10 * 1024 * 1024)
+        if not info:
+            return False
+        xbmc.log("[StreamLord] Playing via LordPlayer (prebuffered)", xbmc.LOGINFO)
+        li = xbmcgui.ListItem(path=info["serve"], label=title)
         li.setProperty("IsPlayable", "true")
         xbmcplugin.setResolvedUrl(HANDLE, True, li)
         return True
@@ -1071,7 +1070,7 @@ def _scrape_best_magnet(imdb_id, show_title, season, episode):
         xbmc.log("[StreamLord] _scrape_best_magnet error: %s" % str(e), xbmc.LOGERROR)
     return None
 
-def _prebuffer_torrest(magnet):
+def _prebuffer_torrest(magnet, min_bytes=None):
     try:
         if TRACKERS not in magnet:
             magnet += TRACKERS
@@ -1082,15 +1081,24 @@ def _prebuffer_torrest(magnet):
             if st.get("has_metadata"):
                 break
             xbmc.sleep(1000)
-        files = _tr("GET", "/torrents/%s/files" % info_hash)
-        vids = [f for f in files if f.get("path", "").lower().endswith((".mp4", ".mkv", ".avi", ".m4v"))]
+        files = _tr("GET", "/torrents/%s/files" % info_hash) or []
+        vids = [f for f in files if f.get("path", "").lower().endswith((".mp4", ".mkv", ".avi", ".m4v", ".mov", ".webm"))]
+        if not vids:
+            vids = files
         if not vids:
             return None
+        vids.sort(key=lambda f: f.get("size", 0), reverse=True)
         fid = vids[0]["id"]
         try:
             _tr("PUT", "/torrents/%s/files/%s/download" % (info_hash, fid), {"buffer": "true"})
         except:
             pass
+        if min_bytes:
+            for _ in range(45):
+                st = _tr("GET", "/torrents/%s/status" % info_hash)
+                if (st.get("downloaded", 0) or 0) >= min_bytes:
+                    break
+                xbmc.sleep(1000)
         serve = "http://127.0.0.1:61235/torrents/%s/files/%s/serve" % (info_hash, fid)
         return {"serve": serve, "hash": info_hash, "fid": fid}
     except Exception as e:

@@ -9,6 +9,7 @@ import xbmc
 import xbmcgui
 
 RD_API = "https://api.real-debrid.com/rest/1.0"
+RD_OAUTH = "https://api.real-debrid.com/oauth/v2"
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
 
 _log_prefix = "[StreamLord RD]"
@@ -32,7 +33,48 @@ def _get_rd_token():
     except:
         return ""
 
-def _rd_fetch(url, method="GET", data=None):
+def _get_credential(key):
+    for addon_id in ("plugin.video.rdflix", "plugin.video.streamlord"):
+        try:
+            import xbmcaddon
+            v = xbmcaddon.Addon(addon_id).getSetting(key).strip()
+            if v:
+                return v, addon_id
+        except:
+            pass
+    return "", ""
+
+def _refresh_rd_token():
+    client_id, aid = _get_credential("rd_client_id")
+    client_secret, _ = _get_credential("rd_client_secret")
+    refresh, _ = _get_credential("rd_refresh_token")
+    if not client_id or not client_secret or not refresh:
+        return None
+    data = urllib.parse.urlencode({
+        "client_id": client_id,
+        "client_secret": client_secret,
+        "code": refresh,
+        "grant_type": "http://oauth.net/grant_type/device/1.0",
+    }).encode("utf-8")
+    try:
+        req = urllib.request.Request(RD_OAUTH + "/token", data=data, headers={
+            "User-Agent": UA, "Accept": "application/json",
+            "Content-Type": "application/x-www-form-urlencoded"})
+        with urllib.request.urlopen(req, timeout=30) as r:
+            resp = json.loads(r.read().decode("utf-8", errors="replace"))
+        if resp and resp.get("access_token"):
+            import xbmcaddon
+            a = xbmcaddon.Addon(aid)
+            a.setSetting("rd_token", resp["access_token"])
+            if resp.get("refresh_token"):
+                a.setSetting("rd_refresh_token", resp["refresh_token"])
+            log("RD token refreshed successfully")
+            return resp["access_token"]
+    except Exception as e:
+        log("RD refresh error: %s" % str(e), xbmc.LOGWARNING)
+    return None
+
+def _rd_fetch(url, method="GET", data=None, _retry=True):
     token = _get_rd_token()
     headers = {
         "Authorization": "Bearer " + token,
@@ -60,6 +102,10 @@ def _rd_fetch(url, method="GET", data=None):
         log("%s %s HTTP %d body=%s" % (method, url.split('/')[-1][:40], e.code, body), xbmc.LOGWARNING)
         if e.code in (403, 401):
             is_dup = "magnet_already_added" in body or "already_added" in body
+            if "bad_token" in body and _retry:
+                log("RD token expired, refreshing")
+                if _refresh_rd_token():
+                    return _rd_fetch(url, method, data, _retry=False)
             if not is_dup:
                 xbmcgui.Dialog().notification("Real-Debrid", "HTTP %d - check token at real-debrid.com/apitoken" % e.code, xbmcgui.NOTIFICATION_ERROR, 8000)
         return None
