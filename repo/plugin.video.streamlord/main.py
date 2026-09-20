@@ -1334,9 +1334,12 @@ def _download_chosen(chosen, title):
             xbmcplugin.setResolvedUrl(HANDLE, False, xbmcgui.ListItem())
             return
 
-    if is_debrid and info_hash:
+    if is_debrid and (magnet.startswith("magnet:") or info_hash):
         from resources.lib import rd_resolver
-        rd_url, rd_fname = rd_resolver.resolve_torrent(info_hash, title)
+        if magnet.startswith("magnet:"):
+            rd_url, rd_fname = rd_resolver.resolve_magnet(magnet, title)
+        else:
+            rd_url, rd_fname = rd_resolver.resolve_torrent(info_hash, title)
         if rd_url and rd_fname:
             import resources.lib.rd_resolver as rd
             if rd.download_file(rd_url, dest, rd_fname, title):
@@ -1486,10 +1489,13 @@ def play_movie(mid, title, watch_link="", imdb_id="", year="", tmdb_id="", resum
             return
         xbmc.log("[StreamLord] RD direct URL failed, trying torrent resolve", xbmc.LOGINFO)
 
-    # If RD cached with hash, try RD first, auto-fallback to LP
-    if is_debrid and info_hash:
+    # If RD cached, try RD resolve (magnet or hash), auto-fallback to LP
+    if is_debrid and (magnet.startswith("magnet:") or info_hash):
         from resources.lib import rd_resolver
-        rd_url, rd_fname = rd_resolver.resolve_torrent(info_hash, title)
+        if magnet.startswith("magnet:"):
+            rd_url, rd_fname = rd_resolver.resolve_magnet(magnet, title)
+        else:
+            rd_url, rd_fname = rd_resolver.resolve_torrent(info_hash, title)
         if rd_url and rd_fname:
             if _play_rd_url(rd_url, title):
                 _save_resume(title, imdb_id, tmdb_id, resume_pct, 0, 0)
@@ -1663,9 +1669,12 @@ def play_episode(eid, title, link, show_title, season, show_imdb_id="", episode_
             return
         xbmc.log("[StreamLord] RD direct URL failed, trying torrent resolve", xbmc.LOGINFO)
 
-    if is_debrid and info_hash:
+    if is_debrid and (magnet.startswith("magnet:") or info_hash):
         from resources.lib import rd_resolver
-        rd_url, rd_fname = rd_resolver.resolve_torrent(info_hash, full_title)
+        if magnet.startswith("magnet:"):
+            rd_url, rd_fname = rd_resolver.resolve_magnet(magnet, full_title)
+        else:
+            rd_url, rd_fname = rd_resolver.resolve_torrent(info_hash, full_title)
         if rd_url and rd_fname:
             if _play_rd_url(rd_url, full_title):
                 _autoplay_monitor(show_imdb_id, season_num, ep_num, show_title)

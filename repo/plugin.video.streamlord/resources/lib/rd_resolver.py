@@ -173,53 +173,48 @@ def get_largest_video(files):
     log("largest_video: id=%s %s (%d bytes)" % (best.get("id"), best.get("path", "?"), best.get("bytes", 0)))
     return best
 
-def resolve_torrent(info_hash, title=""):
+def resolve_magnet(magnet, title=""):
+    """Resolve a magnet link via Real-Debrid (handles hex and base32 btih)."""
     token = _get_rd_token()
     if not token:
-        log("resolve_torrent: no token", xbmc.LOGWARNING)
+        log("resolve_magnet: no token", xbmc.LOGWARNING)
         return None, None
 
-    info_hash = info_hash.lower().strip()
-    if len(info_hash) != 40:
-        log("resolve_torrent: invalid hash length %d" % len(info_hash), xbmc.LOGWARNING)
-        return None, None
+    m = re.search(r"btih:([a-zA-Z0-9]{32,60})", magnet, re.IGNORECASE)
+    info_hash = m.group(1).lower() if m else ""
+    log("resolve_magnet: hash=%s title=%s" % (info_hash[:12], title[:50] if title else ""))
 
-    log("resolve_torrent: hash=%s title=%s" % (info_hash[:12], title[:50] if title else ""))
-
-    dn = urllib.parse.quote(title or "video")
-    magnet = "magnet:?xt=urn:btih:%s&dn=%s" % (info_hash, dn)
-
-    # Check existing torrents first (avoids blocked addMagnet for cached content)
-    existing = find_existing_by_hash(info_hash)
-    if existing and existing.get("status") == "downloaded":
-        links = existing.get("links", [])
-        best = get_largest_video(existing.get("files", []))
-        if links:
-            dl = unrestrict_link(links[0])
-            if dl:
-                fn = best.get("path", title or "video.mp4") if best else (title or "video.mp4")
-                log("resolve_torrent: SUCCESS from existing %s" % info_hash[:12])
-                return dl, fn
-        elif best and best.get("download"):
-            dl = unrestrict_link(best["download"])
-            if dl:
-                fn = best.get("path", title or "video.mp4")
-                log("resolve_torrent: SUCCESS from existing (file) %s" % info_hash[:12])
-                return dl, fn
+    # Check existing torrents first (only works for standard 40-char hex hashes)
+    if len(info_hash) == 40:
+        existing = find_existing_by_hash(info_hash)
+        if existing and existing.get("status") == "downloaded":
+            links = existing.get("links", [])
+            best = get_largest_video(existing.get("files", []))
+            if links:
+                dl = unrestrict_link(links[0])
+                if dl:
+                    fn = best.get("path", title or "video.mp4") if best else (title or "video.mp4")
+                    log("resolve_magnet: SUCCESS from existing %s" % info_hash[:12])
+                    return dl, fn
+            elif best and best.get("download"):
+                dl = unrestrict_link(best["download"])
+                if dl:
+                    fn = best.get("path", title or "video.mp4")
+                    log("resolve_magnet: SUCCESS from existing (file) %s" % info_hash[:12])
+                    return dl, fn
 
     torrent_id = add_magnet(magnet)
     if not torrent_id:
-        log("resolve_torrent: FAILED - blocked by RD or not available", xbmc.LOGINFO)
+        log("resolve_magnet: FAILED - blocked by RD or not available", xbmc.LOGINFO)
         return None, None
 
-    # We have a torrent_id — wait for it to be ready
-    for attempt in range(8):  # up to ~16 seconds
+    for attempt in range(8):
         info = get_torrent_info(torrent_id)
         if not info:
             time.sleep(2)
             continue
         status = info.get("status", "")
-        log("resolve_torrent: poll status=%s" % status)
+        log("resolve_magnet: poll status=%s" % status)
 
         if status == "magnet_conversion":
             time.sleep(2)
@@ -229,7 +224,7 @@ def resolve_torrent(info_hash, title=""):
             files = info.get("files", [])
             best = get_largest_video(files)
             if not best:
-                log("resolve_torrent: no files to select", xbmc.LOGWARNING)
+                log("resolve_magnet: no files to select", xbmc.LOGWARNING)
                 delete_torrent(torrent_id)
                 return None, None
             select_file(torrent_id, best["id"])
@@ -242,31 +237,36 @@ def resolve_torrent(info_hash, title=""):
             download_url = ""
             if links:
                 download_url = links[0]
-                files = info.get("files", [])
-                best = get_largest_video(files)
+                best = get_largest_video(info.get("files", []))
             else:
-                files = info.get("files", [])
-                best = get_largest_video(files)
+                best = get_largest_video(info.get("files", []))
                 if best:
                     download_url = best.get("download", "")
             if download_url:
                 dl = unrestrict_link(download_url) or download_url
                 fn = best.get("path", title or "video.mp4") if best else (title or "video.mp4")
                 delete_torrent(torrent_id)
-                log("resolve_torrent: SUCCESS %s -> %s" % (info_hash[:12], dl[:80]))
+                log("resolve_magnet: SUCCESS %s -> %s" % (info_hash[:12], dl[:80]))
                 return dl, fn
 
         if status in ("magnet_error", "error", "virus", "dead"):
-            log("resolve_torrent: status=%s" % status, xbmc.LOGWARNING)
+            log("resolve_magnet: status=%s" % status, xbmc.LOGWARNING)
             delete_torrent(torrent_id)
             return None, None
 
         time.sleep(2)
 
-    # Timed out — not cached
-    log("resolve_torrent: not cached (poll timed out)", xbmc.LOGINFO)
+    log("resolve_magnet: not cached (poll timed out)", xbmc.LOGINFO)
     delete_torrent(torrent_id)
     return None, None
+
+
+def resolve_torrent(info_hash, title=""):
+    """Resolve a raw info hash via Real-Debrid."""
+    info_hash = (info_hash or "").strip()
+    dn = urllib.parse.quote(title or "video")
+    magnet = "magnet:?xt=urn:btih:%s&dn=%s" % (info_hash, dn)
+    return resolve_magnet(magnet, title)
 
 def unrestrict_link(link):
     resp = _rd_request("POST", "/unrestrict/link", {"link": link})
