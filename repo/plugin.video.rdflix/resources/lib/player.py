@@ -665,10 +665,19 @@ def _handle_source_action(source, title, imdb_id="", season=None, episode=None, 
         return (s_int, e_int)
     elif choice == 1:
         _download_source(source, title)
-        import xbmcplugin
-        from resources.lib.kodi_utils import HANDLE
-        xbmcplugin.endOfDirectory(HANDLE)
+        set_resolved_url(False, xbmcgui.ListItem())
         return None
+
+
+def _follow_redirect(url):
+    """Follow a URL's redirects (HEAD) and return the final download URL."""
+    try:
+        req = urllib.request.Request(url, method="HEAD")
+        req.add_header("User-Agent", "Mozilla/5.0")
+        with urllib.request.urlopen(req, timeout=10) as r:
+            return r.geturl() or url
+    except Exception:
+        return url
 
 
 def _download_source(source, title):
@@ -698,7 +707,8 @@ def _download_source(source, title):
     if url and (url.startswith("http://") or url.startswith("https://")):
         if not ("/torrent/" in url or "/stream/" in url or "127.0.0.1" in url):
             log("Download: trying RD direct URL")
-            if _do_download(url, dest_folder, fname, title):
+            final_url = _follow_redirect(url)
+            if final_url and _do_download(final_url, dest_folder, fname, title):
                 return
 
     # 2. RD magnet resolve

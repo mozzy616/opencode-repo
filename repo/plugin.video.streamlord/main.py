@@ -1294,6 +1294,26 @@ def _get_download_path():
     return xbmcvfs.translatePath("special://home/userdata/downloads/")
 
 
+def _follow_redirect(url):
+    try:
+        req = urllib.request.Request(url, method="HEAD")
+        req.add_header("User-Agent", USER_AGENT)
+        with urllib.request.urlopen(req, timeout=10) as r:
+            return r.geturl() or url
+    except Exception:
+        return url
+
+
+def _filename_from_url(url, title):
+    import os
+    fname = os.path.basename(urllib.parse.unquote(urllib.parse.urlparse(url).path))
+    if not fname or fname == "/":
+        fname = title + ".mp4"
+    if not fname.lower().endswith((".mp4", ".mkv", ".avi", ".m4v", ".mov", ".webm", ".ts")):
+        fname += ".mp4"
+    return fname
+
+
 def _download_chosen(chosen, title):
     """Download a chosen source to a user-selected folder (RD first, then LordPlayer)."""
     import os
@@ -1303,34 +1323,33 @@ def _download_chosen(chosen, title):
 
     dest = xbmcgui.Dialog().browse(0, "Choose download folder", "files", "", False, True, _get_download_path())
     if not dest:
-        xbmcplugin.endOfDirectory(HANDLE)
+        xbmcplugin.setResolvedUrl(HANDLE, False, xbmcgui.ListItem())
         return
 
     if is_debrid and magnet and magnet.startswith("http"):
-        fname = os.path.basename(urllib.parse.urlparse(magnet).path) or (title + ".mp4")
-        if not fname.lower().endswith((".mp4", ".mkv", ".avi", ".m4v", ".mov", ".webm", ".ts")):
-            fname += ".mp4"
+        final_url = _follow_redirect(magnet)
+        fname = _filename_from_url(final_url, title)
         import resources.lib.rd_resolver as rd
-        rd.download_file(magnet, dest, fname, title)
-        xbmcplugin.endOfDirectory(HANDLE)
-        return
+        if rd.download_file(final_url, dest, fname, title):
+            xbmcplugin.setResolvedUrl(HANDLE, False, xbmcgui.ListItem())
+            return
 
     if is_debrid and info_hash:
         from resources.lib import rd_resolver
         rd_url, rd_fname = rd_resolver.resolve_torrent(info_hash, title)
         if rd_url and rd_fname:
             import resources.lib.rd_resolver as rd
-            rd.download_file(rd_url, dest, rd_fname, title)
-            xbmcplugin.endOfDirectory(HANDLE)
-            return
+            if rd.download_file(rd_url, dest, rd_fname, title):
+                xbmcplugin.setResolvedUrl(HANDLE, False, xbmcgui.ListItem())
+                return
 
     if magnet and magnet.startswith("magnet:"):
         download_via_LordPlayer(magnet, title, dest)
-        xbmcplugin.endOfDirectory(HANDLE)
+        xbmcplugin.setResolvedUrl(HANDLE, False, xbmcgui.ListItem())
         return
 
     xbmcgui.Dialog().ok("StreamLord", "Could not download\n%s" % title)
-    xbmcplugin.endOfDirectory(HANDLE)
+    xbmcplugin.setResolvedUrl(HANDLE, False, xbmcgui.ListItem())
 
 
 def play_movie(mid, title, watch_link="", imdb_id="", year="", tmdb_id="", resume_pct="0"):
@@ -1449,7 +1468,7 @@ def play_movie(mid, title, watch_link="", imdb_id="", year="", tmdb_id="", resum
 
     action = xbmcgui.Dialog().select("Choose action - %s" % title[:40], ["Play", "Download"])
     if action < 0:
-        xbmcplugin.endOfDirectory(HANDLE)
+        xbmcplugin.setResolvedUrl(HANDLE, False, xbmcgui.ListItem())
         return
     if action == 1:
         _download_chosen(chosen, title)
@@ -1620,7 +1639,7 @@ def play_episode(eid, title, link, show_title, season, show_imdb_id="", episode_
 
     action = xbmcgui.Dialog().select("Choose action - %s" % full_title[:40], ["Play", "Download"])
     if action < 0:
-        xbmcplugin.endOfDirectory(HANDLE)
+        xbmcplugin.setResolvedUrl(HANDLE, False, xbmcgui.ListItem())
         return
     if action == 1:
         _download_chosen(chosen, full_title)
