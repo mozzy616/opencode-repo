@@ -253,88 +253,161 @@ def _is_season_pack(name):
     return has_season and not has_episode and (has_pack or "complete" in name.lower() or "season" in name.lower() or re.match(r'.*S\d{1,2}\s+', name))
 
 
+_PACK_CONTEXT = {}
+
+
+def _ep_from_filename(name):
+    name = name or ""
+    m = re.search(r'[Ss](\d{1,2})[Ee](\d{1,2})', name)
+    if m:
+        return int(m.group(1)), int(m.group(2))
+    m = re.search(r'[Ee](\d{1,2})', name)
+    if m:
+        return 0, int(m.group(1))
+    return None, None
+
+
+def _rd_pack_files(magnet):
+    """List video files in a season pack via Real-Debrid."""
+    from resources.lib.rd_api import torrent_info as rd_torrent_info
+    m = re.search(r"btih:([a-fA-F0-9]{40})", magnet)
+    if not m:
+        return []
+    h = m.group(1).lower()
+    tid = None
+    for t in (user_torrents_list() or []):
+        if t.get("hash", "").lower() == h:
+            tid = t.get("id")
+            break
+    if not tid:
+        tid = rd_add_magnet(magnet)
+    if not tid:
+        return []
+    for _ in range(20):
+        info = rd_torrent_info(tid) or {}
+        if info.get("status", "") != "magnet_conversion" and info.get("files"):
+            break
+        xbmc.sleep(1000)
+    info = rd_torrent_info(tid) or {}
+    if info.get("status", "") != "downloaded":
+        return []
+    out = []
+    for f in info.get("files", []):
+        if f.get("path", "").lower().endswith((".mp4", ".mkv", ".avi", ".m4v", ".mov", ".webm", ".ts")):
+            out.append({
+                "id": f.get("id"),
+                "path": f.get("path", ""),
+                "size": f.get("bytes", 0),
+                "rd": True,
+                "torrent_id": tid,
+                "download": f.get("download", ""),
+            })
+    return out
+
+
+def _lp_pack_files(magnet):
+    """List video files in a season pack via the torrest (LordPlayer) daemon."""
+    if not TRY_LORDPLAYER:
+        return []
+    uri = magnet if TRACKERS in magnet else magnet + TRACKERS
+    base = "http://127.0.0.1:61235"
+    d = _torrest_req(base, "POST", "/add/magnet", {"uri": uri, "ignore_duplicate": "true", "download": "false"})
+    th = d.get("info_hash", "")
+    if not th:
+        return []
+    for _ in range(30):
+        st = _torrest_req(base, "GET", "/torrents/%s/status" % th)
+        if st.get("has_metadata"):
+            break
+        xbmc.sleep(1000)
+    out = []
+    for f in (_torrest_req(base, "GET", "/torrents/%s/files" % th) or []):
+        if f.get("path", "").lower().endswith((".mp4", ".mkv", ".avi", ".m4v", ".mov", ".webm", ".ts")):
+            out.append({
+                "id": f.get("id"),
+                "path": f.get("path", ""),
+                "size": f.get("size", 0),
+                "rd": False,
+                "th": th,
+            })
+    return out
+
+
+def _list_pack_files(magnet, title):
+    files = _rd_pack_files(magnet)
+    if files:
+        return files
+    return _lp_pack_files(magnet)
+
+
+def _pack_file_url(f, title):
+    if f.get("rd"):
+        try:
+            from resources.lib.rd_api import unrestrict_link
+            dl = unrestrict_link(f.get("download", ""))
+            if dl and dl.get("download"):
+                return dl["download"]
+        except Exception as e:
+            log("Pack RD play error: %s" % str(e))
+        return None
+    th = f.get("th")
+    try:
+        _torrest_req("http://127.0.0.1:61235", "PUT", "/torrents/%s/files/%s/download" % (th, f["id"]), {"buffer": "false"})
+    except Exception:
+        pass
+    return "http://127.0.0.1:61235/torrents/%s/files/%s/serve" % (th, f["id"])
+
+
 def _browse_season_pack(source, title):
-    """Add season pack magnet to RD, browse episode files."""
-    import re
+    """Add season pack magnet, browse episode files, play the selected episode.
+    Returns (season, episode) of the played file, or (None, None)."""
+    import re as regex
     magnet = source.get("magnet", "")
     info_hash = source.get("infoHash", "")
-    
     if not magnet and info_hash and len(info_hash) >= 40:
         magnet = "magnet:?xt=urn:btih:%s&dn=%s" % (info_hash[:40], urllib.parse.quote(title))
-
     if not magnet:
         dialog_ok("RDFlix", "No magnet link for this season pack")
-        return False
+        return None, None
 
-    try:
-        result = resolve_magnet(magnet, title)
-        if not result or not result.get("url"):
-            dialog_ok("RDFlix", "Could not resolve season pack")
-            return False
+    files = _list_pack_files(magnet, title)
+    if not files:
+        dialog_ok("RDFlix", "Could not load season pack files")
+        return None, None
 
-        from resources.lib.rd_api import torrent_info as rd_torrent_info
-        import re as regex
-        m = regex.search(r"btih:([a-fA-F0-9]{40})", magnet)
-        if not m:
-            return False
-        tid = None
-        existing = user_torrents_list()
-        for t in existing:
-            if t.get("hash", "").lower() == m.group(1).lower():
-                tid = t.get("id")
-                break
+    labels = []
+    for f in files:
+        fname = f.get("path", "Unknown")
+        s, e = _ep_from_filename(fname)
+        size = f.get("size", 0)
+        size_str = ""
+        if size >= 1073741824:
+            size_str = "%.1f GB" % (size / 1073741824)
+        elif size >= 1048576:
+            size_str = "%.0f MB" % (size / 1048576)
+        if s and e:
+            labels.append("S%02dE%02d - %s [%s]" % (s, e, fname, size_str))
+        else:
+            labels.append("%s [%s]" % (fname, size_str))
 
-        if not tid:
-            dialog_ok("RDFlix", "Torrent not found in RD after adding")
-            return False
+    idx = dialog_select("Season Pack - %s" % title[:30], labels)
+    if idx < 0:
+        return None, None
 
-        info = rd_torrent_info(tid)
-        files = (info or {}).get("files", [])
-        if not files:
-            dialog_ok("RDFlix", "No files found in season pack")
-            return False
+    chosen = files[idx]
+    url = _pack_file_url(chosen, title)
+    if not url:
+        dialog_ok("RDFlix", "Could not play this file")
+        return None, None
 
-        video_files = [f for f in files if f.get("path", "").lower().endswith((".mp4", ".mkv", ".avi", ".m4v", ".mov", ".webm"))]
-        if not video_files:
-            dialog_ok("RDFlix", "No video files in season pack")
-            return False
+    _PACK_CONTEXT["magnet"] = magnet
+    _PACK_CONTEXT["title"] = title
 
-        labels = []
-        for f in video_files:
-            fname = f.get("path", "Unknown")
-            size = f.get("bytes", 0)
-            size_str = ""
-            if size >= 1073741824:
-                size_str = "%.1f GB" % (size / 1073741824)
-            elif size >= 1048576:
-                size_str = "%.0f MB" % (size / 1048576)
-            ep_match = regex.search(r'[Ss](\d{1,2})[Ee](\d{1,2})', fname)
-            if ep_match:
-                labels.append("S%02dE%02d - %s [%s]" % (int(ep_match.group(1)), int(ep_match.group(2)), fname, size_str))
-            else:
-                labels.append("%s [%s]" % (fname, size_str))
-
-        idx = dialog_select("Season Pack - %s" % title[:30], labels)
-        if idx < 0:
-            return False
-
-        chosen = video_files[idx]
-        fid = chosen.get("id")
-        if fid is not None:
-            from resources.lib.rd_api import select_files, unrestrict_link
-            select_files(tid, fid)
-            dl = unrestrict_link(chosen.get("download", ""))
-            if dl and dl.get("download"):
-                li = xbmcgui.ListItem(path=dl["download"], label=chosen.get("path", title))
-                li.setProperty("IsPlayable", "true")
-                set_resolved_url(True, li)
-                return True
-
-        return False
-    except Exception as e:
-        log("Season pack browse error: %s" % str(e), xbmc.LOGERROR)
-        dialog_ok("RDFlix", "Season pack error: %s" % str(e)[:80])
-        return False
+    s, e = _ep_from_filename(chosen.get("path", ""))
+    li = xbmcgui.ListItem(path=url, label=chosen.get("path", title))
+    li.setProperty("IsPlayable", "true")
+    set_resolved_url(True, li)
+    return (s if s else 0, e if e else 0)
 
 
 def _merge_sources(torrentio_sources, scraper_sources):
@@ -494,27 +567,37 @@ def _detect_scraper_quality(name):
 
 
 def _handle_source_action(source, title, imdb_id="", season=None, episode=None, show_title="", resume_at=0):
-    """Show Play/Download dialog for a selected source. Returns True if played."""
+    """Show Play/Download dialog for a selected source.
+    Returns (season, episode) of the played file, or None if not played."""
     if not source:
         set_resolved_url(False, xbmcgui.ListItem(label=title))
-        return False
+        return None
 
     choice = dialog_select("Choose action - %s" % title[:40], ["Play", "Download"])
     if choice < 0:
         set_resolved_url(False, xbmcgui.ListItem(label=title))
-        return False
+        return None
 
     if choice == 0:
+        s_int = int(season) if season else 0
+        e_int = int(episode) if episode else 0
         is_pack = _is_season_pack(source.get("title", source.get("name", "")))
         if is_pack:
-            if _browse_season_pack(source, title):
-                return True
-            set_resolved_url(False, xbmcgui.ListItem(label=title))
-            return False
-        elif not _play_source(source, title):
+            pack_s, pack_e = _browse_season_pack(source, title)
+            if pack_s is None or pack_e is None:
+                set_resolved_url(False, xbmcgui.ListItem(label=title))
+                return None
+            if imdb_id and trakt_authenticated():
+                try:
+                    scrobble_start("start", imdb_id, show_title or title, pack_s, pack_e)
+                except:
+                    pass
+            return (pack_s, pack_e)
+
+        if not _play_source(source, title):
             dialog_ok("RDFlix", "Failed to play\n%s" % title)
             set_resolved_url(False, xbmcgui.ListItem(label=title))
-            return False
+            return None
 
         if resume_at > 0:
             xbmc.sleep(2000)
@@ -538,13 +621,13 @@ def _handle_source_action(source, title, imdb_id="", season=None, episode=None, 
                 scrobble_start("start", imdb_id, show_title or title, season, episode)
             except:
                 pass
-        return True
+        return (s_int, e_int)
     elif choice == 1:
         _download_source(source, title)
         import xbmcplugin
         from resources.lib.kodi_utils import HANDLE
         xbmcplugin.endOfDirectory(HANDLE)
-        return False
+        return None
 
 
 def _download_source(source, title):
@@ -818,6 +901,7 @@ def play_movie(imdb_id, tmdb_id, title, year="", resume_pct=0):
 
 
 def play_episode(imdb_id, tmdb_id, show_title, season, episode, episode_title="", resume_pct=0):
+    _PACK_CONTEXT.clear()
     s_int = int(season) if season else 0
     e_int = int(episode) if episode else 0
     full_title = "%s S%02dE%02d" % (show_title, s_int, e_int)
@@ -847,9 +931,15 @@ def play_episode(imdb_id, tmdb_id, show_title, season, episode, episode_title=""
         return
 
     if len(sources) == 1:
-        if _handle_source_action(sources[0], full_title, imdb_id, season, episode, show_title, resume_at=int(float(resume_pct) / 100 * 2700)):
+        res = _handle_source_action(sources[0], full_title, imdb_id, season, episode, show_title, resume_at=int(float(resume_pct) / 100 * 2700))
+        if res:
+            played_s, played_e = res
+            if not played_s:
+                played_s = s_int
+            if not played_e:
+                played_e = e_int
             xbmc.sleep(3000)
-            _autoplay_next(imdb_id, tmdb_id, show_title, s_int, e_int)
+            _autoplay_next(imdb_id, tmdb_id, show_title, played_s, played_e)
         return
 
     choice = _show_source_select(sources, full_title)
@@ -861,9 +951,15 @@ def play_episode(imdb_id, tmdb_id, show_title, season, episode, episode_title=""
         xbmcplugin.endOfDirectory(HANDLE)
         play_episode(imdb_id, tmdb_id, show_title, season, episode, episode_title)
     else:
-        if _handle_source_action(choice, full_title, imdb_id, season, episode, show_title, resume_at=int(float(resume_pct) / 100 * 2700)):
+        res = _handle_source_action(choice, full_title, imdb_id, season, episode, show_title, resume_at=int(float(resume_pct) / 100 * 2700))
+        if res:
+            played_s, played_e = res
+            if not played_s:
+                played_s = s_int
+            if not played_e:
+                played_e = e_int
             xbmc.sleep(3000)
-            _autoplay_next(imdb_id, tmdb_id, show_title, s_int, e_int)
+            _autoplay_next(imdb_id, tmdb_id, show_title, played_s, played_e)
 
 
 def _autoplay_next(imdb_id, tmdb_id, show_title, season, episode):
@@ -904,11 +1000,15 @@ def _autoplay_next(imdb_id, tmdb_id, show_title, season, episode):
     waited = False
     next_source = None
     reached_end = False
+    last_time = 0
 
-    while player.isPlaying() and not monitor.abortRequested():
-        try:
+    while not monitor.abortRequested():
+        if player.isPlaying():
+            t = player.getTime()
+            if t > 0:
+                last_time = t
             if total > 0:
-                remaining = int(total - player.getTime())
+                remaining = int(total - t)
                 if remaining <= 90 and not waited:
                     waited = True
                     log("Autoplay: pre-fetching S%02dE%02d" % (next_s, next_e))
@@ -920,13 +1020,14 @@ def _autoplay_next(imdb_id, tmdb_id, show_title, season, episode):
                             magnet = "magnet:?xt=urn:btih:%s&dn=%s" % (info_hash[:40], urllib.parse.quote(show_title))
                         if magnet:
                             threading.Thread(target=_precache_async, args=(magnet,), daemon=True).start()
-                if remaining <= 2:
+                if remaining <= 3:
                     reached_end = True
                     break
-        except RuntimeError:
-            log("Autoplay: player stopped during monitoring")
+        else:
+            if total > 0 and last_time > 0 and (total - last_time) <= 120:
+                reached_end = True
             break
-        xbmc.sleep(3000)
+        xbmc.sleep(1000)
 
     if monitor.abortRequested():
         return
@@ -967,6 +1068,16 @@ def _autoplay_next(imdb_id, tmdb_id, show_title, season, episode):
 
     log("Autoplay: playing S%02dE%02d" % (next_s, next_e))
 
+    # 1) Try the season pack we came from first
+    if _PACK_CONTEXT.get("magnet"):
+        if _play_from_pack(_PACK_CONTEXT["magnet"], _PACK_CONTEXT.get("title", show_title), next_s, next_e):
+            xbmc.sleep(2000)
+            _autoplay_next(imdb_id, tmdb_id, show_title, next_s, next_e)
+            return
+        log("Autoplay: next episode not in pack, scraping instead")
+        _PACK_CONTEXT.clear()
+
+    # 2) Scrape normally
     if next_source:
         label = "%s - S%02dE%02d" % (show_title, next_s, next_e)
         xbmc.sleep(5000)
@@ -977,6 +1088,34 @@ def _autoplay_next(imdb_id, tmdb_id, show_title, season, episode):
             log("Autoplay: failed to play next episode", xbmc.LOGWARNING)
     else:
         log("Autoplay: no source found for S%02dE%02d" % (next_s, next_e))
+
+
+def _play_from_pack(magnet, title, season, episode):
+    """Play a specific episode from a season pack (RD or torrest). Returns True if playback started."""
+    files = _list_pack_files(magnet, title)
+    if not files:
+        return False
+    match = None
+    for f in files:
+        s, e = _ep_from_filename(f.get("path", ""))
+        if s == season and e == episode:
+            match = f
+            break
+    if match is None:
+        for f in files:
+            s, e = _ep_from_filename(f.get("path", ""))
+            if e == episode:
+                match = f
+                break
+    if match is None:
+        return False
+    url = _pack_file_url(match, title)
+    if not url:
+        return False
+    li = xbmcgui.ListItem(path=url, label=match.get("path", title))
+    li.setProperty("IsPlayable", "true")
+    xbmc.Player().play(url, li)
+    return _verify_playback_started(15)
 
 
 def _autoplay_source(source, title):

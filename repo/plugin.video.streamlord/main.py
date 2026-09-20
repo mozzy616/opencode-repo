@@ -703,18 +703,34 @@ def _is_season_pack(name):
     return any(re.search(p, name, re.IGNORECASE) for p in pack_patterns) or "complete" in name.lower() or "season" in name.lower()
 
 
+_PACK_TH = None
+
+
+def _ep_from_filename(name):
+    name = name or ""
+    m = re.search(r'[Ss](\d{1,2})[Ee](\d{1,2})', name)
+    if m:
+        return int(m.group(1)), int(m.group(2))
+    m = re.search(r'[Ee](\d{1,2})', name)
+    if m:
+        return 0, int(m.group(1))
+    return None, None
+
+
 def _browse_season_pack(magnet, info_hash, title):
-    """Add season pack to RD via torrest, browse files."""
+    """Add season pack via torrest, browse files, play selected episode.
+    Returns (season, episode) of the played file, or (None, None)."""
+    global _PACK_TH
     import os
     if not magnet or not magnet.startswith("magnet:"):
-        return False
+        return None, None
     if TRACKERS not in magnet:
         magnet += TRACKERS
     try:
         d = _tr("POST", "/add/magnet", {"uri": magnet, "ignore_duplicate": "true", "download": "false"})
         th = d.get("info_hash", info_hash or "")
         if not th:
-            return False
+            return None, None
         for _ in range(30):
             st = _tr("GET", "/torrents/%s/status" % th)
             if st.get("has_metadata"):
@@ -722,7 +738,7 @@ def _browse_season_pack(magnet, info_hash, title):
             xbmc.sleep(1000)
         files = _tr("GET", "/torrents/%s/files" % th)
         if not files:
-            return False
+            return None, None
         vids = [f for f in files if f.get("path", "").lower().endswith((".mp4", ".mkv", ".avi", ".m4v", ".mov", ".webm"))]
         if not vids:
             vids = files
@@ -735,25 +751,57 @@ def _browse_season_pack(magnet, info_hash, title):
                 sz = "%d GB" % (size // 1073741824)
             elif size >= 1048576:
                 sz = "%d MB" % (size // 1048576)
-            ep = re.search(r'[Ss](\d{1,2})[Ee](\d{1,2})', fname)
-            if ep:
-                labels.append("S%02dE%02d - %s [%s]" % (int(ep.group(1)), int(ep.group(2)), os.path.basename(fname), sz))
+            s, e = _ep_from_filename(fname)
+            if s and e:
+                labels.append("S%02dE%02d - %s [%s]" % (s, e, os.path.basename(fname), sz))
             else:
                 labels.append("%s [%s]" % (os.path.basename(fname), sz))
         idx = xbmcgui.Dialog().select("Season Pack - %s" % title[:30], labels)
         if idx < 0:
-            return False
+            return None, None
         chosen = vids[idx]
         fid = chosen.get("id")
-        if fid is not None:
-            _tr("PUT", "/torrents/%s/files/%s/download" % (th, fid), {"buffer": "true"})
-            serve = "http://127.0.0.1:61235/torrents/%s/files/%s/serve" % (th, fid)
-            if play_http_url(serve, chosen.get("path", title)):
-                return True
-        return False
+        if fid is None:
+            return None, None
+        _tr("PUT", "/torrents/%s/files/%s/download" % (th, fid), {"buffer": "true"})
+        serve = "http://127.0.0.1:61235/torrents/%s/files/%s/serve" % (th, fid)
+        _PACK_TH = th
+        s, e = _ep_from_filename(chosen.get("path", ""))
+        if play_http_url(serve, chosen.get("path", title)):
+            return (s if s else 0, e if e else 0)
+        return None, None
     except Exception as e:
         xbmc.log("[StreamLord] Season pack browse error: %s" % str(e), xbmc.LOGERROR)
-        return False
+        return None, None
+
+
+def _torrest_episode_serve(th, season, episode):
+    """Return a serve URL for a specific episode already in a torrest torrent."""
+    try:
+        files = _tr("GET", "/torrents/%s/files" % th) or []
+        vids = [f for f in files if f.get("path", "").lower().endswith((".mp4", ".mkv", ".avi", ".m4v", ".mov", ".webm"))]
+        if not vids:
+            vids = files
+        match = None
+        for f in vids:
+            s, e = _ep_from_filename(f.get("path", ""))
+            if s == season and e == episode:
+                match = f
+                break
+        if match is None:
+            for f in vids:
+                s, e = _ep_from_filename(f.get("path", ""))
+                if e == episode:
+                    match = f
+                    break
+        if match is None:
+            return None
+        fid = match.get("id")
+        _tr("PUT", "/torrents/%s/files/%s/download" % (th, fid), {"buffer": "true"})
+        return "http://127.0.0.1:61235/torrents/%s/files/%s/serve" % (th, fid)
+    except Exception as e:
+        xbmc.log("[StreamLord] pack episode serve error: %s" % str(e), xbmc.LOGERROR)
+        return None
 
 def _tr(method, path, params=None):
     url = "http://127.0.0.1:61235" + path
@@ -1050,6 +1098,7 @@ def _prebuffer_torrest(magnet):
         return None
 
 def _autoplay_monitor(imdb_id, season, episode, show_title):
+    global _PACK_TH
     import xbmcaddon
     try:
         if xbmcaddon.Addon('plugin.video.streamlord').getSetting('autoplay_next') != 'true':
@@ -1093,7 +1142,26 @@ def _autoplay_monitor(imdb_id, season, episode, show_title):
         elif monitor.abortRequested():
             xbmc.log("[StreamLord] Autoplay: Kodi shutting down", xbmc.LOGINFO)
             return
-        xbmc.log("[StreamLord] Autoplay: scraping next S%02dE%02d" % (next_s, next_e), xbmc.LOGINFO)
+        xbmc.log("[StreamLord] Autoplay: preparing next S%02dE%02d" % (next_s, next_e), xbmc.LOGINFO)
+
+        # 1) Reuse the season pack we came from
+        pack_serve = None
+        if _PACK_TH:
+            pack_serve = _torrest_episode_serve(_PACK_TH, next_s, next_e)
+            if not pack_serve:
+                _PACK_TH = None
+
+        if pack_serve:
+            while player.isPlaying() and not monitor.abortRequested():
+                monitor.waitForAbort(1)
+            if monitor.abortRequested():
+                return
+            xbmc.sleep(5000)
+            if play_http_url(pack_serve, "%s S%02dE%02d" % (show_title, next_s, next_e)):
+                _autoplay_monitor(imdb_id, next_s, next_e, show_title)
+            return
+
+        # 2) Scrape and prebuffer the next episode
         magnet = _scrape_best_magnet(imdb_id, show_title, next_s, next_e)
         if not magnet and next_e != 1:
             next_s, next_e = s_int + 1, 1
@@ -1365,6 +1433,8 @@ def play_movie(mid, title, watch_link="", imdb_id="", year="", tmdb_id="", resum
     xbmcgui.Dialog().ok("StreamLord", "Torrent failed to play.\n%s" % title)
 
 def play_episode(eid, title, link, show_title, season, show_imdb_id="", episode_num="", tmdb_id="", resume_pct="0"):
+    global _PACK_TH
+    _PACK_TH = None
     if not show_imdb_id and tmdb_id:
         show_imdb_id = _tmdb_get_imdb_id(tmdb_id, "tv")
     full_title = "%s - %s" % (show_title, title) if show_title else title
@@ -1493,8 +1563,14 @@ def play_episode(eid, title, link, show_title, season, show_imdb_id="", episode_
     name = chosen[6] if len(chosen) > 6 else ""
 
     if _is_season_pack(name) and magnet:
-        if _browse_season_pack(magnet, info_hash, full_title):
-            _autoplay_monitor(show_imdb_id, season_num, ep_num, show_title)
+        res = _browse_season_pack(magnet, info_hash, full_title)
+        if res:
+            played_s, played_e = res
+            if not played_s:
+                played_s = s_int
+            if not played_e:
+                played_e = e_int
+            _autoplay_monitor(show_imdb_id, played_s, played_e, show_title)
             return
 
     # RD instant/resolve URL fast path
