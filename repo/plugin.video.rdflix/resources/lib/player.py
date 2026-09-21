@@ -233,7 +233,8 @@ def _prebuffer_magnet(magnet, min_bytes=10 * 1024 * 1024, timeout=45):
             pass
         for _ in range(timeout):
             st = _torrest_req(base, "GET", "/torrents/%s/status" % th)
-            if (st.get("downloaded", 0) or 0) >= min_bytes:
+            dl = st.get("total_done", 0) or st.get("downloaded", 0) or 0
+            if dl >= min_bytes:
                 break
             xbmc.sleep(1000)
         return "%s/torrents/%s/files/%s/serve" % (base, th, fid)

@@ -1071,7 +1071,7 @@ def _prebuffer_torrest(magnet, min_bytes=None):
     try:
         if TRACKERS not in magnet:
             magnet += TRACKERS
-        d = _tr("POST", "/add/magnet", {"uri": magnet, "ignore_duplicate": "true"})
+        d = _tr("POST", "/add/magnet", {"uri": magnet, "ignore_duplicate": "true", "download": "true"})
         info_hash = d["info_hash"]
         for _ in range(30):
             st = _tr("GET", "/torrents/%s/status" % info_hash)
@@ -1093,7 +1093,8 @@ def _prebuffer_torrest(magnet, min_bytes=None):
         if min_bytes:
             for _ in range(45):
                 st = _tr("GET", "/torrents/%s/status" % info_hash)
-                if (st.get("downloaded", 0) or 0) >= min_bytes:
+                dl = st.get("total_done", 0) or st.get("downloaded", 0) or 0
+                if dl >= min_bytes:
                     break
                 xbmc.sleep(1000)
         serve = "http://127.0.0.1:61235/torrents/%s/files/%s/serve" % (info_hash, fid)
@@ -1140,15 +1141,20 @@ def _autoplay_play_next(imdb_id, show_title, season, episode):
             stitle = s.get('title', label)
             if url and url.startswith("http"):
                 final_url = _follow_redirect(url)
-                if _autoplay_play_url(final_url, stitle):
-                    return True
+                if final_url and not _is_dmca_video(final_url):
+                    if _autoplay_play_url(final_url, stitle):
+                        return True
+                else:
+                    xbmc.log("[StreamLord] Autoplay: RD URL is DMCA/error, skipping source", xbmc.LOGINFO)
             if ih and len(ih) >= 40:
                 magnet = "magnet:?xt=urn:btih:%s&dn=%s%s" % (ih[:40], urllib.parse.quote(stitle), TRACKERS)
                 from resources.lib import rd_resolver
                 rd_url, rd_fname = rd_resolver.resolve_magnet(magnet, stitle)
-                if rd_url and rd_fname:
+                if rd_url and rd_fname and not _is_dmca_video(rd_url):
                     if _autoplay_play_url(rd_url, stitle):
                         return True
+                elif rd_url:
+                    xbmc.log("[StreamLord] Autoplay: RD resolved to DMCA/error, skipping source", xbmc.LOGINFO)
     except Exception as e:
         xbmc.log("[StreamLord] Autoplay stremio error: %s" % str(e), xbmc.LOGERROR)
 
