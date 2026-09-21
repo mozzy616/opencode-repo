@@ -181,6 +181,9 @@ def _prebuffer_magnet(magnet, min_bytes=10 * 1024 * 1024, timeout=45):
     if not TRY_LORDPLAYER:
         return None
     try:
+        if not re.search(r"btih:([a-fA-F0-9]{40})", magnet):
+            log("Prebuffer: invalid magnet (non-hex hash), skipping", xbmc.LOGWARNING)
+            return None
         uri = magnet if TRACKERS in magnet else magnet + TRACKERS
         base = "http://127.0.0.1:61235"
         d = _torrest_req(base, "POST", "/add/magnet", {"uri": uri, "ignore_duplicate": "true", "download": "false"})

@@ -1039,6 +1039,12 @@ def _check_rd_cache(sources):
         xbmc.log("[StreamLord] RD cache check error: %s" % str(e), xbmc.LOGERROR)
     return sources
 
+def _valid_magnet(magnet):
+    if not magnet or not magnet.startswith("magnet:"):
+        return False
+    return bool(re.search(r"btih:([a-fA-F0-9]{40})", magnet))
+
+
 def _scrape_best_magnet(imdb_id, show_title, season, episode):
     try:
         s_int = int(season) if season else 0
@@ -1052,7 +1058,7 @@ def _scrape_best_magnet(imdb_id, show_title, season, episode):
         for s in results:
             if pattern.search(s.get('name', '')) or not s.get('name'):
                 magnet = s.get('url', '')
-                if magnet and magnet.startswith('magnet:'):
+                if _valid_magnet(magnet):
                     seed = int(s.get('seeders', 0))
                     if not best or seed > best[0]:
                         best = (seed, magnet)
@@ -1062,7 +1068,7 @@ def _scrape_best_magnet(imdb_id, show_title, season, episode):
             tpb = search_tpb("%s S%02dE%02d" % (show_title, s_int, e_int))
             for s in tpb:
                 magnet = s.get('url', '')
-                if magnet and magnet.startswith('magnet:'):
+                if _valid_magnet(magnet):
                     seed = int(s.get('seeders', 0))
                     if not best or seed > best[0]:
                         best = (seed, magnet)
@@ -1074,6 +1080,9 @@ def _scrape_best_magnet(imdb_id, show_title, season, episode):
 
 def _prebuffer_torrest(magnet, min_bytes=None):
     try:
+        if not _valid_magnet(magnet):
+            xbmc.log("[StreamLord] _prebuffer_torrest: invalid magnet (non-hex hash), skipping", xbmc.LOGWARNING)
+            return None
         if TRACKERS not in magnet:
             magnet += TRACKERS
         d = _tr("POST", "/add/magnet", {"uri": magnet, "ignore_duplicate": "true", "download": "false"})
