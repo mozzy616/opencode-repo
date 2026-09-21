@@ -435,8 +435,9 @@ def search_streamlord(query="", browse_tmdb="", browse_season=""):
         li.setInfo("video", {"title": title, "year": year, "plot": plot, "rating": rating})
         li.setArt({"thumb": thumb, "fanart": fanart_url, "icon": "DefaultVideo.png" if mtype == "movie" else "DefaultTVShows.png"})
         if mtype == "movie":
-            xbmcplugin.addDirectoryItem(HANDLE, get_url(action="play_menu", is_tv="0", mid="", title=title,
-                watch_link="", imdb_id="", year=year, tmdb_id=str(tid)), li, isFolder=True)
+            li.setProperty("IsPlayable", "true")
+            xbmcplugin.addDirectoryItem(HANDLE, get_url(action="play_movie", mid="", title=title,
+                watch_link="", imdb_id="", year=year, tmdb_id=str(tid)), li, isFolder=False)
         else:
             xbmcplugin.addDirectoryItem(HANDLE, get_url(action="search_streamlord", browse_tmdb=str(tid)), li, isFolder=True)
 
@@ -600,8 +601,9 @@ def do_search(query="", browse_tmdb="", browse_season=""):
         li.setInfo("video", {"title": title, "year": year, "plot": plot, "rating": rating})
         li.setArt({"thumb": thumb, "fanart": fanart_url, "icon": "DefaultVideo.png" if mtype == "movie" else "DefaultTVShows.png"})
         if mtype == "movie":
-            xbmcplugin.addDirectoryItem(HANDLE, get_url(action="play_menu", is_tv="0", mid="", title=title,
-                watch_link="", imdb_id="", year=year, tmdb_id=str(tid)), li, isFolder=True)
+            li.setProperty("IsPlayable", "true")
+            xbmcplugin.addDirectoryItem(HANDLE, get_url(action="play_movie", mid="", title=title,
+                watch_link="", imdb_id="", year=year, tmdb_id=str(tid)), li, isFolder=False)
         else:
             xbmcplugin.addDirectoryItem(HANDLE, get_url(action="search", browse_tmdb=str(tid)), li, isFolder=True)
 
@@ -669,10 +671,11 @@ def _browse_episodes(tmdb_id, season_num):
                              "tvshowtitle": show_name, "plot": ep.get("overview", ""),
                              "aired": ep.get("air_date", ""), "rating": ep.get("vote_average", 0)})
         li.setArt({"thumb": _tmdb_img(ep_still), "fanart": fanart_url, "icon": "DefaultTVShows.png"})
-        xbmcplugin.addDirectoryItem(HANDLE, get_url(action="play_menu", is_tv="1",
-            title="S%02dE%02d" % (int(season_num), epnum), show_title=show_name,
-            season=str(season_num), imdb_id=imdb_id, episode_num=str(epnum)),
-            li, isFolder=True)
+        li.setProperty("IsPlayable", "true")
+        xbmcplugin.addDirectoryItem(HANDLE, get_url(action="play_episode", eid="",
+            title="S%02dE%02d" % (int(season_num), epnum), link="", show_title=show_name,
+            season=str(season_num), show_imdb_id=imdb_id, episode_num=str(epnum)),
+            li, isFolder=False)
 
     li = xbmcgui.ListItem("[B]Back to Seasons[/B]")
     li.setArt({"icon": "DefaultFolderBack.png"})
@@ -1015,18 +1018,22 @@ def _check_rd_cache(sources):
     if not hashes:
         return sources
     try:
-        cached = rd_resolver.instant_availability(hashes)
-        if cached:
+        existing = rd_resolver.list_torrents()
+        if existing:
+            rd_hashes = set()
+            for t in existing:
+                th = (t.get("hash") or "").lower()[:40]
+                if th and t.get("status") == "downloaded":
+                    rd_hashes.add(th)
             count = 0
             for h in hashes:
-                info = cached.get(h)
-                if isinstance(info, dict) and info:
+                if h in rd_hashes:
                     idx = hash_to_idx[h]
                     s = list(sources[idx])
                     s[7] = True
                     sources[idx] = tuple(s)
                     count += 1
-            xbmc.log("[StreamLord] RD instantAvailability: %d cached from %d hashes" % (count, len(hashes)), xbmc.LOGINFO)
+            xbmc.log("[StreamLord] RD cache check: %d cached from %d existing torrents" % (count, len(rd_hashes)), xbmc.LOGINFO)
     except Exception as e:
         xbmc.log("[StreamLord] RD cache check error: %s" % str(e), xbmc.LOGERROR)
     return sources
@@ -1401,23 +1408,6 @@ def _download_chosen(chosen, title):
         return
 
     xbmcgui.Dialog().ok("StreamLord", "Could not download\n%s" % title)
-    xbmcplugin.endOfDirectory(HANDLE)
-
-
-def sl_play_menu(is_tv, mid="", title="", show_title="", season="1", episode_num="", imdb_id="", tmdb_id="", watch_link="", year="", link=""):
-    label_title = ("%s - %s" % (show_title, title)) if (is_tv and show_title) else title
-    if is_tv:
-        play_url = get_url(action="play_episode", eid="", title=title, link=link, show_title=show_title, season=season, show_imdb_id=imdb_id, episode_num=episode_num, tmdb_id=tmdb_id)
-        dl_url = get_url(action="download_episode", eid="", title=title, link=link, show_title=show_title, season=season, show_imdb_id=imdb_id, episode_num=episode_num, tmdb_id=tmdb_id)
-    else:
-        play_url = get_url(action="play_movie", mid=mid, title=title, watch_link=watch_link, imdb_id=imdb_id, year=year, tmdb_id=tmdb_id)
-        dl_url = get_url(action="download_movie", mid=mid, title=title, watch_link=watch_link, imdb_id=imdb_id, year=year, tmdb_id=tmdb_id)
-
-    li = xbmcgui.ListItem("[B][COLOR lime]Play[/COLOR][/B] - %s" % label_title)
-    li.setProperty("IsPlayable", "true")
-    xbmcplugin.addDirectoryItem(HANDLE, play_url, li, isFolder=False)
-    li2 = xbmcgui.ListItem("[B][COLOR orange]Download[/COLOR][/B] - %s" % label_title)
-    xbmcplugin.addDirectoryItem(HANDLE, dl_url, li2, isFolder=True)
     xbmcplugin.endOfDirectory(HANDLE)
 
 
@@ -2285,12 +2275,6 @@ def main():
             play_movie(p.get("mid", ""), p.get("title", ""), p.get("watch_link", ""), p.get("imdb_id", ""), p.get("year", ""), p.get("tmdb_id", ""), p.get("resume_pct", "0"))
         elif a == "play_episode":
             play_episode(p.get("eid", ""), p.get("title", ""), p.get("link", ""), p.get("show_title", ""), p.get("season", "1"), p.get("show_imdb_id", ""), p.get("episode_num", ""), p.get("tmdb_id", ""), p.get("resume_pct", "0"))
-        elif a == "play_menu":
-            sl_play_menu((p.get("is_tv", "0") == "1"), p.get("mid", ""), p.get("title", ""), p.get("show_title", ""), p.get("season", "1"), p.get("episode_num", ""), p.get("imdb_id", ""), p.get("tmdb_id", ""), p.get("watch_link", ""), p.get("year", ""), p.get("link", ""))
-        elif a == "download_movie":
-            play_movie(p.get("mid", ""), p.get("title", ""), p.get("watch_link", ""), p.get("imdb_id", ""), p.get("year", ""), p.get("tmdb_id", ""), p.get("resume_pct", "0"), True)
-        elif a == "download_episode":
-            play_episode(p.get("eid", ""), p.get("title", ""), p.get("link", ""), p.get("show_title", ""), p.get("season", "1"), p.get("show_imdb_id", ""), p.get("episode_num", ""), p.get("tmdb_id", ""), p.get("resume_pct", "0"), True)
         elif a == "tpb_search":
             search_tpb_menu(p.get("query", ""), p.get("browse_tmdb", ""), p.get("browse_season", ""))
         elif a == "tpb_play_movie":
