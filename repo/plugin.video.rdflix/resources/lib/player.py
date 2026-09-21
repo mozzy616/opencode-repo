@@ -245,10 +245,9 @@ def _prebuffer_magnet(magnet, min_bytes=10 * 1024 * 1024, timeout=45):
 
 def _play_via_lordplayer(magnet, title):
     try:
-        serve = _prebuffer_magnet(magnet)
-        if not serve:
-            return False
-        li = xbmcgui.ListItem(path=serve, label=title)
+        lid = "plugin.video.lordplayer.droid" if xbmc.getCondVisibility("System.HasAddon(plugin.video.lordplayer.droid)") else "plugin.video.lordplayer"
+        plugin_url = "plugin://%s/play_magnet?magnet=%s&buffer=false" % (lid, urllib.parse.quote(magnet, safe=""))
+        li = xbmcgui.ListItem(path=plugin_url, label=title)
         li.setProperty("IsPlayable", "true")
         set_resolved_url(True, li)
         return True
@@ -1271,16 +1270,17 @@ def _autoplay_source(source, title):
         magnet_link = "magnet:?xt=urn:btih:%s&dn=%s" % (info_hash[:40], urllib.parse.quote(torrent_title or title))
 
     if magnet_link and TRY_LORDPLAYER:
-        serve = _prebuffer_magnet(magnet_link)
-        if serve:
-            li = xbmcgui.ListItem(path=serve, label=file_name)
+        try:
+            lid = "plugin.video.lordplayer.droid" if xbmc.getCondVisibility("System.HasAddon(plugin.video.lordplayer.droid)") else "plugin.video.lordplayer"
+            plugin_url = "plugin://%s/play_magnet?magnet=%s&buffer=false" % (lid, urllib.parse.quote(magnet_link, safe=""))
+            li = xbmcgui.ListItem(path=plugin_url, label=file_name)
             li.setProperty("IsPlayable", "true")
-            xbmc.Player().play(serve, li)
+            xbmc.Player().play(plugin_url, li)
             if _verify_playback_started(20):
                 return True
             log("Autoplay: LordPlayer playback did not start", xbmc.LOGWARNING)
-        else:
-            log("Autoplay: LordPlayer prebuffer failed", xbmc.LOGWARNING)
+        except Exception as e:
+            log("Autoplay LordPlayer error: %s" % str(e), xbmc.LOGERROR)
 
     return False
 

@@ -820,11 +820,12 @@ def play_via_LordPlayer(magnet, title):
     try:
         if not magnet.startswith("magnet:"):
             return False
-        info = _prebuffer_torrest(magnet, min_bytes=10 * 1024 * 1024)
-        if not info:
-            return False
-        xbmc.log("[StreamLord] Playing via LordPlayer (prebuffered)", xbmc.LOGINFO)
-        li = xbmcgui.ListItem(path=info["serve"], label=title)
+        if TRACKERS not in magnet:
+            magnet += TRACKERS
+        player_id = get_lordplayer_id()
+        plugin_url = "plugin://%s/play_magnet?magnet=%s&buffer=false" % (player_id, urllib.parse.quote(magnet, safe=''))
+        xbmc.log("[StreamLord] Playing via %s" % player_id, xbmc.LOGINFO)
+        li = xbmcgui.ListItem(path=plugin_url, label=title)
         li.setProperty("IsPlayable", "true")
         xbmcplugin.setResolvedUrl(HANDLE, True, li)
         return True
@@ -1014,22 +1015,18 @@ def _check_rd_cache(sources):
     if not hashes:
         return sources
     try:
-        existing = rd_resolver.list_torrents()
-        if existing:
-            rd_hashes = set()
-            for t in existing:
-                th = (t.get("hash") or "").lower()[:40]
-                if th and t.get("status") == "downloaded":
-                    rd_hashes.add(th)
+        cached = rd_resolver.instant_availability(hashes)
+        if cached:
             count = 0
             for h in hashes:
-                if h in rd_hashes:
+                info = cached.get(h)
+                if isinstance(info, dict) and info:
                     idx = hash_to_idx[h]
                     s = list(sources[idx])
                     s[7] = True
                     sources[idx] = tuple(s)
                     count += 1
-            xbmc.log("[StreamLord] RD cache check: %d cached from %d existing torrents" % (count, len(rd_hashes)), xbmc.LOGINFO)
+            xbmc.log("[StreamLord] RD instantAvailability: %d cached from %d hashes" % (count, len(hashes)), xbmc.LOGINFO)
     except Exception as e:
         xbmc.log("[StreamLord] RD cache check error: %s" % str(e), xbmc.LOGERROR)
     return sources

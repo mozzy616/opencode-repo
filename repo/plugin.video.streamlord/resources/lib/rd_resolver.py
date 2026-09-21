@@ -307,3 +307,18 @@ def download_file(url, dest_path, filename, title=""):
 
 def is_available(hashes):
     return {}
+
+
+def instant_availability(hashes):
+    """Check which info hashes are cached on Real-Debrid (instant availability)."""
+    if not hashes:
+        return {}
+    hashes = [h.lower().strip()[:40] for h in hashes if h]
+    hashes = list(dict.fromkeys(hashes))[:100]
+    if not hashes:
+        return {}
+    path = "/torrents/instantAvailability/" + "/".join(hashes)
+    resp = _rd_request("GET", path)
+    if isinstance(resp, dict):
+        return resp
+    return {}
