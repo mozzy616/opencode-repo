@@ -74,6 +74,15 @@ def _is_dmca_video(url):
 
 
 def _play_source(source, title):
+    """Dispatch to the correct player based on source type (RD or LordPlayer)."""
+    is_rd = source.get("isDebridCached", False) or source.get("debrid", False)
+    if is_rd:
+        return _play_rd_source(source, title)
+    return _play_lp_source(source, title)
+
+
+def _play_rd_source(source, title):
+    """Play a Real-Debrid cached source (instant URL or magnet resolve). No LordPlayer fallback."""
     magnet = source.get("magnet", "")
     info_hash = source.get("infoHash", "")
     behavior_hints = source.get("behaviorHints", {})
@@ -81,89 +90,37 @@ def _play_source(source, title):
         info_hash = behavior_hints.get("infoHash", "")
     if not magnet:
         magnet = behavior_hints.get("magnet", "")
-    log("play_source: magnet=%s infoHash=%s url=%s bh_keys=%s" % (
-        (magnet or "")[:40],
-        (info_hash or "")[:16],
-        (source.get("url", "") or "")[:50],
-        list(behavior_hints.keys()) if behavior_hints else []
-    ))
-
-    if not info_hash and magnet:
-        m = re.search(r"btih:([a-fA-F0-9]{40})", magnet)
-        if m:
-            info_hash = m.group(1)
 
     torrent_title = source.get("title", source.get("name", title))
-    behavior_hints = source.get("behaviorHints", {})
     fname = behavior_hints.get("filename", "")
     file_name = fname or torrent_title or title
 
     url = source.get("url", "")
     if url and ("/torrent/" in url or "/stream/" in url):
         url = ""
-    if not url:
-        url = info_hash
 
-    if url and (url.startswith("http://") or url.startswith("https://")):
+    # 1) RD instant download URL
+    if url and url.startswith("http"):
         try:
             req = urllib.request.Request(url, method="HEAD")
             req.add_header("User-Agent", "Mozilla/5.0")
             resp = urllib.request.urlopen(req, timeout=8)
             final_url = resp.geturl() or url
-
             if any(x in final_url.lower() for x in ["configure", "exception", "error/", "autorize", "authorize"]):
-                log("Redirect led to auth/error page: %s" % final_url[:80])
                 raise Exception("Invalid redirect")
-
             cl = resp.headers.get("Content-Length", "0")
             size = int(cl) if cl else 0
-            log("RD file size check: %d bytes (via %s)" % (size, url[:40]))
             if 0 < size < 52428800:
-                log("RD file too small, likely DMCA")
                 raise Exception("DMCA detected")
-
             if _play_url(final_url, file_name):
                 return True
-            log("Direct URL play failed, trying magnet approach", xbmc.LOGINFO)
         except Exception as e:
-            log("Direct URL unreachable or DMCA (%s), trying magnet approach" % str(e), xbmc.LOGINFO)
+            log("RD direct URL failed (%s), trying magnet resolve" % str(e), xbmc.LOGINFO)
 
+    # 2) RD magnet resolve
     actual_magnet = magnet
     if not actual_magnet and info_hash and len(info_hash) >= 40:
         actual_magnet = "magnet:?xt=urn:btih:%s&dn=%s" % (info_hash[:40], urllib.parse.quote(torrent_title or title))
-    
-    # Last resort: follow torrentio/comet resolve URL to get magnet from redirect
-    if not actual_magnet:
-        info_hash_found = info_hash
-        if not info_hash_found:
-            info_hash_found = source.get("info_hash") or source.get("hash") or source.get("_infoHash") or ""
-
-        # Try extracting from torrentio resolve URL redirect
-        if not info_hash_found and url and url.startswith("http"):
-            try:
-                req = urllib.request.Request(url, method="HEAD")
-                req.add_header("User-Agent", "Mozilla/5.0")
-                resp = urllib.request.urlopen(req, timeout=8)
-                final = resp.geturl()
-                # Check for hash in final RD URL or any redirect URL
-                btih = re.search(r"btih:([a-fA-F0-9]{40})", final)
-                if btih:
-                    info_hash_found = btih.group(1)
-                    log("Got info hash from redirect URL")
-                else:
-                    # Try hash as raw 40-char hex in URL
-                    h_match = re.search(r"/([a-fA-F0-9]{40})", final)
-                    if h_match:
-                        info_hash_found = h_match.group(1)
-                        log("Got info hash from redirect URL (hex match)")
-            except:
-                pass
-
-        if info_hash_found and len(info_hash_found) >= 40:
-            actual_magnet = "magnet:?xt=urn:btih:%s&dn=%s" % (info_hash_found[:40], urllib.parse.quote(torrent_title or title))
-            log("Built magnet from found hash")
-
-    log("Magnet for resolve: %s..." % (actual_magnet or "none")[:60])
 
     if actual_magnet:
         result = None
@@ -171,35 +128,45 @@ def _play_source(source, title):
             try:
                 result = resolver(actual_magnet, torrent_title or title)
                 if result and result.get("url"):
-                    log("Resolved via magnet resolver, URL: %s..." % result["url"][:60])
                     break
             except:
                 continue
-
         if result and result.get("url"):
-            if _is_dmca_video(result["url"]):
-                log("RD returned copyright notice video, falling back to LordPlayer")
-            else:
+            if not _is_dmca_video(result["url"]):
                 return _play_url(result["url"], result.get("filename", file_name))
-        else:
-            log("No result from magnet resolvers, result=%s" % result)
 
-    if actual_magnet and TRY_LORDPLAYER:
-        log("Falling back to LordPlayer: %s" % actual_magnet[:60])
-        try:
-            result = _play_via_lordplayer(actual_magnet, file_name)
-            log("LordPlayer result: %s" % result)
-            if result:
-                return True
-        except Exception as e:
-            log("LordPlayer fallback exception: %s" % str(e), xbmc.LOGERROR)
-    elif not actual_magnet:
-        log("No magnet available for LordPlayer fallback")
-        notify("RDFlix", "This RD source has no magnet link.\nPick an orange [LP] source instead.", duration=6000)
-    elif not TRY_LORDPLAYER:
-        log("LordPlayer not available (TRY_LORDPLAYER=False)")
-
+    log("RD source failed to play", xbmc.LOGINFO)
     return False
+
+
+def _play_lp_source(source, title):
+    """Play a LordPlayer (torrent) source. No RD fallback."""
+    magnet = source.get("magnet", "")
+    info_hash = source.get("infoHash", "")
+    behavior_hints = source.get("behaviorHints", {})
+    if not info_hash:
+        info_hash = behavior_hints.get("infoHash", "")
+    if not magnet:
+        magnet = behavior_hints.get("magnet", "")
+    if not info_hash and magnet:
+        m = re.search(r"btih:([a-fA-F0-9]{40})", magnet)
+        if m:
+            info_hash = m.group(1)
+
+    torrent_title = source.get("title", source.get("name", title))
+    fname = behavior_hints.get("filename", "")
+    file_name = fname or torrent_title or title
+
+    actual_magnet = magnet
+    if not actual_magnet and info_hash and len(info_hash) >= 40:
+        actual_magnet = "magnet:?xt=urn:btih:%s&dn=%s" % (info_hash[:40], urllib.parse.quote(torrent_title or title))
+
+    if not actual_magnet:
+        notify("RDFlix", "This source has no magnet link.\nPick another source.", duration=6000)
+        return False
+    if not TRY_LORDPLAYER:
+        return False
+    return _play_via_lordplayer(actual_magnet, file_name)
 
 
 def _prebuffer_magnet(magnet, min_bytes=10 * 1024 * 1024, timeout=45):
@@ -680,57 +647,75 @@ def _follow_redirect(url):
         return url
 
 
-def _download_source(source, title):
-    """Download via RD first, then LordPlayer as fallback."""
-    magnet = source.get("magnet", "")
-    info_hash = source.get("infoHash", "")
-    behavior_hints = source.get("behaviorHints", {})
-    fname = behavior_hints.get("filename", source.get("name", source.get("title", title)))
-
-    if not fname.endswith((".mp4", ".mkv", ".avi", ".m4v", ".mov", ".webm", ".ts")):
-        fname += ".mp4"
-
+def _choose_download_folder():
     import os
     default_path = get_setting("download_path", "")
     if not default_path:
         default_path = "special://home/userdata/downloads/"
     default_path = translate_path(default_path) or translate_path("special://home/userdata/downloads/")
-
     dest_folder = xbmcgui.Dialog().browse(0, "Choose download folder", "files", "", False, True, default_path)
     if not dest_folder:
         dest_folder = default_path
-
     os.makedirs(dest_folder, exist_ok=True)
+    return dest_folder
 
-    # 1. Direct RD download URL from torrentio/comet (RD Instant)
+
+def _download_source(source, title):
+    """Dispatch download based on source type (RD or LordPlayer)."""
+    is_rd = source.get("isDebridCached", False) or source.get("debrid", False)
+    if is_rd:
+        ok = _download_rd_source(source, title)
+    else:
+        ok = _download_lp_source(source, title)
+    if not ok:
+        dialog_ok("RDFlix", "Could not download\n%s" % title)
+
+
+def _download_rd_source(source, title):
+    """Download a Real-Debrid cached source (instant URL or magnet resolve). No LordPlayer fallback."""
+    magnet = source.get("magnet", "")
+    info_hash = source.get("infoHash", "")
+    behavior_hints = source.get("behaviorHints", {})
+    fname = behavior_hints.get("filename", source.get("name", source.get("title", title)))
+    if not fname.endswith((".mp4", ".mkv", ".avi", ".m4v", ".mov", ".webm", ".ts")):
+        fname += ".mp4"
+
+    dest_folder = _choose_download_folder()
+
     url = source.get("url", "")
-    if url and (url.startswith("http://") or url.startswith("https://")):
+    if url and url.startswith("http"):
         if not ("/torrent/" in url or "/stream/" in url or "127.0.0.1" in url):
-            log("Download: trying RD direct URL")
             final_url = _follow_redirect(url)
             if final_url and _do_download(final_url, dest_folder, fname, title):
-                return
+                return True
 
-    # 2. RD magnet resolve
     if not magnet and info_hash and len(info_hash) >= 40:
         magnet = "magnet:?xt=urn:btih:%s&dn=%s" % (info_hash[:40], urllib.parse.quote(title))
-
     if magnet:
         try:
             result = resolve_magnet(magnet, title)
             if result and result.get("url"):
-                log("Download: resolved via RD")
                 if _do_download(result["url"], dest_folder, fname, title):
-                    return
+                    return True
         except Exception as e:
             log("Download RD resolve error: %s" % str(e), xbmc.LOGERROR)
+    return False
 
-    # 3. LordPlayer download via torrest daemon
-    if magnet and TRY_LORDPLAYER:
-        if _lordplayer_download(magnet, title, dest_folder):
-            return
 
-    dialog_ok("RDFlix", "Could not download\n%s" % title)
+def _download_lp_source(source, title):
+    """Download a LordPlayer (torrent) source. No RD fallback."""
+    magnet = source.get("magnet", "")
+    info_hash = source.get("infoHash", "")
+    behavior_hints = source.get("behaviorHints", {})
+    fname = behavior_hints.get("filename", source.get("name", source.get("title", title)))
+    if not fname.endswith((".mp4", ".mkv", ".avi", ".m4v", ".mov", ".webm", ".ts")):
+        fname += ".mp4"
+    if not magnet and info_hash and len(info_hash) >= 40:
+        magnet = "magnet:?xt=urn:btih:%s&dn=%s" % (info_hash[:40], urllib.parse.quote(title))
+    if not magnet:
+        return False
+    dest_folder = _choose_download_folder()
+    return _lordplayer_download(magnet, title, dest_folder)
 
 
 def _lordplayer_download(magnet, title, dest_folder):
@@ -1204,6 +1189,15 @@ def _play_from_pack(magnet, title, season, episode):
 
 
 def _autoplay_source(source, title):
+    """Dispatch autoplay to the correct player based on source type (RD or LordPlayer)."""
+    is_rd = source.get("isDebridCached", False) or source.get("debrid", False)
+    if is_rd:
+        return _autoplay_rd_source(source, title)
+    return _autoplay_lp_source(source, title)
+
+
+def _autoplay_rd_source(source, title):
+    """Autoplay a Real-Debrid cached source (instant URL or magnet resolve). No LordPlayer fallback."""
     magnet = source.get("magnet", "")
     info_hash = source.get("infoHash", "")
     behavior_hints = source.get("behaviorHints", {})
@@ -1211,77 +1205,78 @@ def _autoplay_source(source, title):
         info_hash = behavior_hints.get("infoHash", "")
     if not magnet:
         magnet = behavior_hints.get("magnet", "")
-
-    if not info_hash and magnet:
-        m = re.search(r"btih:([a-fA-F0-9]{40})", magnet)
-        if m:
-            info_hash = m.group(1)
-
     torrent_title = source.get("title", source.get("name", title))
-    behavior_hints = source.get("behaviorHints", {})
     fname = behavior_hints.get("filename", "")
     file_name = fname or torrent_title or title
 
-    # Direct URL from torrentio/comet (RD instant)
     url = source.get("url", "")
     if url and url.startswith("http"):
         try:
             if _is_dmca_video(url):
-                log("Autoplay: direct RD URL is DMCA notice, falling back")
+                log("Autoplay: direct RD URL is DMCA notice, skipping")
             else:
                 req = urllib.request.Request(url, method="HEAD")
                 req.add_header("User-Agent", "Mozilla/5.0")
                 resp = urllib.request.urlopen(req, timeout=8)
                 final_url = resp.geturl() or url
-
                 if any(x in final_url.lower() for x in ["configure", "exception", "error/", "autorize", "authorize"]):
-                    log("Autoplay: redirect led to error page, falling back")
+                    log("Autoplay: redirect led to error page, skipping")
                 else:
                     li = xbmcgui.ListItem(path=final_url, label=file_name)
                     li.setProperty("IsPlayable", "true")
                     xbmc.Player().play(final_url, li)
                     if _verify_playback_started():
                         return True
-                    log("Autoplay: direct RD URL playback did not start", xbmc.LOGWARNING)
         except Exception as e:
             log("Autoplay: direct RD URL error: %s" % str(e), xbmc.LOGINFO)
 
-    # Try RD magnet resolve
-    if info_hash and len(info_hash) >= 40:
-        actual_magnet = magnet or "magnet:?xt=urn:btih:%s&dn=%s" % (info_hash[:40], urllib.parse.quote(torrent_title or title))
+    actual_magnet = magnet
+    if not actual_magnet and info_hash and len(info_hash) >= 40:
+        actual_magnet = "magnet:?xt=urn:btih:%s&dn=%s" % (info_hash[:40], urllib.parse.quote(torrent_title or title))
+    if actual_magnet:
         try:
             result = resolve_magnet(actual_magnet, torrent_title or title)
-            if result and result.get("url"):
-                if _is_dmca_video(result["url"]):
-                    log("Autoplay: RD returned DMCA notice, falling back")
-                else:
-                    li = xbmcgui.ListItem(path=result["url"], label=file_name)
-                    li.setProperty("IsPlayable", "true")
-                    xbmc.Player().play(result["url"], li)
-                    if _verify_playback_started():
-                        return True
-                    log("Autoplay: RD resolve playback did not start", xbmc.LOGWARNING)
+            if result and result.get("url") and not _is_dmca_video(result["url"]):
+                li = xbmcgui.ListItem(path=result["url"], label=file_name)
+                li.setProperty("IsPlayable", "true")
+                xbmc.Player().play(result["url"], li)
+                if _verify_playback_started():
+                    return True
         except Exception as e:
             log("Autoplay RD resolve error: %s" % str(e), xbmc.LOGERROR)
+    return False
 
-    # LordPlayer fallback
+
+def _autoplay_lp_source(source, title):
+    """Autoplay a LordPlayer (torrent) source. No RD fallback."""
+    magnet = source.get("magnet", "")
+    info_hash = source.get("infoHash", "")
+    behavior_hints = source.get("behaviorHints", {})
+    if not info_hash:
+        info_hash = behavior_hints.get("infoHash", "")
+    if not magnet:
+        magnet = behavior_hints.get("magnet", "")
+    torrent_title = source.get("title", source.get("name", title))
+    fname = behavior_hints.get("filename", "")
+    file_name = fname or torrent_title or title
+
     magnet_link = magnet
     if not magnet_link and info_hash and len(info_hash) >= 40:
         magnet_link = "magnet:?xt=urn:btih:%s&dn=%s" % (info_hash[:40], urllib.parse.quote(torrent_title or title))
 
-    if magnet_link and TRY_LORDPLAYER:
-        try:
-            lid = "plugin.video.lordplayer.droid" if xbmc.getCondVisibility("System.HasAddon(plugin.video.lordplayer.droid)") else "plugin.video.lordplayer"
-            plugin_url = "plugin://%s/play_magnet?magnet=%s&buffer=false" % (lid, urllib.parse.quote(magnet_link, safe=""))
-            li = xbmcgui.ListItem(path=plugin_url, label=file_name)
-            li.setProperty("IsPlayable", "true")
-            xbmc.Player().play(plugin_url, li)
-            if _verify_playback_started(20):
-                return True
-            log("Autoplay: LordPlayer playback did not start", xbmc.LOGWARNING)
-        except Exception as e:
-            log("Autoplay LordPlayer error: %s" % str(e), xbmc.LOGERROR)
-
+    if not magnet_link or not TRY_LORDPLAYER:
+        return False
+    try:
+        lid = "plugin.video.lordplayer.droid" if xbmc.getCondVisibility("System.HasAddon(plugin.video.lordplayer.droid)") else "plugin.video.lordplayer"
+        plugin_url = "plugin://%s/play_magnet?magnet=%s&buffer=false" % (lid, urllib.parse.quote(magnet_link, safe=""))
+        li = xbmcgui.ListItem(path=plugin_url, label=file_name)
+        li.setProperty("IsPlayable", "true")
+        xbmc.Player().play(plugin_url, li)
+        if _verify_playback_started(20):
+            return True
+        log("Autoplay: LordPlayer playback did not start", xbmc.LOGWARNING)
+    except Exception as e:
+        log("Autoplay LordPlayer error: %s" % str(e), xbmc.LOGERROR)
     return False
 
 
