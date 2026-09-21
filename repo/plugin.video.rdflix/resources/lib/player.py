@@ -166,7 +166,13 @@ def _play_lp_source(source, title):
         return False
     if not TRY_LORDPLAYER:
         return False
-    return _play_via_lordplayer(actual_magnet, file_name)
+    serve = _prebuffer_magnet(actual_magnet)
+    if not serve:
+        return False
+    li = xbmcgui.ListItem(path=serve, label=file_name)
+    li.setProperty("IsPlayable", "true")
+    set_resolved_url(True, li)
+    return True
 
 
 def _prebuffer_magnet(magnet, min_bytes=10 * 1024 * 1024, timeout=45):
@@ -199,9 +205,13 @@ def _prebuffer_magnet(magnet, min_bytes=10 * 1024 * 1024, timeout=45):
         except Exception:
             pass
         for _ in range(timeout):
-            st = _torrest_req(base, "GET", "/torrents/%s/status" % th)
-            dl = st.get("total_done", 0) or st.get("downloaded", 0) or 0
-            if dl >= min_bytes:
+            fs = _torrest_req(base, "GET", "/torrents/%s/files/%s/status" % (th, fid))
+            done = fs.get("total_done", 0) or 0
+            if not done:
+                bp = fs.get("buffering_progress", 0) or 0
+                bt = fs.get("buffering_total", 0) or 0
+                done = int(bt * bp / 100.0)
+            if done >= min_bytes:
                 break
             xbmc.sleep(1000)
         return "%s/torrents/%s/files/%s/serve" % (base, th, fid)
@@ -1266,18 +1276,13 @@ def _autoplay_lp_source(source, title):
 
     if not magnet_link or not TRY_LORDPLAYER:
         return False
-    try:
-        lid = "plugin.video.lordplayer.droid" if xbmc.getCondVisibility("System.HasAddon(plugin.video.lordplayer.droid)") else "plugin.video.lordplayer"
-        plugin_url = "plugin://%s/play_magnet?magnet=%s&buffer=false" % (lid, urllib.parse.quote(magnet_link, safe=""))
-        li = xbmcgui.ListItem(path=plugin_url, label=file_name)
-        li.setProperty("IsPlayable", "true")
-        xbmc.Player().play(plugin_url, li)
-        if _verify_playback_started(20):
-            return True
-        log("Autoplay: LordPlayer playback did not start", xbmc.LOGWARNING)
-    except Exception as e:
-        log("Autoplay LordPlayer error: %s" % str(e), xbmc.LOGERROR)
-    return False
+    serve = _prebuffer_magnet(magnet_link)
+    if not serve:
+        return False
+    li = xbmcgui.ListItem(path=serve, label=file_name)
+    li.setProperty("IsPlayable", "true")
+    xbmc.Player().play(serve, li)
+    return _verify_playback_started(20)
 
 
 def _fetch_next_episode_source(imdb_id, tmdb_id, show_title, season, episode):
