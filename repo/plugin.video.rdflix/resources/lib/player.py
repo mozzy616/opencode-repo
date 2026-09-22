@@ -166,13 +166,10 @@ def _play_lp_source(source, title):
         return False
     if not TRY_LORDPLAYER:
         return False
-    serve = _prebuffer_magnet(actual_magnet)
-    if not serve:
+    if not re.search(r"btih:([a-fA-F0-9]{40})", actual_magnet):
+        notify("RDFlix", "This source has an invalid magnet link.\nPick another source.", duration=6000)
         return False
-    li = xbmcgui.ListItem(path=serve, label=file_name)
-    li.setProperty("IsPlayable", "true")
-    set_resolved_url(True, li)
-    return True
+    return _play_via_lordplayer(actual_magnet, file_name)
 
 
 def _prebuffer_magnet(magnet, min_bytes=10 * 1024 * 1024, timeout=45):
@@ -226,7 +223,7 @@ def _prebuffer_magnet(magnet, min_bytes=10 * 1024 * 1024, timeout=45):
 def _play_via_lordplayer(magnet, title):
     try:
         lid = "plugin.video.lordplayer.droid" if xbmc.getCondVisibility("System.HasAddon(plugin.video.lordplayer.droid)") else "plugin.video.lordplayer"
-        plugin_url = "plugin://%s/play_magnet?magnet=%s&buffer=false" % (lid, urllib.parse.quote(magnet, safe=""))
+        plugin_url = "plugin://%s/play_magnet?magnet=%s&buffer=true" % (lid, urllib.parse.quote(magnet, safe=""))
         li = xbmcgui.ListItem(path=plugin_url, label=title)
         li.setProperty("IsPlayable", "true")
         set_resolved_url(True, li)
@@ -726,6 +723,8 @@ def _download_lp_source(source, title):
     if not magnet and info_hash and len(info_hash) >= 40:
         magnet = "magnet:?xt=urn:btih:%s&dn=%s" % (info_hash[:40], urllib.parse.quote(title))
     if not magnet:
+        return False
+    if not re.search(r"btih:([a-fA-F0-9]{40})", magnet):
         return False
     dest_folder = _choose_download_folder()
     return _lordplayer_download(magnet, title, dest_folder)
@@ -1279,13 +1278,14 @@ def _autoplay_lp_source(source, title):
 
     if not magnet_link or not TRY_LORDPLAYER:
         return False
-    serve = _prebuffer_magnet(magnet_link)
-    if not serve:
+    if not re.search(r"btih:([a-fA-F0-9]{40})", magnet_link):
         return False
-    li = xbmcgui.ListItem(path=serve, label=file_name)
+    lid = "plugin.video.lordplayer.droid" if xbmc.getCondVisibility("System.HasAddon(plugin.video.lordplayer.droid)") else "plugin.video.lordplayer"
+    plugin_url = "plugin://%s/play_magnet?magnet=%s&buffer=true" % (lid, urllib.parse.quote(magnet_link, safe=""))
+    li = xbmcgui.ListItem(path=plugin_url, label=file_name)
     li.setProperty("IsPlayable", "true")
-    xbmc.Player().play(serve, li)
-    return _verify_playback_started(20)
+    xbmc.Player().play(plugin_url, li)
+    return _verify_playback_started(30)
 
 
 def _fetch_next_episode_source(imdb_id, tmdb_id, show_title, season, episode):

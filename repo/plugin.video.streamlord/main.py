@@ -827,7 +827,7 @@ def play_via_LordPlayer(magnet, title):
         if TRACKERS not in magnet:
             magnet += TRACKERS
         player_id = get_lordplayer_id()
-        plugin_url = "plugin://%s/play_magnet?magnet=%s&buffer=false" % (player_id, urllib.parse.quote(magnet, safe=''))
+        plugin_url = "plugin://%s/play_magnet?magnet=%s&buffer=true" % (player_id, urllib.parse.quote(magnet, safe=''))
         xbmc.log("[StreamLord] Playing via %s" % player_id, xbmc.LOGINFO)
         li = xbmcgui.ListItem(path=plugin_url, label=title)
         li.setProperty("IsPlayable", "true")
@@ -1180,16 +1180,17 @@ def _autoplay_play_next_rd(imdb_id, show_title, s_int, e_int, label):
 
 
 def _autoplay_play_next_lp(imdb_id, show_title, s_int, e_int, label):
-    """Autoplay next episode via LordPlayer (torrent) with ~10MB pre-buffer. No RD fallback."""
+    """Autoplay next episode via LordPlayer plugin (torrent). No RD fallback."""
     magnet = _scrape_best_magnet(imdb_id, show_title, s_int, e_int)
     if not magnet and e_int != 1:
         magnet = _scrape_best_magnet(imdb_id, show_title, s_int + 1, 1)
     if not magnet:
         return False
-    info = _prebuffer_torrest(magnet, min_bytes=10 * 1024 * 1024)
-    if info:
-        return _autoplay_play_url(info["serve"], label, timeout=30)
-    return False
+    if TRACKERS not in magnet:
+        magnet += TRACKERS
+    player_id = get_lordplayer_id()
+    plugin_url = "plugin://%s/play_magnet?magnet=%s&buffer=true" % (player_id, urllib.parse.quote(magnet, safe=''))
+    return _autoplay_play_url(plugin_url, label, timeout=30)
 
 def _autoplay_monitor(imdb_id, season, episode, show_title):
     global _PACK_TH
@@ -1434,9 +1435,11 @@ def _download_lp_chosen(chosen, title, dest):
     magnet = chosen[3]
     if not magnet.startswith("magnet:") and info_hash:
         magnet = "magnet:?xt=urn:btih:%s&dn=%s%s" % (info_hash[:40], urllib.parse.quote(title), TRACKERS)
-    if magnet.startswith("magnet:"):
-        return download_via_LordPlayer(magnet, title, dest)
-    return False
+    if not magnet.startswith("magnet:"):
+        return False
+    if not _valid_magnet(magnet):
+        return False
+    return download_via_LordPlayer(magnet, title, dest)
 
 
 def _play_rd_chosen(chosen, title):
@@ -1459,19 +1462,16 @@ def _play_rd_chosen(chosen, title):
 
 
 def _play_lp_chosen(chosen, title):
-    """Play a LordPlayer (torrent) source with a ~10MB pre-buffer. No RD fallback."""
+    """Play a LordPlayer (torrent) source via the LordPlayer plugin. No RD fallback."""
     info_hash = chosen[4] if len(chosen) > 4 else ""
     magnet = chosen[3]
     if not magnet.startswith("magnet:") and info_hash:
         magnet = "magnet:?xt=urn:btih:%s&dn=%s%s" % (info_hash[:40], urllib.parse.quote(title), TRACKERS)
-    if magnet.startswith("magnet:"):
-        info = _prebuffer_torrest(magnet, min_bytes=10 * 1024 * 1024)
-        if info:
-            li = xbmcgui.ListItem(path=info["serve"], label=title)
-            li.setProperty("IsPlayable", "true")
-            xbmcplugin.setResolvedUrl(HANDLE, True, li)
-            return True
-    return False
+    if not magnet.startswith("magnet:"):
+        return False
+    if not _valid_magnet(magnet):
+        return False
+    return play_via_LordPlayer(magnet, title)
 
 
 def play_movie(mid, title, watch_link="", imdb_id="", year="", tmdb_id="", resume_pct="0", download=False):
