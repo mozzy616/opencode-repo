@@ -180,8 +180,11 @@ def resolve_magnet(magnet, title=""):
         log("resolve_magnet: no token", xbmc.LOGWARNING)
         return None, None
 
-    m = re.search(r"btih:([a-zA-Z0-9]{32,60})", magnet, re.IGNORECASE)
-    info_hash = m.group(1).lower() if m else ""
+    m = re.search(r"btih:([a-fA-F0-9]{40})", magnet)
+    if not m:
+        log("resolve_magnet: invalid magnet (non-hex hash), skipping", xbmc.LOGWARNING)
+        return None, None
+    info_hash = m.group(1).lower()
     log("resolve_magnet: hash=%s title=%s" % (info_hash[:12], title[:50] if title else ""))
 
     # Check existing torrents first (only works for standard 40-char hex hashes)
