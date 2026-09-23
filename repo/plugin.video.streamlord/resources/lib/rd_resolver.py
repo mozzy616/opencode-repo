@@ -1,6 +1,7 @@
 import json
 import re
 import time
+import base64
 import urllib.request
 import urllib.error
 import urllib.parse
@@ -173,6 +174,22 @@ def get_largest_video(files):
     log("largest_video: id=%s %s (%d bytes)" % (best.get("id"), best.get("path", "?"), best.get("bytes", 0)))
     return best
 
+def _normalize_hash(info_hash):
+    """Normalize an info-hash to lower-case 40-char hex SHA1.
+    Accepts standard hex or 32-char base32 (used by some scrapers e.g. torrentio_debrid)."""
+    h = (info_hash or "").strip()
+    if len(h) == 40 and re.fullmatch(r"[a-fA-F0-9]{40}", h):
+        return h.lower()
+    if len(h) == 32:
+        try:
+            raw = base64.b32decode(h.upper() + "=" * ((8 - len(h) % 8) % 8))
+            if len(raw) == 20:
+                return raw.hex()
+        except Exception:
+            pass
+    return ""
+
+
 def resolve_magnet(magnet, title=""):
     """Resolve a magnet link via Real-Debrid (handles hex and base32 btih)."""
     token = _get_rd_token()
@@ -180,11 +197,16 @@ def resolve_magnet(magnet, title=""):
         log("resolve_magnet: no token", xbmc.LOGWARNING)
         return None, None
 
-    m = re.search(r"btih:([a-fA-F0-9]{40})", magnet)
+    m = re.search(r"btih:([a-fA-F0-9]{40}|[A-Za-z2-7]{32})", magnet)
     if not m:
-        log("resolve_magnet: invalid magnet (non-hex hash), skipping", xbmc.LOGWARNING)
+        log("resolve_magnet: invalid magnet (no btih), skipping", xbmc.LOGWARNING)
         return None, None
-    info_hash = m.group(1).lower()
+    info_hash = _normalize_hash(m.group(1))
+    if not info_hash:
+        log("resolve_magnet: cannot normalize btih %s, skipping" % m.group(1)[:20], xbmc.LOGWARNING)
+        return None, None
+    # Replace base32 btih with hex btih in the magnet itself (preserve trackers/dn)
+    magnet = magnet[:m.start(1)] + info_hash + magnet[m.end(1):]
     log("resolve_magnet: hash=%s title=%s" % (info_hash[:12], title[:50] if title else ""))
 
     # Check existing torrents first (only works for standard 40-char hex hashes)
