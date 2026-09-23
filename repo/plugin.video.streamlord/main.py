@@ -814,10 +814,20 @@ def _tr(method, path, params=None):
         return json.loads(resp.read().decode("utf-8", errors="replace"))
 
 def get_lordplayer_id():
-    for lid in ["plugin.video.lordplayer", "plugin.video.lordplayer.droid"]:
+    # On Android prefer the Droid build of LordPlayer (ARM torrest) so a
+    # desktop LordPlayer install never gets picked there; on every other
+    # platform the desktop LordPlayer stays first. Windows behavior unchanged.
+    android = False
+    try:
+        android = xbmc.getCondVisibility("System.Platform.Android")
+    except:
+        pass
+    order = (["plugin.video.lordplayer.droid", "plugin.video.lordplayer"] if android
+             else ["plugin.video.lordplayer", "plugin.video.lordplayer.droid"])
+    for lid in order:
         if xbmc.getCondVisibility("System.HasAddon({})".format(lid)):
             return lid
-    return "plugin.video.lordplayer"
+    return "plugin.video.lordplayer.droid" if android else "plugin.video.lordplayer"
 
 
 def play_via_LordPlayer(magnet, title):
