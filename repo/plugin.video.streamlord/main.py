@@ -1595,23 +1595,19 @@ def play_movie(mid, title, watch_link="", imdb_id="", year="", tmdb_id="", resum
             xbmc.log("[StreamLord] Stremio movie sources error: %s" % str(e), xbmc.LOGERROR)
 
     deduped = []
-    seen = {}
+    seen = set()
     for s in all_sources:
-        # Case-insensitive hash key so the same torrent listed both as a plain
-        # (LordPlayer) source and a debrid (RD) source collapses into one row;
-        # the RD-tagged entry wins so premium playback is never lost.
+        # Key the dedup on hash + playback class (RD vs LP). The hash is matched
+        # case-insensitively so duplicate rows are removed, but an RD version of
+        # a torrent never hides its LordPlayer (LP) twin - both must stay visible
+        # so the user still has the LP choice.
         h = (s[4] or '').lower()
         if not h:
             continue
-        if h not in seen:
-            seen[h] = len(deduped)
+        key = (h, len(s) > 7 and s[7])
+        if key not in seen:
+            seen.add(key)
             deduped.append(s)
-        else:
-            i = seen[h]
-            is_new_rd = len(s) > 7 and s[7]
-            is_old_rd = len(deduped[i]) > 7 and deduped[i][7]
-            if is_new_rd and not is_old_rd:
-                deduped[i] = s
 
     _check_rd_cache(deduped)
 
@@ -1770,23 +1766,19 @@ def play_episode(eid, title, link, show_title, season, show_imdb_id="", episode_
             xbmc.log("[StreamLord] Stremio episode sources error: %s" % str(e), xbmc.LOGERROR)
 
     deduped = []
-    seen = {}
+    seen = set()
     for s in all_sources:
-        # Case-insensitive hash key so the same torrent listed both as a plain
-        # (LordPlayer) source and a debrid (RD) source collapses into one row;
-        # the RD-tagged entry wins so premium playback is never lost.
+        # Key the dedup on hash + playback class (RD vs LP). The hash is matched
+        # case-insensitively so duplicate rows are removed, but an RD version of
+        # a torrent never hides its LordPlayer (LP) twin - both must stay visible
+        # so the user still has the LP choice.
         h = (s[4] or '').lower()
         if not h:
             continue
-        if h not in seen:
-            seen[h] = len(deduped)
+        key = (h, len(s) > 7 and s[7])
+        if key not in seen:
+            seen.add(key)
             deduped.append(s)
-        else:
-            i = seen[h]
-            is_new_rd = len(s) > 7 and s[7]
-            is_old_rd = len(deduped[i]) > 7 and deduped[i][7]
-            if is_new_rd and not is_old_rd:
-                deduped[i] = s
 
     _check_rd_cache(deduped)
 
