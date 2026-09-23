@@ -2,7 +2,7 @@
 <addon id="plugin.video.streamlord" name="StreamLord" version="3.7.23" provider-name="opencode">
     <requires>
         <import addon="xbmc.python" version="3.0.0"/>
-        <import addon="script.module.cocoscrapers"/>
+        <import addon="script.module.cocoscrapers" version="1.0.30"/>
         <import addon="inputstream.adaptive"/>
     </requires>
     <extension point="xbmc.python.pluginsource" library="main.py">

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="plugin.video.rdflix" name="RDFlix" version="1.5.20" provider-name="opencode">
+<addon id="plugin.video.rdflix" name="RDFlix" version="1.5.21" provider-name="opencode">
     <requires>
         <import addon="xbmc.python" version="3.0.0"/>
-        <import addon="script.module.cocoscrapers" optional="true"/>
+        <import addon="script.module.cocoscrapers" version="1.0.30" optional="true"/>
     </requires>
     <extension point="xbmc.python.pluginsource" library="main.py">
         <provides>video</provides>
