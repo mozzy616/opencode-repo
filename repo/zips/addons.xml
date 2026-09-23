@@ -187,7 +187,7 @@
         <reuselanguageinvoker>true</reuselanguageinvoker>
     </extension>
 </addon>
-<addon id="plugin.video.lordplayer.droid" name="Lordplayer Droid" provider-name="opencode" version="1.0.0">
+<addon id="plugin.video.lordplayer.droid" name="Lordplayer Droid" provider-name="opencode" version="1.0.1">
     <requires>
         <import addon="script.module.requests" version="2.22.0"/>
         <import addon="script.module.routing" version="0.2.3"/>
