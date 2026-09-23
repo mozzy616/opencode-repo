@@ -255,7 +255,7 @@
     </assets>
   </extension>
 </addon>
-<addon id="plugin.video.streamlord" name="StreamLord" version="3.7.22" provider-name="opencode">
+<addon id="plugin.video.streamlord" name="StreamLord" version="3.7.23" provider-name="opencode">
     <requires>
         <import addon="xbmc.python" version="3.0.0"/>
         <import addon="script.module.cocoscrapers"/>
@@ -635,7 +635,7 @@
     </extension>
 
 </addon>
-<addon id="script.module.cocoscrapers" name="CocoScrapers Module" version="1.0.29" provider-name="CocoJoe">
+<addon id="script.module.cocoscrapers" name="CocoScrapers Module" version="1.0.30" provider-name="CocoJoe">
 	<requires>
 		<import addon="xbmc.python" version="3.0.0" />
 		<import addon="script.module.requests" />

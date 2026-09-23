@@ -16,6 +16,33 @@ debrid_dict = {'Real-Debrid': 'realdebrid' , 'Premiumize.me': 'premiumize' , 'Al
 debrid_short_dict = {'Real-Debrid': 'RD+' , 'Premiumize.me': 'PM+' , 'AllDebrid': 'AD+'}
 ############KODI-RD-IL###################
 
+
+def _extract_hash(url):
+    """Pull the real 40-hex v1 info-hash out of a torrentio RD resolve URL.
+
+    Torrentio RD+ resolve URLs look like:
+        .../resolve/realdebrid/{userKey}/{40hex}/null/{fileIdx}/{filename}
+    The user key is a 52-char base32 account token, so the naive
+    path.split('/')[3] grabs the TOKEN instead of the hash (which breaks the
+    magnet built below). We locate the segment that precedes 'null' and is a
+    genuine 40-hex hash instead.
+    Returns '' (and the caller skips the entry) when no real hash is present.
+    """
+    try:
+        path = requests.utils.urlparse(url).path
+    except Exception:
+        return ''
+    segs = [s for s in path.split('/') if s]
+    for i, seg in enumerate(segs):
+        if seg == 'null' and i > 0:
+            prev = segs[i - 1]
+            if re.fullmatch(r'[a-fA-F0-9]{40}', prev):
+                return prev.lower()
+    for seg in segs:
+        if re.fullmatch(r'[a-fA-F0-9]{40}', seg):
+            return seg.lower()
+    return ''
+
 class source:
     priority = 1
     pack_capable = True
@@ -90,7 +117,8 @@ class source:
                 ############KODI-RD-IL###################
                 # RD+ / AD+
                 # if not debrid_short_dict[data['debrid_service']] in file['name']: continue
-                hash = requests.utils.urlparse(file['url']).path.split('/')[3]
+                hash = _extract_hash(file['url'])
+                if not hash: continue
                 ############KODI-RD-IL###################
                 file_title = file['title'].split('\n')
                 file_info = [x for x in file_title if _INFO.match(x)][0]
@@ -162,7 +190,8 @@ class source:
                 ############KODI-RD-IL###################
                 # RD+ / AD+
                 # if not debrid_short_dict[data['debrid_service']] in file['name']: continue
-                hash = requests.utils.urlparse(file['url']).path.split('/')[3]
+                hash = _extract_hash(file['url'])
+                if not hash: continue
                 ############KODI-RD-IL###################
                 file_title = file['title'].split('\n')
                 file_info = [x for x in file_title if _INFO.match(x)][0]

@@ -15,6 +15,14 @@ UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
 
 _log_prefix = "[StreamLord RD]"
 
+# HTTP status/body of the last RD call (set by _rd_fetch); used to classify
+# why addMagnet failed (DMCA-451 vs malformed magnet 400).
+_LAST_HTTP = {"status": 0, "body": ""}
+
+# Classifies the last resolve_magnet failure for the failure dialog:
+# "dmca" | "rejected" | "unavailable" | ""
+LAST_FAILURE = ""
+
 def log(msg, level=xbmc.LOGINFO):
     xbmc.log("%s %s" % (_log_prefix, msg), level)
 
@@ -95,11 +103,15 @@ def _rd_fetch(url, method="GET", data=None, _retry=True):
         with urllib.request.urlopen(req, timeout=30) as r:
             raw = r.read().decode("utf-8", errors="replace")
             log("%s %s -> %d bytes" % (method, url.split('/')[-1][:40], len(raw)))
+            _LAST_HTTP["status"] = 0
+            _LAST_HTTP["body"] = ""
             return json.loads(raw) if raw else {}
     except urllib.error.HTTPError as e:
         body = ""
         try: body = e.read().decode("utf-8", errors="replace")[:500]
         except: pass
+        _LAST_HTTP["status"] = e.code
+        _LAST_HTTP["body"] = body
         log("%s %s HTTP %d body=%s" % (method, url.split('/')[-1][:40], e.code, body), xbmc.LOGWARNING)
         if e.code in (403, 401):
             is_dup = "magnet_already_added" in body or "already_added" in body
@@ -220,18 +232,24 @@ def _hash_from_url(url):
 
 def resolve_magnet(magnet, title=""):
     """Resolve a magnet link via Real-Debrid (handles hex and base32 btih)."""
+    global LAST_FAILURE
+    LAST_FAILURE = ""
     token = _get_rd_token()
     if not token:
         log("resolve_magnet: no token", xbmc.LOGWARNING)
         return None, None
 
-    m = re.search(r"btih:([a-fA-F0-9]{40}|[A-Za-z2-7]{32})", magnet)
+    # Match the FULL btih token so partial garbage (e.g. a 52-char base32
+    # account token wrongly used as a hash by a broken scraper) is rejected
+    # cleanly instead of being spliced into a malformed magnet that RD answers
+    # with HTTP 400 / error_code 30.
+    m = re.search(r"btih:([A-Za-z0-9]+)", magnet)
     if not m:
         log("resolve_magnet: invalid magnet (no btih), skipping", xbmc.LOGWARNING)
         return None, None
     info_hash = _normalize_hash(m.group(1))
     if not info_hash:
-        log("resolve_magnet: cannot normalize btih %s, skipping" % m.group(1)[:20], xbmc.LOGWARNING)
+        log("resolve_magnet: invalid btih token (len=%d %s...), skipping" % (len(m.group(1)), m.group(1)[:12]), xbmc.LOGWARNING)
         return None, None
     # Replace base32 btih with hex btih in the magnet itself (preserve trackers/dn)
     magnet = magnet[:m.start(1)] + info_hash + magnet[m.end(1):]
@@ -258,7 +276,17 @@ def resolve_magnet(magnet, title=""):
 
     torrent_id = add_magnet(magnet)
     if not torrent_id:
-        log("resolve_magnet: FAILED - blocked by RD or not available", xbmc.LOGINFO)
+        status = _LAST_HTTP.get("status", 0)
+        body = _LAST_HTTP.get("body", "")
+        if status == 451 or "infringing" in body:
+            LAST_FAILURE = "dmca"
+            log("resolve_magnet: FAILED - infringing_file (HTTP 451) blocked by Real-Debrid", xbmc.LOGINFO)
+        elif status == 400 or "error_code" in body:
+            LAST_FAILURE = "rejected"
+            log("resolve_magnet: FAILED - RD rejected malformed magnet (HTTP %s)" % status, xbmc.LOGWARNING)
+        else:
+            LAST_FAILURE = "unavailable"
+            log("resolve_magnet: FAILED - blocked by RD or not available", xbmc.LOGINFO)
         return None, None
 
     for attempt in range(8):

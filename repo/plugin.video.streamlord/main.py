@@ -1491,6 +1491,39 @@ def _play_rd_chosen(chosen, title):
     return False
 
 
+def _play_rd_failover(sources, start_idx, title, max_tries=5):
+    """After the picked RD source fails (e.g. a DMCA-451 block or a dead link),
+    automatically try the next RD sources in the same list. Pure Real-Debrid,
+    no LordPlayer fallback. Returns True if any source plays."""
+    tried = 0
+    for i in range(start_idx + 1, len(sources)):
+        s = sources[i]
+        if not (len(s) > 7 and s[7]):
+            continue
+        tried += 1
+        if tried > max_tries:
+            break
+        xbmc.log("[StreamLord] RD source %d failed, trying next RD source %d: %s" % (start_idx, i, s[3][:60]), xbmc.LOGINFO)
+        if _play_rd_chosen(s, title):
+            return True
+    return False
+
+
+def _rd_failure_msg(title):
+    """Failure dialog text that surfaces the Real-Debrid cause when known
+    (DMCA-451 copyright blocks are an RD account limit, not an app bug)."""
+    try:
+        from resources.lib import rd_resolver
+        reason = getattr(rd_resolver, "LAST_FAILURE", "")
+    except Exception:
+        reason = ""
+    if reason == "dmca":
+        return "Blocked by Real-Debrid (copyright).\n%s\n\nPick another source." % title
+    if reason == "rejected":
+        return "Real-Debrid rejected the torrent link.\n%s\n\nPick another source." % title
+    return "Torrent failed to play.\n%s" % title
+
+
 def _play_lp_chosen(chosen, title):
     """Play a LordPlayer (torrent) source via the LordPlayer plugin. No RD fallback."""
     info_hash = chosen[4] if len(chosen) > 4 else ""
@@ -1562,12 +1595,23 @@ def play_movie(mid, title, watch_link="", imdb_id="", year="", tmdb_id="", resum
             xbmc.log("[StreamLord] Stremio movie sources error: %s" % str(e), xbmc.LOGERROR)
 
     deduped = []
-    seen = set()
+    seen = {}
     for s in all_sources:
-        h = s[4]
-        if h and h not in seen:
-            seen.add(h)
+        # Case-insensitive hash key so the same torrent listed both as a plain
+        # (LordPlayer) source and a debrid (RD) source collapses into one row;
+        # the RD-tagged entry wins so premium playback is never lost.
+        h = (s[4] or '').lower()
+        if not h:
+            continue
+        if h not in seen:
+            seen[h] = len(deduped)
             deduped.append(s)
+        else:
+            i = seen[h]
+            is_new_rd = len(s) > 7 and s[7]
+            is_old_rd = len(deduped[i]) > 7 and deduped[i][7]
+            if is_new_rd and not is_old_rd:
+                deduped[i] = s
 
     _check_rd_cache(deduped)
 
@@ -1639,6 +1683,8 @@ def play_movie(mid, title, watch_link="", imdb_id="", year="", tmdb_id="", resum
     # Separate RD vs LordPlayer playback (no cross-fallback)
     if is_debrid:
         played = _play_rd_chosen(chosen, title)
+        if not played:
+            played = _play_rd_failover(deduped, chosen_idx, title)
     else:
         played = _play_lp_chosen(chosen, title)
 
@@ -1647,7 +1693,7 @@ def play_movie(mid, title, watch_link="", imdb_id="", year="", tmdb_id="", resum
         return
 
     xbmcplugin.endOfDirectory(HANDLE)
-    xbmcgui.Dialog().ok("StreamLord", "Torrent failed to play.\n%s" % title)
+    xbmcgui.Dialog().ok("StreamLord", _rd_failure_msg(title))
 
 def play_episode(eid, title, link, show_title, season, show_imdb_id="", episode_num="", tmdb_id="", resume_pct="0", download=False):
     global _PACK_TH, _AUTOPLAY_RD
@@ -1724,12 +1770,23 @@ def play_episode(eid, title, link, show_title, season, show_imdb_id="", episode_
             xbmc.log("[StreamLord] Stremio episode sources error: %s" % str(e), xbmc.LOGERROR)
 
     deduped = []
-    seen = set()
+    seen = {}
     for s in all_sources:
-        h = s[4]
-        if h and h not in seen:
-            seen.add(h)
+        # Case-insensitive hash key so the same torrent listed both as a plain
+        # (LordPlayer) source and a debrid (RD) source collapses into one row;
+        # the RD-tagged entry wins so premium playback is never lost.
+        h = (s[4] or '').lower()
+        if not h:
+            continue
+        if h not in seen:
+            seen[h] = len(deduped)
             deduped.append(s)
+        else:
+            i = seen[h]
+            is_new_rd = len(s) > 7 and s[7]
+            is_old_rd = len(deduped[i]) > 7 and deduped[i][7]
+            if is_new_rd and not is_old_rd:
+                deduped[i] = s
 
     _check_rd_cache(deduped)
 
@@ -1810,6 +1867,8 @@ def play_episode(eid, title, link, show_title, season, show_imdb_id="", episode_
     _AUTOPLAY_RD = is_debrid
     if is_debrid:
         played = _play_rd_chosen(chosen, full_title)
+        if not played:
+            played = _play_rd_failover(deduped, chosen_idx, full_title)
     else:
         played = _play_lp_chosen(chosen, full_title)
 
@@ -1818,7 +1877,7 @@ def play_episode(eid, title, link, show_title, season, show_imdb_id="", episode_
         return
 
     xbmcplugin.endOfDirectory(HANDLE)
-    xbmcgui.Dialog().ok("StreamLord", "Torrent failed to play.\n%s" % full_title)
+    xbmcgui.Dialog().ok("StreamLord", _rd_failure_msg(full_title))
 
 # --- Settings & Download helpers ---
 
