@@ -998,6 +998,24 @@ def _get_stremio_sources(is_tv, imdb_id, season=0, episode=0):
         return []
 
 
+def _stremio_info_hash(s, url=""):
+    """Return the authoritative lower-case 40-hex info-hash for a stremio source.
+
+    Reads infoHash (StreamLord) / behaviorHints, normalized, then falls back to
+    extracting the v1 40-hex hash embedded in a torrentio/comet resolve URL.
+    """
+    bh = s.get('behaviorHints', {}) or {}
+    ih = s.get('infoHash', '') or bh.get('infoHash', '') or ''
+    try:
+        from resources.lib import rd_resolver
+        ih_hex = rd_resolver._normalize_hash(ih) if ih else ''
+        if not ih_hex and url:
+            ih_hex = rd_resolver._hash_from_url(url)
+    except Exception:
+        ih_hex = ih.lower() if ih and len(ih) == 40 and re.fullmatch(r"[a-fA-F0-9]{40}", ih) else ''
+    return ih_hex
+
+
 def _check_rd_cache(sources):
     token = ""
     try:
@@ -1155,21 +1173,26 @@ def _autoplay_play_next_rd(imdb_id, show_title, s_int, e_int, label):
     """Autoplay next episode via Real-Debrid (torrentio/comet/mediafusion). No LordPlayer fallback."""
     try:
         stremio = _get_stremio_sources(True, imdb_id, s_int, e_int)
+        from resources.lib import rd_resolver
         for s in (stremio or []):
             bh = s.get('behaviorHints', {})
-            ih = s.get('infoHash', '') or bh.get('infoHash', '')
-            url = s.get('url', '')
-            if not ih and ('playback' in url or 'exception' in url or 'configure' in url or 'error' in url.lower()):
+            url = s.get('url', '') or ''
+            if not (s.get('infoHash') or bh.get('infoHash')) and ('playback' in url or 'exception' in url or 'configure' in url or 'error' in url.lower()):
                 continue
             stitle = s.get('title', label)
-            if url and url.startswith("http"):
+            # 1) Direct instant URL (torrentio/comet resolve). Only play when the
+            #    redirect actually resolves; broken/dead URLs return None here and
+            #    fall through to the magnet path (mirrors RDFlix _autoplay_rd_source).
+            if url.startswith("http"):
                 final_url = _follow_redirect(url)
                 if final_url and not _is_dmca_video(final_url):
                     if _autoplay_play_url(final_url, stitle):
                         return True
-            if ih and len(ih) >= 40:
-                magnet = "magnet:?xt=urn:btih:%s&dn=%s%s" % (ih[:40], urllib.parse.quote(stitle), TRACKERS)
-                from resources.lib import rd_resolver
+            # 2) RD magnet resolve using a genuine 40-hex v1 hash
+            #    (infoHash/behaviorHints, or extracted from the resolve URL).
+            ih_hex = _stremio_info_hash(s, url)
+            if ih_hex:
+                magnet = "magnet:?xt=urn:btih:%s&dn=%s%s" % (ih_hex, urllib.parse.quote(stitle), TRACKERS)
                 rd_url, rd_fname = rd_resolver.resolve_magnet(magnet, stitle)
                 if rd_url and rd_fname and not _is_dmca_video(rd_url):
                     if _autoplay_play_url(rd_url, stitle):
@@ -1370,13 +1393,16 @@ def _get_download_path():
 
 
 def _follow_redirect(url):
+    """HEAD-follow a URL and return the final URL. Returns None when the URL is
+    unreachable (so callers never attempt to play/download a dead link — e.g. a
+    torrentio resolve URL built with a corrupted debrid key, which 404s/429s)."""
     try:
         req = urllib.request.Request(url, method="HEAD")
         req.add_header("User-Agent", USER_AGENT)
         with urllib.request.urlopen(req, timeout=10) as r:
             return r.geturl() or url
     except Exception:
-        return url
+        return None
 
 
 def _filename_from_url(url, title):
@@ -1414,10 +1440,14 @@ def _download_rd_chosen(chosen, title, dest):
     info_hash = chosen[4] if len(chosen) > 4 else ""
     magnet = chosen[3]
     import resources.lib.rd_resolver as rd
+    # Prefer the direct URL only if it actually resolves (a dead torrentio resolve
+    # URL — e.g. built with a corrupted debrid key — returns None here and falls
+    # through to the magnet/hash path so we never download a broken link).
     if magnet and magnet.startswith("http"):
         final_url = _follow_redirect(magnet)
-        fname = _filename_from_url(final_url, title)
-        return rd.download_file(final_url, dest, fname, title)
+        if final_url and not _is_dmca_video(final_url):
+            fname = _filename_from_url(final_url, title)
+            return rd.download_file(final_url, dest, fname, title)
     if magnet.startswith("magnet:"):
         rd_url, rd_fname = rd.resolve_magnet(magnet, title)
     elif info_hash:
@@ -1509,8 +1539,10 @@ def play_movie(mid, title, watch_link="", imdb_id="", year="", tmdb_id="", resum
             stremio = _get_stremio_sources(False, imdb_id)
             for s in stremio:
                 bh = s.get('behaviorHints', {})
-                ih = s.get('infoHash', '') or bh.get('infoHash', '')
                 url = s.get('url', '')
+                # True 40-hex v1 hash (infoHash/behaviorHints, or parsed out of a
+                # torrentio resolve URL) so RD cache check + magnet fallback work.
+                ih = _stremio_info_hash(s, url)
                 if not ih and ('playback' in url or 'exception' in url or 'configure' in url or 'error' in url.lower()):
                     continue
                 # Preserve a direct debrid download/resolve URL for instant playback
@@ -1525,7 +1557,6 @@ def play_movie(mid, title, watch_link="", imdb_id="", year="", tmdb_id="", resum
                 origin = s.get('_origin', '')
                 label = origin or s.get('title', title)[:50]
                 name_field = origin or s.get('title', '')
-                has_hash = bool(ih and len(ih) >= 40)
                 all_sources.append(('stremio', s.get('_quality', '?'), s.get('seeders', 0), magnet, ih, s.get('size', ''), name_field, True))
         except Exception as e:
             xbmc.log("[StreamLord] Stremio movie sources error: %s" % str(e), xbmc.LOGERROR)
@@ -1671,8 +1702,10 @@ def play_episode(eid, title, link, show_title, season, show_imdb_id="", episode_
             stremio = _get_stremio_sources(True, show_imdb_id, s_int, e_int)
             for s in stremio:
                 bh = s.get('behaviorHints', {})
-                ih = s.get('infoHash', '') or bh.get('infoHash', '')
-                url = s.get('url', '')
+                url = s.get('url', '') or ''
+                # True 40-hex v1 hash (infoHash/behaviorHints, or parsed out of a
+                # torrentio resolve URL) so RD cache check + magnet fallback work.
+                ih = _stremio_info_hash(s, url)
                 if not ih and ('playback' in url or 'exception' in url or 'configure' in url or 'error' in url.lower()):
                     continue
                 # Preserve a direct debrid download/resolve URL for instant playback

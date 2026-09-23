@@ -190,6 +190,34 @@ def _normalize_hash(info_hash):
     return ""
 
 
+def _hash_from_url(url):
+    """Extract the 40-hex v1 info-hash embedded in a torrentio/comet/mediafusion
+    resolve URL (the segment that follows the debrid user key before /null/).
+
+    Torrentio RD+ URL shape:
+        .../resolve/realdebrid/{userKey}/{40hex}/null/{fileIdx}/{filename}
+    Returns lower-case 40-hex, or '' when none is found.
+    """
+    if not url:
+        return ""
+    try:
+        path = urllib.parse.urlparse(url).path
+    except Exception:
+        return ""
+    segs = [s for s in path.split("/") if s]
+    for i, seg in enumerate(segs):
+        if seg == "null" and i > 0:
+            prev = segs[i - 1]
+            if re.fullmatch(r"[a-fA-F0-9]{40}", prev):
+                return prev.lower()
+    # Fallback: any 40-hex segment in the path (e.g. mediafusion /hash/ shapes)
+    for seg in segs:
+        if re.fullmatch(r"[a-fA-F0-9]{40}", seg):
+            return seg.lower()
+    m = re.search(r"([a-fA-F0-9]{40})", url)
+    return m.group(1).lower() if m else ""
+
+
 def resolve_magnet(magnet, title=""):
     """Resolve a magnet link via Real-Debrid (handles hex and base32 btih)."""
     token = _get_rd_token()

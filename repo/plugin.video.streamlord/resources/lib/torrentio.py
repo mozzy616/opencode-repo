@@ -29,6 +29,24 @@ def _fetch_json(url, source_name="stremio"):
         return None
 
 
+def _rd_token():
+    """Return a valid Real-Debrid token for torrentio queries.
+
+    Prefers the RDFlix addon's token (same RD account, kept in sync by the RD
+    refresh flow), then falls back to StreamLord's own setting. This guarantees
+    torrentio resolve URLs embed a token torrentio can actually resolve, instead
+    of a stale/garbage key that causes error(22)/429 on play.
+    """
+    try:
+        from resources.lib import rd_resolver
+        t = rd_resolver._get_rd_token()
+        if t:
+            return t
+    except Exception:
+        pass
+    return get_setting("rd_token", "")
+
+
 def _get_max_quality():
     return get_setting("max_quality", "4K")
 
@@ -117,7 +135,7 @@ def _get_extra_urls():
 
 
 def get_movie_sources(imdb_id):
-    rd_token = get_setting("rd_token", "")
+    rd_token = _rd_token()
     ad_token = get_setting("ad_token", "")
     pm_token = get_setting("pm_token", "")
     all_sources = []
@@ -144,7 +162,7 @@ def get_movie_sources(imdb_id):
 
 
 def get_episode_sources(imdb_id, season, episode):
-    rd_token = get_setting("rd_token", "")
+    rd_token = _rd_token()
     ad_token = get_setting("ad_token", "")
     pm_token = get_setting("pm_token", "")
     all_sources = []
